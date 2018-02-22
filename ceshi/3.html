@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="./jquery-1.11.3.js"></script>
+</head>
+<body>
+	<div style='position:relative;width:500px;height:500px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:0 auto;'>
+		<img class='img' style='width:500px;right:0px;position:absolute;' src="./shhome-banner.png">
+		<img class='img' style='width:500px;left:500px;position:absolute;' src="./home-banner.jpg" onclick='bb(1)'>
+	</div>
+
+	<script type="text/javascript">
+		var t1 = setInterval(aaaaa,10);
+
+		function bb(){
+			clearInterval(t1);
+		}
+
+		function aaaaa(){
+			
+			var i = $('.img');
+			for (var j = 0; j < i.length; j++) {
+				var left  = i[j].style.left;
+				var left  = left.substring(0,left.length-2);
+				var left  = left-1;
+
+				var right = i[j].style.right;
+				var right = right.substring(0,right.length-2);
+				var right = parseInt(right)+parseInt(1);
+
+				if (i[j].style.left=='') {
+					if (right<500) {
+						i[j].style.right = right+'px';
+					}else{
+						i[j].style.left  = '500px';
+						i[j].style.right = '';
+					}
+				}else{
+					if (left<0) {
+						i[j].style.left  = '';
+						i[j].style.right = '0px';
+					}else{
+						i[j].style.left  = left+'px';
+					}
+				}
+			}
+			
+			
+		}
+	</script>
+</body>
+</html>

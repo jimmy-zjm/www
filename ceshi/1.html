@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onkeydown="ssss('',event.keyCode)">
+	<div class='div01'>
+		<div class='div02'>
+			<div class='div03' id='s'>0</div>
+			<div class='close'></div>
+		</div>
+		<div class='div04'>
+			<button class='button01' onclick="ssss('c')">CE</button>
+			<button class='button01' onclick="ssss('/')">/</button>
+			<button class='button01' onclick="ssss('*')">*</button>
+			<button class='button01' onclick="ssss('-')">-</button>
+		</div>
+		<div class='div05'>
+			<div class='div06'>
+				<button class='button01 left' onclick="ssss('7')">7</button>
+				<button class='button01 button02-1' onclick="ssss('8')">8</button>
+				<button class='button01 button02-1' onclick="ssss('9')">9</button>
+
+				<button class='button01 button01-1' onclick="ssss('4')">4</button>
+				<button class='button01' onclick="ssss('5')">5</button>
+				<button class='button01' onclick="ssss('6')">6</button>
+			</div>
+			<div class='left'>
+				<button class='button02' onclick="ssss('+')">+</button>
+			</div>
+		</div>
+		<div class='div076'>
+			<div class='div06'>
+				<button class='button01 left' onclick="ssss('1')">1</button>
+				<button class='button01 button02-1' onclick="ssss('2')">2</button>
+				<button class='button01 button02-1' onclick="ssss('3')">3</button>
+
+				<button class='button03' onclick="ssss('0')">0</button>
+				<button class='button01' onclick="ssss('.')">.</button>
+			</div>
+			<div class='left'>
+				<button class='button02' onclick="ssss('=')">=</button>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id='a' value=''>
+	<input type="hidden" id='b' value="">
+</body>
+<script type="text/javascript">
+function ssss(o,i){
+	if (i!=null) {
+		switch(i){
+			case 96:
+				var o = '0';
+			  	break;
+			case 97:
+			  	var o = '1';
+			  	break;
+			case 98:
+				var o = '2';
+			  	break;
+			case 99:
+				var o = '3';
+			  	break;
+			case 100:
+				var o = '4';
+			  	break; 
+			case 101:
+				var o = '5';
+			  	break;
+			case 102:
+				var o = '6';
+			  	break;
+			case 103:
+				var o = '7';
+			  	break;
+			case 104:
+				var o = '8';
+			  	break;	
+			case 105:
+				var o = '9';
+			  	break; 
+			case 106:
+				var o = '*';
+			  	break;
+			case 107:
+				var o = '+';
+			  	break;
+			case 13:
+				var o = '=';
+			  	break;  
+			case 109:
+				var o = '-';
+			  	break;
+			case 110:
+				var o = '.';
+			  	break; 
+			case 111:
+				var o = '/';
+			  	break;
+			case 46:
+				var o = 'c';
+			  	break;	
+			default:
+	  		return false;
+		}
+	}
+
+	var s = document.getElementById('s');
+	var a = document.getElementById('a');
+	var b = document.getElementById('b').value;
+	
+	if (o=='c') {
+		s.innerHTML='0';
+		a.value = '';
+	}else if (o>=0 || o=='.'){
+		if (b=='=') {
+			s.innerHTML = o;
+		}else if (s.innerHTML=='0' && o!='.') {
+			s.innerHTML=o;
+		}else{
+			if (a.value!='') {
+				if (b>=0) {
+					s.innerHTML=s.innerHTML+o;
+				}else{
+					s.innerHTML = o;
+				}
+			}else{
+				s.innerHTML=s.innerHTML+o;
+			}
+		}
+	}else if(o=='+' || o=='-' || o=='*' || o=='/'){
+		if (a.value!='') {
+			if (b=='+' || b=='-' || b=='*' || b=='/') {
+				var av = a.value;
+				a.value = s.innerHTML+o;
+			}else{
+				a.value = a.value+s.innerHTML;
+				s.innerHTML = eval('('+a.value+')');
+				a.value = s.innerHTML+o;
+			}
+		}else{
+			a.value = s.innerHTML+o;
+			s.innerHTML = 0;
+		}
+	}else if(o=='='){
+		a.value = a.value+s.innerHTML;
+		s.innerHTML = eval('('+a.value+')');
+		a.value = '';
+	}
+	var si = s.innerHTML;
+	if (si.length>'15') {
+		var p = Math.floor(Math.log(si)/Math.LN10);
+	    var n = si * Math.pow(10, -p);
+	    s.innerHTML =  Math.ceil(n) + '.e+' + p;
+		// s.innerHTML = si.substring(0,15);
+	}
+	document.getElementById('b').value = o;
+}
+</script>
+
+<style type="text/css">
+.div01{
+	width:225px;
+	height:350px;
+	border:1px solid black;
+	padding:20px;
+}
+.div02{
+	border:1px solid black;
+	height:40px;
+}
+.div03{
+	font-size:30px;
+	float:right;
+}
+.div04{
+	height:50px;
+	margin-top:20px;
+}
+.div05{
+	height:120px;
+	margin-top:10px;
+}
+.div06{
+	width:166px;
+	float:left;
+}
+
+.div07{
+	height:50px;
+}
+.button01{
+	border:1px solid black;
+	height:50px;
+	width:50px;
+	font-size:20px;
+}
+
+.button01-1{
+	margin-top:10px;
+}
+
+.button02{
+	border:1px solid black;
+	height:110px;
+	width:50px;
+	font-size:20px;
+	float:left;
+	margin-left:8px;
+}
+
+.button02-1{
+	float:left;
+	margin-left:8px;
+}
+
+.left{
+	float:left;
+}
+
+.button03{
+	border:1px solid black;
+	height:50px;
+	width:108px;
+	font-size:20px;
+	margin-top:10px;
+}
+</style>
+</html>

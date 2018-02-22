@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class='div0' id='dd'>
+	 	<button class='but' onclick='onlys()'>start</button>
+	</div>
+	<input type="hidden" id="ttt" value=''>
+	<input type="hidden" id="tid" value=''>
+	<input type="hidden" id="num" value=''>
+	<input type="hidden" id="sus" value='8'>
+	<div class='div3'>
+		<div class='div2' style='width:100%;' id='tim'></div>
+	</div>
+</body>
+
+<script type="text/javascript">
+function onlys(){
+	var a = '';
+	
+	c = ajua().concat(ajua());
+	c.sort(function(){ return 0.5 - Math.random()});
+	for (var i = 0; i < 16; i++) {
+		var a = a+"<span class='div1' id='id"+i+"' style='border:1px solid black;' onclick='abc(this,"+i+")'>"+c[i]+"</span>";
+	}
+	document.getElementById('dd').innerHTML = a;
+	sto();
+	sji();
+}
+
+function sto(){
+	var ass = document.getElementById('tim').style;
+	var as = ass.width;
+	var len=as.length;
+	var d = as.substring(0,len-1);
+	ass.width = (d-1)+'%';
+	if (d<=0) {
+		clearTimeout(timeoutProcess);
+		document.getElementById('dd').innerHTML = "<button class='but' onclick='onlys()'>start</button>";
+		ass.width = '100%';
+		alert('失败');
+	}else{
+		timeoutProcess = setTimeout(sto,100);
+	}
+}
+
+function ajua(){
+	var count=8; 
+	var originalArray=new Array;
+	for (var i=0;i<count;i++){ 
+	originalArray[i]=i+1; 
+	} 
+	originalArray.sort(function(){ return 0.5 - Math.random()}); 
+	return originalArray;
+}
+
+function abc(t,i){
+
+	var su = document.getElementById('sus').value;
+	var aa = document.getElementById('ttt').value;
+	var id = document.getElementById('tid').value;
+	if (id!='' && id==i) {
+		return false;
+	}
+	document.getElementById('ttt').value = t.innerHTML;
+	document.getElementById('tid').value = i;
+	t.style.borderColor = 'red';
+	t.style='border:1px solid red;';
+	var tt = t.innerHTML;
+	if (tt == aa ) {
+		document.getElementById('id'+id).style='border:1px solid white;';
+		document.getElementById('id'+id).style.borderColor = 'white';
+		document.getElementById('id'+id).innerHTML='';
+		t.style='border:1px solid white;';
+		t.style.borderColor = 'white';
+		t.innerHTML='';
+		document.getElementById('ttt').value='';
+		document.getElementById('num').value='1';
+		var	sa = su-1;
+		if (sa <= 0) {
+			clearTimeout(timeoutProcess);
+			document.getElementById('dd').innerHTML = "<button class='but' onclick='onlys()'>start</button>";
+			document.getElementById('tim').style.width = '100%';
+			alert('成功');
+			return false;
+		}else{
+			document.getElementById('sus').value = sa;
+		}
+	}else{
+		if (aa!='') {
+			document.getElementById('id'+id).style='border:1px solid black;';
+			document.getElementById('id'+id).style.borderColor = 'black';
+			t.style='border:1px solid black;';
+			t.style.borderColor = 'black';
+			document.getElementById('ttt').value = '';
+			document.getElementById('tid').value = '';
+		}
+	}
+}
+function sji(){
+	document.getElementById('ttt').value='';
+	document.getElementById('tid').value='';
+	document.getElementById('num').value='';
+	document.getElementById('sus').value='8';
+}
+</script>
+<style type="text/css">
+.div0{
+	width:250px;
+	height:150px;
+	border:1px solid black;
+}
+.div1{
+	width:50px;
+	height:25px;
+	float:left;
+	margin:5px;
+	text-align:center;
+	line-height:25px;
+}
+
+.div2{
+	
+	height:10px;
+	background:black;
+}
+
+.div3{
+	width:250px;
+	height:10px;
+	border:1px solid black;
+	margin-top:10px;
+}
+.but{
+	width:250px;
+	height:150px;
+}
+</style>
+</html>
