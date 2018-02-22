@@ -1,0 +1,150 @@
+
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/cbrand.css" ><!-- 合作品牌页面cbrand页面调用CSS -->
+
+
+
+<div style="width:1200px;height:70px;"></div>
+	<!--品牌历史-->
+	<div class="cbrandTitle">
+		<div class="cbrandTitle_left"><h1>品牌历史</h1><span>BRAND HISTORY</span></div>
+		<div class="cbrandTitle_right"></div>
+        
+        <div class="clear"></div>
+	</div>
+    
+    <div class="clear"></div>
+	
+	<div class="brandHisCont">
+		<div class="brandHisCont_left">
+			<!--放大镜-->
+            <div  class="spec-preview"> 
+                <span class="jqzoom">
+                    <img id="cbimg" src="<{$cbrandInfo['logo']}>" />
+                </span>
+            </div>
+            <!--放大镜end-->
+            
+            <!--缩略图-->
+            <div class="spec-scroll">
+                <!-- <a class="prev"></a> 
+                
+                <a class="next"></a>
+             -->
+                <div class="items">
+                    <ul>
+						<li onclick="changeimg('<{$cbrandInfo['logo']}>')"><img src="<{$cbrandInfo['logo']}>" /></li>
+                    	<foreach name="cbrandImage" item="v">
+                        <li  onclick="changeimg('<{$v['url']|getimage}>')">
+                        	<img alt="" src="<{$v['url']|getimage}>" >
+                        </li> 
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <!--缩略图end-->
+            
+            <div class="clear"></div>
+			<script>
+				function changeimg(addr){
+					$("#cbimg").attr("src",addr);
+				}
+			</script>
+		</div>
+        
+		<div class="brandHisCont_right">
+			<div class="brandHisCont_right_top">
+			      <{$cbrandInfo['sketch']|htmlspecialchars_decode}>
+
+			</div>
+			
+			<div  class="brandHisCont_right_bot">
+				<span class="span01">进入官网:</span>
+                
+                <a href="<{$cbrandInfo['url']}>" target="_blank"  class="span02"><{$cbrandInfo['url']}></a>                
+			</div>
+			
+		</div>
+	</div>
+	<!--品牌历史end-->
+    
+    <div class="clear"></div>
+
+	<!--产品列表-->
+	<div class="cbrandTitle">
+		<div class="cbrandTitle_left"><h1>产品列表</h1><span>PRODUCT LIST</span></div>
+		<div class="cbrandTitle_right"></div>
+	</div>
+	<div class="clear"></div>
+	<div class="cbrandProduct">
+		<ul>
+			<foreach name="cbrandInfo.product" item="val">
+			
+			<li><{$val}></li>
+			</foreach>
+		</ul>
+	</div>
+	<!--产品列表end-->
+	<div class="clear"></div>
+	<!--产品应用-->
+	<div class="cbrandTitle">
+		<div class="cbrandTitle_left" style="width:190px"><h1>产品应用</h1><span>PRODUCT APPLICATION</span></div>
+		<div class="cbrandTitle_right" style="width:870px" ></div>
+	</div>
+	<div class="clear"></div>
+	<div id='content' class="cbcontent">
+	<foreach name="list" item="va">
+	
+	<div class="cbrandProApp" >
+		<div class="cbrandProApp_left"><img src="<{$va['image']|getImage}>" width='360' height='240'></div>
+		<div class="cbrandProApp_right">     
+			<{$va['content']|htmlspecialchars_decode}>
+		</div> 
+	</div>
+	</foreach>
+	<div class="clear"></div>
+	<div class='page'>
+		<if condition="$pcount gt 0">
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,1)">首页</a>
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,1)">[上一页]</a>
+		<span class="laypage_curr"><{$p}></span>
+		</if>
+		<if condition="$pcount gt 1">
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,<{$p+1}>)"><{$p+1}></a>
+		</if>
+		<if condition="$pcount gt 2">
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,<{$p+2}>)"><{$p+2}></a>
+		</if>
+		<if condition="$pcount gt 3">
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,<{$p+3}>)"><{$p+3}></a>
+		</if>
+		<if condition="$pcount gt 4">
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,<{$p+4}>)"><{$p+4}></a>
+		</if>
+		<if condition="$pcount gt 0">
+		<if condition="$p lt $pcount">
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,<{$p+1}>)">[下一页]</a>
+		<else /> 
+		<a href="javascript:;">[下一页]</a>
+		</if>
+		<a href="javascript:;" onclick="page(<{$cbrandInfo['brand_id']}>,<{$pcount}>)">[尾页]</a>
+		</if>
+	</div>
+	<div class="clear2"></div>
+	<!--产品应用end-->
+	</div>
+</div>
+
+<div class="clear"></div>
+
+<script>
+  function page(id,p){
+	 
+    $.get("__APP__/Index/ajaxCbrand/page/"+p+"/id/"+id,function(data){
+        //alert(data);
+      $('#content').html(data);
+    })
+  }
+</script>
+
+</body>
+</html>

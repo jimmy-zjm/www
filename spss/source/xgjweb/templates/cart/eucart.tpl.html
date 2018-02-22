@@ -1,0 +1,1650 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/shoppingstyle.css" >
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="shopping-center">
+    <div id="tabs">
+        <ul class="cartul">        
+            <li>
+                <a href="javascript:;" class="cartulliaho" id="tabx1">
+                	健康舒适家居
+                </a>
+            </li>
+            
+            <li>
+                <a href="javascript:;" id="tabx2">
+                	欧洲建材代购
+                </a>
+            </li>   
+
+            <li>
+                <a href="javascript:;" id="tabx3">
+                    海外超市
+                </a>
+            </li>      
+        </ul>
+        
+    	<div class="clear"></div>
+    	
+        <!--健康舒适家居-->
+        <div id="tabs-1">
+            <form action="furnishorder.php?show" method="post" id="theForm"  target="_blank">
+                <!--健康舒适家居的列表-->
+                <div class="shopping-center-home-coupon_balance">
+                    <span class="span01">您目前账户内有优惠券：</span>
+                    <span class="span02">￥</span>
+                    <span class="span02" id="total_coupon">{:(($coupon*10)|floor)/10:}</span>
+                    <span class="span01">元</span>
+                </div>
+                
+                <div class="shopping-center-home-table">
+                    <div class="shopping-center-home-table-title">
+                        <div class="shopping-center-home-table-title-checkbox">
+                            <input type="checkbox" id="homecheckbox" onclick="hometypeall()" value="" />
+                        </div>
+                        
+                        <div class="shopping-center-home-table-title-span">
+                            全选
+                        </div>
+                        
+                        <div class="shopping-center-home-table-title-details">
+                            商品详情
+                        </div>
+                        
+                        <div class="shopping-center-home-table-title-total">
+                            总价(元）
+                        </div>
+                        
+                        <div class="shopping-center-home-table-title-available">
+                            可用券
+                        </div>
+                        
+                       <!--  <div class="shopping-center-home-table-title-already">
+                            已用券
+                        </div> -->
+                        
+                        <div class="shopping-center-home-table-title-payable">
+                            应付（元）
+                        </div>
+                        
+                        <div class="shopping-center-home-table-title-operation">
+                            操作
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    {:foreach $homecart as $k=>$v:}
+                    <div class="shopping-center-home-table-demo" id="homediv{:$k:}">
+                        <div class="shopping-center-home-table-demo-checkbox">
+                            <input id="homeinput{:$k:}" name="cart_id[]" onclick="homeinput({:$k:})" zp="{:((($v.price|ceil-$v.cost|ceil)/100*$v.sale)/100*$v.gift)|ceil:}" cid="{:$v.cart_id:}" k="{:$k:}" price="{:(($v.price|ceil-$v.cost|ceil)/100*$v.sale)|ceil+$v.cost|ceil:}" type="checkbox" typename='home' value="{:$v.cart_id:}" />
+                        </div>
+                        
+                        <div class="shopping-center-home-table-demo-name">
+                            <a href="price.php?cid={:$v.cat_id:}" target="_blank">{:$v.shop_name:}</a>
+                        </div>
+                        
+                        <div class="shopping-center-home-table-demo-total">
+                            ￥{:($v.price)|string_format:'%.0f':}
+                        </div>
+
+                        <div class="shopping-center-home-table-demo-available">
+                        	￥<span id="couponprice{:$k:}">{:((($v.price|ceil-$v.cost|ceil)/100*$v.sale)/100*$v.cou)|ceil:}</span>
+                        </div>                        
+                        
+                        <div class="shopping-center-home-table-demo-payable">
+                            ￥<span id="home_per_total{:$k:}">{:(($v.price|ceil-$v.cost|ceil)/100*$v.sale)|ceil+$v.cost|ceil:}.0</span>
+                        </div>
+                        
+                        <div class="shopping-center-home-table-demo-operation">
+                            <div class="shopping-center-home-table-demo-operation-remove">
+                                <input type="button" onclick="tanchu01({:$k:},{:$v.cart_id:},'1')" value="移除"/> <!-- homedelrow({:$k:},{:$v.cart_id:}) -->
+                            </div>
+                            
+                            <div class="shopping-center-home-table-demo-operation-follow">
+                                <input type="button" onclick="homeconcern({:$k:},{:$v.cart_id:})" value="关注"/>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="shopping-center-home-table-demo-clear01">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="clear"></div>
+                    {:/foreach:}
+                    
+                </div>
+                <!--健康舒适家居的列表end-->
+                
+                <div class="clear27"></div>
+                
+                <!--健康舒适家居的总计-->
+                <div class="shopping-center-home-settlement">
+                    <div class="shopping-center-home-settlement-delete">
+                        <input type="button" onclick="tanchu01('','',4)" value="删除选中的商品"/>
+                    </div>
+                    
+                    <div class="shopping-center-home-settlement-follow">
+                        <input type="button" onclick="homeconcernall()" value="加入到我的关注"/>
+                    </div>
+                    
+                    <div class="shopping-center-home-settlement-total">
+                        <span>应付总计：</span>
+                        <span>￥</span>
+                        <span id="home_total_price">0.0</span>
+                        <span>元</span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                <!--健康舒适家居的总计end-->
+    
+                <div class="clear27"></div>
+                
+                <!--欧洲团代购的赠品-->
+               <!--  <div class="shopping-center-home_eugroup-title">
+                    <div class="shopping-center-home_eugroup-title-01">
+                        <span>
+                            赠品购物车
+                        </span>
+                    </div>
+                    
+                    <div class="shopping-center-home_eugroup-title-04">
+                        <a href="eugroup.php?giveaway">
+                            前往挑选赠品
+                        </a>
+                    </div>
+                    
+                    <div class="shopping-center-home_eugroup-title-03">
+                        <span>￥</span>
+                        <span id="zp">0</span>
+                    </div>
+                    
+                    <div class="shopping-center-home_eugroup-title-02">
+                        你目前可使用赠品金额为：
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="shopping-center-home_eugroup-table">
+                    <div class="shopping-center-home_eugroup-table-title">
+                        <div class="shopping-center-home_eugroup-table-title-checkbox">
+                            <input onclick="zptypeall()" id="zpcheckbox" type="checkbox" value="" />
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-title-span">
+                            全选
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-title-details">
+                            商品详情
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-title-univalent">
+                            单价（元）
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-title-preferential">
+                            优惠价(元）
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-title-number">
+                            数量
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-title-total">
+                            总价（元）
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-title-operation">
+                            操作
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    {:foreach $homecarts['cart_list'] as $k=>$v:}
+                    <div class="shopping-center-home_eugroup-table-demo" id="zpdiv{:$k:}">
+                        <div class="shopping-center-home_eugroup-table-demo-checkbox">
+                            <input id="zpinput{:$k:}" name="zp_id[]" onclick="zpinput({:$k:})" k="{:$k:}" cid="{:$v.id:}" gid="{:$v.goods_id:}" typename='zp' 
+                            price="
+                            {:if $v.express eq 1:}
+							{:($v.total1*$v.goods_num)|string_format:'%.2f':}
+                            {:else if $v.express eq 2:}
+							{:($v.total2*$v.goods_num)|string_format:'%.2f':}
+                            {:/if:}
+                            " type="checkbox" value="{:$v.id:}" />
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-img">
+                            <a href="goods.php?giveaway&id={:$v.goods_id:}" target="_blank"><img src="{:$v.image:}"/></a>
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-name">
+                            <a href="goods.php?giveaway&id={:$v.goods_id:}" target="_blank">{:$v.goods_title:}</a>
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-univalent">
+                        	￥
+                            {:if $v.express eq 1:}
+							{:$v.yuanjia1|ceil:}
+                            {:else if $v.express eq 2:}
+							{:$v.yuanjia2|ceil:}
+                            {:/if:}
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-preferential">
+                        	￥
+                            <span id="zpprice{:$k:}">
+                                {:if $v.express eq 1:}
+                                {:$v.total1|ceil:}
+                                {:else if $v.express eq 2:}
+                                {:$v.total2|ceil:}
+                                {:/if:}
+                            </span>
+                            
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-number">
+                            <div class="f_l add_chose">
+                                <div class="reduction">
+                                    <a class="reduce" href="javascript:;" onclick='zpnum(1,{:$k:},{:if !empty($smarty.session.userId):}{:$v.id:}{:else:}0{:/if:},{:$v.goods_id:})'>
+                                        <img  src="images/jian04.png"/>
+                                    </a>
+                                </div>
+            
+                                <div class="number">
+                                    <input type="text" name="qty_item_1" onkeyup='zpnum(3,{:$k:},{:if !empty($smarty.session.userId):}{:$v.id:}{:else:}0{:/if:},{:$v.goods_id:})' value="{:$v.goods_num:}" id="zpnum{:$k:}" class="text" />
+                                </div>
+            
+                                <div class="plus">
+                                    <a class="add" href="javascript:;" onclick='zpnum(2,{:$k:},{:if !empty($smarty.session.userId):}{:$v.id:}{:else:}0{:/if:},{:$v.goods_id:})'>
+                                        <img  src="images/jia04.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-total">
+                        	￥
+                            <span id='zp_total{:$k:}'>
+                                {:if $v.express eq 1:}
+                                {:($v.total1|ceil*$v.goods_num):}
+                                {:else if $v.express eq 2:}
+                                {:($v.total2|ceil*$v.goods_num):}
+                                {:/if:}.0
+                            </span>
+                            
+                        </div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-operation">
+                            <div class="shopping-center-home_eugroup-table-demo-operation-remove">
+                                <input type="button" onclick="tanchu01({:$k:},{:$v.id:},'2')" value="移除"/> 
+                            </div>
+                            
+                            <div class="shopping-center-home_eugroup-table-demo-operation-follow">
+                                <input type="button" onclick="zpconcern({:$k:},{:$v.goods_id:})" value="关注"/>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="shopping-center-home_eugroup-table-demo-clear01">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    {:/foreach:}
+                   
+                </div>             -->
+                <!--欧洲团代购的赠品end-->
+                
+                <!-- <div class="clear"></div> -->
+                
+                <!--欧洲团代购的赠品的总计-->
+                <!-- <div class="shopping-center-home_eugroup-settlement">
+                    <div class="shopping-center-home_eugroup-settlement-delete">
+                        <input type="button" onclick="tanchu01('','',5)" value="删除选中的商品"/>
+                    </div>
+                    
+                    <div class="shopping-center-home_eugroup-settlement-follow">
+                        <input type="button" onclick="zpconcernall()" value="加入到我的关注"/>
+                    </div>
+                    
+                    <div class="shopping-center-home_eugroup-settlement-total">
+                        <span>赠品金额总计：</span>
+                        <span>￥</span>                        
+                        <span id="zp_total_price">0.0</span>
+                        <span>元</span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div> -->
+                <!--欧洲团代购的赠品的总计end-->
+                
+                <!-- <div class="shopping-center-home_eugroup-span">
+                    您还有<span id="sprice">0</span>元赠品金额可以使用，此金额可前往欧洲商品区选择商品
+                </div> -->
+                
+                <div class="clear27"></div>
+                
+                <div class="shopping-center-home-payment">
+                    <div class="shopping-center-home-payment-buy">
+                        <input type="button" id="jiajubut" onclick="jiajubutton()" value="前往支付"/>
+                    </div>
+                     
+                    <div class="shopping-center-home-payment-money">
+                        <div class="shopping-center-home-payment-money-difference" style='display:none;'>
+                        	<span>您需要支付的差额为：</span>
+                            <span>￥</span>
+                            <span id="ceprice">0.0</span>
+                            <span>元</span>
+                        </div>
+
+                    
+                        <div class="shopping-center-home-payment-money-cope">
+                            <span class="span01">
+                                实际应付：
+                            </span>
+                            
+                            <span class="span02">
+                            	<span>￥</span>
+                                <span id="allprice">0.0</span>
+                                <span>元</span>
+                            </span>
+                        </div>
+    
+                        <div class="shopping-center-home-payment-money-cope">
+                            <span class="span01">
+                                首次应付：
+                            </span>
+                            
+                            <span class="span02">
+                            	<span>￥</span>
+                                <span id="oneprice">0.0</span>
+                                <span>元</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                     <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                <div class="clear3"></div>
+                <div class="clear3"></div>
+                
+                <!-- <div class="shopping-center-home_eugroup-span02">
+                    •  选择赠品以后如何支付费用？<br />
+                       &nbsp;&nbsp;首笔应付金额为：500元预付费用<br />
+                       &nbsp;&nbsp;实际应付金额为：健康舒适家居产品价格+所选赠品总金额中超出赠品金额的差价部分<br />
+                    •  赠品超出的费用如何结算？<br />
+                       &nbsp;&nbsp;您实际可选的赠品总金额可以超出赠品金额5%， 超出的赠品金额费用将在支付第二笔货款时同时支付，如您选择一次性支付全部货款，则同时支付赠品差价金额
+                </div> -->
+                
+                <div class="clear27"></div>
+            </form>
+        </div>
+        <!--健康舒适家居end-->
+        
+        <!--欧洲建材代购-->
+        <div id="tabs-2" style="display:none;">
+            <div class="clear3"></div>
+
+            <form action="order.php?show" method="post" id="theForm" target="_blank">
+        	<div class="shopping-center-eugroup-table">
+            	<div class="shopping-center-eugroup-table-title">
+                	<div class="shopping-center-eugroup-table-title-checkbox">
+                    	<input onclick="typeall()" id='checkbox' type="checkbox" value="" />
+                    </div>
+
+                    <div class="shopping-center-eugroup-table-title-span">
+                    	全选
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-title-details">
+                    	商品详情
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-title-univalent">
+                    	单价（元）
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-title-preferential">
+                    	优惠价(元）
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-title-number">
+                    	数量
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-title-total">
+                    	总价（元）
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-title-operation">
+                    	操作
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                {:foreach $cart_list as $k=>$cart:}
+                <div class="shopping-center-eugroup-table-demo" id="div{:$k:}"><!--有几个数据就循环几个demo-->
+                	<div class="shopping-center-eugroup-table-demo-checkbox">
+                    	<input id="input{:$k:}" name="cart_id[]" 
+                        price="
+                            {:if $cart.express eq 1:}
+                                {:($cart.total1*$cart.goods_num):}
+                            {:else if $cart.express eq 2:}
+                                {:($cart.total2*$cart.goods_num):}
+                            {:/if:}
+                        " cid='{:$cart.id:}' gid='{:$cart.goods_id:}' k='{:$k:}' typename='eu' onclick="input({:$k:})" type="checkbox" value="{:$cart.id:}" />
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-demo-img">
+                    	<a href="goods.php?id={:$cart.goods_id:}" target="_blank"><img src="{:$cart.image:}"/></a>
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-demo-name">
+						<a href="goods.php?id={:$cart.goods_id:}" target="_blank">{:$cart.goods_title:}</a>
+                    </div>
+                    
+
+                    <div class="shopping-center-eugroup-table-demo-univalent">
+                    	<span>￥</span>
+                        
+                        <span id="danjiaprice{:$k:}">
+                        	{:if $cart.express eq 1:}
+                        		{:$cart.yuanjia1:}
+		                    {:else if $cart.express eq 2:}
+		                    	{:$cart.yuanjia2:}
+		                    {:/if:}
+                        </span>
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-demo-preferential">
+                    	<span>￥</span>
+                        
+                    	{:if $cart.express eq 1:}
+                        <span id="youhuiprice{:$k:}">{:$cart.total1:}</span>
+                    	{:else if $cart.express eq 2:}
+                        <span id="youhuiprice{:$k:}">{:$cart.total2:}</span>
+                    	{:/if:}
+                    </div>
+
+                    
+                    <div class="shopping-center-eugroup-table-demo-number">
+                    	<div class="f_l add_chose">
+                            <div class="reduction">
+                                <a class="reduce" href="javascript:void(0)">
+                                    <img src="images/jian04.png" onclick='num(1,{:$k:},{:if !empty($smarty.session.userId):}{:$cart.id:}{:else:}0{:/if:},{:$cart.goods_id:})'/>
+                                </a>
+                            </div>
+        
+                            <div class="number">
+                                <input type="text" id="nums{:$k:}" onkeyup='num(3,{:$k:},{:if !empty($smarty.session.userId):}{:$cart.id:}{:else:}0{:/if:},{:$cart.goods_id:})' name="qty_item_1" value="{:$cart.goods_num:}" class="text" />
+                            </div>
+        
+                            <div class="plus">
+                                <a class="add" href="javascript:void(0)">
+                                    <img src="images/jia04.png" onclick='num(2,{:$k:},{:if !empty($smarty.session.userId):}{:$cart.id:}{:else:}0{:/if:},{:$cart.goods_id:})'/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-demo-total">
+                    	<span>￥</span>
+                        
+                    	<span id="per_total{:$k:}">
+							{:if $cart.express eq 1:}
+							{:($cart.total1*$cart.goods_num):}
+							{:else if $cart.express eq 2:}
+							{:($cart.total2*$cart.goods_num):}
+							{:/if:}
+                        </span>
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-table-demo-operation">
+                    	<div class="shopping-center-eugroup-table-demo-operation-remove">
+                            <input type="button" onclick="tanchu01({:$k:},{:$cart.id:},'3')" value="移除"/>
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-demo-operation-follow">
+                        	<input type="button"  onclick="concern({:$k:},{:$cart.goods_id:})" value="关注"/>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="shopping-center-eugroup-table-demo-clear01">
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                {:/foreach:}
+                
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <!--欧洲建材代购去结算-->
+            <div class="shopping-center-eugroup-settlement">
+            	<div class="shopping-center-eugroup-settlement-delete">
+                	<input type="button" onclick="tanchu01('','',6)" value="删除选中的商品"/>
+                </div>
+                
+                <div class="shopping-center-eugroup-settlement-follow">
+                	<input type="button" onclick="concernall()" value="加入到我的关注"/>
+                </div>
+                
+                <div class="shopping-center-eugroup-settlement-buy">
+                	<input type="button" id="but" onclick="button()" value="去结算"/>
+                </div>
+                
+                <div class="shopping-center-eugroup-settlement-total">
+                	<span>应付总计：</span>
+                    <span>￥</span>
+                	<span id="span_total_price">0.0</span>
+                    <span>元</span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            <!--去结算end-->
+            
+            <div class="clear1"></div>
+            <div class="clear1"></div>
+
+            </form>
+        </div> 
+        <!--欧洲建材代购end-->
+
+        <!--海外超市-->
+        <div id="tabs-3" style="display:none;">
+            <div class="clear3"></div>
+            
+            <form action="ovorder.php?show" method="post" id="theForm" target="_blank">
+                <div class="shopping-center-eugroup-table">
+                    <div class="shopping-center-eugroup-table-title">
+                        <div class="shopping-center-eugroup-table-title-checkbox">
+                            <input onclick="ovtypeall()" id='ovcheckbox' type="checkbox" value="" />
+                        </div>
+    
+                        <div class="shopping-center-eugroup-table-title-span">
+                            全选
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-title-details">
+                            商品详情
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-title-univalent">
+                            单价（元）
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-title-preferential">
+                            优惠价(元）
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-title-number">
+                            数量
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-title-total">
+                            总价（元）
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-title-operation">
+                            操作
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    {:foreach $ovcart_list as $k=>$cart:}
+                    <div class="shopping-center-eugroup-table-demo" id="ovdiv{:$k:}">
+                        <div class="shopping-center-eugroup-table-demo-checkbox">
+                            <input id="ovinput{:$k:}" name="cart_id[]" 
+                            price="
+                                    {:($cart.purchase*$cart.goods_num)|string_format:'%.2f':}
+                            " cid='{:$cart.id:}' gid='{:$cart.goods_id:}' k='{:$k:}' typename='ov' onclick="ovinput({:$k:})" type="checkbox" value="{:$cart.id:}" />
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-demo-img">
+                            <a href="baby.php?detail&id={:$cart.goods_id:}" target="_blank"><img src="{:$cart.image:}"/></a>
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-demo-name">
+                           <a href="baby.php?detail&id={:$cart.goods_id:}" target="_blank"> {:$cart.goods_title:}</a>
+                        </div>
+                        
+    
+                        <div class="shopping-center-eugroup-table-demo-univalent">
+                        	<span>￥</span>                            
+                            <span id="ovdanjiaprice{:$k:}">
+								{:$cart.market_price|round:1:}
+                            </span>
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-demo-preferential">
+                        	<span>￥</span>
+                            <span id="ovyouhuiprice{:$k:}">{:$cart.purchase|round:1:}</span>
+                        </div>
+    
+                        
+                        <div class="shopping-center-eugroup-table-demo-number">
+                            <div class="f_l add_chose">
+                                <div class="reduction">
+                                    <a class="reduce" href="javascript:void(0)">
+                                        <img src="images/jian04.png" onclick='ovnum(1,{:$k:},{:if !empty($smarty.session.userId):}{:$cart.id:}{:else:}0{:/if:},{:$cart.goods_id:})'/>
+                                    </a>
+                                </div>
+            
+                                <div class="number">
+                                    <input type="text" id="ovnums{:$k:}" onkeyup='ovnum(3,{:$k:},{:if !empty($smarty.session.userId):}{:$cart.id:}{:else:}0{:/if:},{:$cart.goods_id:})' name="qty_item_1" value="{:$cart.goods_num:}" class="text" />
+                                </div>
+            
+                                <div class="plus">
+                                    <a class="add" href="javascript:void(0)">
+                                        <img src="images/jia04.png" onclick='ovnum(2,{:$k:},{:if !empty($smarty.session.userId):}{:$cart.id:}{:else:}0{:/if:},{:$cart.goods_id:})'/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-demo-total">
+                        	<span>￥</span>
+                            <span id="ovper_total{:$k:}">
+                                {:($cart.purchase|round:1*$cart.goods_num):}
+                            </span>
+                        </div>
+                        
+                        <div class="shopping-center-eugroup-table-demo-operation">
+                            <div class="shopping-center-eugroup-table-demo-operation-remove">
+                                <input type="button" onclick="tanchu01({:$k:},{:$cart.id:},'8')" value="移除"/>
+                            </div>
+                            
+                            <div class="shopping-center-eugroup-table-demo-operation-follow">
+                                <input type="button"  onclick="ovconcern({:$k:},{:$cart.goods_id:})" value="关注"/>
+                            </div>
+                        
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="shopping-center-eugroup-table-demo-clear01">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    {:/foreach:}
+                    
+                </div>
+                
+                <div class="clear27"></div>
+                
+                <!--欧洲建材代购去结算-->
+                <div class="shopping-center-eugroup-settlement">
+                    <div class="shopping-center-eugroup-settlement-delete">
+                        <input type="button" onclick="tanchu01('','',7)" value="删除选中的商品"/>
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-settlement-follow">
+                        <input type="button" onclick="ovconcernall()" value="加入到我的关注"/>
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-settlement-buy">
+                        <input type="button" id="ovbut" onclick="ovbutton()" value="去结算"/>
+                    </div>
+                    
+                    <div class="shopping-center-eugroup-settlement-total">
+                    	<span>应付总计：</span>
+                    	<span>￥</span>
+                        <span id="ovspan_total_price">0.0</span>
+                        <span>元</span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                <!--去结算end-->
+                
+                <div class="clear1"></div>
+                <div class="clear1"></div>
+            </form>
+        </div> 
+        <!--欧洲建材代购end-->    
+    </div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear"></div>
+
+{:include file="footer.tpl.html":}
+<!--右侧浮动导航end-->
+<script>
+    //优惠券
+    function coupon(k,id,t){
+        var a = $('#total_coupon').html();      //优惠券总价
+        var b = $('#couponprice'+k).html();     //可用卷
+        var c = $('#couponp'+k).html();         //已用卷
+        var d = $('#home_per_total'+k).html();  //应付（元）
+        var e = $('#home_total_price').html();  //应付总计
+        var i = document.getElementById('homeinput'+k);
+        
+        if (parseFloat(a)>0) {
+            if ($('#buttonand'+k).val()=='取消') {
+                $('#buttonand'+k).val('抵扣');
+                $('#total_coupon').html((parseFloat(a)+parseFloat(c)).toFixed(1));
+                $('#home_per_total'+k).html((parseFloat(d)+parseFloat(c)).toFixed(1))
+                if (i.checked==true) {
+                    $('#home_total_price').html(parseFloat(e)+parseFloat($('#couponp'+k).html()));
+
+                }
+                $('#couponp'+k).html('0.0');
+            }else{
+                $('#buttonand'+k).val('取消');
+                if (parseFloat(a)<=parseFloat(b)) {
+                    $('#couponp'+k).html(a);
+                    $('#total_coupon').html('0.0');
+                    if (i.checked==true) {
+                        $('#home_total_price').html(parseFloat(e)-parseFloat($('#couponp'+k).html()));
+                    }
+                }else{
+                    $('#couponp'+k).html(b);
+                    if (i.checked==true) {
+                        $('#home_total_price').html(parseFloat(e)-parseFloat($('#couponp'+k).html()));
+                    }
+                    $('#total_coupon').html((a-b).toFixed(1));
+                }
+                $('#home_per_total'+k).html(d-$('#couponp'+k).html())
+
+            }
+            $.get('?coupon',{'id':+id,'num':+$('#couponp'+k).html(),'x':$('#total_coupon').html()},function(data){
+            })
+        }else{
+            if($('#buttonand'+k).val()=='取消'){
+                $('#buttonand'+k).val('抵扣');
+                $('#home_per_total'+k).html((parseFloat(d)+parseFloat(c)).toFixed(1))
+                if (i.checked==true) {
+                    $('#home_total_price').html(parseFloat(e)+parseFloat($('#couponp'+k).html()));
+                }
+                $('#couponp'+k).html('0.0');
+                $('#total_coupon').html((parseFloat(a)+parseFloat(c)).toFixed(1));
+                $.get('?coupon',{'id':+id,'num':+$('#couponp'+k).html(),'x':$('#total_coupon').html()},function(data){
+                })
+            }
+        }
+        eval($('#zp_total_price').html(),$('#zp').html())
+    }
+</script>
+<script>
+    //全部删除
+     function homedelall(){
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='home' && lis[i].checked==true) {
+                $('#home_total_price').html(($('#home_total_price').html()-lis[i].getAttribute('price')).toFixed(1));
+                $('#zp').html(parseFloat($('#zp').html())-parseFloat(lis[i].getAttribute('zp')));
+                $('#homediv'+lis[i].getAttribute('k')).css('display','none');
+                $.get("?delHomeCartRow",{'cart_id':+lis[i].getAttribute('cid')},function(data){
+                })
+            }
+        }
+        eval($('#zp_total_price').html(),$('#zp').html())
+
+    }
+    
+</script>
+
+<script>
+    //全部关注
+    function homeconcernall(){
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='home' && lis[i].checked==true) {
+                $.get("?moveToConcerns",{'goods_id':+lis[i].getAttribute('cid'),'class':'1'},function(data){
+                })
+            }
+        }
+        alert('关注成功');
+    }
+</script>
+<script>
+    //单选
+    function homeinput(k){
+        var input = document.getElementById('homeinput'+k);
+        if (input.checked==true) {
+            $('#home_total_price').html((parseFloat($('#home_total_price').html())+parseFloat($('#home_per_total'+k).html())).toFixed(1))
+            $('#zp').html(parseFloat($('#zp').html())+parseFloat($('#couponprice'+k).html()));
+        }else{
+            $('#home_total_price').html((parseFloat($('#home_total_price').html())-parseFloat($('#home_per_total'+k).html())).toFixed(1))
+            $('#zp').html(parseFloat($('#zp').html())-parseFloat($('#couponprice'+k).html()));
+        }
+        eval($('#zp_total_price').html(),$('#zp').html())
+    }
+
+    //全选
+    function hometypeall(){
+        var list = document.getElementsByTagName('input');
+        var checkbox = document.getElementById('homecheckbox');
+        var price = 0;
+        var zp = 0;
+        if (checkbox.checked==true) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='home') {
+                    list[i].checked=true;
+                    price += parseFloat(list[i].getAttribute('price'));
+                    zp += parseFloat(list[i].getAttribute('zp'));
+                }
+            }
+            $('#home_total_price').html(price.toFixed(1));
+            $('#zp').html(zp);
+        }else{
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='home') {
+                    list[i].checked=false;
+                }
+            }
+            $('#home_total_price').html('0.0');
+            $('#zp').html('0');
+        }
+        eval($('#zp_total_price').html(),$('#zp').html())
+    }
+
+    //关注购物车内家居商品
+    function homeconcern(k,id){
+        $.get("?moveToConcerns",{'goods_id':+id,'class':'1'},function(data){
+            if (data == 2) {
+                alert('先登陆才能进行关注');
+                window.location.href='./user.php?login'; 
+            }else if (data == 1) {
+                alert('关注成功');
+            }else if (data == 3) {
+                alert('关注失败');
+            }else{
+                alert(data);
+            }
+        })
+    }
+
+    //删除购物车内家居商品
+    function homedelrow(k,id){
+            var input = document.getElementById("homeinput"+k);
+            $.get("?delHomeCartRow",{'cart_id':+id},function(data){
+                if (data == 1) {
+                    if (input.checked==true) {
+                        $('#home_total_price').html((parseFloat($('#home_total_price').html())-parseFloat($("#home_per_total"+k).html())).toFixed(1));
+                        $('#zp').html(parseFloat($('#zp').html())-parseFloat($('#couponprice'+k).html()));
+                    }
+                    $('#homediv'+k).html('');
+                    eval($('#zp_total_price').html(),$('#zp').html())
+                    
+                }
+            });
+    }
+
+</script>
+<script>
+    function button(){
+        if (parseFloat($('#span_total_price').html())>0) {
+            document.getElementById('but').type='submit';
+        }else{
+            document.getElementById('but').type='button';
+        }
+    }
+
+    function ovbutton(){
+        if (parseFloat($('#ovspan_total_price').html())>0) {
+            document.getElementById('ovbut').type='submit';
+        }else{
+            document.getElementById('ovbut').type='button';
+        }
+    }
+
+    function jiajubutton(){
+        if (parseFloat($('#allprice').html())>0) {
+            document.getElementById('jiajubut').type='submit';
+        }else{
+            document.getElementById('jiajubut').type='button';
+        }
+    }
+</script>
+<script>
+    //全部删除
+     function delall(){
+        var lis = document.getElementsByTagName('input');
+
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='eu' && lis[i].checked==true) {
+                $('#span_total_price').html(($('#span_total_price').html()-lis[i].getAttribute('price')).toFixed(1));
+                $('#div'+lis[i].getAttribute('k')).css('display','none');
+                $.get("?delCartRow",{'cart_id':+lis[i].getAttribute('cid')},function(data){
+                })
+            }
+        }
+
+
+    }
+</script>
+
+<script>
+    //全部关注
+    function concernall(){
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='eu' && lis[i].checked==true) {
+                $.get("?moveToConcerns",{'goods_id':+lis[i].getAttribute('gid')},function(data){
+                })
+            }
+        }
+        alert('关注成功');
+    }
+</script>
+
+<script>
+    //关注购物车内欧团商品
+    function concern(k,id){
+        $.get("?moveToConcerns",{'goods_id':+id},function(data){
+            if (data == 2) {
+                alert('先登陆才能进行关注');
+                window.location.href='./user.php?login'; 
+            }
+            if (data == 1) {
+                alert('关注成功');
+            }
+            if (data == 3) {
+                alert('关注失败');
+            }
+        })
+    }
+
+    //删除购物车内欧团商品
+    function delrow(k,id){
+        var input = document.getElementById("input"+k);
+        $.get("?delCartRow",{'cart_id':+id},function(data){
+            if (data == 1) {
+                if (input.checked==true) {
+                    $('#span_total_price').html((parseFloat($('#span_total_price').html())-parseFloat($("#per_total"+k).html())).toFixed(1));
+                }
+                $('#div'+k).html('');
+                
+            }
+        });
+
+    }
+
+    // 购物车数量加减法
+    function num(o,k,id,gid){
+        var num = $('#nums'+k).val();
+        var youhuiprice = $("#youhuiprice"+k).html();
+        var danjiaprice = $("#danjiaprice"+k).html();
+        var total_price = $('#span_total_price').html();
+        var input = document.getElementById("input"+k);
+        //减法
+        if (o==1 && num > 1) {
+            $.get('cart.php?setDecCarts&id='+id+'&goods_id='+gid+'&num='+(parseFloat(num)-1),function(data){
+                if (data==1) {
+                    $('#nums'+k).val(parseFloat(num)-1);
+                    $("#per_total"+k).html(((parseFloat(num)-1)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',(parseFloat(num)-1)*youhuiprice);
+                    if (input.checked==true) {
+                        $('#span_total_price').html((parseFloat(total_price)-parseFloat(youhuiprice)).toFixed(1));
+                    }
+                }
+            })
+            
+        }
+        //加法
+        if (o==2) {
+            $.get('cart.php?setIncCarts&id='+id+'&goods_id='+gid+'&num='+(parseFloat(num)+1),function(data){
+                if (data==1) {
+                    $('#nums'+k).val(parseFloat(num)+1);
+                    $("#per_total"+k).html(((parseFloat(num)+1)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',(parseFloat(num)+1)*youhuiprice);
+                    if (input.checked==true) {
+                        $('#span_total_price').html((parseFloat(total_price)+parseFloat(youhuiprice)).toFixed(1));
+                    }
+                }
+            })
+        }
+        //更改数量
+        if (o==3) {
+            $.get('cart.php?setCartsNum&id='+id+'&goods_id='+gid+'&num='+num,function(data){
+                if (data==1) {
+                    $('#nums'+k).val(num);
+                    $("#per_total"+k).html((parseFloat(num)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',parseFloat(num)*youhuiprice);
+                    var list = document.getElementsByTagName('input');
+                    var price = 0;
+                    for (var i = 0; i < list.length; i++) {
+                        if (list[i].getAttribute('typename')=='eu' && list[i].checked==true) {
+                            price += parseFloat(list[i].getAttribute('price'));
+                        }
+                    }
+                    $('#span_total_price').html(price.toFixed(1));
+                }
+            })
+        }
+    }
+
+    //单选
+    function input(k){
+        var input = document.getElementById('input'+k);
+        if (input.checked==true) {
+            $('#span_total_price').html((parseFloat($('#span_total_price').html())+parseFloat($('#per_total'+k).html())).toFixed(1))
+        }else{
+            $('#span_total_price').html((parseFloat($('#span_total_price').html())-parseFloat($('#per_total'+k).html())).toFixed(1))
+        }
+    }
+
+    //全选
+    function typeall(){
+        var list = document.getElementsByTagName('input');
+        var checkbox = document.getElementById('checkbox');
+        var price = 0;
+        if (checkbox.checked==true) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='eu') {
+                    list[i].checked=true;
+                    price += parseFloat(list[i].getAttribute('price'));
+                }
+            }
+            $('#span_total_price').html(price.toFixed(1));
+        }else{
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='eu') {
+                    list[i].checked=false;
+                }
+            }
+            $('#span_total_price').html('0.0');
+        }
+    }
+
+</script>
+<script>
+    //全部删除
+    function zpdelall(){
+        var lis = document.getElementsByTagName('input');
+        
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='zp' && lis[i].checked==true) {
+                $('#zp_total_price').html(($('#zp_total_price').html()-lis[i].getAttribute('price')).toFixed(1));
+                $('#zpdiv'+lis[i].getAttribute('k')).css('display','none');
+                $.get("?delCartRow",{'cart_id':+lis[i].getAttribute('cid'),'type':'zp'},function(data){
+                })
+            }
+        }
+        eval($('#zp_total_price').html(),$('#zp').html())
+        
+            
+    }
+</script>
+
+<script>
+    //全部关注
+    function zpconcernall(){
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='zp' && lis[i].checked==true) {
+                $.get("?moveToConcerns",{'goods_id':+lis[i].getAttribute('gid')},function(data){
+                })
+            }
+        }
+        alert('关注成功');
+    }
+</script>
+<script>
+    // 购物车赠品数量加减法
+    function zpnum(o,k,id,gid){
+        var num = $('#zpnum'+k).val();
+        var youhuiprice = $("#zpprice"+k).html();
+        var total_price = $('#zp_total_price').html();
+        var input = document.getElementById("zpinput"+k);
+        //减法
+        if (o==1 && num > 1) {
+            $.get('cart.php?setDecCarts&type=zp&id='+id+'&goods_id='+gid+'&num='+(parseFloat(num)-1),function(data){
+                if (data==1) {
+                    $('#zpnum'+k).val(parseFloat(num)-1);
+                    $("#zp_total"+k).html(((parseFloat(num)-1)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',(parseFloat(num)-1)*youhuiprice);
+                    if (input.checked==true) {
+                        $('#zp_total_price').html((parseFloat(total_price)-parseFloat(youhuiprice)).toFixed(1));
+                        eval((parseFloat(total_price)-parseFloat(youhuiprice)).toFixed(1),$('#zp').html())
+                    }
+                }
+            })
+            
+        }
+        //加法
+        if (o==2) {
+            $.get('cart.php?setIncCarts&type=zp&id='+id+'&goods_id='+gid+'&num='+(parseFloat(num)+1),function(data){
+                if (data==1) {
+                    $('#zpnum'+k).val(parseFloat(num)+1);
+                    $("#zp_total"+k).html(((parseFloat(num)+1)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',(parseFloat(num)+1)*youhuiprice);
+                    if (input.checked==true) {
+                        $('#zp_total_price').html((parseFloat(total_price)+parseFloat(youhuiprice)).toFixed(1));
+                        eval((parseFloat(total_price)+parseFloat(youhuiprice)).toFixed(1),$('#zp').html())
+                    }
+                }
+            })
+            
+        }
+        //更改数量
+        if (o==3) {
+            $.get('cart.php?setCartsNum&type=zp&id='+id+'&goods_id='+gid+'&num='+num,function(data){
+                if (data==1) {
+                    $('#zpnum'+k).val(num);
+                    $("#zp_total"+k).html((parseFloat(num)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',parseFloat(num)*youhuiprice);
+                    var list = document.getElementsByTagName('input');
+                    var price = 0;
+                    for (var i = 0; i < list.length; i++) {
+                        if (list[i].getAttribute('typename')=='zp' && list[i].checked==true) {
+                            price += parseFloat(list[i].getAttribute('price'));
+                        }
+                    }
+                    $('#zp_total_price').html(price.toFixed(1));
+                    eval(price.toFixed(1),$('#zp').html())
+                }
+            })
+        }
+
+    }
+    //单选
+    function zpinput(k){
+        var input = document.getElementById('zpinput'+k);
+        if (input.checked==true) {
+            $('#zp_total_price').html((parseFloat($('#zp_total_price').html())+parseFloat($('#zp_total'+k).html())).toFixed(1))
+        }else{
+            $('#zp_total_price').html((parseFloat($('#zp_total_price').html())-parseFloat($('#zp_total'+k).html())).toFixed(1))
+        }
+        eval($('#zp_total_price').html(),$('#zp').html())
+    }
+
+    //全选
+    function zptypeall(){
+        var list = document.getElementsByTagName('input');
+        var checkbox = document.getElementById('zpcheckbox');
+        var price = 0;
+        if (checkbox.checked==true) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='zp') {
+                    list[i].checked=true;
+                    price += parseFloat(list[i].getAttribute('price'));
+                }
+            }
+            $('#zp_total_price').html(price.toFixed(1));
+        }else{
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='zp') {
+                    list[i].checked=false;
+                }
+            }
+            $('#zp_total_price').html('0.0');
+        }
+        eval($('#zp_total_price').html(),$('#zp').html())
+    }
+    //关注购物车内赠品欧团商品
+    function zpconcern(k,id){
+        $.get("?moveToConcerns",{'goods_id':+id},function(data){
+            if (data == 2) {
+                alert('先登陆才能进行关注');
+                window.location.href='./user.php?login'; 
+            }
+            if (data == 1) {
+                alert('关注成功');
+            }
+            if (data == 3) {
+                alert('关注失败');
+            }
+        })
+    }
+
+    //删除购物车内赠品欧团商品
+    function zpdelrow(k,id){
+        // if(confirm("您确认要移除吗？")){
+            var input = document.getElementById("zpinput"+k);
+            $.get("?delCartRow",{'cart_id':+id,'type':'zp'},function(data){
+                if (data == 1) {
+                    if (input.checked==true) {
+                        $('#zp_total_price').html((parseFloat($('#zp_total_price').html())-parseFloat($("#zp_total"+k).html())).toFixed(1));
+                    }
+                    $('#zpdiv'+k).html('');
+                    eval($('#zp_total_price').html(),$('#zp').html())
+                }
+            });
+//         }else{
+//             return false;
+//         }
+    }
+</script>         
+<script>
+    function eval(a,b){
+
+        if ($('#zp').html()-$('#zp_total_price').html()>0) {
+            $('#sprice').html(($('#zp').html()-$('#zp_total_price').html()).toFixed(1));
+        }else{
+            $('#sprice').html('0');
+        }
+        
+        
+        if (a-b<=$('#zp').html()/100*5) {
+            var p ='0.0';
+        }else{
+            var p = (a-b).toFixed(1);
+        }
+
+        if (p>$('#zp').html()/100*5) {
+            var p = p-$('#zp').html()/100*5;
+        }
+
+        $('#ceprice').html(parseFloat(p).toFixed(0)+'.0');
+        $('#allprice').html((parseFloat($('#ceprice').html())+parseFloat($('#home_total_price').html())).toFixed(1));
+
+        farst()
+    }
+
+    function farst(){
+        var lis = document.getElementsByTagName('input');
+        var o = '0';
+        var h = '0';
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='home' && lis[i].checked==true || lis[i].getAttribute('typename')=='zp' && lis[i].checked==true) {
+                var o = 1;
+            }
+            if (lis[i].getAttribute('typename')=='home' && lis[i].checked==true) {
+                var h = 1;
+            }
+        }
+        if (o==1) {
+            $('#oneprice').html('500.0');
+        }else{
+            $('#oneprice').html('0.0');
+        }
+        if (h!=1) {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].getAttribute('typename')=='zp') {
+                    lis[i].checked=false;
+                }
+            }
+            document.getElementById('zpcheckbox').checked=false;  
+            $('#sprice').html('0');
+            $('#zp_total_price').html('0.0');
+            $('#ceprice').html('0.0');
+            $('#allprice').html('0.0');
+            $('#oneprice').html('0.0');
+        }
+        
+    }
+</script>
+
+<!--计算总价格-->
+
+<!--关注-->
+<script src="js/concern.js"></script>
+<!--关注end-->
+
+
+<!--删除弹出-->
+<div id="tanchu_Id" class="tanchu">   
+    <div class="tanchu_delete-center-bk"> 
+        <div class="tanchu_delete-center">
+            <div class="tanchu_delete-center-title">                
+                <div class="tanchu_delete-center-title-span">
+                	删除商品
+                </div>
+                
+                <div class="tanchu_delete-center-title-cha" id="tanchu_Out_Id" onclick="delete01()">
+                	<img src="images/cha01.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="tanchu_delete-center-span">
+            	确认要删除该宝贝吗？
+            </div>
+            
+            <div class="clear27"></div>
+            <input id='k' type="hidden" value="">
+            <input id='i' type="hidden" value="">
+            <input id='o' type="hidden" value="">
+            <div class="tanchu_delete-center-a">
+            	<div class="tanchu_delete-center-a-determine">
+                	<a href="javascript:;" onclick="success()">
+                    	确定
+                    </a>
+                </div>
+                
+                <div class="tanchu_delete-center-a-close">
+                	<a href="javascript:;" onclick="delete01()">
+                    	关闭
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+        </div>
+    </div>
+</div>
+<script>
+    function success(){
+        $("#tanchu_Id").fadeOut();
+        var k = $('#k').val();
+        var i = $('#i').val();
+        var o = $('#o').val();
+        if (o==1) {
+            homedelrow(k,i)
+        }else if (o==2) {
+            zpdelrow(k,i)
+        }else if (o==3) {
+            delrow(k,i)
+        }else if (o==4) {
+            homedelall()
+        }else if (o==5) {
+            zpdelall()
+        }else if (o==6) {
+            delall()
+        }else if (o==7) {
+            ovdelall()
+        }else if(o=8){
+            ovdelrow(k,i)
+        }
+    }
+</script>
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function tanchu01(k,i,o){
+    $('#k').val(k);
+    $('#i').val(i);
+    $('#o').val(o);
+    if (o>3 && o<8) {
+
+        var lis = document.getElementsByTagName('input');
+        var num = 0;
+        if (o==4) {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].getAttribute('typename')=='home' && lis[i].checked==true) {
+                    var num = num + 1;
+                }
+            }
+        }
+        if (o==5) {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].getAttribute('typename')=='zp' && lis[i].checked==true) {
+                    var num = num + 1;
+                }
+            }
+        }
+        if (o==6) {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].getAttribute('typename')=='eu' && lis[i].checked==true) {   
+                    var num = num + 1;
+                }
+            }
+        }
+        if (o==7) {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].getAttribute('typename')=='ov' && lis[i].checked==true) {   
+                    var num = num + 1;
+                }
+            }
+        }
+        if (num<1) {
+            alert('请选择您要删除的商品!');
+        }else{
+            $("#tanchu_Id").fadeIn();
+        }
+	}else{
+        $("#tanchu_Id").fadeIn();
+    }
+}
+
+function delete01(){
+	$("#tanchu_Id").fadeOut();
+
+}
+</script>
+<!--删除弹出end-->
+
+<script>
+    $('#tabx1').click(function(){
+        document.getElementById('tabx1').className='cartulliaho';
+        document.getElementById('tabx2').className='';
+        document.getElementById('tabx3').className='';
+        $('#tabs-1').css('display','block');
+        $('#tabs-2').css('display','none');
+        $('#tabs-3').css('display','none');
+    })
+    $('#tabx2').click(function(){
+        document.getElementById('tabx2').className='cartulliaho';
+        document.getElementById('tabx1').className='';
+        document.getElementById('tabx3').className='';
+        $('#tabs-2').css('display','block');
+        $('#tabs-1').css('display','none');
+        $('#tabs-3').css('display','none');
+    })
+    $('#tabx3').click(function(){
+        document.getElementById('tabx3').className='cartulliaho';
+        document.getElementById('tabx1').className='';
+        document.getElementById('tabx2').className='';
+        $('#tabs-3').css('display','block');
+        $('#tabs-1').css('display','none');
+        $('#tabs-2').css('display','none');
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *****************************************************海外超市**************************************************** -->
+<script>
+    //关注购物车内欧团商品
+    function ovconcern(k,id){
+        $.get("?moveToConcerns",{'goods_id':+id,'class':3},function(data){
+            if (data == 2) {
+                alert('先登陆才能进行关注');
+                window.location.href='./user.php?login'; 
+            }
+            if (data == 1) {
+                alert('关注成功');
+            }
+            if (data == 3) {
+                alert('关注失败');
+            }
+        })
+    }
+
+    //删除购物车内欧团商品
+    function ovdelrow(k,id){
+        var input = document.getElementById("input"+k);
+        $.get("?delOvCartRow",{'cart_id':+id},function(data){
+            if (data == 1) {
+                if (input.checked==true) {
+                    $('#ovspan_total_price').html((parseFloat($('#ovspan_total_price').html())-parseFloat($("#ovper_total"+k).html())).toFixed(1));
+                }
+                $('#ovdiv'+k).html('');
+                
+            }
+        });
+    }
+
+    // 购物车数量加减法
+    function ovnum(o,k,id,gid){
+        var num = $('#ovnums'+k).val();
+        var youhuiprice = $("#ovyouhuiprice"+k).html();
+        var danjiaprice = $("#ovdanjiaprice"+k).html();
+        var total_price = $('#ovspan_total_price').html();
+        var input = document.getElementById("ovinput"+k);
+        //减法
+        if (o==1 && num > 1) {
+            $.get('cart.php?setDecOvCarts&id='+id+'&goods_id='+gid+'&num='+(parseFloat(num)-1),function(data){
+                if (data==1) {
+                    $('#ovnums'+k).val(parseFloat(num)-1);
+                    $("#ovper_total"+k).html(((parseFloat(num)-1)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',(parseFloat(num)-1)*youhuiprice);
+                    if (input.checked==true) {
+                        $('#ovspan_total_price').html((parseFloat(total_price)-parseFloat(youhuiprice)).toFixed(1));
+                    }
+                }
+            })
+            
+        }
+        //加法
+        if (o==2) {
+            $.get('cart.php?setIncOvCarts&id='+id+'&goods_id='+gid+'&num='+(parseFloat(num)+1),function(data){
+                if (data==1) {
+                    $('#ovnums'+k).val(parseFloat(num)+1);
+                    $("#ovper_total"+k).html(((parseFloat(num)+1)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',(parseFloat(num)+1)*youhuiprice);
+                    if (input.checked==true) {
+                        $('#ovspan_total_price').html((parseFloat(total_price)+parseFloat(youhuiprice)).toFixed(1));
+                    }
+                }
+            })
+        }
+        //更改数量
+        if (o==3) {
+            $.get('cart.php?setOvCartsNum&id='+id+'&goods_id='+gid+'&num='+num,function(data){
+                if (data==1) {
+                    $('#ovnums'+k).val(num);
+                    $("#ovper_total"+k).html((parseFloat(num)*youhuiprice).toFixed(1));
+                    input.setAttribute('price',parseFloat(num)*youhuiprice);
+                    var list = document.getElementsByTagName('input');
+                    var price = 0;
+                    for (var i = 0; i < list.length; i++) {
+                        if (list[i].getAttribute('typename')=='ov' && list[i].checked==true) {
+                            price += parseFloat(list[i].getAttribute('price'));
+                        }
+                    }
+                    $('#ovspan_total_price').html(price.toFixed(1));
+                }
+            })
+        }
+    }
+
+    //单选
+    function ovinput(k){
+        var input = document.getElementById('ovinput'+k);
+        if (input.checked==true) {
+            $('#ovspan_total_price').html((parseFloat($('#ovspan_total_price').html())+parseFloat($('#ovper_total'+k).html())).toFixed(1))
+        }else{
+            $('#ovspan_total_price').html((parseFloat($('#ovspan_total_price').html())-parseFloat($('#ovper_total'+k).html())).toFixed(1))
+        }
+    }
+
+    //全选
+    function ovtypeall(){
+        var list = document.getElementsByTagName('input');
+        var checkbox = document.getElementById('ovcheckbox');
+        var price = 0;
+        if (checkbox.checked==true) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='ov') {
+                    list[i].checked=true;
+                    price += parseFloat(list[i].getAttribute('price'));
+                }
+            }
+            $('#ovspan_total_price').html(price.toFixed(1));
+        }else{
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='ov') {
+                    list[i].checked=false;
+                }
+            }
+            $('#ovspan_total_price').html('0.0');
+        }
+    }
+
+    //全部删除
+     function ovdelall(){
+        var lis = document.getElementsByTagName('input');
+
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='ov' && lis[i].checked==true) {
+                $('#ovspan_total_price').html(($('#ovspan_total_price').html()-lis[i].getAttribute('price')).toFixed(1));
+                $('#ovdiv'+lis[i].getAttribute('k')).css('display','none');
+                $.get("?delOvCartRow",{'cart_id':+lis[i].getAttribute('cid')},function(data){
+                })
+            }
+        }
+    }
+</script>
+
+<script>
+    //全部关注
+    function ovconcernall(){
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='ov' && lis[i].checked==true) {
+                $.get("?moveToConcerns",{'goods_id':+lis[i].getAttribute('gid'),'class':'3'},function(data){
+                })
+            }
+        }
+        alert('关注成功');
+    }
+</script>
+</body>
+</html>

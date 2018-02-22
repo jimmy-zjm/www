@@ -1,0 +1,280 @@
+@import "base.less";
+.placeholder(@color){
+	::-webkit-input-placeholder { /* WebKit browsers */
+		color:@color;
+		
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color:@color;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color:@color;
+		
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+		color:@color;
+	}
+}
+.login{
+	width:100%;
+	height:100%;
+	overflow-y:scroll;
+	background: url(../img/loginbg.png) 0 0 no-repeat;
+	background-size:100% 100%;
+}
+.login-box{
+	max-width:720px;
+	margin:0 auto;
+	padding:0.8rem;
+	img{
+		display:block;
+		width:1.92rem;
+		height:1.92rem;
+		border-radius:50%;
+		margin:0.4rem auto;
+	}
+	.name{
+		font-size:0.5rem;
+		text-align:center;
+		font-family:hzgb;
+
+		color:#fff;
+		margin-bottom:1.2rem;
+	}
+
+	input{
+		vertical-align:top;
+		border:none 0;
+		&.login-shuru{
+			display:block;
+			margin-bottom:0.3rem;
+			width:100%;
+			height:0.9rem;
+			border-radius:0.9rem;
+			background-color:rgba(256,256,256,0.2);
+			color:#fff;
+			padding:0 0.4rem;
+			box-sizing:border-box;
+			font-size:0.36rem;
+		}
+		&[type='checkbox']{
+			height:0.26rem;
+			width:0.26rem;
+		}
+
+	}
+
+	.placeholder(#abafd4);
+	.morefunction{
+		padding:0 0.4rem;
+		color:#fff;
+		font-size:0.28rem;
+		input{vertical-align:middle;}
+		a{
+			float:right;
+			color:#fff;
+		}
+	}
+}
+
+
+/* 个人中心 */
+.pcenter-top{
+	height:5.6rem;
+	border-top:1px solid transparent;
+	background: url(../img/pbg.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	img{
+		display:block;
+		width:1.6rem;
+		height:1.6rem;
+		margin:1.1rem auto;
+	}
+	p{
+		font-size:0.36rem;
+		text-align:center;
+		a{color:#fff}
+	}
+}
+.pcenter-bottom{
+	a.p-item{
+		&:hover{
+			background-color:#eee;
+		}
+		color:@heifont;
+		display:block;
+		cursor:pointer;
+		poadding-right:0.16rem;
+		background: url(../img/arrow.png) right center no-repeat;
+		background-size:0.16rem auto;
+		span{
+			float:left;
+			width:0.8rem;
+			height:1rem;
+		}
+		.bg(@url){
+			background: url(@url) 0 center no-repeat;
+			background-size:45% 40%;
+		}
+		.span01{
+			.bg("../img/xgmm.png");
+		}
+		.span02{
+			.bg("../img/khgl.png");
+
+		}
+		.span03{
+			.bg("../img/gsgl.png");
+		}
+	}
+	padding-left:0.3rem;
+	padding-right:0.3rem;
+}
+.p-item{
+	.heifont;
+	font-size:0.32rem;
+	height:1.0rem;
+	line-height:1.0rem;
+	.btmline;
+	.item-name{
+		float:left;
+		width:1.5rem;
+	}
+}
+.p-title{
+	font-weight:600;
+	.p-item;
+}
+
+.item-box{
+	.btmline;
+	p{  font-size:0.26rem;
+		height:0.6rem;
+		line-height:0.6rem;
+	}
+}
+/* 修改密码 */
+.repass-box{
+	input{
+		border:none;
+	}
+	.p-item{
+		&>input{
+			width:e("calc(100% - 1.5rem)");
+			box-sizing:border-box;
+
+			text-align:right;
+			height:1rem;
+			vertical-align:top;
+			font-size:0.32rem;
+		}
+		label{
+			float:right;
+			margin-left:0.4rem;
+			input{
+				margin-left:0.1rem;
+
+				width:0.26rem;
+				height:0.26rem;
+				vertical-align:middle;
+			}
+		}
+	}
+	.placeholder(@huifont);
+}
+
+
+/* 公司管理 */
+.gsgl-btmbtn{
+	border:none;
+	a{
+		font-size:0.28rem;
+		float:right;
+		width:1.7rem;
+		height:0.6rem;
+		line-height:0.56rem;
+		text-align:center;
+		box-sizing:border-box;
+		margin:0.2rem 0 0.2rem 0.2rem;
+		border-radius:0.6rem;
+		border:0.02rem solid @redcolor;
+		color:@redcolor;
+	}
+	.gsgl-btmbtn-look{
+		background-image:linear-gradient(-180deg, #ff1c7f 0%, #eb267c 100%);
+		color:#fff;
+	}
+}
+
+/* 客户管理，备注 */
+.mask-remarks{
+	top:0;
+	left:0;
+	width:100%;
+	box-sizing:border-box;
+	background-color: #fff;
+	display:none; 
+	position:fixed;
+	z-index:9999;
+	padding:0 0.2rem;
+	.p-item span{
+		display:block;
+		float:right;
+		width:1rem;
+		height:1rem;
+		background: url(../img/guanbi02.png) center center no-repeat;
+		-webkit-background-size:60% 60%;
+		background-size:60% 60%;
+	}
+	textarea{
+		max-width:100%;
+		width:100%;
+		min-width:100%;
+		min-height:3.5rem;
+		box-sizing:border-box;
+	}
+	.newaddbtn-box{
+		margin:0.2rem 0;
+	}
+	.remarks-log{
+		padding:0.2rem;
+		border:0.02rem solid #eee;
+		font-size:0.32rem;
+		height:6.0rem;
+		overflow-y:auto;
+		p{
+			.huifont;
+			span{
+				float:right;
+			}
+		}
+	}
+}
+/* 客户管理，邮件 */
+.mask-mail{
+	display:none;
+	position:fixed;
+	z-index:9999;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+	&>div{
+		background-color: #fff;
+		width:6rem;
+		padding:0.4rem;
+		position:absolute;
+		transform:translate(-50%,-50%);
+		left:50%;
+		top:50%;
+		input{
+			display:block;
+			width:100%;
+			margin:0.4rem 0;
+			height:0.8rem;
+			font-size:0.32rem;
+			border:0.02rem solid #ddd;
+		}
+	}
+}

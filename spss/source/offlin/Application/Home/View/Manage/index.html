@@ -1,0 +1,90 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/index.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>客户管理</header>
+	<section  class="container">
+		<div class="search-strip col-md-7 col-md-fr">
+			<input type="text" id="search" name="search" placeholder="客户名称/联系方式"value="<{$name}>">
+			<button onclick="ajax_get_table(1)">搜索</button><!-- <input type="submit"  onclick="ajax_get_table('search-form2',1)" value="搜索"> -->
+		</div>
+		<div class="clearfix"></div>
+		<div id="ajax_return">
+			加载中...
+			
+		</div>
+		
+	</section>
+
+
+	<div class='mask-remarks'>
+
+	</div>
+
+   
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+    $(document).ready(function(){
+        // ajax 加载商品列表
+        ajax_get_table(1);
+
+    });
+
+
+    // ajax 抓取页面 form 为表单id  page 为当前第几页
+    function ajax_get_table(page){
+        cur_page = page; //当前页面 保存为全局变量
+		
+            $.ajax({
+                type : "POST",
+          
+                url:"<{:U('managePage')}>"+'?p='+page,//+tab,
+                data : 'search='+$('#search').val(),// 你的formid
+                success: function(data){
+                    $("#ajax_return").html('');
+					//console.log(data); 
+                    $("#ajax_return").append(data);
+                }
+            });
+        }  
+	
+	function check(id){
+		$(".mask-remarks").show("fadeIn('slow/400/fast')");
+        $(".mask-remarks").load('__APP__/Manage/checkinfo/id/'+id);
+	};
+    function clo(){
+        $(".mask-remarks").hide("fadeOut('slow/400/fast')");
+    };
+
+    function sub(){
+        var url = "__APP__/Manage/addRemark";  
+        var c_id=$("#c_id").val();
+        var content=$("#content").val();
+        $.ajax({  
+        type: "post",  
+        url: url,  
+        data: {
+            c_id:c_id,
+            content:content,
+        },  
+            success: function(msg){  
+                if(msg == 1){
+                    alert('保存成功');
+                    $(".mask-remarks").fadeIn();
+                    $(".mask-remarks").load('__APP__/Manage/checkinfo/id/'+c_id);
+                }else if(msg == 2){
+                    alert('保存失败');
+                }else{
+                    alert(msg);
+                }
+                //console.log(msg); 
+            }  
+        });  
+    };  
+</script>

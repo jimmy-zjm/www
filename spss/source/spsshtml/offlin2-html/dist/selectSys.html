@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/m-common.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/m-common.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/sys.css">
+</head>
+<body>
+	<header>选择所需报价的系统</header>
+	<section class="container">
+		<ul class="sel-sys-list">
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/sanre.png">
+					<img class="sys-selected" src="img/sanre01.png">
+				</p>
+				<!-- 散热片采暖 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/xinfeng.png">
+					<img class="sys-selected" src="img/xinfeng01.png">
+				</p>
+				<!-- 中央新风 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/chuli.png">
+					<img class="sys-selected" src="img/chuli01.png">
+				</p>
+				<!-- 中央水处理 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/kongtiao.png">
+					<img class="sys-selected" src="img/kongtiao01.png">
+				</p>
+				<!-- 中央空调 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/xichen.png">
+					<img class="sys-selected" src="img/xichen01.png">
+				</p>
+				<!-- 中央吸尘 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/reshui.png">
+					<img class="sys-selected" src="img/reshui01.png">
+				</p>
+				<!-- 循环热水 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/dinuan.png">
+					<img class="sys-selected" src="img/dinuan01.png">
+				</p>
+				<!-- 地板采暖 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p class="sys-item">
+					<img class="sys-unselected" src="img/zhineng.png">
+					<img class="sys-selected" src="img/zhineng01.png">
+				</p>
+				<!-- 智能化 -->
+			</li>
+			
+		</ul>
+		<a href="quotedprice.html" class="my-btm-btn">提交</a>
+	</section>
+	<footer>
+	<ul>
+		<li><a class="f-btn f-btn01" href="personnalCenter.html">
+			个人中心
+		</a></li>
+		<li><a class="f-btn f-btn02"  href="selectSys.html">
+			报价系统
+		</a></li>
+		<li ><a class="f-btn f-btn03"  href="workorder.html">
+			施工订单
+		</a></li>
+		<li ><a class="f-btn f-btn04"  href="aftersale-worker.html">
+			售后订单
+		</a></li>
+		<li ><a class="f-btn f-btn05"  href="set.html">
+			设置
+		</a></li>
+	</ul>
+	<script type="text/javascript">
+		
+		if(localStorage.active){
+			$(".f-btn").eq(localStorage.active).parent("li").addClass("active")
+		}else{
+			$(".f-btn").eq(1).parent("li").addClass("active")
+		}
+
+		
+
+		$(".f-btn").click(function(ev){
+			
+			ev.preventDefault();
+			nojump=false;
+			localStorage.active=$(".f-btn").index(this);
+			
+			window.location.href =$(this).attr("href");
+			
+			
+		})
+
+	</script>
+</footer>
+
+	<script type="text/javascript">
+		$(".sys-item").on("click",function(){
+			if($(this).hasClass('sys-item-selected')){
+				$(this).removeClass('sys-item-selected');
+			}else{
+				$(this).addClass('sys-item-selected');
+			}
+		})
+	</script>
+</body>
+</html>

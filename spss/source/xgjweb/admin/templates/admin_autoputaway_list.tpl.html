@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="editor/kindeditor.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+//修改材料商品上架下架时间
+function change_goods_time(goods_id){
+	//alert(goods_id);
+	//var is_putaway=$("[name=is_putaway_"+goods_id+"]").val();
+	var starttime=$("[name=starttime_"+goods_id+"]").val();
+	var endtime=$("[name=endtime_"+goods_id+"]").val();
+	//alert(goods_id+'|'+is_putaway+'|'+starttime+'|'+endtime);
+	$.get('?goods_edit&goods_id='+goods_id+'&starttime='+starttime+'&endtime='+endtime,function(data){
+		if(data.replace(/^\s+|\s+$/g,'')=='success'){
+			alert('操作成功');
+		}else if(data.replace(/^\s+|\s+$/g,'')=='lose'){
+			alert('操作失败');
+		}
+	});
+}
+//修改系统商品上架下架时间
+function change_quote_time(quote_id){
+	//var is_putaway=$("[name=is_putaway_"+quote_id+"]").val();
+	var starttime=$("[name=starttime_"+quote_id+"]").val();
+	var endtime=$("[name=endtime_"+quote_id+"]").val();
+	$.get('?quote_edit&quote_id='+quote_id+'&starttime='+starttime+'&endtime='+endtime,function(data){
+		if(data.replace(/^\s+|\s+$/g,'')=='success'){
+			alert('操作成功');
+		}else if(data.replace(/^\s+|\s+$/g,'')=='lose'){
+			alert('操作失败');
+		}
+	});
+}
+</script>
+<script type="text/javascript">
+
+ $(function(){
+    //选中材料商品全部
+    $('.goodsAll').click(function(){
+    	$('#goodsList').find('tr').each(function(){
+            if($(this).find(':checkbox').attr('checked')){
+                $(this).find(':checkbox').attr('checked',false);
+            }else{
+                $(this).find(':checkbox').attr('checked',true);
+            }
+        });
+    });
+  //选中系统商品全部
+    $('.quoteAll').click(function(){
+    	$('#quoteList').find('tr').each(function(){
+            if($(this).find(':checkbox').attr('checked')){
+                $(this).find(':checkbox').attr('checked',false);
+            }else{
+                $(this).find(':checkbox').attr('checked',true);
+            }
+        });
+    });
+}) 
+</script>
+</head>
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="index.php">首页</a></li>
+    <li>健康和舒适家居</li>
+    <li><a href="autoputaway.php?tab=1">商品批量上下架</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1"  class="{:if isset($tab) && $tab eq 1:}selected{:else:}{:/if:}">材料商品</a></li> 
+    <li><a href="#tab2"  class="{:if isset($tab) && $tab eq 2:}selected{:else:}{:/if:}">系统商品</a></li> 
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    <form action="autoputaway.php?goods_edit_all" method="post" enctype="multipart/form-data">
+    <div class="rightinfo">
+	    
+	    <table class="imgtable" id="goodsList">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;"><a href="javascript:void(0)" class="goodsAll" ><input type="checkbox" name='goods' value=''/>全选</a></th>
+	    <th width="60px;">编号</th>
+	    <th>商品名称</th>
+	    <th>型号</th>
+	    <th style='display:none'>是否上架</th>
+	    <th>上架时间</th>
+	    <th>下架时间</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody >
+	    {:foreach $autoputaway_list_goods as $v:}
+	    <tr>
+	    <td><input type="checkbox" name='goods[]' value='{:$v.goods_id:}'/></td>
+	    <td>{:$v.goods_id:}</td>
+	    <td><a href="?goods_edit&goods_id={:$v.goods_id:}">{:$v.goods_name:}</a></td>
+	    <td>{:$v.goods_model:}</td>
+	    <td style='display:none'><input name="is_putaway_{:$v.goods_id:}" type="radio" value="1" {:if $v.is_putaway eq 1:}checked="checked"{:else:}{:/if:} />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_putaway_{:$v.goods_id:}" type="radio" value="0" {:if $v.is_putaway eq 0:}checked="checked"{:else:}{:/if:}/>否</td>
+	    <td><input class="inline laydate-icon"  type='text' id="start_{:$v.goods_id:}" name='starttime_{:$v.goods_id:}'value='{:if !empty($v.starttime):}{:"Y-m-d H:i:s"|date:$v.starttime:}{:else:}{:/if:}'style="width:200px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/></td>
+	    <td><input class="inline laydate-icon"  type='text' id="end_{:$v.goods_id:}" name='endtime_{:$v.goods_id:}'value='{:if !empty($v.endtime):}{:"Y-m-d H:i:s"|date:$v.endtime:}{:else:}{:/if:}'style="width:200px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/></td>
+	    <td><input type='button' value='修改' onclick='change_goods_time({:$v.goods_id:})'/></td>
+	    </tr>
+	    {:/foreach:}
+	    <tr>
+	    <th  align="left" nowrap="true" colspan="9"><input class="inline laydate-icon"  type='text' id="start" name='batchtime'value=''style="width:150px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/><input type='submit' name='batch' value='批量上架'/><input type='submit' name='batch' value='批量下架'/></th>
+	    </tr>
+	    </tbody>
+	    </table>
+	     	<div class="page">
+				{:$page_goods:}
+			</div>
+    </div>
+    </form>
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+  	<form action="autoputaway.php?quote_edit_all" method="post" enctype="multipart/form-data">
+     <div class="rightinfo">
+	    
+	    <table class="imgtable" id='quoteList'>
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;"><a href="javascript:void(0)" class="quoteAll" ><input type="checkbox" name='quote' value=''/>全选</a></th>
+	    <th width="60px;">编号</th>
+	    <th>系统名称</th>
+	    <th style='display:none'>是否上架</th>
+		<th>上架时间</th>
+	    <th>下架时间</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    {:foreach $autoputaway_list_quote as $v:}
+	    <tr>
+	    <td><input type="checkbox" name='quote[]' value='{:$v.quote_id:}'/></td>
+	    <td>{:$v.quote_id:}</td>
+	    <td><a href="?quote_edit&quote_id={:$v.quote_id:}">{:$v.quote_name:}</a></td>
+	    <td style='display:none'><input name="is_putaway_{:$v.quote_id:}" type="radio" value="1" {:if $v.is_putaway eq 1:}checked="checked"{:else:}{:/if:} />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_putaway_{:$v.quote_id:}" type="radio" value="0" {:if $v.is_putaway eq 0:}checked="checked"{:else:}{:/if:}/>否</td>
+		<td><input class="inline laydate-icon" type='text' id="start_{:$v.quote_id:}" name='starttime_{:$v.quote_id:}'value='{:if !empty($v.starttime):}{:"Y-m-d H:i:s"|date:$v.starttime:}{:else:}{:/if:}'style="width:200px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/></td>
+	    <td><input class="inline laydate-icon" type='text' id="end_{:$v.quote_id:}" name='endtime_{:$v.quote_id:}'value='{:if !empty($v.endtime):}{:"Y-m-d H:i:s"|date:$v.endtime:}{:else:}{:/if:}'style="width:200px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/></td>
+	    <td><input type='button' value='修改' onclick='change_quote_time({:$v.quote_id:})'/></td>
+	    </tr>
+	    {:/foreach:}
+	    <tr>
+	    <th  align="left" nowrap="true" colspan="9"><input class="inline laydate-icon"  type='text' id="end" name='batchtime'value=''style="width:150px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/><input type='submit' name='batch' value='批量上架'/><input type='submit' name='batch' value='批量下架'/></th>
+	    </tr>
+	    
+	    </tbody>
+	    </table>
+	     	<div class="page">
+				{:$page_quote:}
+			</div>
+    </div> 
+    </form> 
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    </div>
+
+<script type="text/javascript">
+   
+    !function(){
+		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#demo'});//绑定元素
+	}();
+
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD hh:mm:ss',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '2099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	var end = {
+		    elem: '#end',
+		    format: 'YYYY-MM-DD hh:mm:ss',
+		    min: laydate.now(),
+		    max: '2099-06-16',
+		    istime: true,
+		    istoday: false,
+		    choose: function(datas){
+		        start.max = datas; //结束日选好后，充值开始日的最大日期
+		    }
+		};
+	
+	laydate(start);
+	laydate(end);
+</script>
+{:foreach $autoputaway_list_goods as $v:}
+<script type="text/javascript">
+   
+    !function(){
+		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#demo'});//绑定元素
+	}();
+
+	//日期范围限制
+	var start = {
+	    elem: '#start_{:$v.goods_id:}',
+	    format: 'YYYY-MM-DD hh:mm:ss',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '2099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+
+	var end = {
+	    elem: '#end_{:$v.goods_id:}',
+	    format: 'YYYY-MM-DD hh:mm:ss',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	laydate(start);
+	laydate(end);
+</script>
+{:/foreach:}
+{:foreach $autoputaway_list_quote as $v:}
+<script type="text/javascript">	
+	!function(){
+		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#demo'});//绑定元素
+	}();
+	//日期范围限制
+	var start1 = {
+	    elem: '#start_{:$v.quote_id:}',
+	    format: 'YYYY-MM-DD hh:mm:ss',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '2099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+
+	var end1 = {
+	    elem: '#end_{:$v.quote_id:}',
+	    format: 'YYYY-MM-DD hh:mm:ss',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	laydate(start1);
+	laydate(end1);
+ </script>
+ {:/foreach:}
+</body>
+
+</html>

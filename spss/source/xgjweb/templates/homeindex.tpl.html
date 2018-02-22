@@ -1,0 +1,1022 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/homeindexstyle.css" ><!-- 第二版home页面CSS -->
+
+<!-- banner轮播图片 -->
+<script src="./js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="./js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="./css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="./js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+<script type="text/javascript" src="./js/daohang_home.js"></script><!--左侧菜单置顶-->
+
+<script>
+$(document).ready(function(){
+$(".home_index-center-left-nav-list-demo01").click(function(){
+var index=$(".home_index-center-left-nav-list-demo01").index(this);
+$(".yk_box").hide().eq(index).show();
+});
+var hot_index=location.href.split("?flag=3#")[1];
+if(hot_index>=1)
+{$(".yk_box").hide().eq(hot_index).show();}
+});
+</script>
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+<a name="a1"></a>
+
+<div class="clear2"></div>
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="home_index-center">
+	<div class="home_index-center-left">
+    	<div class="home_index-center-left-nav">
+        	<div class="home_index-center-left-nav-title">
+            	<span>
+                	健康舒适家
+                </span>
+            </div>
+
+
+            <div class="home_index-center-left-nav-list">
+            	<div class="home_index-center-left-nav-list-demo02">
+                	<a href="#a1" name="home_index_left_a1">
+                    	家
+                    </a>                    
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a2" name="home_index_left_a2">
+                    	家的健康舒适理念
+                    </a>
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a3" name="home_index_left_a3">
+                    	家的健康舒适问题
+                    </a>
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a4" name="home_index_left_a4">
+                    	产品升级
+                    </a>
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a5" name="home_index_left_a5">
+                    	功能介绍
+                    </a>
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a6" name="home_index_left_a6">
+                    	设计安装流程
+                    </a>
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a7" name="home_index_left_a7">
+                    	售后服务流程
+                    </a>
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a8" name="home_index_left_a8">
+                    	品牌合作介绍
+                    </a>
+                </div>
+                
+                <div class="home_index-center-left-nav-list-demo01">                	
+                    <a href="#a9" name="home_index_left_a9">
+                    	为什么选上品上生
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+	<div class="home_index-center-right">
+    	<div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">                
+            	<img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	家
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="home_index-center-right-word" style="text-align:center;"><!--后台html编辑器编辑内容-->
+        	<img src="images/1075.jpg">
+            
+			<div class="clear"></div>
+        </div>
+        
+        <a name="a2"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <!--轮播-->
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">
+                
+            	<img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	家的健康舒适理念
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2" style="font-size:14px;padding-top:25px;text-align:center;color:#444;">大环境我们无能为力，小环境我们自己做主</div>
+        
+        <div class="home_index-center-right-contrast"> 
+            <div class="home_index-center-right-contrast-should">
+                <div class="flicker-example" data-block-text="false">    
+                    <ul>
+                       
+						<li>
+                            <div class="flick-img">
+                                <img src="images/1076.jpg"/>
+                            </div>
+                        </li>
+                        
+                         <li>
+                            <div class="flick-img">
+                                <img src="images/1077.jpg"/>
+                            </div>                            
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1078.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1079.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1080.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1081.jpg"/>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--轮播end-->
+        
+        <a name="a3"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <!--轮播-->
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">            	
+                <img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	家的健康舒适问题
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2" style="font-size:14px;padding-top:25px;text-align:center;color:#444;"">家，不能中看不中用</div>
+        
+        <div class="home_index-center-right-contrast"> 
+            <div class="home_index-center-right-contrast-should">
+                <div class="flicker-example" data-block-text="false">    
+                    <ul>
+                    	<li>
+                            <div class="flick-img">
+                                <img src="images/1082.jpg"/>
+                            </div>
+                        </li>
+                        
+                         <li>
+                            <div class="flick-img">
+                                <img src="images/1083.jpg"/>
+                            </div>                            
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1084.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1085.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1086.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1087.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1088.jpg"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="flick-img">
+                                <img src="images/1089.jpg"/>
+                            </div>
+                        </li>
+                                  
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--轮播end-->
+        
+        <a name="a4"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <!--产品升级-->
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">
+                
+            	<img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	产品升级
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="home_index-center-right-upgrade">            
+            <div class="home_index-center-right-upgrade-demo"><!--循环demo-->
+                <div class="home_index-center-right-upgrade-title">
+                    <div class="home_index-center-right-upgrade-title-name">
+                        空气产品升级
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-title-more">
+                        <a href="index.php?productCont&id=25&cat_id=24"  target="_blank" name="home_productCont_25">
+                            了解详情
+                            <img src="images/jiantou04.png"/>
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="home_index-center-right-upgrade-contrast">
+                    <div class="home_index-center-right-upgrade-contrast-before">
+                        <div class="home_index-center-right-upgrade-contrast-before-img">
+                            <img src="images/1091.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-span">
+                            （升级前）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-word">
+                           <p align="center">可以解决微尘</br>无法解决气味</br>可以一时解决</br>无法长时解决</p>
+                        </div>
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-contrast-later">
+                        <div class="home_index-center-right-upgrade-contrast-later-img">
+                            <img src="images/1092.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-span">
+                            （升级后）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-word">
+                          <p align="center">始终保持通风状态</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>        
+            </div>
+            
+            <div class="home_index-center-right-upgrade-demo">
+                <div class="home_index-center-right-upgrade-title">
+                    <div class="home_index-center-right-upgrade-title-name">
+                        生活水质处理
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-title-more">
+                        <a href="index.php?productCont&id=26&cat_id=24"  target="_blank" name="home_productCont_26">
+                            了解详情
+                            <img src="images/jiantou04.png"/>
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="home_index-center-right-upgrade-contrast">
+                    <div class="home_index-center-right-upgrade-contrast-before">
+                        <div class="home_index-center-right-upgrade-contrast-before-img">
+                            <img src="images/1093.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-span">
+                            （升级前）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-word">
+                            <p align="center">好坏都是别人说了算</p>
+                        </div>
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-contrast-later">
+                        <div class="home_index-center-right-upgrade-contrast-later-img">
+                            <img src="images/1094.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-span">
+                            （升级后）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-word">
+                             <p align="center">好坏自己说了算</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>        
+            </div>
+            
+            <div class="home_index-center-right-upgrade-demo">
+                <div class="home_index-center-right-upgrade-title">
+                    <div class="home_index-center-right-upgrade-title-name">
+                        热水产品升级
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-title-more">
+                        <a href="index.php?productCont&id=27&cat_id=24"  target="_blank" name="home_productCont_27">
+                            了解详情
+                            <img src="images/jiantou04.png"/>
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="home_index-center-right-upgrade-contrast">
+                    <div class="home_index-center-right-upgrade-contrast-before">
+                        <div class="home_index-center-right-upgrade-contrast-before-img">
+                            <img src="images/1111.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-span">
+                            （升级前）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-word">                         
+							 <p align="center"> 天天洗，天天恼</p>
+                        </div>
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-contrast-later">
+                        <div class="home_index-center-right-upgrade-contrast-later-img">
+                            <img src="images/1112.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-span">
+                            （升级后）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-word">
+                            <p align="center"> 其实很简单，就是能循环</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>        
+            </div>
+            
+            <div class="home_index-center-right-upgrade-demo">
+                <div class="home_index-center-right-upgrade-title">
+                    <div class="home_index-center-right-upgrade-title-name">
+                        冷暖产品升级
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-title-more">
+                        <a href="index.php?productCont&id=28&cat_id=24"  target="_blank" name="home_productCont_28">
+                            了解详情
+                            <img src="images/jiantou04.png"/>
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="home_index-center-right-upgrade-contrast">
+                    <div class="home_index-center-right-upgrade-contrast-before">
+                        <div class="home_index-center-right-upgrade-contrast-before-img">
+                            <img src="images/1095.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-span">
+                            （升级前）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-word">
+                           <p align="center"> 要么在头上方，要么在床对面</br>风噪响，风感强，易感冒</p>
+                        </div>
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-contrast-later">
+                        <div class="home_index-center-right-upgrade-contrast-later-img">
+                            <img src="images/1096.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-span">
+                            （升级后）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-word">
+                            <p align="center"> 制冷声音轻，风感低</br>采暖无声音，无风感</br>安静又舒适</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>        
+            </div>
+            
+            <div class="home_index-center-right-upgrade-demo">
+                <div class="home_index-center-right-upgrade-title">
+                    <div class="home_index-center-right-upgrade-title-name">
+                        湿度产品升级
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-title-more">
+                        <a href="index.php?productCont&id=29&cat_id=24"  target="_blank" name="home_productCont_29">
+                            了解详情
+                            <img src="images/jiantou04.png"/>
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="home_index-center-right-upgrade-contrast">
+                    <div class="home_index-center-right-upgrade-contrast-before">
+                        <div class="home_index-center-right-upgrade-contrast-before-img">
+                            <img src="images/1097.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-span">
+                            （升级前）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-word">
+                            <p align="center"> 除湿不连续</br>水满就去倒</p>
+                        </div>
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-contrast-later">
+                        <div class="home_index-center-right-upgrade-contrast-later-img">
+                            <img src="images/1098.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-span">
+                            （升级后）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-word">
+                            <p align="center"> 除湿不间断</br>不用去倒水</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>        
+            </div>
+			<div class="home_index-center-right-upgrade-demo">
+                <div class="home_index-center-right-upgrade-title">
+                    <div class="home_index-center-right-upgrade-title-name">
+                        控制产品升级
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-title-more">
+                        <a href="index.php?productCont&id=29&cat_id=24"  target="_blank" name="home_productCont_30">
+                            了解详情
+                            <img src="images/jiantou04.png"/>
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="home_index-center-right-upgrade-contrast">
+                    <div class="home_index-center-right-upgrade-contrast-before">
+                        <div class="home_index-center-right-upgrade-contrast-before-img">
+                            <img src="images/1101.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-span">
+                            （升级前）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-before-word">
+                            <p align="center"> 操作麻烦又费钱</p>
+                        </div>
+                    </div>
+                    
+                    <div class="home_index-center-right-upgrade-contrast-later">
+                        <div class="home_index-center-right-upgrade-contrast-later-img">
+                            <img src="images/1100.jpg"/>
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-span">
+                            （升级后）
+                        </div>
+                        
+                        <div class="home_index-center-right-upgrade-contrast-later-word">
+                            <p align="center">操作简单又省钱</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>        
+            </div>
+        </div>
+        <!--产品升级end-->
+        
+        <a name="a5"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <!--功能介绍-->
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">
+            	
+                <img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	功能介绍
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="home_index-center-right-function">            
+            <div class="home_index-center-right-function-list">
+                <div class="home_index-center-right-function-list-bk">
+                    {:foreach $product as $k=>$v:}
+                    <div class="home_index-center-right-function-list-demo">
+                        <div class="home_index-center-right-function-list-demo-img">
+                            <div class="home_index-center-right-function-list-demo-img-images">
+                                <a href="furnish.php?id={:$v['cat_id']:}&cat_id={:$k+9:}" name="home_furnish_{:$v['cat_id']:}&cat_id={:$k+9:}">
+                                    <img src="{:$v['image']:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="home_index-center-right-function-list-demo-img-a" name="home_furnish_{:$v['cat_id']:}&cat_id={:$k+9:}">
+                                <a href="furnish.php?id={:$v['cat_id']:}&cat_id={:$k+9:}">
+                                    了解更多
+                                    <img src="images/jiantou04.png"/>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-function-list-demo-name" title="{:$v['cat_name']:}">
+                            <a href="furnish.php?id={:$v['cat_id']:}&cat_id={:$k+9:}" name="home_furnish_{:$v['cat_id']:}&cat_id={:$k+9:}">
+                               {:$v['cat_name']:}
+                            </a>
+                        </div>
+                        
+                        <div class="home_index-center-right-function-list-demo-word" >
+                            {:$v['desc']:}
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div><!--循环demo-->
+                    {:/foreach:}               
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <!--功能介绍end-->
+        
+        <a name="a6"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <!--设计安装流程-->
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">
+                
+            	<img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	设计安装流程
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="home_index-center-right-flow">            
+            <div class="home_index-center-right-flow-list">
+                <div class="home_index-center-right-flow-list-bk">
+                    <div class="home_index-center-right-flow-list-demo"><!--循环demo-->
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1005.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            在线选购
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-word" title="123">
+                               输入房屋面积后一键获取所选商品精确报价
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-span" title="123">
+                            方便快捷
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home_index-center-right-flow-list-demo">
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1009.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            深入设计
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-word" title="123">
+                            专业人员上门测量，为您设计最适合的施工方案
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-span" title="123">
+                            量身订制
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home_index-center-right-flow-list-demo">
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1010.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            施工安装
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-word" title="123">
+                            资深施工人员进场施工，专业的工作交給专业的人
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-span" title="123">
+                            专业保障
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home_index-center-right-flow-list-demo">
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1011.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            用户验收
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-word" title="123">
+                            施工人员配合业主进行项目验收，做到0担忧
+                        </div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-span" title="123">
+                            质量保证
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div> 
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <!--设计安装流程end-->
+        
+        <a name="a7"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <!--售后服务流程-->
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">
+                
+            	<img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	售后服务流程
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="home_index-center-right-flow">
+            <div class="home_index-center-right-flow-list" style="height:320px;">
+                <div class="home_index-center-right-flow-list-bk" style="height:320px;">
+                    <div class="home_index-center-right-flow-list-demo" style="height:320px;"><!--循环demo-->
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1012.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            在线报修
+                        </div>
+                      
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home_index-center-right-flow-list-demo" style="height:320px;">
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1013.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            线下预约
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home_index-center-right-flow-list-demo" style="height:320px;">
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1014.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            上门服务
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home_index-center-right-flow-list-demo" style="height:320px;">
+                        <div class="home_index-center-right-flow-list-demo-img">
+                            <div class="home_index-center-right-flow-list-demo-img-images">
+                                <img src="images/1015.jpg"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="home_index-center-right-flow-list-demo-name" title="123">
+                            服务评价
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <!--售后服务流程end-->
+        
+        <a name="a8"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <!--品牌-->
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">
+                
+                <img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	品牌合作介绍
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="home_index-center-right-banner">            
+            <div class="home_index-center-right-banner-list">
+                {:foreach $cbrandList as $k=>$v:}
+                <div class="home_index-center-right-banner-list-demo">
+                    <a href="index.php?cbrandInfo&id={:$v['brand_id']:}" target="_blank" name="home_banner_{:$v['brand_id']:}">
+                    	<img src="{:$v['logo']:}"/>
+                    </a>
+                </div>
+                {:/foreach:}          
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--品牌end-->
+        
+        <a name="a9"></a>
+        
+        <div class="clear2"></div>
+        <div class="clear2"></div>
+        
+        <div class="home_index-center-right-title">
+        	<div class="home_index-center-right-title-img">                
+                <img src="images/1034.jpg">
+            </div>
+            
+            <div class="home_index-center-right-title-span">
+            	<span>
+                	为什么选上品上生
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="home_index-center-right-word" style="text-align:center;"><!--后台html编辑器编辑内容-->
+        	<img src="images/1059.jpg">
+            
+			<div class="clear"></div>
+        </div>
+        
+        <div class="clear2"></div>
+    </div>
+</div>
+<!--中间end-->
+
+<div class="clear"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+<!--点击左导航更换颜色-->
+<script>
+$(function(){
+    $(".home_index-center-left-nav-list-demo01").click(function(){
+        $(this).removeClass("home_index-center-left-nav-list-demo01");
+        $(this).addClass("home_index-center-left-nav-list-demo02");
+        $(this).siblings().removeClass("home_index-center-left-nav-list-demo02");
+        $(this).siblings().addClass("home_index-center-left-nav-list-demo01");
+    });
+});
+$(function(){
+    $(".home_index-center-left-nav-list-demo02").click(function(){
+        $(this).removeClass("home_index-center-left-nav-list-demo01");
+        $(this).addClass("home_index-center-left-nav-list-demo02");
+        $(this).siblings().removeClass("home_index-center-left-nav-list-demo02");
+        $(this).siblings().addClass("home_index-center-left-nav-list-demo01");
+    });
+});
+</script>
+<!--点击左导航更换颜色end-->
+
+</body>
+</html>
+

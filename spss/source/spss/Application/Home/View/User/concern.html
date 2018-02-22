@@ -1,0 +1,231 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+<div class="user-center">
+<include file="User:left" />
+
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+		<!--我关注的商品详细-->
+        <div class="user-concern_goods-center">
+
+            <div class="clear2"></div>
+            
+            <if condition="empty($concernGoodsList)" >
+            <div class="user-order-center-no">
+                <div class="user-order-center-no-01"> 
+                    <img src="__PUBLIC__/img/133.png"/>
+                </div>
+
+                <div class="user-order-center-no-02">
+                    <a href="index.php">
+                        暂无关注收藏的商品，快去挑选合适的商品吧！
+                    </a>
+                </div>
+            </div>
+            <div class="clear3"></div>
+            </if>
+
+            
+            <div class="user-concern_goods-center-list">
+            	<foreach name="concernGoodsList" key="num" item="concern">
+            	<div class="user-concern_goods-center-list-demo">
+                	<div class="user-concern_goods-center-list-demo-block">
+                        <div class="user-concern_goods-center-list-demo-img">
+                        	<div class="user-concern_goods-center-list-demo-img-images">
+                                <if condition="$concern['class_id'] eq 1">
+									<a href="__APP__/Furnish/detail/quote_id/<{$concern.goods_id}>/lv/1.html">
+                                <elseif  condition="$concern['class_id'] eq 2" />
+									<a href="__APP__/Material/info/id/<{$concern.goods_id}>">
+								<elseif  condition="$concern['class_id'] eq 9" />
+									<a href="__APP__/Customer/upkeep.html">  
+								<elseif  condition="$concern['class_id'] eq 8" />
+									<a href="__APP__/Customer/detail/id/<{$concern.goods_id}>.html">  
+                                </if>                          	
+                                    <img src="<{$concern.c_images|getImage}>"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user-concern_goods-center-list-demo-img-input">
+                                <div class="user-concern_goods-center-list-demo-img-input-left">
+                                	<if condition="$concern.class_id eq 1">
+                                    <a href="__APP__/Furnish/detail/quote_id/<{$concern.goods_id}>/lv/1">
+                                    <elseif condition="$concern.class_id eq 2"/>
+                                    <a href="javascript:;" onclick="ccc(<{$concern.c_id}>,<{$concern.goods_id}>)">
+                                    </if>
+                                        加入购物车
+                                    </a>
+                                </div>
+                                
+                                <div class="user-concern_goods-center-list-demo-img-input-right">
+                                	<input type="button" value="取消关注" onclick='xsgz(<{$concern.c_id}>)'/>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="user-concern_goods-center-list-demo-name">
+                        	<!-- <{if $concern.class_id neq 1}>
+                        	<input type="checkbox" id="data<{$num}>" name="data" value="<{$concern.c_id}>" />  
+                            </if>    --> 
+                            
+                        	<if condition="$concern.class_id eq 1">
+								<a href="__APP__/Furnish/detail/quote_id/<{$concern.goods_id}>/lv/1.html" >
+                            <elseif condition="$concern.class_id eq 2" />
+								<a href="__APP__/Material/info/id/<{$concern.goods_id}>.html" >
+							<elseif condition="$concern.class_id eq 9" />
+								<a href="__APP__/Customer/upkeep.html" >
+							<elseif condition="$concern.class_id eq 8" />
+								<a href="__APP__/Customer/detail/id/<{$concern.goods_id}>.html" >
+                            </if>
+                                <{$concern.c_goodsname}>
+                            </a>
+                        </div>
+                        
+                        <div class="user-concern_goods-center-list-demo-price">
+                            ¥<{$concern.c_goodsprice}>
+                        </div>
+                    </div>
+                    
+                    <div class="user-concern_goods-center-list-demo-none" id="gz<{$concern.c_id}>">                    	
+                    	<div class="clear3"></div>
+                        <div class="clear3"></div>  
+                                              
+                    	<div class="user-concern_goods-center-list-demo-none-span">
+                        	确定删除？
+                        </div>
+                        
+                        <div class="user-concern_goods-center-list-demo-none-input">
+                        	<div class="user-concern_goods-center-list-demo-none-input-left">
+                            	<input type="button" value="确定" onclick="aaa(<{$concern.c_id}>)"/>
+                            </div>
+                            
+                            <div class="user-concern_goods-center-list-demo-none-input-right">
+                            	<input type="button" value="取消" onclick='closes(<{$concern.c_id}>)'/>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>                
+                </foreach> 
+                
+                <div class="clear"></div>
+                
+                <!--分页开始-->
+                <if condition="empty($concernGoodsList)" >
+                <else />
+                  <div class='page'>
+                      <{$page}>
+                  </div>
+                </if>
+                <!--分页结束-->
+                
+                <div class="clear3"></div>
+            </div>
+        </div>
+        
+		<!--我关注的商品详细end--> 
+    </div>
+    
+	<div class="clear"></div>
+</div>
+
+<div class="clear3"></div>
+
+
+
+
+<script>
+
+//多件商品加入购物车
+function adddata()
+{
+	 
+		var arr=[]; 
+		$('input[name="data"]:checked').each(function(){ 
+		arr.push($(this).val()); 
+		
+		//window.location.href="cart.php?addCart&arr="+arr;
+		}); 
+        alert("请选择");
+  
+}
+
+</script>
+
+<script>
+//取消关注
+function deletedata()
+{
+		var arr=[]; 
+		$('input[name="data"]:checked').each(function(){ 
+		arr.push($(this).val()); 
+		window.location.href="user.php?cancergoods&arr="+arr;
+		}); 
+	
+      alert("请选择");
+}
+
+
+</script>
+
+
+<!--多选框全选-->
+<script type="text/javascript">
+function selectAll(checkbox) {
+	$('input[type=checkbox]').prop('checked', $(checkbox).prop('checked'));
+}
+</script>
+<!--多选框全选end-->
+<script>
+    //单个取消关注
+    function aaa(o){
+        
+            $.get("__APP__/user/concern/del/1/id/"+o,function(data){
+                window.location.reload();        
+            })
+        
+    }
+</script>
+
+<script>
+	function ccc(id,goods_id){
+        $.post("<{:U('User/AddCart')}>",{'goods_id':goods_id,'id':id,'num':1},function(data){
+            if (data=='error') {
+                alert('添加失败');
+            }else{
+                alert('添加成功');
+            }
+        });
+    }
+
+
+
+   //      $.get("ajax.php?addOvCart&id="+o+"&luggage=1&amount=1",function(data){
+			// console.log(data);
+   //          if (data != '') {
+   //              alert('已放入购物车');
+   //          }else{
+   //              alert('放入购物车失败');
+   //          }
+   //      });
+   // }
+</script>
+
+
+
+
+
+<script>
+function xsgz(id){
+	$("#gz"+id).show();
+}
+function closes(id){
+	$("#gz"+id).hide();
+}
+
+</script>
+
+ 

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/m-common.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/m-common.js"></script>
+<link rel="stylesheet" type="text/css" href="css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>员工管理</header>
+	<section class="container">
+		<div class="search-strip col-md-5 col-md-fr">
+			<input type="text" name="" placeholder="商品名称/订单编号/客户名称/手机号">
+			<button>搜索</button>
+		</div>
+		<div class="clearfix"></div>
+		<div class="redbtn-box clearfix">
+			
+			<a href="javascript:;" class="newaddemp-btn">新增人员</a>
+			<a href="javascript:;" class="editallemp-btn">批量编辑</a>
+		</div>
+
+		<div class="emp-infobox">
+			<p class="sys-title">姓名：张三</p>
+			<div class="emp-infoitem">
+				<input type="checkbox">
+				<p>性别：男</p>
+				<p>角色：设计人员</p>
+				<p>主管：张大三</p>
+				<p>部门：设计部门</p>
+				<p>权限：超级管理员</p>
+				<p>所属公司：上品上生网络科技公司</p>
+				
+			</div>
+			<div class="redbtn-box clearfix">
+				<a href="javascript:;">编辑信息</a>
+			</div>
+		</div>
+
+		<div class="emp-infobox">
+			<p class="sys-title">姓名：张三</p>
+			<div class="emp-infoitem">
+				<input type="checkbox">
+				<p>性别：男</p>
+				<p>角色：设计人员</p>
+				<p>主管：张大三</p>
+				<p>部门：设计部门</p>
+				<p>权限：超级管理员</p>
+				<p>所属公司：上品上生网络科技公司</p>
+				
+			</div>
+			<div class="redbtn-box clearfix">
+				<a href="javascript:;">编辑信息</a>
+			</div>
+		</div>
+          
+
+	</section>
+
+	<!--新增人员 弹出层 -->
+
+	<div class="mask-emp mask-emp-new">
+		<div class="mask-box">
+			<p class="sys-title">新增人员</p>
+			<p class="sys-item">姓名<input type="text" placeholder="请输入姓名"></p>
+			<p class="sys-item">性别 
+				<label>男<input type="radio" name="sex" value="1"></label>
+				<label>女<input type="radio" name="sex" value="0"></label>
+			</p>
+			<p class="sys-item">角色
+				<select>
+					<option>请选择</option>
+				</select>
+			</p>
+			<p class="sys-item">主管<input type="text" placeholder="请输入主管姓名"></p>
+			<p class="sys-item">部门
+				<select>
+					<option>请选择</option>
+				</select>
+			</p>
+			<p class="sys-item">所属公司
+				<select>
+					<option>请选择</option>
+				</select>
+			</p>
+			<p class="sys-item">权限
+				<select>
+					<option>请选择</option>
+				</select>
+			</p>
+			<input type="submit" name="保存" class="my-btm-btn">
+		</div>
+
+	</div>
+
+
+    	<div class="mask-emp mask-emp-editall">
+		<div class="mask-box">
+			<p class="sys-title">批量编辑</p>
+		
+			<p class="sys-item">主管<input type="text" placeholder="请输入主管姓名"></p>
+			<p class="sys-item">部门
+				<select>
+					<option>请选择</option>
+				</select>
+			</p>
+			<p class="sys-item">所属公司
+				<select>
+					<option>请选择</option>
+				</select>
+			</p>
+			<p class="sys-item">权限
+				<select>
+					<option>请选择</option>
+				</select>
+			</p>
+			<input type="submit" name="保存" class="my-btm-btn">
+		</div>
+
+	</div>
+
+
+
+<script type="text/javascript">
+
+
+     $(".mask-box").click(function(ev){
+     	ev.stopPropagation();
+     })
+   
+    $(".mask-emp").click(function(){  
+    	$(this).hide();
+    })
+	
+	$(".newaddemp-btn").click(function(){
+       $(".mask-emp-new").show()
+	});
+   $(".editallemp-btn").click(function(){
+       $(".mask-emp-editall").show()
+	});
+</script>
+
+</body>
+</html>

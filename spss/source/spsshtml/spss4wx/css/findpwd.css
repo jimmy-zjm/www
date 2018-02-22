@@ -1,0 +1,66 @@
+.findbox {
+  margin: 286px 84px 0 84px ;
+}
+.findbox > .boxitem {
+  margin-bottom: 40px;
+  /* placeholder颜色 */
+}
+.findbox > .boxitem ::-webkit-input-placeholder {
+  /* WebKit browsers  */
+  color: #ccc;
+}
+.findbox > .boxitem :-moz-placeholder {
+  /*  Mozilla Firefox 4 to 18  */
+  color: #ccc;
+}
+.findbox > .boxitem ::-moz-placeholder {
+  /*  Mozilla Firefox 19+  */
+  color: #ccc;
+}
+.findbox > .boxitem :-ms-input-placeholder {
+  /*  Internet Explorer 10+  */
+  color: #ccc;
+}
+.findbox input {
+  border-bottom: 1px solid #fff !important;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 80px;
+  color: #fff;
+}
+.findbox .phonebox input {
+  background: url(../img/phonenumber.png) 20px center no-repeat;
+}
+.findbox .psdbox input {
+  background: url(../img/password.png) 20px center no-repeat;
+}
+.findbox .mabox input {
+  width: 342px;
+  float: left;
+  background: url(../img/yanzhengma.png) 20px center no-repeat;
+}
+.findbox .mabox a {
+  width: 226px;
+  float: right;
+  font-size: 32px;
+}
+.findbox input {
+  font-size: 36px;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  border: none 0;
+  height: 80px;
+}
+.findbox a {
+  display: block;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  border-radius: 10px;
+  background-color: #fb6165;
+}
+.findbox a.resetBtn {
+  margin-top: 60px;
+}

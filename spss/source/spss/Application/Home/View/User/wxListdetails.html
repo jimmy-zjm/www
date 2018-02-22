@@ -1,0 +1,28 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+	<include file="User:left" />
+	<div class="user-right">
+		<ul class="user_wxorder-title">
+
+			<li>
+				<a href="<{:U('wxOrderdetails',['oid'=>$oid])}>">订单详情</a>
+			</li>
+		</ul>
+		
+		<ul class="wxListdetails-list">
+			<?php foreach ($list as $k => $v): ?>
+			<li>
+
+				<img src="<?= getImage($v['img']) ?>">
+				<a href="javascript:;" title="<{$v.name}>"><p class="ell"><{$v.name}></p></a>
+				<p>数量:<span><{$v.num}></span></p>
+				<p>规格:<span><{$v.unit}></span></p>
+			</li>
+			<?php endforeach ?>
+		</ul>
+
+		
+		<div class="clear3"></div>
+	</div>
+</div>

@@ -1,0 +1,247 @@
+@CHARSET "UTF-8";
+* {
+	padding: 0;
+	margin: 0;
+}
+.clear {
+	clear: both;
+}
+
+.clear1 {
+	clear: both;
+	height: 50px;
+}
+/*个人登陆*/
+.userlogn-head{
+	height:135px;
+	background:#fff;}
+	
+.userlogn-head-bk{
+	background:#fff;
+	width:1234px;
+	margin:0 auto;}
+	
+.userlogn-head-logo{
+	width:160px;
+	height:110px;
+	line-height:110px;
+	float:left;
+	margin-top:20px;}
+	
+.userlogn-head-logo img{
+	width:160px;
+	height:110px;}
+	
+.userlogn-head-span{
+	float:left;
+	margin-left:20px;
+	padding-left:30px;
+	border-left:1px solid #ccc;
+	height:30px;
+	margin-top:70px;
+	line-height:30px;
+	font-size:26px;
+	color:#3e3e3e;}
+	
+.userlogn-center-img{
+	width:100%;}
+	
+.userlogn-center-img img{
+	width:100%;}
+	
+.userlogn-center-bk{
+	position:absolute;
+	top:240px;
+	width:670px;
+	height:720px;
+	right:90px;
+	background:#fff;}
+	
+.userlogn-center-prompt{
+	margin-left:230px;
+	color:#ff0000;
+	height:30px;
+	line-height:30px;
+	display:none;}
+	
+.userlogn-center-title{
+	height:160px;
+    line-height:160px;}
+	
+.userlogn-center-title-left{
+	float:left;
+	margin-left:65px;
+	font-size:40px;
+	color:#505050;}
+	
+.userlogn-center-title-right{
+	float:right;
+	margin-right:60px;
+	color:#fa5e53;
+	font-size:24px;}
+
+.userlogn-center-title-right a{
+	color:#fa5e53;
+	font-size:24px;}
+	
+
+	
+.userlogn-center-name-span{
+	float:left;
+	width:210px;
+	height:50px;
+	line-height:50px;
+	text-align:right;
+	color:#919090;
+	font-size:24px;}
+	
+.userlogn-center-name-input{
+	float:left;
+	margin-left:70px;
+	border:1px solid #919090;
+	height:50px;
+	line-height:50px;
+	width:545px;
+	position:relative;
+	z-index:999;}
+	
+.userlogn-center-name-input input{
+	width:480px;
+	height:50px;
+	line-height:50px;
+	border:none;
+	background:none;
+	color:#919090;
+	font-size:24px;
+	margin-left:50px;}
+
+.userlogn-center-name-img{
+	position:relative;
+	left:-530px;
+	top:15px;
+	z-index:1;
+	width:25px;
+	height:25px;
+	float:left;}
+	
+.userlogn-center-name-img img{
+	width:25px;
+	height:25px;}
+	
+.userlogn-center-password-span{
+	float:left;
+	width:210px;
+	height:50px;
+	line-height:50px;
+	text-align:right;
+	color:#919090;
+	font-size:24px;}
+	
+.userlogn-center-password-input{
+	float:left;
+	margin-left:70px;
+	border:1px solid #919090;
+	height:50px;
+	line-height:50px;
+	width:545px;
+	position:relative;
+	z-index:999;}
+	
+.userlogn-center-password-input input{
+	width:480px;
+	height:50px;
+	line-height:50px;
+	border:none;
+	background:none;
+	color:#919090;
+	font-size:24px;
+	margin-left:50px;}
+
+.userlogn-center-password-img{
+	position:relative;
+	left:-530px;
+	top:15px;
+	z-index:1;
+	width:25px;
+	height:25px;
+	float:left;}
+	
+.userlogn-center-password-img img{
+	width:25px;
+	height:25px;}
+
+.userreg-center-checkbox{
+	margin-left:70px;}
+	
+.userreg-center-checkbox-01{
+	float:left;
+	height:20px;
+	line-height:20px;
+	margin-right:10px;}
+	
+.userreg-center-checkbox-01 input{
+	height:20px;
+	line-height:20px;}
+
+.userreg-center-checkbox-02{
+	float:left;
+	height:20px;
+	line-height:20px;
+	color:#767070;}
+	
+.userreg-center-checkbox-03{
+	float:right;
+	margin-right:50px;
+	height:20px;
+	line-height:20px;
+	color:#767070;}	
+	
+.userlogn-center-dsf{
+	margin-left:70px;}
+	
+.userlogn-center-dsf-01{
+	height:30px;
+	line-height:30px;
+	color:#767070;
+	font-size:16px;}
+	
+.userlogn-center-dsf-02{
+	height:20px;
+	line-height:20px;}
+	
+.userlogn-center-dsf-02 a{
+	color:#767070;
+	font-size:18px;
+	float:left;}
+	
+.userlogn-center-dsf-02 span{
+	width:2px;
+	height:20px;
+	margin-left:20px;
+	margin-right:20px;
+	background:#767070;
+	display:block;
+	float:left;}
+	
+.userlogn-center-confirm{
+	border:1px solid #fa5e53;
+	width:370px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	margin:0 auto;
+	margin-top:50px;}
+	
+.userlogn-center-confirm button{
+	border:none;
+	background:none;
+	width:370px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:28px;
+	color:#505050;}
+	
+
+	
+/*个人登陆end*/

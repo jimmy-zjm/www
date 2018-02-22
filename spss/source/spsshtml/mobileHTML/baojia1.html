@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"/>
+		<title></title>
+		<link rel="stylesheet" href="css/publick.css" />
+		<link rel="stylesheet" href="css/baojia1.css"/>
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="head">
+			<a class="head-1 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/back.png" alt="" />
+			</a>
+			<a class="head-2 head-son" href="javascript:;">
+				房屋信息
+			</a>
+			<a class="head-3 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/people-s.png" alt="" />
+			</a>
+		</div>
+		<div class="content">
+			<div class="baojia-con1">
+				<span class="baojia-con1-1">房屋区域</span>
+				<input class="baojia-con1-2 sanjidizhi" type="text" placeholder="请输入城市/区">
+				<p class="sanjiliandong" onclick="sanjiliandong()"><img class="baojia-con1-3" src="img/baojia1.png" alt="" /></p>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">详细地址</span>
+				<input class="baojia-con1-2" type="text" placeholder="请输入街道/小区/楼栋">
+			</div>
+			<div class=" baojia-con1 baojia-con3">
+				<span class="baojia-con1-1 ">房屋类型</span>
+				<span class="baojia-con3-1 baojia-con3-2">公寓</span>
+				<span class="baojia-con3-1">叠加</span>
+				<span class="baojia-con3-1">联排</span>
+				<span class="baojia-con3-1">独栋</span>
+			</div>
+			<div class="baojia-con1 baojia-con4">
+				<p class="baojia-con4-1"><span class="baojia-con1-1">房屋户型</span></p>
+				<span class="baojia-con3-1 baojia-con3-2">一居</span>
+				<span  class="baojia-con3-1">二居</span>
+				<span  class="baojia-con3-1">三居</span>
+				<span class="baojia-con3-1">四居</span>
+				<span class="baojia-con3-1 baojia-con3-2 baojia-con4-line2">五居</span>
+				<span class="baojia-con3-1 baojia-con4-line2">六居</span>
+				<span class="baojia-con3-1 baojia-liuju baojia-con4-line2">六居以上</span>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">房屋户型</span>
+				<input class="baojia-con1-2" type="text" placeholder="请输入面积">
+			</div>
+			<div class="baojia-con6">
+				<input type="button" name="" id="" value="生成报价" />
+			</div>
+		</div>
+		<div class="modal">
+			<div class="sanji-bg">
+				<div class="sanji-style sanji-1 sanji-shen">
+					<span>上海</span>
+					<span>上海</span>
+					<span>上海</span>
+					<span>上海</span>
+					<span>上海</span>
+					<span>上海</span>
+					<span>上海</span>
+					<span>上海</span>
+				</div>
+				<div class="sanji-style sanji-1 sanji-shi">
+					<span>闵行区</span>
+					<span>闵行区</span>
+					<span>闵行区</span>
+					<span>闵行区</span>
+				</div>
+				<div class="sanji-style sanji-qu">
+					<span>联航路</span>
+					<span>联航路</span>
+					<span>联航路</span>
+					<span>联航路</span>
+					<span>联航路</span>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+	<script>
+		var sheng;
+		var shi;
+		var qu;
+		function sanjiliandong(){
+			console.log($('.modal').css('display'))
+			if($('.modal').css('display')=='none'){
+				$('.modal').css('display','block');
+				$('.sanji-bg').css("bottom","0px");
+			}
+		}
+		$(".sanji-shen span").click(function(){
+			$(".sanji-shen span").css('color','#999');
+			$(this).css('color','#333');
+			sheng=$(this).html();
+		})
+		$(".sanji-shi span").click(function(){
+			$(".sanji-shi span").css('color','#999');
+			$(this).css('color','#333');
+			shi=$(this).html();
+		})
+		$(".sanji-qu span").click(function(){
+			$(".sanji-qu span").css('color','#999');
+			$(this).css('color','#333');
+			$('.modal').css('display','none');
+			qu=$(this).html();
+			$(".sanjidizhi").val(sheng+shi+qu);
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,132 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/ContactUsstyle.css" ><!-- 404报错页面error页面调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+{:include file="common/daohang.html":}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="ContactUs-conter">
+	<div class="advertisement">
+    	<img src="images/867.png"/>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear27"></div>
+    
+	<div class="ContactUs-conter-left">
+    	<div class="ContactUs-conter-left-title">
+        	国内办事处
+        </div>
+        
+        <div class="ContactUs-conter-left-list">
+            {:foreach $data['0'] as $v:}
+        	<div class="ContactUs-conter-left-list-demo">
+            	<div class="ContactUs-conter-left-list-demo-name">
+                	{:$v['title']:}
+                </div>
+                
+                <div class="ContactUs-conter-left-list-demo-li">
+                	<div>
+                    	{:$v['content']:}
+                    </div>
+                    
+                    
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="clear15"></div>
+            </div>
+            
+            <div class="clear"></div>
+            {:/foreach:}
+            <div class="clear15"></div>
+        </div>
+    </div>
+    
+    <div class="ContactUs-conter-right">
+    	<div class="ContactUs-conter-right-title">
+        	国外办事处
+        </div>
+        
+        <div class="ContactUs-conter-right-list">
+            {:foreach $data['1'] as $v:}
+            <div class="ContactUs-conter-right-list-demo">
+                <div class="ContactUs-conter-right-list-demo-name">
+                    {:$v['title']:}
+                </div>
+                
+                <div class="ContactUs-conter-right-list-demo-li">
+                    <div>
+                        {:$v['content']:}
+                    </div>
+                    
+                    
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="clear15"></div>
+            </div>
+            
+            <div class="clear"></div>
+            {:/foreach:}
+            <div class="clear15"></div>
+        </div>
+        
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

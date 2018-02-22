@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >健康舒适家居</a></li>
+	    <li><a href="comment.php?furnish">用户评论</a></li>
+	    <li><a href="comment.php?info&comment_id={:$info_list['comment_id']:}">查看评论</a></li>
+	    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    <table class="imgtable">
+	    <tbody>
+		    <tr>
+		      <td>
+		      <b>{:$info_list['user_name']:}</b>&nbsp;于      &nbsp;{:'Y-m-d H:i:s'|date:$info_list['add_time']:}&nbsp;对&nbsp;<b>{:if !empty($info_list['goods_name']):}{:$info_list['goods_name']:}{:else if !empty($info_list['quote_name']):}{:$info_list['quote_name']:}系统{:/if:}</b>&nbsp;发表评论    </td>
+		    </tr>
+		    <tr>
+		      <td><hr size="1" color="#dadada"></td>
+		    </tr>
+		    <tr>
+		      <td>
+		        <div style="overflow:hidden; word-break:break-all;">{:$info_list['content']:}</div>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="center">
+		                <input type="button" class="sure" value="{:if $info_list['status'] eq 1:}允许显示{:else if $info_list['status'] eq 2:}禁止显示{:/if:}" onclick="location.href='comment.php?change_status&status={:if $info_list['status'] eq 1:}2{:else if $info_list['status'] eq 2:}1{:/if:}&comment_id={:$info_list['comment_id']:}'">
+		            </td>
+		    </tr>
+	  	</tbody>
+	    </table>
+	    </div>
+</body>
+</html>
+

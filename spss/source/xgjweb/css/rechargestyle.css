@@ -1,0 +1,348 @@
+@charset "utf-8";
+/* CSS Document */
+
+.recharge-center{
+	width:1100px;
+	margin:0 auto;}
+	
+.recharge-center-title{
+	width:100%;
+	height:90px;
+	background:#fff;
+	line-height:90px;
+	font-size:28px;
+	color:#403E3E;}
+	
+.recharge-center-title span{
+	margin-left:55px;}
+	
+.recharge-details{
+	width:100%;
+	background:#fff;
+	border:1px solid #F0F0F0;}
+	
+.recharge-details-receiver{
+	border-bottom:1px solid #F0F0F0;
+	width:1000px;
+	margin:0 auto;}
+	
+.recharge-details-receiver-title{
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#333;
+	font-weight:bold;}
+
+.recharge-details-receiver-center-account-left{
+	float:left;
+	height:25px;
+	line-height:25px;
+	width:80px;}
+	
+.recharge-details-receiver-center-account-right{
+	float:left;
+	width:900px;
+	height:25px;
+	line-height:25px;}
+	
+.recharge-details-receiver-center-money-left{
+	float:left;
+	height:25px;
+	line-height:25px;
+	width:80px;}
+	
+.recharge-details-receiver-center-money-right{
+	float:left;
+	width:900px;
+	height:120px;
+	line-height:25px;}
+	
+.recharge-details-receiver-center-money-right-01{
+	width:140px;
+	height:25px;
+	line-height:25px;
+	border:1px solid #ccc;
+	background:#fff;}
+	
+.recharge-details-receiver-center-money-right-01 input{
+	width:120px;
+	height:24px;
+	line-height:24px;
+	border:none;
+	background:none;
+	text-align:center;
+	margin-left:10px;}
+	
+.recharge-details-receiver-center-money-right-02{
+	width:1000px;
+	height:25px;
+	line-height:25px;
+	color:#E4393C;
+	font-size:12px;}
+	
+.recharge-details-receiver-center-money-right-03{
+	width:1000px;
+	height:25px;
+	line-height:25px;
+	color:#999;
+	font-size:12px;}
+	
+.recharge-details-receiver-center-money-right-04{
+	width:1000px;
+	height:30px;
+	line-height:30px;
+	color:#666;
+	font-size:12px;}
+	
+.recharge-details-receiver-center-money-right-04 span{
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+	border:1px solid #D9D9D9;
+	background:#F5F5F5;}
+
+.recharge-details-method{
+	border-bottom:1px solid #F0F0F0;
+	width:1000px;
+	margin:0 auto;}
+	
+.recharge-details-method-title{
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#333;
+	font-weight:bold;}
+	
+.recharge-details-method-center .yListr ul li span{
+	width:auto;}
+	
+.recharge-details-method-center .yListr ul li em{
+	padding:0px 30px;
+	margin-right:20px;}
+
+.recharge-details-list{
+	border-bottom:1px solid #F0F0F0;
+	width:1150px;
+	margin:0 auto;}
+	
+.recharge-details-list-title{
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#333;
+	font-weight:bold;}
+	
+.recharge-details-list-title-left{
+	float:left;}
+	
+.recharge-details-list-title-right{
+	float:right;}
+	
+.recharge-details-list-title-right a{
+	font-size:12px;
+	color:#ff0000;}
+	
+.recharge-details-list-center{
+	margin-top:10px;
+	margin-bottom:20px;}
+	
+.recharge-details-list-center-01{
+	width:100px;
+	height:100px;
+	line-height:100px;
+	float:left;}
+	
+.recharge-details-list-center-01 img{
+	width:100px;
+	height:100px;}
+	
+.recharge-details-list-center-02{
+	width:400px;
+	height:100px;
+	line-height:100px;
+	float:left;
+	text-align:center;}
+	
+.recharge-details-list-center-02 a{
+	color:#2b2b2b;}
+	
+.recharge-details-list-center-03{
+	width:200px;
+	height:100px;
+	line-height:100px;
+	float:left;
+	text-align:center;}
+	
+.recharge-details-list-center-04{
+	width:150px;
+	height:100px;
+	line-height:100px;
+	float:left;
+	text-align:center;}
+	
+.recharge-details-list-center-05{
+	width:300px;
+	height:100px;
+	line-height:100px;
+	float:right;
+	text-align:right;}
+	
+.recharge-details-invoice{
+	border-bottom:1px solid #F0F0F0;
+	width:1150px;
+	margin:0 auto;}
+
+.recharge-details-invoice-title{
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#333;
+	font-weight:bold;}
+	
+.recharge-details-invoice-center{
+	height:40px;
+	line-height:40px;}
+	
+.recharge-details-invoice-center-01{
+	float:left;
+	margin-right:50px;}
+	
+.recharge-details-invoice-center-02{
+	float:left;
+	margin-right:50px;}
+	
+.recharge-details-invoice-center-03{
+	float:left;}
+	
+#collect-tip-recharge-bk{
+	width:600px !important;
+	margin-top:200px !important;}
+	
+.collect-tip-recharge-input01{
+	width:400px;
+	height:40px;
+	line-height:40px;
+	margin:0 auto;
+	font-size:18px;
+	margin-top:20px;}
+	
+.collect-tip-recharge-input01-left{
+	float:left;
+	width:90px;}
+	
+.collect-tip-recharge-input01-right{
+	float:left;
+	border:1px solid #2b2b2b;
+	background:#fff;
+	width:300px;
+	height:40px;
+	line-height:40px;}
+	
+.collect-tip-recharge-input01-right input{
+	border:none;
+	background:none;
+	width:280px;
+	height:40px;
+	line-height:40px;
+	margin-left:10px;}
+	
+.collect-tip-recharge-input02{
+	width:400px;
+	height:40px;
+	line-height:40px;
+	margin:0 auto;
+	font-size:18px;
+	margin-top:20px;}
+	
+.collect-tip-recharge-input02-left{
+	float:left;
+	width:90px;}
+	
+.collect-tip-recharge-input02-right{
+	float:left;
+	width:300px;
+	height:40px;
+	line-height:40px;}
+	
+.collect-tip-recharge-input02-right input{
+	border:none;
+	background:none;
+	line-height:40px;
+	margin-left:30px;
+	margin-right:10px;}
+	
+.collect-tip-new-bk{
+	margin-top:20px;}
+
+.collect-tip-new-bk a{
+	color:#000;
+	font-size:20px;}	
+
+.collect-tip-new-left{
+	float:left;
+	width:180px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #000;
+	margin-left:100px;
+	margin-right:25px;
+	text-align:center;}
+	
+.collect-tip-new-right{
+	float:left;
+	width:180px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #000;
+	text-align:center;}
+	
+.recharge-details-buy{
+	border-bottom:1px solid #F0F0F0;
+	width:1000px;
+	margin:0 auto;}
+	
+.recharge-details-buy-list{
+	background:#F4F4F4;
+	width:470px;
+	height:35px;
+	line-height:35px;}
+	
+.recharge-details-buy-list-demo-left{
+	float:left;
+	width:80px;}
+	
+.recharge-details-buy-list-demo-right{
+	float:left;
+	width:390px;}
+	
+.recharge-details-buy-list-demo2{
+	height:60px;
+	line-height:60px;}
+	
+.recharge-details-buy-list-demo2-01{
+	float:left;}
+	
+.recharge-details-buy-list-demo2-02{
+	float:left;
+	font-size:18px;
+	color:#ff0000;}
+	
+.recharge-details-buy-list-demo2-03{
+	float:left;
+	background:#ff0000;
+	width:140px;
+	height:40px;
+	line-height:40px;
+	margin-top:10px;
+	text-align:center;
+	font-size:22px;
+	margin-left:50px;
+	border:1px solid #ff0000;
+	border-radius:5px;}
+	
+.recharge-details-buy-list-demo2-03 a{
+	color:#fff;}
+	
+	
+	

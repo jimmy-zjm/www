@@ -1,0 +1,127 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+<include file="User:left" />
+
+	
+    <div class="user-right">
+        <div class="userevaluate-title">  
+        	<span>
+            	评价晒单
+            </span>  	
+        </div>
+    
+    	<div class="clear3"></div>
+    
+        <!--评价晒单-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="userevaluate-center">
+                <div class="hevtabs">
+                    <ul>
+                        <li>
+                            <a href="__APP__/user/hEvaluateList.html" class="evaluatefcous <if condition='$Think.get.action eq ""  '>evaluateon</if>">全部评价</a>
+                            
+                            <a href="javascript:;" class="tabs-a"><{$cdata+$cdata1}></a><!--有状态的时候，显示数字-->
+                        </li>
+
+                    	<li>
+                        	<a href="__APP__/user/hEvaluateList/action/waiting.html" class="evaluatefcous <if condition='$Think.get.action eq "waiting" '>evaluateon</if>">待评价</a>
+                            
+                            <a href="javascript:;" class="tabs-a"><{$cdata}></a><!--有状态的时候，显示数字-->
+                        </li>
+                        
+                    	<li>
+                        	<a href="__APP__/user/hEvaluateList/action/already.html" class="evaluatefcous <if condition='$Think.get.action eq "already" '>evaluateon</if>">已评价</a>
+                            
+                            <a href="javascript:;" class="tabs-a"><{$cdata1}></a><!--有状态的时候，显示数字-->
+                        </li>
+                    </ul>
+                    
+                    <div class="clear2"></div>
+                    
+                    <div id="tabs-1">                    	
+                    	<div class="userevaluate-center-titile">
+                        	<div class="userevaluate-center-titile-img">
+                            	商品图片
+                            </div>
+                            
+                            <div class="userevaluate-center-titile-name">
+                            	商品名称
+                            </div>
+                            
+                            <div class="userevaluate-center-titile-time">
+                            	购买时间
+                            </div>
+                            
+                            <div class="userevaluate-center-titile-operation">
+                            	评价状态
+                            </div>
+                        </div>  
+                      
+                      
+                      	<!--《健康舒适家》 -->
+                        <foreach name="data" key="num" item="waitEvaluate">
+                    	<div class="userevaluate-center-list">
+                        	<div class="clear"></div>
+                            
+                        	<div class="userevaluate-center-list-img">
+                            	<a href="javascript:;">
+                                	<img src="<{$waitEvaluate.img|getimage}>" />
+                                </a>
+                            </div>
+                            
+                            <div class="userevaluate-center-list-name">                            	
+                                <a href="javascript:;">
+                                	<{$waitEvaluate.quote_name}>
+                                </a> 
+                            </div>
+                            
+                            <div class="userevaluate-center-list-time">
+                            	 <{$waitEvaluate.add_order_time|date="Y-m-d H:i:s",###}>
+                            </div>
+                            
+                            <div class="userevaluate-center-list-operation" id="aclickAddInId<{$num}>">
+                                <if condition="$waitEvaluate.status eq 0">
+                                	<a href="__APP__/user/hEvaluate/id/<{$waitEvaluate.detail_id}>.html">
+                                        点击评价
+                                    </a>    
+                                <else/>
+                                    <a href="__APP__/user/hEvaluation/id/<{$waitEvaluate.detail_id}>">
+                                        查看评价
+                                    </a>           
+                                </if>                      
+                            </div>
+                            
+                            <div class="clear"></div> 
+                            
+                            <div class="userevaluate-center-list-write" id="aclickAddId<{$num}>">
+                                <div class="clear"></div> 
+                                
+                                
+                            </div>  
+                            
+                            <div class="clear"></div>                        
+                        </div>
+                        </foreach>
+                        
+                        <div class="clear"></div>
+                        <div class='page'>
+                            <{$page}>
+                        </div>
+                        
+                        <div class="clear2"></div>
+                    </div>
+
+                </div>
+            </div>        
+        </div>
+        <!--评价晒单end-->
+    
+    </div>
+    
+      
+	<div class="clear"></div>
+</div>
+
+<div class="clear3"></div>
+

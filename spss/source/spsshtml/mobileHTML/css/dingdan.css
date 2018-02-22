@@ -1,0 +1,106 @@
+.head{
+	width: 100%;
+	height:90px ;
+	box-shadow: 2px 2px 2px #eeeeee;
+}
+.head-son{
+	display: block;
+	float: left;
+}
+.head-1{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.head-2{
+	width: 78%;
+	height: 88px;
+	position: relative;
+	font-size: 35px;
+	color: #333;
+	text-align: center;
+	line-height: 88px;
+}
+.head-3{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.content{
+	width: 100%;
+	min-height:1243px ;
+	background: #f7f7f7;
+}
+.shopheji{
+	width: 91.7%;
+	height: auto;
+	background: #ffffff;
+	border-radius: 8px;
+	margin: 0 auto;
+	margin-top: 58px;
+}
+.shop{
+	border-bottom: 2px solid #f1f2f3;
+	width: 83.3%;	
+	height: 220px;
+	margin: 0 auto;
+}
+.heji{
+	width: 91.7%;
+	height: 73px;
+}
+.shop-1{
+	float: left;
+	margin-top:30px ;
+}
+.shop-2{
+	float: left;
+	margin-top:42px ;
+	margin-left: 30px;
+	width: 45%;
+	height: auto;
+	font-size: 26px;
+	color: #333;
+}
+.shop-3{
+	font-size: 26px;
+	color: #333;
+	float: right;
+	margin-top:42px ;
+}
+.shop-3>span{
+	display: block;
+	text-align: right;
+}
+.heji>p{
+	font-size: 26px;
+	color: #666;
+	line-height: 71px;
+	text-align: right;
+}
+.heji>p>a{
+	color: #da001d;
+}
+.backup{
+	width: 100%;
+	height: auto;
+	text-align: center;
+
+	/*position: absolute;
+	bottom: 120px;*/
+}
+.hasMore{
+	margin-top:30px;
+}
+.noMore{
+	position: absolute;
+	bottom: 120px;
+}
+/*没有订单*/
+.no-dingdan{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin-top: 245px;
+}
+/*结束*/

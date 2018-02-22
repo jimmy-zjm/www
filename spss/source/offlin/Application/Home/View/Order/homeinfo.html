@@ -1,0 +1,80 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/swiper-3.4.2.min.css">
+</head>
+<body>
+	<header><a href="__APP__/Order/detail/id/<{$Think.get.id}>.html"></a>房屋面积<a class="upload-btn" href="<{:U('Order/infoupload',['oid'=>$oid,'type'=>1])}>"></a></header>
+	<section  class="container clearfix">
+		<?php if(empty($data)){?>
+		<p class="sys-item">您还未上传任何图片！</p>
+		<?php }else{?>
+		<p class="sys-item">上传记录</p>
+		<?php foreach($data as $v){?>
+		<div class="col-xs-12  col-md-6 lookInfoItem">
+			<p class="sys-item"><{$v['title']}>：<{$v['add_time']}></p>
+			<div class="img-canclick-box">
+				<p class="ell"><{$v['content']}></p>
+				<img class="img-canclick"  src="__PUBLIC__/Uploads/<{$v['img']}>">
+			</div>
+			<div class="newaddbtn-box">
+				<a  href="<{:U('editdraw',['id'=>$v['id'],'tab'=>1])}>" class="fr newadd-submit">修改</a>
+				<a href="<{:U('deldraw',['id'=>$v['id'],'tab'=>1])}>" onclick="return confirm('确定要删除吗？')" class="fr newadd-cancel">删除</a>
+			</div>
+		</div>
+		<?php }?>
+		<?php }?>
+	</section>
+	<!-- look img mask -->
+	<div class="lookimg-mask">
+		<span id="mask-close-btn"></span>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<?php foreach($data as $v){?>
+				<div class="swiper-slide">
+					<div class="swiper-zoom-container">
+						<img title="<{$v['title']}>" data-content="<{$v['content']}>" data-time="<{$v['add_time']}>" src="__PUBLIC__/Uploads/<{$v['img']}>">
+					</div>
+				</div>
+				<?php }?>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-white"></div>
+			<!-- Add Navigation -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src='__PUBLIC__/Dealer/js/swiper-3.4.2.jquery.min.js'></script>
+	<script type="text/javascript">
+
+		var swiper = new Swiper('.swiper-container', {
+			loop:true,
+			zoom: true,
+
+				 observer: true,//修改swiper自己或子元素时，自动初始化swiper  
+               observeParents: true,//修改swiper的父元素时，自动初始化swiper  
+               pagination: '.swiper-pagination',
+               nextButton: '.swiper-button-next',
+               prevButton: '.swiper-button-prev'
+           });
+
+		$("#mask-close-btn").click(function(){
+			$(".lookimg-mask").hide();
+		});
+		$(".img-canclick").click(function(){
+
+			/*点击图片获取多张 以下面的格式放入 div.swiper-wrapper中，放入前清空该div中的内容 
+                     <div class="swiper-slide">
+					<div class="swiper-zoom-container">
+						<img src="img/demo/demo1.jpg">
+					</div>
+				   </div>
+				   */
+				   $(".lookimg-mask").show();
+				   var index=$(".img-canclick").index(this);
+				   // console.log(index);
+				   swiper.slideTo(index+1, 0, false);
+				});
+			</script>
+		</body>
+		</html>

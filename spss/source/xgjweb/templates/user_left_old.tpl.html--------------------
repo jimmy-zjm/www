@@ -1,0 +1,116 @@
+<!-- user左边菜单，引用头部时倒入这个div -->
+<div class="user-left">
+    <div class="user-left-01">
+        <a href="#">
+            我的中心
+        </a>
+    </div>
+
+    <div class="clear6"></div>
+
+    <div class="clear29"></div>
+
+    <div class="user-left-03">
+        
+        <a href="user.php?homeOrderShow">
+            健康舒适家
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?homeOrderShow">
+            健康舒适家订单
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?order">
+                    我的订单
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?evaluateShow">
+                评价订单
+        </a>
+    </div>
+     
+    <div class="user-left-02">
+        <a href="user.php?cancelOrderShow">
+             取消订单记录
+        </a>
+    </div>
+
+    <div class="user-left-03">
+        <a href="user.php?concernGoods">
+             关注中心
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?concernGoods">
+            关注的商品
+        </a>
+    </div>
+
+    <div class="user-left-03">
+        <a href="user.php?couponShow">
+            资产中心
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?couponShow">
+            优惠券
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="#">
+            积分
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?assetShow">
+            余额
+        </a>
+    </div>
+
+    <div class="user-left-03">
+        <a href="user.php?returnShow">
+            客户服务
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?returnShow">
+            返修退换货
+        </a>
+    </div>
+
+    <div class="user-left-03">
+        <a href="user.php?userInfo">
+            设置
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?passWordModifyShow">
+            修改密码
+        </a>
+    </div>
+
+    <div class="user-left-02">
+        <a href="user.php?userInfo">
+            个人信息
+        </a>
+    </div>
+    
+    <div class="user-left-02">
+        <a href="user.php?addr">
+            收货地址
+        </a>
+    </div>
+</div>
+<!-- user左边菜单end，引用头部时倒入这个div -->

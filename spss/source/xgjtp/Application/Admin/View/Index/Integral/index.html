@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理员列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+</head>
+
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="<{:U('Admin/Index/index/main')}>">首页</a></li>
+        <li><a href="">积分管理</a></li>
+        <li><a href="">积分列表</a></li>
+        </ul>
+    </div>
+    <div class="rightinfo">
+        <!-- 搜索 -->
+        <form action="<{:U('index')}>" method="get">
+            <ul class="prosearch">
+                <li>
+                    <label>查询：</label>
+                    <i>用户名称：</i>
+                    <a><input name="name" type="text" value="" class="scinput" /></a>
+                    <a><input name="" type="submit" class="sure" value="查询"/></a>
+                 </li>
+            </ul>
+        </form>
+
+        <!-- 表格 -->
+        <table class="tablelist">
+            <thead>
+                <tr>
+                    <th>编号<i class="sort"><img src="__PUBLIC__/Admin/images/px.gif" /></i></th>
+                    <th>用户名</th>
+                    <th>总积分</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($data as $v){ ?>
+                <tr data-id="<{$v.user_id}>">
+                    <td><{$v.user_id}></td>
+                    <td><{$v.user_name}></td>
+                    <td><{$v.integral}></td>
+                    <td>
+                        <a href="<{:U('select',array(id=>$v['user_id']))}>" class="tablelink">点击查看详细资料</a> &nbsp&nbsp&nbsp
+                        <a href="javascript:;" class="tablelink click" onclick="document.getElementById('data_id').setAttribute('data-id',<{$v.user_id}>)"> 删除</a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <!-- 分页开始 -->
+        <{$page}>
+        <!-- 分页结束 -->
+
+        <div class="tip">
+            <div class="tiptop"><span>提示信息</span><a></a></div>
+          <div class="tipinfo">
+            <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+            <div class="tipright">
+            <p>是否确认真的删除吗 ？</p>
+            <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+            </div>
+            <div class="tipbtn">
+            <input name="" id="data_id" data-id="" type="button" onclick="window.location.href='<{:U('delete')}>?id='+this.getAttribute('data-id')"  class="sure" value="确定" />&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" />
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

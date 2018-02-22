@@ -1,0 +1,166 @@
+
+{:include file="header.tpl.html":}
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/knowstyle.css" /><!-- 售后服务know页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+
+<script type="text/javascript" src="js/zhiding.js"></script><!--导航置顶-->
+
+<!--选择城市-->
+<script type="text/javascript" src="js/xiala/city-data.js"></script>
+<script type="text/javascript" src="js/xiala/hzw-city-picker.min.js"></script>
+<!--选择城市end-->
+
+
+
+</head>
+<body>
+<!-- top顶部 -->
+
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+
+
+<div class="clear"></div>
+
+<!--导航-->
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<div class="clear"></div>
+
+
+
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!--中间-->
+<div class="know-conter">
+	<div class="know-conter-switch">
+    	<div class="know-conter-switch-01">
+        	<div class="know-conter-switch-01-left">
+            	<img src="images/832.png"/>
+            </div>
+            
+            <div class="know-conter-switch-01-right">
+            	<a href="index.php?knowledge&type=1">
+                	健康舒适家居
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="know-conter-switch-01">
+        	<div class="know-conter-switch-01-left">
+            	<img src="images/833.png"/>
+            </div>
+            
+            <div class="know-conter-switch-01-right">
+            	<a href="index.php?knowledge&type=2">
+                	欧洲团代购
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="know-conter-switch-02">
+        	<div class="know-conter-switch-02-left">
+            	<img src="images/834.png"/>
+            </div>
+            
+            <div class="know-conter-switch-02-right">
+            	<a href="index.php?knowledge&type=3">
+                	售后服务
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear2"></div>
+    
+    <div class="know-conter-list">
+	{:if isset($kndata):}
+    	{:foreach $kndata as $v:}
+    	<div class="know-conter-list-demo">
+        	<div class="know-conter-list-demo-ask">
+            	{:$v.title:}
+            </div>
+            
+            <div class="know-conter-list-demo-answer">
+            	{:$v.content:}
+            </div>
+            	
+
+       
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+     {:/foreach:}
+        
+   {:/if:}   
+        
+    </div>
+	<div class="page">
+		{:if isset($page_nav):}{:$page_nav:}{:/if:}
+	</div>
+
+</div>
+<!--中间end-->
+
+<div class="clear2"></div>
+
+
+<!-- 底部列表 -->
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+</body>
+</html>
+
+
+
+
+

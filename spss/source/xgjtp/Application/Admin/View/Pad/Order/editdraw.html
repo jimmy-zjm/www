@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/upload.css">
+<div class="upload-title my-page-title">
+	<{$title}>
+</div>
+<form action="<{:U('editUpload')}>" method="post" enctype="multipart/form-data">
+	<div class="upload-content">
+		<p class="product-name"><{$title}>信息</p>
+		<p class="text-title">修改标题</p>
+		<input type="text" class="add-title" name="title" value="<{$info['title']}>">
+		<input type="hidden" name="oid" value="<{$info['o_id']}>">
+		<input type="hidden" name="types" value="<{$info['types']}>">
+		<input type="hidden" name="oldimg" value="<{$info['img']}>">
+		<input type="hidden" name="id" value="<{$info['id']}>">
+		<p class="text-title">修改内容</p>
+		<textarea class="add-content" name="content"><{$info['content']}></textarea> 
+		<div class="z_photo">
+			<div class="z_file">
+				<input type="file" name="file" id="file" value="" accept="image/*;capture=camera" multiple onchange="imgChange('z_photo','z_file');" />
+
+			</div>
+		</div>
+    <input id="submitBtn" type="submit" name="" value='提交'>
+
+</div>
+</form>
+ <!--遮罩层-->
+        <div class="z_mask">
+            <!--弹出框-->
+            <div class="z_alert">
+                <p>确定要删除这张图片吗？</p>
+                <p>
+                    <span class="z_cancel">取消</span>
+                    <span class="z_sure">确定</span>
+                </p>
+            </div>
+        </div>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/imgupload.js"></script>

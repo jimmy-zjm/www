@@ -1,0 +1,291 @@
+{:include file='user_top.tpl.html':}
+{:include file='user_left.tpl.html':}
+    <!-- user左边菜单end，引用头部时倒入这个div -->
+
+    <!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="useraddresscenter-title">  
+           返修退换货
+        </div>
+      
+        <div class="clear12"></div>
+        
+        <div id="fuent">
+        <!--返修退换货-->
+            <div class="useraddresscenter_Repair hd">
+                <ul>
+                    <li>申请返修/退换货</li>
+                    <li>返修/退换货记录</li>
+                    <li>退款明细</li>
+                    <li>维修费明细</li>
+                </ul>
+            </div>
+            <!--搜索框hed-->
+            <div class="useraddresscenter_Repair_right">
+                <input type="text" value="dssd" />
+                <a href=""><img src="images/fxiu_sosuo_03.png" /></a>
+            </div>   
+            <!--搜索框hed-->
+            <div class="bd">
+                  
+                        <div class="useraddresscenter_qiuhuan">
+                            
+                            <div class="useraddresscenter_qiuhuan_msg">
+                                <ul>
+                                    <li>订单编号</li>
+                                    <li style="width:195px;">订单产品</li>
+                                    <li >包装清单</li>
+                                    <li>购买数量</li>
+                                    <li>单价</li>
+                                </ul>
+                            </div>
+                            <div class="useraddresscenter_qiuhuan_01">
+                                <ul>
+                                    <li>{:$applyInfo.sn:}</li>
+                                   
+                                    <li style="width:195px;">{:$applyInfo.goods_title:}</li>
+                                    <li>{:$applyInfo.goods_attr:}</li>
+                                    <li>{:$applyInfo.goods_num:}</li>
+                                    <li>￥{:$applyInfo.goods_price:}</li>
+                                   
+                                </ul>
+                            </div>  
+                            
+                                      
+                        </div>
+                         <div class="useraddresscenter_qiuhuan">
+                            
+                          1
+                        </div>
+                         <div class="useraddresscenter_qiuhuan">
+                            
+                         2
+                        </div>
+                         <div class="useraddresscenter_qiuhuan">
+                            
+                          3
+                        </div>
+                   
+                </div>
+        </div>
+       <!--返修退换货end-->
+<script id="#fuent"; type="text/javascript">jQuery("#fuent").slide({autoPlay:false});</script>
+    <p class="xuxian"></p>
+
+    <form action="user.php?doApply" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="sn" value="{:$applyInfo.sn:}">
+        <input type="hidden" name="order_id" value="{:$smarty.get.id:}">
+        <input type="hidden" name="gid" value="{:$smarty.get.gid:}">
+        <div class="tuihuo_msg">
+            <div class="tuihuo_msg_01">
+                服务类型：
+                <select id="selectmenu1" name="returnType">
+                    <option value="">请选择服务类型</option>
+                    <option value="1">退货</option>
+                    <option value="2">换货</option>
+                    <option value="3">返修</option>
+                </select>
+            </div>
+            <div class="tuihuo_msg_01">提交数量：<input max="{:$applyInfo.goods_num:}" min="1" type="number" name="num" value="1"/></div>
+            <div class="tuihuo_msg_01"><span>问题描述：</span><textarea rows="8" cols="50" name="content"></textarea></div>
+            <!-- <div class="tuihuo_msg_02">图片信息：<a style="color:#000;" href="">上传图片</a></div> -->
+            <div class="tuihuo_msg_02">图片信息：<input type="file" name='img'/></div>
+            <div class="tuihuo_msg_03">申请凭据：<input name="invoice" type="checkbox" />有发票<input name="report" type="checkbox" />有检测报告</div>
+            <div class="tuihuo_msg_02">
+                返货方式：
+                <select id="selectmenu1" name="express">
+                    <option value="">请选择返货方式</option>
+                    <option value="1">顺丰</option>
+                </select>
+            </div>
+            <div class="tuihuo_msg_04">收货地址：<input type="text" name="address" placeholder='请写明您的详细地址' value="" /></div>
+            <div class="tuihuo_msg_05">客户姓名：<input type="text" name="name" placeholder='请写明您的姓名' value="" /></div>
+            <div class="tuihuo_msg_05">手机号码：<input type="text" name="tel" placeholder='请写明您的手机号码' value="" /></div>
+        </div>
+        <div class="sqth_anniu">
+            <button style="border:0px;margin-left:40px;"><img style="margin-left:0px;" src="images/gezx_anniu_07.jpg" /></button>
+        </div>
+    </form>
+
+<!-- user右边end，引用头部时倒入这个div -->
+</div>
+
+</div>
+
+
+<!-- 底部广告 -->
+<div class="advertisement" >
+    <img src="images/555.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+
+<!-- 底部列表 -->
+{:include file='user_footer.tpl.html':} 
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+    <div class="leftmenu">    
+        <ul class="navigation">
+            <li>
+                <a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a>
+            </li>
+            
+            <li>
+                <a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a>
+            </li>
+            
+            <li>
+                <a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a>
+            </li>
+            
+            <li>
+                <a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a>
+            </li>
+            
+            <li>
+                <a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a>
+            </li>
+        
+        </ul>    
+        
+        <div class="downbo" onClick="gotop();" href="javascript:void(0);">
+            TOP
+        </div>
+        <!-- js效果写的时候收起为downbo2展开是downbo -->
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function($) {
+try{
+    var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+    var fs = $('.navigation').children().size();
+    var fss = new Array();
+    for (i = 0; i < fs; i++) {
+        j = i + 1;
+        fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+    }
+
+
+
+    $(window).scroll(function(){
+        var currentTOP = $(window).scrollTop();
+        if(currentTOP>f1-30){
+            $("#skipfloor").show();
+        }else{
+            $("#skipfloor").hide();
+        }
+        if (currentTOP <= f1) {
+            $('.navigation a').removeClass('sel');
+            $('.navigation a[data-slide="1"]').addClass('sel');
+            return;
+        }else{
+            changefl(getFloor(currentTOP));
+        }
+    });
+
+
+    function getFloor(fh){
+        if(fs==0||fh<=f1){
+            return 1;
+        }
+        if(fh>=fss[fs-1]){
+            return fs;
+        }
+        for (k=0; k<fs;k++) {
+            if(fh>fss[k]&&fh<fss[k+1]){
+                return k+1;
+            }
+        }
+    }
+
+    function changefl(fno){
+        $('.navigation a').removeClass('sel');
+        $('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+    }
+
+}catch(e){
+    console.log(e);
+}
+});
+
+function gotop() {
+    $('body,html').animate({
+        scrollTop : 0
+    }, 800);
+}
+function gotofloor(thiz) {
+    $("a[class='sel']").attr('class', '');
+    $(thiz).attr("class", "sel");
+    dataslide = $(thiz).attr('data-slide');
+    var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+    $("html,body").animate({
+        scrollTop : pos
+    }, 800);
+}
+    </script>
+
+<!-- 楼层定位end -->
+
+
+
+<!--jquery-ui调用-->
+<script>
+
+$( "#tabs" ).tabs();/*点击切换滑动门*/
+
+$( "#selectmenu1" ).selectmenu();/*下拉*/
+
+$( "#selectmenu2" ).selectmenu();/*下拉*/
+
+$( "#selectmenu3" ).selectmenu();/*下拉*/
+
+$( "#selectmenu4" ).selectmenu();/*下拉*/
+
+$( "#selectmenu5" ).selectmenu();/*下拉*/
+
+$( "#selectmenu6" ).selectmenu();/*下拉*/
+
+$( "#selectmenu7" ).selectmenu();/*下拉*/
+
+$( "#selectmenu8" ).selectmenu();/*下拉*/
+
+</script>
+<!--jquery-ui调用end-->
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>
+  

@@ -1,0 +1,152 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/repairs.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/WeChat/css/swiper-3.4.2.min.css">
+<style type="text/css">
+	.lookimg-mask{
+		position:fixed;
+		width:100%;
+		height:100%;
+		z-index:9999;
+		display:none;
+		top:0;
+		left:0;
+		background:rgba(0,0,0,.6);
+	}
+	.swiper-container {
+		width: 100%;
+		height: 100%;
+	}
+	.swiper-slide {
+		overflow: hidden;
+	}
+	#mask-close-btn{
+		display:block;
+		position:absolute;
+		z-index:99999;
+		top:20px;
+		right:20px;
+		width:60px;
+		height:60px;
+		background: url(__PUBLIC__/WeChat/img/guanbi.png) center center no-repeat;
+		-webkit-background-size:100% 100%;
+		background-size:100% 100%;
+
+	}
+</style>	
+</head>
+<body>
+	<div class="section">
+		
+		<div class="header">
+			<p class="header-title"><{$title}></p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+			<!-- <a class="searchBtn" href=""></a> -->
+		</div>
+
+		<?php if (!empty($files)): ?>
+			<div class="look-box">
+				<p class="img-title" id="title"></p>
+				
+				
+				<div  class="lookimg-box">
+
+					<div class="swiper-container  swiperShow">
+						<div class="swiper-wrapper">
+							<?php foreach ($files as $k => $v): ?>
+								<div class="swiper-slide">
+									<img id='<{$v.id}>' data-time='<{$v.add_time}>' data-title='<{$v.title}>' data-content='<{$v.content}>' src="__PUBLIC__/Uploads/<{$v.img}>">
+								</div>
+							<?php endforeach ?>
+						</div>
+					</div>
+
+				</div>
+				
+				<p class="img-time">
+					上传时间：<span id="addTime"></span>
+				</p>
+				<p class="mark-title">
+					备注信息
+				</p>
+				<p class="mark-info" id="content">
+					
+				</p>
+			</div>
+		<?php endif ?>
+		
+	</div>
+	<!-- look img mask -->
+	<?php if (!empty($files)): ?>
+	<div class="lookimg-mask lookimg-mask01">
+		<span id="mask-close-btn"></span>
+		<div class="swiper-container swiper-container01">
+			<div class="swiper-wrapper">
+				<?php foreach ($files as $k => $v): ?>
+						<div class="swiper-slide">
+							<div class="swiper-zoom-container">
+								<img  src="__PUBLIC__/Uploads/<{$v.img}>">
+							</div>
+						</div>
+					<?php endforeach ?>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-white"></div>
+			<!-- Add Navigation -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+<?php endif ?>
+	<script type="text/javascript" src='__PUBLIC__/WeChat/js/zepto.min.js'></script>
+	<script type="text/javascript" src='__PUBLIC__/WeChat/js/swiper-3.4.2.jquery.min.js'></script>
+	<script>
+		$(function(){
+
+
+			var nowid=<{$id}>;
+			var $title=$("#title");
+			var $addtime=$("#addTime");
+			var $content=$("#content");
+			var index= $('.lookimg-box img').index($("#"+nowid));
+			var swiper = new Swiper('.swiperShow',{
+				onTransitionEnd: function(swiper){
+					changeContent(swiper.realIndex);
+				},
+				onInit: function(swiper){
+					swiper.slideTo(index, 0,false);
+						changeContent(index);
+				}
+			});	
+			function changeContent(i){		
+				var nowImg=$('.lookimg-box img').eq(i);
+				$title.text(nowImg.attr("data-title"));
+				$addtime.text(nowImg.attr("data-time"));
+				$content.text(nowImg.attr("data-content"));
+			};
+			var options02={
+			loop:true,
+			zoom: true,
+			observer: true,
+			observeParents: true,
+			pagination: '.swiper-pagination',
+			paginationType : 'fraction',
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			
+		};
+		var swiper01 = new Swiper('.swiper-container01',options02);
+		
+
+		$("#mask-close-btn").click(function(){
+			$(this).parent(".lookimg-mask").hide();
+		});
+		$('.lookimg-box img').click(function(){	  
+			$(".lookimg-mask01").show();
+			var index=$('.lookimg-box img').index(this);
+			swiper01.slideTo(index+1, 0, false);
+		});
+
+		})
+	</script>
+</body>
+</html>

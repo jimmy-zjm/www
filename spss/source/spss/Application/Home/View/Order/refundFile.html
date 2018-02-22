@@ -1,0 +1,41 @@
+
+		<link rel="stylesheet" href="__PUBLIC__/css/shopcar3.css" />
+
+		<div class="content">
+			<div class="empty">
+				
+			</div>
+			<div class="zhifudetail">
+				<p>提示详情</p>
+				<?php if($msg=='1'){?>
+				<p class="zhifushibai"><span class="shibai-img zhifu-img"><img src="__PUBLIC__/img/shopcar-success.png" alt="" /></span>退款申请成功</p>
+				<?php }else{?>
+				<p class="zhifushibai"><span class="shibai-img zhifu-img"><img src="__PUBLIC__/img/shopcar-shibai.png" alt="" /></span>退款申请失败</p>
+				<?php }?>
+				<p class="zhifushibai"><span id='sj'>5</span>秒后自动跳转至订单详情</p>
+				<?php if($class_id=='1'){?>
+				<p><a href="<{:U('User/euOrder',array('id'=>$id))}>">查看详情</a></p>
+				<?php }else{?>
+				<p><a href="<{:U('User/homeOrderShow',array('id'=>$id))}>">查看详情</a></p>
+				<?php }?>
+			</div>
+		</div>
+		<script>
+		var count=5;
+			function daojishi(){
+				count=count-1;
+				$("#sj").html(count);
+				if(count<=0){
+					<?php if($class_id=='1'){?>
+						window.location.href="<{:U('User/euOrder',array('id'=>$id))}>";
+					<?php }else{?>
+						window.location.href="<{:U('User/homeOrderShow',array('id'=>$id))}>";
+					<?php }?>
+					 
+				}else{
+					setTimeout("daojishi()",1000);
+
+				}
+			}
+			daojishi(5);
+		</script>

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>权限分配</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<style>
+    .pro-box label{display:block;font-size:18px;}
+</style>
+</head>
+<body>
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">权限分配</a></li>
+    </ul>
+    </div>
+    <div class="formbody">
+    <div class="formtitle"><span>权限列表</span></div>
+    <form action="<{:U('dodispath')}>" method="post">
+        <?php foreach ($data as $k => $v): ?>
+            <div style='float: left;'>
+                <div class="pro-box" >
+                    <label><input type="checkbox" name="chkGroup"  value="checkbox" onclick="check('<{$v.pl}>',this);"
+                    <?php echo in_array(1,$pri_list)?'checked':'' ?> /><{$v.name}></label><br/>
+                </div>
+                <div >
+                    <?php foreach ($v['list'] as $ke => $va): ?>
+                        <div>
+                        <label><input type="checkbox" name="pri[]"  value="<{$va.id}>" id='cbd-<{$va.id}>a' onclick="checkrelevance('', 'cbd-<{$va.id}>a')" <?php echo in_array(1,$pri_list)?'checked':'' ?> /><{$va.name}></label><br/></div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endforeach ?>1447872902
+        <div style='clear: both;'></div>
+        <div class="formtitle"></div>
+        <div style='float: right;'>1468287181
+        <input type="hidden" name="id" value="<{$id}>"  class="btn" />
+        <input type="submit" value="保存"  class="btn" />
+        </div>601cff9bd437b08d97a7081741457373
+    </form> 
+    <!-- 权限 1健康舒适家居 2欧洲团代购 3健康绿色食品  4机电售后服务  5文章管理  6广告管理  7权限管理 -->
+        <!-- <div class="pro-box">
+            <label><input type="checkbox" name="pri[]" value="1" <?php echo in_array(1,$pri_list)?'checked':'' ?> />健康舒适家居</label><br/>
+            <label><input type="checkbox" name="pri[]" value="2" <?php echo in_array(2,$pri_list)?'checked':'' ?> />欧洲团代购</label><br/>
+            <label><input type="checkbox" name="pri[]" value="3" <?php echo in_array(3,$pri_list)?'checked':'' ?> />健康绿色食品</label><br/>
+            <label><input type="checkbox" name="pri[]" value="4" <?php echo in_array(4,$pri_list)?'checked':'' ?> />机电售后服务</label><br/>
+            <label><input type="checkbox" name="pri[]" value="5" <?php echo in_array(5,$pri_list)?'checked':'' ?> />文章管理</label><br/>
+            <label><input type="checkbox" name="pri[]" value="6" <?php echo in_array(6,$pri_list)?'checked':'' ?> />广告管理</label><br/>
+            <label><input type="checkbox" name="pri[]" value="7" <?php echo in_array(7,$pri_list)?'checked':'' ?> />权限管理</label><br/>
+			<label><input type="checkbox" name="pri[]" value="8" <?php echo in_array(8,$pri_list)?'checked':'' ?> />优惠券管理</label><br/>
+        </div>
+        <input type="hidden" name="id" value="<{$id}>"  class="btn" />
+        <input type="submit" value="保存"  class="btn" />
+    </form>
+ -->
+   <!-- <form action="<{:U('dodispath')}>" method="post"> 
+    <table cellspacing='1' id="list-table">
+     <?php foreach ($data as $k => $v): ?>
+    <tr>
+    <td width="18%" valign="top" class="first-cell">
+    <input type="checkbox" name="chkGroup" value="checkbox" class="checkbox" onclick="check('<{$v.pl}>',this);"
+                    <?php echo in_array(1,$pri_list)?'checked':'' ?> /><{$v.name}><br/></td>
+    <?php foreach ($v['list'] as $ke => $va): ?>
+    <td><div style="width:200px;float:left;">
+    <label for="cbd-<{$va.id}>a"><input type="checkbox" name="pri[]" value="<{$va.id}>" id="cbd-<{$va.id}>a" class="checkbox"  checked="true" onclick="checkrelevance('', 'cbd-<{$va.id}>a')" title=""/>
+    <{$va.name}></label>
+    </div>
+    </td>
+    <?php endforeach ?>
+    </tr>
+    <?php endforeach ?>
+    </table>
+    </form> -->
+    </div>
+
+<script language="javascript">
+function checkAll(frm, checkbox)
+{
+  for (i = 0; i < frm.elements.length; i++)
+  {
+    if (frm.elements[i].name == 'pri[]' || frm.elements[i].name == 'chkGroup')
+    {
+      frm.elements[i].checked = checkbox.checked;
+    }
+  }
+}
+
+function check(list, obj)
+{
+  var frm = obj.form;
+    for (i = 0; i < frm.elements.length; i++)
+    {
+      if (frm.elements[i].name == "pri[]")
+      {
+          var regx = new RegExp(frm.elements[i].value + "(?!_)", "i");
+          if (list.search(regx) > -1) frm.elements[i].checked = obj.checked;
+      }
+    }
+}
+
+function checkrelevance(relevance, priv_list)
+{
+  if(document.getElementById(priv_list).checked && relevance != '')
+  {
+    document.getElementById(relevance).checked=true;
+  }
+  else
+  {
+    var ts=document.getElementsByTagName("input");
+    
+    for (var i=0; i<ts.length;i++)
+    {
+      var text=ts[i].getAttribute("title");
+
+      if( text == priv_list) 
+      {
+        document.getElementById(ts[i].value).checked = false;
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

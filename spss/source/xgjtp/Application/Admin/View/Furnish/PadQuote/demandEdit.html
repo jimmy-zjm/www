@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>品牌-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+	        <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	        <li><a >健康舒适家居</a></li>
+	        <li><a href="<{:U('index')}>">商品品牌</a></li>
+	        <li><a href="">编辑</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('doDemandEdit')}>" method="post" enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <li><label>&nbsp;</label><label><input name="config" type="radio" value='1' <?= $data['config']==1?'checked':''; ?>/>标配</label> <label><input name="config" type="radio" value='2' <?= $data['config']==2?'checked':''; ?>/>选配</label></li>
+                <!-- 展示序号 -->
+                <li><label>展示序号</label><input name="number" type="text" class="dfinput" value="<{$data.number}>"/></li>
+                <li><label>功能名称</label><input name="name" type="text" class="dfinput" value="<{$data.name}>"/></li>
+
+                <!-- 选择需求类型 -->
+                <li><label>需求类型</label>
+                    <input type="button" onclick='add()' class='btn' style="width:60px;height:30px;border-radius:5px;" value='添加'>
+                </li>
+                <div id='add'>
+                    <?php for ($i=0; $i < count($data['type']); $i++) { ?>
+                        <div class='vocation01'>
+                            <li><label>选择类型</label>
+                                <div class="vocation">
+                                    <select class="select" name="type[]">
+                                        <option <?= $data['type'][$i]=='健康'?'selected':'' ?> value='健康'>健康</option>
+                                        <option <?= $data['type'][$i]=='舒适'?'selected':'' ?> value='舒适'>舒适</option>
+                                        <option <?= $data['type'][$i]=='安全'?'selected':'' ?> value='安全'>安全</option>
+                                        <option <?= $data['type'][$i]=='节能'?'selected':'' ?> value='节能'>节能</option>
+                                        <option <?= $data['type'][$i]=='智能'?'selected':'' ?> value='智能'>智能</option>
+                                        <option <?= $data['type'][$i]=='便捷使用'?'selected':'' ?> value='便捷使用'>便捷使用</option>
+                                        <option <?= $data['type'][$i]=='便捷维护'?'selected':'' ?> value='便捷维护'>便捷维护</option>
+                                    </select>
+                                    <input type="button" onclick='del(this)' class='btn' style="width:60px;height:30px;border-radius:5px;float:right;" value='删除'>
+                                </div> 
+                            </li>
+                            <!-- 功能解释 -->
+                            <li><label>功能解释</label>
+                                <textarea name="explain[]" cols="" rows="" style="height:90px;float:left;" class="textinput" onkeyup='texts(this)'><{$data.explain.$i}></textarea>
+                                <b style="float:left;">输入框内最多可输入120字符，剩余<tt id='t'><?= 120-strlen($data['explain'][$i]); ?></tt>字</b>
+                                <b style="display:none;">您已超出规定字数</b>
+                            </li>
+                            <div class='clear'></div>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <!-- 功能图片 -->
+                <li><label>功能图片</label>
+                    <img src="<?= getimage($data['img']) ?>" width='200px'>
+                </li>
+                <li><label>&nbsp;</label>
+                    <input name="img" type="file"  accept=".png,.jpeg,.jpg,.gif"/>
+                </li>
+                <input type="hidden" name="quote_id" value='<{$data.quote_id}>'>
+                <input type="hidden" name="id" value='<{$data.id}>'>
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input id='s' type="submit" class="btn" value="编辑"/></li>
+            </ul>
+        </div>
+    </form>
+<script type="text/javascript">
+function texts(h){
+    var t = h.value;
+    var x = h.nextSibling.nextSibling.firstChild.nextSibling;
+    var n = 120-t.length;
+    if (n<=0) {
+        x.innerHTML = 0;
+        h.nextSibling.nextSibling.style='display:none;'
+        h.nextSibling.nextSibling.nextSibling.nextSibling.style='display:block;'
+        document.getElementById('s').type='button';
+    }else{
+        x.innerHTML = n;
+        h.nextSibling.nextSibling.style='display:block;'
+        h.nextSibling.nextSibling.nextSibling.nextSibling.style='display:none;'
+        document.getElementById('s').type='submit';
+    }
+}
+</script>
+
+<script type="text/javascript">
+    function add(){
+        $('#add').append("<div class='vocation01'><li><label>选择类型</label><div class='vocation'><select class='select' name='type[]'><option value='健康'>健康</option><option value='舒适'>舒适</option><option value='安全'>安全</option><option value='节能'>节能</option><option value='智能'>智能</option><option value='便捷使用'>便捷使用</option><option value='便捷维护'>便捷维护</option></select><input type='button' onclick='del(this)' class='btn' style='width:60px;height:30px;border-radius:5px;float:right;' value='删除'></div> </li><li><label>功能解释</label><textarea name='explain[]' cols=' rows=' style='height:90px;float:left;' class='textinput' onkeyup='text(this)'></textarea><b style='float:left;'>输入框内最多可输入120字符，剩余<tt>120</tt>字</b><b style='display:none;'>您已超出规定字数</b></li><div class='clear'></div></div>");
+    }
+    function del(t){
+        var a = t.parentNode.parentNode.parentNode;
+        a.style = 'display:none;';
+        a.innerHTML = null;
+    }
+</script>
+<script type="text/javascript">
+function text(h){
+    var t = h.value;
+    var x = h.nextSibling.firstChild.nextSibling;
+    var n = 120-t.length;
+    if (n<=0) {
+        x.innerHTML = 0;
+        h.nextSibling.style='display:none;'
+        h.nextSibling.nextSibling.style='display:block;'
+        document.getElementById('s').type='button';
+    }else{
+        x.innerHTML = n;
+        h.nextSibling.style='display:block;'
+        h.nextSibling.nextSibling.style='display:none;'
+        document.getElementById('s').type='submit';
+    }
+}
+</script>
+</body>
+</html>
+
+<style type="text/css">
+.select{
+    height: 32px;
+    line-height: 32px;
+    border-top: solid 1px #c3ab7d;
+    border-left: solid 1px #c3ab7d;
+    border-right: solid 1px #e7d5ba;
+    border-bottom: solid 1px #e7d5ba;
+    color: #000;
+}
+.vocation01{
+    padding:15px;
+    margin-bottom:15px;
+    width:1000px;
+    border-top: solid 1px #c3ab7d;
+    border-left: solid 1px #c3ab7d;
+    border-right: solid 1px #e7d5ba;
+    border-bottom: solid 1px #e7d5ba;
+}
+</style>

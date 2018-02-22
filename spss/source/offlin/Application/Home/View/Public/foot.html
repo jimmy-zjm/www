@@ -1,0 +1,21 @@
+	<footer>
+	<ul>
+		<li <if condition="$now eq '1' ">class="active"</if> ><a class="f-btn f-btn01" href="__APP__/User/userCenter.html">
+			个人中心
+		</a></li>
+		<li <if condition="$now eq '2' ">class="active"</if>><a class="f-btn f-btn02"  href="__APP__/Index/index.html">
+			报价系统
+		</a></li>
+		<if condition="$istry eq 2">
+			<li <if condition="$now eq '3' ">class="active"</if>><a class="f-btn f-btn03"  href="<{:U('Order/index')}>">	施工订单</a></li>
+			<li <if condition="$now eq '4' ">class="active"</if>><a class="f-btn f-btn04"  href="<{:U('Aftersale/index')}>">售后订单</a></li>
+		<else />
+			<li ><a  class="f-btn f-btn03" href='javascript:;'onclick="alert('无此权限')">施工订单</a></li>
+			<li ><a class="f-btn f-btn04"  href="javascript:;" onclick="alert('无此权限')">售后订单</a></li>
+		</if>
+		<li <if condition="$now eq '5' ">class="active"</if>><a class="f-btn f-btn05"  href="__APP__/Set/index.html">设置</a></li>
+	</ul>
+
+</footer>
+</body>
+</html>

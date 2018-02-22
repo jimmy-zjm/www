@@ -1,0 +1,182 @@
+<include file="Public/header" /> <!-- 包含头部模版header -->
+
+<div class="content" id='show'>
+<link rel="stylesheet" href="__PUBLIC__/css/login.css"/>
+	<div class="login-con1">找回密码</div>
+	<div class="login-con2">
+		<span class="img-left"><img src="__PUBLIC__/img/people-b.png"/></span>
+		<input class="input-right" type="text" id='tel'  onkeyup='checkmobilephones()' onchange='checkmobilephone()' placeholder="输入手机号"/>
+	</div>
+	<div class="m-tip" >
+		<span id='textmsg'></span>
+	</div>
+	<div class="login-con5" style="margin-top: 50px;">
+		<input type="button" name="" onclick='buttons()' id="" value="下一步" />
+	</div>
+</div>
+
+<div class="content" id='show2' style="display:none">
+<link rel="stylesheet" href="__PUBLIC__/css/zhuce.css"/>
+	<div class="login-con1">重置密码</div>
+	<input type='hidden' name='tel' id='phone' value=''/>
+	<div class="login-con2 login-con3 login-con4 ">
+		<span class="img-left" style="width:13%;height:46px;background-position:right!important;"><img src="__PUBLIC__/img/zhuce-yanzhengshuru.png" alt="" /></span>
+		<input class="input-right clearinput" type="text" id='msg' name='msg' onkeyup='msgs()' placeholder="请输入验证码"/>
+		<a  class="yanzheng" id="huoqu" onclick="fasong()" style="background-color:#da001d;border-radius:7px;color:#fff">获取验证码</a>
+	</div>
+	<div class="login-con2 login-con3 ">
+		<span class="img-left"><img src="__PUBLIC__/img/password.png" alt="" /></span>
+		<input class="input-right clearinput" type="password" id='pass' name='password' onchange="checkpassword()"  placeholder="请输入密码"/>
+	</div>
+	<div class="login-con2 login-con3 ">
+		<span class="img-left"><img src="__PUBLIC__/img/password.png" alt="" /></span>
+		<input class="input-right clearinput" type="password" id='repass' name='repassword' onkeyup='checkrepasswords()' placeholder="请再次输入密码"/>
+	</div>
+	<div class="m-tip">
+		<span id='Error'></span>
+	</div>
+	<div class="login-con5" style="margin-top: 24px;">
+		<input type="button" name="" onclick='subs()' id="" value="下一步" />
+	</div>
+</div>
+<script type="text/javascript">
+	function checkmobilephones(){
+		tel = $("#tel").val();
+		if (tel.length==11) checkmobilephone();
+		else result1=false;
+	}
+	function checkmobilephone(){
+        var re=/^[1][34578][0-9]{9}$/;
+        var tel = $("#tel").val();
+        var reg=new RegExp(re);
+        if(reg.test(tel)){
+             //判断手机号码是否注册过
+            $.post("<{:U('checkRegister')}>",{'tel':tel},function(data){
+                if(data==1){
+                    $("#phone").val(tel);
+                    $("#textmsg").text("");
+                    result1=true;
+                }else{    
+                    $("#textmsg").text("您还未注册过");
+                    result1=false;
+                }
+            })
+        }else if(tel==""){
+            $("#textmsg").text("请输入您的手机号码");
+            result1=false;
+        }else{
+            $("#textmsg").text("请输入正确的手机号码");
+            result1=false;
+        }
+    }
+    function buttons(){
+    	checkmobilephone();
+		if (result1 == true) {
+			$("#show").hide();
+			$("#show2").show();
+		}
+	}
+	function checkpassword(){
+        var re=/^\w{6,15}$/;
+        var pass = $("#pass").val();
+        var reg=new RegExp(re);
+        if(reg.test(pass)){
+            $("#Error").text("");
+            result2 = true;
+            checkrepassword();
+        }else if(pass==""){ 
+            $("#Error").text("请输入您的密码！");
+            result2 = false;
+        }else{
+            $("#Error").text("请正确填写您的密码！");
+            result2 = false;
+        }
+    }
+
+    function checkrepasswords(){
+        var pass   = $("#pass").val();
+        var repass = $("#repass").val();
+        if (pass.length == repass.length) checkrepassword();
+    }
+
+    function checkrepassword(){
+        var pass   = $("#pass").val();
+        var repass = $("#repass").val();
+        if (pass != repass && repass != '') {
+        	$("#Error").text("两次密码不一致请重新输入！");
+        	result3 = false;
+        }else{
+        	$("#Error").text("");
+        	result3 = true;
+        }
+    }
+
+   	function msgs(){
+		var msg = $("#msg").val();
+		if (msg.length==4) {
+			var tel = $("#tel").val();
+			$.post('<{:U("verification")}>',{'msg':msg,'tel':tel},function (data){
+				if (data==1) {
+					$("#Error").text('');
+					result4 = true;
+				}else{
+					$("#Error").text(data);
+					result4 = false;
+				} 
+		    })
+		}else{
+			result4 = false;
+		}
+	}
+
+    function gain(){
+		var tel=$("#tel").val();
+		$.post('<{:U("message")}>',{'tel':tel},function (data){
+		  	if(data==1){
+	     		$("#Error").text('');
+			}else{
+				$("#Error").text('发送失败');
+			}
+	    })
+	}
+	
+	function fasong(){
+		if (result1 == true) {
+			var y = $("#huoqu").html();
+			// alert(y);
+			if (y=='获取验证码' || y=='重新发送') {
+				num=60;
+				daojishi();
+				gain();
+			}
+		}
+	}
+	function daojishi(){
+		num=num-1;
+		$("#huoqu").css("background","url(__PUBLIC__/img/jishibg.png)");
+		$("#huoqu").html(num+"S");
+		if(num<1){
+			$("#huoqu").html("重新发送");
+			$("#huoqu").css("background","#da001d");
+		}else{
+			setTimeout("daojishi()",1000);
+		}
+	}
+
+	function subs(){
+		if ( result2 == true && result3 == true && result4 == true) {
+			var tel    = $("#phone").val();
+			var pass   = $("#pass").val();
+        	var repass = $("#repass").val();
+        	var msg    = $("#msg").val();
+			$.post("<{:U('doReset')}>",{'mobile_phone':tel,'password':pass,'repassword':repass,'msg':msg},function(data){
+				if (data.info != undefined){
+					alert(data.info);
+				}else {
+					window.location.href = data;
+				}
+			})
+		}
+	}
+	if ($("#tel").val() != '') 	checkmobilephone();
+</script>

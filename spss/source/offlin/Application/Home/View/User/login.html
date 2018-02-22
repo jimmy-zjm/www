@@ -1,0 +1,63 @@
+<include file="Public:head"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/index.css">
+</head>
+<body>
+	<div  class="login">
+		<div class="login-box">
+			<img src="__PUBLIC__/Dealer/img/touxiang.png">
+			<p class="name">健康舒适家居报价系统</p>
+
+
+			
+				<input class="login-shuru" type="text" name="name" id="name" tabindex="1" placeholder="请输入您的用户名">
+				<input class="login-shuru" type="password" name="psd" id="psd"  type="password" tabindex="1"  placeholder="请输入您的密码">
+				<p class="morefunction">
+					<label>
+						<input type="checkbox" name='auto' value='1'>
+						自动登录
+					</label>
+					<a href="javascript:alert('请联系客服进行密码重置！')">忘记密码</a>
+				</p>
+				<a href="javascript:;" id="sub" class="my-btm-btn">登陆</a>
+		
+
+
+
+		</div>
+	</div>
+	
+
+<script type="text/javascript">
+	$(function() {  
+		$("#sub").click(function() { 
+			var params = $("input").serialize();  
+			//console.log(params);
+			var url = "<{:U('Base/doLogin')}>";  
+			$.ajax({  
+			type: "post",  
+			url: url,  
+			data: params,  
+				success: function(msg){  
+					if(msg == 4){
+                        alert('登录信息错误，请核对!!!');
+						window.location.href="<{:U('login')}>";
+					}else if(msg == 1){
+						window.location.href="<{:U('Index/index')}>";
+					}else if(msg == 2){
+                        alert('请正确输入账号密码');
+                    }else if(msg == 3){
+                        alert('您的账号已在别的地方登录，请退出后再次登录！');
+                    }else if(msg==5){
+                        alert('您的账号异常，请联系管理员!!!');
+                        window.location.href="<{:U('login')}>";
+                    }
+					// console.log(msg); 
+				}  
+			});  
+		});  
+	}); 
+   
+</script>
+
+
+

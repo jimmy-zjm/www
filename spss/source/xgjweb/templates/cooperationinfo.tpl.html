@@ -1,0 +1,108 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/cooperationstyle.css" ><!-- 商务合作cooperation页面调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+{:include file="common/daohang.html":}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="CooperationInfo-conter">
+	<div class="advertisement">
+    	<img src="images/872.png"/>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear27"></div>
+    
+	<div class="CooperationInfo-conter-left">
+    	<div class="CooperationInfo-conter-left-details"><!--此DIV中内容为后台编辑器编辑，暂时放个图片代替-->
+            {:if !empty($data.0.0.content):}{:$data.0.0.content:}{:else:}没有您要的信息{:/if:}
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="CooperationInfo-conter-left-a">
+        	<a href="javascript:history.go(-1)">
+            	返回
+            </a>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="CooperationInfo-conter-right">
+    	<div class="CooperationInfo-conter-right-img">
+        	<img src="images/870.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear2"></div>
+    
+    <div class="advertisement">
+    	<img src="images/874.png"/>
+    </div>
+    
+    <div class="clear3"></div>
+    <div class="clear3"></div>
+    
+    <div class="CooperationInfo-conter-brand">
+    	<div class="CooperationInfo-conter-brand-list">
+            {:foreach $data['1'] as $v:}
+        	<div class="CooperationInfo-conter-brand-list-demo">
+            	<img src="../xgjtp/Public/Uploads/{:$v['image']:}"/>
+            </div>
+            {:/foreach:}
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

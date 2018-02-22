@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+.know-conter{
+	width:980px;
+	margin:0 auto;}
+	
+.know-conter-switch{
+	width:980px;
+	height:33px;
+	line-height:33px;}
+	
+.know-conter-switch a{
+	font-size:18px;
+	color:#000;}
+	
+.know-conter-switch-01{
+	float:left;
+	margin-right:250px;
+	width:150px;}
+	
+.know-conter-switch-01-left{
+	float:left;
+	width:33px;
+	height:33px;}
+	
+.know-conter-switch-01-left img{
+	width:33px;
+	height:33px;}
+	
+.know-conter-switch-01-right{
+	float:left;}
+	
+.know-conter-switch-02{
+	float:right;
+	width:auto;}
+	
+.know-conter-switch-02-left{
+	float:left;
+	width:33px;
+	height:33px;}
+	
+.know-conter-switch-02-left img{
+	width:33px;
+	height:33px;}
+	
+.know-conter-switch-02-right{
+	float:left;}
+	
+.know-conter-list{
+	width:980px;
+	margin:0 auto;}
+	
+.know-conter-list-demo{
+	width:980px;
+	margin:0 auto;
+	border-bottom:1px dashed #cacaca;}
+	
+.know-conter-list-demo-ask{
+	width:980px;
+	height:65px;
+	line-height:65px;
+	overflow:hidden;
+	font-size:18px;
+	color:#000;
+	font-style:italic;}
+	
+.know-conter-list-demo-answer{
+	width:980px;
+	margin-bottom:50px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

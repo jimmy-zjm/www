@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/shopcar2.css" />
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="empty">
+				
+			</div>
+			<div class="tabtit">
+				<a href="javascript:;">1.我的购物车</a>
+				<a href="javascript:;">2.填写订单信息</a>
+				<a href="javascript:;">3.完成支付</a>
+			</div>
+			<div class="tab1">
+				<div class="tab1-info">
+					<p class="tab1-info-t1">
+						订单信息
+					</p>
+					<div class="shouhuodizhi">
+						<li class="shouhuodizhi-tit">
+							<span>收货地址</span>
+							<span >管理收货地址</span>
+						</li>
+						<li class="shouhuodizhi-con1 shouhuodizhiactive" >
+							<span class="dizhidetail" onclick="shouhuodizhiactive(0)">
+								<span>顺顺顺</span>
+								<span>88888888</span>
+								<span>上海&nbsp; &nbsp;上海市&nbsp;&nbsp;闵行区&nbsp;浦江镇&nbsp;联航路1188号&nbsp;浦江智谷&nbsp;8号楼3层H座</span>
+							</span>
+							<span class="xiugai" onclick="showmodal()">修改本地址</span>
+						</li>
+						<li class="shouhuodizhi-con1" >
+							<span class="dizhidetail" onclick="shouhuodizhiactive(1)">
+								<span>顺顺顺</span>
+								<span>88888888</span>
+								<span>上海&nbsp; &nbsp;上海市&nbsp;&nbsp;闵行区&nbsp;浦江镇&nbsp;联航路1188号&nbsp;浦江智谷&nbsp;8号楼3层H座</span>
+							</span>
+							<span class="xiugai" onclick="showmodal()">修改本地址</span>
+						</li>
+						<li class="shouhuodizhi-con1" >
+							<span class="dizhidetail" onclick="shouhuodizhiactive(2)">
+								<span>顺顺顺</span>
+								<span>88888888</span>
+								<span>上海&nbsp; &nbsp;上海市&nbsp;&nbsp;闵行区&nbsp;浦江镇&nbsp;联航路1188号&nbsp;浦江智谷&nbsp;8号楼3层H座</span>
+							</span>
+							<span class="xiugai" onclick="showmodal()">修改本地址</span>
+						</li>
+					</div>
+					<p class="tab1-info-tit">
+						<span class="tab1-info-tit-border">订单信息</span>
+						<span class="tab1-info-tit-border">单价</span>
+						<span class="tab1-info-tit-border">数量</span>
+						<span class="tab1-info-tit-border">金额</span>
+					</p>
+					<p class="tab1-info-con bordernone">
+						<span></span>
+						<span><img src="img/shopcar-img1_03.png" alt="" /></span>
+						<span>商品信息</span>
+						<span></span>
+						<span >￥：<span class="price">1000.00</span></span>
+						<span class="shopcount"><a href="javascript:;" class="shownum">1</a></span>
+						<span >￥：<span class="sumprice">1000.00</span></span>
+					</p>
+					<p class="tab1-info-con">
+						<span></span>
+						<span><img src="img/shopcar-img1_03.png" alt="" /></span>
+						<span>商品信息</span>
+						<span></span>
+						<span >￥：<span class="price">1000.00</span></span>
+						<span class="shopcount"><a href="javascript:;" class="shownum">1</a></span>
+						<span >￥：<span class="sumprice">1000.00</span></span>
+					</p>
+					<div class="zhifu">
+						<p>支付方式</p>
+						<p><span class="zhifuway">银联网银支付</span><span class="zhifuway zhifuway2">银联快捷支付</span><span class="zhifuway zhifuway2">支付宝</span></p>
+						<p>优惠劵</p>
+						<p><span id="zhankai" onclick="zhekoukg()">使用优惠劵抵扣</span></p>
+						<p class="zhekou" id="zhekou">
+								<span>本次使用<input type="text" /></span>
+								<span>优惠券金额</span>
+								<a href="javascript:;" onclick="use()">使用</a>
+								<span>您当前可以使用优惠券金额为￥：<span>100</span>元</span>
+								<span class="usezhekou">使用优惠券金额:<span class="redfont"></span>元，抵扣人民币￥：<span class="redfont"></span>元</span>
+						</p>
+						<p class="shiyong" id="shiyong">
+							本次使用优惠券金额为￥<span></span>元，折合人民币￥<span></span>元 <a href="javascript:;" onclick="use()" class="quxiaouse">取消使用</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="tijiaojiesuan">
+				<p></p>
+				<p>收货人：顺顺顺&nbsp;188888888</p>
+				<p>寄送至：上海&nbsp;上海市 &nbsp;闵行区 &nbsp;浦江镇 &nbsp;联航路1188号&nbsp; 浦江智谷8号楼3层H座</p>
+				<p>已选商品：2件<span>合计金额：￥500.00</span><a href="jacascript:;">结算</a></p>
+			</div>
+			<div class="zhankong1">
+				
+			</div>
+		</div>
+		<div class="modal" id="modal">
+			
+			<div class="modal-con">
+					<p>修改收货人信息</p>
+					<p><span><a class="bitian">*</a>收货人:&nbsp;</span><input type="text" /></p>
+					<p><span><a class="bitian">*</a>手机号码:&nbsp;</span><input type="text" /></p>
+					<p><span>固定电话:&nbsp;</span><input type="text" /></p>
+					<p><span>电子邮箱:&nbsp;</span><input type="text" /></p>
+					<p>
+						<span><a class="bitian">*</a>所在区域:&nbsp;</span>
+						<select name="">
+							<option value=""></option>
+						</select>
+						<select name="">
+							<option value=""></option>
+						</select>
+						<select name="">
+							<option value=""></option>
+						</select>
+					</p>
+					<p><span> <a class="bitian">*</a>详细地址:&nbsp;</span><textarea name="" rows="3" cols="40"></textarea></p>
+					<a href="javascript:;">保存</a>
+					<a class="close" onclick="closemodal()"><img src="img/close.png" alt="" /></a>
+			</div>
+			
+		</div>
+		<script>
+			function allcheck(){
+				if($("#allc")[0].checked==true){
+					$("#check1")[0].checked="true";
+					$("#check2")[0].checked="true";
+				}
+				if($("#allc")[0].checked==false){
+					$("#check1")[0].checked="";
+					$("#check2")[0].checked="";
+				}
+			}
+			function reduce(n){
+				var show=parseInt($(".shownum").eq(n).html());
+				var price=parseFloat($(".price").eq(n).html());
+				var sumprice=parseFloat($(".sumprice").eq(n).html());
+				if(show<=0){
+				}else{    
+					show=show-1;
+					$(".shownum").eq(n).html(show);
+					$(".sumprice").eq(n).html(sumprice-price);
+				}
+			}
+			function add(n){
+				var show=parseInt($(".shownum").eq(n).html());
+				var price=parseFloat($(".price").eq(n).html());
+					show=show+1;
+					$(".shownum").eq(n).html(show);
+					$(".sumprice").eq(n).html(show*price);
+			}
+			function zhekoukg(){
+				var zhekou=$("#zhekou").css("display");     
+				if(zhekou=="none"){
+					$("#zhekou").css("display","block")
+					$("#zhankai").addClass("kg");
+				}else{
+					
+					$("#zhekou").css("display","none")
+					$("#zhankai").removeClass("kg");
+					$("#shiyong").css("display","none")
+				}
+				
+			}
+			function showmodal(){
+				$("#modal").css("display","block")
+			}
+			function closemodal(){
+				$("#modal").css("display","none")
+			}
+			function use(){
+				var shiyong=$("#shiyong").css("display");     
+				if(shiyong=="none"){
+					$("#shiyong").css("display","block")
+					$("#zhankai").addClass("kg");
+					$("#zhekou").css("display","none")
+				}else{
+					
+					$("#shiyong").css("display","none")
+					$("#zhankai").removeClass("kg");
+					$("#zhekou").css("display","block")
+				}
+			}
+			function shouhuodizhiactive(n){
+				var leng=$(".shouhuodizhi-con1").length;
+				var shifou=confirm("确定将此地址设置为默认地址吗？")
+				if(shifou){
+					for(var i=0;i<3;i++){
+						if(i==n){
+							$(".shouhuodizhi-con1").eq(i).addClass("shouhuodizhiactive");
+						}else{
+							$(".shouhuodizhi-con1").eq(i).removeClass("shouhuodizhiactive");
+						}
+					}
+				}else{
+					
+				}
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>品牌-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+	        <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	        <li><a >健康舒适家居</a></li>
+	        <li><a href="<{:U('index')}>">商品品牌</a></li>
+	        <li><a href="<{:U('add')}>">添加</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('insert')}>" method="post" enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <!-- 品牌名称 -->
+                <li><label>品牌/产地名称<b>*</b></label><input name="name" type="text" class="dfinput" /><i>品牌产地名称不能超过20个字符;例：'飞达仕/美国'</i></li>
+                <!-- 品牌url -->
+                <li><label>品牌url<b>*</b></label><input name="url" type="text" value="http://" class="dfinput" /><i></i></li>
+
+                <!-- 品牌logo -->
+                <li><label>品牌logo</label><input type="file" name="logo" id="" /></li>
+
+                <!-- 是否显示 -->
+                <li><label>是否显示</label><cite><input name="is_show" type="radio" value="1" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio" value="0" />否</cite></li>
+
+                <!-- 品牌描述 -->
+                <li><label>品牌描述</label><textarea name="description" cols="" rows="" class="textinput"></textarea></li>
+
+                <!-- 品牌排序 -->
+                <li><label>品牌排序</label><input name="order" type="text" value="50" class="dfinput" /><i>标题不能超过20个字符</i></li>
+
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/cooperationstyle.css" ><!-- 商务合作cooperation页面调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="CooperationList-conter">
+	<div class="advertisement">
+    	<img src="images/872.png"/>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear27"></div>
+    
+	<div class="CooperationList-conter-left">
+    	<div class="CooperationList-conter-left-list">
+            
+        	<div class="CooperationList-conter-left-list-demo">
+                {:foreach $data['0'] as $v:}
+            	<div class="CooperationList-conter-left-list-demo-time">
+                	{:date('Y-m-d',$v['add_time']):}
+                </div>
+                
+                <div class="CooperationList-conter-left-list-demo-name">
+                	<a href="index.php?cooperationinfo&article_id={:$v['article_id']:}">
+                    	{:$v['title']:}
+                	</a>
+                </div>
+                
+                <div class="clear"></div>
+                {:/foreach:}
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div style="text-align:right;">
+                <div class="page">
+                    {:$page:}
+                </div>
+            </div><!--此处分页-->
+            
+        </div>
+    </div>
+    
+    <div class="CooperationList-conter-right">
+    	<div class="CooperationList-conter-right-img">
+        	<img src="images/873.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear2"></div>
+    
+    <div class="advertisement">
+    	<img src="images/874.png"/>
+    </div>
+    
+    <div class="clear3"></div>
+    <div class="clear3"></div>
+    
+    <div class="CooperationList-conter-brand">
+    	<div class="CooperationList-conter-brand-list">
+            {:foreach $data_img as $v:}
+        	<div class="CooperationList-conter-brand-list-demo">
+            	<img src="../xgjtp/Public/Uploads/{:$v['image']:}"/>
+            </div>
+            {:/foreach:}
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

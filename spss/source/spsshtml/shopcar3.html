@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/shopcar3.css" />
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="empty">
+				
+			</div>
+			<div class="tabtit">
+				<a href="javascript:;">1.我的购物车</a>
+				<a href="javascript:;">2.填写订单信息</a>
+				<a href="javascript:;">3.完成支付</a>
+			</div>
+			<div class="zhifudetail">
+				<p>支付详情</p>
+				<p><span class="success-img zhifu-img"><img src="img/shopcar-success.png" alt="" /></span>您的订单(31661163163161)已成功提交!</p>
+				<p>您选择的产品：上品中央水空调系统</p>
+				<p><span></span>秒后自动跳转至购物车</p>
+				<p><a href="javascript:;">查看详情</a><a href="javascript:;">返回</a></p>
+			</div>
+			<div class="zhifudetail">
+				<p>支付详情</p>
+				<p class="zhifushibai"><span class="shibai-img zhifu-img"><img src="img/shopcar-shibai.png" alt="" /></span>您的订单(31661163163161)已成功提交!</p>
+				<p class="zhifushibai">您选择的产品：上品中央水空调系统</p>
+				<p class="zhifushibai"><span></span>秒后自动跳转至购物车</p>
+				<p><a href="javascript:;">查看详情</a><a href="javascript:;">返回</a></p>
+			</div>
+		</div>
+		<script>
+			function allcheck(){
+				if($("#allc")[0].checked==true){
+					$("#check1")[0].checked="true";
+					$("#check2")[0].checked="true";
+				}
+				if($("#allc")[0].checked==false){
+					$("#check1")[0].checked="";
+					$("#check2")[0].checked="";
+				}
+			}
+			function reduce(n){
+				var show=parseInt($(".shownum").eq(n).html());
+				var price=parseFloat($(".price").eq(n).html());
+				var sumprice=parseFloat($(".sumprice").eq(n).html());
+				if(show<=0){
+				}else{    
+					show=show-1;
+					$(".shownum").eq(n).html(show);
+					$(".sumprice").eq(n).html(sumprice-price);
+				}
+			}
+			function add(n){
+				var show=parseInt($(".shownum").eq(n).html());
+				var price=parseFloat($(".price").eq(n).html());
+					show=show+1;
+					$(".shownum").eq(n).html(show);
+					$(".sumprice").eq(n).html(show*price);
+			}
+			
+		</script>
+	</body>
+</html>

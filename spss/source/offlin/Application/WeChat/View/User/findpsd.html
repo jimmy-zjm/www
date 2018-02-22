@@ -1,0 +1,192 @@
+<include file="Public/head"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/WeChat/css/findpwd.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/WeChat/css/toastr.css">
+<script type="text/javascript" src="__PUBLIC__/WeChat/js/toastr.js"></script>
+<div class="section">
+		
+	<div class="findbox">
+		<div class="boxitem phonebox"><input type="text" name="mobile_phone" id='tel' onkeyup='checkmobilephones()' onchange='checkmobilephone()' placeholder="请输入手机号"></div>
+		<div class="boxitem mabox clearfix"><input type="text" id='msg' name='msg' onkeyup='msgs()' placeholder="请输入验证码"> <a class="getBtn" id="huoqu" onclick="fasong()">获取验证码</a></div>
+		<div class="boxitem psdbox"><input type="password" id='pass' name='password' onchange="checkpassword()" placeholder="请输入密码  6-15位英文、数字或下划线"></div>
+		<div class="boxitem psdbox"><input type="password" id='repass' name='repassword' onkeyup='checkrepasswords()' onchange="checkrepassword()" placeholder="请再次设置新密码"></div>
+		<a  class="resetBtn" onclick="buttons()" >重置密码</a>
+	</div>
+</div>
+
+<div id="mask-bg">
+    	<div class="verificationBox">
+    		<p class="closeBtn" onclick="closebox()">x</p>
+    		请输入图形验证码!
+    		<div><input id="verifycode" type="text" name="verify" placeholder="请输入验证码"> <img id="img-ma" src="<{:U('verify')}>" onclick="this.src = '<{:U('verify')}>'"></div>
+    		<a id="ma-sure-btn" href="javascript:;" onclick="gain()">确定</a>
+    	</div>
+    </div>
+<script type="text/javascript">
+
+ toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "positionClass": "toast-top-full-width",
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
+
+
+
+// 注册验证码
+	function mask(){
+		var bgmask=$("#mask-bg");
+		var imgcode=$("#img-ma");
+		bgmask.show();
+		// 获取
+	}
+	// 关闭弹出框
+	function closebox(){
+		verify();
+		$("#mask-bg").hide();
+	}
+	function checkmobilephones(){
+		var tel = $("#tel").val();
+		if (tel.length==11) checkmobilephone();
+	}
+
+	function checkmobilephone(){
+        var re=/^[1][34578][0-9]{9}$/;
+        var tel = $("#tel").val();
+        var reg=new RegExp(re);
+        if(reg.test(tel)){
+             //判断手机号码是否注册过
+            $.post("<{:U('checkTel')}>",{'tel':tel},function(data){
+                if(data==1){
+                    result1 = true;
+                    var msg = $("#msg").val();
+                    if (msg.length==4) msgs();
+                }else{    
+                    toastr.error("您还未注册，请先注册");
+                    result1 = false;
+                }
+            })
+        }else if(tel==""){
+            toastr.error("请输入您的手机号码");
+            result1 = false;
+        }else{
+            toastr.error("请输入正确的手机号码");
+            result1 = false;
+        }
+    }
+    function checkpassword(){
+        var re=/^\w{6,15}$/;
+        var pass = $("#pass").val();
+        var reg=new RegExp(re);
+        if(reg.test(pass)){
+            result2 = true;
+            checkrepassword();
+        }else if(pass==""){ 
+            toastr.error("请输入您的密码！");
+            result2 = false;
+        }else{
+            toastr.error("请正确填写您的密码！");
+            result2 = false;
+        }
+    }
+
+    function checkrepasswords(){
+        var pass   = $("#pass").val();
+        var repass = $("#repass").val();
+        if (pass.length == repass.length) checkrepassword();
+    }
+
+    function checkrepassword(){
+        var pass   = $("#pass").val();
+        var repass = $("#repass").val();
+        if (pass != repass && repass != '') {
+        	toastr.error("两次密码不一致请重新输入！");
+        	result3 = false;
+        }else{
+        	result3 = true;
+        }
+    }
+
+    function verify(){
+    	$('#verifycode').val('');
+		$('#img-ma').attr('src',"<{:U('verify')}>");
+    }
+
+    function gain(){
+		var tel    = $("#tel").val();
+		var veri = $("#verifycode").val();
+		$.post('<{:U("message")}>',{'tel':tel,'verify':veri},function (data){
+		  	if(data==1){
+		  		closebox();
+	     		daojishi();
+			}else if(data==2){
+				verify();
+			}
+	    })
+	}
+
+	function daojishi(){
+		num=num-1;
+		$("#huoqu").css("background","url(__PUBLIC__/img/dumiao.jpg)");
+		$("#huoqu").html(num+"S");
+		if(num<1){
+			$("#huoqu").html("重新发送");
+		}else{
+			setTimeout("daojishi()",1000);
+		}
+	}
+
+    function msgs(){
+		var msg = $("#msg").val();
+		if (msg.length==4) {
+			var tel = $("#tel").val();
+			$.post('<{:U("verification")}>',{'msg':msg,'tel':tel},function (data){
+				if (data==1) {
+					toastr.error('');
+					result4 = true;
+				}else{
+					toastr.error(data);
+					result4 = false;
+				} 
+		    })
+		}else{
+			result4 = false;
+		}
+	}
+			
+			
+	function fasong(){
+		checkmobilephone();
+		if (result1 == true) {
+			var y = $("#huoqu").html();
+			if (y=='获取验证码' || y=='重新发送') {
+				num=60;
+				mask();
+			}
+		}
+	}
+
+	function buttons(){
+		if ( result1 == true && result2 == true && result3 == true && result4 == true) {
+			var tel    = $("#tel").val();
+			var pass   = $("#pass").val();
+        	var repass = $("#repass").val();
+        	var msg    = $("#msg").val();
+			$.post("<{:U('doRegister')}>",{'mobile_phone':tel,'password':pass,'repassword':repass,'msg':msg},function(data){
+				if (data.info != undefined) toastr.error(data.info);
+				else {
+					setTimeout("",300);
+					window.location.href = data;
+				}
+			})
+		}
+	}
+</script>

@@ -1,0 +1,211 @@
+{:include file="dealer/dealer_header_xin.tpl.html":}
+<!--导航-->
+<div class="dealer-nev-bk">
+    <div class="dealer-nev">
+    	<div class="dealer-nev-left">
+        	<img src="images/jiantou05.png"/>
+            
+            <span>
+            	我的中心
+            </span>
+        </div>
+        
+        <div class="dealer-nev-right">
+        	<div class="dealer-nev-right-demo">
+            	<a href="dealer.php?password">
+                	密码管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?advice">
+                	意见反馈
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?account">
+                	账户
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?aftersale">
+                	售后管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?order">
+                	订单管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?center">
+                	我的中心
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--导航end-->
+
+<div class="clear30"></div>
+
+<!--中间-->
+<div class="dealer-center">
+	<form action="" method="post">
+        <div class="dealer_user_info-center">
+            <div class="dealer_user_info-center-title">
+                <div class="dealer_user_info-center-title-span">
+                    我的中心
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-span">
+                <span>
+                    企业资料修改
+                </span>
+            </div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    企业名称：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_company"  value="{:$dealer_info.d_company:}">
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    企业法人：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_legalperson"  value="{:$dealer_info.d_legalperson:}">
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    企业注册地址：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_reg_address"  value="{:$dealer_info.d_reg_address:}">
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    企业办公地址：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_rel_address"  value="{:$dealer_info.d_rel_address:}">
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    企业电话：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_legalperson_phone" value="{:$dealer_info.d_legalperson_phone:}" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    企业电商联系人：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input  x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_linkman"  value="{:$dealer_info.d_linkman:}">
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    联系人电话：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input  x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_link_phone"  value="{:$dealer_info.d_link_phone:}" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_user_info-center-demo">
+                <div class="dealer_user_info-center-demo-left">
+                    发货地址：
+                </div>
+                
+                <div class="dealer_user_info-center-demo-right">
+                    <input x-webkit-speech="" x-webkit-grammar="builtin:translate" type="text"   name="d_pickup_address" value="{:$dealer_info.d_pickup_address:}">
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="dealer_user_info-center-button">
+            	<input type="submit" value="确认修改" />
+            </div>
+            
+            <div class="clear2"></div>
+        </div>
+    </form>
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+
+
+{:include file="footer.tpl.html":}
+</body>
+</html>

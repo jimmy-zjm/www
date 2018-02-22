@@ -1,0 +1,235 @@
+<!-- 底部列表 -->
+<div class="foot">
+    <div class="foot-list">
+        <div class="foot-list-gw">
+           <a href="javascript:;"> <div class="foot-list-gw-title">
+            购物指南
+            </div></a>
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?quetion&a=122" target="_blank">
+                    交易条款
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?quetion&type=43" target="_blank">
+                    新手入门
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?quetion&type=44" target="_blank">
+                    购物流程
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?quetion&type=45" target="_blank">
+                    账户介绍
+                </a>
+            </div>
+
+        </div>
+    
+        <div class="foot-list-gw">
+			<a href="javascript:;"><div class="foot-list-gw-title">
+             配送方式
+            </div></a>
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?quetion&a=132" target="_blank">
+                    健康舒适家居
+                </a>
+            </div>
+
+            <!-- <div class="foot-list-gw-conner">
+                <a href="index.php?quetion&a=133" target="_blank">
+                    欧代及海外超市
+                </a>
+            </div> -->
+        </div>
+    
+        <div class="foot-list-gw">
+            <a href="javascript:;"><div class="foot-list-gw-title">
+            	支付方式
+            </div></a>
+            
+            <div class="foot-list-gw-conner">
+                <a href="index.php?pay&a=1"  target="_blank">
+                	银联网银
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="index.php?pay&a=2"  target="_blank">
+                	银联快捷
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="index.php?pay&a=3"  target="_blank">
+                	支付宝
+                </a>
+            </div>
+            
+            
+        </div>
+    
+        <div class="foot-list-gw">
+            <a href="javascript:;"><div class="foot-list-gw-title">
+                售后服务
+            </div></a>  
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?article&id=48"  target="_blank">
+                    健康舒适家居
+                </a>
+            </div>
+        
+            <!-- <div class="foot-list-gw-conner">
+                <a href="index.php?quetion&a=134" target="_blank">
+                    欧代及海外超市
+                </a>
+            </div> -->
+        
+            <div class="foot-list-gw-conner">
+               <a href="index.php?quetion&a=135" target="_blank">
+                  	Q&A
+                </a>
+            </div>
+        
+            
+        </div>
+            
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+    <div class="clear27"></div>
+    
+    <div class="root-bei">
+        备案号：沪ICP备16030510号-1
+    </div>
+    
+    <div class="clear27"></div>
+</div>
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+<!--右侧浮动导航-->
+<!-- 代码部分begin -->
+<div class="side">
+	<ul>
+    	<li class="side_li_01">
+        	<a href="javascript:;">
+            	<div class="sidebox sidebox_div_01">
+                	<img src="./images/right07_01.png">
+                    健康舒适家
+                </div>
+            </a>
+        </li>
+        
+    	<li class="side_li_02" onclick="qimoChatClick();">
+        	<a href="javascript:;">
+            	<div class="sidebox sidebox_div_02">
+                	<img src="./images/right07_02.png">
+                    在线客服
+                </div>
+            </a>
+        </li>
+        
+        <li class="side_li_03">
+        	<a href="user.php?concernGoods">
+                <div class="sidebox sidebox_div_03">
+                    <img src="./images/right07_03.png">
+                    我的关注
+                </div>
+            </a>
+        </li>
+        
+        <li class="side_li_04">
+        	<a href="javascript:;">
+            	<div class="sidebox sidebox_div_04">
+                	<img src="./images/right07_04.png">
+                    我的分享
+                </div>
+            </a>
+        </li>
+        
+        <li class="side_li_05">
+            <a href="cart.php?cartList">
+                <div class="sidebox sidebox_div_05">
+                    <img src="./images/right07_05.png">
+                    我的购物车
+                </div>
+            </a>
+        </li>
+        
+       <!--
+       没有二维码，暂时隐藏
+       <li class="side_li_06">
+            <a href="javascript:;">
+                <div class="sidebox sidebox_div_06">
+                    <img src="./images/right06.png">
+                    二维码
+                </div>
+            </a>
+        </li>-->
+        
+	 	<li class="side_li_07">
+            <a href="javascript:goTop();" class="sidetop">
+            	<img src="./images/right07_06.png">
+            </a>
+        </li>
+  </ul>
+</div>
+<script>
+//回到顶部函数
+function goTop(){
+	$('html,body').animate({'scrollTop':0},300);
+}
+</script>
+<!-- 代码部分end -->
+<!--右侧浮动导航end-->
+
+<div class="clear"></div>
+<!--统计信息-->
+<script type='text/javascript' src='/js/jquery.cookie.js'></script>
+{:if !empty($smarty.session.userId)&&!empty($smarty.session.userName):}
+<script type='text/javascript'>
+        var qimoClientId = {userId:'{:$smarty.session.userId:}', nickName:'{:$smarty.session.userName:}'};// 自定义用户的唯一id,userId由英文字母,数字,下划线组成
+</script>
+{:/if:}
+<script type='text/javascript' src='http://webchat.7moor.com/javascripts/7moorInit.js?accessId=ecdab400-a94d-11e5-bbcd-fbb9b9d68830&autoShow=false' async='async'></script>
+
+
+<input type="hidden" id='o_userId' value="{:if !empty($smarty.session.userId):}{:$smarty.session.userId:}{:/if:}">
+
+<script type="text/javascript">
+try{
+    var _ozuid;
+    var _user=$('#o_userId').val();//需传值，用户登陆后的用户id，如果没有登录传空值，即_user=’’;
+    var _domain=document.domain.match(/\.[a-zA-Z0-9.-]+/);
+    if($.cookie("ozuid") &&(_user==''|| null==_user)){  //cookie有值，但是用户尚未登录 ;那么取cookie值
+        _ozuid=$.cookie("ozuid");
+    }else if($.cookie("ozuid") &&(null!= _user)){ //cookie有值，但是用户已登录 ;那么更新cookie值，再取cookie值
+        $.cookie("ozuid",_user,{path:"/",expires:365,domain:_domain});
+        _ozuid=$.cookie("ozuid");
+    }else if(!$.cookie("ozuid") &&(_user==''|| null==_user)){//cookie无值，用户也未登录，不能记录会员行为
+        //无动作
+    }else if(!$.cookie("ozuid") &&(null!= _user)){
+        $.cookie("ozuid",_user,{path:"/",expires:365,domain:_domain}); //cookie无值，但是用户已登录 ;那么存储cookie值，再取cookie值
+        _ozuid=$.cookie("ozuid");
+    }
+}catch(e){
+}
+</script>
+<script type='text/javascript' src='http://www.myspss.com/js/o_code.js'></script>
+<!--会员统计信息end-->

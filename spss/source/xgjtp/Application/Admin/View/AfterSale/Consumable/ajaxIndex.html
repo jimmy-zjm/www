@@ -1,0 +1,50 @@
+<table class="listtable">
+    <thead>
+        <tr>
+            <th>编号</th>
+            <th>耗材图片</th>
+            <th>耗材名称</th>
+            <th>系统名称</th>
+            <th>产品名称</th>
+            <th>参数</th>
+            <th>周期</th>
+            <th>原价(元)</th>
+            <th>现价(元)</th>
+            <th>是否上架</th>
+            <th>添加时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($List as $k=>$v){ ?>
+        <tr>
+            <td><{$k+1}></td>
+            <td><img src="<{$v.c_img|getImage}>"  style="height: 50px;width: 50px"></td>
+            <td><{$v.c_name}></td>
+            <td><{$v['quote_name']}></td>
+            <td><{$v['product_name']}></td>
+            <td><{$v.parameter}></td>
+            <td><{$v.cycle}></td>
+            <td><del><{$v.old_price}></del></td>
+            <td><{$v.price}></td>
+            <?php if($v['is_put']==1){?>
+                <td id="tab<?=$v['id']?>" onclick="tog(<?=$v['id']?>)" class=" blue">已上架</td>
+            <?php }else{?>
+                <td id="tab<?=$v['id']?>" onclick="tog(<?=$v['id']?>)" class=" red">已下架</td>
+            <?php }?>
+            <td><{$v.add_time}></td>
+            <td><a href="<{:U('edit',array('id'=>$v['id']))}>">修改</a></td>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
+<div class="page"><{$page}></div>
+    
+
+<script>
+    // 点击分页触发的事件
+    $(".page a").click(function(){
+        cur_page = $(this).attr('data-page');
+        ajax_get_table('search-form2',cur_page);
+    });
+</script>

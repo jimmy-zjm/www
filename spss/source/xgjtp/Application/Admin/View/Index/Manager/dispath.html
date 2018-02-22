@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>权限分配</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<style>
+    .pro-box label{display:block;font-size:18px;}
+</style>
+</head>
+<body>
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">权限分配</a></li>
+    </ul>
+    </div>
+    <div class="formbody">
+    <div class="formtitle"><span>权限列表</span></div>
+
+
+<form action="<{:U('dodispath')}>" method="post">
+<div class="list-div">
+<table cellspacing='2' id="list-table">
+ <?php foreach ($data as $k => $v): ?>
+    <tr>
+    <td width="18%" valign="top" class="first-cell" style="font-size:17px;">
+       <input name="chkGroup" type="checkbox" value="checkbox" onclick="check('<{$v.pl}>',this);" class="checkbox" <?php echo in_array(1,$pri_list)?'checked':'' ?> ><{$v.name}>  
+    </td>
+  
+    <td>
+    <?php foreach ($v['list'] as $ke => $va): ?>
+    <div style="width:200px;height:40px;float:left;">
+        <label for="pri-<{$va.id}>"><input type="checkbox" name="pri[]" value="pri-<{$va.id}>" id='pri-<{$va.id}>' class="checkbox"  onclick="checkrelevance('', 'pri-<{$va.id}>')" title="" <?php echo in_array($va['id'],$pri_list)?'checked':'sss'?> />
+    <{$va.name}></label>
+    </div>
+
+    <?php endforeach ?>    
+    </td>
+    </tr>
+    <?php endforeach ?>
+
+  <tr>
+    <td align="center" colspan="2" >
+      <input type="submit" value="保存"  class="btn" />
+      <input type="hidden" name="id" value="<{$id}>"  class="btn" />
+    </td>
+  </tr>
+</table>
+</div>
+</form>
+
+<!-- <form action="<{:U('dodispath')}>" method="post">
+        <?php foreach ($data as $k => $v): ?>
+            <div style='float: left;'>
+                <div class="pro-box" >
+                    <label><input type="checkbox" name="chkGroup"  value="checkbox" onclick="check('<{$v.pl}>',this);"
+                    <?php echo in_array(1,$pri_list)?'checked':'' ?> /><{$v.name}></label><br/>
+                </div>
+                <div >
+                    <?php foreach ($v['list'] as $ke => $va): ?>
+                        <div>
+                        <label><input type="checkbox" name="pri[]"  value="pri-<{$va.id}>" id='pri-<{$va.id}>' onclick="checkrelevance('', 'pri-<{$va.id}>')" <?php echo in_array(1,$pri_list)?'checked':'' ?> /><{$va.name}></label><br/></div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endforeach ?>
+        <div style='clear: both;'></div>
+        <div class="formtitle"></div>
+        <div style='float: right;'>
+        <input type="hidden" name="id" value="<{$id}>"  class="btn" />
+        <input type="submit" value="保存"  class="btn" />
+        </div>
+    </form>  -->
+
+
+<script language="javascript">
+function checkAll(frm, checkbox)
+{
+  for (i = 0; i < frm.elements.length; i++)
+  {
+    if (frm.elements[i].name == 'pri[]' || frm.elements[i].name == 'chkGroup')
+    {
+      frm.elements[i].checked = checkbox.checked;
+    }
+  }
+}
+
+function check(list, obj)
+{
+  var frm = obj.form;
+
+    for (i = 0; i < frm.elements.length; i++)
+    {
+      if (frm.elements[i].name == "pri[]")
+      {
+          var regx = new RegExp(frm.elements[i].value + "(?!_)", "i");
+
+          if (list.search(regx) > -1) frm.elements[i].checked = obj.checked;
+      }
+    }
+}
+
+function checkrelevance(relevance, priv_list)
+{
+  if(document.getElementById(priv_list).checked && relevance != '')
+  {
+    document.getElementById(relevance).checked=true;
+  }
+  else
+  {
+    var ts=document.getElementsByTagName("input");
+    
+    for (var i=0; i<ts.length;i++)
+    {
+      var text=ts[i].getAttribute("title");
+
+      if( text == priv_list) 
+      {
+        document.getElementById(ts[i].value).checked = false;
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

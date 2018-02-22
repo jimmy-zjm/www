@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+	 <div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >健康舒适家居</a></li>
+	    <li><a href="dealer.php">服务商列表</a></li>
+	    </ul>
+	    </div>
+	    <div class="rightinfo">
+	    
+	    <div class="tools">
+	    	<ul class="toolbar">
+	        <li class="click"><a href="?add"><span><img src="images/t01.png" /></span>添加</a></li>
+	        </ul>        
+	    </div>
+	    <div class="tools">
+	    <ul class="prosearch">
+		<form action='dealer.php' method='post'>
+			<li><label>查询：</label><a><input type='text' name='keyword' class="scinput" placeholder="请输入公司名称查询" value='{:if !empty($keyword):}{:$keyword:}{:else:}{:/if:}'/></a>
+			<input type='submit' class="sure" value='搜索' /></li>
+		</form>
+		</ul>
+		</div>
+	    <div class="tools">
+	        <a href='dealer.php?district=华中地区'><button class="btn" >华中地区</button></a>
+	        <a href='dealer.php?district=华东地区'><button class="btn" >华东地区</button></a>
+	        <a href='dealer.php?district=西南/西北地区'><button class="btn" >西南/西北地区</button></a>
+	        <a href='dealer.php?district=华北/东北地区'><button class="btn" >华北/东北地区</button></a>
+	        <a href='dealer.php?district=华南地区'><button class="btn" >华南地区</button></a>
+        </div>
+	    
+	    <table class="imgtable">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;">编号</th>
+	    <th>服务商名称</th>
+	    <th>区域</th>
+	    <th>省份</th>
+	    <th>城市</th>
+	    <th>级别</th>
+	    <th>状态</th>
+	    <th>联系人</th>
+	    <th>联系电话</th>
+	    <th>添加时间</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    {:foreach $dealer_list as $v:}
+	    <tr>
+	    <td>{:$v.d_id:}</td>
+	    <td><a href="?edit&d_id={:$v.d_id:}">{:$v.d_company:}</a></td>
+	    <td>{:$v.d_district:}</td>
+	    <td>{:$v.d_province:}</td>
+	    <td>{:$v.d_city:}</td>
+	    <td>{:$v.d_rank:}级</td>
+	    <td>{:if $v.d_runstatus eq 0:}不正常{:else if $v.d_runstatus eq 1:}正常{:/if:}</td>
+	    <td>{:$v.d_linkman:}</td>
+	    <td>{:$v.d_link_phone:}</td>
+	   	<td>{:'Y-m-d H:i:s'|date:$v.add_time:}</td>
+	    <td><a href='?info&d_id={:$v.d_id:}'>详情</a>|<a href='?edit&d_id={:$v.d_id:}'>修改</a>|<a href='?del&d_id={:$v.d_id:}' onclick="return confirm('您确定要删除吗？')">删除</a></td>
+	    </tr>
+	    {:/foreach:}
+	    </tbody>
+	    </table>
+	     	<div class="page">
+				{:$page:}
+			</div>
+	    </div>
+
+
+</body>
+</html>
+
+	
+    
+

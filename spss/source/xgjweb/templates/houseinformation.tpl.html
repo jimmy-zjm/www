@@ -1,0 +1,2108 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/homestyle2.css" ><!-- 第二版home页面CSS -->
+
+<!--精确报价的滚动-->
+<link href="css/tpgd.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.SuperSlide2.js"></script>
+<!--精确报价的滚动end-->
+
+<!--视频播放器-->
+<link href="css/video-js.css" rel="stylesheet" type="text/css">
+
+<script>
+	videojs.options.flash.swf = "swf/video-js.swf";
+</script>
+
+<!--视频播放器-->
+
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear"></div>
+
+<div class="test-top">
+	<div class="test-top-bk">
+        <div class="test-top-left">
+            <span>
+               {:$content.quote_name:}
+            </span>
+        </div>
+        
+        <div class="test-top-right">
+            <div class="test-top-right-nav">
+            	<div class="test-top-right-nav-demo">
+                    <a href="price.php?cid={:$smarty.get.cid:}" class="a02" name="homelist2_price_cid={:$smarty.get.cid:}">
+                        报价
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?summary&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_summary_cid={:$smarty.get.cid:}">
+                        概述
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?principle&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_principle_cid={:$smarty.get.cid:}">
+                        原理
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?advantage&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_advantage_cid={:$smarty.get.cid:}">
+                        产品优势
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?standard&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_standard_cid={:$smarty.get.cid:}">
+                        施工标准
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?service&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_service_cid={:$smarty.get.cid:}">
+                        售后
+                    </a>
+                </div>  
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?parameter&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_parameter_cid={:$smarty.get.cid:}">
+                        参数
+                    </a>
+                </div>              
+                
+                <div class="clear"></div>
+            </div>        
+           
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<!--中间-->
+<div class="homelist2-conter">
+	<!--首页头部视频和广告-->
+    
+	<div class="homelist2-conter-banner"> 
+    	<div class="clear36"></div>
+        
+       <!-- <div class="homelist2-conter-offer-title">
+        	<span class="span01" style="font-size:20px;">
+            {:if !empty($smarty.session.furnish_quote.quote_name):}
+            	{:$smarty.session.furnish_quote.quote_name:}
+            {:/if:}
+            </span>
+        </div>--> 
+            
+        <div class="homelist2-conter-banner-right">
+        	<div class="homelist2-conter-banner-right-list">
+            	<!-- <div class="homelist2-conter-banner-right-list-title">
+                	产品描述：
+                </div> -->
+                
+				<div id='aaaa' class="homelist2-conter-banner-right-list-demo">
+                	
+				</div>
+
+                <input type="hidden" id='ies' value="{:if !empty($smarty.session.furnish_quote.text):}{:$smarty.session.furnish_quote.text:}{:/if:}">
+                             
+                <div class="clear"></div>
+            </div>
+        </div>
+
+
+        <div class="homelist2-conter-banner-left">
+            <!--放大镜-->
+            <div id="preview" class="spec-preview"> 
+                <span class="jqzoom">
+                    {:if !empty($smarty.session.furnish_quote.img):}<img jqimg="{:$smarty.session.furnish_quote.img|getImages:}" src="{:$smarty.session.furnish_quote.img|getImages:}" />
+					{:elseif !empty($smarty.session.furnish_quote.images):}<img jqimg="{:$smarty.session.furnish_quote.images.0|getImages:}" src="{:$smarty.session.furnish_quote.images.0|getImages:}" />{:/if:} 
+                </span>
+            </div>
+            <!--放大镜end-->
+            
+            <!--缩略图-->
+            <div class="spec-scroll">
+                <a class="prev"></a> 
+                
+                <a class="next"></a>
+            
+                <div class="items">
+                    <ul>
+						 {:if !empty($smarty.session.furnish_quote.video)&&!empty($smarty.session.furnish_quote.video):}
+						<div class="items-video" id="video_AddInId">
+                        	<img src="{:$smarty.session.furnish_quote.video_img|getImages:}">
+                        </div><!--这里需要做判断，如果该产品有存放视频，这放出这个DIV，否则只循环下面的li-->
+						{:/if:}
+						 {:if !empty($smarty.session.furnish_quote.img):}
+						<li>
+                        	<img alt="" bimg="{:$smarty.session.furnish_quote.img|getImages:}" src="{:$smarty.session.furnish_quote.img|getImages:}" onmousemove="preview(this);">
+                        </li>
+						{:/if:}
+						 {:if !empty($smarty.session.furnish_quote.images):}
+                        {:foreach from=$smarty.session.furnish_quote.images item=item:}
+                        <li>
+                        	<img alt="" bimg="{:$item|getImages:}" src="{:$item|getImages:}" onmousemove="preview(this);">
+                        </li>                   
+                        {:/foreach:}
+					    {:/if:}    
+                    </ul>
+                </div>
+            </div>
+            <!--缩略图end-->
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    <!--首页头部视频和广告end-->
+    
+    <div class="clear12"></div>
+
+    {:if $quote['is_putaway'] eq 0:}
+    <h3 style="font-size:16px;color:red;width:1100px;margin:0 auto">此商品暂时缺货，请选择其它同类产品</h3>
+    <div class="clear12"></div>
+    {:else:}
+    <form action="user.php?dohousedata&cid={:$smarty.get.cid:}" name="form1" id="form1" method="post">
+    <div class="homelist2-conter-offer">
+    	<div class="homelist2-conter-offer-title" id="title111">
+        	<span class="span01" style="font-size:16px; font-weight:600;">
+            	精确报价
+            </span>
+            
+            <span class="span02">
+            	价格与房屋的面积是相关联的，请您准确填写相关信息，以便获得更准确报价
+            </span>
+        </div>
+        
+        <div class="homelist2-conter-offer-info">        	
+        	<div class="homelist2-conter-offer-info-region">
+            	<div class="homelist2-conter-offer-info-region-title">
+                	请选择您住房的所在地域
+                </div>
+                
+                <div class="homelist2-conter-offer-info-region-form">
+                	<div id="content-wrap">     
+                        <div id="content-left" class="demo">
+                            <div class="infolist">            
+                                <div class="liststyle">
+                                    <span id="Province">                    
+                                        <i id="city11" >
+                                            请选择省份
+                                        </i>
+                                        
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)" alt="请选择省份">
+                                                    请选择省份
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <input id="city111" type="hidden" name="cho_Province" value="请选择省份">
+                                    </span>
+                                    
+                                    <span class="ssx-span">
+                                        省
+                                    </span>
+                                    
+                                    <span id="City">
+                                        <i id="city22">
+                                            请选择城市
+                                        </i>
+                                        
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)" alt="请选择城市">
+                                                    请选择城市
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <input id="city222" type="hidden" name="cho_City" value="请选择城市">
+                                    </span>
+                                    
+                                    <span class="ssx-span">
+                                        市
+                                    </span>
+                                    
+                                    <span id="Area">
+                                        <i id="city33">
+                                            请选择地区
+                                        </i>
+                                        
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)" alt="请选择地区">
+                                                    请选择地区
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <input type="hidden" name="cho_Area" id="city333" value="请选择地区">
+                                    </span>
+                                    
+                                    <span class="ssx-span">
+                                        县/区
+                                    </span>
+                                    
+                                    <span id="Address">
+                                        <input type="text" id="city444" name="diqu" value="请输入详细地址"  onFocus="if (value =='请输入详细地址'){value =''}province1()" onBlur="if (value ==''){value='请输入详细地址';}">
+                                    </span>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+
+				<input type="hidden" id="c1" value="{:if !empty($smarty.session.price_post):}{:$smarty.session.price_post.cho_Province:}{:else:}{:if !empty($smarty.session.house_data.0):}{:$smarty.session.house_data.0.province:}{:/if:}{:/if:}">
+                <input type="hidden" id="c2" value="{:if !empty($smarty.session.price_post):}{:$smarty.session.price_post.cho_City:}{:else:}{:if !empty($smarty.session.house_data.0):}{:$smarty.session.house_data.0.city:}{:/if:}{:/if:}">
+                <input type="hidden" id="c3" value="{:if !empty($smarty.session.price_post):}{:$smarty.session.price_post.cho_Area:}{:else:}{:if !empty($smarty.session.house_data.0):}{:$smarty.session.house_data.0.district:}{:/if:}{:/if:}">
+                <input type="hidden" id="c4" value="{:if !empty($smarty.session.price_post):}{:$smarty.session.price_post.diqu:}{:else:}{:if !empty($smarty.session.house_data.0):}{:$smarty.session.house_data.0.address:}{:/if:}{:/if:}">
+                <input type="hidden" name="cid" value="{:if !empty($smarty.get.cid):}{:$smarty.get.cid:}{:/if:}">
+
+                <div class="clear"></div>
+                
+                <div class="homelist2-conter-offer-info-region-yes" id="yes" style="display:none;"><!--进行判断，如果输入的地址数据库有，则显示此DIV-->
+                	恭喜！您所在地域有我们专业的服务商
+                </div>
+                
+                <div class="homelist2-conter-offer-info-region-none" id="no" style="display:none;"><!--进行判断，如果输入的地址数据库没有，则显示此DIV，在CSS样式中，默认已经隐藏，判断时删除隐藏CSS样式-->
+                	很遗憾！您所在的地域没有我们专业的服务商
+                </div>
+
+            </div>
+           
+			<div class="clear"></div>            
+            
+            <div class="homelist2-conter-offer-info-left">	
+                <div class="homelist2-conter-offer-info-type">
+                    <div class="homelist2-conter-offer-info-type-title">
+                        房屋类型
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-type-radio">
+                        <div class="homelist2-conter-offer-info-type-radio-demo">
+                            <input type="radio" id="gongyu" name="house" value="1" onclick="gongyu()" {:if !empty($smarty.session.price_post.house):}{:if $smarty.session.price_post.house eq 1:}checked{:/if :}{:/if :}{:if !empty($smarty.session.house_data.0.house_type):}{:if $smarty.session.house_data.0.house_type eq 1:}checked{:/if :}{:/if :}/>
+                            
+                            <span>公寓</span>
+                        </div>
+                        
+                        <div class="homelist2-conter-offer-info-type-radio-demo">
+                            <input type="radio" id="diejia" name="house" value="2" onclick="diejia()" {:if !empty($smarty.session.price_post.house):}{:if $smarty.session.price_post.house eq 2:}checked{:/if :}{:/if :}{:if !empty($smarty.session.house_data.0.house_type):}{:if $smarty.session.house_data.0.house_type eq 2:}checked{:/if :}{:/if :}/>
+                            
+                            <span>叠加</span>
+                        </div>
+                        
+                        <div class="homelist2-conter-offer-info-type-radio-demo"/>
+                            <input type="radio" id="lianpai" name="house" value="3" onclick="lianpai()" {:if !empty($smarty.session.price_post.house):}{:if $smarty.session.price_post.house eq 3:}checked{:/if :}{:/if :}{:if !empty($smarty.session.house_data.0.house_type):}{:if $smarty.session.house_data.0.house_type eq 3:}checked{:/if :}{:/if :} />
+                            
+                            <span>联排</span>
+                        </div>
+                        
+                        <div class="homelist2-conter-offer-info-type-radio-demo"/>
+                            <input type="radio" id="dudong" name="house" value="4" onclick="dudong()" {:if !empty($smarty.session.price_post.house):}{:if $smarty.session.price_post.house eq 4:}checked{:/if :}{:/if :}{:if !empty($smarty.session.house_data.0.house_type):}{:if $smarty.session.house_data.0.house_type eq 4:}checked{:/if :}{:/if :}/>
+                            
+                            <span>独栋</span>
+                        </div>
+                         
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="homelist2-conter-offer-info-room">
+                    <div class="homelist2-conter-offer-info-room-right">
+                        <div class="homelist2-conter-offer-info-room-right-demo">
+                            <select name="type1" id="bedRoom"  style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<21;$i++:}
+                                     <option value="{:$i:}" {:if !empty($smarty.session.price_post.type1):}{:if $smarty.session.price_post.type1 eq $i:}selected="selected"{:/if :}{:/if :}{:if !empty($smarty.session.house_datas.0):}{:if $smarty.session.house_datas.0 eq $i:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            <span class="homelist2-conter-offer-info-room-right-span">室</span>
+                        </div>
+                        
+                        <div class="homelist2-conter-offer-info-room-right-demo"> 
+                            <select name="type2" id="livingRoom"  style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.price_post.type2):}{:if $smarty.session.price_post.type2 eq $i:}selected="selected"{:/if :}{:/if :}{:if !empty($smarty.session.house_datas.1):}{:if $smarty.session.house_datas.1 eq $i:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                                
+                            </select>
+                            
+                            <span class="homelist2-conter-offer-info-room-right-span">厅</span>
+                        </div>
+    
+                        <div class="homelist2-conter-offer-info-room-right-demo">
+                            <select name="type3" id="kitchRoom"  style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.price_post.type3):}{:if $smarty.session.price_post.type3 eq {:$i:}:}selected="selected"{:/if :}{:/if :}{:if !empty($smarty.session.house_datas.2):}{:if $smarty.session.house_datas.2 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            <span class="homelist2-conter-offer-info-room-right-span">厨</span>
+                        </div>
+                        
+                        <div class="homelist2-conter-offer-info-room-right-demo">
+                            <select id="washRoom"  name="type4" style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.price_post.type4):}{:if $smarty.session.price_post.type4 eq {:$i:}:}selected="selected"{:/if :}{:/if :}{:if !empty($smarty.session.house_datas.3):}{:if $smarty.session.house_datas.3 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            <span class="homelist2-conter-offer-info-room-right-span">卫</span>
+                        </div>
+                        
+                        <div class="homelist2-conter-offer-info-room-right-demo">
+                            <select id="galleryRoom" name="type5" style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.price_post.type5):}{:if $smarty.session.price_post.type5 eq {:$i:}:}selected="selected"{:/if :}{:/if :}{:if !empty($smarty.session.house_datas.4):}{:if $smarty.session.house_datas.4 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                               
+                            </select>
+                            
+                            <span class="homelist2-conter-offer-info-room-right-span">阳台</span>
+                        </div>
+                        
+                        <div class="homelist2-conter-offer-info-room-right-demo" id="click01" {:if !empty($smarty.session.price_post.house):}{:if $smarty.session.price_post.house neq 1:}style="display:block;"{:/if :}{:/if :}{:if !empty($smarty.session.house_data.0.house_type):}{:if $smarty.session.house_data.0.house_type neq 1:}style="display:block;"{:/if :}{:/if :}>
+                            <select id="atticRoom" name="type6" style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.price_post.type6):}{:if $smarty.session.price_post.type6 eq {:$i:}:}selected="selected"{:/if :}{:/if :}{:if !empty($smarty.session.house_datas.5):}{:if $smarty.session.house_datas.5 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                               
+                            </select>
+                            
+                            <span class="homelist2-conter-offer-info-room-right-span" id="atticRoomSpan">阁楼</span>
+                            
+                            <select id="cellarRoom" name="type7" style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.price_post.type7):}{:if $smarty.session.price_post.type7 eq {:$i:}:}selected="selected"{:/if :}{:/if :}{:if !empty($smarty.session.house_datas.6):}{:if $smarty.session.house_datas.6 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            
+                            <span class="homelist2-conter-offer-info-room-right-span" id="cellarRoomSpan">地下室</span>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="homelist2-conter-offer-info-explain">
+                    <div class="homelist2-conter-offer-info-explain-title">
+                        房间说明
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-explain-list">
+                        <ul id="bedRoomList">
+    
+                            {:if !empty($smarty.session.price_post.bedroom):}
+                            <div class='roomdivdemo01'>卧室（m2 )</div>
+                            <div class='roomdivdemo03' id='bedRoomList2'>  
+                                {:foreach $smarty.session.price_post.bedroom as $k=>$v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area1{:$k:}"  name='bedroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}              			
+                            </div>
+                            {:/if :}
+    
+                            {:if !empty($smarty.session.house_datas.area) && $smarty.session.house_datas.0 gt 0:}
+                            <div class='roomdivdemo01'>卧室（m2 )</div>
+                            <div class='roomdivdemo03' id='bedRoomList2'>  
+                                {:foreach $smarty.session.house_datas.area as $k=>$v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area1{:$k:}" name='bedroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}              			
+                            </div>
+                            {:/if:}
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="livingRoomList">
+    
+                            {:if !empty($smarty.session.price_post.liveroom):}
+                            <div class='roomdivdemo01'>客厅（m2 )</div>
+                            <div class='roomdivdemo03' id='livingRoomList2'>  
+                                {:foreach $smarty.session.price_post.liveroom as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area2{:$k:}" name='liveroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}              			
+                            </div>
+                            {:/if :}
+    
+                            {:if !empty($smarty.session.house_datas.area) && $smarty.session.house_datas.1 gt 0:}
+                            <div class='roomdivdemo01'>客厅（m2 )</div>
+                            <div class='roomdivdemo03' id='livingRoomList2'>
+                                {:foreach $smarty.session.house_datas.hall_area as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area2{:$k:}" name='liveroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="kitchRoomList">
+                            {:if !empty($smarty.session.price_post.kitchen):}
+                            <div class='roomdivdemo01'>厨房（m2 )</div>
+                            <div class='roomdivdemo03' id='kitchRoomList2'>
+                                {:foreach $smarty.session.price_post.kitchen as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area3{:$k:}" name='kitchen[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                            {:if !empty($smarty.session.house_datas.kitchen_area) && $smarty.session.house_datas.2 gt 0:}
+                            <div class='roomdivdemo01'>厨房（m2 )</div>
+                            <div class='roomdivdemo03' id='kitchRoomList2'>
+                                {:foreach $smarty.session.house_datas.kitchen_area as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area3{:$k:}" name='kitchen[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="washRoomList">
+                            {:if !empty($smarty.session.price_post.bathroom):}
+                            <div class='roomdivdemo01'>卫生间（m2 )</div>
+                            <div class='roomdivdemo03' id='washRoomList2'>
+                                {:foreach $smarty.session.price_post.bathroom as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area4{:$k:}" name='bathroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}	
+    
+                            {:if !empty($smarty.session.house_datas.toilet_area) && $smarty.session.house_datas.3 gt 0:}
+                            <div class='roomdivdemo01'>卫生间（m2 )</div>
+                            <div class='roomdivdemo03' id='washRoomList2'>
+                                {:foreach $smarty.session.house_datas.toilet_area as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area4{:$k:}" name='bathroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}		
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="galleryRoomList">
+                            {:if !empty($smarty.session.price_post.balcony):}
+                            <div class='roomdivdemo01'>阳台（m2 )</div>
+                            <div class='roomdivdemo03' id='galleryRoomList2'>
+                                {:foreach $smarty.session.price_post.balcony as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area5{:$k:}" name='balcony[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                            {:if !empty($smarty.session.house_datas.balcony_area) && $smarty.session.house_datas.4 gt 0:}
+                            <div class='roomdivdemo01'>阳台（m2 )</div>
+                            <div class='roomdivdemo03' id='galleryRoomList2'>
+                                {:foreach $smarty.session.house_datas.balcony_area as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area5{:$k:}" name='balcony[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="atticRoomList" class="click02">
+                            {:if !empty($smarty.session.price_post.gelou):}
+                            <div class='roomdivdemo01'>阁楼（m2 )</div>
+                            <div class='roomdivdemo03' id='atticRoomList2'>
+                                {:foreach $smarty.session.price_post.gelou as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area6{:$k:}" name='gelou[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                            {:if !empty($smarty.session.house_datas.attic_area) && $smarty.session.house_datas.5 gt 0:}
+                            <div class='roomdivdemo01'>阁楼（m2 )</div>
+                            <div class='roomdivdemo03' id='atticRoomList2'>
+                                {:foreach $smarty.session.house_datas.attic_area as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area6{:$k:}" name='gelou[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="cellarRoomList" class="click03">
+                            {:if !empty($smarty.session.price_post.database):}
+                            <div class='roomdivdemo01'>地下室（m2 )</div>
+                            <div class='roomdivdemo03' id='cellarRoomList2'>
+                                {:foreach $smarty.session.price_post.database as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area7{:$k:}" name='database[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                            {:if !empty($smarty.session.house_datas.basement_area) && $smarty.session.house_datas.6 gt 0:}
+                            <div class='roomdivdemo01'>地下室（m2 )</div>
+                            <div class='roomdivdemo03' id='cellarRoomList2'>
+                                {:foreach $smarty.session.house_datas.basement_area as $v:}
+                                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area7{:$k:}" name='database[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                    </div>
+				</div>
+                 
+                <div class="clear"></div>
+                
+                <div class="homelist2-conter-offer-info-area">
+                    <div class="homelist2-conter-offer-info-area-01">
+                        全屋面积（m2 )
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-area-02">
+                        <input id="areanum" type="text" name="area" value="{:if !empty($smarty.session.price_post.area):}{:$smarty.session.price_post.area:}{:/if :}{:if !empty($smarty.session.house_data.0.total_area):}{:$smarty.session.house_data.0.total_area:}{:/if:}" readonly/>
+                    </div>
+                    
+                    <!--<div class="homelist2-conter-offer-info-area-03">
+                        平方米
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-area-04">
+                        （请填使用面积，墙和墙之间的面积）
+                    </div>-->
+                 
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                
+                 
+                {:if !empty($smarty.session.house_datas.total_area1):}
+                <!--<div class="homelist2-conter-offer-info-area">
+                    <div class="homelist2-conter-offer-info-area-01">
+                        安装面积：
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-area-03">
+                        &nbsp&nbsp&nbsp<font style="color:red;">{:$smarty.session.house_datas.total_area1:}</font>&nbsp&nbsp平方米
+                    </div>                
+                    <div class="clear"></div>
+                </div>-->
+                {:/if:}    
+        
+                <div class="clear3"></div>
+                
+                <div class="homelist2-conter-offer-info-button">
+                    <div class="homelist2-conter-offer-info-button-left">
+                        <input type="submit" value="保存填写内容" id="submit_button" onclick="tijiao()"/>
+                    </div>
+                
+                    <div class="homelist2-conter-offer-info-button-right" id="jqbj">
+                        <input type="submit" value="精确报价" id="accurate" onclick="homeQuote();"/>
+                    </div>
+                   
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            
+            <div class="homelist2-conter-offer-info-right">	
+            	<img src="images/1019.jpg"/>
+            </div>
+            
+            <div class="clear"></div>
+            
+           
+            <div class="clear"></div>
+        </div>
+    </div>
+    </form>
+    
+    <div class="clear3"></div>
+    
+    <div class="homelist2-conter-quote" id="homeQuoteTable">
+    	<div class="homelist2-conter-quote-inventory">
+        	<div class="homelist2-conter-quote-inventory-title">
+            	<span class="span01">
+                	系统清单
+                </span>
+            </div>
+
+            <div class="friend">
+                <div class="mr_frbox">
+                	{:if $num eq 'ma':}
+                    <img class="mr_frBtnL prev" src="images/mfrl.gif" />
+                    {:/if:}
+                    
+                    <div class="mr_frUl">
+                        <ul id="mr_fu">
+                        	{:if $num eq 4 || $num eq 5:}
+                        	{:else:}
+                            <li>
+                                <div class="homelist2-conter-quote-inventory-list-demo">                
+                                    <div class="homelist2-conter-quote-inventory-list-demo-radio">
+                                        {:if $num eq 'ma':}舒适明装型{:else:}经济型{:/if:}
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            材料原价：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-03">
+                                            ￥{:$money1|ceil-$cost.1|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            优惠价格：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money1|ceil-$cost.1|ceil)/100*$quote.sale)|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            施工费用：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-04">
+                                            ¥{:$cost.1|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-gift">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            额外获得
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-02">
+                                            {:(((($money1|ceil-$cost.1|ceil)/100*$quote.sale)|ceil)/100*$quote.gift)|ceil:}
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            <!-- 赠品金额 -->积分
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            仅需支付：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money1|ceil-$cost.1|ceil)/100*$quote.sale)|ceil+$cost.1|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-info">
+                                    	<span>
+                                        	最高可使用￥{:(((($money1|ceil-$cost.1|ceil)/100*$quote.sale)|ceil)/100*$quote.coupon)|ceil:}元优惠券
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-buy">
+                                        <a href="furnishcart.php?homebill=1">
+                                            产品介绍及清单
+                                        </a>
+                                    </div>    
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-join">
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-left">
+                                            <input type="hidden" id="s1" name="price" value="{:$money1:}">
+                                            <input type="hidden" id="s2" name="type" value="1">
+                                            <input type="button" onclick="sss(1)" value="加入收藏"/>
+                                        </div>
+                
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-right">
+                                            <form action="furnishcart.php?add_cart" method="post">
+                                                <input type="hidden" name="yy" value="ok"/>
+                                                <input type="hidden" name="number" value="1"/>
+                                                <input type="hidden" name="money" value="{:$money1:}" />
+                                                <input type="submit" value="加入购物车"/>
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="clear"></div>
+                                    </div>      
+                                    
+                                    <div class="clear"></div>             
+                                </div>
+                            </li>                          
+                            {:/if:}
+                            
+                            {:if $num eq 1 || $num eq 2 || $num eq 4:}
+                            {:else:}
+                            <li>
+                                <div class="homelist2-conter-quote-inventory-list-demo">                
+                                    <div class="homelist2-conter-quote-inventory-list-demo-radio">
+                                        {:if $num eq 'ma':}舒适暗装型{:else:}舒适型{:/if:}
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            材料原价：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-03">
+                                            ￥{:$money2|ceil-$cost.2|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            优惠价格：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money2|ceil-$cost.2|ceil)/100*$quote.sale)|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            施工费用：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-04">
+                                            ¥{:$cost.2|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-gift">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            额外获得
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-02">
+                                            {:(((($money2|ceil-$cost.2|ceil)/100*$quote.sale)|ceil)/100*$quote.gift)|ceil:}
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            <!-- 赠品金额 -->积分
+                                        </span>
+                                    </div>
+                                    
+                                     <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            仅需支付：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money2|ceil-$cost.2|ceil)/100*$quote.sale)|ceil+$cost.2|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-info">
+                                        <span>
+                                            最高可使用￥{:(((($money2|ceil-$cost.2|ceil)/100*$quote.sale)|ceil)/100*$quote.coupon)|ceil:}元优惠券
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-buy">
+                                        <a href="furnishcart.php?homebill=2">
+                                            产品介绍及清单
+                                        </a>
+                                    </div>   
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-join">
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-left">
+                                            <input type="hidden" id="s3" name="price" value="{:$money2:}">
+                                            <input type="hidden" id="s4" name="type" value="2">
+                                            <input type="button" onclick="sss(2)" value="加入收藏"/>
+                                        </div>
+                                        
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-right">
+                                            <form action="furnishcart.php?add_cart" method="post">
+                                                <input type="hidden" name="yy" value="ok"/>
+                                                <input type="hidden" name="number" value="2"/>
+                                                <input type="hidden" name="money" value="{:$money2:}" />
+                                                <input type="submit" value="加入购物车"/>
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="clear"></div>
+                                    </div> 
+                                    
+                                    <div class="clear"></div>                
+                                </div>
+                            </li>
+                            {:/if:}
+                            
+                            {:if $num eq 1 || !empty($wlf) && $wlf eq 2:}
+                            {:else:}
+                            <li>
+                                <div class="homelist2-conter-quote-inventory-list-demo">                
+                                    <div class="homelist2-conter-quote-inventory-list-demo-radio">
+                                        {:if $num eq 'ma':}豪华明装型{:else:}豪华型{:/if:}
+                                    </div>                                    
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            材料原价：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-03">
+                                            ￥{:$money3|ceil-$cost.3|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            优惠价格：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money3|ceil-$cost.3|ceil)/100*$quote.sale)|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            施工费用：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-04">
+                                            ¥{:$cost.3|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-gift">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            额外获得
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-02">
+                                            {:(((($money3|ceil-$cost.3|ceil)/100*$quote.sale)|ceil)/100*$quote.gift)|ceil:}
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            <!-- 赠品金额 -->积分
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            仅需支付：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money3|ceil-$cost.3|ceil)/100*$quote.sale)|ceil+$cost.3|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-info">
+                                        <span>
+                                            最高可使用￥{:(((($money3|ceil-$cost.3|ceil)/100*$quote.sale)|ceil)/100*$quote.coupon)|ceil:}元优惠券
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-buy">
+                                        <a href="furnishcart.php?homebill=3">
+                                            产品介绍及清单
+                                        </a>
+                                    </div> 
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-join">
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-left">
+                                            <input type="hidden" id="s5" name="price" value="{:$money3:}">
+                                            <input type="hidden" id="s6" name="type" value="3">
+                                            <input type="button" onclick="sss(3)" value="加入收藏"/>
+                                        </div>
+                                        
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-right">
+                                            <form action="furnishcart.php?add_cart" method="post">
+                                                <input type="hidden" name="yy" value="ok"/>
+                                                <input type="hidden" name="number" value="3"/>
+                                                <input type="hidden" name="money" value="{:$money3:}" />
+                                                <input type="submit" value="加入购物车"/>
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="clear"></div>
+                                    </div> 
+                                    
+                                    <div class="clear"></div>                             
+                                </div>
+                            </li>
+                            {:/if:}
+                            
+                            {:if $num neq 'ma':}
+                            {:else:}
+                            <li>
+                                <div class="homelist2-conter-quote-inventory-list-demo">                
+                                    <div class="homelist2-conter-quote-inventory-list-demo-radio">
+                                        豪华暗装型
+                                    </div>                                    
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            材料原价：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-03">
+                                            ￥{:$money4|ceil-$cost.4|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            优惠价格：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money4|ceil-$cost.4|ceil)/100*$quote.sale)|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            施工费用：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-04">
+                                            ¥{:$cost.4|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-gift">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            额外获得
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-02">
+                                            {:(((($money4|ceil-$cost.4|ceil)/100*$quote.sale)|ceil)/100*$quote.gift)|ceil:}
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-gift-01">
+                                            <!-- 赠品金额 -->积分
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-price">
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-01">
+                                            仅需支付：
+                                        </span>
+                                        
+                                        <span class="homelist2-conter-quote-inventory-list-demo-price-02">
+                                            ￥{:(($money4|ceil-$cost.4|ceil)/100*$quote.sale)|ceil+$cost.4|ceil:}.00
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-info">
+                                        <span>
+                                            最高可使用￥{:(((($money4|ceil-$cost.4|ceil)/100*$quote.sale)|ceil)/100*$quote.coupon)|ceil:}元优惠券
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-buy">
+                                        <a href="furnishcart.php?homebill=4">
+                                            产品介绍及清单
+                                        </a>
+                                    </div> 
+                                    
+                                    <div class="homelist2-conter-quote-inventory-list-demo-join">
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-left">
+                                            <input type="hidden" id="s7" name="price" value="{:$money4:}">
+                                            <input type="hidden" id="s8" name="type" value="4">
+                                            <input type="button" onclick="sss(4)" value="加入收藏"/>
+                                        </div>
+                                        
+                                        <div class="homelist2-conter-quote-inventory-list-demo-join-right">
+                                            <form action="furnishcart.php?add_cart" method="post">
+                                                <input type="hidden" name="yy" value="ok"/>
+                                                <input type="hidden" name="number" value="4"/>
+                                                <input type="hidden" name="money" value="{:$money4:}" />
+                                                <input type="submit" value="加入购物车"/>
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="clear"></div>
+                                    </div> 
+                                    
+                                    <div class="clear"></div>                             
+                                </div>
+                            </li>
+                            {:/if:}
+                        </ul>
+                    </div>
+                    
+                    
+                    {:if $num eq 'ma':}
+                    <img class="mr_frBtnR next" src="images/mfrr.gif" />
+                    {:/if:}
+                </div>
+            </div>
+            
+            <div class="clear"></div>           
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="homelist2-conter-word">
+        	<div class="homelist2-conter-word-list">
+            	<div class="homelist2-conter-word-list-title">
+                	<span>
+                    	什么是优惠券
+                    </span>
+                </div>
+                
+                <div class="homelist2-conter-word-list-w">
+                	如何获得优惠券
+                </div>
+                
+                <li class="homelist2-conter-word-list-d">
+                	积极参与上品上生各类活动即可获得
+                </li>
+                
+                <li class="homelist2-conter-word-list-d">
+                	线下推广活动赠送优惠券
+                </li>
+                
+                <div class="clear2"></div>
+                
+                <div class="homelist2-conter-word-list-w">
+                	优惠券如何使用
+                </div>
+                
+                <li class="homelist2-conter-word-list-d">
+                	在购物结算时，可直接使用优惠券金额抵扣相应现金
+                </li>
+                
+                <div class="clear2"></div>
+            </div>
+            
+            <div class="homelist2-conter-word-clear">
+            </div>
+            
+            <div class="homelist2-conter-word-list">
+            	<div class="homelist2-conter-word-list-title">
+                	<span>
+                		什么是积分
+                    </span>
+                </div>
+                
+                <div class="homelist2-conter-word-list-w">
+                	积分如何获得
+                </div>
+                
+                <li class="homelist2-conter-word-list-d">
+                	积分是用户在上品上生电商购买产品时，按一定比例返利给用户的数据凭证，积分可在用户下次购买时，作为现金进行抵扣。
+                </li>
+                
+                <div class="clear2"></div>
+                
+                <div class="homelist2-conter-word-list-w">
+                	积分如何使用
+                </div>
+                
+                <li class="homelist2-conter-word-list-d">
+                	积分与现金等值，一个积分相当于一元现金
+                </li>
+                
+                <li class="homelist2-conter-word-list-d">
+                	积分只限于购买上品上生平台商品时使用
+                </li>
+                
+                <li class="homelist2-conter-word-list-d">
+                	健康舒适家居产品不适用积分
+                </li>
+                
+                <li class="homelist2-conter-word-list-d">
+                	除健康舒适家居外的产品，有设定可使用积分的，可使用积分
+                </li>
+                
+                <div class="clear2"></div>                
+            </div>
+            
+            <div class="clear3"></div>
+            <div class="clear2"></div>
+        </div>
+        
+        <div class="clear27"></div>
+    </div> 
+    {:/if:}
+
+</div>
+<!--中间end-->
+
+<div class="clear1"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 底部列表end -->
+
+
+
+<!--弹出预售框-->
+<div class="collect-tip" id="collect-tip" style="display: none;">	
+	<form action="furnishorder.php?show" method="post" id="theForm">
+	    <div class="collect-tip-bk">	
+	        <div class="collect-tip-titile">
+	        	我的健康舒适家
+	        </div>        
+	        
+	        <div class="collect-tip-shopping">
+	        	<div class="collect-tip-shopping-title">
+	            	预购总汇<br>
+	            	
+	            </div>
+	            <p>1.本次支付预付费用为500元，由平台暂收后将安排专业工作人员免费上门测量、深化设计。</p>
+				<p>2.用户支付尾款时，预付费用将返还。</p>
+				<p>3.用户如需全额支付款项，提交订单后可至个人中心进行全额支付</p>
+	            <div class="collect-tip-shopping-table">
+
+	            	<div class="collect-tip-shopping-table-title">
+	                	<div class="collect-tip-shopping-table-title-01">
+	                		<!-- <input type="checkbox" id="selectAll"/> -->
+	                    	系统名称
+	                    </div>
+	                    
+	                    <div class="collect-tip-shopping-table-title-02">
+	                    	总价（单位：元）
+	                    </div>
+	                    
+	                    <div class="collect-tip-shopping-table-title-03">
+	                    	抵扣券（单位：元）
+	                    </div>
+	                    
+	                    <div class="collect-tip-shopping-table-title-04">
+	                    	操作
+	                    </div>
+	                    
+	                    <div class="clear"></div>
+	                </div>
+	                
+	                <div class="clear"></div>
+	                
+                    <div class="collect-tip-shopping-table-list-bk">
+                    	{:if !empty($cartlist):}
+	                	{:foreach $cartlist as $v:}
+                        <div class="collect-tip-shopping-table-list">
+                            <div class="collect-tip-shopping-table-list-01">
+                                <input name="cart_id[]" class="selectSelf" value="{:$v['cart_id']:}" type="hidden" />
+                                {:$v['shop_name']:}
+                            </div>
+                            
+                            <div class="collect-tip-shopping-table-list-02">
+                                {:$v['price']:}
+                            </div>
+                            
+                            <div class="collect-tip-shopping-table-list-03">
+                                {:$v['discount_amount']:}
+                            </div>
+                            
+                            <div class="collect-tip-shopping-table-list-04">
+                                <a href="furnishcart.php?del&cart_id={:$v['cart_id']:}">
+                                    移除
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        {:/foreach:} 
+	               		{:/if:}
+	                </div>
+                    
+	                <div class="clear"></div>	                
+	                               
+	                <div class="collect-tip-shopping-table-collect">
+	                	<div class="collect-tip-shopping-table-collect-01">
+	                    	总计
+	                    </div>
+	                    
+	                    <div class="collect-tip-shopping-table-collect-02">
+	                    	{:if isset($cartlist[0]['total_price']):}
+	                    		{:$cartlist[0]['total_price']:}
+	                    	{:else:}
+	                    		无
+	                    	{:/if:}
+	                    </div>
+	                    
+	                    <div class="collect-tip-shopping-table-collect-03">
+	                    	{:if isset($cartlist[0]['discount_amount']):}
+	                    		{:$cartlist[0]['amount']:}
+	                    	{:else:}
+	                    		无
+	                    	{:/if:}
+	                    </div>
+
+	                    <!-- <div class="collect-tip-shopping-table-collect-04">
+	                    	<a href="javascript:;">
+                        		删除选中的商品
+                    		</a>
+	                    </div> -->
+	                </div>
+	            </div>
+	            
+	            <div class="collect-tip-shopping-bk">
+                    <div class="collect-tip-shopping-buy">
+                        <input type="submit" value="去结算"/>
+                    </div>
+                    
+                    <div class="collect-tip-new">
+                        <a class="a-know1" id="a-know" href="javascript:void(0)">
+                            返回
+                        </a>
+                    </div>
+                </div>
+	        </div>
+	                
+	        <div class="clear"></div> 
+	               
+	        
+	        
+	        
+	        <div class="clear2"></div> 
+	    </div>
+	</form>
+</div>
+<!--弹出预售框end-->
+
+
+
+
+<!--弹出预售-->
+<script>
+    $(document).ready(function() { 
+        $(function(){
+            $('#aaaa').each(
+            function(){
+                $(this).html($('#ies').val())
+            })
+        });
+    })
+</script>
+<SCRIPT>
+          function showDistributionTip() {
+              $("#distribution-tip").fadeIn();
+              setTimeout(function () {
+                  $("#distribution-tip").fadeOut();
+              }, 4000)
+          }
+          $(function(){            
+              //contact float
+              $("#contFloat").click(function(event){
+                  event.preventDefault();
+                  $("#contFloat-detail").show();
+              })
+              $("#contFloat-detail-close").click(function(){
+                  $("#contFloat-detail").hide();
+              })
+              $("#collect-link").on("click", function () {
+                  $("#collect-tip").show();
+              })
+              $("#a-know").on("click", function () {
+                  $("#collect-tip").hide();
+              })
+              $("#appdown-close").on("click", function () {
+                  $("#apptip").hide();
+              })
+              $("#fromesb-close").on("click", function () {
+                  $("#fromesb-wechat").hide();
+              })
+          })
+</SCRIPT>
+<!--弹出预售end-->
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+
+
+</script>
+<!--选择城市end-->
+
+
+<style>
+.combo-arrow{
+	background:url('images/combo_arrow.png') no-repeat center center;
+}
+</style>
+
+<!-- 以下判断是否登录 -->
+{:if !empty($smarty.session.nonono):}
+<script>
+	//未登录保存房屋信息将button改为submit跳转登录页面
+	function tijiao(){
+		var province = document.getElementById("city111").value;
+		var city = document.getElementById("city222").value;
+		var area = document.getElementById("city333").value;
+        document.getElementById('submit_button').type='submit';
+		// if (province !='请选择省份' && city !='请选择城市' && area !='请选择地区') {
+		// 	document.getElementById('submit_button').type='submit';
+		// }else{
+		// 	document.getElementById('submit_button').type='button';
+		// }
+		// alert('请先登录再保存，谢谢！');
+		// window.location.href="user.php?login";
+	}
+
+	//未登录精确报价将button改为submit跳转登录页面
+	function homeQuote(){
+		var province = document.getElementById("city111").value;
+		var city = document.getElementById("city222").value;
+		var area = document.getElementById("city333").value;
+        document.getElementById('accurate').type='submit';
+		// if (province !='请选择省份' && city !='请选择城市' && area !='请选择地区') {
+		// 	document.getElementById('accurate').type='submit';
+		// }else{
+		// 	document.getElementById('accurate').type='button';
+		// }
+		// alert('请先登录后填写房屋信息，谢谢！');
+		// window.location.href="user.php?login";
+	}
+</script>
+{:else:}
+<script>
+	function tijiao(){
+		document.getElementById('submit_button').type='submit';
+	}
+	function homeQuote(){
+		document.getElementById('accurate').type='button';
+	}
+</script>
+{:/if:}
+{:if empty($smarty.session.error):}
+{:if !empty($smarty.session.house_data) && $smarty.session.house_data.0.error eq yes:}
+<script>
+function homeQuote(){
+	document.getElementById('accurate').type='button';
+	document.getElementById("homeQuoteTable").style.display="block";
+}
+</script>
+{:/if:}
+{:else:}
+<script>
+function homeQuote(){
+	alert("{:$smarty.session.error:}");
+}
+</script>
+{:/if:}
+
+{:if !empty($smarty.get.error):}
+
+<script>
+	alert('请填写完整再提交，谢谢');
+</script>
+{:/if:}
+
+{:if !empty($smarty.session.house_data.0.error):}
+
+{:if $smarty.session.house_data.0.error eq yes:}
+<script>
+	document.getElementById("yes").style.display="block";
+	document.getElementById("no").style.display="none";
+	
+</script>
+{:/if:}
+
+{:if $smarty.session.house_data.0.error eq no:}
+<script>
+	document.getElementById("no").style.display="block";
+	document.getElementById("yes").style.display="none";
+	var jqbj = document.getElementById("jqbj");
+	jqbj.style.background="#ccc";
+	jqbj.style.border="#ccc";
+</script>
+{:/if:}
+
+{:/if:}
+
+{:if !empty($smarty.session.nonono):}
+<script>
+	// document.getElementById("nologin").style.display="block";
+	document.getElementById("no").style.display="none";
+	document.getElementById("yes").style.display="none";
+</script>
+{:/if:}
+
+<script>
+function province1(){
+
+	var province = document.getElementById("city111").value;
+    var city = document.getElementById("city222").value;
+	var city3 = document.getElementById("city333").value;
+
+	if (province !='请选择省份' && city !='请选择城市') {
+		$.get('index.php?province='+province+'&city='+city+'&city3='+city3,function(data){
+			if (data==1) {
+				document.getElementById("yes").style.display="block";
+				document.getElementById("no").style.display="none";
+			}else{
+				document.getElementById("yes").style.display="none";
+				document.getElementById("no").style.display="block";
+			}
+		});
+	}else{
+		document.getElementById("yes").style.display="none";
+		document.getElementById("no").style.display="none";
+	}
+	
+	
+}
+</script>
+
+<!-- 加入收藏 -->
+<script>
+	function sss(num){
+		if (num == 1) {
+			var s1 = document.getElementById("s1").value;
+			var s2 = document.getElementById("s2").value;
+		}else if(num == 2){
+			var s1 = document.getElementById("s3").value;
+			var s2 = document.getElementById("s4").value;
+		}else if(num == 3){
+			var s1 = document.getElementById("s5").value;
+			var s2 = document.getElementById("s6").value;
+		}else if(num == 4){
+            var s1 = document.getElementById("s7").value;
+            var s2 = document.getElementById("s8").value;
+        }
+
+		$.get('furnishcart.php?addConcern&type='+s2+'&price='+s1,function(data){
+
+			if (data==1) {
+				alert('此商品已收藏，请勿重复收藏！');
+			}else if(data==2){
+				alert('恭喜，收藏成功！');
+			}else if(data==3){
+				alert('抱歉，收藏失败！');
+			}
+		});
+	}
+</script>
+
+
+{:if !empty($smarty.session.price_post) || !empty($smarty.session.house_data):}
+
+<script type="text/javascript">
+function myfun(){
+    var province = document.getElementById("city111");
+	var city = document.getElementById("city222");
+	var area = document.getElementById("city333");
+	var diqu = document.getElementById("city444");
+	var city11 = document.getElementById("city11");
+	var city22 = document.getElementById("city22");
+	var city33 = document.getElementById("city33");
+	var c1 = document.getElementById("c1").value;
+	var c2 = document.getElementById("c2").value;
+	var c3 = document.getElementById("c3").value;
+	var c4 = document.getElementById("c4").value;
+	
+	city11.innerHTML = c1;
+	city22.innerHTML = c2;
+	city33.innerHTML = c3;
+	province.value = c1;
+	city.value = c2;
+	area.value = c3;
+	diqu.value = c4;
+}
+window.onload=myfun;
+</script>
+{:/if:}
+
+<style>
+.collect-tip-shopping-buy input{
+	width:250px;
+	height:40px;
+	line-height: 40px;
+	color: #323232;
+	font-size:24px;
+	text-align:center;
+	background:none;
+	border:none;
+	cursor:pointer;
+}
+</style>
+
+
+
+
+
+
+<!--省市县县三级联动-->
+<link href="css/city.css" rel="stylesheet" type="text/css" />
+<!--<script type="text/javascript" src="js/jquery.mini.js"></script>这个JQ与图片滚动效果冲突，先注释了-->
+<script type="text/javascript" src="js/city.min.js"></script>
+<!--省市县县三级联动end-->
+
+<link rel="stylesheet" type="text/css" href="js/easyui.css" />
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+//Provinces/Citys/Town
+;jQuery(function(){
+	$("#citys").combobox();
+	$("#town").combobox();
+	var provinces="";
+	var citys="";
+	var town="";	
+	$("#provinces").combobox({
+		onSelect:function(record){
+			//console.log(record);      //记住这才是真正的js调试器，其他都是扯淡
+			provinces=record.text;
+			$("#citys").combobox({
+				valueField : 'text',
+				textField : 'text',
+				mode : 'remote',
+				url:"furnish.php?aid="+record.value,
+				//data:[{"text":"Eric","value":23}],        //直接赋数据是data,其他如果是连接则是url	
+				onSelect:function(record){
+					//alert("ss");
+					citys=record.text;
+					$("#town").combobox({
+						valueField : 'text',
+						textField : 'text',
+						mode : 'remote',
+						url:"furnish.php?aid="+record.value,
+						onSelect:function(record){
+							town=record.text;
+						}
+					});
+				}	
+			});			
+		}
+	});
+	//这个是总的提交
+	$("#userInfoSubmit").click(function(){
+		alert("提交成功");
+	
+	});
+});	
+</script>
+<script>
+//插入节点
+;jQuery(function(){
+	//卧室
+	$("#bedRoom").combobox({
+		onSelect:function(record){
+			//alert(record.text);
+			//console.log(record);
+			if (record.text == '--请选择--') {
+		   		$("#bedRoomList").children().remove();
+				$("#bedRoomList").html='';
+		   	}else{
+				$("#bedRoomList").html='';
+				$("#bedRoomList").children().remove();
+				$("#bedRoomList").append("<li><div class='roomdivdemo01'>卧室（m2 )</div><div class='roomdivdemo03' id='bedRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#bedRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bedroom[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//客厅
+	$("#livingRoom").combobox({
+
+
+		onSelect:function(record){
+			
+		   	if (record.text == '--请选择--') {
+		   		$("#livingRoomList").children().remove();
+				$("#livingRoomList").html='';
+		   	}else{
+				/*$("#livingRoomList").children().remove();
+				for(var i=0;i<record.value;i++)
+				{
+					$("#livingRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'>111<span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'></span><span><input type='text' value=''  style='width:100px;'/></span></li>");
+				}	*/
+				$("#livingRoomList").html='';
+				$("#livingRoomList").children().remove();
+				$("#livingRoomList").append("<li><div class='roomdivdemo01'>客厅（m2 )</div><div class='roomdivdemo03' id='livingRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#livingRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='liveroom[]'/></li>");
+				}
+                areas();
+				// var aaa = document.getElementById('_easyui_combobox_i2_0');
+
+				// if () {
+				// 	document.getElementById('livingRoomList').innerHTML='';
+				// };
+			}
+		}
+	});
+	//厨房
+	$("#kitchRoom").combobox({
+		onSelect:function(record){
+			/*$("#kitchRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#kitchRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>厨房：</span><span><input type='text' value='10'  style='width:100px;'/></span></li>");
+			}*/	
+			if (record.text == '--请选择--') {
+		   		$("#kitchRoomList").children().remove();
+				$("#kitchRoomList").html='';
+		   	}else{
+				$("#kitchRoomList").html='';
+				$("#kitchRoomList").children().remove();
+				$("#kitchRoomList").append("<li><div class='roomdivdemo01'>厨房（m2 )</div><div class='roomdivdemo03' id='kitchRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#kitchRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='kitchen[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//浴室
+	$("#washRoom").combobox({
+		onSelect:function(record){
+			/*$("#washRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#washRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>浴室：</span><span><input type='text' value='8'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#washRoomList").children().remove();
+				$("#washRoomList").html='';
+		   	}else{
+				$("#washRoomList").html='';
+				$("#washRoomList").children().remove();
+				$("#washRoomList").append("<li><div class='roomdivdemo01'>浴室（m2 )</div><div class='roomdivdemo03' id='washRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#washRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bathroom[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//阳台atticRoom
+	$("#galleryRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#galleryRoomList").children().remove();
+				$("#galleryRoomList").html='';
+		   	}else{
+				$("#galleryRoomList").html='';
+				$("#galleryRoomList").children().remove();
+				$("#galleryRoomList").append("<li><div class='roomdivdemo01'>阳台（m2 )</div><div class='roomdivdemo03' id='galleryRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#galleryRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='balcony[]'/></li>");
+				}	
+			}
+            areas();
+		}
+	});
+	//阁楼
+	$("#atticRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#atticRoomList").children().remove();
+				$("#atticRoomList").html='';
+		   	}else{
+				$("#atticRoomList").html='';
+				$("#atticRoomList").children().remove();
+				$("#atticRoomList").append("<li><div class='roomdivdemo01'>阁楼（m2 )</div><div class='roomdivdemo03' id='atticRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#atticRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='gelou[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});	
+	//地下室
+	$("#cellarRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#cellarRoomList").children().remove();
+				$("#cellarRoomList").html='';
+		   	}else{
+				$("#cellarRoomList").html='';
+				$("#cellarRoomList").children().remove();
+				$("#cellarRoomList").append("<li><div class='roomdivdemo01'>地下室（m2 )</div><div class='roomdivdemo03' id='cellarRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#cellarRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='database[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//大约计算各厅室
+	$("#totalHouseSize").blur(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#washRoomList input").size());
+		//alert($("#kitchRoomList input").size());
+		//alert($("#livingRoomList input").size());
+		//alert($("#galleryRoomList input").size());
+		var al=$("#bedRoomList input").size()*10+$("#kitchRoomList input").size()*10+$("#washRoomList input").size()*8+$("#galleryRoomList input").size()*6-10;
+		//alert($(this).val());
+		//alert(al);
+		var lef=$(this).val()-al;
+		$("#bedRoomList input").eq(0).val(parseInt((lef/5)*2));
+		var k=((lef/5)*3)/($("#bedRoomList input").size());
+		//$("#bedRoomList input").eq(0).val((lef/5)*2);
+		//alert(k);
+		$("#livingRoomList input").val(parseInt(k));
+	});
+	$("#sub").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);		
+		$.ajax({
+			type:"post",
+			url:"?r=quote/get_price/cat_id/11",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val()
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+	
+	$("#foreCompute").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);		
+		$.ajax({
+			type:"post",
+			url:"?r=quote/get_price/cat_id/11",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val()
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+});
+</script>
+
+<script>
+//banner报价隐藏DIV点击显示
+function baojia(){
+    var size = document.getElementById("quick").value;
+    var quickprice = document.getElementById("quickprice");
+    $.get("index.php?quick&size="+size+"&cid={:$smarty.get.cid:}",function(data){
+        quickprice.innerHTML = data+'元';
+    })
+	document.getElementById("baojia").style.display="block";
+    document.getElementById("baojia2").style.display="none";
+}
+</script>
+<!--房屋类型单选框点击隐藏显示事件--> 
+<script type="text/javascript">
+$(function(){
+    $("#gongyu").click(function(){
+        $("#click01").hide();
+        $("#atticRoomList").children().remove();
+        $("#atticRoomList").html='';
+        $("#cellarRoomList").children().remove();
+        $("#cellarRoomList").html='';
+    });
+
+    // $("#diejia").click(function(){
+    //     $("#click01").hide();
+    //     $("#atticRoomList").children().remove();
+    //     $("#atticRoomList").html='';
+    //     $("#cellarRoomList").children().remove();
+    //     $("#cellarRoomList").html='';
+    // });
+
+    $("#diejia").click(function(){
+        $("#click01").show();
+        
+    });
+
+    $("#lianpai").click(function(){
+        $("#click01").show();
+        
+    });
+
+    $("#dudong").click(function(){
+        $("#click01").show();
+        
+    });
+});
+</script>
+
+
+{:if !empty($smarty.get.error):}
+<script type="text/javascript"> $(function(){ window.location.hash = "#title111"; }) </script>
+{:/if:}
+
+
+ <script>
+    function areas(){
+        var num = 0;
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='area') {
+                if (lis[i].value=='') {
+                    var a = 0;
+                }else{
+                    var a = lis[i].value;
+                }
+                var num = (parseFloat(num) + parseFloat(a)).toFixed(1);
+            }
+        }
+        $('#areanum').val(num);
+    }
+</script>
+
+
+
+<!--弹出视频-->
+<div id="clickAdd_video_Id" style="">   
+<script src="js/video.js" type="text/javascript"></script>
+	<div class="clickAdd_video-center-bk"> 
+        <div class="clickAdd_video-center">
+        	<div class="clickAdd_video-center-title">
+            	<div class="clickAdd_video-center-title-cha" id="video_AddOut01Id">
+                    <a href="javascript:;" onclick="videoNone()">
+                        X
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clickAdd_video-center-video" >
+            {:if !empty($smarty.session.furnish_quote.video_img):}
+            	<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="680" height="380" poster="{:$smarty.session.furnish_quote.video_img|getImages:}" data-setup="">
+                    {:if !empty($smarty.session.furnish_quote.video):}
+                    <source class='video' src="{:$smarty.session.furnish_quote.video|getImages:}" type='video/mp4' />
+                    <source class='video' src="{:$smarty.session.furnish_quote.video|getImages:}" type='video/webm' />
+                    <source class='video' src="{:$smarty.session.furnish_quote.video|getImages:}" type='video/ogg' />
+                    <source class='video' src="{:$smarty.session.furnish_quote.video|getImages:}" type='video/avi' />
+                    {:/if:}
+                    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                </video>
+            {:/if:}
+            </div>
+    
+            
+            <div class="clickAdd_video-center-name" id='title'>
+            	{:if !empty($smarty.session.furnish_quote.quote_name):}
+                    {:$smarty.session.furnish_quote.quote_name:}
+                {:/if:}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function videoNone(){
+        $("#clickAdd_video_Id").css('display','none');
+
+        $.post('index.php?videoSrc',function(data){
+            $("#clickAdd_video_Id").html('');
+            $("#clickAdd_video_Id").html(data);
+        });
+    }
+</script>
+<script type="text/javascript">
+jQuery(function(){
+		$("#clickAdd_video_Id").css('height',$(document).height());
+		
+		$("#video_AddInId").click(function(){
+            $("#clickAdd_video_Id").fadeIn();
+        });
+		
+		$("#video_AddOut02Id").click(function(){
+            $("#clickAdd_video_Id").fadeOut();
+        });
+
+    });
+</script>
+<!--弹出视频end-->
+
+<!--商品图片缩略图切换+放大镜-->
+<script type="text/javascript" src="js/jquery.jqzoom_price.js"></script>
+<script type="text/javascript" src="js/base_homeprice.js"></script>
+<!--商品图片缩略图切换+放大镜end-->
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	/* 图片滚动效果 */
+	$(".mr_frbox").slide({
+		titCell: "",
+		mainCell: ".mr_frUl ul",
+		autoPage: true,
+		effect: "leftLoop",
+		autoPlay: false,
+		vis: 3
+	});
+	
+	
+});
+</script>
+            
+
+</body>
+</html
+
+

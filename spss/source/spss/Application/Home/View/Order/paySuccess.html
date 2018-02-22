@@ -1,0 +1,60 @@
+
+		<link rel="stylesheet" href="__PUBLIC__/css/shopcar3.css" />
+
+		<div class="content">
+			<div class="empty">
+				
+			</div>
+			<div class="tabtit">
+				<a href="javascript:;">1.我的购物车</a>
+				<a href="javascript:;">2.填写订单信息</a>
+				<a href="javascript:;">3.完成支付</a>
+			</div>
+			<div class="zhifudetail">
+				<p>支付详情</p>
+				<p><span class="success-img zhifu-img"><img src="__PUBLIC__/img/shopcar-success.png" alt="" /></span>您的订单(<?=$order['sn']?>)已成功提交!</p>
+				<p>您选择的产品：
+				<?php foreach($goods as $k=>$v){?>
+					<?=$v['quote_name']?>&nbsp;&nbsp;
+				<?php }?>
+				</p>
+				<p><span id='sj'>5</span>秒后自动跳转至购物车</p>
+				<p><a href="<{:U('User/homeOrderShow')}>">查看详情</a><a href="<{:U('Cart/index')}>">返回</a></p>
+			</div>
+		</div>
+
+		<input type="hidden" id='orderid' value='{:if !empty($order.system_id) && $order.system_id eq 1:}eu{:else if $order.system_id eq 8 or $order.system_id eq 9:}ov{:else:}fu{:/if:}{:$order.sn:}'>
+		<input type="hidden" id='ordertotal' value='<{$order.total_fee}>'>
+		<input type="hidden" id='goods_num' value="<?= count($goods) ?>">
+		<?php foreach($goods as $k=>$v){?>
+		<input type="hidden" id='goods_id<{$k}>' value="<?php if($order['system_id'] != 1 && $order['system_id'] != 8  && $order['system_id'] != 9){ ?><{$v['quote_id']}><?php }else{ ?><{$v['goods_id']}><?php } ?> ">
+		<input type="hidden" id='price<{$k}>' value="<?php if($order['system_id'] != 1 && $order['system_id'] != 8  && $order['system_id'] != 9){ ?><?php if(!empty($v['adjust_quote_price'])){ ?> <{$v['adjust_quote_price']}><?php }else{ ?><{$v['quote_price']}><?php } ?><?php }else{ ?><{$v['goods_price']}><?php } ?>">
+		<input type="hidden" id='goods_num<{$k}>' value="<?php if($order['system_id'] != 1 && $order['system_id'] != 8  && $order['system_id'] != 9){ ?>1<?php }else{ ?><{$v['goods_num']}><?php } ?>">
+		<?php }?>
+
+		<script>
+		var count=5;
+			function daojishi(){
+				count=count-1;
+				$("#sj").html(count);
+				if(count<=0){
+					window.location.href="<{:U('Cart/index')}>"; 
+				}else{
+					setTimeout("daojishi()",1000);
+				}
+			}
+			daojishi(5);
+		</script>
+
+		<script>
+		    var orderid = $('#orderid').val();
+		    var ordertotal = $('#ordertotal').val();
+		    var goods_num = $('#goods_num').val();
+
+		    _ozprm="orderid="+orderid+"&ordertotal="+ordertotal
+		    for (var i = 0; i < goods_num; i++) {
+		        +"&skulist="+$('#goods_id'+i).val()+","+$('#price'+i).val()+","+$('#goods_num'+i).val()+",,,,,,,;"
+		    };
+		    
+		</script>
+		

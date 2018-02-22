@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery 验证插件</title>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+
+<script type="text/javascript">
+jQuery(function(){
+	
+	/*jQuery("#enrollForm").validate();*/
+	/*
+	如果你只是空验证，说明也不写，那么对应的表单控件上必须用css来制定要验证的规则
+	<input type="text" name="UserName" class="required"/>
+	因为我们不想在html中写class，所有这种空的用法是不存在的。		
+	*/
+	jQuery("#enrollForm").validate({
+		//success : 'success',
+		success : "validateSuccess",
+		rules:{
+			UserName:
+			{
+				//minlength:5,
+				required:true,
+				biaoshifu:true
+			},
+			UserPassword:
+			{
+				required:true
+			},
+			UserEmail:{
+				required:true,
+				email: true
+
+				
+			}
+		},
+		messages:{
+			UserName:{
+				required:"必须是用户名"
+			},
+			UserPassword:{
+				required:"密码不可为空"
+			},
+			UserEmail:{
+				required:"邮箱也要写",
+				email: "邮件格式必须正确"
+			}
+		},
+		
+	
+	})
+	//下面这个是自定义的验证表达式。
+	$.validator.addMethod('biaoshifu', function (value, element) {
+		var patt = /^[A-Za-z0-9]{6,20}$/;
+		return this.optional(element) || (patt.test(value));
+	}, '请正确填写标识符');
+	
+});
+</script>
+<style type="text/css">
+	#divDemo{ width:800px; height:200px; background:#00FF99;}
+	.valid{ background:url(images/reg_succ.png) no-repeat right}
+	/*这个是我定义的css*/
+	.validateSuccess{ color:red;}
+</style>
+</head>
+
+<body>
+<pre>
+	验证插件跟UI无关，当不使用UI的时候可以单独使用验证插件，他就是一个记事本js文件
+	//这里是可写的验证规则
+	<!--classRuleSettings: {
+		required: {required: true},
+		email: {email: true},
+		url: {url: true},
+		date: {date: true},
+		dateISO: {dateISO: true},
+		number: {number: true},
+		digits: {digits: true},
+		creditcard: {creditcard: true}
+	},
+	规则名                    说明
+	required:true            必须输入字段
+	email:true               必须输入正确格式的电子邮件
+	url:true                 必须输入正确格式的网址
+	date:true                必须输入正确格式的日期（IE6 验证出错）
+	dateISO:true             必须输入正确格式的日期(ISO（) 只验证格式，不验证有效）
+	number:true              必须输入合法的数字(负数，小数)
+	digits:true              必须输入正整数
+	creditcard:true          必须输入合法的信用卡号，例如：5105105105105100
+	equalTo:"#field"         输入值必须和#field 相同
+	minlength:5              输入长度最小是5 的字符串(汉字算一个字符)
+	maxlength:10             输入长度最多是10 的字符串(汉字算一个字符)
+	rangelength:[5,10]       输入长度介于5 和10 之间的字符串")(汉字算一个字符)
+	range:[5,10]             输入值必须介于5 和10 之间
+	min:5                    输入值不能小于5
+	max:10                   输入值不能大于10
+    remote:"check.php"       使用ajax 方法调用check.php 验证输入值
+	
+	-->
+	//这个是另外的一个语言包，李老师将其复制到了validate.js中，目前我也是这么干的，问题是如果自己定义mesages这个选项没有什么作用
+	<!--messages: {
+		required: "必选字段",
+		remote: "请修正该字段",
+		email: "请输入正确格式的电子邮件",
+		url: "请输入合法的网址",
+		date: "请输入合法的日期",
+		dateISO: "请输入合法的日期 (ISO).",
+		number: "请输入合法的数字",
+		digits: "只能输入整数",
+		creditcard: "请输入合法的信用卡号",
+		equalTo: "请再次输入相同的值",
+		maxlength: $.validator.format("请输入一个长度最多是 {0} 的字符串"),
+		minlength: $.validator.format("请输入一个长度最少是 {0} 的字符串"),
+		rangelength: $.validator.format("请输入一个长度介于 {0} 和 {1} 之间的字符串"),
+		range: $.validator.format("请输入一个介于 {0} 和 {1} 之间的值"),
+		max: $.validator.format("请输入一个最大为 {0} 的值"),
+		min: $.validator.format("请输入一个最小为 {0} 的值")
+	},-->
+	
+	//远端必须返回true或者false,问题是这里必须有服务端，服务端返回true或者false,这样能完成自定义正则表达式的验证。
+	pass : {
+	required : true,
+	minlength : 6,
+	remote : {
+	url : 'user.php',
+	type : 'POST',
+	dataType : 'json',
+	data : {
+	user : function () {
+	return $('#user').val();
+	},
+	},
+	},
+	},
+	//user.php 内容
+	<?php
+	if ($_POST['user'] != 'bnbbs' || $_POST['pass'] != '123456') {
+	echo 'false';
+	} else {
+	echo 'true';
+	}
+	?>
+	//群组错误消息
+	默认错误消息会在input后面加以label,使用group就可以群组化，问题是有点麻烦
+	
+	
+</pre>
+
+<!--form必须在table外面，否则dom报错，因为table不包含form标签-->
+<form id="enrollForm" action="enroll_process.asp" method="post" enctype="application/x-www-form-urlencoded">
+	<table style="width:800px; border:1px solid #dac0c0; margin-left:70px; ">
+		<tr>
+			<td width="700">
+				账 号：<input type="text" name="UserName"/>
+			</td>
+			<td>
+				*			
+			</td>
+		</tr>
+		<tr>
+			<td>	
+				密 码：<input type="password" name="UserPassword" />
+			</td>
+			<td>
+				*			
+			</td>
+		<tr>
+		<tr>
+			<td>	
+				邮 箱：<input type="text" name="UserEmail" />
+			</td>
+			<td>
+				*			
+			</td>
+		<tr>
+		<tr>
+			<td>	
+				电 话：<input  type="text" name="UserTelephone" />
+			</td>
+			<td>
+				*			
+			</td>
+		<tr>
+		<tr>
+			<td>	
+				<input type="submit" name="btnSubmit" value="提交" />	
+			</td>
+			<td>
+						
+			</td>
+		</tr>
+	</table>
+</form>
+
+
+
+</body>
+</html>

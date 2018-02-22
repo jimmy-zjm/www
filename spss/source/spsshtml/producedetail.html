@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/headfoot.css"/>
+		<link rel="stylesheet" href="css/produceline.css" />
+		<link rel="stylesheet" href="css/producedetail.css" />
+		<script	src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<!--nav-->
+		<div class="home-banner">
+			<div class="swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide"><img src="img/home-banner.jpg" /></div>
+		            <div class="swiper-slide"><img src="img/home-banner.jpg"></div>
+		            <div class="swiper-slide"><img src="img/home-banner.jpg"></div>
+		        </div>
+		        <!-- Add Pagination -->
+		        <div class="swiper-pagination"></div>
+		    </div>
+		</div>
+		<!--nav-->
+		<div class="home-nav">
+			<ul>
+				<div class="home-nav1">
+					<li><a href="#">舒适健康家居</a></li>
+					<li class="nav-hover-left" onmousemove="homeloginhover()" onmouseleave="homeloginleave()">
+						<a href="#" class="home-hover-left home-nav-list">舒适健康建材</a>
+						<div class="home-nav-hover home-nav-hover-left home-nav-hover-left-1" >
+							<p>无醛地板</p>
+							<p>厨房卫浴</p>
+						</div>
+					</li>
+					<li class="nav-hover-left" onmousemove="homeloginhover()" onmouseleave="homeloginleave()">
+						<a href="#"  class="home-hover-left home-nav-list">舒适健康售后</a>
+						<div class="home-nav-hover home-nav-hover-left home-nav-hover-left-2"  >
+							<p>机电保养</p>
+							<p>机电维修</p>
+							<p>机电耗材</p>
+						</div>
+					</li>
+					<li><a href="#">家居知识了解</a></li>
+					<li class="home-nav-logo"><a href="#"><img src="./img/home-logo.png" alt="" /></a></li>
+				</div>
+				<div class="home-nav2">
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">全国体验馆</a></li>
+					<li><a href="#">在线客服</a></li>
+				</div>
+				<div class="home-nav3">
+						<li><a href="#"></a></li>
+						<li class="home-nav3-li2" onmousemove="homeloginhover()" onmouseleave="homeloginleave()">
+							<a  href="javascript:;" class="home-login home-nav-list" >
+							<div class="home-login-hover">
+								<p>退出登录</p>
+								<p>修改密码</p>
+								<p>我的地址</p>
+								<p>我的订单</p>
+								<p>我的收藏</p>
+								<!--<p class="home-login-btn">登录</p>
+								<p class=" home-login-btn home-regest-btn">注册</p>-->
+							</div>
+							</a>
+						</li>
+						<li class="home-nav3-li3"><a href="#"></a></li>
+						
+				</div>				
+				
+			</ul>
+		</div>
+		<div class="nav-kongbai home-login-bg-hover" id="navkongbai"></div>
+		
+		<!--banner-->
+		<div class="produceline-banner">
+			<img src="img/produceline-banner.jpg"/>
+			<p class="producedetail-jizhidekongqi">极&nbsp;致&nbsp;的&nbsp;空&nbsp;气</p>
+			<p class="producedetail-banner-line"></p>
+			<p class="producedetail-banner-fonts"><a href="" style="color: #d7d7d7;">了解新风系统</a></p>
+			<img src="img/producedetail-banner-font1.png" alt="" class="produceline-banner-shiping">
+		</div>	
+		
+		<!--main-->
+		<div class="content" id="content">
+			
+		
+			<div class="produceline-main">
+				<div class="produceline-tab1 produceline-tab">
+					<a href="javascript:void(0);" style="color:#00a0e9;" id="producelineping" onclick="producetab(1)">详情介绍</a>
+				</div>
+				<div class="produceline-tab2 produceline-tab">
+					<a href="javascript:void(0);" style="color: #000;" id="producelinesheng" onclick="producetab(2)">满足需求</a>
+				</div>
+				<div class="produceline-tab1-show" id="producelinetab1" >
+					
+					<div class="producedetail-tab1-show-main">
+						<img src="img/home-banner.jpg" alt="" / class="producedetail-img4" style="width: 100%;">
+						<img src="img/producedetail-img1.jpg" alt="">
+						<img src="img/producedetail-img3.jpg" style="">
+						<img src="img/producedetail-img2.jpg" style="">
+						
+						<div class="producedetail-tab1-show-main-foot">
+							
+							<ul>
+								<li>前期定位</li>
+								<li>设备定位</li>
+								<li>管路安装</li>
+								<li>设备安装</li>
+								<li>系统调试</li>
+								<li>验收交房</li>
+							</ul>
+							<p id="producedetail-line"><img src="img/producedetail-img5.jpg" id="producedetail-line"></p>
+						</div>
+					</div>
+					
+				</div>
+				<div class="produceline-tab2-show" id="producelinetab2" style="display: none;">
+					<p class="produceline-tab2-show-con1"><img src="img/produceline-tab2-show-img.jpg" alt="" /></p>	
+					<div class="produceline-tab2-show-table" style="text-align: center;">	
+						<table border="1px" cellspacing=0>
+							<tr>
+								<td>功能</td>
+								<td>健康</td>
+								<td>舒适</td>
+								<td>节能</td>
+								<td>便捷售后</td>
+								<td>便捷安装</td>
+								<td>静音</td>
+								<td>智能</td>
+								<td>便捷使用</td>
+							</tr>
+							<tr>
+								<td>&nbsp;01 新风除霾机</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;02 EC高凤压直流无刷电机</td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;03 恒风量控制系统</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;04 高效逆流铝制逆交换</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;05 三档风量控制器</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+							</tr>
+							<tr> 
+								<td>&nbsp;06 恒风量调节器</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;07 送风中效过滤模块</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;08 送风高效过滤模块</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;09 回风初效过滤模块</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;10 承插式抗菌管件</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>&nbsp;11 承插式抗菌管道</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td></tr>
+							<tr>
+								<td>&nbsp;12 除湿模块</td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td><img src="img/producedetail-yuandian.png"/></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<div class="produceline-tab2-show-table2">
+						<p >功能解释</p>
+						<p style="margin: -150px auto;"><img src="img/producedatail-infotab.jpg"></p>
+						
+						<!--<table border="1px solid #cfcfcf" cellspacing="0">
+							<tr>
+								<td>名称</td>
+								<td>图片</td>
+								<td style="color: #000;">需求</td>
+								<td>解释</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;01 新风除霾机</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;02 EC高凤压直流无刷电机</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;03 恒风量控制系统</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;04 高效逆流铝制逆交换</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;05 三档风量控制器</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;06 恒风量调节器</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;07 送风中效过滤模块</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;08 送风高效过滤模块</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;09 回风初效过滤模块</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;10 承插式抗菌管件</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							<tr>
+								<td rowspan="2">&nbsp;11 承插式抗菌管道</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size:0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+								<tr>
+								<td rowspan="2">&nbsp;12 除湿模块</td>
+								<td rowspan="2"><img src="img/producedetail-pro1.jpg" alt="" /></td>
+								<td>健康</td>
+								<td style="text-align: left; font-size: 0.95em;">把室外的空气通过高效除霾净化后输送到室内，再把室内含有甲醛、苯、氨等有害的气体排出，形成高效持续性的净化过程，让室内保留的空气洁净清新无对人体有害物质，整机除霾效率高于99%。</td>
+							</tr>
+							<tr>
+								<td style="color: red;">舒适</td>
+								<td style="text-align: left;font-size: 0.95em;">排出室内异味、降低室内二氧化碳浓度，在室内不会产生闷、燥感，将整体二氧化碳浓度控制在1000以内。</td>
+							</tr>
+							
+							
+						</table>-->
+					</div>
+				</div>
+			</div>
+			
+			<a href="baojia.html" style="display: block;">
+			<!--<div class="producedetail-huojian" onclick="producedetailhuojian()" id="producedetailhj">
+				<img src="img/huojian.png"/>
+			</div>-->
+				<div class="producedetail-baojiago" id="baojia">
+					<img src="img/producedetail-baojiago.jpg">
+				</div>
+			</a>
+		</div>
+		<!--foot-->
+		<div class="home-footer" id="footed">
+			<div class="home-footer1">
+				<ul>
+					<li><a href="dealer.php">服务与支持</a></li>
+					<li><a href="#">全国展示体验馆</a></li>
+					<li><a href="#">合作伙伴</a></li>
+					<li><a href="#">安装服务商登录</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">帮助中心</a></li>
+					<li><a href="#">购买指南</a></li>
+					<li><a href="#">支付方式</a></li>
+					<li><a href="#">配送政策</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">公司简介</a></li>
+					<li><a href="#">联系我们</a></li>
+					<li><a href="#">假如我们</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">关注我们</a></li>
+					<li><span class="home-weixin"></span><a href="#">微信公众号</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">客服热线</a></li>
+					<li class="home-service"><span class="service-number"></span><a href="#">400-800-1027</a></li>
+					<li><a href="#">周一至周五9：00-18：00</a></li>
+					<li><a href="#" class="service-online">在线客服</a></li>
+				</ul>
+			</div>
+			<div class="home-footer2">
+				备案号：沪ICP备16030510号-1
+			</div>
+		</div>
+	</body>
+	<script src="js/headfoot.js"></script>
+	<script>
+		window.onscroll=function(){
+			var baojia=document.getElementById("baojia");
+			var num=$(document).height();
+			var scrollength=$(document).scrollTop();
+			console.info(scrollength+"~~~~"+num);
+			if(scrollength>4200){
+				baojia.style.position="relative";
+				baojia.style.bottom=170+"px";
+			}
+			if(scrollength<4200){
+				baojia.style.position="fixed";
+				baojia.style.bottom=0+"px";
+			}
+		}
+			
+		
+	/*	function homeloginhover(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="block";
+		}
+		function homeloginhoverout(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="none";
+			
+		}*/
+		function producetab(index){
+			var producelinetab1=document.getElementById("producelinetab1");
+			var producelinetab2=document.getElementById("producelinetab2");
+			var producelineping=document.getElementById('producelineping');
+			var producelinesheng=document.getElementById('producelinesheng');
+			if(index==2){
+				producelinetab2.style.display="block";
+				producelinetab1.style.display="none";
+				producelineping.style.color="#000";
+				producelinesheng.style.color="#00a0e9";
+				
+			}else{
+				producelinetab2.style.display="none";
+				producelinetab1.style.display="block";
+				producelineping.style.color="#00a0e9";
+				producelinesheng.style.color="#000";
+			}
+		}
+		/*function producedetailhuojian(){
+			var producedetailBaoJia=document.getElementById("producedetailBaoJia");
+			var producedetailhj=document.getElementById("producedetailhj");
+			var content=document.getElementById("content");
+			content.style.height=4400+"px";
+			producedetailBaoJia.style.display="block";
+			producedetailhj.style.display="none"
+		}*/
+	</script>
+</html>

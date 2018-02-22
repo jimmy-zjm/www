@@ -1,0 +1,62 @@
+<!--右侧浮动导航-->
+<!-- 代码部分begin -->
+<div class="side">
+	<ul>
+    	<li onclick="qimoChatClick();">
+        	<a href="javascript:;">
+            	<div class="sidebox">
+                	<img src="./images/chat.png">
+                    在线客服
+                </div>
+            </a>
+        </li>
+        
+        <li>
+            <a href="cart.php?cartList">
+                <div class="sidebox">
+                    <img src="./images/244.png">
+                    我的购物车
+                </div>
+            </a>
+        </li>
+        
+        <li>
+        	<a href="user.php?concernGoods">
+                <div class="sidebox">
+                    <img src="./images/245.png">
+                    我的关注
+                </div>
+            </a>
+        </li>
+        
+	  	<li>
+        	<a href="javascript:;">
+            	<div class="sidebox">
+                	<img src="./images/246.png">
+                    我的分享
+                </div>
+            </a>
+        </li>
+        
+	 	<li style="border:none;">
+            <a href="javascript:goTop();" class="sidetop">
+            	<img src="./images/247.png">
+            </a>
+        </li>
+  </ul>
+</div>
+<script>
+$(function(){
+	$(".side ul li").hover(function(){
+		$(this).find(".sidebox").stop().animate({"width":"200px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#fd5a35"})	
+	},function(){
+		$(this).find(".sidebox").stop().animate({"width":"40px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})	
+	});
+});
+//回到顶部函数
+function goTop(){
+	$('html,body').animate({'scrollTop':0},300);
+}
+</script>
+<!-- 代码部分end -->
+<!--右侧浮动导航end-->

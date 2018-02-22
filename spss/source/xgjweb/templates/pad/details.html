@@ -1,0 +1,1158 @@
+{:include file="pad/head.html":}
+<style type="text/css">
+.tongyong{
+    width: 100%;
+    height: 30px;
+    clear: both;
+    content: "";
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+</style>
+<form action="pad.php?offer&catId={:$smarty.get.catId:}" name="form1" id="form1" method="post">
+
+<div class="details-checkbox">
+	<div class="details-checkbox-title">
+    	<span>
+        	选择所需报价产品
+        </span>
+    </div>
+    
+    <div class="details-checkbox-list">
+        {:foreach $quoteList as $key => $val:}
+            <div class="details-checkbox-list-demo" style="">
+            {:$key:}
+            </div> 
+            {:foreach $val as $k=>$v:}
+            <div class="details-checkbox-list-demo">
+                <label>
+                    <input type="radio" name='quote_id[{:$key:}]' value="{:$v.quote_id:}" onclick='typeInput(1)' {:if !empty($smarty.session.pad_post.quote_id) && $smarty.session.pad_post.quote_id eq $v.quote_id:}checked{:/if:}>
+                    <span>
+                        {:$v.quote_name:}
+                    </span>
+                </label>
+            </div> 
+            {:/foreach:}
+            <div class="clear"></div>
+        {:/foreach:}
+        <input type="hidden" id='type' name="type" value='1'>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+    <div class="details-conter-offer">
+    	<div class="details-conter-offer-title" id="title111">
+        	<span class="span01">
+            	填写相关信息
+            </span>
+        </div>
+        
+        <div class="details-conter-offer-info"> 
+        	<div class="details-conter-offer-info-basic">
+            	<div class="details-conter-offer-info-basic-demo">
+                	<div class="details-conter-offer-info-basic-demo-span">
+                    	客户姓名
+                    </div>
+                    
+                    <div class="details-conter-offer-info-basic-demo-input">
+                    	<input type="text" onchange="loading()" name="name" id='name' value="{:if !empty($smarty.session.pad_post.name):}{:$smarty.session.pad_post.name:}{:/if:}">
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="details-conter-offer-info-basic-demo">
+                	<div class="details-conter-offer-info-basic-demo-span">
+                    	联系方式
+                    </div>
+                    
+                    <div class="details-conter-offer-info-basic-demo-input">
+                    	<input type="text" name="tel" id='tel' onchange="loading()" value="{:if !empty($smarty.session.pad_post.tel):}{:$smarty.session.pad_post.tel:}{:/if:}">
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+                   	
+        	<div class="details-conter-offer-info-region">
+            	<div class="details-conter-offer-info-region-title">
+                	请选择您住房的所在地域
+                </div>
+                
+                <div class="details-conter-offer-info-region-form">
+                	<div  class="pcd" >
+                        <select required class='prov' name="cho_Province" onchange='changeArea("city",this.value)'>
+							<option value="" >   
+								请选择
+							</option>
+							{:foreach $area as $key => $v:}
+								<option value="{:$v.id:}">{:$v.name:}</option>
+							{:/foreach:}
+						</select>
+						<span>　省　</span>
+						<select required class='city' name="cho_City" onchange='changeArea("district",this.value)'>
+								<option value="">
+									请选择城市
+								</option>
+						</select>
+						<span>　市　</span>
+						<select required class='district' name="cho_Area" >
+								<option value="">
+									请选择地区
+								</option>
+						</select>
+						<span>　区　</span>
+                       <input type="text" class='address' name="diqu" value="{:if !empty($smarty.session.pad_post.diqu):}{:$smarty.session.pad_post.diqu:}{:/if:}" placeholder='请输入详细地址'>
+                   </div>
+                </div>
+
+                <input type="hidden" id="c3" value="{:if !empty($smarty.session.pad_post):}{:$smarty.session.pad_post.cho_Area:}{:/if:}">
+                <input type="hidden" id="c4" value="{:if !empty($smarty.session.pad_post):}{:$smarty.session.pad_post.diqu:}{:/if:}">
+                <input type="hidden" name="cid" value="{:if !empty($smarty.get.catId):}{:$smarty.get.catId:}{:/if:}">
+
+                <div class="clear"></div>
+                
+                <div class="details-conter-offer-info-region-yes" id="yes" style="display:none;"><!--进行判断，如果输入的地址数据库有，则显示此DIV-->
+                	恭喜！您所在地域有我们专业的服务商
+                </div>
+                
+                <div class="details-conter-offer-info-region-none" id="no" style="display:none;"><!--进行判断，如果输入的地址数据库没有，则显示此DIV，在CSS样式中，默认已经隐藏，判断时删除隐藏CSS样式-->
+                	很遗憾！您所在的地域没有我们专业的服务商
+                </div>
+
+            </div>
+           
+			<div class="clear"></div>            
+            
+            <div class="details-conter-offer-info-left">	
+                <div class="details-conter-offer-info-type">
+                    <div class="details-conter-offer-info-type-title">
+                        房屋类型
+                    </div>
+                    
+                    <div class="details-conter-offer-info-type-radio">
+                        <div class="details-conter-offer-info-type-radio-demo">
+                            <input type="radio" id="gongyu" name="house" value="1" {:if !empty($smarty.session.pad_post.house):}{:if $smarty.session.pad_post.house eq 1:}checked{:/if :}{:/if :}/>
+                            
+                            <span>公寓</span>
+                        </div>
+                        
+                        <div class="details-conter-offer-info-type-radio-demo">
+                            <input type="radio" id="diejia" name="house" value="2" {:if !empty($smarty.session.pad_post.house):}{:if $smarty.session.pad_post.house eq 2:}checked{:/if :}{:/if :}/>
+                            
+                            <span>叠加</span>
+                        </div>
+                        
+                        <div class="details-conter-offer-info-type-radio-demo"/>
+                            <input type="radio" id="lianpai" name="house" value="3" {:if !empty($smarty.session.pad_post.house):}{:if $smarty.session.pad_post.house eq 3:}checked{:/if :}{:/if :} />
+                            
+                            <span>联排</span>
+                        </div>
+                        
+                        <div class="details-conter-offer-info-type-radio-demo"/>
+                            <input type="radio" id="dudong" name="house" value="4" {:if !empty($smarty.session.pad_post.house):}{:if $smarty.session.pad_post.house eq 4:}checked{:/if :}{:/if :}/>
+                            
+                            <span>独栋</span>
+                        </div>
+                         
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear32"></div>
+                
+                <div class="details-conter-offer-info-room">
+                    <div class="details-conter-offer-info-room-right">
+                        <div class="details-conter-offer-info-room-right-demo" id='tt1'>
+                            <select name="type1" id="bedRoom"  style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<21;$i++:}
+                                     <option id='t{:$i:}' value="{:$i:}" {:if !empty($smarty.session.pad_post.type1):}{:if $smarty.session.pad_post.type1 eq $i:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            <span class="details-conter-offer-info-room-right-span">室</span>
+                        </div>
+                        
+                        <div class="details-conter-offer-info-room-right-demo" id='tt2'> 
+                            <select name="type2" id="livingRoom"  style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.pad_post.type2):}{:if $smarty.session.pad_post.type2 eq $i:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                                
+                            </select>
+                            
+                            <span class="details-conter-offer-info-room-right-span">厅</span>
+                        </div>
+    
+                        <div class="details-conter-offer-info-room-right-demo" id='tt3'>
+                            <select name="type3" id="kitchRoom"  style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.pad_post.type3):}{:if $smarty.session.pad_post.type3 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            <span class="details-conter-offer-info-room-right-span">厨</span>
+                        </div>
+                        
+                        <div class="details-conter-offer-info-room-right-demo" id='tt4'>
+                            <select id="washRoom"  name="type4" style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.pad_post.type4):}{:if $smarty.session.pad_post.type4 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            <span class="details-conter-offer-info-room-right-span">卫</span>
+                        </div>
+                        
+                        <!-- <div class="details-conter-offer-info-room-right-demo" id='tt5' style="display:none;">
+                            <select id="galleryRoom" name="type5" style="width:85px; height:28px;">
+                                <option value="">--111--111</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.pad_post.type5):}{:if $smarty.session.pad_post.type5 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                               
+                            </select>
+                            
+                            <span class="details-conter-offer-info-room-right-span">阳台</span>
+                        </div> -->
+                        
+                        <div class="details-conter-offer-info-room-right-demo" id="click01" {:if !empty($smarty.session.pad_post.house):}{:if $smarty.session.pad_post.house neq 1:}style="display:block;"{:/if :}{:/if :}>
+                            <select id="atticRoom" name="type6" style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.pad_post.type6):}{:if $smarty.session.pad_post.type6 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                               
+                            </select>
+                            
+                            <span class="details-conter-offer-info-room-right-span" id="atticRoomSpan">阁楼</span>
+                            
+                            <select id="cellarRoom" name="type7" style="width:85px; height:28px;">
+                                <option value="">--请选择--</option>
+                                {:for $i=1;$i<11;$i++:}
+                                    <option value="{:$i:}" {:if !empty($smarty.session.pad_post.type7):}{:if $smarty.session.pad_post.type7 eq {:$i:}:}selected="selected"{:/if :}{:/if :}>{:$i:}</option>
+                                {:/for:}
+                            </select>
+                            
+                            
+                            <span class="details-conter-offer-info-room-right-span" id="cellarRoomSpan">地下室</span>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="details-conter-offer-info-explain">
+                    <div class="details-conter-offer-info-explain-title">
+                        房间说明
+                    </div>
+                    
+                    <div class="details-conter-offer-info-explain-list">
+                        <ul id="bedRoomList">
+    
+                            {:if !empty($smarty.session.pad_post.bedroom):}
+                            <div class='roomdivdemo01'>卧室（㎡ )</div>
+                            <div class='roomdivdemo03' id='bedRoomList2'>  
+                                {:foreach $smarty.session.pad_post.bedroom as $k=>$v:}
+                                <li class='roomdivdemo02'><input type='tel' typename="area" onkeyup="areas()" id="area1{:$k:}"  name='bedroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}              			
+                            </div>
+                            {:/if :}
+    
+                            
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="livingRoomList">
+    
+                            {:if !empty($smarty.session.pad_post.liveroom):}
+                            <div class='roomdivdemo01'>客厅（㎡ )</div>
+                            <div class='roomdivdemo03' id='livingRoomList2'>  
+                                {:foreach $smarty.session.pad_post.liveroom as $v:}
+                                <li class='roomdivdemo02'><input type='tel' typename="area" onkeyup="areas()" id="area2{:$k:}" name='liveroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}              			
+                            </div>
+                            {:/if :}
+                            
+                            
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="kitchRoomList">
+                            {:if !empty($smarty.session.pad_post.kitchen):}
+                            <div class='roomdivdemo01'>厨房（㎡ )</div>
+                            <div class='roomdivdemo03' id='kitchRoomList2'>
+                                {:foreach $smarty.session.pad_post.kitchen as $v:}
+                                <li class='roomdivdemo02'><input type='tel' typename="area" onkeyup="areas()" id="area3{:$k:}" name='kitchen[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                            
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="washRoomList">
+                            {:if !empty($smarty.session.pad_post.bathroom):}
+                            <div class='roomdivdemo01'>浴室（㎡ )</div>
+                            <div class='roomdivdemo03' id='washRoomList2'>
+                                {:foreach $smarty.session.pad_post.bathroom as $v:}
+                                <li class='roomdivdemo02'><input type='tel' typename="area" onkeyup="areas()" id="area4{:$k:}" name='bathroom[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}	
+    
+                           	
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="galleryRoomList">
+                            {:if !empty($smarty.session.pad_post.balcony):}
+                            <div class='roomdivdemo01'>阳台（㎡ )</div>
+                            <div class='roomdivdemo03' id='galleryRoomList2'>
+                                {:foreach $smarty.session.pad_post.balcony as $v:}
+                                <li class='roomdivdemo02'><input type='tel' typename="area" onkeyup="areas()" id="area5{:$k:}" name='balcony[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                           
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="atticRoomList" class="click02">
+                            {:if !empty($smarty.session.pad_post.gelou):}
+                            <div class='roomdivdemo01'>阁楼（㎡ )</div>
+                            <div class='roomdivdemo03' id='atticRoomList2'>
+                                {:foreach $smarty.session.pad_post.gelou as $v:}
+                                <li class='roomdivdemo02'><input type='tel' typename="area" onkeyup="areas()" id="area6{:$k:}" name='gelou[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                           
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                        <ul id="cellarRoomList" class="click03">
+                            {:if !empty($smarty.session.pad_post.database):}
+                            <div class='roomdivdemo01'>地下室（㎡ )</div>
+                            <div class='roomdivdemo03' id='cellarRoomList2'>
+                                {:foreach $smarty.session.pad_post.database as $v:}
+                                <li class='roomdivdemo02'><input type='tel' typename="area" onkeyup="areas()" id="area7{:$k:}" name='database[]' value="{:$v:}"/></li> 
+                                {:/foreach:}
+                            </div>
+                            {:/if:}
+    
+                            
+                        </ul>
+                        
+                        <div class="clear"></div>
+                        
+                    </div>
+				</div>
+                 
+                <div class="clear"></div>
+                
+                <div class="details-conter-offer-info-area">
+                    <div class="shiyongmianji tongyong" >
+                         <div class="details-conter-offer-info-area-01">
+                            使用面积（㎡ )
+                        </div>
+                        
+                        <div class="details-conter-offer-info-area-02">
+                            <input id="areanum" type="text" name="area" value="{:if !empty($smarty.session.pad_post.area):}{:$smarty.session.pad_post.area:}{:/if :}" readonly/>
+                        </div>
+                    </div>
+                   
+                    <div class="jianzhumianji tongyong">
+                         <div class="details-conter-offer-info-area-01">
+                            建筑面积（㎡ )
+                        </div>
+                        
+                        <div class="details-conter-offer-info-area-02">
+                            <input id="build" type="text" name="build" value="{:if !empty($smarty.session.pad_post.build):}{:$smarty.session.pad_post.build:}{:/if :}"/>
+                        </div>
+                    </div>
+                   <div class="changzhurenkou tongyong">
+                        <div class="details-conter-offer-info-area-01">
+                            常住人口(人)
+                        </div>
+                        
+                        <div class="details-conter-offer-info-area-02">
+                            <input id="people" type="text" name="people" value="{:if !empty($smarty.session.pad_post.people):}{:$smarty.session.pad_post.people:}{:/if :}" />
+                        </div>
+                   </div>
+
+                   
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="clear3"></div>
+                
+                <div class="details-conter-offer-info-button" style="padding-top: 60px">
+                
+                    <div class="details-conter-offer-info-button-right" id="jqbj">
+                        <input type="hidden" name="href" id="href" value='details'>
+                        <input type="hidden" name="q_id" id="q_id" value=''>
+                        <input type="submit" value="精确报价" id="accurate" onclick="homeQuote();"/>
+                    </div>
+                   
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            
+            <div class="details-conter-offer-info-right">	
+            	<img src="images/1019.jpg"/>
+            </div>
+            
+            <div class="clear"></div>
+            
+           
+            <div class="clear"></div>
+        </div>
+    </div>
+</form>
+
+{:if !empty($moneyList):}
+    <div style="padding-top: 20px;clear: both;content:'';overflow: hidden;width: 100%;height: auto ">
+        <p style="padding-left: 30%;width: 100%;height: 30px;">
+            <a style="display:block;float: left;width: 25%">费用</a> 
+            <!-- <a style="display: block;float: left;width: 20%">辅材及施工费用</a> -->
+        </p>
+    {:foreach $moneyList as $k=>$v:}
+        <div style="width: 100%;height: 30px;">
+            <span style="display: block;float: left;width: 29.5%;text-indent:3em"> {:$v['name']:} :</span>
+            <span style='color:red; display: block;float: left;width: 25%'>￥{:$v['money']['all']:}元</span>
+            <!-- <a style="display: block;float: left;width: 30%"><span style='color:red;'>￥{:$v['money']['install']+$v['money']['fuCai']:}元</span></a> -->
+            <button onclick="inputQid({:$v['q_id']:})" style="margin-left: 10px">查看清单</button>
+            <br>
+        </div>
+        {:/foreach:}
+        <div style="width: 100%;height: 30px;">
+            <span style="display:block;float: left;width: 29.5%;text-indent: 3em">合计 :</span>
+            <span style="width: 26%"><span style='color:red;display:block;float: left;width: 25% '>￥{:$moneyAll.zhuCai+$moneyAll.fuCai:}元</span>
+            <!-- <span style='color:red; display:block;float: left;'>￥{:$moneyAll.fuCai:}元</span> --></span>
+        </div>
+    </div>
+{:/if:}
+<script type="text/javascript">
+    function typeInput(o){
+        $('#type').val(o);
+    }
+</script>
+
+
+<script>
+    //判断地址是否选择完毕
+    function homeQuote(){
+        var prov     = $('.prov').val();
+        var city     = $('.city').val();
+        var district = $('.district').val();
+        var address  = $('.address').val();
+        document.getElementById('accurate').type = 'button';
+        if (prov=='' || city=='' || district=='') alert('请选择您住房的所在地域');
+        else if (address=='') alert('请填写详细地址');
+        else document.getElementById('accurate').type = 'submit';
+    }
+    function inputQid(id){
+        $('#q_id').val(id);
+        $('#href').val('offer');
+        $('#form1').submit();
+    }
+</script>
+
+<div class="clear2"></div><div class="clear2"></div><div class="clear2"></div><div class="clear2"></div>
+
+<!--省市县县三级联动-->
+<link href="css/city.css" rel="stylesheet" type="text/css" />
+<!--<script type="text/javascript" src="js/jquery.mini.js"></script>这个JQ与图片滚动效果冲突，先注释了-->
+<script type="text/javascript" src="js/pad_city.min.js"></script>
+<!--省市县县三级联动end-->
+
+<!--房屋类型单选框点击隐藏显示事件--> 
+<script type="text/javascript">
+$(function(){
+    $("#gongyu").click(function(){
+        $("#click01").hide();
+        $("#atticRoomList").hide();
+        $("#cellarRoomList").hide();
+        // $("#atticRoomList").children().remove();
+        // $("#atticRoomList").html='';
+        // $("#cellarRoomList").children().remove();
+        // $("#cellarRoomList").html='';
+    });
+
+    // $("#diejia").click(function(){
+    //     $("#click01").hide();
+    //     $("#atticRoomList").children().remove();
+    //     $("#atticRoomList").html='';
+    //     $("#cellarRoomList").children().remove();
+    //     $("#cellarRoomList").html='';
+    // });
+
+    $("#diejia").click(function(){
+        $("#click01").show();
+        $("#atticRoomList").show();
+        $("#cellarRoomList").show();
+        
+    });
+
+    $("#lianpai").click(function(){
+        $("#click01").show();
+        $("#atticRoomList").show();
+        $("#cellarRoomList").show();
+        
+    });
+
+    $("#dudong").click(function(){
+        $("#click01").show();
+        $("#atticRoomList").show();
+        $("#cellarRoomList").show();
+        
+    });
+});
+</script>
+
+<link rel="stylesheet" type="text/css" href="js/easyui.css" />
+<script type="text/javascript" src="js/jquery.easyui.min.pad.js"></script>
+
+
+<!-- 省市县三级联动 -->
+<script type="text/javascript"> 
+    function changeArea(c,v){
+        $.getJSON("pad.php?changeArea",{'c':c,'v':v},function(data){
+            $('.'+c).html('');
+            if (c=='city') {
+                $('.district').html('');
+                $('.district').append("<option value=''>请选择地区</option>");
+                $('.'+c).append("<option value=''>请选择城市</option>");
+            }else if (c=='district') $('.'+c).append("<option value=''>请选择地区</option>");
+            for (var i = 0; i < data.length; i++) {
+                $('.'+c).append("<option value="+data[i]['id']+">"+data[i]['name']+"</option>");
+            }
+        })
+    }
+</script>
+
+<script>
+//插入节点
+;jQuery(function(){
+	//卧室
+	$("#bedRoom").combobox({
+		onSelect:function(record){
+			//alert(record.text);
+			//console.log(record);
+			if (record.text == '--请选择--') {
+		   		$("#bedRoomList").children().remove();
+				$("#bedRoomList").html='';
+		   	}else{
+				$("#bedRoomList").html='';
+				$("#bedRoomList").children().remove();
+				$("#bedRoomList").append("<li><div class='roomdivdemo01'>卧室（㎡ )</div><div class='roomdivdemo03' id='bedRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#bedRoomList2").append("<li class='roomdivdemo02'><input type='tel' onkeyup='areas()' typename='area' name='bedroom[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//客厅
+	$("#livingRoom").combobox({
+
+
+		onSelect:function(record){
+			
+		   	if (record.text == '--请选择--') {
+		   		$("#livingRoomList").children().remove();
+				$("#livingRoomList").html='';
+		   	}else{
+				/*$("#livingRoomList").children().remove();
+				for(var i=0;i<record.value;i++)
+				{
+					$("#livingRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'>111<span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'></span><span><input type='text' value=''  style='width:100px;'/></span></li>");
+				}	*/
+				$("#livingRoomList").html='';
+				$("#livingRoomList").children().remove();
+				$("#livingRoomList").append("<li><div class='roomdivdemo01'>客厅（㎡ )</div><div class='roomdivdemo03' id='livingRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#livingRoomList2").append("<li class='roomdivdemo02'><input type='tel' onkeyup='areas()' typename='area' name='liveroom[]'/></li>");
+				}
+                areas();
+				// var aaa = document.getElementById('_easyui_combobox_i2_0');
+
+				// if () {
+				// 	document.getElementById('livingRoomList').innerHTML='';
+				// };
+			}
+		}
+	});
+	//厨房
+	$("#kitchRoom").combobox({
+		onSelect:function(record){
+			/*$("#kitchRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#kitchRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>厨房：</span><span><input type='text' value='10'  style='width:100px;'/></span></li>");
+			}*/	
+			if (record.text == '--请选择--') {
+		   		$("#kitchRoomList").children().remove();
+				$("#kitchRoomList").html='';
+		   	}else{
+				$("#kitchRoomList").html='';
+				$("#kitchRoomList").children().remove();
+				$("#kitchRoomList").append("<li><div class='roomdivdemo01'>厨房（㎡ )</div><div class='roomdivdemo03' id='kitchRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#kitchRoomList2").append("<li class='roomdivdemo02'><input type='tel' onkeyup='areas()' typename='area' name='kitchen[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//浴室
+	$("#washRoom").combobox({
+		onSelect:function(record){
+			/*$("#washRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#washRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>浴室：</span><span><input type='text' value='8'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#washRoomList").children().remove();
+				$("#washRoomList").html='';
+		   	}else{
+				$("#washRoomList").html='';
+				$("#washRoomList").children().remove();
+				$("#washRoomList").append("<li><div class='roomdivdemo01'>浴室（㎡ )</div><div class='roomdivdemo03' id='washRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#washRoomList2").append("<li class='roomdivdemo02'><input type='tel' onkeyup='areas()' typename='area' name='bathroom[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//阳台atticRoom
+	$("#galleryRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#galleryRoomList").children().remove();
+				$("#galleryRoomList").html='';
+		   	}else{
+				$("#galleryRoomList").html='';
+				$("#galleryRoomList").children().remove();
+				$("#galleryRoomList").append("<li><div class='roomdivdemo01'>阳台（㎡ )</div><div class='roomdivdemo03' id='galleryRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#galleryRoomList2").append("<li class='roomdivdemo02'><input type='tel' onkeyup='areas()' typename='area' name='balcony[]'/></li>");
+				}	
+			}
+            areas();
+		}
+	});
+	//阁楼
+	$("#atticRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#atticRoomList").children().remove();
+				$("#atticRoomList").html='';
+		   	}else{
+				$("#atticRoomList").html='';
+				$("#atticRoomList").children().remove();
+				$("#atticRoomList").append("<li><div class='roomdivdemo01'>阁楼（㎡ )</div><div class='roomdivdemo03' id='atticRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#atticRoomList2").append("<li class='roomdivdemo02'><input type='tel' onkeyup='areas()' typename='area' name='gelou[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});	
+	//地下室
+	$("#cellarRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#cellarRoomList").children().remove();
+				$("#cellarRoomList").html='';
+		   	}else{
+				$("#cellarRoomList").html='';
+				$("#cellarRoomList").children().remove();
+				$("#cellarRoomList").append("<li><div class='roomdivdemo01'>地下室（㎡ )</div><div class='roomdivdemo03' id='cellarRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#cellarRoomList2").append("<li class='roomdivdemo02'><input type='tel' onkeyup='areas()' typename='area' name='database[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//大约计算各厅室
+	$("#totalHouseSize").blur(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#washRoomList input").size());
+		//alert($("#kitchRoomList input").size());
+		//alert($("#livingRoomList input").size());
+		//alert($("#galleryRoomList input").size());
+		var al=$("#bedRoomList input").size()*10+$("#kitchRoomList input").size()*10+$("#washRoomList input").size()*8+$("#galleryRoomList input").size()*6-10;
+		//alert($(this).val());
+		//alert(al);
+		var lef=$(this).val()-al;
+		$("#bedRoomList input").eq(0).val(parseInt((lef/5)*2));
+		var k=((lef/5)*3)/($("#bedRoomList input").size());
+		//$("#bedRoomList input").eq(0).val((lef/5)*2);
+		//alert(k);
+		$("#livingRoomList input").val(parseInt(k));
+	});
+	$("#sub").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);		
+		$.ajax({
+			type:"post",
+			url:"?r=quote/get_price/cat_id/11",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val()
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+	
+	$("#foreCompute").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);		
+		$.ajax({
+			type:"post",
+			url:"?r=quote/get_price/cat_id/11",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val()
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+});
+</script>   
+<script>
+    function areas(){
+        var num = 0;
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='area') {
+                if (lis[i].value=='') {
+                    var a = 0;
+                }else{
+                    var a = lis[i].value;
+                }
+                var num = (parseFloat(num) + parseFloat(a)).toFixed(1);
+            }
+        }
+        $('#areanum').val(num);
+    }
+</script>
+
+{:if !empty($smarty.session.pad_post):}
+<script type="text/javascript">
+function myfun(){
+    $.getJSON("pad.php?padPostArea",function(data){
+        $('.prov').val(data.provId);      //省
+        for (var i = 0; i < data.city.length; i++) {
+            if (data.cityId == data.city[i]['id']) $('.city').append("<option selected value="+data.city[i]['id']+">"+data.city[i]['name']+"</option>");
+            else $('.city').append("<option value="+data.city[i]['id']+">"+data.city[i]['name']+"</option>");
+        }
+        for (var i = 0; i < data.district.length; i++) {
+            if (data.districtId == data.district[i]['id']) $('.district').append("<option selected value="+data.district[i]['id']+">"+data.district[i]['name']+"</option>");
+            else $('.district').append("<option value="+data.district[i]['id']+">"+data.district[i]['name']+"</option>");
+        }
+    })
+}
+window.onload=myfun;
+</script>
+{:/if:}
+
+<script>
+    function loading(){
+        var name = $('#name').val();
+        var tel = $('#tel').val();
+        if (name=='' || tel=='') return;
+        var re=/^1[34578]\d{9}$/;
+        var reg=new RegExp(re);
+        if(!reg.test(tel)){
+            alert('您输入的电话号码不正确！');
+        }
+        if(reg.test(tel) && name != ''){
+
+            $.getJSON('pad.php?selectHouse',{'name':name,'tel':tel},function(data){
+                /*****************************/
+                //省市县/区详细地址
+                $('.prov').val(data.province);      //省
+                for (var i = 0; i < data.cityList.length; i++) {
+                    if (data.city == data.cityList[i]['id']) $('.city').append("<option selected value="+data.cityList[i]['id']+">"+data.cityList[i]['name']+"</option>");
+                    else $('.city').append("<option value="+data.cityList[i]['id']+">"+data.cityList[i]['name']+"</option>");
+                }
+                for (var i = 0; i < data.districtList.length; i++) {
+                    if (data.district == data.districtList[i]['id']) $('.district').append("<option selected value="+data.districtList[i]['id']+">"+data.districtList[i]['name']+"</option>");
+                    else $('.district').append("<option value="+data.districtList[i]['id']+">"+data.districtList[i]['name']+"</option>");
+                }
+                $('.address').val(data.address);    //详细地址
+                /*****************************/
+
+                /*****************************/
+                //房屋类型
+                if (data.type==1) document.getElementById("gongyu").checked = true;
+                else document.getElementById("gongyu").checked = false;
+                if (data.type==2) document.getElementById("diejia").checked = true;
+                else document.getElementById("diejia").checked = false;
+                if (data.type==3) document.getElementById("lianpai").checked = true;
+                else document.getElementById("lianpai").checked = false;
+                if (data.type==4) document.getElementById("dudong").checked = true;
+                else document.getElementById("dudong").checked = false;
+                /*****************************/
+
+                var areaArea = data.area.split('|');
+                var arr = data.layout.split(',');
+                var aa = document.getElementsByTagName('input');
+
+                if (data.attic>0 || data.basement>0) $('#click01').css('display','block');
+                else $('#click01').css('display','none');
+
+                for (var i = 0; i < aa.length; i++) {
+                    if(aa[i].name=='type1'){
+                        aa[i].value = arr[0];
+                        aa[i-1].value = arr[0];
+                    }
+                    if(aa[i].name=='type2'){
+                        aa[i].value = arr[1];
+                        aa[i-1].value = arr[1];
+                    }
+                    if(aa[i].name=='type3'){
+                        aa[i].value = arr[2];
+                        aa[i-1].value = arr[2];
+                    }
+                    if(aa[i].name=='type4'){
+                        aa[i].value = arr[3];
+                        aa[i-1].value = arr[3];
+                    }
+                    // if(aa[i].name=='type5'){
+                    //     aa[i].value = arr[4];
+                    //     aa[i-1].value = arr[4];
+                    // }
+                    if(aa[i].name=='type6'){
+                        aa[i].value = arr[5];
+                        aa[i-1].value = arr[5];
+                    }
+                    if(aa[i].name=='type7'){
+                        aa[i].value = arr[6];
+                        aa[i-1].value = arr[6];
+                    }
+                };
+
+                /*******************************/
+                //每个房屋面积
+                $('#bedRoomList').html('');
+                $('#livingRoomList').html('');
+                $('#kitchRoomList').html('');
+                $('#washRoomList').html('');
+                $('#galleryRoomList').html('');
+                $('#atticRoomList').html('');
+                $('#cellarRoomList').html('');
+
+  
+                var bedRoom = areaArea['0'].split(',');
+                if (bedRoom.length > 0 && bedRoom[0] != '0') {
+                    $("#bedRoomList").append("<li><div class='roomdivdemo01'>卧室（㎡ )</div><div class='roomdivdemo03' id='bedRoomList2'></div></li>");
+                    for(var i=0;i<bedRoom.length;i++){
+                        $("#bedRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bedroom[]' value='"+bedRoom[i]+"'/></li>");
+                    }
+                }
+
+                var arrLiving = areaArea['1'].split(',');
+                if (arrLiving.length > 0 && arrLiving[0] != '0') {
+                    $("#livingRoomList").append("<li><div class='roomdivdemo01'>客厅（㎡ )</div><div class='roomdivdemo03' id='livingRoomList2'></div></li>");
+                    for(var i=0;i<arr['1'];i++){
+                        $("#livingRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='liveroom[]'  value='"+arrLiving[i]+"'/></li>");
+                    }
+                }
+
+                var arrKitch = areaArea['2'].split(',');
+                if (arrKitch.length > 0 && arrKitch[0] != '0') {
+                    $("#kitchRoomList").append("<li><div class='roomdivdemo01'>厨房（㎡ )</div><div class='roomdivdemo03' id='kitchRoomList2'></div></li>");
+                    for(var i=0;i<arr['2'];i++){
+                        $("#kitchRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='kitchen[]' value='"+arrKitch[i]+"'/></li>");
+                    }
+                }
+
+                var arrWash = areaArea['3'].split(',');
+                if (arrWash.length > 0 && arrWash[0] != '0') {
+                    $("#washRoomList").append("<li><div class='roomdivdemo01'>浴室（㎡ )</div><div class='roomdivdemo03' id='washRoomList2'></div></li>");
+                    for(var i=0;i<arr['3'];i++){
+                        $("#washRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bathroom[]' value='"+arrWash[i]+"'/></li>");
+                    }
+                }
+
+                // var arrGallerys = arrs['4'].split(',');
+                // if (arr['4'] > 0) {
+                //     $("#galleryRoomList").append("<li><div class='roomdivdemo01'>阳台（㎡ )</div><div class='roomdivdemo03' id='galleryRoomList2'></div></li>");
+                //     for(var i=0;i<arr['4'];i++){
+                //         $("#galleryRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='balcony[]' value='"+arrGallerys[i]+"'/></li>");
+                //     }
+                // }
+
+                var arrAttic = areaArea['5'].split(',');
+                if (arrAttic.length > 0 && arrAttic[0] != '0') {
+                    $("#atticRoomList").append("<li><div class='roomdivdemo01'>阁楼（㎡ )</div><div class='roomdivdemo03' id='atticRoomList2'></div></li>");
+                    for(var i=0;i<data.attic;i++){
+                        $("#atticRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='gelou[]' value='"+arrAttic[i]+"'/></li>");
+                    }
+                }
+
+                var arrBasement = areaArea['6'].split(',');
+                if (arrBasement.length > 0 && arrBasement[0] != '0') {
+                    $("#cellarRoomList").append("<li><div class='roomdivdemo01'>地下室（㎡ )</div><div class='roomdivdemo03' id='cellarRoomList2'></div></li>");
+                    for(var i=0;i<data.basement;i++){
+                        $("#cellarRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='database[]' value='"+arrBasement[i]+"'/></li>");
+                    }
+                }
+                
+                /*******************************/
+                $('#areanum').val(data.total_area);
+                $('#people').val(data.people);
+                $('#build').val(data.build);
+            })
+        }
+    }
+</script>
+
+<script>
+    // function provtoggle(){
+    //     $('#prov').toggle();
+    //     $('#city').css('display','none');
+    //     $('#area').css('display','none');
+    // }
+
+    // function sprov(a){
+    //     $.get('pad.php?sprov',{'prov':a},function(data){
+    //         $('#city11').html(a);
+    //         $('#city111').val(a);
+    //         $('#prov').css('display','none');
+    //         var prov = $('#city11').html();
+    //         $('#city').html('');
+    //         $('#city22').html('请选择城市');
+    //         $('#city33').html('请选择地区');
+    //         $('#city222').val('请选择城市');
+    //         $('#city333').val('请选择地区');
+    //         $('#area').html('');
+    //         if (data==true) {
+    //             provCity(prov);
+    //         }else{
+    //             $.get('pad.php?scity',{'prov':prov},function(data){
+    //                 $('#city').html(data);
+    //             })
+    //         }
+    //     })
+        
+    // }
+
+    // function citytoggle(){
+    //     $('#city').toggle();
+    //     $('#prov').css('display','none');
+    //     $('#area').css('display','none');
+    //     var prov = $('#city11').html();
+    //     provCity(prov);
+    // }
+
+    // function scity(a){
+    //     $('#city22').html(a);
+    //     $('#city222').val(a);
+    //     $('#city').css('display','none');
+    //     $('#city33').html('请选择地区');
+    //     $('#city333').val('请选择地区');
+    //     $('#area').html('');
+    //     sarea();
+    // }
+
+    // function areatoggle(){
+    //     $('#area').toggle();
+    //     $('#prov').css('display','none');
+    //     $('#city').css('display','none');
+    //     sarea();
+    // }
+
+    // function areaos(a){
+    //     $('#city33').html(a);
+    //     $('#city333').val(a);
+    //     $('#area').css('display','none')
+    // }
+</script>
+
+{:include file="pad/flooter.html":}
+
+<style>
+.textbox-addon{
+	position:relative !important;
+	left:0px !important;
+	z-index:2 !important;
+	width:83px !important;}
+	
+.textbox-text{
+	margin-right:0px !important;
+	position:relative !important;
+	z-index:1 !important;
+	left:-80px !important;
+	padding:0px !important;
+	background:none !important;
+	padding-top:5px !important;}
+	
+.combo-arrow{
+	width:83px !important;
+	background:url(./images/combo_arrow.png) no-repeat scroll 90% center !important;}
+	
+
+</style>
+
+</body>
+</html>

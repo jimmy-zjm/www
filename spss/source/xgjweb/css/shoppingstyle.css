@@ -1,0 +1,1014 @@
+@CHARSET "UTF-8";
+/*购物车*/	
+.shopping-center .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br{
+	border:none;
+	border-radius:0px;}
+	
+.shopping-center .ui-tabs .ui-tabs-nav{
+	margin:0px;
+	padding:0px;
+	background:none;
+	height:40px;
+	width:1100px;
+	margin:0 auto;}
+	
+.shopping-center .ui-tabs .ui-tabs-nav li.ui-tabs-active{
+	margin:0px;
+	padding:0px;
+	margin-right:60px;}
+	
+.shopping-center .ui-tabs .ui-tabs-nav li{
+	margin:0px;
+	margin-right:60px;}
+	
+.shopping-center .ui-tabs .ui-tabs-nav .ui-tabs-anchor{
+	padding:0px;}
+	
+.shopping-center .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+	border:none !important;
+	background:none !important;}
+	
+.shopping-center .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	border:none !important;}
+	
+.shopping-center .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited{
+	color:#666666 !important;
+	font-weight:initial !important;
+	font-size:18px;
+	border-bottom:1px solid #fff;}
+
+.shopping-center .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
+	border-bottom:1px solid #28b5fd;
+	color:#28b5fd !important;
+	font-weight:initial !important;
+	font-size:18px;}
+
+.shopping-center .ui-tabs .ui-tabs-panel{
+	padding:0px;}
+	
+.shopping-center .ui-widget-content{
+	border:none;
+	background:none;}
+/*购物车end*/
+
+
+
+/*欧洲团代购*/
+.shopping-center-eugroup-table{
+	width:1100px;
+	margin:0 auto;
+	border:2px solid #dcdcdc;}
+	
+.shopping-center-eugroup-table-title{
+	width:1100px;
+	height:50px;
+	line-height:50px;
+	background:#dcdcdc;
+	font-size:18px;
+	color:#000;}
+	
+.shopping-center-eugroup-table-title-checkbox{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-left:22px;
+	margin-top:20px;}
+	
+.shopping-center-eugroup-table-title-checkbox input{
+	width:13px;
+	height:13px;}
+	
+.shopping-center-eugroup-table-title-span{
+	float:left;
+	width:145px;
+	margin-left:15px;}
+	
+.shopping-center-eugroup-table-title-details{
+	float:left;
+	width:230px;}
+	
+.shopping-center-eugroup-table-title-univalent{
+	float:left;
+	width:145px;}
+	
+.shopping-center-eugroup-table-title-preferential{
+	float:left;
+	width:165px;}
+	
+.shopping-center-eugroup-table-title-number{
+	float:left;
+	width:110px;}
+	
+.shopping-center-eugroup-table-title-total{
+	float:left;
+	width:155px;}
+	
+.shopping-center-eugroup-table-title-operation{
+	float:left;
+	width:90px;}
+	
+.shopping-center-eugroup-table-demo{
+	width:1100px;
+	margin:0 auto;
+	font-size:16px;
+	color:#000000;}
+	
+.shopping-center-eugroup-table-demo-checkbox{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-left:22px;
+	margin-top:50px;}
+	
+.shopping-center-eugroup-table-demo-checkbox input{
+	width:13px;
+	height:13px;}
+	
+.shopping-center-eugroup-table-demo-img{
+	float:left;
+	width:84px;
+	height:84px;
+	margin-top:20px;
+	margin-left:30px;}
+	
+.shopping-center-eugroup-table-demo-img img{
+	width:84px;
+	height:84px;}
+	
+.shopping-center-eugroup-table-demo-name{
+	float:left;
+	margin-top:44px;
+	margin-left:51px;
+	width:185px;
+	line-height:25px;}
+	
+.shopping-center-eugroup-table-demo-name a{
+	font-size:16px;
+	color:#000000;}
+	
+.shopping-center-eugroup-table-demo-univalent{
+	float:left;
+	width:120px;
+	margin-left:60px;
+	margin-top:47px;
+	word-break:break-all;}
+	
+.shopping-center-eugroup-table-demo-preferential{
+	float:left;
+	margin-left:20px;
+	width:120px;
+	margin-top:47px;
+	word-break:break-all;}
+	
+.shopping-center-eugroup-table-demo-number{
+	float:left;
+	width:70px;
+	margin-left:20px;
+	border:1px solid #bcbcbc;
+	height:20px;
+	margin-top:47px;}
+	
+.shopping-center-eugroup-table-demo-number .reduction{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-eugroup-table-demo-number .reduction a{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-eugroup-table-demo-number .reduction img{
+	width:15px;
+	height:20px;
+	margin-left:0px;}
+	
+.shopping-center-eugroup-table-demo-number .plus{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-eugroup-table-demo-number .plus a{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-eugroup-table-demo-number .plus img{
+	width:15px;
+	height:20px;
+	margin-left:0px;}
+	
+.shopping-center-eugroup-table-demo-number .number{
+	width:35px;
+	height:20px;
+	line-height:20px;
+	border-left:1px solid #bcbcbc;
+	border-right:1px solid #bcbcbc;}
+	
+.shopping-center-eugroup-table-demo-number .number input{
+	width:35px;
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	color:#515151;}
+	
+.shopping-center-eugroup-table-demo-total{
+	float:left;
+	margin-left:55px;
+	width:90px;
+	margin-top:47px;
+	word-break:break-all;}
+	
+.shopping-center-eugroup-table-demo-operation{
+	float:left;
+	width:130px;
+	text-align:center;
+	margin-top:41px;
+	margin-left:24px;}
+	
+.shopping-center-eugroup-table-demo-operation input{
+	background:none;
+	border:none;
+	text-align:center;
+	font-size:16px;
+	width:58px;
+	height:30px;
+	color:#ffffff;}
+	
+.shopping-center-eugroup-table-demo-operation-remove{
+	float:left;
+	width:58px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu17.png);}
+	
+.shopping-center-eugroup-table-demo-operation-follow{
+	float:right;
+	width:58px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu18.png);}
+	
+.shopping-center-eugroup-table-demo-clear01{
+	width:1035px;
+	height:1px;
+	border-top:1px dashed #dcdcdc;
+	margin-left:22px;
+	margin-top:17px;}
+	
+.shopping-center-eugroup-table-demo-clear02{
+	width:1035px;
+	height:1px;
+	border-top:1px dashed #fff;
+	margin-left:22px;
+	margin-top:17px;}
+	
+.shopping-center-eugroup-settlement{
+	width:1100px;
+	margin:0 auto;}
+	
+.shopping-center-eugroup-settlement-delete{
+	float:left;
+	width:110px;
+	height:40px;
+	line-height:40px;
+	margin-left:70px;}
+	
+.shopping-center-eugroup-settlement-delete input{
+	border:none;
+	background:none;
+	width:110px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-eugroup-settlement-follow{
+	float:left;
+	width:110px;
+	height:40px;
+	line-height:40px;
+	margin-left:55px;}
+	
+.shopping-center-eugroup-settlement-follow input{
+	border:none;
+	background:none;
+	width:110px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-eugroup-settlement-total{
+	float:right;
+	color:#f44d4d;
+	font-size:16px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-eugroup-settlement-buy{
+	float:right;
+	width:132px;
+	height:40px;
+	line-height:40px;
+	background:url(../images/anniu19.png);
+	margin-left:35px;}
+	
+.shopping-center-eugroup-settlement-buy input{
+	width:132px;
+	height:40px;
+	line-height:40px;
+	background:none;
+	border:none;
+	font-size:16px;
+	color:#ffffff;}
+/*欧洲团代购end*/
+
+
+
+
+
+
+/*健康舒适家居*/
+.shopping-center-home-coupon_balance{
+	width:1100px;
+	margin:0 auto;
+	height:40px;
+	line-height:40px;
+	text-align:right;
+	font-size:18px;
+	color:#666;}
+	
+.shopping-center-home-coupon_balance .span02{
+	color:#ff0000;
+	font-size:18px;}
+
+.shopping-center-home-table{
+	width:1100px;
+	margin:0 auto;
+	border:2px solid #dcdcdc;}
+	
+.shopping-center-home-table-title{
+	width:1100px;
+	height:50px;
+	line-height:50px;
+	background:#dcdcdc;
+	font-size:18px;
+	color:#000;}
+	
+.shopping-center-home-table-title-checkbox{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-left:22px;
+	margin-top:20px;}
+	
+.shopping-center-home-table-title-checkbox input{
+	width:13px;
+	height:13px;}
+	
+.shopping-center-home-table-title-span{
+	float:left;
+	width:100px;
+	margin-left:15px;}
+	
+.shopping-center-home-table-title-details{
+	float:left;
+	width:260px;}
+	
+.shopping-center-home-table-title-total{
+	float:left;
+	width:145px;}
+	
+.shopping-center-home-table-title-available{
+	float:left;
+	width:165px;}
+	
+.shopping-center-home-table-title-already{
+	float:left;
+	width:120px;}
+	
+.shopping-center-home-table-title-payable{
+	float:left;
+	width:225px;}
+	
+.shopping-center-home-table-title-operation{
+	float:left;
+	width:90px;}
+	
+.shopping-center-home-table-demo{
+	width:1100px;
+	margin:0 auto;
+	font-size:16px;
+	color:#000000;}
+	
+.shopping-center-home-table-demo-checkbox{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-left:22px;
+	margin-top:58px;}
+	
+.shopping-center-home-table-demo-checkbox input{
+	width:13px;
+	height:13px;}
+	
+.shopping-center-home-table-demo-name{
+	float:left;
+	width:320px;
+	margin-left:30px;
+	margin-top:52px;}
+	
+.shopping-center-home-table-demo-name a{
+	font-size:16px;
+	color:#000;}
+	
+.shopping-center-home-table-demo-total{
+	float:left;
+	width:130px;
+	margin-left:25px;
+	line-height:125px;}
+	
+.shopping-center-home-table-demo-available{
+	float:left;
+	width:80px;
+	margin-left:20px;
+	line-height:125px;}
+	
+.shopping-center-home-table-demo-already{
+	float:left;
+	width:150px;
+	margin-left:20px;}
+	
+.shopping-center-home-table-demo-already-price{
+	float:left;
+	margin-top:50px;
+	width:80px;
+	text-align:center;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	height:27px;}
+	
+.shopping-center-home-table-demo-already-input{
+	float:left;
+	background:url(../images/anniu20.png);
+	width:69px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	margin-top:45px;}
+	
+.shopping-center-home-table-demo-already-input input{
+	background:none;
+	border:none;
+	width:69px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	color:#ffffff;
+	font-size:16px;}
+	
+.shopping-center-home-table-demo-payable{
+	width:225px;
+	float:left;
+	margin-left:10px;
+	line-height:125px;
+	text-align:center;}
+	
+.shopping-center-home-table-demo-operation{
+	float:left;
+	width:130px;
+	text-align:center;
+	margin-top:50px;
+	margin-left:24px;}
+	
+.shopping-center-home-table-demo-operation input{
+	background:none;
+	border:none;
+	text-align:center;
+	font-size:16px;
+	width:58px;
+	height:30px;
+	color:#ffffff;}
+	
+.shopping-center-home-table-demo-operation-remove{
+	float:left;
+	width:58px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu17.png);}
+	
+.shopping-center-home-table-demo-operation-follow{
+	float:right;
+	width:58px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu18.png);}
+	
+.shopping-center-home-table-demo-clear01{
+	width:1035px;
+	height:1px;
+	border-top:1px dashed #dcdcdc;
+	margin-left:22px;}
+	
+.shopping-center-home-table-demo-clear02{
+	width:1035px;
+	height:1px;
+	border-top:1px dashed #fff;
+	margin-left:22px;
+	margin-top:17px;}
+
+.shopping-center-home-settlement{
+	width:1100px;
+	height:85px;
+	border-bottom:1px solid #dcdcdc;
+	margin:0 auto;}
+	
+.shopping-center-home-settlement-delete{
+	float:left;
+	width:110px;
+	height:40px;
+	line-height:40px;
+	margin-left:70px;}
+	
+.shopping-center-home-settlement-delete input{
+	border:none;
+	background:none;
+	width:110px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-home-settlement-follow{
+	float:left;
+	width:110px;
+	height:40px;
+	line-height:40px;
+	margin-left:55px;}
+	
+.shopping-center-home-settlement-follow input{
+	border:none;
+	background:none;
+	width:110px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-home-settlement-total{
+	float:right;
+	color:#f44d4d;
+	font-size:16px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-home-settlement-buy{
+	float:right;
+	width:132px;
+	height:40px;
+	line-height:40px;
+	background:url(../images/anniu19.png);
+	margin-left:35px;}
+	
+.shopping-center-home-settlement-buy input{
+	width:132px;
+	height:40px;
+	line-height:40px;
+	background:none;
+	border:none;
+	font-size:16px;
+	color:#ffffff;}	
+/*健康舒适家居end*/
+
+
+
+
+
+/*欧洲团代购赠品*/
+.shopping-center-home_eugroup-table{
+	width:1100px;
+	margin:0 auto;
+	border:2px solid #dcdcdc;}
+	
+.shopping-center-home_eugroup-table-title{
+	width:1100px;
+	height:50px;
+	line-height:50px;
+	background:#dcdcdc;
+	font-size:18px;
+	color:#000;}
+	
+.shopping-center-home_eugroup-table-title-checkbox{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-left:22px;
+	margin-top:20px;}
+	
+.shopping-center-home_eugroup-table-title-checkbox input{
+	width:13px;
+	height:13px;}
+	
+.shopping-center-home_eugroup-table-title-span{
+	float:left;
+	width:145px;
+	margin-left:15px;}
+	
+.shopping-center-home_eugroup-table-title-details{
+	float:left;
+	width:230px;}
+	
+.shopping-center-home_eugroup-table-title-univalent{
+	float:left;
+	width:145px;}
+	
+.shopping-center-home_eugroup-table-title-preferential{
+	float:left;
+	width:165px;}
+	
+.shopping-center-home_eugroup-table-title-number{
+	float:left;
+	width:110px;}
+	
+.shopping-center-home_eugroup-table-title-total{
+	float:left;
+	width:155px;}
+	
+.shopping-center-home_eugroup-table-title-operation{
+	float:left;
+	width:90px;}
+	
+.shopping-center-home_eugroup-table-demo{
+	width:1100px;
+	margin:0 auto;
+	font-size:16px;
+	color:#000000;}
+	
+.shopping-center-home_eugroup-table-demo-checkbox{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-left:22px;
+	margin-top:50px;}
+	
+.shopping-center-home_eugroup-table-demo-checkbox input{
+	width:13px;
+	height:13px;}
+	
+.shopping-center-home_eugroup-table-demo-img{
+	float:left;
+	width:149px;
+	height:84px;
+	margin-top:20px;
+	margin-left:30px;}
+	
+.shopping-center-home_eugroup-table-demo-img img{
+	width:149px;
+	height:84px;}
+	
+.shopping-center-home_eugroup-table-demo-name{
+	float:left;
+	margin-top:20px;
+	margin-left:7px;
+	width:185px;
+	line-height:25px;}
+	
+.shopping-center-home_eugroup-table-demo-univalent{
+	float:left;
+	width:120px;
+	margin-left:30px;
+	margin-top:47px;
+	word-break:break-all;}
+	
+.shopping-center-home_eugroup-table-demo-preferential{
+	float:left;
+	margin-left:20px;
+	width:120px;
+	margin-top:47px;
+	word-break:break-all;}
+	
+.shopping-center-home_eugroup-table-demo-number{
+	float:left;
+	width:70px;
+	margin-left:20px;
+	border:1px solid #bcbcbc;
+	height:20px;
+	margin-top:47px;}
+	
+.shopping-center-home_eugroup-table-demo-number .reduction{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-home_eugroup-table-demo-number .reduction a{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-home_eugroup-table-demo-number .reduction img{
+	width:15px;
+	height:20px;
+	margin-left:0px;}
+	
+.shopping-center-home_eugroup-table-demo-number .plus{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-home_eugroup-table-demo-number .plus a{
+	width:15px;
+	height:20px;}
+	
+.shopping-center-home_eugroup-table-demo-number .plus img{
+	width:15px;
+	height:20px;
+	margin-left:0px;}
+	
+.shopping-center-home_eugroup-table-demo-number .number{
+	width:35px;
+	height:20px;
+	line-height:20px;
+	border-left:1px solid #bcbcbc;
+	border-right:1px solid #bcbcbc;}
+	
+.shopping-center-home_eugroup-table-demo-number .number input{
+	width:35px;
+	height:20px;
+	line-height:20px;}
+	
+.shopping-center-home_eugroup-table-demo-total{
+	float:left;
+	margin-left:55px;
+	width:90px;
+	margin-top:47px;
+	word-break:break-all;}
+	
+.shopping-center-home_eugroup-table-demo-operation{
+	float:left;
+	width:130px;
+	text-align:center;
+	margin-top:41px;
+	margin-left:24px;}
+	
+.shopping-center-home_eugroup-table-demo-operation input{
+	background:none;
+	border:none;
+	text-align:center;
+	font-size:16px;
+	width:58px;
+	height:30px;
+	color:#ffffff;}
+	
+.shopping-center-home_eugroup-table-demo-operation-remove{
+	float:left;
+	width:58px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu17.png);}
+	
+.shopping-center-home_eugroup-table-demo-operation-follow{
+	float:right;
+	width:58px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu18.png);}
+	
+.shopping-center-home_eugroup-table-demo-clear01{
+	width:1035px;
+	height:1px;
+	border-top:1px dashed #dcdcdc;
+	margin-left:22px;
+	margin-top:17px;}
+	
+.shopping-center-home_eugroup-table-demo-clear02{
+	width:1035px;
+	height:1px;
+	border-top:1px dashed #fff;
+	margin-left:22px;
+	margin-top:17px;}
+	
+.shopping-center-home_eugroup-title{
+	width:1100px;
+	margin:0 auto;
+	height:80px;
+	line-height:80px;
+	font-size:18px;}
+	
+.shopping-center-home_eugroup-title-01{
+	float:left;}
+	
+.shopping-center-home_eugroup-title-01 span{
+	color:#28b5fd;
+	border-bottom:1px solid #28b5fd;}
+	
+.shopping-center-home_eugroup-title-02{
+	float:right;
+	color:#666666;}
+	
+.shopping-center-home_eugroup-title-03{
+	float:right;
+	color:#ff5000;}
+	
+.shopping-center-home_eugroup-title-04{
+	float:right;
+	color:#28b5fd;
+	margin-left:50px;}
+	
+.shopping-center-home_eugroup-title-04 a{
+	color:#28b5fd !important;}
+	
+.shopping-center-home_eugroup-settlement{
+	width:1100px;
+	height:40px;
+	margin:0 auto;}
+	
+.shopping-center-home_eugroup-settlement-delete{
+	float:left;
+	width:110px;
+	height:40px;
+	line-height:40px;
+	margin-left:70px;}
+	
+.shopping-center-home_eugroup-settlement-delete input{
+	border:none;
+	background:none;
+	width:110px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-home_eugroup-settlement-follow{
+	float:left;
+	width:110px;
+	height:40px;
+	line-height:40px;
+	margin-left:55px;}
+	
+.shopping-center-home_eugroup-settlement-follow input{
+	border:none;
+	background:none;
+	width:110px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-home_eugroup-settlement-total{
+	float:right;
+	color:#f44d4d;
+	font-size:16px;
+	height:40px;
+	line-height:40px;}
+	
+.shopping-center-home_eugroup-settlement-buy{
+	float:right;
+	width:132px;
+	height:40px;
+	line-height:40px;
+	background:url(../images/anniu19.png);
+	margin-left:35px;}
+	
+.shopping-center-home_eugroup-settlement-buy input{
+	width:132px;
+	height:40px;
+	line-height:40px;
+	background:none;
+	border:none;
+	font-size:16px;
+	color:#ffffff;}	
+	
+.shopping-center-home_eugroup-span{
+	width:1100px;
+	height:40px;
+	line-height:40px;
+	text-align:right;
+	color:#28b5fd;
+	font-size:12px;
+	margin:0 auto;
+	border-bottom:1px solid #e74c05;}
+	
+.shopping-center-home-payment{
+	width:1100px;
+	margin:0 auto;}
+	
+.shopping-center-home-payment-buy{
+	float:right;
+	width:160px;
+	height:48px;
+	line-height:48px;
+	text-align:center;
+	background:url(../images/anniu21.png);}
+	
+.shopping-center-home-payment-buy input{
+	width:160px;
+	height:48px;
+	line-height:48px;
+	text-align:center;
+	background:none;
+	border:none;
+	font-size:18px !important;
+	color:#ffffff;}
+	
+.shopping-center-home-payment-money{
+	float:right;
+	text-align:right;
+	margin-right:25px;}
+	
+.shopping-center-home-payment-money-difference{
+	height:27px;
+	color:#000000;
+	font-size:16px;}
+	
+.shopping-center-home-payment-money-cope{
+	height:27px;
+	font-size:16px;
+	color:#000000;}
+	
+.shopping-center-home-payment-money-cope .span02{
+	color:#f44d4d;}
+	
+.shopping-center-home_eugroup-span02{
+	width:1100px;
+	line-height:30px;
+	margin:0 auto;}
+/*欧洲团代购赠品end*/
+
+
+
+/*弹框*/
+.tanchu{
+	width:100%;
+	position:fixed;
+	top:0px;
+	z-index:999;
+	background:url(../images/touming02.png);
+	display:none;
+	height:auto;}
+	
+.tanchu_delete-center-bk{
+	width:100%;
+	position:absolute;
+	top:300px;
+	z-index:999;}
+	
+.tanchu_delete-center{
+	width:380px;
+	margin:0 auto;
+	background:#fff;
+	border:2px solid #666;}
+	
+.tanchu_delete-center-title{
+	width:360px;
+	height:35px;
+	line-height:35px;
+	margin:0 auto;}
+
+.tanchu_delete-center-title-span{
+	float:left;}
+	
+.tanchu_delete-center-title-cha{
+	float:right;}
+	
+.tanchu_delete-center-span{
+	width:360px;
+	margin:0 auto;
+	line-height:25px;}
+	
+.tanchu_delete-center-a{
+	width:360px;
+	margin:0 auto;}
+	
+.tanchu_delete-center-a-determine{
+	float:left;
+	width:60px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#52a0e5;
+	border:1px solid #52a0e5;
+	margin-right:20px;}
+	
+.tanchu_delete-center-a-determine a{
+	color:#fff;}
+	
+	
+.tanchu_delete-center-a-close{
+	float:left;
+	width:60px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#fff;
+	border:1px solid #ccc;
+	margin-right:20px;}
+	
+.tanchu_delete-center-a-close a{
+	color:#3c3c3c;}
+
+/*弹框end*/
+.cartul{
+	width: 1100px;
+	height: 40px;
+	margin: 0 auto;
+}
+.cartul li{
+	margin-right:60px; 
+	float: left;
+}
+.cartul li a{
+	color: #666 ;
+	font-weight: initial ;
+    font-size: 18px;
+}
+.cartulliaho,.cartul li a:hover{
+	border-bottom: 1px solid #28b5fd;
+    color: #28b5fd!important;
+   
+}
+
+
+

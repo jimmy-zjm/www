@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>生活健康食品-健康问答</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/knowstyle.css" ><!-- 售后服务know页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+
+
+
+
+<!-- banner轮播图片 -->
+<script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+</head>
+<body style="background:#ecf0f5;">
+<!-- top顶部 -->
+{:include file='header.tpl.html':}
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+	                <a href="index.php">
+	                	<img src="images/logo2.png"/>
+	                </a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?strategy">
+                        	健康攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        	健康营养师
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?know">
+                        	健康问答
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+
+<!-- banner轮播图片 -->
+<div class="flicker-example" data-block-text="false">
+    <ul>
+        <li data-background="images/f7.jpg">
+            <div class="flick-title">
+            	YONGXINDINGZHIZHUANYEJIEDA
+            </div>
+            
+            <div class="flick-sub-text">
+            	用心定制 专业解答
+            </div>
+        </li>        
+        
+        <li data-background="images/f8.jpg">
+            <div class="flick-title">
+            	YONGXINDINGZHIZHUANYEJIEDA
+            </div>
+            
+            <div class="flick-sub-text">
+            	用心定制 专业解答
+            </div>
+        </li>
+        
+        <li data-background="images/f9.jpg">
+            <div class="flick-title">
+            	YONGXINDINGZHIZHUANYEJIEDA
+            </div>
+            
+            <div class="flick-sub-text">
+            	用心定制 专业解答
+            </div>
+        </li>
+        
+        <li data-background="images/f10.jpg">
+            <div class="flick-title">
+            	YONGXINDINGZHIZHUANYEJIEDA
+            </div>
+            
+            <div class="flick-sub-text">
+            	用心定制 专业解答
+            </div>
+        </li>
+    
+    </ul>
+</div>
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="know-conter">	
+    <div class="know-conter-bk">	
+        <div class="know-conter-left">
+        	<div class="know-conter-left-title">
+            	<div class="clear22"></div>	
+            	<span>
+                	知识分类
+                </span>
+            </div>
+            
+            <div class="clear2"></div>
+            
+            <div class="know-conter-left-navigation">	
+            	<span>
+                	健康问答
+                </span>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	什么是健康？ 
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	日常饮食哪些有利于健康？ 
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	补充营养食品是不是越多越好？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	健康食品包含几类？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	什么是绿色食品？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	保健品适合什么年龄人吃？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	特殊食品指什么？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	保健食品与一般食品区别？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	高血压人群可选哪类食品？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	疗效食品和机能食品的区别？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-navigation">	
+            	<span>
+                	健康营养师
+                </span>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	什么是健康营养师？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-navigation">	
+            	<span>
+                	健康攻略
+                </span>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	健康的生活环境是怎样的？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	不洁净空气问题如何解决？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	水质不洁净问题怎样解决？
+                </a>
+            </div>
+            
+            <div class="know-conter-left-list">	
+            	<a href="#">
+                	健康食品包含哪些内容？
+                </a>
+            </div>
+            
+            
+            
+        </div>
+        
+        <div class="know-conter-right"> 
+        	<div class="know-conter-right-title">
+            	<div class="clear19"></div>
+                <span>关于健康舒适家居</span>
+            </div>
+            
+            <div class="clear2"></div>
+            
+            <div class="know-conter-right-conter"><!--此处是内容的跳转DIV-->
+            	<img src="images/223.jpg"/><!--图片是临时代替的，PHP直接调用文本编辑器-->
+            </div>   
+            
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="advertisement">
+		  <a href="#">
+              <img src="images/213.jpg"/>
+          </a>
+	</div>
+
+</div>
+<!--中间end-->
+
+
+
+<!-- 底部列表 -->
+<div class="foot">
+  <div class="foot-list">
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        购物指南
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          购物流程
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          会员介绍
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          常见问题
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          联系客服
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        配送方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          国内配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          海外配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          标准配送
+        </a>
+      </div>
+
+
+    </div>
+
+   <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        支付方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          在线支付
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          分期付款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          邮局汇款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          公司转账
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        售后服务
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          售后政策
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          退款说明
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          返修/退换货
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          取消订单
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-right">
+      暖扬扬线下服务区
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- 底部列表end -->
+
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+   <div class="root-center">
+	  <div class="root-list">
+	    <a href="#">
+	      关于我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      联系我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      人才招聘
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      招商加盟
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      商务合作
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      友情链接
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      备案号码
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      各类证件
+	    </a>
+	  </div>
+
+	  <div class="clear"></div>
+   </div>
+</div>
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+
+</body>
+</html>
+
+
+
+
+

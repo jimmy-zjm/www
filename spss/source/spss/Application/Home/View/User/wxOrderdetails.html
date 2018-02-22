@@ -1,0 +1,106 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+	<include file="User:left" />
+	<div class="user-right">
+		<ul class="user_wxorder-title">
+
+			<li>
+				<a  class="redfont" href="javascript:;">订单详情</a>
+			</li>
+
+		</ul>
+		<div class="wxorderdetails-box">
+			<div class="wxorderdetails-item">
+				<p class="">订单编号：<{$data.sn}></p>
+				<p class="">房屋信息：<{$data.addr}></p>
+			</div>
+			<div class="wxorderdetails-item">
+				<p class="">已选系统</p>
+				<ul class="wxorderdetails-syslist wxorderdetails-ul" >
+					<?php foreach ($quoteinfo as $v){?>
+					<li><{$v.name}> <a href="<{:U('wxListdetails',['id'=>$v['id']])}>">查看清单</a></li>
+					<?php }?>
+				</ul>
+			</div>
+			<div class="wxorderdetails-item">
+				<p class="">订单金额</p>
+				<ul class="wxorderdetails-syslist wxorderdetails-ul" >
+					<li><{$data['money']}>元</li>
+				</ul>
+			</div>
+			<div class="wxorderdetails-item">
+				<p class="">当前进度</p>
+				<ul class="wxorderdetails-speedlist wxorderdetails-ul">
+					<li <?= $data['status']>=0?'class="redfont"':'' ?>>上门测量</li>
+					<li <?= $data['status']>=1?'class="redfont"':'' ?>>设计图纸</li>
+					<li <?= $data['status']>=2?'class="redfont"':'' ?>>施工安装</li>
+					<li <?= $data['status']>=3?'class="redfont"':'' ?>>设备调试</li>
+					<li <?= $data['status']>=4?'class="redfont"':'' ?>>业主验收</li>
+				</ul>
+			</div>
+			<div class="wxorderdetails-item">
+				<p class="">项目负责</p>
+				<ul class="wxorderdetails-tasklist wxorderdetails-ul">
+				<li>
+					<span>上门测量</span>
+					<span class="redfont">&nbsp;</span>
+					<span class="redfont">&nbsp;</span>
+					<a href="<{:U('wxProcess',['oid'=>$oid,'type'=>1])}>">房屋面积</a>
+				</li>
+				<?php if($data['status']>=1):?>
+					<li>
+						<span>设计图纸</span>
+						<span class="redfont"><{$list['1']['worker']}></span>
+						<span class="redfont"><{$list['1']['add_time']}></span>
+						<a href="<{:U('wxProcess',['oid'=>$oid,'type'=>2])}>">查看图纸</a>
+					</li>
+				<?php else: ?>
+					<li>
+						<span>设计图纸</span>
+
+						<span class="redfont">未分配</span>
+					</li>
+				<?php endif ?>
+				<?php if($data['status']>=2):?>
+					<li>
+						<span>施工安装</span>
+						<span class="redfont"><{$list['2']['worker']}></span>
+						<span class="redfont"><{$list['2']['add_time']}></span>
+						<a href="<{:U('wxProcess',['oid'=>$oid,'type'=>3])}>">施工进度</a>
+					</li>
+				<?php else: ?>
+					<li>
+						<span>施工安装</span>
+						<span class="redfont">未分配</span>
+					</li>
+				<?php endif ?>
+
+				<?php if($data['status']>=3):?>
+					<li>
+						<span>设备调试</span>
+						<span class="redfont"><{$list['3']['worker']}></span>
+						<span class="redfont"><{$list['3']['add_time']}></span>
+						<a href="<{:U('wxProcess',['oid'=>$oid,'type'=>4])}>">调试进度</a>
+					</li>
+				<?php else: ?>
+					<li>
+						<span>设备调试</span>
+						<span class="redfont">未分配</span>
+					</li>
+				<?php endif ?>
+
+				<!-- <li>
+					业主验收
+					<?php if($data['status']>=3):?>
+					<a href="<{:U('wxProcess',['oid'=>$oid,'type'=>5])}>">验收进度</a>
+					<?php endif ?>
+				</li> -->
+			</div>
+		</div>
+		
+
+		
+		<div class="clear3"></div>
+	</div>
+</div>

@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<!--<link rel="stylesheet"  type="text/css"  href="css/style.css"  media="screen and (min-width:1200px)"/>-->
+
+
+<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/tuanstyle.css" ><!-- 生活健康食品页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/foodstyle.css" ><!-- 生活健康食品页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<script src="js/concert.js" type="text/javascript"></script><!-- 关注 -->
+
+
+
+<!-- banner轮播图片 -->
+<script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+
+<!--滑动导航-->
+<script type="text/javascript">
+$(document).ready(function() {
+	jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
+		$(tab_conbox).find("li").hide();
+		$(tabtit).find("li:first").addClass("thistab").show(); 
+		$(tab_conbox).find("li:first").show();
+	
+		$(tabtit).find("li").bind(shijian,function(){
+		  $(this).addClass("thistab").siblings("li").removeClass("thistab"); 
+			var activeindex = $(tabtit).find("li").index(this);
+			$(tab_conbox).children().eq(activeindex).show().siblings().hide();
+			return false;
+		});
+	
+	};
+	/*调用方法如下：*/
+	$.jqtab("#tabs","#tab_conbox","click");
+	
+	$.jqtab("#tabs2","#tab_conbox2","mouseenter");
+	
+	$.jqtab("#tabs3","#tab_conbox3","mouseenter");
+	
+	$.jqtab("#tabs4","#tab_conbox4","click");
+	
+});
+</script>
+<!--滑动导航end-->
+
+
+
+
+<!--2张图片轮播-->
+<script>
+//合理使用闭包，也可以认为是全局变量，图片轮播效果
+;(function(){		  
+	jQuery(function($){
+		
+		//默认图片添加class
+		//addAllClass($("#leftScrollContent div"),"smask");
+		//addAllClass($("#rightScrollContent div"),"smask");
+		$("#leftScrollContent div").eq(0).removeClass("smask");
+		$("#rightScrollContent div").eq(0).removeClass("smask");
+		$("#scrollBtn dd").eq(0).addClass("on");
+		//全局变量，是使用闭包的原因	
+		var index = 0;
+		var maximg = $("#leftScrollContent div").size();
+		var handler=0;
+		
+		//按钮控制播放
+		$("#scrollBtn dd").hover(function(){
+			//alert($("#scrollBtn dd").index(this));
+			if(handler)
+			{
+				clearInterval(handler);
+			}
+			removeAllClass($("#scrollBtn dd"),"on")
+			$(this).addClass("on");
+			index=$("#scrollBtn dd").index(this);
+			invoke(index);			
+		},function(){
+			//alert($("#scrollBtn dd").index(this));
+			clearInterval(handler);
+			handler=setInterval(function(){
+				invoke(index);
+				index++;
+				if(index==maximg){index=0;}
+			},3000);
+		});
+		
+		//自动播放，无时间
+		handler = setInterval(function(){
+			removeAllClass($("#scrollBtn dd"),"on")
+			$("#scrollBtn dd").eq(index).addClass("on");
+			invoke(index);
+			index++;
+			if(index==maximg){index=0;}
+		} , 3000);
+	
+	});
+	//仅仅在本实例中使用最好放到内部,这种写法使得左右的变动效果一样，可以写的不一样
+	function invoke(i) 
+	{
+		$("#leftScrollContent div").eq(i).animate({opacity: 1},800).css({"z-index": "1"}).siblings().animate({opacity: 0},800).css({"z-index": "0"});
+		$("#rightScrollContent div").eq(i).animate({opacity: 1},800).css({"z-index": "1"}).siblings().animate({opacity: 0},800).css({"z-index": "0"});		
+	}
+	//函数功能：无返回值，删除节点数组的所有知道class
+	//参数说明：nodes,jQuery数组，className一个class名的字符串
+	function removeAllClass(nodes,className)
+	{
+		for(var i=0;i<nodes.size();i++)
+		{
+			nodes.eq(i).removeClass(className);
+		}
+	}
+	//函数功能：无返回值，给节点数组的所有添加className
+	//参数说明：nodes,jQuery数组，className一个class名的字符串
+	function addAllClass(nodes,className)
+	{
+		for(var i=0;i<nodes.size();i++)
+		{
+			nodes.eq(i).addClass(className);
+		}
+	}
+})();
+</script>
+<!--2张图片轮播end-->
+
+
+<title>生活健康食品——商品列表</title>
+</head>
+<body style="background:#e0e0e0;">
+
+<!-- top顶部 -->
+
+{:include file='header.tpl.html':}
+
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+	                <a href="index.php">
+	                	<img src="images/logo2.png"/>
+	                </a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?strategy">
+                        	健康攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        	健康营养师
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?know">
+                        	健康问答
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+
+
+
+<!--头部轮播图片
+<div class="clear2"></div>
+<div class="foodlist-banner">
+	<div class="contentFrame">
+        <div id="leftScrollFrame">
+            <div id="leftScrollContent">
+                <div class="smask"><img src="images/484.jpg"></div>
+                <div class="smask"><img src="images/485.jpg"></div>
+            </div>
+        </div>
+        <div id="rightScrollFrame">
+            <div id="rightScrollContent">
+                <div class="smask"><img src="images/486.jpg"></div>
+                <div class="smask"><img src="images/487.jpg"></div>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <dl id="scrollBtn">
+            <dd></dd>
+            <dd></dd>			
+        </dl>
+    </div>
+    
+    <div class="clear8"></div>
+    
+    <div class="advertisement">
+	
+    	<img src="images/488.jpg"/>
+    </div>
+</div>
+<div class="clear8"></div>
+<!--头部轮播图片end-->
+
+
+
+
+<!--广告2->
+<div class="foodlist-ad2">
+  <div class="foodlist-ad2-left">
+       <div class="foodlist-ad2-bk">
+          <a href="#">
+            <img  src="images/489.jpg"/>
+          </a>
+       </div>
+   </div>
+   
+   
+   <div class="foodlist-ad2-right">
+       <div class="foodlist-ad2-bk">
+          <a href="#">
+            <img  src="images/490.jpg"/>
+          </a>
+       </div>
+   </div>
+   
+   <div class="clear"></div>
+</div>
+ 广告2end-->
+
+
+<div class="clear8"></div>
+
+<!--中间-->
+<div class="foodlist-conter">    
+    
+    <!--详细内容-->
+	<div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1" >
+        <div class="foodlist-content-dome">
+            <div id="tabbox" style="width:1334px;">
+                <ul class="tabs" id="tabs3">
+                    <div class="tabs-left">
+                        <div class="tabs-left-span">
+                        	{:$cat_name:}
+                        </div>
+                      
+                    	<div class="clear"></div>
+                    </div>
+                
+                    <div class="tabs-right"> 
+					
+					</div>
+				
+                
+                	<div class="clear"></div>
+                </ul>
+            
+                <ul class="tab_conbox" id="tab_conbox3">
+                    <li class="tab_con"> 
+					{:foreach $info as $k => $v :}
+                        <div class="foodlist-content-dome-floor1">
+                            <div class="foodlist-content-dome-floor1-bk">
+                                <div class="foodlist-content-dome-floor1-img">
+                                    <div class="foodlist-content-dome-floor1-img-01">
+                                        <a href="greenfood.php?goods_id={:$v.goods_id:}">
+                                        	<img src="{:$v.goods_img:}"/>
+                                        </a>
+                                    </div>
+                                   
+                                    <div class="foodlist-content-dome-floor1-img-02">
+                                    	{:$v.brand_name:} 
+                                    </div>
+                                </div>
+                                
+                                <div class="foodlist-content-dome-floor1-title">
+                                	{:$v.goods_name:}
+                                </div>
+                                
+                                <div class="foodlist-content-dome-floor1-title2">
+                                	SN.{:$v.goods_sn:}
+                                </div>
+                                
+                                <div class="foodlist-content-dome-floor1-price">
+                                	￥{:$v.shop_price:}
+                                </div>
+                                
+                                <div class="foodlist-content-dome-floor1-buying">
+									已有<span>89</span>人评价
+                                </div>
+                                
+                                <div class="foodlist-content-dome-floor1-icon">
+                                    <div id="{:$v.goods_id:}" class="foodlist-content-dome-floor1-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$v.goods_id:},{:$v.class_id:},{:$v.goods_id:});">       
+                                       		<img src="images/20.png"/>
+                                        </a>
+                                    </div>
+                        
+                                    <div class="foodlist-content-dome-floor1-icon-02">
+                                        <a href="order.php?addcart&class_id={:$v.class_id:}&goods_id={:$v.goods_id:}&num=1">
+                                        	<img src="images/21.png"/>
+                                        </a>
+                                    </div>
+                        
+                                    <div class="foodlist-content-dome-floor1-icon-03">
+                                        <a href="#">
+                                        	<img src="images/22.png"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					{:/foreach:}	
+						
+                        
+                 	<div class="tab_conbox-clear"></div>            
+                    </li>
+					<div class="page">{:$page:}</div>
+            	</ul>
+            </div>
+        </div>
+    </div>
+    <!--详细内容end-->
+    
+    <div class="clear8"></div>
+
+</div>
+<!--中间end-->
+<!--
+<div class="clear"></div>
+-->
+
+<!--广告3-->
+<!--
+<div class="foodlist-ad2">
+  <div class="foodlist-ad2-left">
+       <div class="foodlist-ad2-bk">
+          <a href="#">
+            <img  src="images/491.jpg"/>
+          </a>
+       </div>
+   </div>
+   
+   
+   <div class="foodlist-ad2-right">
+       <div class="flicker-example" data-block-text="false">
+          <ul>
+            <li data-background="images/white.jpg">        
+              <div class="flick-title">良品铺子</div>
+              <div class="flick-sub-text">蜜饯果干组合300g</div>
+              <div class="flick-sub-text2">降至<span>¥25.00</span></div>
+            </li>
+            
+            <li data-background="images/white.jpg">        
+              <div class="flick-title">良品铺子</div>
+              <div class="flick-sub-text">蜜饯果干组合300g</div>
+              <div class="flick-sub-text2">降至<span>¥25.00</span></div>
+            </li>
+            
+            <li data-background="images/white.jpg">        
+              <div class="flick-title">良品铺子</div>
+              <div class="flick-sub-text">蜜饯果干组合300g</div>
+              <div class="flick-sub-text2">降至<span>¥25.00</span></div>
+            </li>      
+          </ul>
+       </div>
+   </div>
+   
+   <div class="clear"></div>
+</div>
+-->
+<!--广告3end-->
+<!--
+<div class="clear8"></div> 
+-->
+
+<!--广告4-->
+<!--
+<div class="foodlist-ad4">
+	<a href="#">
+		<div class="foodlist-ad4-left">
+			<img  src="images/492.jpg"/>
+      	</div>
+       
+       
+       <div class="foodlist-ad4-right">
+         <div class="foodlist-ad4-right-01">
+           <span>
+             良品铺子
+           </span>
+         </div>
+         
+         <div class="foodlist-ad4-right-02">
+                好吃又实惠，满满的心意
+                
+                每袋草莓干100g，给你美
+                
+                味.好的生活，更给你实实
+                
+                的实惠。
+         </div>
+         <div class="clear"></div>
+       </div>
+       
+       <div class="clear"></div>
+       
+    </a>        
+</div>
+-->
+<!--广告4end-->
+
+<!--  
+<div class="clear2"></div>
+<div class="clear2"></div> 
+<div class="clear2"></div> 
+<div class="clear2"></div>
+-->  
+<!-- 底部广告 -->
+
+<div class="foodlist-bottom">
+	<div class="foodlist-bottom-bk">
+		<img src="images/493.jpg"/>
+    </div>
+</div>
+<!-- 底部广告end -->
+
+<!-- 底部列表 -->
+<div class="foot">
+  <div class="foot-list">
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        购物指南
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          购物流程
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          会员介绍
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          常见问题
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          联系客服
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        配送方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          国内配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          海外配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          标准配送
+        </a>
+      </div>
+
+
+    </div>
+
+   <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        支付方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          在线支付
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          分期付款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          邮局汇款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          公司转账
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        售后服务
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          售后政策
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          退款说明
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          返修/退换货
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          取消订单
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-right">
+      暖扬扬线下服务区
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+   <div class="root-center">
+	  <div class="root-list">
+	    <a href="#">
+	      关于我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      联系我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      人才招聘
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      招商加盟
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      商务合作
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      友情链接
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      备案号码
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      各类证件
+	    </a>
+	  </div>
+
+	  <div class="clear"></div>
+   </div>
+</div>
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<!-- 楼层定位end -->
+
+
+<!-- js楼层定位 -->
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+</script>
+<!-- js楼层定位end -->
+
+
+
+</body>
+</html>

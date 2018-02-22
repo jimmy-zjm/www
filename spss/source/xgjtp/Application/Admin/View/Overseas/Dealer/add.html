@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>经销商-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="<{:U('Admin/Index/index/main')}>">首页</a></li>
+            <li><a href="<{:U('index')}>">经销商列表</a></li>
+            <li><a href="<{:U('add')}>">添加</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('doAdd')}>" method="post" enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <!-- 品牌名称 -->
+                <li><label>经销商名称<b>*</b></label><input name="company" type="text" class="dfinput" /></li>
+                
+                <li><label>经销商编号</label><input type="text" name="identifier" class="dfinput"/></li>
+
+                <!-- 是否显示 -->
+                <li><label>是否显示</label><cite><input name="is_show" type="radio" value="1" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio" value="0" />否</cite></li>
+
+                <!-- 品牌排序 -->
+                <li><label>排序</label><input name="order" type="text" value="50" class="dfinput" /><i>排序范围0-255</i></li>
+
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label>
+                <input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,3527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<META HTTP-EQUIV="luxiaoqing" CONTENT="no-cache">
+
+
+
+<link rel="stylesheet"  type="text/css"  href="./css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="./css/indexstyle.css" ><!-- 首页index页面调用CSS -->
+<script src="./js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+
+<script src="./js/picScroll.js" type="text/javascript"></script><!-- 图片滚动 -->
+
+<script type="text/javascript" src="./js/swfobject.js"></script><!--视频播放器-->
+
+
+
+<!--选择城市-->
+<script type="text/javascript" src="./js/xiala/city-data.js"></script>
+<script type="text/javascript" src="./js/xiala/hzw-city-picker.min.js"></script>
+<!--选择城市end-->
+
+<!-- banner轮播图片 -->
+<script src="./js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="./js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="./css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="./js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+<script type="text/javascript" src="./js/zhiding.js"></script><!--导航置顶-->
+
+
+<!--滑动导航-->
+<script type="text/javascript">
+$(document).ready(function() {
+	jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
+		$(tab_conbox).find("li").hide();
+		$(tabtit).find("li:first").addClass("thistab").show(); 
+		$(tab_conbox).find("li:first").show();
+	
+		$(tabtit).find("li").bind(shijian,function(){
+		  $(this).addClass("thistab").siblings("li").removeClass("thistab"); 
+			var activeindex = $(tabtit).find("li").index(this);
+			$(tab_conbox).children().eq(activeindex).show().siblings().hide();
+			return false;
+		});
+	
+	};
+	/*调用方法如下：*/
+	$.jqtab("#tabs","#tab_conbox","click");	
+	
+	$.jqtab("#tabs2","#tab_conbox2","mouseenter");
+	
+	$.jqtab("#tabs3","#tab_conbox3","mouseenter");
+	
+	$.jqtab("#tabs4","#tab_conbox4","mouseenter");
+	
+	$.jqtab("#tabs5","#tab_conbox5","mouseenter");
+	
+});
+</script>
+<!--滑动导航end-->
+
+<!--倒计时
+data-seconds="20" 下面楼层中的data-seconds里面添值填写秒即可，如填写20即网页打开的时间到活动结束的时间为20秒
+-->
+<script type="text/javascript" src="./js/jquery.countdown.js"></script>
+ 
+<script type="text/javascript">
+$(function(){
+	$('div').countdown(function(s, d){
+		var items = $(this).find('span');
+		items.eq(4).text(d.total);
+		items.eq(3).text(d.second);
+		items.eq(2).text(d.minute);
+		items.eq(1).text(d.hour);
+		items.eq(0).text(d.day);
+	});
+});
+</script>
+<!--倒计时end-->
+
+
+<title>首页</title>
+</head>
+<body >
+<!-- top顶部 -->
+<div class="index-top-bk">
+    <div class="index-top">  
+    	<div class="index-top-01">
+        	您好
+        </div> 
+        
+        <div class="index-top-02"><!--未登录状态显示此DIV-->
+        	<a href="user.php?login">
+            	请登录
+            </a>
+        </div>
+        
+        <div class="index-top-03"><!--未登录状态显示此DIV-->
+        	<a href="user.php?register">
+            	免费注册
+            </a>
+        </div>
+        {:if isset($smarty.cookies.userName):}
+        <div class="index-top-04"><!--已登录状态显示此DIV-->
+        	<a href="user.php?center">
+            	{:$smarty.cookies.userName:}
+            </a>
+        </div>
+        
+        <div class="index-top-05"><!--已登录状态显示此DIV-->
+        	<a href="user.php?userQuit">
+            	退出登录
+            </a>
+        </div>
+        {:/if:}
+        <div class="index-top-13">
+        	热线：4008001027
+        </div> 
+        
+        <div class="index-top-12">
+        	<img src="./images/585.png"/>
+        </div> 
+        
+        <div class="index-top-11">
+        	<a href="#">
+            	手机版
+            </a>
+        </div>
+        
+        <div class="index-top-10">
+        	<a href="user.php?order">
+            	我的订单
+            </a>
+        </div>
+        
+        <div class="index-top-09">
+        	<img src="./images/584.png"/>
+        </div>   
+        
+        <div class="index-top-08">
+        	<a href="cart.php?cartList">
+            	我的购物车
+            </a>
+        </div>    
+        
+        <div class="index-top-07">
+        	&or;
+        </div> 
+        
+        <div class="index-top-06">
+        	<a href="#">
+            	我的收藏
+            </a>
+        </div>
+                
+        <div class="clear"></div>    
+    </div>
+</div>
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!-- head头部 -->
+<div class="index-head">
+	<div class="index-head-bk">
+    	<div class="index-head-01">
+        	<a href="#">
+            	<img src="./images/logo4.png"/>
+            </a>
+        </div>
+    	
+        <div class="index-head-02">
+            <div class="index-head-02-01">
+                <input type="text" value="海外淘"  onFocus="if (value =='海外淘'){value =''}" onBlur="if (value ==''){value='海外淘'}"/>
+            </div>
+            
+            <div class="index-head-02-02">
+                <input type="button"  value=""/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="index-head-03">
+        	<div class="index-head-03-01">
+            	<div class="index-head-03-01-01">
+                	<img src="./images/586.png"/>
+                </div>
+                
+                <div class="index-head-03-01-02">
+                	<a href="#">
+                    	全国体验展示馆及安装服务中心
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-head-03-02">
+            	<div class="index-head-03-02-01">
+                	<img src="./images/587.png"/>
+                </div>
+                
+                <div class="index-head-03-02-02">
+                	服务区域
+                </div>
+                
+                <div class="index-head-03-02-03">                	
+                    <input type="text" id="cityChoice" value="上海"  onFocus="if (value =='上海'){value =''}" onBlur="if (value ==''){value='上海'}">                    
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	<!--主导航-->
+	<div class="index-navigation" id="mynav">
+        <div class="index-navigation-bk" id="mynavbk">
+            <div class="index-navigation" >
+                <div class="index-navigation-center">
+                    <div class="index-navigation-a">
+                        <a href="index.php?aboutus">
+                            关于我们
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?qualitylife">
+                            品质生活          
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?homeindex">
+                            健康舒适家居           
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?service">
+                            机电售后服务            
+                        </a>
+                    </div>
+                    
+                   <div class="index-navigation-a">
+                        <a href="index.php?answers">
+                            机电售后            
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?share">
+                            资源分享            
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?pay">
+                            支付方式                        
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?knowledge">
+                            百科知识                  
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--主导航end-->
+    
+	<!-- 导航菜单 -->
+    <div class="box-wk">
+        <div class="box">
+            <div class="box-title">
+              商品分类
+            </div>
+        
+            <div class="box-tm"></div>
+            
+            <ul>
+                <!--健康舒适家居-->
+                <li>
+                    <div class="box-dh">
+                        <span>
+                            健康舒适家居
+                        </span>
+                        
+                        <img src="./images/47.png"/>
+                    </div>
+                    
+                    <ul class="box-list-ul" style="width:auto;">    
+                        <div class="box-bk" style="width:960px;height:560px;">    
+                            <div style="float:left;width:330px;">
+                                <a href="# style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">                
+                                        新风/除霾/除湿/加湿   
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                             <a href="user.php?houseinformation&cid=1">新风</a>   
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                            <a href="user.php?houseinformation&cid=2">新风+除湿</a>              
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=3">新风+加湿</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=4">新风膜除霾</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=5">新风膜除霾+除湿</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=6">新风膜除霾+加湿</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=7">新风电除霾</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                             <a href="user.php?houseinformation&cid=8"> 新风电除霾+除湿</a>  
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=9">新风电除霾+加湿</a> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;margin-top:35px;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">              
+                                          净水/软水/超滤/纯水/开水
+                                        </div>
+                                      
+                                        <div>
+                                            <div class="box-02-a">
+                                             <a href="user.php?houseinformation&cid=10">前置过滤+净水+超滤+龙头</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                            <a href="user.php?houseinformation&cid=11"> 前置过滤+净水+纯水+龙头</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=12">前置过滤+净水+纯水+开水机+龙头 </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                  <a href="user.php?houseinformation&cid=13"> 前置过滤+净水+软水+超滤+龙头 </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=14">前置过滤+净水+软水+纯水+龙头</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=15">前置过滤+净水+软水+纯水+开水机+龙头</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>    
+        
+                            <div style="float:left;width:400px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            制冷/制热
+                                        </div>
+                                      
+                                        <div>
+                                            <div class="box-02-a">
+                                                    <a href="user.php?houseinformation&cid=16"> 中央氟空调  </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                    <a href="user.php?houseinformation&cid=17">中央水空调    </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                           <a href="user.php?houseinformation&cid=18"> 地源水空调</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                        
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">          
+                                            制冷/采暖
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                       <a href="user.php?houseinformation&cid=19">中央水空调+湿法地板采暖  </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=20"> 中央水空调+干法地板采暖</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=21">地源水空调+湿法地板采暖 </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=22"> 地源水空调+干法地板采暖</a>
+                                            </div>              
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">                
+                                            采暖/循环热水
+                                        </div>
+                                        
+                                        <div>
+                                          <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=23"> 壁挂炉湿法地板采暖+水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=24"> 壁挂炉干法地板采暖+水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=25">壁挂炉湿法地板采暖+太阳能水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=26"> 壁挂炉干法地板采暖+太阳能水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                            <a href="user.php?houseinformation&cid=27">  壁挂炉散热片采暖+水箱循环热水 </a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=28">壁挂炉散热片采暖+太阳能水箱循环热水</a>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>
+        
+                            <div style="float:left;width:220px;">        
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">    
+                                            采暖/即热式热水
+                                        </div>
+                                        
+                                        <div>
+                                          <div class="box-02-a">
+                                            <a href="user.php?houseinformation&cid=29">壁挂炉湿法地板采暖壁挂炉散热片采暖+太阳能水箱循环热水</a>
+                                          </div>
+                                      
+                                          <div class="box-02-a">
+                                          <a href="user.php?houseinformation&cid=30">  壁挂炉干法地板采暖壁挂炉散热片采暖+太阳能水箱循环热水</a>
+                                          </div>
+                                      
+                                          <div class="box-02-a">
+                                           <a href="user.php?houseinformation&cid=31"> 壁挂炉散热片采暖壁挂炉散热片采暖+太阳能水箱循环热水</a>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">              
+                                          中央吸尘
+                                        </div>
+                                        
+                                        <div>
+                                          <div class="box-02-a">
+                                         <a href="user.php?houseinformation&cid=32">气动中央吸尘</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                         <a href="user.php?houseinformation&cid=33">电动中央吸尘 壁挂炉散热片采暖壁挂炉散热片采暖+太阳能水箱循环热水</a>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </a>        
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">                                   
+                                            电采暖
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                     <a href="user.php?houseinformation&cid=34">地板电采暖    </a>
+                                            </div>
+                                        
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=35"> 散热片电采暖  </a>
+                                            </div>                                      
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            循环热水
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=36">容积式燃气热水器</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=37">空气能热水器</a>
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=38">壁挂炉+水箱循环热水</a>
+                                            </div>                  
+                                        </div>
+                                    </div>
+                                </a>        
+            
+                               
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <!--健康舒适家居end-->
+                
+                <!--售后服务-->
+                <li>
+                    <div class="box-dh">
+                        <span>
+                            机电售后服务
+                        </span>
+                        
+                        <img src="./images/47.png"/>
+                    </div>
+                    
+                     <ul class="box-list-ul" style="width:auto;">    
+                        <div class="box-bk" style="width:960px;height:560px;">    
+                            <div style="float:left;width:330px;">
+                                <a href="# style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">                
+                                        新风/除霾/除湿/加湿   
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                             <a href="user.php?houseinformation&cid=1">新风</a>   
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                            <a href="user.php?houseinformation&cid=2">新风+除湿</a>              
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=3">新风+加湿</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=4">新风膜除霾</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=5">新风膜除霾+除湿</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=6">新风膜除霾+加湿</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=7">新风电除霾</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                             <a href="user.php?houseinformation&cid=8"> 新风电除霾+除湿</a>  
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=9">新风电除霾+加湿</a> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;margin-top:35px;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">              
+                                          净水/软水/超滤/纯水/开水
+                                        </div>
+                                      
+                                        <div>
+                                            <div class="box-02-a">
+                                             <a href="user.php?houseinformation&cid=10">前置过滤+净水+超滤+龙头</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                            <a href="user.php?houseinformation&cid=11"> 前置过滤+净水+纯水+龙头</a> 
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=12">前置过滤+净水+纯水+开水机+龙头 </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                  <a href="user.php?houseinformation&cid=13"> 前置过滤+净水+软水+超滤+龙头 </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=14">前置过滤+净水+软水+纯水+龙头</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=15">前置过滤+净水+软水+纯水+开水机+龙头</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>    
+        
+                            <div style="float:left;width:400px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            制冷/制热
+                                        </div>
+                                      
+                                        <div>
+                                            <div class="box-02-a">
+                                                    <a href="user.php?houseinformation&cid=16"> 中央氟空调  </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                    <a href="user.php?houseinformation&cid=17">中央水空调    </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                           <a href="user.php?houseinformation&cid=18"> 地源水空调</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                          <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">          
+                                            制冷/采暖
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                       <a href="user.php?houseinformation&cid=19">中央水空调+湿法地板采暖  </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=20"> 中央水空调+干法地板采暖</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=21">地源水空调+湿法地板采暖 </a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=22"> 地源水空调+干法地板采暖</a>
+                                            </div>              
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">                
+                                            采暖/循环热水
+                                        </div>
+                                        
+                                        <div>
+                                          <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=23"> 壁挂炉湿法地板采暖+水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=24"> 壁挂炉干法地板采暖+水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=25">壁挂炉湿法地板采暖+太阳能水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                              <a href="user.php?houseinformation&cid=26"> 壁挂炉干法地板采暖+太阳能水箱循环热水</a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                            <a href="user.php?houseinformation&cid=27">  壁挂炉散热片采暖+水箱循环热水 </a>
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                               <a href="user.php?houseinformation&cid=28">壁挂炉散热片采暖+太阳能水箱循环热水</a>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>
+        
+                            <div style="float:left;width:220px;">    
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                        采暖/即热式热水
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                              <a href="user.php?houseinformation&cid=29"> 壁挂炉湿法地板采暖 </a>
+                                            </div>
+                                        
+                                            <div class="box-02-a">
+                              <a href="user.php?houseinformation&cid=30">壁挂炉干法地板采暖  </a>
+                                            </div>
+                                        
+                                            <div class="box-02-a">
+                                                  <a href="user.php?houseinformation&cid=31">壁挂炉散热片采暖</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>        
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                          中央吸尘
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                 <a href="user.php?houseinformation&cid=32">气动中央吸尘</a>
+                                            </div>
+                                        
+                                            <div class="box-02-a">
+                                                 <a href="user.php?houseinformation&cid=33">电动中央吸尘</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>        
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            电采暖
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                <a href="user.php?houseinformation&cid=34">地板电采暖</a>
+                                            </div>
+                                          
+                                            <div class="box-02-a">
+                                                 <a href="user.php?houseinformation&cid=35">散热片电采暖</a>
+                                            </div>                                    
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            循环热水
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=36">容积式燃气热水器</a>
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=37">空气能热水器</a>
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                                <a href="user.php?houseinformation&cid=378">壁挂炉+水箱循环热水</a>
+                                            </div>                
+                                        </div>
+                                    </div>
+                                </a>
+               
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <!--售后服务end-->
+                
+                <!--新欧洲团-->
+                <li>
+                    <div class="box-dh">
+                        <span>
+                            欧洲商品团代购
+                        </span>
+                        
+                        <img src="./images/47.png"/>
+                    </div>
+                    
+                    <ul class="box-list-ul" style="width:auto;">    
+                        <div class="box-bk" style="width:600px;height:560px;">    
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            建材
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                建材
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                厨房
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                      <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                        婴幼儿
+                                      </div>
+                                      
+                                      <div>
+                                        <div class="box-02-a">
+                                            米粉
+                                        </div>
+                  
+                                        <div class="box-02-a">
+                                            果泥
+                                        </div>
+                  
+                                        <div class="box-02-a">
+                                            婴幼儿产品
+                                        </div>
+                  
+                                      </div>
+                                    </div>
+                                </a>
+                            </div>    
+        
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                          家居用品
+                                        </div>
+                                      
+                                        <div>
+                                            <div class="box-02-a">
+                                                咖啡机
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                咖啡
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            女士专区
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                女包
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                手链
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                饰品
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>                    
+                        
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            男士专区
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                西装
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                皮带
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                手表
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                                衬衫
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                                男包
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+            
+            
+            
+                              
+            
+                              
+            
+                            </div>
+                        </div>    
+                    </ul>
+                </li>
+                <!--新欧洲团end--> 
+                
+                <!--健康特色食品-->
+                <li>
+                    <div class="box-dh">
+                        <span>
+                            健康特色食品
+                        </span>
+                        
+                        <img src="./images/47.png"/>
+                    </div>
+                    
+                    <ul class="box-list-ul" style="width:auto;">    
+                        <div class="box-bk" style="width:600px;height:560px;">    
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            生活健康食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                番茄汁
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                蔬菜汁
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                                蜂蜜
+                                            </div>                                      
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            绿色食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                杏鲍菇
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                野生松茸
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                人参果
+                                            </div>
+                    
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>
+            
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            疗效食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                减肥食品
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                低脂食品
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                                糖尿病食品
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                              
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            特殊食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                几丁聚糖
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                精氨酸
+                                            </div>                
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>                    
+                        
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            营养食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                蛋白粉
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                复合果汁饮料
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                灵芝胶囊
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                              
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            机能食品
+                                        </div>
+                                        
+                                      <div>
+                                          <div class="box-02-a">
+                                            磷脂微生素e
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                            复合素
+                                          </div>
+                                      </div>
+                                    </div>
+                                </a>        
+                            </div>
+                        
+                        </div>
+        
+                    </ul>
+                </li>
+                <!--健康特色食品end-->
+                
+                <!--用户资源分享-->
+                <li>
+                    <div class="box-dh">
+                        <span>
+                            用户资源分享
+                        </span>
+                        
+                        <img src="./images/47.png"/>
+                    </div>
+                    
+                    <ul class="box-list-ul" style="width:auto;">    
+                        <div class="box-bk" style="width:600px;height:560px;">    
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            生活健康食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                番茄汁
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                蔬菜汁
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                                蜂蜜
+                                            </div>                                      
+                                        </div>
+                                    </div>
+                                </a>
+            
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            绿色食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                杏鲍菇
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                野生松茸
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                人参果
+                                            </div>
+                    
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>
+            
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            疗效食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                减肥食品
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                低脂食品
+                                            </div>
+                                            
+                                            <div class="box-02-a">
+                                                糖尿病食品
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                              
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            特殊食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                几丁聚糖
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                精氨酸
+                                            </div>                
+                                        </div>
+                                    </div>
+                                </a>        
+                            </div>                    
+                        
+                            <div style="float:left;width:200px;">
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            营养食品
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="box-02-a">
+                                                蛋白粉
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                复合果汁饮料
+                                            </div>
+                      
+                                            <div class="box-02-a">
+                                                灵芝胶囊
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                              
+                                <a href="#" style="color:#000;">
+                                    <div class="box-01" style="width:auto;margin-right:0px;height:auto;float:none;">
+                                        <div class="box-02" style="line-height:40px;height:40px;color:#ff0000;font-size:18px;">
+                                            机能食品
+                                        </div>
+                                        
+                                      <div>
+                                          <div class="box-02-a">
+                                            磷脂微生素e
+                                          </div>
+                    
+                                          <div class="box-02-a">
+                                            复合素
+                                          </div>
+                                      </div>
+                                    </div>
+                                </a>        
+                            </div>
+                        
+                        </div>
+        
+                    </ul>
+                </li>
+                <!--用户资源分享end-->
+                
+            </ul>
+        
+        
+        </div>
+    </div>
+	<!-- 导航菜单end -->
+
+	<!-- banner轮播图片 -->
+	<div class="flicker-example" data-block-text="false">    
+    	<ul>
+        	<li data-background="images/h.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/m.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/l.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/k.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/i.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/j.jpg">
+               <a href="#"></a>
+            </li>    
+    	</ul>
+    </div>
+    <!-- banner轮播图片end -->
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="index-center">
+	<!--1楼-->
+	<div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+        <div class="index-video">
+            <div class="index-video-title">
+            	<img src="./images/639.png"/>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="index-video-list">
+            	<div class="index-video-list-demo">
+                	<div class="index-video-list-demo-left">
+                    	<a href="#">
+                        	<img src="./images/635.jpg"/>
+                        </a>
+                    </div>
+                    
+                    <div class="index-video-list-demo-right" id="index-video-list-demo-right-demo01">
+                    	<div class="index-video-list-demo-right-title">
+                        	综合视频
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-name">
+                        	<div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	欧洲家装饰品
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	全屋净水
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	绿色食品
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	商务男装皮包
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	婴幼儿辅食
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-more">
+                        	<a href="#">
+                            	&gt;更多
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="index-video-list-demo">
+                	<div class="index-video-list-demo-left">
+                    	<a href="#">
+                        	<img src="./images/636.jpg"/>
+                        </a>
+                    </div>
+                    
+                    <div class="index-video-list-demo-right" id="index-video-list-demo-right-demo01">
+                    	<div class="index-video-list-demo-right-title">
+                        	健康舒适家居
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-name">
+                        	<div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	新风除霾
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	全屋净水
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	电采暖
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	中央吸尘
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	智能控制
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-more">
+                        	<a href="#">
+                            	&gt;更多
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="index-video-list-demo">
+                	<div class="index-video-list-demo-left">
+                    	<a href="#">
+                        	<img src="./images/637.jpg"/>
+                        </a>
+                    </div>
+                    
+                    <div class="index-video-list-demo-right" id="index-video-list-demo-right-demo02">
+                    	<div class="index-video-list-demo-right-title">
+                        	欧洲团代购
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-name">
+                        	<div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	商务男装
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	时尚女装
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	婴幼儿用品
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	进口装修建材
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	欧洲居家用品
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-more">
+                        	<a href="#">
+                            	&gt;更多
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="index-video-list-demo">
+                	<div class="index-video-list-demo-left">
+                    	<a href="#">
+                        	<img src="./images/638.jpg"/>
+                        </a>
+                    </div>
+                    
+                    <div class="index-video-list-demo-right" id="index-video-list-demo-right-demo02">
+                    	<div class="index-video-list-demo-right-title">
+                        	健康特色食品
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-name">
+                        	<div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	绿色食品
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	疗效食品
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	营养食品
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	特殊食品
+                                </a>
+                            </div>
+                            
+                            <div class="index-video-list-demo-right-name-list">
+                            	<a href="#">
+                                	机能食品
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="index-video-list-demo-right-more">
+                        	<a href="#">
+                            	&gt;更多
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--1楼end-->
+    
+    <div class="clear32"></div>
+    
+    <div class="bottom" >
+        <img src="./images/641.png"/>
+    </div>
+    
+    <!--2楼-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="2">
+    	<div class="index-center-demo">
+        	<div class="index-center-demo-title">
+            	<span>
+                	健康舒适家居
+                </span>
+            </div>
+            
+            <div class="index-center-demo-img">
+            	<div class="index-center-demo-img-01">
+            		<img src="./images/597.png"/>
+                </div>
+                
+                <div class="index-center-demo-img-02">
+            		热卖商品
+                </div>
+                
+                <div class="index-center-demo-img-03">
+            		<img src="./images/643.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-center-demo-left">
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/600.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/604.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/605.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="clear27"></div>
+                
+                <div class="index-center-demo-title2">
+                    <img src="./images/602.png"/>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/606.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/607.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-center-demo-right">
+            	<div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/618.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/619.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/620.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--2楼end-->
+    
+    <div class="clear27"></div>
+    
+    <!--3楼-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="3">
+    	<div class="index-center-demo">
+        	<div class="index-center-demo-title">
+            	<span>
+                	欧洲团代购
+                </span>
+            </div>
+            
+            <div class="index-center-demo-img">
+            	<div class="index-center-demo-img-01">
+            		<img src="./images/597.png"/>
+                </div>
+                
+                <div class="index-center-demo-img-02">
+            		热卖商品
+                </div>
+                
+                <div class="index-center-demo-img-03">
+            		<img src="./images/643.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-center-demo-left">
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/608.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/609.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/610.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="clear27"></div>
+                
+                <div class="index-center-demo-title2">
+                    <img src="./images/602.png"/>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/611.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/612.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-center-demo-right">
+            	<div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--3楼end-->
+    
+    <div class="clear27"></div>
+    
+    <!--4楼-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="4">
+    	<div class="index-center-demo">
+        	<div class="index-center-demo-title">
+            	<span>
+                	健康特色食品
+                </span>
+            </div>
+            
+            <div class="index-center-demo-img">
+            	<div class="index-center-demo-img-01">
+            		<img src="./images/597.png"/>
+                </div>
+                
+                <div class="index-center-demo-img-02">
+            		热卖商品
+                </div>
+                
+                <div class="index-center-demo-img-03">
+            		<img src="./images/643.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-center-demo-left">
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/613.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/614.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/615.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="clear27"></div>
+                
+                <div class="index-center-demo-title2">
+                    <img src="./images/602.png"/>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/616.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="index-center-demo-left-detailed">
+                    <div class="index-center-demo-left-detailed-left">
+                        <div class="index-center-demo-left-detailed-left-01">                               
+                            <a href="#">
+                            	<img src="./images/598.png"/> 
+                            </a>                              
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-02">
+                            <a href="#">
+                            	美标元宵大促  
+                            </a>                  	
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-03">
+                            <a href="#">
+                            	智能盖板全国覆盖区包安装
+                            </a>                                
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-04">
+                            <a href="#">
+                            	低至<span>55</span>元
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-left-05">
+                        	可用<span>2000元</span>优惠券
+                        </div>
+                    </div>
+                    
+                    <div class="index-center-demo-left-detailed-right">
+                        <div class="index-center-demo-left-detailed-right-img">
+                        	<a href="#">
+                            	<img src="./images/617.jpg"/>
+                            </a>
+                        </div>
+                        
+                        <div class="index-center-demo-left-detailed-right-collection">    
+                        	<a href="#">                          	
+                                <div class="index-center-demo-left-detailed-right-collection-left">
+                                    <img src="./images/601.png"/>                                    
+                                </div>
+                                
+                                <div class="index-center-demo-left-detailed-right-collection-right">
+                                    收藏
+                                </div>      
+                                
+                                <div class="clear"></div>
+                            </a> 
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-center-demo-right">
+            	<div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="index-center-demo-right-list">
+                	<a href="#">
+                    	<img src="./images/603.jpg"/>
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--4楼end-->
+    
+    <div class="clear2"></div>
+</div>
+<!-- 中间楼层end -->
+
+<!-- 底部广告 -->
+<div class="bottom" >
+	<img src="./images/623.png"/>
+</div>
+<!-- 底部广告end -->
+
+
+<!-- 底部列表 -->
+<div class="foot">
+    <div class="foot-list">
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                购物指南
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    购物流程
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    会员介绍
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    常见问题
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    联系客服
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+			<div class="foot-list-gw-title">
+                配送方式
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    国内配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    海外配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    标准配送
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+            	支付方式
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	在线支付
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	分期付款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	邮局汇款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	公司转账
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                售后服务
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    售后政策
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    退款说明
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                  	返修/退换货
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    取消订单
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-right">
+            暖扬扬线下服务区
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+    <div class="root-center">
+        <div class="root-list">
+            <a href="#">
+              	关于我们
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	联系我们
+            </a>
+        </div>
+        
+        <div class="root-list">
+            <a href="#">
+              	人才招聘
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	招商加盟
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	商务合作
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	友情链接
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	各类证件
+            </a>
+        </div>
+      
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear27"></div>
+    
+    <div class="root-bei">
+    	备案号：沪ICP备16002183
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="clear3"></div>
+</div>
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+<!--右侧浮动导航-->
+<!-- 代码部分begin -->
+<div class="side">
+	<ul>
+    	<li onclick="qimoChatClick();">
+        	<a href="#">
+            	<div class="sidebox">
+                	<img src="./images/chat.png">
+                    在线客服
+                </div>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#">
+                <div class="sidebox">
+                    <img src="./images/244.png">
+                    我的购物车
+                </div>
+            </a>
+        </li>
+        
+        <li>
+        	<a href="#">
+                <div class="sidebox">
+                    <img src="./images/245.png">
+                    我的关注
+                </div>
+            </a>
+        </li>
+        
+	  	<li>
+        	<a href="#">
+            	<div class="sidebox">
+                	<img src="./images/246.png">
+                    我的分享
+                </div>
+            </a>
+        </li>
+        
+	 	<li style="border:none;">
+            <a href="javascript:goTop();" class="sidetop">
+            	<img src="./images/247.png">
+            </a>
+        </li>
+  </ul>
+</div>
+<script>
+$(function(){
+	$(".side ul li").hover(function(){
+		$(this).find(".sidebox").stop().animate({"width":"200px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#fff"})	
+	},function(){
+		$(this).find(".sidebox").stop().animate({"width":"40px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})	
+	});
+});
+//回到顶部函数
+function goTop(){
+	$('html,body').animate({'scrollTop':0},300);
+}
+</script>
+<!-- 代码部分end -->
+<!--右侧浮动导航end-->
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+    <div class="leftmenu">    
+        <ul class="navigation">
+        	<li>
+            	<a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a>
+        	</li>
+        
+        </ul>    
+        
+    	<div class="downbo" onClick="gotop();" href="javascript:void(0);">
+        	TOP
+        </div>
+    	<!-- js效果写的时候收起为downbo2展开是downbo -->
+    </div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+<!-- 图片滚动 -->
+<script src="js/picScroll.js" type="text/javascript"></script>
+<script type="text/javascript">picScroll('demo','demo1','demo2',30);</script>
+<!-- 图片滚动end -->
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+
+
+<!--视频播放器-->
+<script type="text/javascript">
+var so = new SWFObject("JZminiPlayer.swf","ply","600","482","9","#000000");
+so.addParam("allowfullscreen","true");
+so.addParam("allowscriptaccess","always");
+so.addParam("wmode","opaque");
+so.addParam("quality","high");
+so.addParam("salign","lt");
+so.addVariable("file","video/4.mp4");//视频地址
+so.addVariable("img","images/video1.png");//视频图片
+so.addVariable("autoplay","false");//是否自动播放
+so.write("video1");//调用DIV中的ID
+
+
+var so2 = new SWFObject("JZminiPlayer.swf","ply","380","240","9","#000000");
+so2.addParam("allowfullscreen","true");
+so2.addParam("allowscriptaccess","always");
+so2.addParam("wmode","opaque");
+so2.addParam("quality","high");
+so2.addParam("salign","lt");
+so2.addVariable("file","video/5.mp4");//视频地址
+so2.addVariable("img","start.jpg");//视频图片
+so.addVariable("autoplay","false");//是否自动播放
+so2.write("video1");//调用DIV中的ID
+
+</script>
+<!--视频播放器end-->
+
+<!--<script type='text/javascript' src='http://webchat.7moor.com/javascripts/7moorInit.js?accessId=ecdab400-a94d-11e5-bbcd-fbb9b9d68830&autoShow=false' async='async'></script>--><!--此JS为七陌在线客服-->
+</body>
+</html>

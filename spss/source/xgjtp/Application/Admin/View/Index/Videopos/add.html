@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>视频位置-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">视频管理</a></li>
+            <li><a href="#">视频位置</a></li>
+            <li><a href="#">添加</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('insert')}>" method="post" enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <!-- 视频位名称 -->
+                <li><label>视频位名称<b>*</b></label><input name="name" type="text" class="dfinput" /><i></i></li>
+                
+                <!-- 视频位分类 -->
+                <li><label>视频位分类<b>*</b></label>
+                    <select name='pid'style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) repeat-x scroll 0 0;">
+                        <option value='0'>顶级分类</option>
+                        <{$option}>
+                    </select>
+                    <i></i></li>
+
+                <!-- 视频图片 -->
+                <li><label>视频图片<b>*</b></label><input name="image" type="file" class="dfinput" style="position:relative;top:8px;border:none;background:none;text-indent:0px;" required="required" /><i></i></li>
+
+                <!-- 视频位宽度 -->
+                <li><label>视频位宽度<b>*</b></label><input name="width" type="number" class="dfinput" style="width:100px;"min="1" max="1024" /> px<i>宽度为1到1024之间</i></li>
+
+                <!-- 视频位高度 -->
+                <li><label>视频位高度<b>*</b></label><input name="height" type="number" class="dfinput" style="width:100px;" min="1" max="1024"/> px<i>高度为1到1024之间</i></li>
+
+                <!-- 视频位置的描述 -->
+                <li><label>视频位置的描述</label>
+                <textarea name="pos_desc" id="" cols="20" class="textinput" rows="10"></textarea>
+                <i>描述不能超过255个字符</i></li>
+
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

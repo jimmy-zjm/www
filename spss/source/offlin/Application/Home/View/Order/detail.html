@@ -1,0 +1,131 @@
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>订单详情</header>
+	<section  class="container order-detail">
+		
+		<div class="workorder-list">
+			<p class="sys-item">
+				<span class="item-name">客户信息</span>
+				<span class="ell"><{$data.c_name}>&nbsp;&nbsp;&nbsp;<{$data.tel}></span>
+			</p>
+			<p class="sys-item">
+				<span class="item-name">房屋地址</span>
+				<span class="ell"><{$data['province']}>-<{$data['city']}>-<{$data['district']}>-<{$data['address']}></span>
+			</p>
+			<p class="sys-item last-row">
+				<span class="item-name">下单账号</span>
+				<span class="ell"><{$data.u_name}></span>
+			</p>
+
+			<!--  -->
+		</div>
+		<div class="sys-list">
+			<p class="sys-title">选购系统</p>
+			<?php foreach ($quoteinfo as $v): ?>
+				<p class="sys-item">
+					<?=$v['name']?>
+					<a href="<{:U('listdetail',['id'=>$v['id']])}>" class="looklist-btn">查看清单</a>
+				</p>
+			<?php endforeach ?>
+		</div>
+		<div class="list-mianji">
+			<p class="sys-title">
+				房屋面积
+			</p>
+			<p class="sys-item">
+				<span class="col-xs-6 col-sm-4 col-md-3">使用面积: <{$areaAll}>㎡</span>
+				<span class="col-xs-6 col-sm-4 col-md-3">建筑面积: <{$build}>㎡</span>
+			</p>
+			<?php for ($i=0; $i <count($houseArea) ; $i++) { ?>
+		    <?php if ($i != 4 && $houseArea[$i]['0'] != '0'): ?>
+		    <div class="offer-quote-02">
+		        <p class="sys-item">
+		            <?php foreach ($houseArea[$i] as $k => $v): ?>
+		                <span class="col-xs-6 col-sm-4 col-md-3">
+		                    <?php if ($i == 0){ ?>卧 &nbsp; 室
+		                    <?php }elseif($i == 1){ ?>客 &nbsp; 厅
+		                    <?php }elseif($i == 2){ ?>厨 &nbsp; 房
+		                    <?php }elseif($i == 3){ ?>卫生间
+		                    <?php }elseif($i == 5){ ?>阁 &nbsp; 楼
+		                    <?php }elseif($i == 6){ ?>地下室
+		                    <?php } ?>
+		                    <{$k+1}>: &nbsp; <{$v}>㎡
+		                </span>
+		            <?php endforeach ?>
+		        </p>
+		        <div class="clear"></div>
+		    </div>
+		    <?php endif ?>
+		    <?php } ?>
+		</div>
+        <div class="now-progress clearfix">
+            <p class="sys-title">当前进度</p>
+            <span <?php if($data['status']>=0){?>class="redfont"<?php }?>>上门测量</span>
+			<span <?php if($data['status']>=1){?>class="redfont"<?php }?>>图纸设计</span>
+			<span <?php if($data['status']>=2){?>class="redfont"<?php }?>>施工安装</span>
+			<span <?php if($data['status']>=3){?>class="redfont"<?php }?>>设备调试</span>
+			<span <?php if($data['status']>=4){?>class="redfont"<?php }?>>业主验收</span>
+        </div>
+        <div class="sys-list">
+        	<p class="sys-title">项目负责</p>
+        	<div class="sys-item">
+				<p>上门测量</p>
+				<a href="<{:U('Order/homeinfo',['id'=>$data['oid']])}>" class="looklist-btn">房屋面积</a>
+			</div>
+
+			<div class="sys-item">
+				<p>图纸设计</p>
+				<?php if($data['status']>=1){?>
+					<?php foreach ($info as $v){?>
+						<?php if($v['workname']==1){?>
+							<span class="col-md-ml"><{$v['worker']}></span>
+							<span class="col-md-ml"><{$v['phone']}></span>
+							<a class="looklist-btn" href="<{:U('Order/seedraw',['id'=>$data['oid']])}>">查看图纸</a>
+						<?php }}?>
+				<?php }else{?>
+					<a class="looklist-btn" href="<{:U('Order/assigns',['rid'=>'2','sid'=>'1','oid'=>$data['oid']])}>">分配人员</a>
+				<?php }?>
+			</div>
+
+			<div class="sys-item">
+				<p>施工安装</p>
+				<?php if($data['status']>=2){?>
+					<?php foreach ($info as $v){?>
+						<?php if($v['workname']==2){?>
+							<span class="col-md-ml"><{$v['worker']}></span>
+							<span class="col-md-ml"><{$v['phone']}></span>
+							<a class="looklist-btn" href="<{:U('Order/schedule',['id'=>$data['oid']])}>">施工日志</a>
+					<?php }}?>
+				<?php }else{?>
+					<a class="looklist-btn" href="<{:U('Order/assigns',['rid'=>'3','sid'=>'2','oid'=>$data['oid']])}>">分配人员</a>
+				<?php }?>
+			</div>
+
+			<div class="sys-item">
+				<p>设备调试</p>
+				<?php if($data['status']>=3){?>
+					<?php foreach ($info as $v){?>
+						<?php if($v['workname']==3){?>
+							<span class="col-md-ml"><{$v['worker']}></span>
+							<span class="col-md-ml"><{$v['phone']}></span>
+							<a class="looklist-btn" href="<{:U('Order/debugs',['id'=>$data['oid']])}>">调试进度</a>
+					<?php }}?>
+				<?php }else{?>
+					<a class="looklist-btn" href="<{:U('Order/assigns',['rid'=>'4','sid'=>'3','oid'=>$data['oid']])}>">分配人员</a>
+				<?php }?>
+			</div>
+
+			<div class="sys-item last-row">
+			<p>业主验收</p>
+				<?php if($data['status']>=3){?>
+					<a class="looklist-btn" href="<{:U('Order/checklist',['id'=>$data['oid']])}>">验收进度</a>
+				<?php }?>
+			</div>
+			
+        </div>
+	</section>
+
+</body>
+</html>

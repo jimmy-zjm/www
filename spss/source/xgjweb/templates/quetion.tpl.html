@@ -1,0 +1,98 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/integralstyle.css" ><!-- 积分css -->
+
+
+
+
+
+<!-- banner轮播图片 -->
+<!-- <script src="./js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="./js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="./css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="./js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script> -->
+<!-- banner轮播图片end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+<div class="clear"></div>
+
+<!-- banner轮播图片
+	<div class="flicker-example" style="height:480px" data-block-text="false">    
+    	<ul>
+        	<li data-background="images/i13.jpg">
+                <a href="javascript:;"></a>
+            </li>
+            
+            <li data-background="images/i14.jpg">
+                <a href="javascript:;"></a>
+            </li>
+            
+            <li data-background="images/i15.jpg">
+                <a href="javascript:;"></a>
+            </li> 
+            
+
+    	</ul>
+    </div> -->
+<div class="clear2">
+
+</div>
+
+<!--中间-->
+<div class="paycenter">
+	<div class="paycenter_left">
+		<div class="paycenter_left_top"><span>{:$cat.cat_name:}</span></div>
+		<div class="paycenter_left_bot">
+			<ul>
+			<!-- <li><a href=""class="payon">银联网银支付</a></li>-->
+			{:foreach from=$data item=v:}
+				
+				<li><a href="index.php?quetion&type={:$cat.cat_id:}&a={:$v.article_id:}"{:if $v.article_id == $content.article_id:}class="payon"{:/if:}>{:$v.title:}</a></li>
+			{:/foreach:}
+			<ul>
+		</div>
+	</div>
+	
+	<div class="paycenter_right">	
+		 <div class="paycenter_right_top">
+			
+		</div> 
+		<div class="paycenter_right_bot">
+			{:$content.content:}
+		</div>
+	</div>	
+
+</div>
+<!--中间结束-->
+<!-- 底部列表 -->
+
+
+<div class="clear2"></div>
+
+{:include file="footer.tpl.html":}
+
+
+<div class="clear"></div>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

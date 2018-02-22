@@ -1,0 +1,458 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+{:include file="category/category.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/fuEvaluate.css" ><!-- 个人中心页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/examples.css" ><!-- 星级评分CSS -->
+
+
+<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+<![endif]-->
+<div class="clear2"></div>
+
+<div class="user-center">  
+	<div class="user-fuEvaluate">
+    	<div class="user-fuEvaluate-info">
+        	<div class="user-fuEvaluate-info-left">
+            	<div class="user-fuEvaluate-info-left-img">
+                	<img src="{:$list.info.img|getimages:}"/>
+                </div>
+            </div>
+            
+            <div class="user-fuEvaluate-info-right">
+            	<div class="clear3"></div>
+                
+            	<div class="user-fuEvaluate-info-right-title">
+                	{:$list.info.quote_name:}
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="user-fuEvaluate-info-right-demo">
+                	<div class="user-fuEvaluate-info-right-demo-left">
+                    	房屋类型：
+                    </div>
+                    
+                    <div class="user-fuEvaluate-info-right-demo-right">
+                        <span class="span02">
+                        	{:if $list.house.house_type eq 1:}      公寓
+                            {:else if $list.house.house_type eq 2:} 叠加
+                            {:else if $list.house.house_type eq 3:} 联排
+                            {:else if $list.house.house_type eq 4:} 独栋
+                            {:/if:}
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user-fuEvaluate-info-right-demo">
+                	<div class="user-fuEvaluate-info-right-demo-left">
+                    	房屋总面积：
+                    </div>
+                    
+                    <div class="user-fuEvaluate-info-right-demo-right">
+                        <span class="span02">
+                        	{:$list.house.total_area:} m²
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user-fuEvaluate-info-right-demo">
+                	<div class="user-fuEvaluate-info-right-demo-left">
+                    	房屋所在地：
+                    </div>
+                    
+                    <div class="user-fuEvaluate-info-right-demo-right">
+                        <span class="span02">
+                        	{:$list.house.province:} {:$list.house.city:} {:$list.house.district:} {:$list.house.address:}
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear33"></div>
+        <form action="user.php?doaddfuEvaluation" method="post" enctype="multipart/form-data">
+            <div class="user-fuEvaluate-form">
+            	<div class="user-fuEvaluate-form-span">
+                	<span>
+                    	其他业主，非常需要您真实的建议，请认真评价!
+                    </span>
+                </div>
+                
+                <div class="clear27"></div>
+                
+                <div class="user-fuEvaluate-form-left">            
+                    <div class="user-fuEvaluate-form-star">
+                        <div class="user-fuEvaluate-form-star-span">
+                            商品满意程度：
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-star-select">
+                            <div class="box-body">
+                                <select id="example-a" name="goods">
+                                    <option value="1">1分失望</option>
+                                    <option value="2">2分不满</option>
+                                    <option value="3">3分一般</option>
+                                    <option value="4">4分满意</option>
+                                    <option value="5">5分惊喜</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear15"></div>
+                    
+                    <div class="user-fuEvaluate-form-star">
+                        <div class="user-fuEvaluate-form-star-span">
+                            经销商服务：
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-star-select">
+                            <div class="box-body">
+                                <select id="example-b" name="distributor">
+                                    <option value="1">1分失望</option>
+                                    <option value="2">2分不满</option>
+                                    <option value="3">3分一般</option>
+                                    <option value="4">4分满意</option>
+                                    <option value="5">5分惊喜</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear15"></div>
+                    
+                    <div class="user-fuEvaluate-form-star">
+                        <div class="user-fuEvaluate-form-star-span">
+                            施工人员服务：
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-star-select">
+                            <div class="box-body">
+                                <select id="example-c" name="personnel">
+                                    <option value="1">1分失望</option>
+                                    <option value="2">2分不满</option>
+                                    <option value="3">3分一般</option>
+                                    <option value="4">4分满意</option>
+                                    <option value="5">5分惊喜</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear15"></div>
+
+                    <div class="user-fuEvaluate-form-star">
+                        <div class="user-fuEvaluate-form-star-span">
+                            施工满意程度：
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-star-select">
+                            <div class="box-body">
+                                <select id="example-d" name="construction">
+                                    <option value="1">1分失望</option>
+                                    <option value="2">2分不满</option>
+                                    <option value="3">3分一般</option>
+                                    <option value="4">4分满意</option>
+                                    <option value="5">5分惊喜</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear15"></div>
+                </div>
+                
+                <div class="user-fuEvaluate-form-right">
+                	<div class="user-fuEvaluate-form-right-radio">
+                    	<div class="user-fuEvaluate-form-right-radio-span01">
+                    		* 是否按时完工：
+                        </div>
+                        
+                    	<div class="user-fuEvaluate-form-right-radio-input">
+                    		<input name='is_time' type="radio" value='1'/>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-right-radio-span02">
+                    		是
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-right-radio-input">
+                    		<input name='is_time' type="radio" value='0'/>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-right-radio-span02">
+                    		否
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear15"></div>
+                    
+                    <div class="user-fuEvaluate-form-right-radio">
+                    	<div class="user-fuEvaluate-form-right-radio-span01">
+                    		* 工地现场是否整洁：
+                        </div>
+                        
+                    	<div class="user-fuEvaluate-form-right-radio-input">
+                    		<input name='is_clean' type="radio" value='1'/>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-right-radio-span02">
+                    		是
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-right-radio-input">
+                    		<input name='is_clean' type="radio" value='0'/>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-right-radio-span02">
+                    		否
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user-fuEvaluate-form-textarea">
+                	<div class="user-fuEvaluate-form-textarea-title">
+                    	综合评价
+                    </div>
+                    
+                    <div class="user-fuEvaluate-form-textarea-word">
+                        <textarea name="content"cols="80"rows="17" ></textarea>
+                    </div>
+                </div>
+                
+                <div class="user-fuEvaluate-form-textarea-span">
+					*请写下您的宝贵意见及建议
+				</div>
+                
+                <div class="clear12"></div>
+                
+                <div class="user-fuEvaluate-form-file">
+                	<div class="user-fuEvaluate-form-file-left">
+                    	<div class="user-fuEvaluate-form-file-left-img">
+                        	<div class="user-fuEvaluate-form-file-left-img-images">
+                            	<img src="images/1140.png"/>
+                            </div>
+                            
+                            <div class="user-fuEvaluate-form-file-left-img-input">
+                            	<input class='files' type="file" id="doc1" name='images[]' style="display:block;" onchange="javascript:setImagePreview(1);"/>
+                                <input class='files' type="file" id="doc2" name='images[]' style="display:block;" onchange="javascript:setImagePreview(2);"/>
+                                <input class='files' type="file" id="doc3" name='images[]' style="display:block;" onchange="javascript:setImagePreview(3);"/>
+                                <input class='files' type="file" id="doc4" name='images[]' style="display:block;" onchange="javascript:setImagePreview(4);"/>
+                                <input class='files' type="file" id="doc5" name='images[]' style="display:block;" onchange="javascript:setImagePreview(5);"/>
+                            </div>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-file-left-span">
+                        	<span class="span01">
+                            	共
+                            </span>
+                            
+                            <span class="span02" id='num'>0</span>
+                            
+                            <span class="span01">
+                            	张，还能上传
+                            </span>
+                            
+                            <span class="span02">
+                            	5
+                            </span>
+                            
+                            <span class="span01">
+                            	张
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="user-fuEvaluate-form-file-right">
+
+                        <div class="user-fuEvaluate-form-file-right-demo" id="div1" style="display: none;" >
+                            <div class="user-fuEvaluate-form-file-right-demo-bk" onclick="x(1)">
+                                
+                            </div>
+                            
+                            <div class="user-fuEvaluate-form-file-right-demo-img"  id="localImag1">
+                                <img id="image1" src="images/1143.jpg" width="139" height="81"/>
+                            </div>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-file-right-demo"  id="div2" style="display: none;" >
+                            <div class="user-fuEvaluate-form-file-right-demo-bk" onclick="x(2)">
+                                
+                            </div>
+                            
+                            <div class="user-fuEvaluate-form-file-right-demo-img"  id="localImag2">
+                                <img id="image2" src="images/1143.jpg" width="139" height="81"/>
+                            </div>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-file-right-demo"  id="div3" style="display: none;" >
+                            <div class="user-fuEvaluate-form-file-right-demo-bk" onclick="x(3)">
+                                
+                            </div>
+                            
+                            <div class="user-fuEvaluate-form-file-right-demo-img"  id="localImag3">
+                                <img id="image3" src="images/1143.jpg" width="139" height="81"/>
+                            </div>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-file-right-demo"  id="div4" style="display: none;" >
+                            <div class="user-fuEvaluate-form-file-right-demo-bk" onclick="x(4)">
+                                
+                            </div>
+                            
+                            <div class="user-fuEvaluate-form-file-right-demo-img"  id="localImag4">
+                                <img id="image4" src="images/1143.jpg" width="139" height="81"/>
+                            </div>
+                        </div>
+                        
+                        <div class="user-fuEvaluate-form-file-right-demo"  id="div5" style="display: none;" >
+                            <div class="user-fuEvaluate-form-file-right-demo-bk" onclick="x(5)">
+                                
+                            </div>
+                            
+                            <div class="user-fuEvaluate-form-file-right-demo-img"  id="localImag5">
+                                <img id="image5" src="images/1143.jpg" width="139" height="81"/>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear12"></div>
+
+                <input type="hidden" name="detail_id" value="{:$list.info.detail_id:}">
+                <input type="hidden" name="order_id" value="{:$list.info.order_id:}">
+                <input type="hidden" name="quote_id" value="{:$list.info.quote_id:}">
+                
+                <div class="user-fuEvaluate-form-input">
+                	<div class="user-fuEvaluate-form-input-sub">
+                    	<input type="submit" value="提交评价"/>
+                    </div>
+                    
+                    <div class="user-fuEvaluate-form-input-checkbox">
+                    	<input type="checkbox" name="none"/>
+                        
+                        <span>匿名评论</span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear15"></div>
+            </div>
+        </form>
+    </div>
+      
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+{:include file='footer.tpl.html':}
+
+<!--星级评分-->
+<script src="js/jquery.barrating.js"></script>
+<script src="js/examples.js"></script>
+<!--星级评分end-->
+
+
+
+
+
+
+ <script type="text/javascript">
+//下面用于图片上传预览功能
+function setImagePreview(o,avalue) {
+    console.log(o);
+//input
+    var docObj = document.getElementById("doc"+o);
+//img
+    var imgObjPreview = document.getElementById("image"+o);
+    //div
+    var divs = document.getElementById("localImag"+o);
+
+    var div = document.getElementById("div"+o);
+
+    var num = document.getElementById("num").innerHTML;
+
+    if (docObj.files && docObj.files[0]) {
+        //火狐下，直接设img属性
+        div.style.display = 'block';
+        imgObjPreview.style.width = '139px';
+        imgObjPreview.style.height = '81px';
+        //imgObjPreview.src = docObj.files[0].getAsDataURL();
+        //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要以下方式
+        imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+        docObj.style.display = 'none';
+        document.getElementById("num").innerHTML = parseFloat(num) + parseFloat(1);
+    } else {
+        //IE下，使用滤镜
+        docObj.select();
+        var imgSrc = document.selection.createRange().text;
+        var localImagId = document.getElementById("localImag"+o);
+        //必须设置初始大小
+        div.style.display = 'block';
+        localImagId.style.width = "139px";
+        localImagId.style.height = "81px";
+        //图片异常的捕捉，防止用户修改后缀来伪造图片
+        try {
+            localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+            localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+            docObj.style.display = 'none';
+            document.getElementById("num").innerHTML = parseFloat(num) + parseFloat(1);
+        } catch(e) {
+            alert("您上传的图片格式不正确，请重新选择!");
+            return false;
+        }
+        imgObjPreview.style.display = 'none';
+        document.selection.empty();
+    }
+    return true;
+}
+
+
+function x(o){
+    var num = document.getElementById("num").innerHTML;
+    var div = document.getElementById("div"+o);
+    var docObj = document.getElementById("doc"+o);
+    div.style.display = 'none';
+    docObj.value = '';
+    docObj.style.display = 'block';
+    document.getElementById("num").innerHTML = parseFloat(num) - parseFloat(1);
+}
+</script>

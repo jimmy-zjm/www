@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/m-common.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/m-common.js"></script>
+<link rel="stylesheet" type="text/css" href="css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>施工订单</header>
+	<section  class="container">
+		<div class="search-strip col-md-5 col-md-fr">
+			<input type="text" name="" placeholder="商品名称/订单编号/客户名称/手机号">
+			<button>搜索</button>
+		</div>
+		<div class="clearfix"></div>
+		<div class="workorder-selectbox">
+			<div class="sys-item">公司 
+				<select name="" id="">
+					<option>请选择</option>
+				</select>
+			</div>
+			<div class="sys-item">员工姓名 
+				<select name="" id="">
+					<option>请选择</option>
+				</select>
+			</div>
+			<div class="last-row">订单状态
+				<select name="" id="">
+					<option>请选择</option>
+				</select>
+			</div>
+		</div>
+		<div class="workorder-list">
+			<p class="sys-title">订单列表</p>
+
+			<!--  -->
+			<p class="sys-item">
+				<span class="item-name">订单编号</span>
+				<span class="ell">20170619091446093412312313131</span>
+			</p>
+			<p class="sys-item">
+				<span class="item-name">客户信息</span>
+				<span class="ell">张小三丰  13888888888</span>
+			</p>
+			<p class="sys-item">
+				<span class="item-name">房屋地址</span>
+				<span class="ell">上海市闵行区联航路1188号</span>
+			</p>
+			<p class="sys-item">
+				<span class="item-name">下单账号</span>
+				<span class="ell">上品上生网络科技有限公司  李小四</span>
+			</p>
+			<p class="last-row">
+				<a href="orderDetail.html" class="orderdetail-btn">订单详情</a>
+			</p>
+			<!--  -->
+		</div>
+
+		<p class="workorder-lookmore" >
+			<a href="">查看更多订单</a>
+		</p>
+	</section>
+	<footer>
+	<ul>
+		<li><a class="f-btn f-btn01" href="personnalCenter.html">
+			个人中心
+		</a></li>
+		<li><a class="f-btn f-btn02"  href="selectSys.html">
+			报价系统
+		</a></li>
+		<li ><a class="f-btn f-btn03"  href="workorder.html">
+			施工订单
+		</a></li>
+		<li ><a class="f-btn f-btn04"  href="aftersale-worker.html">
+			售后订单
+		</a></li>
+		<li ><a class="f-btn f-btn05"  href="set.html">
+			设置
+		</a></li>
+	</ul>
+	<script type="text/javascript">
+		
+		if(localStorage.active){
+			$(".f-btn").eq(localStorage.active).parent("li").addClass("active")
+		}else{
+			$(".f-btn").eq(1).parent("li").addClass("active")
+		}
+
+		
+
+		$(".f-btn").click(function(ev){
+			
+			ev.preventDefault();
+			nojump=false;
+			localStorage.active=$(".f-btn").index(this);
+			
+			window.location.href =$(this).attr("href");
+			
+			
+		})
+
+	</script>
+</footer>
+
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

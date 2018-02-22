@@ -1,0 +1,147 @@
+{:include file="dealer_header_xin.tpl.html":}
+
+
+        <div class="daohang">
+            <div class="nev">
+                    <div class="nev_1">＞调整订单</div>
+                    <div class="nev_2">
+                        <ul>
+                            <li style="padding-left:25px;"><a href="dealer.php?center">我的中心</a></li>
+                            <li><a href="dealer.php?order">订单管理</a></li>
+                            <li><a href="dealer.php?aftersale">售后管理</a></li>
+                            <li><a href="dealer.php?account">账户</a></li>
+                            <li><a href="dealer.php?advice">意见反馈</a></li>
+                            <li><a href="dealer.php?password">密码管理</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+   </div>
+   
+   <div class="sety_1">
+              
+                <div class="tzdd_tz">
+                	<h1>调整订单</h1>
+					<form action="dealer.php?doEditOrder" method="post">
+						<input type="hidden" name="order_id" value="{:$orderInfo.order_id:}">
+                        <div class="tzdd_tz_01">联系人：<input type="text" name="consignee" value="{:$orderInfo.consignee:}" /></div>
+                        <div class="tzdd_tz_01">电话：<input type="text" name="mobile_phone" value="{:$orderInfo.mobile_phone:}" /></div>
+                        <div class="tzdd_tz_01">房屋面积：<input type="text" name="total_area" value="{:$orderInfo.total_area:}" /></div>
+                        <div class="tzdd_tz_02"><span>房型：</span>
+						<form action="dealer.php?doEditOrder" method="post">
+                        <select name="shi" class="fu_xiala">
+									   <option value="{:$orderInfo.shi:}" selected="selected">{:$orderInfo.shi:}</option>
+									   <option value="0">0</option>
+                                       <option value="1">1</option>
+                                       <option value="2">2</option>   
+                                       <option value="3">3</option>   
+                                       <option value="4">4</option> 
+									   <option value="5">5</option>
+									   <option value="6">6</option>
+									   <option value="7">7</option>
+									   <option value="8">8</option>
+									   <option value="9">9</option>   
+                               </select>&nbsp;室
+                               <select name="ting" class="fu_xiala">
+							   		   <option value="{:$orderInfo.ting:}" selected="selected">{:$orderInfo.ting:}</option>
+                                       <option value="0">0</option>
+									   <option value="1">1</option>
+                                       <option value="2">2</option>   
+                                       <option value="3">3</option>   
+                                       <option value="4">4</option> 
+                               </select>&nbsp;厅
+							   
+							   <select name="chu" class="fu_xiala">
+                                       <option value="{:$orderInfo.chu:}" selected="selected">{:$orderInfo.chu:}</option>
+									   <option value="0">0</option>
+									   <option value="1">1</option>
+                                       <option value="2">2</option>   
+                                       <option value="3">3</option>
+									   <option value="4">4</option>   
+                               </select>&nbsp;厨
+							   
+							   <select name="wei" class="fu_xiala">
+                                       <option value="{:$orderInfo.wei:}" selected="selected">{:$orderInfo.wei:}</option>
+									   <option value="0">0</option>
+									   <option value="1">1</option>
+                                       <option value="2">2</option>   
+                                       <option value="3">3</option>   
+                                       <option value="4">4</option> 
+                               </select>&nbsp;卫
+							   
+                               <select name="yangtai" class="fu_xiala">
+                                       <option value="{:$orderInfo.yangtai:}" selected="selected">{:$orderInfo.yangtai:}</option>
+									   <option value="0">0</option>
+									   <option value="1">1</option>
+                                       <option value="2">2</option>   
+                                       <option value="3">3</option>   
+                                       <option value="4">4</option> 
+                               </select>&nbsp;阳台
+                         </div>
+                        <div class="tzdd_tz_03"><span>地址：</span><textarea rows="4" cols="47" disabled="disabled">{:$orderInfo.province:}&nbsp;{:$orderInfo.city:}&nbsp;{:$orderInfo.district:}&nbsp;{:$orderInfo.address:}</textarea></div>
+                		<div class="tijiao">
+                       	 <input class="tj" type="submit" value="提交"/>
+                        </div>
+                
+                	</form>
+                </div>
+          </from>
+     </div>
+    
+      
+    <div style=" width:100%; background:#ecf0f5; padding:20px 0;">
+   
+      <div class="quanjiafu"><img src="images/input_03.jpg" /></div>
+    
+    <!--footer 头-->
+    
+    
+    <div class="footer">
+    	<div class="guild">
+        	<ul>
+            	<a href=""><li class="msg" style="color:#000;">购物指南 </li></a>
+                <a href=""><li>购物流程</li></a>
+            	<a href=""><li>会员介绍</li></a>
+                <a href=""><li>常见问题</li></a>
+                <a href=""><li>联系客服</li></a>
+            </ul>
+            <ul>
+            	<a href=""><li class="msg" style="color:#000;">配送方式 </li></a>
+                <a href=""><li> 国内配送</li></a>
+                <a href=""><li> 海外配送</li></a>
+                <a href=""><li> 配送标准</li></a>
+                
+            </ul>
+              <ul>
+            	<a href=""><li class="msg" style="color:#000;">支付方式 </li></a>
+                <a href=""><li>在线支付</li></a>
+                <a href=""><li>分期付款</li></a>
+                <a href=""><li>邮局汇款</li></a>
+                <a href=""><li>公司转账</li></a>
+            </ul>
+              <ul>
+            	<a href=""><li class="msg" style="color:#000;"> 售后服务 </li></a>
+                <a href=""><li> 售后政策</li></a>
+                <a href=""><li> 退款说明</li></a>
+                <a href=""><li style=" margin-left:14px;"> 返修／退换货</li></a>
+                <a href=""><li> 取消订单</li></a>
+            </ul>
+        </div>
+    </div>
+    
+   	 <div class="friendlink">
+             <ul>
+                <a href=""><li style="margin-left:93px;">关于我们 </li></a>
+                <a href=""><li>联系我们</li></a>
+                <a href=""><li>人才招聘</li></a>
+                <a href=""><li>招商加盟</li></a>
+                <a href=""><li>商务合作</li></a>
+                <a href=""><li>友情链接</li></a>
+                <a href=""><li>备案号</li></a>
+                <a href=""><li>各类证</li></a>
+            </ul>
+ 	 </div>
+        
+        
+</body>
+</html>

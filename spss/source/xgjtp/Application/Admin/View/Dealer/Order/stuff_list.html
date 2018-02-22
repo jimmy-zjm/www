@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>清单页面</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+<script>
+function audit_msg(first_audit_status,refund_id){
+	$.get("<{:U('audit')}>?refund_id="+refund_id+'&first_audit_status='+first_audit_status,function(data){
+		data=data.replace(/(^\s*)|(\s*$)/g, "");
+		//alert(data);
+		if(data=='success'){
+			alert('操作成功');
+		}else if(data=='lose'){
+			alert('操作失败');
+		}else if (data=='already'){
+			alert('审核已通过或已退回');
+		};	
+	}); 
+}
+</script>
+</head>
+
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >订单管理</a></li>
+	    <li><a href="dealer_order.php?tab=1">订单列表</a></li>
+	    <li><a ><{$title}></a></li>
+	    </ul>
+	 </div>
+    
+<div class="formbody">
+  <div id="usual1" class="usual"> 
+  	<div id="tab1" class="tabson">
+  		<div style="width:100%;height:40px;line-height:40px;">
+  			<div style="float:left;width:30%;font-size:25px;"><{$title}></div>
+  			<div style="float:left;width:62%;font-size:25px;color:#ff0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- 提交OMS系统（50%支付之后） --></div>
+  			<div style="float:left;width:8%;"><a href="javascript:history.go(-1)" style="font-size:18px;">返回</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="<{:U('stuff_list',array('detail_id'=>$detail_id,'order_id'=>$order_id,'goods_lv'=>$goods_lv,'xls'=>'1'))}>" style="font-size:18px;">导出</a></div>
+  		</div>
+  		<ul class="forminfo">
+		    <li>
+		    	订单号:<{$dealer_order_list.0.order_code}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	系统名称:<{$quote_name}>
+		    </li>
+		    <li>
+		    	联系人:<{$dealer_order_list.0.consignee}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+		    	电话:<{$dealer_order_list.0.mobile_phone}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	房面积:<{$dealer_order_list.0.total_area}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+		    	房型:<{$dealer_order_list.0.house_layout|house_layout}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+		    	地址:<{$dealer_order_list.0.province}><{$dealer_order_list.0.city}><{$dealer_order_list.0.district}><{$dealer_order_list.0.address}>
+		    </li>
+		    <li>
+		    	客户要求:<{$dealer_order_list.0.postscript}>
+		    </li>
+	    </ul>
+  	</div>
+	
+  	<div id="tab2" class="tabson">
+    	<table class="imgtable" >
+    	
+		    <thead>
+		    <tr>
+		    <th>产品图</th>
+		    <th>名称</th>
+		    <th>型号</th>
+		    <th>品牌</th>
+		    <th>单价</th>
+		    <th>单位</th>
+		    <th>标准量</th>
+		    <th>调整量</th>
+		    <th>出库地</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($dealer_order_stuff_list as $v){?>
+		    <?php if (!empty($v['list'])){?>
+		    <tr>
+		    <td><img src="<{$v['list'][0]['goods_img']|getImage}>" width='50px' height='50px'/></td>
+		    <td><{$v['list'][0]['goods_name']}></td>
+		    <td><{$v['list'][0]['goods_model']}></td>
+		    <td><{$v['list'][0]['goods_brand']}></td>
+		    <td><{$v['list'][0]['shop_price']}></td>
+		    <td><{$v['list'][0]['goods_unit']}></td>
+		    <td><{$v['num']}></td>
+		    <td>
+			    <?php if (isset($v['adjust_num'])){?>
+					<span style='color:green'><{$v['adjust_num']}></span>
+			    <?php }else{?>
+			    	<{$v['num']}>
+			    <?php }?>
+		    </td>
+		    <td><?php if (isset($v['outbound'])){?><span style='color:blue'><{$v['outbound']}></span><?php }else{?>暖扬扬<?php }?></td>
+		    </tr>
+		    <?php }}?>
+		    
+			</tbody>
+		    
+		 </table>
+    </div> 
+    
+    <?php if (!empty($add_price)){?>
+  	<div id="tab3" class="tabson">
+		<span style='font-size:20px'>补货清单</span><span style='font-size:14px;color:blue;'>总价: <{$add_price}> 元</span>
+    	<table class="imgtable" >
+    	
+		    <thead>
+		    <tr>
+		    <th>产品图</th>
+		    <th>名称</th>
+		    <th>型号</th>
+		    <th>品牌</th>
+		    <th>单价</th>
+		    <th>单位</th>
+		    <th>标准量</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($add_list as $v){?>		   
+		    <?php if (!empty($v['list'])){?>
+		    <tr>
+		    <td><img src="<{$v['list'][0]['goods_img']|getImage}>" width='50px' height='50px'/></td>
+		    <td><{$v.list.0.goods_name}></td>
+		    <td><{$v.list.0.goods_model}></td>
+		    <td><{$v.list.0.goods_brand}></td>
+		    <td><{$v.list.0.shop_price}>元</td>
+		    <td><{$v.list.0.goods_unit}></td>
+		    <td><{$v.num}></td>
+		    </tr>
+		    <?php }}?>
+		    </tbody>
+		    
+		 </table>
+		 <div class="formbody">
+		    <ul class="forminfo" style="padding-left: 30%; padding-top: 20px;">
+		    	<form action='' method='post'>
+			    	<li>申请理由：<{$add_list[0]['refund_msg']}>
+					</li>
+					<li><span style='font-size:14px;color:blue;'>总价: <{$add_price}> 元</span> </li>
+					<li style="padding-left: 230px;">
+						<input type='button' class="sure"  onclick="audit_msg(2,<{$add_list[0]['refund_id']}>)" value='审核通过' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type='button' class="sure"  onclick="audit_msg(3,<{$add_list[0]['refund_id']}>)" value='退回' /></li>
+				</form>
+		    </ul>
+	    </div>
+		
+    </div>  
+    <?php }else{}?>
+    
+    <?php if (!empty($refund_price)){?>
+    <div id="tab4" class="tabson">
+       	<span style='font-size:20px'>退货清单</span><span style='font-size:14px;color:blue;'>总价: <{$refund_price}> 元</span>
+  	   	<table class="imgtable" >
+    	
+		    <thead>
+		    <tr>
+		    <th>产品图</th>
+		    <th>名称</th>
+		    <th>型号</th>
+		    <th>品牌</th>
+		    <th>单价</th>
+		    <th>单位</th>
+		    <th>标准量</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($refund_list as $v){?>
+		    <?php if (!empty($v['list'])){?>
+		     <tr>
+		    <td><img src="<{$v['list'][0]['goods_img']|getImage}>" width='50px' height='50px'/></td>
+		    <td><{$v.list.0.goods_name}></td>
+		    <td><{$v.list.0.goods_model}></td>
+		    <td><{$v.list.0.goods_brand}></td>
+		    <td><{$v.list.0.shop_price}>元</td>
+		    <td><{$v.list.0.goods_unit}></td>
+		    <td><{$v.num}></td>
+		    </tr>
+		   	<?php }}?>
+		    </tbody>
+		    
+		 </table>
+		 <div class="formbody">
+		    <ul class="forminfo" style="padding-left: 30%; padding-top: 20px;">
+		    	<form action='' method='post'>
+			    	<li>申请理由：<{$refund_list[0]['refund_msg']}>
+					</li>
+					<li><span style='font-size:14px;color:blue;'>总价: <{$refund_price}> 元</span> </li>
+					<li style="padding-left: 230px;">
+						<input type='button' class="sure"  onclick="audit_msg(2,<{$refund_list[0]['refund_id']}>)" value='审核通过' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type='button' class="sure"  onclick="audit_msg(3,<{$refund_list[0]['refund_id']}>)" value='退回' /></li>
+				</form>
+		    </ul>
+	    </div>
+    </div>
+    <?php }else{}?>
+    
+    <?php if (!empty($selfbuy_price)){?>	
+    <div id="tab5" class="tabson">
+  		
+  	  <span style='font-size:20px'>自购清单</span><span style='font-size:14px;color:blue;'>总价: <{$selfbuy_price}> 元</span>
+    	<table class="imgtable" >
+    	
+		    <thead>
+		    <tr>
+		    <th>产品图</th>
+		    <th>名称</th>
+		    <th>型号</th>
+		    <th>品牌</th>
+		    <th>单价</th>
+		    <th>单位</th>
+		    <th>标准量</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($selfbuy_list as $v){?>
+		    <?php if (!empty($v['list'])){?>
+		     <tr>
+		    <td><img src="<{$v['list'][0]['goods_img']|getImage}>" width='50px' height='50px'/></td>
+		    <td><{$v.list.0.goods_name}></td>
+		    <td><{$v.list.0.goods_model}></td>
+		    <td><{$v.list.0.goods_brand}></td>
+		    <td><{$v.list.0.shop_price}>元</td>
+		    <td><{$v.list.0.goods_unit}></td>
+		    <td><{$v.num}></td>
+		    </tr>
+		    <?php }}?>
+		    </tbody>
+		    
+		 </table>
+		 <div class="formbody">
+		    <ul class="forminfo" style="padding-left: 30%; padding-top: 20px;">
+		    	<form action='' method='post'>
+			    	<li>申请理由：<{$selfbuy_list[0]['refund_msg']}>
+					</li>
+					<li><span style='font-size:14px;color:blue;'>总价: <{$selfbuy_price}> 元</span> </li>
+					<li style="padding-left: 230px;">
+						<input type='button' class="sure"  onclick="audit_msg(2,<{$selfbuy_list[0]['refund_id']}>)" value='审核通过' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type='button' class="sure"  onclick="audit_msg(3,<{$selfbuy_list[0]['refund_id']}>)" value='退回' /></li>
+				</form>
+		    </ul>
+	    </div>
+    </div> 
+    <?php }else{}?>	
+  </div>       
+</div> 
+    
+</body>
+
+</html>
+
+

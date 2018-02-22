@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="__PUBLIC__/css/home.css" />		
+<!--banner-->
+<div class="home-banner">
+	<div class="home-banner">
+			<div id="container">
+				<div class="sections">
+					
+					<?php foreach ($list as $k => $v): ?>
+						<div class="section" id="section<{$k}>"><a href="__ROOT__/index.php/<{$v.url}>"><img src="<?= getimage($v['image']) ?>" alt="" /></a></div>
+					<?php endforeach ?>
+					
+				</div>
+			</div>
+	</div>
+</div>
+
+<!--content-->
+<div class="home-main" style="display:none">
+	<div class="home-main-content">
+		<div class="home-main-content1">
+			<a href="<{:U('Furnish/index')}>" style="display: block;color: #000;">
+				<p>舒适健康家居</p>
+				<p class="home-main-content1-img1"></p>
+			</a>
+		</div>
+		<div class="home-main-content2">
+			<a href="<{:U('Material/floorList')}>" style="display: block;color: #000;">
+				<p>舒适健康建材</p>
+				<p class="home-main-content1-img2"></p>
+			</a>	
+		</div>
+		<div class="home-main-content2">
+			<a href="<{:U('Customer/index')}>" style="display: block;color: #000;">
+			<p>舒适健康售后</p>
+			<p class="home-main-content2-lianbao home-main-content1-img3"></p>
+			</a>
+		</div>
+		<div class="home-main-content3">
+			<a href="<{:U('Knowledge/index')}>" style="display: block;color: #000;">
+			<p>家居知识了解</p>
+			<p class="home-main-content1-img4"></p>
+			</a>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="__PUBLIC__/css/pageSwitch.min.css" />
+<script src="__PUBLIC__/js/pageSwitch.js"></script>
+<script>
+	    $("#container").PageSwitch({
+			direction:'horizontal',
+			easing:'ease-in',
+			duration:500,
+			keyboard : false,
+			autoPlay:false,
+			interval: 12000,
+			loop:'false'
+		});
+</script>

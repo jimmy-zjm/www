@@ -1,0 +1,319 @@
+.btmline {
+    border-bottom: .02rem solid #efefef;
+}
+.huifont {
+    color: #878787;
+}
+.heifont {
+    color: #323232;
+}
+.login {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    background: url(../img/loginbg.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.login-box {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: .8rem;
+}
+.login-box img {
+    display: block;
+    width: 1.92rem;
+    height: 1.92rem;
+    margin: .4rem auto;
+    border-radius: 50%;
+}
+.login-box .name {
+    font-family: hzgb;
+    font-size: .5rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    color: #fff;
+}
+.login-box input {
+    vertical-align: top;
+    border: none 0;
+}
+.login-box input.login-shuru {
+    font-size: .36rem;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: .9rem;
+    margin-bottom: .3rem;
+    padding: 0 .4rem;
+    color: #fff;
+    border-radius: .9rem;
+    background-color: rgba(255, 255, 255, .2);
+}
+.login-box input[type='checkbox'] {
+    width: .26rem;
+    height: .26rem;
+}
+.login-box::-webkit-input-placeholder {
+
+    /* WebKit browsers */
+    color: #abafd4;
+}
+.login-box:-moz-placeholder {
+
+    /* Mozilla Firefox 4 to 18 */
+    color: #abafd4;
+}
+.login-box::-moz-placeholder {
+
+    /* Mozilla Firefox 19+ */
+    color: #abafd4;
+}
+.login-box:-ms-input-placeholder {
+
+    /* Internet Explorer 10+ */
+    color: #abafd4;
+}
+.login-box .morefunction {
+    font-size: .28rem;
+    padding: 0 .4rem;
+    color: #fff;
+}
+.login-box .morefunction input {
+    vertical-align: middle;
+}
+.login-box .morefunction a {
+    float: right;
+    color: #fff;
+}
+
+/* 个人中心 */
+.pcenter-top {
+    height: 5.6rem;
+    border-top: 1px solid transparent;
+    background: url(../img/pbg.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.pcenter-top img {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 1.1rem auto;
+}
+.pcenter-top p {
+    font-size: .36rem;
+    text-align: center;
+}
+.pcenter-top p a {
+    color: #fff;
+}
+.pcenter-bottom {
+    padding-right: .3rem;
+    padding-left: .3rem;
+}
+.pcenter-bottom a.p-item {
+    display: block;
+    cursor: pointer;
+    color: #323232;
+    background: url(../img/arrow.png) right center no-repeat;
+    background-size: .16rem auto;
+    poadding-right: .16rem;
+}
+.pcenter-bottom a.p-item:hover {
+    background-color: #eee;
+}
+.pcenter-bottom a.p-item span {
+    float: left;
+    width: .8rem;
+    height: 1rem;
+}
+.pcenter-bottom a.p-item .span01 {
+    background: url('../img/xgmm.png') 0 center no-repeat;
+    background-size: 45% 40%;
+}
+.pcenter-bottom a.p-item .span02 {
+    background: url('../img/khgl.png') 0 center no-repeat;
+    background-size: 45% 40%;
+}
+.pcenter-bottom a.p-item .span03 {
+    background: url('../img/gsgl.png') 0 center no-repeat;
+    background-size: 45% 40%;
+}
+.p-item {
+    font-size: .32rem;
+    line-height: 1.0rem;
+    height: 1.0rem;
+    color: #323232;
+    border-bottom: .02rem solid #efefef;
+}
+.p-item .item-name {
+    float: left;
+    width: 1.5rem;
+}
+.p-title {
+    font-size: .32rem;
+    font-weight: 600;
+    line-height: 1.0rem;
+    height: 1.0rem;
+    color: #323232;
+    border-bottom: .02rem solid #efefef;
+}
+.p-title .item-name {
+    float: left;
+    width: 1.5rem;
+}
+.item-box {
+    border-bottom: .02rem solid #efefef;
+}
+.item-box p {
+    font-size: .26rem;
+    line-height: .6rem;
+    height: .6rem;
+}
+
+/* 修改密码 */
+.repass-box input {
+    border: none;
+}
+.repass-box .p-item > input {
+    font-size: .32rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: calc(100% - 1.5rem);
+    height: 1rem;
+    text-align: right;
+    vertical-align: top;
+}
+.repass-box .p-item label {
+    float: right;
+    margin-left: .4rem;
+}
+.repass-box .p-item label input {
+    width: .26rem;
+    height: .26rem;
+    margin-left: .1rem;
+    vertical-align: middle;
+}
+.repass-box::-webkit-input-placeholder {
+
+    /* WebKit browsers */
+    color: #878787;
+}
+.repass-box:-moz-placeholder {
+
+    /* Mozilla Firefox 4 to 18 */
+    color: #878787;
+}
+.repass-box::-moz-placeholder {
+
+    /* Mozilla Firefox 19+ */
+    color: #878787;
+}
+.repass-box:-ms-input-placeholder {
+
+    /* Internet Explorer 10+ */
+    color: #878787;
+}
+
+/* 公司管理 */
+.gsgl-btmbtn {
+    border: none;
+}
+.gsgl-btmbtn a {
+    font-size: .28rem;
+    line-height: .56rem;
+    float: right;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 1.7rem;
+    height: .6rem;
+    margin: .2rem 0 .2rem .2rem;
+    text-align: center;
+    color: #ff0080;
+    border: .02rem solid #ff0080;
+    border-radius: .6rem;
+}
+.gsgl-btmbtn .gsgl-btmbtn-look {
+    color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ff1c7f), to(#eb267c));
+    background-image: -webkit-linear-gradient(top, #ff1c7f 0%, #eb267c 100%);
+    background-image: -o-linear-gradient(top, #ff1c7f 0%, #eb267c 100%);
+    background-image: linear-gradient(-180deg, #ff1c7f 0%, #eb267c 100%);
+}
+
+/* 客户管理，备注 */
+.mask-remarks {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 .2rem;
+    background-color: #fff;
+}
+.mask-remarks .p-item span {
+    display: block;
+    float: right;
+    width: 1rem;
+    height: 1rem;
+    background: url(../img/guanbi02.png) center center no-repeat;
+    background-size: 60% 60%;
+}
+.mask-remarks textarea {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 3.5rem;
+}
+.mask-remarks .newaddbtn-box {
+    margin: .2rem 0;
+}
+.mask-remarks .remarks-log {
+    font-size: .32rem;
+    overflow-y: auto;
+    height: 6.0rem;
+    padding: .2rem;
+    border: .02rem solid #eee;
+}
+.mask-remarks .remarks-log p {
+    color: #878787;
+}
+.mask-remarks .remarks-log p span {
+    float: right;
+}
+
+/* 客户管理，邮件 */
+.mask-mail {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+.mask-mail > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6rem;
+    padding: .4rem;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+.mask-mail > div input {
+    font-size: .32rem;
+    display: block;
+    width: 100%;
+    height: .8rem;
+    margin: .4rem 0;
+    border: .02rem solid #ddd;
+}

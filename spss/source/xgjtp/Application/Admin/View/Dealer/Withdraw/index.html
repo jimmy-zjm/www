@@ -1,0 +1,132 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>经销商提现-列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+
+
+<script language="javascript">
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+            <li><a href="<{:U('index')}>">财务管理</a></li>
+            <li><a href="<{:U('index')}>">提现列表</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo">
+        <form action="">
+        <ul class="seachform1" style="width:100%">
+            <li><label>经销商名称</label><input name="dealer_name" type="text" value="<?php echo I('get.dealer_name') ?>" class="scinput1"></li>
+
+            <li><label>状态</label>
+                <div class="vocation">
+                    <select class="select3" name="status">
+                        <option value='0'>全部</option>
+                        <option value="1" <?php echo $_GET['status']==1?'selected':'' ?> >未审核</option>
+                        <option value="2" <?php echo $_GET['status']==2?'selected':'' ?> >待付款</option>
+                        <option value="3" <?php echo $_GET['status']==3?'selected':'' ?> >已提现</option>
+                    </select>
+                </div>
+            </li>
+            <li class=""><label>&nbsp;</label><input type="submit" name="send" class="scbtn" value="查询"></li>
+        </ul>
+        </form>
+
+        <table class="listtable">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>经销商名称</th>
+            <th>申请金额</th>
+            <th>备注</th>
+            <th>状态</th>
+            <th>申请时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php foreach ($list as $v): ?>
+        <tr data-id="<{$v.id}>">
+            <td><?php echo (max(1,intval($_GET['p']))-1)*C('DEALER_WITHDRAW_PAGE_SIZE') + ++$i ?></td>
+            <td><{$v.d_name}></td>
+            <td><{$v.money_num}></td>
+            <td><{$v.remarks}></td>
+            <td>
+                <?php if($v['status']==0):?>
+                <span style="color:blue">未审核</span>
+                <?php elseif($v['status']==1): ?>
+                <span style="color:red">待付款</span>
+                <?php elseif($v['status']==2): ?>
+                <span style="color:green">已提现</span>
+                <?php endif ?>
+            </td>
+            <td><{$v.apply_time}></td>
+            <td>
+                <?php if($v['status']==0):?>
+                    <a style="color:blue" onclick="return confirm('您确定要审核吗？')"href="<{:U('edit',array('id'=>$v['id'],'status'=>1))}>">去审核</a>
+                    <?php elseif($v['status']==1): ?>
+                    <a style="color:red" onclick="return confirm('您确定已付款，修改操作状态？')"href="<{:U('edit',array('id'=>$v['id'],'status'=>2))}>">去付款</a>
+                    <?php elseif($v['status']==2): ?>
+                    <span style="color:green" >已提现</span>
+                <?php endif ?>
+                
+            </td>
+        </tr>
+        <?php endforeach ?>
+
+        </tbody>
+
+        </table>
+
+        <!-- 分页 -->
+        <{$page}>
+    </div>
+
+    <script type="text/javascript">
+    $('.imgtable tbody tr:odd').addClass('odd');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+
+<script language="javascript">
+
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="">首页</a></li>
+            <li><a href="">商品订单管理</a></li>
+            <li><a href="">欧洲建材评价列表</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo">
+        <form action="" method='post'>
+            <ul class="seachform1" style="width:100%">
+
+                <li><label>关键字搜索</label><input name="sn" type="text" value="" class="scinput1" style="width:400px;" placeholder='请输入商品名称关键字进行搜索'></li>
+
+                <li><label>评论状态</label>
+                    <div class="vocation">
+                        <select class="select3" name="display">
+                            <option value="">请选择</option>
+                            <option value="1">评论可见</option>
+                            <option value="2">评论隐藏</option>
+                        </select>
+                    </div>
+                </li>
+                <li><label>评论星级</label>
+                    <div class="vocation">
+                        <select class="select3" name="star">
+                            <option value="">请选择</option>
+                            <option value="1">一星(失望)</option>
+                            <option value="2">二星(不满)</option>
+                            <option value="3">三星(一般)</option>
+                            <option value="4">四星(满意)</option>
+                            <option value="5">五星(惊喜)</option>
+                        </select>
+                    </div>
+                </li>
+                <li class=""><label>&nbsp;</label>
+                    <input type="submit" class="scbtn" value="查询">   
+                    <input type="button" class="scbtn1" onclick="moreSearch(this);" data-togg="0" value="更多条件">   
+                </li>
+            </ul>
+            <div class="formbody moreSearch" id="moreSearch" style="margin-top:10px;display:none;clear:both;padding:0">
+                <div id="usual1" class="usual">
+                    <ul class="seachform1">
+                        <li>
+                            <label>上下架时间</label>
+                            <input name="starttime" id="start_time" placeholder="请输入开始日期" class="laydate-icon" style="height:33px;" >
+
+                            <input name="endtime" id="end_time" placeholder="请输入结束日期" class="laydate-icon" style="height:33px;"  >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <table class="listtable">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>商品名称</th>
+            <th>购买时间</th>
+            <th>买家信息</th>
+            <th>状态/星级</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php foreach ($list as $k=>$v): ?>
+        <tr>
+            <td><{$k+1}></td>
+            <td><{$v.goods_title}></td>
+            <td><{$v.pay_time}></td>
+            <td><{$v.user_name}></td>
+            <td>
+                <div style="height:15px;"><?= $v['display']=='1'?'评论可见':'评论隐藏' ?></div>
+                <div>
+                    <?php
+                        if ($v['star']==1) echo '一星(失望)'; 
+                        else if ($v['star']==2) echo '二星(不满)'; 
+                        else if ($v['star']==3) echo '三星(一般)'; 
+                        else if ($v['star']==4) echo '四星(满意)'; 
+                        else if ($v['star']==5) echo '五星(惊喜)'; 
+                    ?>
+                </div>
+            </td>
+            <td>
+                <a href="<{:U('buildingDetails',array('id'=>$v['comment_id']))}>">查看</a>
+                <a href="<{:U('buildingDelete',array('id'=>$v['comment_id'],'p'=>$_GET['p']))}>">删除</a>
+            </td>
+        </tr>
+        <?php endforeach ?>
+
+        </tbody>
+
+        </table>
+
+        <!-- 分页 -->
+        <{$page}>       
+    </div>
+    <script>
+        function moreSearch(obj){
+            if($(obj).attr('data-togg')==0){
+                $('#moreSearch').slideDown(200);
+                $(obj).attr('data-togg',1);
+            }else{
+                $('#moreSearch').slideUp(200);
+                $(obj).attr('data-togg',0);
+            }
+        }
+
+        /*日期时间框插件***********************************/
+        !function(){
+          laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+        }();
+        var start = {
+            elem: '#start_time',
+            format: 'YYYY/MM/DD hh:mm:ss',
+            min: '2000-00-00 00:00:00', //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                 end.min = datas; //开始日选好后，重置结束日的最小日期
+                 end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+        var end = {
+            elem: '#end_time',
+            format: 'YYYY/MM/DD hh:mm:ss',
+            min: '2000-00-00 00:00:00',
+            max: '2099-06-16 23:59:59',
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+        laydate(start);
+        laydate(end);
+        /*日期时间框插件***********************************/
+    </script>
+</body>
+
+</html>

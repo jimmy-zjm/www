@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+
+<script type="text/javascript">
+
+//js原生自定义函数不可写入jquey就绪函数中，否则undefined
+function add_list(goods_id,level,quote_id){ 
+	var chf_id=$(":radio:checked").val();
+	//alert(chf_id);
+	$.get('<{:U("child_list_adds")}>?goods_id='+goods_id+'&chf_id='+chf_id+'&level='+level+'&id='+quote_id,function(data){
+		if (data==1) {
+			if(confirm('已存在相同项,您确定要添加吗？')){
+				var ok = true;
+			}else{
+				return false;
+			}
+		}else{
+			var ok = true;
+		}
+		
+		if (ok==true) {
+			$.get('<{:U("child_list_add")}>?goods_id='+goods_id+'&chf_id='+chf_id+'&level='+level+'&id='+quote_id,function(data){
+				//alert(data);
+				$('#child_list_tab').append(data);
+				//加入后刷新
+				//location.reload(true);
+			});
+		}
+	});
+	
+}
+
+function remove_list(child_id){
+	if(confirm('您确定要删除吗？')){
+		$.get('<{:U("child_list_del")}>?child_id='+child_id,function(data){
+			data=data.replace(/(^\s*)|(\s*$)/g, "");//截掉空字符串
+			if(data=='success'){
+				$('#child_list_tr_'+child_id).remove();
+			}else{
+				alert(data);
+			}
+		});
+	}else{
+		return false;
+	}
+}
+
+// function remove_edit_list(child_id){
+// 	if(confirm('您确定要修改吗？')){
+// 		var	goods_sn = document.getElementById('goods_sn').value;
+// 		$.get('<{:U("Quote/quote_ini_edit")}>?child_id='+child_id+'&goods_sn'+goods_sn,function(data){
+// 			data=data.replace(/(^\s*)|(\s*$)/g, "");//截掉空字符串
+// 			if(data=='success'){
+// 				$('#child_list_tr_'+child_id).remove();
+// 			}
+// 		});
+// 	}else{
+// 		return false;
+// 	}
+// }
+
+function change_rule(rec_id,rule_id){
+	$.get('?r=admin/coll/quote/rec_id/'+rec_id+'/rule_id/'+rule_id,function(data){
+		if(data=='success'){
+			alert('操作成功');
+		}
+	});
+}
+
+function parent_formula(level,quote_id){   
+	$.get('?parent_formula&level='+level+'&id='+quote_id,function(data){
+		//alert(data);
+		$('#child_list_tab').html(data);
+	});
+}
+
+function change_list(child_id,level,quote_id){
+	var minarea=$("[name=minarea_"+child_id+"]").val();
+	var maxarea=$("[name=maxarea_"+child_id+"]").val();
+	var batch=$("[name=batch_"+child_id+"]").val();
+	var f_formula=$("[name=f_formula_"+child_id+"]").val();
+	//alert(f_formula);
+	var formula=f_formula + $("[name=formula_"+child_id+"]").val();
+		formula=formula.replace(/\+/g,'%2B');
+	//alert("[name=minarea"+child_id+"]");
+	$.get('?child_list_change&child_id='+child_id+'&minarea='+minarea+'&maxarea='+maxarea+'&batch='+batch+'&formula='+formula,function(data){
+		//alert(data);
+		data=data.replace(/(^\s*)|(\s*$)/g, "");//截掉空字符串
+		//alert(data);
+		if(data=='success'){
+			alert('操作成功');
+			parent_formula(level,quote_id); 
+		}else if(data=='lose'){
+			alert('操作失败');
+		}
+	});
+}
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+<body>
+
+	 	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="">首页</a></li>
+	    <li><a href="">健康舒适家居</a></li>
+	    <li><a href="">报价清单</a></li>
+	    </ul>
+	    </div>
+	    <div class="rightinfo">
+	    <!-- <span style="color:red;font-size:18px;font-weight:bold;height:35px;line-height:35px;">*公式输入方法:</span>
+		<div style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面积(area),主卧面积(MBRA),主卧数量(MBR_NUM),次卧面积(BRA),次卧数量(BR_NUM),客厅面积(LRA),客厅数量(LR_NUM),洗手间面积(WRA),洗手间数量(WR_NUM),厨房面积(KRA),厨房数量(KR_NUM),<br/>
+						阳台面积(GRA),阳台数量(GR_NUM),加(+)减(-)乘(*)除(/)。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  如：空调主机数 = 面积/30，  则公式输入 "area/30"即可。(不包含引号)
+		</div> -->
+		<ul class="prosearch">
+		<form action='?level=<{$level}>&quote_id=<{$quote_id}>' method='post'>
+			<li><label>查询：</label><a><input type='text' name='keyword' class="scinput" value="<?php if(!empty($keyword)){echo $keyword;} ?>"/></a>
+			<a><input type='submit' class="sure" value='搜索' /></a></li>
+		</form>
+		</ul>
+		
+	    <div class="list-div" style="width:1300px;border:1px solid grey;height:220px;overflow-y:scroll;margin-right:50px">
+			<div align='center'><h3>候选商品</h3></div>
+			<table class="listtable" cellpadding="3" cellspacing="3">
+			<tr style="table-layout:fixed ">
+				<th width='50px'>编号</th> <th>名称</th> <th>型号</th> <th>操作</th>
+			</tr>
+			<?php if (!empty($goods)) {?>
+			<?php foreach($goods as $v){ ?>
+				<tr>
+					<td><{$v.goods_id}></td>
+					<td><{$v.goods_name}></td>
+					<td><{$v.goods_model}></td>
+					<td><input type='button' value='加入清单' onclick='add_list(<{$v.goods_id}>,<{$level}>,<{$quote_id}>)'></td>
+				</tr>
+			<?php }} ?>
+			</table>
+		</div>
+		
+		<div style="height:20px;"></div>
+		
+		<div class="list-div" style="width:1300px;border:1px solid grey;height:410px;overflow-y:scroll;">
+			<div align='center'><h3><{$quote_name}><?php if ($level == 1){echo '经济型';}else if($level == 2){echo '舒适型';}else if($level == 3){echo '豪华型';}?>系统--清单列表</h3></div>
+			<table class="listtable" cellpadding="3" cellspacing="3" id='child_list_tab'>
+				<tr style="table-layout:fixed ">
+					<th width='80px'>编号</th> 
+					<th width='150px'>名称</th> <th>型号</th> <!-- <th>父类公式</th> --> <th>批次</th><th>分类</th><!-- <th>修改材料(<font color="red">请在框内填写唯一识别码</font>)</th> --> <th>操作</th>
+				</tr>
+				<?php foreach($child_list as $item){ ?>
+				<tr id='child_list_tr_<{$item.child_id}>'>
+					<td>
+						<input type="text" id="sort<{$item.child_id}>" class='quinput' style="width:40px;" value="<{$item.sort}>" onchange='sort(<{$item.child_id}>,this.value,<{$item.sort}>)'/> 
+					</td>
+					<td style="width:300px;"><{$item.goods_name}></td>
+					<td><{$item.goods_model}></td>
+					<!-- <td><select name='f_formula_<{$item.child_id}>' class='quinput'>
+								<option value='' >公式</option>
+								<option  value='<{$item.f_formula}>' ><{$item.f_formula}></option>	
+						</select>
+					</td> --> 
+					<td>
+						<select name='batch_<{$item.child_id}>' class='bainput' onchange="update(<{$item.child_id}>,this.value)">
+								<option  value='0' <?php if(isset($item['batch']) && $item['batch'] == 0){echo 'selected';} ?>>第一批</option>
+								<option  value='1' <?php if(isset($item['batch']) && $item['batch'] == 1){echo 'selected';} ?>>第二批</option>	
+								<option  value='2' <?php if(isset($item['batch']) && $item['batch'] == 2){echo 'selected';} ?>>第三批</option>
+						</select>
+					</td>
+
+					
+					<td>
+						<a href="<{:U('optionfenlei')}>?id=<{$item.child_id}>&quote_id=<{$item.quote_id}>&level=<{$item.level}>" title="<?php echo empty($item['text'])?'未分类':$item['text']; ?>"><?php echo empty($item['type'])?'未分类':'已分类'; ?></a>
+					</td>
+					<!-- <td style="width:250px;"> -->
+						<!-- <form action="<{:U('quote_ini_edit')}>" method="get">
+							<input id="goods_sn<{$item.child_id}>" class='quinput' type='text' name="goods_sn" value="">
+							<input id="child_id<{$item.child_id}>" class='quinput' type='hidden' name="child_id" value="<{$item.child_id}>">
+							<input id="level<{$item.child_id}>" class='quinput' type='hidden' name="level" value="<{$item.level}>">
+							<input id="quote_id<{$item.child_id}>" class='quinput' type='hidden' name="quote_id" value="<{$item.quote_id}>"> -->
+							<!-- <input type="button" class="tablelink click" value="确认修改"/> -->
+							<!-- <a href="javascript:;" class="tablelink click" onclick='remove_edit_list(<{$item.child_id}>)'> 确认修改 </a> -->
+							<!-- <a href="javascript:;" class="tablelink click" onclick="bbb(<{$item.child_id}>)">确认修改 </a> -->
+							<!-- <button >确认修改</button> -->
+						<!-- </form> -->
+					<!-- </td>				 -->
+					<td>
+						<a href="<{:U('optionfenlei')}>?id=<{$item.child_id}>&quote_id=<{$item.quote_id}>&level=<{$item.level}>">分类</a>
+						|	
+						<a href="<{:U('quote_ini_edit',array('childId'=>$item['child_id']))}>">修改编码</a>
+						|
+						<input type='button' value='移除' onclick='remove_list(<{$item.child_id}>)'>	
+						|
+						<a href="<{:U('rule')}>?id=<{$item.child_id}>&quote_id=<{$item.quote_id}>&level=<{$item.level}>">编辑规则</a>
+						<?= !empty($item['formula'])?'<b style="color:green;">√</b>':'<b style="color:red;">×</b>' ?>
+						<!-- |
+						<input type='button' value='修改规则' onclick='change_list(<{$item.child_id}>,<{$item.level}>,<{$item.quote_id}>)'> -->
+					</td>
+				</tr>
+				
+
+				<?php } ?>
+			</table>
+		</div>
+	</div>
+	<div id="tip" class="tip">
+        <div class="tiptop"><span>提示信息</span><a></a></div>
+        <div class="tipinfo">
+        <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+        <div class="tipright">
+        <p style="color:black;">是否确认真的修改吗 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        <div class="tipbtn">
+        <input type="submit" class="sure" onclick="aaa()" value="确定" />&nbsp;
+        <!-- <input name="" id="data_id" data-id="" type="submit" class="sure" value="确定" />&nbsp; -->
+        <input type="button" class="cancel" value="取消" />
+        </div>
+    </div>
+
+    </div>
+	<input type="hidden" id="hidden" value=""/>
+	<script>
+		function update(id,batch){
+			if(confirm('确定要修改吗？')){
+			    $.get("<{:U('editBatch')}>",{'id':id,'batch':batch},function(data){
+					if (data=='1') {
+						alert('修改成功！')
+					}else{
+						alert('修改失败！');
+					}
+				})
+			}else{
+			    return false;
+			}
+		}
+	</script>
+    <script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+	<script>
+		function bbb(o){
+			$('#tip').css('display','block');
+		    $('#hidden').val(o);
+		}
+		function aaa(){
+			var val = $('#hidden').val();
+			$.get("<{:U('quote_ini_edit')}>",{'goods_sn':$('#goods_sn'+val).val(),'child_id':$('#child_id'+val).val(),'quote_id':$('#quote_id'+val).val()},function(data){
+				if (data=='1') {
+					alert('修改成功！');
+					location.replace(location.href);
+				}else if (data=='3'){
+					alert('编码不存在!');
+				}else if (data=='0'){
+					alert('修改失败！');
+				}
+			})
+		}
+	</script>
+
+</body>
+</html>
+    
+
+<script>
+	function sort(id,val,s){
+		$.get('<{:U("sort")}>',{'id':id,'val':val},function(data){
+			if (data==1){
+				alert('修改成功！');
+			}else{
+				$('#sort'+id).val(s)
+				alert(data);
+			}
+		})
+	}
+</script>

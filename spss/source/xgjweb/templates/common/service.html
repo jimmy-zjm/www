@@ -1,0 +1,132 @@
+        <div class="service-center-top">
+            <span>
+                机电售后
+            </span>
+        </div>
+        <div class="service-center-left">
+            <div class="service-center-left-tel">
+                <div class="clear32"></div>
+                
+                <div class="service-center-left-tel-number">
+                    4008001027
+                </div>
+                
+                <div class="service-center-left-tel-call" onclick="qimoChatClick();">
+                    <a href="javascript:;">
+                        在线客服
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="service-center-left-list01">
+            	<div class="service-center-left-list01-title">
+                    <div class="service-center-left-list01-title-img">
+                        <img src="images/980.png"/>
+                    </div>
+                    
+                    <div class="service-center-left-list01-title-span">
+                        <a href="index.php?article&id={:$service[0]['article_id']:}">
+                            服务保障
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear32"></div>
+                {:foreach $service as $k=>$v:}
+                <div class="service-center-left-list01-demo{:if isset($id) && $v['article_id']==$id:}02{:/if:}">
+                    <a href="index.php?article&id={:$v['article_id']:}">
+                        {:$v['title']:}
+                    </a>
+                </div>
+                {:/foreach:}
+                
+                <div class="service-center-left-list01-title">
+                    <div class="service-center-left-list01-title-img">
+                        <img src="images/981.png"/>
+                    </div>
+                    
+                    <div class="service-center-left-list01-title-span">                     
+                        <a href="index.php?article&id={:$day[0]['article_id']:}">
+                            日常保养
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear32"></div>
+                {:foreach $day as $k=>$v:}
+                <div class="service-center-left-list01-demo{:if isset($id) && $v['article_id']==$id:}02{:/if:}">
+                    <a href="index.php?article&id={:$v['article_id']:}">
+                        {:$v['title']:}
+                    </a>
+                </div>
+                {:/foreach:}
+                                                
+                <div class="service-center-left-list01-demo{:if isset($fid):}02{:/if:}">
+                    <a href="index.php?faq">
+                        常见问题
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="service-center-left-list02">
+                <div class="service-center-left-list02-title">
+                    <div class="service-center-left-list02-title-img">
+                        <img src="images/979.png"/>
+                    </div>
+                    
+                    <div class="service-center-left-list02-title-span">
+                        <a href="index.php?repair">
+                            在线报修
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="service-center-left-list02-title">
+                    <div class="service-center-left-list02-title-img">
+                        <img src="images/982.png"/>
+                    </div>
+                    
+                    <div class="service-center-left-list02-title-span">
+                        <a href="index.php?service_state">
+                            服务状态
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="service-center-left-list02-title">
+                    <div class="service-center-left-list02-title-img">
+                        <img src="images/978.png"/>
+                    </div>
+                    
+                    <div class="service-center-left-list02-title-span" id="clickAddInId">
+                        <a href="javascript:;">
+                            产品说明书
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+        </div>
+
+
+        

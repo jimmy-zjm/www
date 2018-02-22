@@ -1,0 +1,248 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+body {
+　　　　width:100%;height:100%;font: normal 100% Helvetica, "微软雅黑", sans-serif;
+}
+li{list-style: none;}a{text-decoration: none;}
+
+
+/*.home-nav******************************/
+.home-nav{
+	width: 100%;
+	height: 68px;
+	position: absolute;
+	left: 0;
+	top: 10px;
+	z-index: 100;
+	background: #f2f2f2;
+}
+.home-nav ul{
+	width: 1200px;
+	height: 68px;
+	margin: 0 auto;
+	text-align: center;	
+	position: relative;
+}
+.home-nav ul li{
+	float: left;
+	width:10.5%;
+	height: 68px;
+	line-height: 100px;
+}
+.home-nav ul li a{
+	font-size: 90%;
+	color: #333;
+	/*font-weight: 600;*/
+	
+}
+.home-nav2 li{
+	margin-left: -18px;
+}
+.home-nav1 li{
+	margin-left: 5px;
+} 
+.home-nav-logo{
+	margin-top: 5px;
+}
+.home-nav-logo{
+	border: none;
+}
+.home-nav3{
+	width: 19%;
+	height: 100%;
+	/*border: 1px solid blue;*/
+	position: absolute;	
+	right: 0;
+	top: 0;
+}
+.home-nav3>li{
+	width: 23px;
+	height: 23px;
+	float: left;
+	margin-left: 20px;
+}
+.home-nav3>li>a{
+	width: 23px;
+	height: 23px;
+	display: block;
+	margin-top: 40px;
+	border-radius:50%;
+}
+.home-nav3 li:nth-child(1) a{
+	background: url(../img/home-search.png) no-repeat;
+	background-position: center bottom;
+}
+.home-nav3 li:nth-child(1) a:hover{
+	background: #fff url(../img/home-search.png) no-repeat;
+	background-position: center center;
+}
+.home-nav3-li2{
+	position: relative;
+}
+.home-nav3-li2:hover .home-login-hover{
+	display: block;
+}
+.home-nav3-li2 a{
+	background: url(../img/home-login.png) no-repeat;
+	background-position: center bottom;
+}
+.home-nav3-li2 a:hover{
+	background: #fff;
+	background: #fff url(../img/home-login.png) no-repeat;
+	background-position: center center;
+}
+.home-nav3-li3 a{
+	background: url(../img/home-shopcar.png) no-repeat;
+	background-position: center bottom;
+}
+.home-nav3-li3 a:hover{
+	background: #fff url(../img/home-shopcar.png) no-repeat;
+	background-position: center center;
+}
+.home-nav-list{
+	position: relative;
+}
+.nav-denglu{
+	width: 50px;
+	height: auto;
+}
+.home-login-hover{
+	min-width:1000px ;
+	height: 50px;
+	background: #f2f2f2;
+	position: absolute;
+	top: 28px;
+	right: -110px;
+	z-index: 12000;
+	display: none;
+	border-top: 1px solid #ddd;
+	/*border: 1px solid red;*/
+}
+.home-login-hover p{
+	float: right;
+	width: 10%;
+	text-align:right;
+	font-size:0.8em ;
+	height: 60px;
+	line-height: 60px;
+}
+.home-login-hover p:first-child{
+	margin-right: 8%;
+}
+.home-login:hover>.home-login-hover{
+	display: block;
+}
+.home-login-bg-hover{
+	width: 100%;
+	height: 60px;
+	background: #f2f2f2;
+	position: absolute;
+	top: 78px;
+	left: 0;
+	z-index: 10;
+	display: none;
+	border-top: 1px solid #ddd;
+}
+.home-nav-hover{
+	min-width:1000px ;
+	height: 50px;
+	background: #f2f2f2;
+	position: absolute;
+	top: 68px;
+	left: 0;
+	z-index: 12;
+	display: none;
+	border-top: 1px solid #ddd;
+}
+.home-nav-hover-left>p{
+	float:left;
+	/*width: 4%;*/
+	height: 50px;
+	text-align:left;
+	font-size:0.8em ;
+	text-align: center;
+	line-height: 50px;
+	margin-left: 5%;
+	cursor: pointer;
+}
+html, body {
+    position: relative;
+    height: 100%;
+}
+.nav-hover-left:hover div{
+	display: block;
+}
+/*foot******************************************/
+
+.home-footer{
+	height: 230px;
+	width: 100%;
+	background: #dcdee0;
+	overflow: hidden;
+}
+.home-footer1{
+	width: 79%;
+	height: 170px;
+	margin-left:20%;
+}
+.home-footer1 ul{
+	margin-top: 25px;
+	float: left;
+	width: 17%;
+	text-align: left;
+}
+.home-footer1 ul li{
+	height: 30px;
+	line-height: 30px;
+	font-size: 0.8em;
+	font-weight: 600;
+	
+}
+.home-footer1 ul li:first-child a{
+	font-size: 1.2em;
+	color: #333;
+}
+.home-footer1 ul li a{
+	color: #807d7d;
+}
+.home-footer2{
+	text-align: center;
+	color: #333;
+	font-weight: 600;
+}
+.home-footer1 .service-online{
+	display: block;
+	width: 90px;
+	height: 25px;
+	background: #1eb0fc;
+	color: #fff;
+	border: 1px solid #dcdee0;
+	text-align: center;
+	line-height: 25px;
+	border-radius:5px ;
+	box-shadow: 1px 1px gray;
+}
+.home-service a{
+	margin-left: 10px;
+	display: block;float: left;
+}
+.service-number{
+	display: block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: url(../img/home-dianhua.png) no-repeat;
+	background-size: 16px 16px;
+	margin-top: 5px;
+}
+.home-weixin{
+	background: url(../img/home-weixin.png);
+	display: block;
+	float: left;
+	width: 21px;
+	height: 17px;
+	margin-top: 5px;
+}

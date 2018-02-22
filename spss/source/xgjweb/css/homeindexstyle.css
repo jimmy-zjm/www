@@ -1,0 +1,498 @@
+@CHARSET "UTF-8";
+.home_index-center{
+	width:1167px;
+	margin:0 auto;}
+	
+.home_index-center-left{
+	width:213px;
+	float:left;}
+	
+.home_index-center-left-nav{
+	width:213px;
+	border:1px solid #dcdcdc;
+	position: relative;
+	z-index:17;
+	background:#fff;}
+
+
+.home_index-center-left-nav_fixed{
+	position: fixed;
+	top: 70px;
+	z-index: 999;
+	width:213px;
+	background:#fff;
+}
+	
+.home_index-center-left-nav-title{
+	width:213px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:16px;
+	color:#424242;
+	background:#fff;}
+	
+.home_index-center-left-nav-title span{
+	border-bottom:1px solid #949393;}
+	
+.home_index-center-left-nav-list{
+	width:213px;
+	min-height:335px;
+	margin-top:10px;
+	margin-bottom:10px;}
+	
+.home_index-center-left-nav-list a:hover{
+	color:#1ca6b9;}
+	
+.home_index-center-left-nav-list-demo01{
+	width:213px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#3f3e3e;
+	text-align:center;}
+	
+.home_index-center-left-nav-list-demo01 a{
+	font-size:14px;
+	color:#3f3e3e;}
+	
+.home_index-center-left-nav-list-demo02{
+	width:213px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#1ca6b9;
+	text-align:center;}
+	
+.home_index-center-left-nav-list-demo02 a{
+	font-size:14px;
+	color:#1ca6b9;}
+	
+.home_index-center-right{
+	float:right;
+	width:950px;}
+	
+.home_index-center-right-title{
+	width:850px;
+	height:30px;
+	overflow:hidden;
+	margin-left:40px;}
+
+.home_index-center-right-title-img{
+	width:850px;
+	height:30px;
+	position:relative;
+	z-index:1;}
+
+.home_index-center-right-title-span{
+	text-align:center;
+	widows:850px;
+	height:30px;
+	line-height:30px;
+	position:relative;
+	top:-30px;
+	font-size:22px;
+	color:#444444;
+	z-index:3;}
+
+.home_index-center-right-title-span span{
+	background:#fff;
+	padding-left:20px;
+	padding-right:20px;
+	font-size:22px;
+	color:#444444;}
+
+.home_index-center-right-word{
+	width:850px;
+	font-size:14px;
+	color:#010101;
+	margin-left:40px;}
+
+.home_index-center-right-word img{
+	max-width:850px;}
+
+.home_index-center-right-contrast{
+	width:850px;
+	margin-left:40px;}
+	
+.home_index-center-right-contrast-not{
+	float:left;
+	width:530px;
+	height:620px;
+	border:1px solid #cacaca;}
+	
+.home_index-center-right-contrast-not-span{
+	position:relative;
+	background:url(../images/touming05.png);
+	width:250px;
+	height:70px;
+	margin:0 auto;
+	top:-620px;
+	z-index:10;
+	text-align:center;
+	line-height:55px;
+	font-size:22px;
+	color:#383838;}
+	
+.home_index-center-right-contrast-should{
+	width:850px;
+	height:394px;}
+	
+.home_index-center-right-contrast-should-span{
+	position:relative;
+	background:url(../images/touming06.png);
+	width:850px;
+	height:70px;
+	margin:0 auto;
+	top:-620px;
+	z-index:10;
+	text-align:center;
+	line-height:55px;
+	font-size:22px;
+	color:#383838;}
+	
+.home_index-center-right-contrast .flickerplate{
+	height:394px;}
+	
+.home_index-center-right-contrast .flickerplate .dot-navigation{
+	display:none;}
+	
+.home_index-center-right-contrast .flickerplate{
+	background:#fff;}
+	
+.home_index-center-right-contrast .flickerplate .arrow-navigation.left .arrow{
+	opacity:1;}
+	
+.home_index-center-right-contrast .flickerplate .arrow-navigation{
+	width:4% !important;}
+	
+.home_index-center-right-contrast .flickerplate .arrow-navigation.right .arrow{
+	opacity:1;}
+	
+.home_index-center-right-contrast .flickerplate .arrow-navigation.left.hover .arrow {
+	opacity:1 !important;
+	margin:0px 0px 0px 50%; !important;
+}
+.home_index-center-right-contrast .flickerplate .arrow-navigation.right.hover .arrow {
+	opacity:1 !important;
+	margin:0px 0px 0px -50%; !important;
+}
+	
+.flick-img{
+	width:850px;
+	height:394px;}
+	
+.flick-img img{
+	width:850px;
+	height:394px;}
+
+.flick-word{
+	width:400px;
+	height:125px;
+	margin:0 auto;
+	margin-top:25px;
+	font-size:16px;
+	color:#383838;
+	line-height:25px;
+	overflow:hidden;
+	text-overflow:ellipsis;}
+
+.home_index-center-right-contrast-not .home_index-center-right-contrast-not-span{
+	position:relative;
+	background:url(../images/touming05.png);
+	width:250px;
+	height:70px;
+	margin:0 auto;
+	top:-620px;
+	z-index:10;
+	text-align:center;
+	line-height:55px;
+	font-size:22px;
+	color:#383838;}
+
+.home_index-center-right-upgrade{
+	width:855px;
+	margin-left:40px;}
+	
+.home_index-center-right-upgrade-img{
+	width:1100px;
+	height:20px;
+	margin:0 auto;}
+	
+.home_index-center-right-upgrade-img img{
+	width:1100px;
+	height:22px;}
+	
+.home_index-center-right-upgrade-title{
+	width:855px;}
+	
+.home_index-center-right-upgrade-title-name{
+	width:120px;
+	height:60px;
+	line-height:60px;
+	border-bottom:2px solid #383838;
+	font-size:18px;
+	color:#333333;
+	float:left;
+	margin-left:10px;}
+
+.home_index-center-right-upgrade-title-more{
+	float:right;
+	text-align:right;
+	border-bottom:1px solid #aeaeae;
+	width:700px;
+	height:60px;
+	line-height:70px;
+	color:#221e1d;
+	font-size:14px;}	
+
+.home_index-center-right-upgrade-title-more a{
+	color:#221e1d;}
+
+.home_index-center-right-upgrade-title-more img{
+	margin-right:20px;
+	margin-left:8px;}
+
+.home_index-center-right-upgrade-contrast{
+	width:855px;
+	height:410px;
+	margin:0 auto;}
+
+.home_index-center-right-upgrade-contrast-before{
+	float:left;
+	width:410px;}
+
+.home_index-center-right-upgrade-contrast-before-img{
+	width:410px;
+	height:200px;}
+
+.home_index-center-right-upgrade-contrast-before-img img{
+	width:410px;
+	height:200px;}
+
+.home_index-center-right-upgrade-contrast-before-span{
+	width:410px;
+	height:75px;
+	line-height:75px;
+	color:#eb2541;
+	font-size:16px;
+	text-align:center;}
+
+.home_index-center-right-upgrade-contrast-before-word{
+	width:400px;
+	height:125px;
+	line-height:25px;
+	font-size:16px;
+	color:#50648b;
+	margin:0 auto;
+	overflow:hidden;
+	text-overflow:ellipsis;}
+
+
+.home_index-center-right-upgrade-contrast-later{
+	float:right;
+	width:410px;}
+
+.home_index-center-right-upgrade-contrast-later-img{
+	width:410px;
+	height:200px;}
+
+.home_index-center-right-upgrade-contrast-later-img img{
+	width:410px;
+	height:200px;}
+
+.home_index-center-right-upgrade-contrast-later-span{
+	width:410px;
+	height:75px;
+	line-height:75px;
+	color:#51658a;
+	font-size:16px;
+	text-align:center;}
+
+.home_index-center-right-upgrade-contrast-later-word{
+	width:400px;
+	height:125px;
+	line-height:25px;
+	font-size:16px;
+	color:#50648b;
+	margin:0 auto;
+	overflow:hidden;
+	text-overflow:ellipsis;}
+	
+.home_index-center-right-function-img{
+	width:1100px;
+	height:20px;
+	margin:0 auto;}
+	
+.home_index-center-right-function-img img{
+	width:1100px;
+	height:22px;}
+
+.home_index-center-right-function-list{
+	width:900px;}
+	
+.home_index-center-right-function-list-bk{
+	width:900px;}
+	
+.home_index-center-right-function-list-demo{
+	width:410px;
+	height:420px;
+	overflow:hidden;
+	float:left;
+	margin-left:40px;}
+	
+.home_index-center-right-function-list-demo-img{
+	width:410px;
+	height:228px;
+	overflow:hidden;}
+	
+.home_index-center-right-function-list-demo-img-images{
+	width:410px;
+	height:228px;
+	position:relative;}
+	
+.home_index-center-right-function-list-demo-img-images img{
+	width:410px;
+	height:228px;}
+	
+.home_index-center-right-function-list-demo-img-a{
+	width:410px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:url(../images/touming07.png);
+	position:relative;
+	top:-30px;
+	z-index:10;}
+	
+.home_index-center-right-function-list-demo-img-a a{
+	color:#221e1d;
+	font-size:14px;}
+	
+.home_index-center-right-function-list-demo-img-a img{
+	margin-left:12px;}
+	
+.home_index-center-right-function-list-demo-name{
+	width:410px;
+	height:70px;
+	line-height:70px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	text-align:center;}
+	
+.home_index-center-right-function-list-demo-name a{
+	font-size:16px;
+	color:#000000 !important;
+	margin-left:10px;}
+	
+.home_index-center-right-function-list-demo-word{
+	width:250px;
+	height:105px;
+	line-height:35px;
+	margin:0 auto;
+	overflow:hidden;
+	text-overflow:ellipsis;}
+	
+
+.home_index-center-right-flow-img{
+	width:1100px;
+	height:20px;
+	margin:0 auto;}
+	
+.home_index-center-right-flow-img img{
+	width:1100px;
+	height:22px;}
+
+.home_index-center-right-flow-list{
+	width:950px;}
+	
+.home_index-center-right-flow-list-bk{
+	width:950px;}
+	
+.home_index-center-right-flow-list-demo{
+	width:187px;
+	height:420px;
+	overflow:hidden;
+	float:left;
+	margin-left:35px;}
+	
+.home_index-center-right-flow-list-demo-img{
+	width:187px;
+	height:187px;}
+	
+.home_index-center-right-flow-list-demo-img img{
+	width:187px;
+	height:187px;}	
+	
+.home_index-center-right-flow-list-demo-name{
+	width:187px;
+	height:70px;
+	line-height:70px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	text-align:center;
+	margin-top:25px;
+	color:#000000;
+	font-size:18px;}
+	
+	
+.home_index-center-right-flow-list-demo-word{
+	width:155px;
+	height:50px;
+	line-height:25px;
+	margin:0 auto;
+	overflow:hidden;
+	text-overflow:ellipsis;}
+
+
+.home_index-center-right-flow-list-demo-span{
+	width:187px;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	text-align:center;
+	color:#486b8f;
+	font-size:14px;}
+
+.home_index-center-right-banner-img{
+	width:1100px;
+	height:20px;
+	margin:0 auto;}
+	
+.home_index-center-right-banner-img img{
+	width:1100px;
+	height:22px;}
+
+.home_index-center-right-banner-list{
+	width:850px;
+	margin-left:40px;}
+
+.home_index-center-right-banner-list-demo{
+	float:left;
+	width:105px;
+	height:105px;
+	margin:17px;
+	border: 1px solid #bcbbba;}
+
+.home_index-center-right-banner-list-demo img{
+	width:105px;
+	height:105px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

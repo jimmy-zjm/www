@@ -1,0 +1,67 @@
+.content{
+	width: 100%;
+	height: auto;
+}
+.content-top{
+	width: 1200px;
+	height: 80px;
+	margin: 0 auto;
+}
+.content-top>span{
+	width: auto;
+	height: 80px;
+	line-height: 80px;
+	margin-left: 15px;
+}
+.content-bottom{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	content: "";
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+.content-bottom-ul{
+	width: 1200px;
+	height: auto;
+	content: "";
+	clear: both;
+	overflow: hidden;
+}
+.fenye{
+	width: 1200px;
+	height: 50px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+.content-bottom-list{
+	display: block;
+	width: 200px;
+	min-height: 280px;
+	float: left;
+	margin-left: 35px;
+	margin-top: 20px;
+
+}
+.content-bottom-list>span{
+	display: block;
+	text-align: left;
+}
+.content-bottom-list-img{
+	width: 200px;
+	height: 200px;
+	border: 2px solid #ddd;
+}
+.content-bottom-list-img>img{
+	width: 200px;
+	height: 200px;
+}
+.content-bottom-list-text{
+	width: 200px;
+	min-height: 50px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+	margin-top: 10px;
+}

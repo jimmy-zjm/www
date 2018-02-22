@@ -1,0 +1,35 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/order.css">
+</head>
+<body>
+	<div class="section">
+		
+		<div class="header">
+			<p class="header-title">搜索</p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+			<!-- <a class="searchBtn" href=""></a> -->
+		</div>
+		<div class="search-box">
+			<input type="text" id="key" placeholder="订单编号"><a href="javascript:;" onclick='searchKey()'>搜索</a> 
+		</div>
+		
+		<ul class="order-list">
+			
+		</ul>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/WeChat/js/threeColor.js"></script>
+	<script>
+		bgColor();
+		function searchKey(){
+			var key = $('#key').val();
+			$.post('<{:U("doSearch")}>',{'key':key},function(re){
+				if (re == '') {
+					alert('抱歉！没有搜索到您要的订单');return;
+				}
+				$('.order-list').html(re);
+				bgColor();
+			})
+		}
+	</script>
+</body>
+</html>

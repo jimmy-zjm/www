@@ -1,0 +1,291 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+<script>
+
+//多件商品加入购物车
+function adddata()
+{
+	 
+		var arr=[]; 
+		$('input[name="data"]:checked').each(function(){ 
+		arr.push($(this).val()); 
+		
+		//window.location.href="cart.php?addCart&arr="+arr;
+		}); 
+        alert("请选择");
+  
+}
+
+</script>
+
+<script>
+//取消关注
+function deletedata()
+{
+		var arr=[]; 
+		$('input[name="data"]:checked').each(function(){ 
+		arr.push($(this).val()); 
+		window.location.href="user.php?cancergoods&arr="+arr;
+		}); 
+	
+      alert("请选择");
+}
+
+
+</script>
+
+
+<!--多选框全选-->
+<script type="text/javascript">
+function selectAll(checkbox) {
+	$('input[type=checkbox]').prop('checked', $(checkbox).prop('checked'));
+}
+</script>
+<!--多选框全选end-->
+
+
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+		<!--我关注的商品详细-->
+        <div class="user-concern_goods-center">
+        	<!-- {:if !empty($concernGoodsList):}
+            <div class="user-concern_goods-center-title">
+                <span class="span01">
+                    关注的商品
+                </span>
+                
+                <input type="checkbox" onclick="selectAll(this);" />
+                
+                <span class="span02">
+                    全选
+                </span>
+                
+                <span class="span02" onclick="bbb(1)">
+                    加入购物车
+                </span>
+                
+                <span class="span02" onclick="bbb(2)">
+                    取消关注
+                </span>
+            </div>
+            {:/if:} -->
+            
+            <div class="clear32"></div>
+            
+            {:if empty($concernGoodsList) && !empty($smarty.get.p) && $smarty.get.p eq 1 || empty($concernGoodsList) && empty($smarty.get.p):}
+            <div class="user-order-center-no">
+                <div class="user-order-center-no-01"> 
+                    <img src="images/133.png"/>
+                </div>
+
+                <div class="user-order-center-no-02">
+                    <a href="index.php">
+                        暂无关注收藏的商品，快去挑选合适的商品吧！
+                    </a>
+                </div>
+            </div>
+            <div class="clear2"></div>
+            {:/if:}
+
+            
+            <div class="user-concern_goods-center-list">
+            	{:foreach from=$concernGoodsList key=num item=concern:}
+            	<div class="user-concern_goods-center-list-demo">
+                	<div class="user-concern_goods-center-list-demo-block">
+                        <div class="user-concern_goods-center-list-demo-img">
+                        	<div class="user-concern_goods-center-list-demo-img-images">
+                                {:if $concern['class_id'] eq 1:}
+                                <a href="price.php?cid={:$concern.goods_id:}">
+                                {:elseif  $concern['class_id'] eq 2:}
+                                <a href="goods.php?id={:$concern.goods_id:}">
+                                {:else:}
+                                <a href="baby.php?detail&id={:$concern.goods_id:}">
+                                {:/if:}                          	
+                                    <img src="{:$concern.c_images|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user-concern_goods-center-list-demo-img-input">
+                                <div class="user-concern_goods-center-list-demo-img-input-left">
+                                	{:if $concern.class_id eq 1:}
+                                    <a href="price.php?cid={:$concern.goods_id:}">
+                                    {:elseif $concern.class_id eq 2:}
+                                    <a href="javascript:;" onclick="ccc({:$concern.c_id:})">
+                                    {:else:}
+                                    <a href="javascript:;" onclick="ovccc({:$concern.goods_id:})">
+                                    {:/if:}
+                                        加入购物车
+                                    </a>
+                                </div>
+                                
+                                <div class="user-concern_goods-center-list-demo-img-input-right">
+                                	<input type="button" value="取消关注" onclick='xsgz({:$concern.c_id:})'/>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="user-concern_goods-center-list-demo-name">
+                        	<!-- {:if $concern.class_id neq 1:}
+                        	<input type="checkbox" id="data{:$num:}" name="data" value="{:$concern.c_id:}" />  
+                            {:/if:}    --> 
+                            
+                        	{:if $concern.class_id eq 1:}
+                            <a href="price.php?cid={:$concern.goods_id:}">
+                            {:elseif $concern.class_id eq 2:}
+                            <a href="javascript:;" onclick="ccc({:$concern.c_id:})">
+                            {:else:}
+                            <a href="javascript:;" onclick="ovccc({:$concern.goods_id:})">
+                            {:/if:}
+                                {:$concern.c_goodsname:}
+                            </a>
+                        </div>
+                        
+                        <div class="user-concern_goods-center-list-demo-price">
+                            {:if $concern['class_id'] neq 2:}¥{:else:}€{:/if:}{:$concern.c_goodsprice:}
+                        </div>
+                    </div>
+                    
+                    <div class="user-concern_goods-center-list-demo-none" id="gz{:$concern.c_id:}">                    	
+                    	<div class="clear36"></div>
+                        <div class="clear36"></div>  
+                                              
+                    	<div class="user-concern_goods-center-list-demo-none-span">
+                        	确定删除？
+                        </div>
+                        
+                        <div class="user-concern_goods-center-list-demo-none-input">
+                        	<div class="user-concern_goods-center-list-demo-none-input-left">
+                            	<input type="button" value="确定" onclick="aaa({:$concern.c_id:})"/>
+                            </div>
+                            
+                            <div class="user-concern_goods-center-list-demo-none-input-right">
+                            	<input type="button" value="取消" onclick='closes({:$concern.c_id:})'/>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>                
+                {:/foreach:}  
+                
+                <div class="clear"></div>
+                
+                <!--分页开始-->
+                {:if empty($concernGoodsList) && !empty($smarty.get.p) && $smarty.get.p eq 1 || empty($concernGoodsList) && empty($smarty.get.p):}
+                {:else:}
+                  <div class='page'>
+                      {:$page:}
+                  </div>
+                {:/if:}
+                <!--分页结束-->
+                
+                <div class="clear2"></div>
+            </div>
+        </div>
+        
+		<!--我关注的商品详细end--> 
+    </div>
+    
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+
+<script>
+    //单个取消关注
+    function aaa(o){
+        
+            $.get("user.php?cancergoods1=del&id="+o,function(data){
+                window.location.reload();
+                alert('取消成功');
+            })
+        
+    }
+</script>
+
+<script>
+    //单个放入购物车
+    function ccc(o){
+        $.get("user.php?eucart=addall&id="+o,function(data){
+            if (data != '') {
+                alert('已放入购物车');
+            }else{
+                alert('放入购物车失败');
+            }
+        });
+    }
+	function ovccc(o){
+        $.get("ajax.php?addOvCart&id="+o+"&luggage=1&amount=1",function(data){
+			console.log(data);
+            if (data != '') {
+                alert('已放入购物车');
+            }else{
+                alert('放入购物车失败');
+            }
+        });
+    }
+</script>
+
+<script>
+    function bbb(num){
+        var Things = document.getElementsByTagName('input');
+        var input = '';
+        for (var i = 0; i < Things.length; i++) {
+            if (Things[i].checked==true) {
+                input += Things[i].value+',';
+            }
+        };
+        // console.log(input);
+        if (num==1) {
+            if (input==''){
+                alert('请选择您要放入购物车的商品');
+            }else{
+                $.get("user.php?eucart=addall&id="+input,function(data){
+                    alert('已放入购物车');
+                });
+            }
+        }
+        if (num==2) {
+            if (input==''){
+                alert('请选择您要取消关注的商品');
+            }else{
+                if(confirm('您确定要取消关注吗?')){
+                    $.get("user.php?cancergoods1=delall&id="+input,function(data){
+                        // console.log(data);
+                        window.location.reload();
+                        alert('取消成功');
+                    });
+                }
+            }
+        }
+    }
+</script>
+
+
+
+<script>
+function xsgz(id){
+	$("#gz"+id).show();
+}
+function closes(id){
+	$("#gz"+id).hide();
+}
+
+</script>
+{:include file='footer.tpl.html':} 
+
+ 

@@ -1,0 +1,160 @@
+
+html, body {
+    position: relative;
+    height: 100%;
+	overflow:auto  !important;
+}
+body {
+
+    font-family: "微软雅黑";
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+ /*轮播*/
+ #container {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.sections,.section {
+	height:100%;
+}
+#container,.sections {
+	position: relative;
+}
+.section {
+	width: 100%;
+	height:100%;
+	display: block;
+	/*background-color: #000;
+	background-size: cover;
+	background-position: 50% 50%;*/
+	text-align: center;
+	color: white;
+}
+/*#section0 {
+	background-image: url("../img/home-banner.jpg");
+}
+#section1 {
+	background-image: url("../img/home-banner2.jpg");
+}
+#section2 {
+	background-image: url("../img/home-banner3.jpg");
+}*/
+/*轮播结束*/
+/*这是登录注册的页面*/
+/*.home-login-btn{
+ * "background:#29b4fc ;box-shadow: 1px 1px #666;width:5%;height:30px;line-height:30px;margin-top:15px;text-align: center;color: #fff;border-radius: 3px;"
+ * }
+ * .home-regest-btn{
+ * 	background:#ff5151;
+ * 
+ * }
+ */
+/*.home-banner******************************/
+.home-nav{
+	height: 68px;
+	/*border: 1px solid red;*/
+
+	/*top: 10px;*/
+}
+.home-banner{
+	width: 100%;
+	min-width:1200px;
+	height:auto;
+	position: relative;
+	/*border: 1px solid red;*/
+	line-height: 0;
+	z-index:98;
+}
+.home-banner img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+/*.home-main******************************/
+.home-main{
+	width: 100%;
+	min-width:1200px;
+	height:252px;
+	background: #ffffff;
+}
+.home-main-content{
+	width: 96%;
+	margin: 0 auto;
+	height: 252px;
+}
+.home-main-content>div{
+	width: 23.5%;
+	height: 168px;
+	float: left;
+	text-align: center;
+	/*background: #dbdbdb;*/
+	margin-left: 1.1%;
+	margin-top: 10px;
+	color: #474747;
+	border-radius:5px ;
+	box-shadow: 1px 1px #d3d1d1;
+}
+
+.home-main-content>div p{
+	font-size: 1.12em;
+	font-weight: 600;
+	margin-top: 20px;
+	height: 40px;
+	line-height: 40px;
+}
+ .home-main-content1-img1,.home-main-content1-img2,.home-main-content1-img3,.home-main-content1-img4{
+	width: 170px !important;
+	height: 120px !important;
+	background-position: center  !important;
+}
+
+.home-main-content1-img1{
+	background: url(../img/home-dinuan.png) no-repeat;
+	margin: 15px auto;	
+	 background-size: 68px 78px;
+}
+.home-main-content1-img2{
+	background: url(../img/home-weiyu.png) no-repeat;
+	margin: 15px auto;
+	background-size: 68px 78px;
+}
+.home-main-content1-img3{
+	background: url(../img/home-shouhou.png) no-repeat;
+	margin: 15px auto;
+	 background-size: 68px 78px;	
+}
+.home-main-content1-img4{
+	background: url(../img/home-jieshao.png) no-repeat;
+	margin: 15px auto;
+}
+.lianbao1{
+	width: 33%;
+	height: 68px;
+	float: left;
+	list-style: none;
+}
+.lianbao1 span{
+	display: block;
+}
+.lianbao1 span:first-child{
+	font-size: 1.3em;
+	font-weight: 600;
+}
+.lianbao1 span:last-child{
+	font-size: 0.8em;
+}
+.home-main-content>div{
+	background: url(../img/index-button-bg.jpg);
+	background-size: auto 100%;
+	border: 1px solid #c1c1c1;
+	height: 230px;
+	margin-bottom:10px;
+}
+.home-login-hover p{
+	cursor: pointer;
+}
+
+

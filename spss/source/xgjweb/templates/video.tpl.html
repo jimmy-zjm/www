@@ -1,0 +1,171 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/videostyle.css" ><!-- 视频video页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<script type="text/javascript" src="js/jquery.slimscroll.js"></script><!--滚动条-->
+<!--视频播放器-->
+<link href="css/video-js.css" rel="stylesheet" type="text/css">
+<script src="js/video.js" type="text/javascript"></script>
+<script>
+	videojs.options.flash.swf = "swf/video-js.swf";
+</script>
+<!--视频播放器-->
+
+<script type="text/javascript" src="./js/daohang_video.js"></script><!--左侧菜单置顶-->
+
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear15"></div>
+
+
+<!-- 中间楼层 -->
+<div class="video_list-conter">
+	<div class="video_list-conter-left">
+    	<div class="video_list-conter-left-nev">
+        	<div class="video_list-conter-left-nev-title">
+            	视频分类
+            </div>
+            
+            <div class="video_list-conter-left-nev-list">
+                {:foreach $video['all'] as $k=>$v:}
+                    {:if !empty($pid) && $v.id eq $pid:}
+                        <div class="video_list-conter-left-nev-list-demo02">
+                    {:else:}
+                	    <div class="video_list-conter-left-nev-list-demo01">
+                    {:/if:}
+                    <!--这里进行判断，停留在哪个分类的页面，就调用 class="video_list-conter-left-nev-list-demo02"-->
+                	<a href="index.php?video={:$v.id:}">
+                    	{:$v.name:}
+                    </a>                    
+                </div>
+                {:/foreach:}
+               
+            </div>
+        </div>
+    </div>
+    
+    <div class="video_list-conter-right"> 
+        <!--视频播放-->
+    	<div class="video_list-conter-right-video">
+        	<div class="video_list-conter-right-title">
+                <span>
+                    视频欣赏
+                </span>
+            </div>
+            
+            <div class="clear12"></div>
+            {:if !empty($video.row):}
+        	<div class="video_list-conter-right-video-play">
+            	<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="537" height="321" poster="{:$video.row.image|getimages:}" data-setup="{}">
+                    <source src="{:$video.row.video|getimages:}" type='video/mp4' />
+                    <source src="{:$video.row.video|getimages:}" type='video/webm' />
+                    <source src="{:$video.row.video|getimages:}" type='video/ogg' />
+                    <source src="{:$video.row.video|getimages:}" type='video/avi' />
+                    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                </video>
+            </div>
+            {:/if:}
+            
+            <div class="video_list-conter-right-video-list" id="testDiv"><!--此处循环，我是按以前的，但不确定，调用的数据是不是这个-->
+                {:if !empty($video['list']):}
+            	{:foreach $video['list'] as $k=>$v:}
+                {:if $v.id eq $video.row.id:}
+                <div class="video_list-conter-right-video-list-demo" title="{:$v.title:}">
+                    <a href="?video={:$v.video_pos_id:}&v={:$v.id:}" class="a">
+                        {:$v.title:}
+                    </a>
+                </div>
+                {:else:}
+                <div class="video_list-conter-right-video-list-demo" title="{:$v.title:}">
+                    <a href="?video={:$v.video_pos_id:}&v={:$v.id:}">
+                        {:$v.title:}
+                    </a>
+                </div>
+                {:/if:}
+                {:/foreach:}
+				{:/if:}
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--视频播放end-->
+        
+        <div class="clear3"></div>
+        
+        <!--楼层列表-->
+        {:if !empty($video['info']):}
+        {:foreach $video['info'] as $key=>$val:}
+        <div class="video_list-conter-right-floor">
+        	<div class="video_list-conter-right-title">
+                <span>
+                    {:$video['rows'][$key]['name']:}
+                </span>
+            </div>
+            
+            <div class="clear12"></div>
+            
+            <div class="video_list-conter-right-floor-list">
+                {:foreach $val as $k=>$v:}
+            	<div class="video_list-conter-right-floor-list-demo">
+                	<div class="video_list-conter-right-floor-list-demo-img">
+                    	<a href="index.php?videoinfo={:$v.id:}" target="_blank">
+                        	<img src="{:$v.image|getimages:}"/>
+                        </a>                    	
+                    </div>
+                    
+                    <div class="video_list-conter-right-floor-list-demo-name" >
+                    	<a href="index.php?videoinfo={:$v.id:}" target="_blank">
+                        	{:$v.title:}
+                        </a>
+                    </div>
+                </div>
+                {:/foreach:}
+                <div class="clear"></div>
+            </div>
+        </div>
+        {:/foreach:}
+        {:/if:}
+        <!--楼层列表end-->
+        
+        <div class="clear"></div>
+        
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+
+
+<div class="clear30"></div>
+
+{:include file="footer.tpl.html":}
+
+
+
+
+<!--滚动条-->
+<script type="text/javascript">
+$(function(){
+	$('#testDiv').slimScroll({
+		height: '320',
+		size: '5px',
+		alwaysVisible: true
+	});
+});
+</script> 
+<!--滚动条end-->
+
+</body>
+</html>

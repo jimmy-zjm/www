@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" type="text/css" href="css/producelist.css"/>
+</head>
+<body>
+	<div class="top"><img src="img/producelist-banner.jpg" alt="" /></div>
+	<div class="main">
+		<div class="content">
+			<div class="cont1">
+				<p><input type="text" ><span></span></p>
+			</div>
+			<div class="cont2">
+				<span >无醛地板</span>
+				<span class="changered" index="0">无醛合板</span>
+				<span class="changered" index="1">热能强化地板</span>
+				<span class="changered" index="2">顶级超耐磨系列</span>
+			</div>
+			<div class="cont2 cont3">
+				<span >卫浴龙头</span>
+				<span class="changered" index="3">沐浴柱</span>
+				<span class="changered" index="4">沐浴套装</span>
+				<span class="changered" index="5">恒温浴缸龙头</span>
+				<span class="changered" index="6">缸边龙头</span>
+				<span class="changered" index="7">面盆龙头</span>
+				<span class="changered" index="8">妇洗器龙头</span>
+				<span class="changered" index="9" >厨房龙头</span>
+			</div>
+			<div class="cont4">
+				<li> 
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-1.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-2.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-3.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-4.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li class="clearright">
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-5.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-6.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-7.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-8.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-7.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+				<li class="clearright">
+					<a href="javascript:;">
+						<p><img src="img/producelist-img-8.jpg" alt="" /></p>
+						<p>包安装大自然野生原木地板实木地板</p>
+						<p>原价<span>400.00元/㎡</span></p>
+						<p><span>380.00</span>元/㎡</p>
+					</a>
+				</li>
+			</div>
+			<div class="zhankong"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script>
+		$(".changered").click(function(){
+			var indexnum=$(this).attr("index");
+			for(var i=0;i<$(".changered").length;i++){
+				if(i==indexnum){
+					$(".changered").eq(i).css("color","red");
+				}else{
+					$(".changered").eq(i).css("color","#000");
+				}
+			}		
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<table class="listtable">
+    <thead>
+        <tr>
+            <th>商品编号</th>
+            <th>商品标题</th>
+            <th>供应商识别号</th>
+            <th>分类&品牌</th>
+            <th>发布时间</th>
+            <th>订单编号</th>
+            <th>出售日期</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($goodsList as $v): ?>
+    <tr>
+        <td><{$v['goods_sn']}></td>
+        <td><{$v['goods_title']}></td>
+        <td><{$dealerList[$v[d_id]][identifier]}></td>
+        <td>
+            <span style="height:18px;">分类:<{$catList[$v[cate_id]][name]}></span>
+            <span>品牌:<{$brandList[$v[brand_id]][name]}></span>
+        </td>
+        <td><{$v.addtime}></td>
+        <td><{$v.sn}></td>
+        <td><{$v.sell_time}></td>
+    </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+    <{$page}>
+
+        <script>
+            // 点击分页触发的事件
+            $(".page a").click(function(){
+                cur_page = $(this).attr('data-page');
+                ajax_get_table('search-form2',cur_page);
+            });
+        </script>

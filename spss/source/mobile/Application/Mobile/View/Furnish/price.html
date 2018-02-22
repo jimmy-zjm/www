@@ -1,0 +1,172 @@
+<include file="Public/header" />
+<link rel="stylesheet" href="__PUBLIC__/css/baojia1.css"/>
+		<div class="content">
+			<div class="baojia-con1">
+				<span class="baojia-con1-1">房屋区域</span>
+				<input class="baojia-con1-2 sanjidizhi" type="text" placeholder="请选择地址" onclick="sanjiliandong()" value="<{$_SESSION['mobile']['info']['pcd']}>">
+				<p class="sanjiliandong" onclick="sanjiliandong()"><img class="baojia-con1-3" src="__PUBLIC__/img/baojia1.png" alt="" /></p>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">详细地址</span>
+				<input class="baojia-con1-2 address" type="text" placeholder="请输入街道/小区/楼栋" value="<{$_SESSION['mobile']['info']['addr']}>">
+			</div>
+			<div class=" baojia-con1 baojia-con3">
+				<span class="baojia-con1-1">房屋类型</span>
+				<span class="baojia-con3-1 type1 baojia-con3-2 <?= $_SESSION['mobile']['info']['type1']==1?'type1-1':''; ?>" type1='1'>公寓</span>
+				<span class="baojia-con3-1 type1 <?= $_SESSION['mobile']['info']['type1']==2?'type1-1':''; ?>" type1='2'>叠加</span>
+				<span class="baojia-con3-1 type1 <?= $_SESSION['mobile']['info']['type1']==3?'type1-1':''; ?>" type1='3'>联排</span>
+				<span class="baojia-con3-1 type1 <?= $_SESSION['mobile']['info']['type1']==4?'type1-1':''; ?>" type1='4'>独栋</span>
+			</div>
+			<div class="baojia-con1 baojia-con4">
+				<p class="baojia-con4-1"><span class="baojia-con1-1">房屋户型</span></p>
+				<span class="baojia-con3-1 type2 baojia-con3-2 <?= $_SESSION['mobile']['info']['type2']==1?'type2-1':''; ?>" type2='1'>一居</span>
+				<span class="baojia-con3-1 type2 <?= $_SESSION['mobile']['info']['type2']==2?'type2-1':''; ?>" type2='2'>二居</span>
+				<span class="baojia-con3-1 type2 <?= $_SESSION['mobile']['info']['type2']==3?'type2-1':''; ?>" type2='3'>三居</span>
+				<span class="baojia-con3-1 type2 <?= $_SESSION['mobile']['info']['type2']==4?'type2-1':''; ?>" type2='4'>四居</span>
+				<span class="baojia-con3-1 type2 baojia-con3-2 baojia-con4-line2 <?= $_SESSION['mobile']['info']['type2']==5?'type2-1':''; ?>" type2='5'>五居</span>
+				<span class="baojia-con3-1 type2 baojia-con4-line2 <?= $_SESSION['mobile']['info']['type2']==6?'type2-1':''; ?>" type2='6'>六居</span>
+				<span class="baojia-con3-1 type2 baojia-liuju baojia-con4-line2 <?= $_SESSION['mobile']['info']['type2']==7?'type2-1':''; ?>" type2='7'>六居以上</span>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">房屋面积</span>
+				<input class="baojia-con1-2 area" type="text" placeholder="请输入面积" value="<{$_SESSION['mobile']['info']['area']}>">
+			</div>
+			<div class="baojia-con6">
+				<input type="button" name="" id="sub" value="生成报价" />
+			</div>
+		</div>
+		<div class="modal">
+			<div class="sanji-bg">
+				<div class="sanji-style sanji-1 sanji-shen">
+					<span>请选择</span>
+					<?php foreach ($prov as $k => $v): ?>
+						<span pid="<{$v.id}>" <?= $k==0?"class='selected' style='color:#333;'":''; ?>><{$v.name}></span>
+					<?php endforeach ?>
+				</div>
+				<div class="sanji-style sanji-1 sanji-shi">
+					<span>请选择</span>
+					<?php foreach ($city as $k => $v): ?>
+						<span pid="<{$v.id}>" <?= $k==0?"class='selected' style='color:#333;'":''; ?>><{$v.name}></span>
+					<?php endforeach ?>
+				</div>
+				<div class="sanji-style sanji-qu">
+					<span>请选择</span>
+					<?php foreach ($dist as $k => $v): ?>
+						<span onclick='qu2(this)' pid="<{$v.id}>"><{$v.name}></span>
+					<?php endforeach ?>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+
+	<style type="text/css">
+	.type1-1{
+		border:1px solid #da001d;
+		color:#da001d;
+	}
+	.type2-1{
+		border:1px solid #da001d;
+		color:#da001d;
+		
+	}
+	</style>
+
+	<script>
+		$('.type1').click(function(){
+			$('.type1').removeClass('type1-1')
+			$(this).addClass('type1-1')
+		})
+
+		$('.type2').click(function(){
+			$('.type2').removeClass('type2-1')
+			$(this).addClass('type2-1')
+		})
+
+
+		function sanjiliandong(){
+			if($('.modal').css('display')=='none'){
+				$('.modal').css('display','block');
+				$('.sanji-bg').css("bottom","0px");
+			}
+		}
+
+		$(".sanji-shen span").click(function(){
+			var id = $(this).attr('pid');
+			$.getJSON("<{:U('area')}>",{'pid':id},function(re){
+				$(".sanji-shi").html('<span>请选择</span>');
+				$(".sanji-qu").html('<span>请选择</span>');
+				for (var i = 0; i < re.length; i++) {
+					$(".sanji-shi").append('<span onclick="shi('+re[i].id+')" id='+re[i].id+'>'+re[i].name+'</span>');
+				}
+			})
+			$(".sanji-shen span").css('color','#999');
+			$(this).css('color','#333');
+			shengHtml=$(this).html();
+		})
+
+		function shi(id){
+			$.getJSON("<{:U('area')}>",{'pid':id},function(re){
+				$(".sanji-qu").html('<span>请选择</span>');
+				for (var i = 0; i < re.length; i++) {
+					$(".sanji-qu").append('<span onclick="qu('+re[i].id+')" id='+re[i].id+'>'+re[i].name+'</span>');
+				}
+				$(".sanji-shi span").css('color','#999');
+				$('#'+id).css('color','#333');
+				shiHtml=$('#'+id).html();
+			})
+		}
+
+		function qu(id){
+			$(".sanji-qu span").css('color','#999');
+			$('#'+id).css('color','#333');
+			quHtml=$('#'+id).html();
+			$(".sanjidizhi").val(shengHtml+'/'+shiHtml+'/'+quHtml);
+			$('.modal').css('display','none');
+		}
+
+		function qu2(t){
+			$(".sanji-qu span").css('color','#999');
+			$(t).css('color','#333');
+			quHtml = $(t).html();
+			$(".sanjidizhi").val('北京/北京/'+quHtml);
+			$('.modal').css('display','none');
+		}
+		
+
+		$('#sub').click(function(){
+			var pcd   = $(".sanjidizhi").val();
+			var addr  = $(".address").val();
+			var area  = $(".area").val();
+			var type1 = $('.type1-1').attr('type1');
+			var type2 = $('.type2-1').attr('type2');
+			var cid   = <{$cid}>;
+
+			if (pcd == '' || addr == '') {
+				alert('请选择地址'); 
+			}else if (type1  == undefined){
+				alert('请选择房屋类型'); 
+			}else if (type2 == undefined){
+				alert('请选择房屋户型'); 
+			}else if (area == ''){
+				alert('请填写房屋面积'); 
+			}else{
+				$.post("<{:U('calculation')}>",{'pcd':pcd,'addr':addr,'area':area,'type1':type1,'type2':type2},function(re){
+					var r=/^[1-9]+$/;
+					var reg=new RegExp(r);
+					if (re == 'login') {
+						if(confirm('需要先登录，是否登录？')){
+						    window.location.href = "<{:U('User/login')}>";
+						}else{
+						    return false;
+						}
+					}else if(reg.test(re)){  
+						window.location.href = "<{:U('info')}>?id="+re+"&cid="+cid;
+					}else{
+						alert(re); 
+					}
+				})
+			}		
+		})
+	</script>
+</html>

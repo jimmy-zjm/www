@@ -1,0 +1,263 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+<!--省市县县三级联动-->
+<link href="css/city.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.mini.js"></script>
+<script type="text/javascript" src="js/city.min.js"></script>
+<!--省市县县三级联动end-->
+	<!-- user右边，引用头部时倒入这个div -->
+   <!-- <div class="user-right">
+        <div class="useraddresscenter-right">  
+                                       收货地址<a href=“”><dt>新222增收货地址</dt></a>
+        </div>
+      
+		<div class="clear12"></div>
+        
+  		<div id="fuent">
+  		 <form action="user.php?doAddrInfoEdit" method="post">
+  		 <input type="hidden" name="addrId" value="{:$addrInfoSelList.a_id:}">
+            <div class="mima_y">&nbsp;收&nbsp;货&nbsp;人&nbsp;：<input type="text" name="receivingName" id="UserNameTextId" value="{:$addrInfoSelList.a_name:}" /></div>
+             <div class="mima_y">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：<input type="text" name="mobile" id="mobileTextId" value="{:$addrInfoSelList.a_mobile_phone:}" /></div>
+            <div class="mima_y">固定电话：<input type="text" name="phone" id="phoneTextId" value="{:$addrInfoSelList.a_phone:}" /></div>
+            <div class="mima_y">电子邮箱：<input type="text" name="email" id="emailTextId" value="{:$addrInfoSelList.a_email:}" /></div>
+           <div class="mima_y_k">详细地址：<input type="text" value=""  name="province"/>省<input type="text" value=""  name="city"/>市<input type="text" value="" name="xian" />县/区</div>
+            <a href=""> <div class="mima_y_input"><input type="submit" value="保存" /></div></a>
+            </form>
+              <div style="clear:both;"></div>
+		</div>
+      
+-->
+<!-- user右边end，引用头部时倒入这个div -->
+<!--</div>
+
+</div>-->
+
+	<div class="user-right">
+        <div class="useraddresscenter-title">
+            <div class="useraddresscenter-title-left"> 
+                <span>
+                    收货地址
+                </span>
+            </div>
+            
+            
+            <div class="useraddresscenter-title-right"> 
+                <a href="user.php?addrInfoAddShow"> 
+                    新增收货地址 
+                </a> 
+            </div>
+            
+            
+            <div class="clear"></div>
+        </div>
+            
+        <div class="clear12"></div>
+        
+        <div id="" class="useraddresscenter-table">
+            <div class="clear15"></div>
+            
+            <form action="user.php?doAddrInfoEdit" method="post">
+            	<input type="hidden" name="addrId" value="{:$addrInfoSelList.a_id:}">
+                
+                <div class="useraddresscenter-table-demo">
+                    <div class="useraddresscenter-table-demo-left">
+                        收&nbsp;货&nbsp;&nbsp;人：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" name="receivingName" id="UserNameTextId" value="{:$addrInfoSelList.a_name:}" />
+                    </div>
+                    
+                    <div class="clear32"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        手 &nbsp; &nbsp; &nbsp;  机：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" name="mobile" id="mobileTextId" value="{:$addrInfoSelList.a_mobile_phone:}" onblur="tel()"/>
+                    </div>
+                    
+                    <div class="clear32"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        固定电话：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                    	<input type="text" name="phone" id="phoneTextId" value="{:$addrInfoSelList.a_phone:}" />
+                    </div>
+                    
+                    <div class="clear32"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        电子邮箱：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" name="email" id="emailTextId" value="{:$addrInfoSelList.a_email:}" />
+                    </div>
+                    
+                    <div class="clear32"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        所在地区：
+                    </div>
+                    <div class="useraddresscenter-table-demo-right03">
+                        <div class="homelist2-conter-offer-info-region-form">
+                            <div id="content-wrap">     
+                                <div id="content-left" class="demo">
+                                        <div class="infolist">            
+                                            <div class="liststyle">
+                                                <span id="Province">                    
+                                                    <i id='ipro'>
+                                                        请选择省份
+                                                    </i>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)" alt="请选择省份">
+                                                                请选择省份
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <input id='pro' type="hidden" name="cho_Province" value="">
+                                                </span>
+                                                
+                                                <span class="ssx-span">
+                                                    省
+                                                </span>
+                                                
+                                                <span id="City">
+                                                    <i id='icit'>
+                                                        请选择城市
+                                                    </i>
+                                                    
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)" alt="请选择城市">
+                                                                请选择城市
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <input id='cit' type="hidden" name="cho_City" value="">
+                                                </span>
+                                                
+                                                <span class="ssx-span">
+                                                    市
+                                                </span>
+                                                
+                                                <span id="Area">
+                                                    <i id='iare'>
+                                                        请选择地区
+                                                    </i>
+                                                    
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)" alt="请选择地区">
+                                                                请选择地区
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <input id='are' type="hidden" name="cho_Area" value="">
+                                                </span>
+                                                
+                                                <span class="ssx-span">
+                                                    县
+                                                </span>
+                                                
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="clear32"></div>
+
+                    <div class="useraddresscenter-table-demo-left">
+                        地 &nbsp; &nbsp; &nbsp;  址：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right02">
+                        <input type="text" name="addr" id="addrTextId" value="{:$addrInfoSelList.a_addr:}" />
+                    </div>
+                    
+                    <div class="clear27"></div> 
+                    
+                    <div class="useraddresscenter-table-demo-sub">
+                        <input type="button" id="button" value="保存" onclick="buttons()"/>
+                    </div>
+                    
+                    <div class="clear15"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </form>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+<style>
+
+</style>
+<input type="hidden" id='prov' value="{:$addrInfoSelList.a_pro:}">
+<input type="hidden" id='city' value="{:$addrInfoSelList.a_city:}">
+<input type="hidden" id='area' value="{:$addrInfoSelList.a_area:}">
+<script>
+    
+    function aaa(){  
+        $('#pro').val($('#prov').val());
+        $('#ipro').html($('#prov').val());
+        $('#cit').val($('#city').val());
+        $('#icit').html($('#city').val());
+        $('#are').val($('#area').val());
+        $('#iare').html($('#area').val());
+    } 
+    window.onload = aaa;
+</script>
+{:include file='footer.tpl.html':}
+
+
+<script>
+function tel(){
+    var myreg = /^1[34578]\d{9}$/; 
+    if(!myreg.test($("#mobileTextId").val())){ 
+        alert('请输入有效的手机号码！'); 
+        return false; 
+    } 
+}
+
+
+function buttons(){
+    var a = $("#UserNameTextId").val();
+    var b = $("#mobileTextId").val();
+    var d = $("#addrTextId").val();
+    var e = $("#pro").val();
+    var f = $("#cit").val();
+    var g = $("#are").val();
+    if (a=='' || b=='' || d=='' || e=='请选择省份' || f=='请选择城市' || g=='请选择地区') {
+        alert('请填写完整再提交！'); 
+        return false; 
+    }else{
+        tel()
+        document.getElementById('button').type = 'submit';
+    }
+}
+</script>

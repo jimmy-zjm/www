@@ -1,0 +1,95 @@
+<include file="Public/header" /> <!-- 包含头部模版header -->
+<link rel="stylesheet" href="__PUBLIC__/css/login.css"/>
+
+
+		<div class="content">
+			<div class="login-con1">登录上品上生</div>
+			<form action="<{:U('Base/doLogin')}>" method="post" id='theFrom'>
+			<div class="login-con2" style="position:relative">
+				<span class="img-left"><img src="__PUBLIC__/img/people-b.png"/></span>
+				<input class="input-right clearinput" type="text" id='tel' name='tel' onkeyup='checkmobilephones()' onchange='checkmobilephone()' placeholder="已验证手机号"/>
+                <span id='textmsg' style="color:#da001d;font-size:20px;position:absolute;right:0;top:20%;right:5px"></span>
+
+			</div>
+           <!--  <div class="m-tip">
+            </div> -->
+			<div class="login-con2 login-con3 " style="position:relative">
+				<span class="img-left"><img src="__PUBLIC__/img/password.png" alt="" /></span>
+				<input class="input-right clearinput" type="password" name='pass' id='pass' onkeyup='checkpasswords()' onchange='checkpassword()' placeholder="请输入密码"/>
+                <span id='textError' style="color:#da001d;font-size:20px;position:absolute;right:0;top:20%;right:5px"></span>
+			</div>
+			
+			<div class="login-con4">
+				<a href="<{:U('register')}>">注册新账户</a>
+				<span></span>
+				<a href="<{:U('find')}>">忘记密码</a>
+			</div>
+			<div class="login-con5">
+				<input type="button" onclick='buttons()' id='button' value="登录" />
+			</div>
+			</form>
+		</div>
+		
+<script>
+	function checkmobilephones(){
+		tel = $("#tel").val();
+		if (tel.length==11) checkmobilephone();
+		else result1=false;
+	}
+
+    function checkmobilephone(){
+        var re=/^[1][34578][0-9]{9}$/;
+        var tel = $("#tel").val();
+        var reg=new RegExp(re);
+        if(reg.test(tel)){
+             //判断手机号码是否注册过
+            $.post("<{:U('checkRegister')}>",{'tel':tel},function(data){
+                if(data==1){
+                    $("#textmsg").text("");
+                    result1=true;
+                }else{    
+                    $("#textmsg").text("您还未注册过");
+                    result1=false;
+                }
+            })
+        }else if(tel==""){
+            $("#textmsg").text("请输入您的手机号码");
+            result1=false;
+        }else{
+            $("#textmsg").text("请输入正确的手机号码");
+            result1=false;
+        }
+    }
+
+    function checkpasswords(){
+    	pass = $("#pass").val();
+    	if (pass.length>5 && pass.length<16) checkpassword();
+		else result2=false;
+    }
+
+    function checkpassword(){
+        var re=/^\w{6,15}$/;
+        var pass = $("#pass").val();
+        var reg=new RegExp(re);
+        if(reg.test(pass)){
+            $("#textError").text("");
+            result2=true;
+        }else if(pass==""){ 
+            $("#textError").text("请输入您的密码！");
+            result2=false;
+        }else{
+            $("#textError").text("请正确填写您的密码！");
+            result2=false;
+        }
+    }
+
+    function buttons(){
+    	checkmobilephone();
+    	checkpassword();
+		if (result1 == true && result2 == true) {
+			$("#theFrom").submit();
+		}
+	}
+
+	if ($("#tel").val() != '') 	checkmobilephone();
+</script>

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){	
+	//顶部导航切换
+	$(".nav li a").click(function(){
+		$(".nav li a.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})	
+})	
+</script>
+<script type="text/javascript">
+$(function(){	
+	//导航切换
+	$(".menuson .header").click(function(){
+		var $parent = $(this).parent();
+		$(".menuson>li.active").not($parent).removeClass("active open").find('.sub-menus').hide();
+		
+		$parent.addClass("active");
+		if(!!$(this).next('.sub-menus').size()){
+			if($parent.hasClass("open")){
+				$parent.removeClass("open").find('.sub-menus').hide();
+			}else{
+				$parent.addClass("open").find('.sub-menus').show();	
+			}
+			
+			
+		}
+	});
+	
+	// 三级菜单点击
+	$('.sub-menus li').click(function(e) {
+        $(".sub-menus li.active").removeClass("active")
+		$(this).addClass("active");
+    });
+	
+	/* $('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('.menuson').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('.menuson').slideUp();
+		}else{
+			$(this).next('.menuson').slideDown();
+		}
+	}); */
+})	
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+<script>
+//alert('1111111');
+//js原生自定义函数不可写入jquey就绪函数中，否则undefined
+function add_list(goods_id,level,quote_id){ 
+	var chf_id=$(":radio:checked").val();
+	$.get('?child_list_add&goods_id='+goods_id+'&chf_id='+chf_id+'&level='+level+'&id='+quote_id,function(data){
+		//alert(data);
+		$('#child_list_tab').append(data);
+		location.reload(true);
+	});
+	
+}
+
+function remove_list(child_id){
+	if(confirm('您确定要删除吗？')){
+		$.get('?child_list_del&child_id='+child_id,function(data){
+			data=data.replace(/(^\s*)|(\s*$)/g, "");//截掉空字符串
+			if(data=='success'){
+				$('#child_list_tr_'+child_id).remove();
+			}
+		});
+	}else{
+		return false;
+	}
+	
+}
+
+function change_rule(rec_id,rule_id){
+	$.get('?r=admin/coll/quote/rec_id/'+rec_id+'/rule_id/'+rule_id,function(data){
+		if(data=='success'){
+			alert('操作成功');
+		}
+	});
+}
+
+function change_list(child_id){
+	var minarea=$("[name=minarea_"+child_id+"]").val();
+	var maxarea=$("[name=maxarea_"+child_id+"]").val();
+	var batch=$("[name=batch_"+child_id+"]").val();
+	var f_formula=$("[name=f_formula_"+child_id+"]").val();
+	//alert(f_formula);
+	var formula=f_formula + $("[name=formula_"+child_id+"]").val();
+		formula=formula.replace(/\+/g,'%2B');
+	//alert("[name=minarea"+child_id+"]");
+	$.get('?child_list_change&child_id='+child_id+'&minarea='+minarea+'&maxarea='+maxarea+'&batch='+batch+'&formula='+formula,function(data){
+		//alert(data);
+		data=data.replace(/(^\s*)|(\s*$)/g, "");//截掉空字符串
+		//alert(data);
+		if(data=='success'){
+			alert('操作成功');
+			location.reload(true); 
+		}else if(data=='lose'){
+			alert('操作失败');
+		}
+	});
+}
+
+</script>
+</head>
+<body style="background:url(images/topbg.gif) repeat-x; height:80%">
+<div style="width:100%;height:88px; ">
+{:include file='admin_top.tpl.html':}
+</div>
+
+<div style="width:1900px;">
+	<div style="width:187px; float:left; background-color:#fff3e1;border-right:1px solid #ebb683;">
+	{:include file='admin_left.tpl.html':}
+	</div>
+	<div style="width:1712px;float:left;background-color:#FFFFFF;">
+	 <div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >健康舒适家居</a></li>
+	    <li><a href="quote.php">报价清单</a></li>
+	    </ul>
+	    </div>
+	    <div class="rightinfo">
+	    
+	    <div class="list-div" style="width:63%;float:left;border:1px solid grey;height:700px;overflow-y:scroll;margin-right:50px">
+			<div align='center'><h3>清单列表</h3></div>
+			<table class="imgtable" cellpadding="3" cellspacing="3" id='child_list_tab'>
+				<tr>
+					<th width='60px'><input type='radio' name='goods_id' value='0'/>编号</th> 
+					<th width='60px'>父编号</th>
+					<th>名称</th> <th>编码</th> <th>父类公式</th> <th>批次</th> <th>最小面积</th> <th>最大面积</th> <th>公式</th> <th>操作</th>
+				</tr>
+				{:foreach $child_list as $item:}
+				<tr id='child_list_tr_{:$item.child_id:}'>
+					<td>
+						<input type='radio' name='goods_id' value='{:$item.goods_id:}'/>
+						{:$item.goods_id:}
+					</td>
+					<td>{:$item.chf_id:}</td>
+					<td>{:$item.goods_name:}</td>
+					<td>{:$item.goods_sn:}</td>
+					<td><select name='f_formula_{:$item.child_id:}' class='quinput'>
+								<option value='' >公式</option>
+								<option  value='{:$item.f_formula:}' >{:$item.f_formula:}</option>	
+						</select>
+					</td>
+					<td><select name='batch_{:$item.child_id:}' class='bainput'>
+								<option  value='0' {:if isset($item.batch) && $item.batch eq 0:}selected{:else:}{:/if:}>第一批</option>
+								<option  value='1' {:if isset($item.batch) && $item.batch eq 1:}selected{:else:}{:/if:}>第二批</option>	
+								<option  value='2' {:if isset($item.batch) && $item.batch eq 2:}selected{:else:}{:/if:}>第三批</option>
+						</select>
+					</td>
+					<td><input class='minput' type='text' name='minarea_{:$item.child_id:}'value='{:$item.minarea:}'/></td>	
+					<td><input class='minput' type='text' name='maxarea_{:$item.child_id:}'value='{:$item.maxarea:}'/></td>
+					<td><input class='quinput' type='text' name='formula_{:$item.child_id:}'value='{:$item.formula:}'/></td>				
+					<td>
+						<input type='button' value='移除' onclick='remove_list({:$item.child_id:})'>	
+						|
+						<input type='button' value='修改规则' onclick='change_list({:$item.child_id:})'>				
+					</td>
+				</tr>
+				{:/foreach:}
+			</table>
+		</div>
+
+		<div class="list-div" style="width:33%;float:left;border:1px solid grey;height:700px;overflow-y:scroll;">
+			<div align='center'><h3>候选商品</h3></div>
+			<table class="imgtable" cellpadding="3" cellspacing="3">
+			<tr>
+				<th width='50px'>编号</th> <th>名称</th> <th>型号</th> <th>操作</th>
+			</tr>
+			{:foreach $goods as $v:}
+				<tr>
+					<td>{:$v.goods_id:}</td>
+					<td>{:$v.goods_name:}</td>
+					<td>{:$v.goods_model:}</td>
+					<td><input type='button' value='加入清单' onclick='add_list({:$v.goods_id:},{:$level:},{:$quote_id:})'></td>
+				</tr>
+			{:/foreach:}
+			</table>
+		</div>
+	</div>
+	
+	<div style="clear:both;"></div>
+</div>
+<h3 style="color:red;">*公式输入方法:</h3>
+<div style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面积(area),主卧面积(MBRA),主卧数量(MBR_NUM),次卧面积(BRA),次卧数量(BR_NUM),客厅面积(LRA),客厅数量(LR_NUM),洗手间面积(WRA),洗手间数量(WR_NUM),厨房面积(KRA),厨房数量(KR_NUM),阳台面积(GRA),阳台数量(GR_NUM)<br/>
+						加(+)减(-)乘(*)除(/)。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  如：空调主机数 = 面积/30，  则公式输入 "area/30"即可。(不包含引号)
+</div>
+
+</body>
+</html>
+
+	
+    
+

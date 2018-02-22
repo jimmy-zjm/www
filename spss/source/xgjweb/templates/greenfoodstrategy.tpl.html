@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>生活健康视频-健康攻略</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/strategystyle.css" ><!-- 攻略strategy页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+
+<!--jqury-ui调用-->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui/smoothness/jquery-ui.css" >
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<!--jqury-ui调用end-->
+
+
+<!-- banner轮播图片 -->
+<script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+</head>
+<body style="background:#ecf0f5;">
+<!-- top顶部 -->
+{:include file='header.tpl.html':}
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+	                <a href="index.php">
+	                	<img src="images/logo2.png"/>
+	                </a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?strategy">
+                        	健康攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        	健康营养师
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?know">
+                        	健康问答
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+
+<!-- banner轮播图片 -->
+<div class="flicker-example" data-block-text="false">
+    <ul>
+        <li data-background="images/f3.jpg">
+            <div class="flick-title">
+            	GUANZHUJIANKANGGUANAIJIAREN
+            </div>
+            
+            <div class="flick-sub-text">
+            	关注健康 关爱家人
+            </div>
+        </li>        
+        
+        <li data-background="images/f4.jpg">
+            <div class="flick-title">
+            	GUANZHUJIANKANGGUANAIJIAREN
+            </div>
+            
+            <div class="flick-sub-text">
+            	关注健康 关爱家人
+            </div>
+        </li>
+        
+        <li data-background="images/f5.jpg">
+            <div class="flick-title">
+            	GUANZHUJIANKANGGUANAIJIAREN
+            </div>
+            
+            <div class="flick-sub-text">
+            	关注健康 关爱家人
+            </div>
+        </li>
+        
+        <li data-background="images/f6.jpg">
+            <div class="flick-title">
+            	GUANZHUJIANKANGGUANAIJIAREN
+            </div>
+            
+            <div class="flick-sub-text">
+            	关注健康 关爱家人
+            </div>
+        </li>
+    
+    </ul>
+</div>
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="strategy-conter">    
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：什么是大健康?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	大健康是从人类的衣食住行、生老病死等各环节出发，即个人的身体健康，精神、心理、生理、社会、环境、道德等多方面的完全健康，但健康之本在于空气和水源。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：怎样的生活环境才算健康?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	真正健康的生活环境需要社会提供，即干净空气、干净水源、绿色生态农业食品，社区拥有健康检测、咨询管理、医疗、器械、医药、养老等完善的服务行业。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：健康之本在于空气，目前的空气存在问题吗?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	如今社会空气问题日渐严重，雾霾肆虐，霾即空气中悬浮的大量微小颗粒、尘粒，使空气浑浊，水平能见度降低，严重影响着人们的生活。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：空气不洁净易引发哪些健康问题？
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+				不洁净的空气常常在人们毫无防范的时候侵入人体呼吸道和肺叶中，引起诸如咽喉炎、肺气肿、哮喘、鼻炎、支气管炎等炎症，长期处于这种环境还会诱发肺癌、心肌缺血及损伤。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：室外空气问题严重，待在家应该是健康安全的?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+				舒适的家中也隐藏着各类病菌，如皮屑毛发的微生物易滋生真菌，闷热潮湿的尘螨和异味，装修残留的甲醛、苯等有害物质，二手烟、煤气残留，以及室外的PM2.5灰尘雾霾等。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：空气不洁净问题如何解决?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	家中老人、婴幼儿频发的呼吸道问题80%源于空气污染，所以室内空气问题亟待解决，我们需要一套洁净的设备，提供全家恒氧、衡温、衡湿的健康新空气。
+			</div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：健康之本在于水源，目前的水源存在问题吗?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	目前城市水质安全问题存在诸多隐患，曾经的小河淌水我们可以直接饮用 ，而如今家用自来水即使经过高温烧开，也存在诸多隐患，如重金属、余氯、杂质等。
+			</div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：水质不洁净问题怎样解决?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	如今很多家庭已开始重视饮水问题，一套齐全的净水设备就能帮助我们卸下许多担忧，它能有效杀菌、过滤余氯、去除铅汞重金属等有害物质，提升居家饮水品质。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：健康问题除了空气、水源，还有哪些与我们息息相关？?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+				空气、水源、食物是人们生存的根本，有了干净的空气、洁净的水源，我们还需要绿色健康的食物，以此才能拥有良好的健康体能。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：生活健康食品包含哪些内容?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	生活健康食品以绿色生态食品为主，以营养保健食品为辅，即不以提供能量为目的的食品，补充膳食供给的不足，预防营养缺乏和降低发生某些慢性退行性疾病的风险。                
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="advertisement">
+		  <a href="#">
+              <img src="images/521.jpg"/>
+          </a>
+	</div>
+
+</div>
+
+<!--中间end-->
+
+
+<!-- 底部列表 -->
+<div class="foot">
+  <div class="foot-list">
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        购物指南
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          购物流程
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          会员介绍
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          常见问题
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          联系客服
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        配送方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          国内配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          海外配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          标准配送
+        </a>
+      </div>
+
+
+    </div>
+
+   <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        支付方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          在线支付
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          分期付款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          邮局汇款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          公司转账
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        售后服务
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          售后政策
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          退款说明
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          返修/退换货
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          取消订单
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-right">
+      暖扬扬线下服务区
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- 底部列表end -->
+
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+   <div class="root-center">
+	  <div class="root-list">
+	    <a href="#">
+	      关于我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      联系我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      人才招聘
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      招商加盟
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      商务合作
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      友情链接
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      备案号码
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      各类证件
+	    </a>
+	  </div>
+
+	  <div class="clear"></div>
+   </div>
+</div>
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+</body>
+</html>
+
+
+
+
+

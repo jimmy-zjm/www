@@ -1,0 +1,297 @@
+{:include file='user_top.tpl.html':}
+{:include file='user_left.tpl.html':}	
+<!-- user右边，引用头部时倒入这个div -->
+
+<style>
+    #closeSpanId{
+        color: orangered;
+        font-size: 12px;
+        float: right;
+        margin: -35px 10px 0 0;
+    }
+
+    #closeSpanId:hover{
+        cursor: pointer;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function(){
+        $("#closeSpanId").click(function(){
+//            window.close();
+            $("#collect-tip").hide();
+        });
+    });
+</script>
+
+  <!-- user右边，引用头部时倒入这个div -->
+  <div class="user-right">
+  	<div class="usercoupon-title">  
+    	我的优惠券
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <!--优惠券-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+        <div class="usercoupon-order">
+            {:if empty($couponSum):}
+                <div class="usercoupon-order-total">
+                    <span style="color: red;">您还没有优惠券!</span>
+                </div>
+            {:else:}
+                <div class="usercoupon-order-total">
+                    我的累计总优惠金额<span>￥{:$couponSum:}</span>元&nbsp;&nbsp;&nbsp;&nbsp;
+                    剩余可用优惠金额<span>￥{:$couponAvailable:}</span>元
+                </div>
+            {:/if:}
+            
+        	<div class="usercoupon-order-title">
+            	<div class="usercoupon-order-title-01">
+                	优惠券号码
+                </div>
+                
+                <div class="usercoupon-order-title-02">
+                	激活优惠券操作时间
+                </div>
+                
+                <div class="usercoupon-order-title-04">
+                	优惠金额
+                </div>
+                
+                <div class="clear"></div>
+                
+            </div>
+            
+            <div class="clear"></div>
+
+            {:foreach from=$couponInfo key=num item=couponList:}
+                <div class="usercoupon-order-center">
+                    <div class="usercoupon-order-center-01">
+                        优惠券号码：{:$couponList.coupon_number:}
+                    </div>
+
+                    <div class="usercoupon-order-center-02">
+                        {:if $couponList.activate_time eq "0000-00-00 00:00:00":}
+
+                        {:else:}
+                            {:$couponList.activate_time:}
+                        {:/if:}
+                    </div>
+
+                    <div class="usercoupon-order-center-04">
+                        ￥{:$couponList.discount_amount:}元
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+            {:/foreach:}
+            
+            
+            <div class="clear2"></div>
+            
+            <div class="usercoupon-order-bottom" id="collect-link">
+            	<a href="#">
+                    <div class="usercoupon-order-bottom-01">
+                        <img src="images/443.png"/>
+                    </div>
+                    
+                    <div class="usercoupon-order-bottom-02" >
+                    	优惠券激活
+                    </div>
+                </a>
+            </div>
+            
+            <div class="clear2"></div>
+            
+        </div>
+    </div>
+    <!--优惠券end-->
+    
+    
+
+  </div>
+  <!-- user右边end，引用头部时倒入这个div -->
+
+{:include file='user_footer.tpl.html':}
+
+
+<!--弹出预售框-->
+<div class="collect-tip" id="collect-tip" style="display: none;">
+    <div class="collect-tip-bk" id="collect-tip-usercoupon-bk">
+        <div class="collect-tip-titile">
+        	我的健康舒适家
+            <span id="closeSpanId">关闭</span>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="collect-tip-usercoupon-span">
+        	请在下面输入您的拥有的兑换号码
+        </div>
+
+        <form action="" method="post">
+            <div class="collect-tip-usercoupon-input">
+                <input id="create-name-02" name="create-name-02" type="text" value="兑换号码"  onFocus="if (value =='兑换号码'){value =''}" onBlur="if (value ==''){value='兑换号码'}"/>
+            </div>
+
+            <div class="collect-tip-usercoupon-span">
+                请在下面输入您的兑换号码的密码
+            </div>
+
+            <div class="collect-tip-usercoupon-input">
+                <input id="create-name-02" name="create-name-02" type="text" value="兑换密码"  onFocus="if (value =='兑换密码'){value =''}" onBlur="if (value ==''){value='兑换密码'}"/>
+            </div>
+
+
+            <div class="clear"></div>
+
+            <div class="collect-tip-new">
+                <a class="a-know1" id="a-know" href="javascript:void(0)">
+                    确定兑换
+                </a>
+            </div>
+        </form>
+        
+        
+        <div class="clear2"></div> 
+    </div>
+</div>
+<!--弹出预售框end-->
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+<li><a data-slide="6" onClick="gotofloor(this);" href="javascript:void(0);">6F</a></li>
+<li><a data-slide="7" onClick="gotofloor(this);" href="javascript:void(0);">7F</a></li>
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+
+<!--弹出预售-->
+<SCRIPT>
+          function showDistributionTip() {
+              $("#distribution-tip").fadeIn();
+              setTimeout(function () {
+                  $("#distribution-tip").fadeOut();
+              }, 4000)
+          }
+          $(function(){            
+              //contact float
+              $("#contFloat").click(function(event){
+                  event.preventDefault();
+                  $("#contFloat-detail").show();
+              })
+              $("#contFloat-detail-close").click(function(){
+                  $("#contFloat-detail").hide();
+              })
+              $("#collect-link").on("click", function () {
+                  $("#collect-tip").show();
+              })
+              $("#a-know").on("click", function () {
+                  $("#collect-tip").hide();
+              })
+              $("#appdown-close").on("click", function () {
+                  $("#apptip").hide();
+              })
+              $("#fromesb-close").on("click", function () {
+                  $("#fromesb-wechat").hide();
+              })
+          })
+</SCRIPT>
+<!--弹出预售end-->
+
+</body>
+</html>
+  

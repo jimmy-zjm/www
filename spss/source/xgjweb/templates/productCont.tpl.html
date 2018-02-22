@@ -1,0 +1,60 @@
+
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/homeproductCont.css" ><!-- 第二版home页面CSS -->
+
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="home_productCont-center">
+	<div class="home_productCont-center-left">
+    	<div class="home_productCont-center-left-nev">
+            {:foreach $cate as $v:}
+        	<div class="home_productCont-center-left-nev-demo home_productCont-center-left-nev-demo{:if $v['cat_id'] eq $data['cat_id']:}02{:/if:}" title="{:$v['cat_name']:}"><!--如果页面停留在哪个ID，class就调用home_productCont-center-left-nev-demo02，其余还是调用home_productCont-center-left-nev-demo-->
+            	<a href="index.php?productCont&id={:$v['cat_id']:}&cat_id={:$v['parent_id']:}" name="productCont&id={:$v['cat_id']:}&cat_id={:$v['parent_id']:}">
+                	{:$v['cat_name']:}
+                </a>
+            </div>
+            {:/foreach:}
+        </div>
+    </div>
+    
+    <div class="home_productCont-center-right">
+    	<div class="home_productCont-center-right-title">
+        	{:$data['title']:}
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="home_productCont-center-right-word">
+        	{:$data['content']:}
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear2"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+
+</body>
+</html>
+

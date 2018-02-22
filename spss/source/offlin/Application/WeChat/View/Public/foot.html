@@ -1,0 +1,240 @@
+<div class="btn3 clearfix">
+    <div class="padmenu">
+        <div class="bt-name">
+        	个人中心
+        </div>
+        
+        <div class="sanjiao"></div>
+        
+        <div class="new-sub">
+            <ul >
+                <li>
+                    <a href="__APP__/User/info">
+                    	修改资料
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="__APP__/Manage/index.html" >
+                    	客户管理
+                    </a>
+                </li>
+                <if condition="$staff neq 3 ">
+                <li>
+                    <a href="__APP__/Staff/index.html" >
+                        员工管理
+                    </a>
+                </li>
+                </if>
+            </ul>
+            
+            <div class="tiggle"></div>
+            
+            <div class="innertiggle"></div>
+        </div>    
+    </div>
+    
+    <div class="padmenu">
+    	<div class="bt-name">
+            <a href="javascript:;" onclick="delSession()">
+            	报价系统
+            </a>
+        </div>
+    </div>
+     <div class="padmenu">
+        <div class="bt-name">
+            <a href="<{:U('Order/index')}>">
+                施工订单
+            </a>
+        </div>
+    </div>
+    
+    <div class="padmenu">
+        <div class="bt-name">
+        	设置
+        </div>
+        
+        <div class="sanjiao"></div>
+        
+        <div class="new-sub">
+            <ul>
+            	<li>
+                    <a href="javascript:;" id="clickAddInId">
+                    	清单设置
+                    </a>
+                </li>
+
+                <li>
+                    <a href="__APP__/User/goOut.html" >
+                        退出登录
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="tiggle"></div>
+            
+            <div class="innertiggle"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--弹出产品说明书-->
+<div id="clickAddId">   
+	<div class="pad-checkbox-clickAddId-center-bk"> 
+        <div class="pad-checkbox-clickAddId-center">
+            <div class="pad-checkbox-clickAddId-center-title">
+                <div class="pad-checkbox-clickAddId-center-title-left">
+                    <span class="span01">
+                        清单设置
+                    </span>
+                    
+                    <span class="span02">
+                        勾选的项目是在清单内展示的项目，不勾选就不展示，单价默认不展示在列表
+                    </span>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-title-right" id="clickAddOutId01">
+                    <a href="javascript:;">
+                        <img src="__PUBLIC__/img/cha01.png"/>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear2"></div>
+         
+            <div class="pad-checkbox-clickAddId-center-form">
+				
+            	<div class="pad-checkbox-clickAddId-center-form-demo">
+                	<input type="checkbox" id='setup1' <if condition="$setup.0 eq 1">checked</if>/>
+                    
+                    <span>产品图</span>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-form-demo">
+                	<input type="checkbox" id='setup2' <if condition="$setup.1 eq 1">checked</if>/>
+                    
+                    <span>品牌</span>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-form-demo">
+                	<input type="checkbox" id='setup3' <if condition="$setup.2 eq 1">checked</if>/>
+                    
+                    <span>名称</span>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-form-demo">
+                	<input type="checkbox" id='setup4' <if condition="$setup.3 eq 1">checked</if>/>
+                    
+                    <span>产地</span>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-form-demo">
+                	<input type="checkbox" id='setup5' <if condition="$setup.4 eq 1">checked</if>/>
+                    
+                    <span>型号</span>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-form-demo">
+                	<input type="checkbox" id='setup6' <if condition="$setup.5 eq 1">checked</if>/>
+                    
+                    <span>单价（元）</span>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-form-demo">
+                    <input type="checkbox" id='setup7' <if condition="$setup.6 eq 1">checked</if>/>
+                    
+                    <span>数量</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear36"></div>
+            
+            <div class="pad-checkbox-clickAddId-center-button">
+                <div class="pad-checkbox-clickAddId-center-button-left" id="cancel">
+                	<input type="button" value="取消"/>
+                </div>
+                
+                <div class="pad-checkbox-clickAddId-center-button-right" id="clickAddOutId02">
+                	<input type="button" value="确定"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+ 
+            <div class="clear2"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$("#clickAddId").css('height',$(document).height());
+
+function delSession(){
+    $.post('__APP__/Index/delSession',function(data){
+        if (data==1) {
+            window.location.href="__APP__/Index/index";
+        }
+    })
+}
+
+jQuery(function(){
+		$("#clickAddInId").click(function(){
+			$("#clickAddId").fadeIn();
+		});
+
+		$("#clickAddOutId01").click(function(){
+			$("#clickAddId").fadeOut();
+			window.location.reload();
+		});
+		$("#cancel").click(function(){
+			$("#clickAddId").fadeOut();
+			window.location.reload();
+		});
+		
+		$("#clickAddOutId02").click(function(){
+            t1 = document.getElementById('setup1').checked; //图片
+            t2 = document.getElementById('setup2').checked; //品牌
+            t3 = document.getElementById('setup3').checked; //名称
+            t4 = document.getElementById('setup4').checked; //产地
+            t5 = document.getElementById('setup5').checked; //型号
+            t6 = document.getElementById('setup6').checked; //单价
+            t7 = document.getElementById('setup7').checked; //数量
+            if (t1==false) $(".setup0").css('display','none');
+            else $(".setup0").css('display','block');
+
+            if (t3==false) $(".setup1").css('display','none');
+            else $(".setup1").css('display','block');
+
+            if (t5==false) $(".setup2").css('display','none');
+            else $(".setup2").css('display','block');
+
+            if (t2==false) $(".setup3").css('display','none');
+            else $(".setup3").css('display','block');
+
+            if (t4==false) $(".setup4").css('display','none');
+            else $(".setup4").css('display','block');
+
+            if (t6==false) $(".setup5").css('display','none');
+            else $(".setup5").css('display','block');
+
+            if (t7==false) $(".setup6").css('display','none');
+            else $(".setup6").css('display','block');
+            
+            $.get('__APP__/Index/setup',{'t1':t1,'t2':t2,'t3':t3,'t4':t4,'t5':t5,'t6':t6,'t7':t7},function(data){
+                $("#clickAddId").fadeOut();
+            });
+		});
+		
+	});
+</script>
+<!--弹出产品说明书end -->
+
+
+
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/dibu.css" ><!-- 底部菜单 -->
+<script src="__PUBLIC__/js/dibu.js" type="text/javascript"></script><!-- 底部菜单 -->

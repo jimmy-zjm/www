@@ -1,0 +1,114 @@
+.head{
+	width: 100%;
+	height:90px ;
+	box-shadow: 2px 2px 2px #eeeeee;
+}
+.head-son{
+	display: block;
+	float: left;
+}
+.head-1{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.head-2{
+	width: 78%;
+	height: 88px;
+	position: relative;
+	font-size: 35px;
+	color: #333;
+	text-align: center;
+	line-height: 88px;
+}
+.head-3{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.content{
+	width: 100%;
+	height: auto;
+}
+.zhifu-con1{
+	width: 91%;
+	height: 60px;
+	color: #333333;
+	font-size: 30px;
+	margin: 0 auto;
+	margin-top: 75px;
+	border-bottom: 2px solid #dadada;
+}
+.zhifu-con2{
+	height: 111px;
+	width: 91%;
+	margin: 0 auto;
+}
+.zhifu-con2-1{
+	width: 60%;
+	height: 100%;
+	font-size: 26px;
+	color: #666666;
+	line-height: 111px;
+}
+.zhifu-con2-2{
+	color: #da001d;
+	font-size: 26px;
+	width: 40%;
+	line-height: 111px;
+	float: right;
+	text-align: right;
+}
+.zhifu-kong{
+	width: 100%;
+	height: 80px;
+	background: #f1f1f1;
+}
+.zhifu-con3{
+	width: 91%;
+	height: 60px;
+	font-size: 30px;
+	color: #333;
+	margin: 0 auto;
+	margin-top: 65px;
+}
+.zhifu-con4{
+	width: 91%;
+	height: 121px;
+	border-top: 2px solid #dadada;
+	margin: 0 auto;
+}
+.con4-1{
+	width: 16%;
+	height: 121px;
+	display: block;
+	text-align: center;
+	float: left;
+}
+.con4-1>img{
+	margin-top: 30px;
+}
+.con4-2{
+	display: block;
+	float: left;
+	width: 72%;
+	line-height: 121px;
+	font-size: 26px;
+	color: #666;
+}
+.con4-3{
+	display: block;
+	width: 12%;
+	height: 121px;
+	float: left;
+	text-align: center;
+}
+.con4-3>img{
+	margin-top: 40px;
+}
+.zhifu-con6{
+	width: 91.6%;
+	height: 100px;
+	margin: 0 auto;
+	margin-top: 140px;
+}

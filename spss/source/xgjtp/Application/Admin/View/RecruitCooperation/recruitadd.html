@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+</head>
+<body>
+
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="">首页</a></li>
+    <li><a >招聘与合作</a></li>
+    <li><a href="<{:U('index')}>">人才招聘</a></li>
+    <li><a href="">添加招聘</a></li>
+    </ul>
+    </div>
+
+    <div class="formbody">
+    <form action="<{:U('doadd')}>" method="post" enctype="multipart/form-data" >
+        <ul class="forminfo">
+            <li><label>岗位名称<font style="color:red;">*</font></label><input name="name" type="text" class="dfinput" value='<{$_SESSION.doadd.name}>'required='required'/><i>标题不能超过30个字符</i></li>
+            <li><label>工作地点<font style="color:red;">*</font></label><input name="address" type="text" class="dfinput" value='<{$_SESSION.doadd.address}>'required='required'/></li>
+            <li><label>招聘人数<font style="color:red;">*</font></label><input name="num" type="text" class="sinput" value='<{$_SESSION.doadd.num}>'required='required'/><i>人</i></li>
+            <li><label>职位概要<font style="color:red;">*</font></label>
+                <textarea name="outline" id="" class="dinput" cols="200" rows="100" style="height:200px;width:400px;"><{$_SESSION.doadd.outline}></textarea>
+            </li>
+            <li><label>任职资格<font style="color:red;">*</font></label>
+                <textarea name="qualifications" id="" class="dinput" cols="200" rows="100" style="height:200px;width:400px;"><{$_SESSION.doadd.qualifications}></textarea>
+            </li>
+            <li><label>是否开启<font style="color:red;">*</font></label><label><input name="isopen" style="margin-top:12px;" type="radio" value="0" <?=$_SESSION['doadd']['isopen']==0?'checked':''; ?>/>开启</label><label><input name="isopen" type="radio" style="margin-top:12px;" value="1" <?=$_SESSION['doadd']['isopen']==1?'checked':''; ?>/>暂停</label></li>
+            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认添加"/></li>
+        </ul>
+    </form>
+    </div>
+</body>
+</html>
+

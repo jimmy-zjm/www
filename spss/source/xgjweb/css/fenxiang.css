@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+#bdshare{
+	padding:0px !important;}
+	
+.bds_tools_32 span.bds_more{
+	background:url(../images/24.png) !important;
+	width:29px !important;
+	height:28px !important;}
+	
+span.bds_more, .bds_tools a{
+	padding:0px !important;}

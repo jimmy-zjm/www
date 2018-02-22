@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+<body>
+	 <div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="">首页</a></li>
+	    <li><a href="">健康舒适家居</a></li>
+	    <li><a href="">用户问题</a></li>
+	    <li><a href="" style="color:red;">全部问题</a></li>
+	    </ul>
+	    <span style="float:right;margin-right:20px;"><a href="<{:U('problem')}>">全部问题</a></span>
+	    <span style="float:right;"><a href="<{:U('problem_ok')}>">已解决问题</a></span>
+	    <span style="float:right;"><a href="<{:U('problem_no')}>">待解决问题</a></span>
+	    </div>
+	
+
+		<!-- 全部问题 -->
+	    <div class="rightinfo">
+	    	<form action="<{:U('problem')}>" method="post">
+	            <ul class="prosearch">
+	                <li>
+	                    <label>查询：</label>
+	                    <i>用户姓名：</i>
+	                    <a><input name="name" type="text" value="" class="scinput" /></a>
+	                    <a><input name="" type="submit" class="sure" value="查询"/></a>
+	                 </li>
+	            </ul>
+	        </form>
+	    <table class="listtable">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;">编号</th>
+	    <th>用户姓名</th>
+	    <th>用户电话</th>
+	    <th>地址</th>
+	    <th>内容</th>
+	    <th>提问时间</th>
+	    <th width="90px;">状态</th>
+	    <th>备注</th>
+	    <th width="250px;">操作（<font color="red">如有需要可以在框内添加备注</font>）</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+
+	    <?php foreach($data as $v){ ?>
+	    <tr data-id="<?=$v['problem_id'] ?>">
+	    <td><?=$v['problem_id'] ?></td>
+	    <td><?=$v['name'] ?></td>
+	    <td><?=$v['phone'] ?></td>
+	    <td><?=$v['province'] ?><?=$v['city'] ?><?=$v['area'] ?><?=$v['address'] ?></td>
+	    <td><?=$v['content'] ?></td>
+	    <td><?=date("Y-m-d H:i:s", $v['time']) ?></td>
+	    <td><a href="<{:U('state')}>?state_all=<?=$v['state'] ?>&id=<?=$v['problem_id'] ?>"><?= $v['state']==0?'等待解决':'已解决'; ?></a></td>
+	    <td><?=$v['note'] ?></td>
+	    <td>
+	    	<form action="<{:U('add_note')}>" method="post">
+	    		<input class='quinput' type='text' name="note_no">
+	    		<input class='quinput' type='hidden' name="problem_id" value="<?=$v['problem_id'] ?>">
+	    		<input class='quinput' type='hidden' name="number" value="all">
+				<button style="cursor:pointer">添加备注</button>&nbsp&nbsp&nbsp&nbsp
+				<a href="javascript:;" class="tablelink click" onclick="document.getElementById('data_id').setAttribute('data-id',<{$v.problem_id}>)"> 删除 </a>
+	    	</form>
+	    	
+	    </td>
+	    </tr>
+	    <?php } ?>
+	    </tbody>
+	    </table>
+	     	
+				<{$page}>
+			
+	    </div>
+
+	<div class="tip">
+        <div class="tiptop"><span>提示信息</span><a></a></div>
+        <div class="tipinfo">
+        <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+        <div class="tipright">
+        <p>是否确认真的删除吗 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        <div class="tipbtn">
+        <input name="" id="data_id" data-id="" type="button" onclick="window.location.href='<{:U('delete')}>?delete_all='+this.getAttribute('data-id')"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+
+</body>
+</html>
+
+	
+    
+

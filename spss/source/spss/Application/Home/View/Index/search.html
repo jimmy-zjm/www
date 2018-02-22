@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/public.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/search.css" />
+
+<div class="content" id='content'>
+	<div class="content-top">
+		<span class="">全部结果</span><span>&gt;</span><span><{$search}></span>
+	</div>
+	<div class="content-bottom">
+		<?php if (!empty($list)): ?>
+		<ul class="content-bottom-ul">
+			<?php foreach ($list as $k => $v): ?>
+				<a href="
+					<?php if (!empty($v['quote_name'])): ?>
+						<{:U('Furnish/detail',array('quote_id'=>$v['quote_id'],'lv'=>1))}>
+					<?php elseif(!empty($v['goods_title'])): ?>
+						<{:U('Material/info',array('id'=>$v['id']))}>
+					<?php elseif(!empty($v['c_name'])): ?>
+						<{:U('Customer/detail',array('id'=>$v['id']))}>
+					<?php endif ?>
+				" class="content-bottom-list">
+					<span class="content-bottom-list-img">
+						<img  src="
+						<?php if (!empty($v['img'])): ?>
+							<{$v.img|getimage}>
+						<?php elseif(!empty($v['face_image'])): ?>
+							<{$v.face_image|getimage}>
+						<?php elseif(!empty($v['face_image'])): ?>
+							<{$v.c_img|getimage}>
+						<?php endif ?>
+						">
+					</span>
+					<span class="content-bottom-list-text">
+					<?php if (!empty($v['quote_name'])): ?>
+						<{$v.quote_name}>
+					<?php elseif(!empty($v['goods_title'])): ?>
+						<{$v.goods_title}>
+					<?php elseif(!empty($v['c_name'])): ?>
+						<{$v.c_name}>
+					<?php endif ?>
+					</span>
+				</a>
+			<?php endforeach ?>
+
+		</ul>
+		<?php else: ?>
+		<div style="text-align: center;height:200px ;line-height: 200px;">对不起！查询不到您要的商品！</div>
+		<?php endif ?>
+		<div class="fenye"><{$page}></div>
+	</div>
+
+</div>
+<script type="text/javascript">
+document.getElementById('content').style.minHeight= (document.body.scrollHeight-400)+'px';
+</script>

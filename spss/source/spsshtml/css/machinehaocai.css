@@ -1,0 +1,143 @@
+body{
+	font-family: "微软雅黑";
+}
+.baoyang-content{width: 100%; height: auto;}
+.baoyang-content-top{width: 80%;height:366px;margin: 0 auto;padding-top:110px}
+.baoyang-content-top-con{width: 100%;height:287px;;box-shadow: 1px 1px 1.5px 1.5px grey;}
+.baoyang-content-top-left{width: 25%;height:287px;background-color:#613a33 ;float: left;}
+.baoyang-content-top-right{width: 75%;height:287px;float: left;}
+.baoyang-content-top-right>p:first-child{
+	width: 75%;height:16%;margin: 0 auto;line-height: 46px;font-weight: 600;
+	margin-top: 20px;
+	}
+.baoyang-content-top-right>p:last-child{
+	width: 75%;height:32%;margin: 0 auto;line-height: 30px;
+	text-indent: 2em;margin-top: 10px;
+}
+.content-baoyang-mid{
+	width: 100%;
+	height:auto;
+	border-top: 1px solid #000;
+	}
+.content-baoyang-mid>ul{
+	width: 80%;
+	height: 728px;
+	margin: 0 auto;
+}
+.content-baoyang-mid>ul>li{
+	width: 17%;
+	height:34%;
+	float: left;
+	border: 1px solid #4b4b4b;
+	font-size: 22px;
+	text-align: center;
+	line-height: 400px;
+	color: #17386a;
+	border-radius: 23px;
+	margin-top: 35px;
+}
+.content-baoyang-mid>ul>li:nth-child(1){
+	width: 100%;
+	height: 42px;
+	background: none;
+	border: none;
+}
+.content-baoyang-mid>ul>p{
+	width: 3%;
+	height:33%;
+	float: left;
+}
+.content-baoyang-mid>ul>li:nth-child(2){
+	background:#f5f5f5  url(../img/machinehaocai-img1.png) no-repeat center center;
+	background-size: 130px 80px;
+}
+.content-baoyang-mid>ul>li:nth-child(4){
+	background:#f5f5f5  url(../img/machinehaocai-img2.png) no-repeat center center;
+	background-size: 110px 80px;
+}
+.content-baoyang-mid>ul>li:nth-child(6){
+	background:#f5f5f5  url(../img/machinehaocai-img3.png) no-repeat center center;
+	background-size: 105px 90px;
+}
+.content-baoyang-mid>ul>li:nth-child(8){
+	background:#f5f5f5  url(../img/machinehaocai-img4.png) no-repeat center center;
+	background-size: 130px 70px;
+}
+.content-baoyang-mid>ul>li:nth-child(10){
+	background:#f5f5f5  url(../img/machinehaocai-img5.png) no-repeat center center;
+	background-size: 130px 60px;
+}
+.content-baoyang-mid>ul>li:nth-child(11){
+	background:#f5f5f5  url(../img/machinehaocai-img6.png) no-repeat center center;
+	background-size: 110px 100px;
+}
+.content-baoyang-mid>ul>li:nth-child(13){
+	background:#f5f5f5  url(../img/machinehaocai-img7.png) no-repeat center center;
+	background-size: 110px 100px;
+}
+.content-baoyang-bottom{
+	width: 80%;
+	height: 369px;
+	border: 1px solid #999999;
+	background: #ebebeb;
+	margin: 0 auto;
+}
+.content-baoyang-bottom-1{
+	width: 60%;
+	height: 100%;
+	float: left;
+}
+.content-baoyang-bottom-2{
+	width: 39%;
+	height: 100%;
+	float: left;
+}
+.content-baoyang-bottom-1>li{
+	width: 260px;
+	height:250px;
+	float: left;
+	border: 1px solid #4b4b4b;
+	font-size: 22px;
+	text-align: center;
+	line-height: 400px;
+	color: #17386a;
+	border-radius: 23px;
+	margin-top: 60px;
+	margin-left: 80px;
+	background:#f5f5f5  url(../img/machinehaocai-img1.png) no-repeat center center;
+	background-size: 130px 80px;
+}
+.content-baoyang-bottom-1>p{
+	margin-top: 80px;
+	text-indent: 4em;
+}
+.content-baoyang-bottom-2>p{
+	width: 280px;
+	height: 80px;
+	margin: 0 auto;
+	line-height: 80px;
+}
+.content-baoyang-bottom-2>p:first-child{
+	margin-top: 60px;
+}
+.content-baoyang-bottom-2>p:first-child>span{
+	font-size: 25px;
+	color: #c40000;
+}
+.content-baoyang-bottom-2>p:first-child>input{
+	width: 85px;
+	height: 42px;
+	font-size: 16px;
+	margin-left: 30px;
+}
+.content-baoyang-bottom-2>input{
+	width: 175px;
+	height: 42px;
+	border: none;
+	background: #fd3939;
+	color: #fff;
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 160px;
+}
+

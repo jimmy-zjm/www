@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<style>
+.imgtable{
+width:920px;}
+.td1{
+width:20px;}
+
+.td3{
+width:80px;}
+
+.td4{
+width:200px;}
+</style>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >健康舒适家居</a></li>
+	    <li><a href="dealer_order.php?tab=1">订单管理</a></li>
+	    <li><a href="dealer_order.php?allot&order_id={:$order_id:}">分配订单</a></li>
+	    </ul>
+	    </div>
+	    <div class="formbody">
+		    <ul class="forminfo">
+		    <li><label>订单号</label><i style="line-height: 34px;">{:$dealer_order_info.order_code:}</i></li>
+		    <li><label>地址</label><i style="line-height: 34px;">{:$dealer_order_info.province:}{:$dealer_order_info.city:}{:$dealer_order_info.district:}{:$dealer_order_info.address:}</i></li>
+		    <form action="dealer_order.php?allot&order_id={:$order_id:}" method="post" enctype="multipart/form-data">
+		    <li><label>查询</label>
+					<i>
+					<select name='d_province' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+						<option value='' {:if empty($d_province):}selected{:else:}{:/if:}>请选择...</option>
+						{:foreach $dealer_info as $v:}
+						<option value='{:$v.d_province:}' {:if !empty($d_province) && $d_province eq $v.d_province:}selected{:else:}{:/if:}>{:$v.d_province:}</option>
+						{:/foreach:}
+					</select>
+					省
+					<select name='d_city' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+						<option value='' {:if empty($d_city):}selected{:else:}{:/if:}>请选择...</option>
+						{:foreach $dealer_info as $v:}
+						<option value='{:$v.d_city:}' {:if !empty($d_city) && $d_city eq $v.d_city:}selected{:else:}{:/if:}>{:$v.d_city:}</option>
+						{:/foreach:}
+					</select>
+					市/区
+					</i>
+					<input type='submit' class="sure" value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    <form action="dealer_order.php?allot&order_id={:$order_id:}" method="post" enctype="multipart/form-data">
+	    <table class="imgtable" >
+	    	{:foreach $dealer_list as $v:}
+		    <tr>
+		    	<td class="td1"><input type="radio" name='d_id' value='{:$v.d_id:}'/></td>
+			    <td class="td2">{:$v.d_company:}</td>
+				<td class="td3">{:$v.d_rank:}级</td>
+				<td class="td4">正在进行的订单{:$v.count:}</td>
+			</tr>
+		    {:/foreach:}
+		        
+	    </table>
+	    <div class="formbody" style="text-align:center;"><input name="" type="submit" class="btn" value="确认分配"/></div>	
+	    </form>
+	    </div>
+
+</body>
+</html>
+

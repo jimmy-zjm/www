@@ -1,0 +1,38 @@
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>设计人员分配</header>
+	<section  class="container">
+	<?php if (empty($data)){?>
+		<p class="sys-title">暂无可选人员</p>
+	<?php }else{?>
+		<p class="sys-title">选择相关人员</p>
+		<form action="<{:U('doAssigns')}>"   method="post" id='formid' >
+			<ul class="assign-list">
+				<?php foreach ($data as $v){?>
+				<li class="sys-item">姓名：<{$v['real_name']}>&nbsp;&nbsp;&nbsp;&nbsp;电话：<{$v['tel']}><input type="radio" name="person" value="<{$v['id']}>"></li>
+				<?php }?>
+				<input type="hidden" name="rid" value="<{$rid}>">
+				<input type="hidden" name="sid" value="<{$sid}>">
+				<input type="hidden" name="oid" value="<{$oid}>">
+			</ul>
+			<a href="javascript:;" class="my-btm-btn">确定</a>
+		</form>
+	<?php }?>
+	
+	</section>
+<script type="text/javascript">
+ $(function(){
+     $(".my-btm-btn").click(function(){
+        var val=$('input:radio[name="person"]:checked').val();
+        if(val==null){
+            alert("请选中一个施工人员!");
+        }else{
+        	$("#formid").submit();
+        }
+     });
+ });
+</script>
+</body>
+</html>

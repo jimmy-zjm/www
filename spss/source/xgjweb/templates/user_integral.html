@@ -1,0 +1,140 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+    <div class="user-right">
+    	<div class="user_integral-title"> 
+        	<div class="user_integral-title-bk">        
+                <span class="span01">
+                    可用积分：
+                </span>
+                
+                <span class="span02">
+                    {:$totalIntegral:} 
+                </span>
+                
+                <span class="span01">
+                    积分 
+                </span> 	
+            </div>
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="user_integral-center">
+        	<div class="user_integral-center-title">
+            	<div class="user_integral-center-title-integral_detail01"><!--在哪个页面，就调用01，否则调用02-->
+                	<a href="javascript:;">
+                    	积分明细
+                    </a>
+                </div>
+                
+                <div class="user_integral-center-title-revenue_integration02">                	
+                    <a href="user.php?integralIncome">
+                    	收入积分
+                    </a>
+                </div>
+                
+                <div class="user_integral-center-title-expenditure_integration02">                	
+                    <a href="user.php?integralExpenditure">
+                    	支出积分
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="user_integral-center-list">
+            	<div class="user_integral-center-list-title">
+                	<div class="user_integral-center-list-title-use_content">
+                    	使用内容
+                    </div>
+                    
+                    <div class="user_integral-center-list-title-commodity_type">
+                    	商品类型
+                    </div>
+                    
+                    <div class="user_integral-center-list-title-use_time">
+                    	使用时间
+                    </div>
+                    
+                    <div class="user_integral-center-list-title-change_type">
+                    	变更类型
+                    </div>
+                    
+                    <div class="user_integral-center-list-title-integral_change">
+                    	积分变化
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                {:foreach $list as $k=>$v:}
+                <div class="user_integral-center-list-demo">
+                	<div class="user_integral-center-list-demo-use_content">
+                    	<div class="user_integral-center-list-demo-use_content-name" title="{:$v.name:}">
+                        	商  品：{:$v.name:}
+                        </div>
+                        
+                        <div class="user_integral-center-list-demo-use_content-order_number" title="{:$v.sn:}">
+                        	订单号：{:$v.sn:}
+                        </div>
+                    </div>
+                    
+                    <div class="user_integral-center-list-demo-commodity_type" title="{:if $v.class eq 1:}健康舒适家居{:else if $v.class eq 2:}欧洲建材代购{:else if $v.class eq 3:}海外超市{:/if:}">
+                    	{:if $v.class eq 1:}健康舒适家居
+                        {:else if $v.class eq 2:}欧洲建材代购
+                        {:else if $v.class eq 3:}海外超市
+                        {:/if:}
+                    </div>
+                    
+                    <div class="user_integral-center-list-demo-use_time" title="{:$v.time|date_format:'%Y-%m-%d %H:%M:%S':}">
+                    	{:$v.time|date_format:'%Y-%m-%d %H:%M:%S':}
+                    </div>
+                    
+                    <div class="user_integral-center-list-demo-change_type" title="{:if $v.status eq 1:}交易使用{:else:}交易获得{:/if:}">
+                        {:if $v.status eq 1:}交易使用
+                    	{:else:}交易获得
+                        {:/if:}
+                    </div>
+                    
+                    {:if $v.status eq 1:}
+                    <div class="user_integral-center-list-demo-integral_change01"><!--价格负的时候用class01，正的时候用class02-->
+					-
+                    {:else:}
+                    <div class="user_integral-center-list-demo-integral_change02"><!--价格负的时候用class01，正的时候用class02-->
+                    {:/if:}
+                    	{:$v.integral:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                {:/foreach:}
+            </div>
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="page">{:$page:}</div>
+        
+        <div class="clear27"></div>
+    </div>
+	
+  
+	<div class="clear"></div>
+</div>
+
+<div class="clear27"></div>
+
+
+{:include file='footer.tpl.html':}

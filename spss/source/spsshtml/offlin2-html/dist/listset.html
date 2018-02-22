@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/m-common.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/m-common.js"></script>
+<link rel="stylesheet" type="text/css" href="css/quotedprice.css">
+</head>
+<body>
+	<header>清单设置</header>
+	<section  class="container">
+		<p class="redtips">
+			勾选的项目是在清单内展示的项目，不勾选
+			就不展示，单价默认不展示在列表
+		</p>
+		<ul class="set-list">
+			<li class="sys-item">产品图<input type="checkbox"></li>
+			<li class="sys-item">品牌<input type="checkbox"></li>
+			
+			<li class="sys-item">名称<input type="checkbox"></li>
+			<li class="sys-item">产地<input type="checkbox"></li>
+			<li class="sys-item">型号<input type="checkbox"></li>
+			<li class="sys-item">单价(元)<input type="checkbox"></li>
+			<li class="sys-item">数量<input type="checkbox"></li>
+		</ul>
+		
+	</section>
+	<footer>
+	<ul>
+		<li><a class="f-btn f-btn01" href="personnalCenter.html">
+			个人中心
+		</a></li>
+		<li><a class="f-btn f-btn02"  href="selectSys.html">
+			报价系统
+		</a></li>
+		<li ><a class="f-btn f-btn03"  href="workorder.html">
+			施工订单
+		</a></li>
+		<li ><a class="f-btn f-btn04"  href="aftersale-worker.html">
+			售后订单
+		</a></li>
+		<li ><a class="f-btn f-btn05"  href="set.html">
+			设置
+		</a></li>
+	</ul>
+	<script type="text/javascript">
+		
+		if(localStorage.active){
+			$(".f-btn").eq(localStorage.active).parent("li").addClass("active")
+		}else{
+			$(".f-btn").eq(1).parent("li").addClass("active")
+		}
+
+		
+
+		$(".f-btn").click(function(ev){
+			
+			ev.preventDefault();
+			nojump=false;
+			localStorage.active=$(".f-btn").index(this);
+			
+			window.location.href =$(this).attr("href");
+			
+			
+		})
+
+	</script>
+</footer>
+
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

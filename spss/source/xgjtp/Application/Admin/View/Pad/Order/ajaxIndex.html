@@ -1,0 +1,41 @@
+<table class="listtable">
+    <thead>
+        <tr>
+            <th>订单编号</th>
+            <th>产品名称</th>
+            <th>供应商</th>
+            <th>提交时间</th>
+            <th>订单状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($data as $v): ?>
+    <tr>
+        <td><{$v['sn']}></td>
+        <td><{$v['name']}></td>
+        <td><{$v['company']}></td>
+        <td><{$v.post_time}></td>
+        <td>
+            <?php if($v['order_status']==1):?>
+            <a href="javascript:if(confirm('是否已处理'))location='<{:U('oper',array('id'=>$v['id']))}>'" style="color: red">未处理</a>
+            <?php elseif($v['order_status']==2): ?>
+            <a href="javascript:if(confirm('是否已完成'))location='<{:U('edit',array('id'=>$v['id']))}>'" style="color: green">已受理</a>
+            <?php elseif($v['order_status']==3): ?>
+            <span style="color: blue">已完结</span>
+            <?php endif ?>
+        </td>
+        <td><a href="<{:U('remark',array('id'=>$v['id']))}>">备注</a>-<a href="<{:U('info',array('id'=>$v['id']))}>">查看</a></td>
+    </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+    <{$page}>
+
+<script>
+    // 点击分页触发的事件
+    $(".page a").click(function(){
+        cur_page = $(this).attr('data-page');
+        ajax_get_table('search-form2',cur_page);
+    });
+</script>

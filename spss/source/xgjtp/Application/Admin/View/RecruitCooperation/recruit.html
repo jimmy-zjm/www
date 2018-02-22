@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $("#ccc").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $("#ccc").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $("#ccc").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $("#ccc").fadeOut(100);
+});
+
+});
+</script>
+<script>
+    function aaa(){
+        document.getElementById('aaa').style.display="block";
+    }
+    function aaa1(){
+        document.getElementById('aaa').style.display="none";
+    }
+    function bbb(){
+        document.getElementById('bbb').style.display="block";
+    }
+    function bbb1(){
+        document.getElementById('bbb').style.display="none";
+    }
+</script>
+
+</head>
+
+
+<body>
+
+    <div class="place">
+    <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="">首页</a></li>
+        <li><a href="">招聘与合作</a></li>
+        <li><a href="">人才招聘</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo">
+        
+        <div class="tools">
+            <ul class="toolbar">
+            <a href="<{:U('add')}>"><li><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</li></a>
+            </ul>
+        </div>
+        
+        <table class="listtable">
+        
+        <thead>
+        <tr>
+        <th width="60px;" height='50px'>编号</th>
+        <th>岗位名称</th>
+        <th>工作地点</th>
+        <th>发布时间</th>
+        <th>招聘人数</th>
+        <th>职位概要</th>
+        <th>任职资格</th>
+        <th>是否开启</th>
+        <th width="150px;">操作</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <?php foreach($data as $v){ ?>
+        <tr data-id="<{$v.id}>">
+            <td><{$v.id}></td>
+            <td><{$v.name}></td>
+            <td><{$v.address}></td>
+            <td><?=date('Y-m-d',$v['time']) ?></td>
+            <td><{$v.num}></td>
+            <td><a href="javascript:;" onclick="aaa()">点击查看详情</a></td>
+            <td><a href="javascript:;" onclick="bbb()">点击查看详情</a></td>
+            <td><a href="<{:U('isopen',array('p'=>$_GET['p'],'id'=>$v['id'],'isopen'=>$v['isopen']))}>"><?= $v['isopen']==0?'<font style="color:blue;">开启</font>':'<font style="color:red;">暂停</font>' ?></a></td>
+            <td><a href="<{:U('edit',array('id'=>$v['id'],'p'=>$_GET['p']))}>" class="tablelink">修改</a>
+                |
+                <a href="javascript:;" class="tablelink click" onclick="document.getElementById('data_id').setAttribute('data-id',<{$v.id}>)"> 删除 </a>
+            </td>
+        </tr>
+        <div class="tip" id="aaa" style="height:500px;">
+            <div class="tiptop"><span>职位概要</span><a onclick="aaa1()"></a></div>
+            <div class="tipinfo">
+                <div style="padding-right:65px;">
+                    <{$v.outline}>
+                </div>
+            </div>
+            <div style="margin-left:190px;margin-top:280px;">
+            <input name="" type="button" onclick="aaa1()" class="cancel" value="确定" />
+            </div>
+            </div>
+        </div>
+        
+        <div class="tip" id="bbb" style="height:500px;">
+            <div class="tiptop"><span>任职资格</span><a onclick="bbb1()"></a></div>
+            <div class="tipinfo">
+                <div style="padding-right:65px;">
+                   <{$v.qualifications}>
+                </div>
+            </div>
+            <div style="margin-left:190px;margin-top:280px;">
+            <input name="" type="button" onclick="bbb1()" class="cancel" value="确定" />
+            </div>
+            </div>
+        </div>
+        <?php } ?>
+
+        <!-- <{$v.outline}>
+        <{$v.qualifications}> -->
+        </tbody>
+        </table>         
+    </div>
+    <div class="page">
+        <{$page}>
+    </div>
+    
+    
+    <div class="tip" id="ccc">
+        <div class="tiptop"><span>提示信息</span><a></a></div>
+        <div class="tipinfo">
+        <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+        <div class="tipright">
+        <p>是否确认真的删除吗 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        <div class="tipbtn">
+        <input type="hidden" id="page" value="<{$_GET.p}>"/>
+        <input name="" id="data_id" data-id="" type="button" onclick="window.location.href='<{:U('delete')}>?id='+this.getAttribute('data-id')+'&p='+document.getElementById('page').value"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    </div>
+
+    
+
+    <script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+
+</body>
+
+</html>

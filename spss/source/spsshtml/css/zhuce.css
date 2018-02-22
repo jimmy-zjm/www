@@ -1,0 +1,96 @@
+.zhuce{width: 100%;height:807px;}
+.zhuce-con{
+	width: 1200px;
+	height:685px;
+	margin: 120px auto;
+}
+.zhuce-con-left{
+	width: 545px;
+	height: 685px;
+	float: left;
+	background: url(../img/zhuce-banner.jpg) no-repeat;
+	background-position: 50% 25%;
+}
+.zhuce-con-right{
+	width: 506px;
+	height: 629px;
+	float: right;
+	background: #e6e6e6;
+}
+.zhuce-con-right>li{
+	width: 320px;
+	margin: 0 auto;
+}
+.right-tit{
+	height: 105px;
+	line-height: 105px;
+	font-size: 20px;
+	color: #636363;
+}
+.right-pub{
+	height: 90px;
+}
+.right-pub>span{
+	display:block;
+	float: left;
+	width: 60px;
+	height: 40px;
+	background: #fff url(../img/zhuce-shouji.jpg) no-repeat;
+	background-position: 50% 50%;
+}
+.right-pub>input{
+	float: left;
+	height: 40px;
+	width: 250px;
+	border: none;
+	outline: none;
+}
+.right-pass>span{
+	background: #fff url(../img/zhuce-mima.jpg) no-repeat;
+	background-position: 50% 50%;
+}
+.right-yanzheng>span{
+	background: #fff url(../img/zhuce-yanzhengma.jpg) no-repeat;
+	background-position: 50% 50%;
+}
+.right-yanzheng>input{
+	width: 111px;
+}
+.right-yanzheng>button{
+	display: inline-block;
+	width: 117px;
+	height: 40px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/zhuce-yanzheng.jpg) no-repeat;
+	color: #fff;
+	margin-left: 22px;
+	border-radius: 3px;
+}
+.right-xieyi{
+	width: 250px;
+	height: 70px;
+	font-size: 14px;
+	color: #636363;
+}
+.redfont{
+	color: #fc4b4b;
+}
+.denglu{
+	margin-left: 10px;
+	color: #636363;
+}
+.wancheng>input{
+	width: 317px;
+	height: 37px;
+	border: none;
+	background: url(../img/zhuce-zhuce.jpg);
+	color: #fff;
+	font-size: 18px;
+	outline: none;
+	cursor: pointer;
+}
+

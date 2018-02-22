@@ -1,0 +1,130 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/index.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>客户信息</header>
+	<section  class="container">
+		<p class="p-item">客户姓名<span class="fr"><{$addr.name}></span></p>
+		<p class="p-item">联系方式<span class="fr"><{$addr.tel}></span></p>
+
+		<p class="p-item">房屋地址<span class="fr"><{$addr.province}><{$addr.city}> <{$addr.district}> <{$addr.address}></span></p>
+		<form action="<{:U('order')}>" method="post">
+			<?php foreach ($data['list'] as $key=>$v){?> 
+			<div >
+				<p class="p-title"><{$v['name']}></p>
+				
+				<div class="item-box">
+					<?php if ($v['tijiao'] == 0 && $tijiao != '1'){?>
+					
+					<input class="item-box-checkbox" type="checkbox" name="cqid[]" value='<{$v["id"]}>'>
+					
+					<?php }?>
+					
+						<p class="redfont">主材费用：￥<{$v['zprice']}></p>
+						<p class="redfont">辅材及施工费用：￥<{$v['price']-$v['zprice']}></p>
+						<p class="huifont">报价日期：<{$v['time']}></p>
+					
+				</div>
+
+				<p class="p-item  gsgl-btmbtn">
+						<?php if ($v['tijiao'] != 0){?><a>已提交</a><?php }?>
+						<a href="<{:U('del',array('id'=>$v['id'],c_id=>$_GET['c_id']))}>" onclick="return confirm('您确定要删除吗？')">删除</a>
+						<a class="gsgl-btmbtn-look" href="<{:U('Furnish/offer',['checkId'=>$v['id']])}>">查看清单</a>
+						<a href="javascript:;"class="mail" onclick="mail(<{$v['quote_id']}>,<{$v['id']}>)">邮件</a>
+						<a href="<{:U('Furnish/gotos',['name'=>$addr['name'],'tel'=>$addr['tel'],'quote_id'=>$v['quote_id'],'cqid'=>$v['id']])}>" class="daochu">导出</a>
+				</p>
+
+			</div>			
+			<?php }?>
+
+			<?php if ($tijiao != '1'){?>
+			<input type="submit" class="my-btm-btn" value="提交">
+			<?php } ?>
+		</form>
+		<input type="hidden" id='id' value=''>
+		<input type="hidden" id='cqid' value=''>
+		<input type="hidden" id='mod' value=''>
+
+	</section>
+
+<div class="mask-mail">
+        <div>
+            <input id='mailval' type="email" name='email' value='' placeholder="请输入邮箱地址"> 
+            <div class="newaddbtn-box">
+                <a href="javascript:;" class="fl newadd-submit" onclick="gotoMail()">确定</a>
+                <a href="javascript:;" class="fr newadd-cancel">取消</a>
+            </div>
+        </div>
+    </div>
+   
+
+
+
+
+	<script type="text/javascript" >
+
+		$(document).ready(function(){
+        // ajax 加载商品列表
+        browserRedirect();
+        });
+		function browserRedirect() {
+			var sUserAgent = navigator.userAgent.toLowerCase();
+			var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+			var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+			var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+			var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+			var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+			var bIsAndroid = sUserAgent.match(/android/i) == "android";
+			var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+			var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+			if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+				/*document.writeln("phone");*/
+
+			
+
+				$(".mail").css("display", "none");
+				$(".daochu").css("display", "none");
+			
+			
+		} else {
+			/*document.writeln("pc"); */
+		}
+	}
+
+
+
+
+
+
+
+	function mail(id,cqid){
+		$('#id').val(id); 
+		$('#cqid').val(cqid);
+		$('#mail').toggle();
+		$(".mask-mail").show();
+
+	}
+	function gotoMail(){
+		var id = $('#id').val();
+		var cqid = $('#cqid').val();
+		var mail = $('#mailval').val();
+		var name='<{$addr.name}>';
+		var tel='<{$addr.tel}>';
+		$.get("<{:U('Furnish/email')}>",{'mail':mail,'customerQuoteId':cqid,'quote_id':id,'name':name,'tel':tel},function(data){
+			if (data['info'] != undefined) {
+            	alert(data['info']);
+        	}else{
+        		alert(data);
+        	}
+		});
+		$(".mask-mail").hide(); 
+
+	}
+
+
+	$(".mask-mail .newadd-cancel").click(function(){        
+		$(".mask-mail").hide(); 
+	});
+
+</script>
+
+

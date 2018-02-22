@@ -1,0 +1,541 @@
+
+		<link rel="stylesheet" href="__PUBLIC__/css/shopcar2.css" />
+
+		<div class="content">
+			<div class="empty">
+			</div>
+			<div class="tabtit">
+				<a href="javascript:;">1.我的购物车</a>
+				<a href="javascript:;">2.填写订单信息</a>
+				<a href="javascript:;">3.完成支付</a>
+			</div>
+			<div class="tab1">
+				<div class="tab1-info">
+					<p class="tab1-info-t1">
+						订单信息
+					</p>
+					<div class="shouhuodizhi">
+						<li class="shouhuodizhi-tit">
+							<span>收货地址</span>
+							<span ><a href="__APP__/User/address.html">管理收货地址</a></span>
+						</li>
+						<?php foreach($addressInfo as $k=>$v){?>
+						<li id="dizhi<?=$v['a_id']?>" onclick="shouhuodizhiselect(this,<?=$v['a_id']?>)" class="shouhuodizhi-con1 <?php echo $v['default']==1?'shouhuodizhiactive':'' ?>" >
+							<span class="dizhidetail"  >
+								<span id="areaname<?=$v['a_id']?>"><?=$v['a_name']?></span>
+								<span id="areadianhua<?=$v['a_id']?>"><?=$v['a_mobile_phone']?></span>
+								<span id="areadizhi<?=$v['a_id']?>"><?=$v['a_pro']?>&nbsp; &nbsp;<?=$v['a_city']?>&nbsp;&nbsp;<?=$v['a_area']?>&nbsp;<?=$v['a_addr']?></span>					
+								<?php if($v['default']==1){?>
+									<span class="showshezhimirendizhi" onclick="shouhuodizhiactive(<?=$v['a_id']?>,this)">默认地址</span>
+								<?php }else{?>
+									<span class="showshezhimirendizhi" onclick="shouhuodizhiactive(<?=$v['a_id']?>,this)">设置为默认地址</span>
+								<?php }?>
+							</span>
+							<span class="xiugai" onclick="showmodal(<?=$v['a_id']?>)">修改本地址</span>
+						</li>
+						<?php }?>
+					</div>
+					<p class="tab1-info-tit">
+						<span class="tab1-info-tit-border">订单信息</span>
+						<span class="tab1-info-tit-border">单价</span>
+						<span class="tab1-info-tit-border">数量</span>
+						<span class="tab1-info-tit-border">金额</span>
+					</p>
+					<?php foreach ($info['list'] as $k=>$v){?>
+					<p class="tab1-info-con bordernone">
+						<span></span>
+						<span><img src="<{$v['img']|getImage}>" style="width: 120px;height: 120px;" alt="" /></span>
+						<span><?=$v['shop_name']?></span>
+						<span></span>
+						<span >￥：<span class="price"><?=$v['price']?></span></span>
+						<span class="shopcount"><a href="javascript:;" class="shownum"><?=$v['number']?></a></span>
+						<?php if($v['class']==9){?>
+							<span >￥：<span class="sumprice">
+							<?php if($v['number']>1){?>
+								<?=$v['price']*($v['number']-1)*0.9+$v['price']?>
+							<?php }else{?>
+								<?=$v['price']*$v['number']?>
+							<?php }?>
+							</span></span>
+						<?php }else{?>
+							<span >￥：<span class="sumprice"><?=$v['price']*$v['number']?></span></span>
+						<?php }?>
+					</p>
+					<?php } ?>
+					<div class="zhifu">
+						<p>支付方式</p>
+						<p id='payway'>
+							<span class="zhifuway zhifuway2"><input type='hidden' value='2'/>银联网银支付</span>
+							<span class="zhifuway "><input type='hidden' value='3'/>银联快捷支付</span>
+							<span class="zhifuway "><input type='hidden' value='1'/>支付宝</span>
+						</p>
+
+						
+						<?php if($info['class']!=1){?>
+						<p>优惠劵</p>
+						<p><span id="zhankai" onclick="zhekoukg(1)">使用优惠劵抵扣</span></p>
+						<p class="zhekou" id="zhekou">
+								<span>本次使用<input type="text" name='cou' id='cou'  onkeyup="Show_Hidden_01()"/></span>
+								<span>优惠券金额</span>
+								<a href="javascript:;" onclick="xianshi01(1)">使用</a>
+								<span >您当前可以使用优惠券金额为￥<span><?=$coupon?></span>元,本次可使用优惠券金额为￥<span><?=$info['coupon']?></span>元</span>
+
+								<span class="usezhekou" id='tr3' style='display: none;'></span>
+								<span class="usezhekou" id='tr1' style='display: none;'>使用优惠券金额:<span class="redfont" id='usecou'></span>元，抵扣人民币￥：<span class="redfont" id='useprice'></span>元</span>
+						</p>
+						<p class="shiyong" id="shiyong">
+							本次使用优惠券金额为￥<span id='useyh'></span>元，折合人民币￥<span id='zhehe'></span>元 <a href="javascript:;" onclick="xianshi01()" class="quxiaouse">取消使用</a>
+						</p>
+						
+						<p class="jifeng-tit jifen">积分</p>
+							<p class="jifen"><span id="jifen" onclick="zhekoukg(2)">使用积分抵扣</span></p>
+							<p class="jifencon" id="zhekou1">
+									<span>本次使用<input type="text" name='int' id='int'  onkeyup="Show_Hidden_02()"/></span>
+									<span>积分金额</span>
+									<a href="javascript:;" onclick="xianshi02(2)">使用</a>
+									<span >您当前可以使用积分为<span><?=$integral?></span>分,本次可使用积分<span><?=$info['total']?></span>分</span>
+
+									<span class="usezhekou" id='tr4' style='display: none;'></span>
+									<span class="jifendokou" id='tr2' style='display: none;'>使用积分金额:<span class="redfont" id='useint'></span>元，抵扣人民币￥：<span class="redfont" id='useprice2'></span>元</span>
+							</p>
+							<p class="shiyong" id="shiyong2">
+								本次使用积分为<span id='useyh2'></span>分，折合人民币￥<span id='zhehe2'></span>元 <a href="javascript:;" onclick="xianshi02()" class="quxiaouse">取消使用</a>
+							</p>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+			<div class="tijiaojiesuan">
+				
+				<div style="width: 100%;height: 128px;">
+					<p class="tijiaojiesuan-1"></p>
+				<?php foreach($addressInfo as $k=>$v){?>
+				<?php if($v['default']==1){?>
+				<p class="tijiaojiesuan-2">收货人：<span id='thuan1'><?=$v['a_name']?>&nbsp;<?=$v['a_mobile_phone']?></span></p>
+				<p class="tijiaojiesuan-3">寄送至：<span id='thuan2'><?=$v['a_pro']?>&nbsp; &nbsp;<?=$v['a_city']?>&nbsp;&nbsp;<?=$v['a_area']?>&nbsp;<?=$v['a_addr']?></span></p>
+				<?php } }?>
+				</div>
+				<p class="shopcar2-yixuan">已选商品：<?=$info['zongshu']?>件<span>合计金额：￥<?=$info['total']?></span> <?php if($info['class']==1){?><span>本次支付：￥500</span> <?php } ?><a href="javascript:;" id='js' >结算</a></p>
+				<?php if($info['class']==1){?>
+				<span id='zhehe2'></span>
+				<p class="shuoming" >
+					<span>说&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;明</span>
+					<span style="color: green">1.本次支付预付费用为500元，由平台暂收后将安排专业工作人员免费上门测量、深化设计。</span>
+                    <span style="color: green">2.用户支付尾款时，预付费用将返还。</span>
+                   	<span style="display:none; color: green; " >3.用户如需全额支付款项，提交订单后至个人中心进行全额支付</span>
+                </p>
+                <?php } ?>
+			</div>
+			<div class="zhankong1">
+			</div>
+		</div>
+
+<!-- /*************grass*****************/ -->
+<?php if($info['class']==1){?>
+<form action="<{:U('Order/process')}>" method="post" id="theForm">
+	<?php if(!empty($addressInfo)){?>
+    <?php foreach($addressInfo as $k=>$v){?>
+	<?php if($v['default']==1){?>
+    <input type="hidden" name="addr_id" id="addr_id" value="<?=$v['a_id']?>" />
+    <?php } } }else{?>
+    <input type="hidden" name="addr_id" id="addr_id" value="" />
+    <?php }?>
+    <input type="hidden" name="coupon" id="coupon" >
+    <input type='hidden' name='total_price' value="<?=$info['total']?>"/>
+    <input type='hidden' name='house_id' value="<?=$info['house_id']?>"/>
+    <input type="hidden" name="pay_method" id="pay_method" value="2" />
+</form>
+<?php }else if($info['class']==2){ ?>
+<form action="<{:U('EuOrder/process')}>" method="post" id="theForm">
+    <?php if(!empty($addressInfo)){?>
+    <?php foreach($addressInfo as $k=>$v){?>
+	<?php if($v['default']==1){?>
+    <input type="hidden" name="addr_id" id="addr_id" value="<?=$v['a_id']?>" />
+    <?php } } }else{?>
+    <input type="hidden" name="addr_id" id="addr_id" value="" />
+    <?php }?>
+    <input type="hidden" name="coupon" id="coupon" >
+    <input type="hidden" name="integral" id="integral"  />
+    <input type="hidden" name="pay_method" id="pay_method" value="2" />
+</form>
+<?php }else{ ?>
+<form action="<{:U('SOrder/process')}>" method="post" id="theForm">
+    <?php if(!empty($addressInfo)){?>
+    <?php foreach($addressInfo as $k=>$v){?>
+	<?php if($v['default']==1){?>
+    <input type="hidden" name="addr_id" id="addr_id" value="<?=$v['a_id']?>" />
+    <?php } } }else{?>
+    <input type="hidden" name="addr_id" id="addr_id" value="" />
+    <?php }?>
+    <input type="hidden" name="coupon" id="coupon" >
+    <input type="hidden" name="class" id="class" value="<?=$info['class']?>" >
+    <input type="hidden" name="integral" id="integral"  />
+    <input type="hidden" name="pay_method" id="pay_method" value="2" />
+</form>
+<?php } ?>
+
+<!-- 优惠券处理 -->
+<script type="text/javascript">
+function zhekoukg(n){
+	if(n==1){
+		var zhekou=$(".zhekou").css("display");     
+		if(zhekou=="none"){
+			$("#zhekou").css("display","block")
+			$("#zhankai").addClass("kg");
+		}else{
+			
+			$("#zhekou").css("display","none")
+			$("#zhankai").removeClass("kg");
+		}
+	}else if(n==2){
+		var jifencon=$(".jifencon").css("display");    
+		if(jifencon=="none"){
+			$(".jifencon").css("display","block")
+			$("#jifen").addClass("kg");
+		}else{
+			$(".jifencon").css("display","none")
+			$("#jifen").removeClass("kg");
+		}
+	}
+};
+$("#js").click(function(){
+	$addr=$('#addr_id').val();
+	if($addr==''){
+		alert('请填写或选择地址再进行结算');
+	}else{
+		$('#theForm').submit();
+	}
+});
+function Show_Hidden_01(){
+    $("#tr1").css('display','block'); 
+    var cou = $("#cou").val();
+    var re=/(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
+    var reg=new RegExp(re);
+    if(cou==''){
+        $("#tr1").css('display','none');
+        $("#tr3").css('display','block');
+        $("#tr3").text('请输入优惠券');
+    }else if(reg.test(cou)){
+        if(cou ><?=$coupon?>){
+            $("#tr1").css('display','none');
+            $("#tr3").css('display','block');
+            $("#tr3").text('您当前的优惠券不足');
+        }else if(<?=$info['coupon']?> < cou){
+            $("#tr1").css('display','none');
+            $("#tr3").css('display','block');
+            $("#tr3").text('您所使用的优惠券超过了本次优惠价格！');
+        }else if(cou ><?=$info['total']?>){
+            $("#tr1").css('display','none');
+            $("#tr3").css('display','block');
+            $("#tr3").text('您所使用的优惠券超过了本次购买价格！');
+        }else{
+            $("#tr3").css('display','none');
+            $('#usecou').text(cou);
+            $('#useprice').text(parseFloat(cou).toFixed(2));
+        }
+    }else{
+        $("#tr3").css('display','block');
+        $("#tr1").css('display','none');
+        $("#tr3").text('请输入正确的优惠券');
+    }
+}
+function showxiugai(n){
+//	alert($(n).index())
+	
+	$(".defaultarea").eq($(n).index()-1).css("dispaly","none");
+}
+function hidexiugai(n){
+	$(".defaultarea").css("dispaly","none");
+}
+function xianshi01(){
+    var cou = $("#cou").val();
+    var useint = $("#zhehe2").text();
+    var re=/(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
+    var reg=new RegExp(re);
+    if(reg){
+    	if(cou==''){
+	        $("#tr3").css('display','block');
+	        $("#tr3").text('请输入优惠券');
+	    }else if(reg.test(cou)){
+	        if(cou > <?=$coupon?>){
+	        	$("#tr3").css('display','block');
+	            $("#tr3").text('优惠券不足');
+	        }else if(<?=$info['coupon']?> < cou){
+	        	$("#tr3").css('display','block');
+	            $("#tr3").text('您所使用的优惠券超过了本次优惠价格！');
+	        }else if(cou > <?=$info['total']?>){
+	        	$("#tr3").css('display','block');
+	            $("#tr3").text('您所使用的优惠券超过了本次购买价格！');
+	        }else{
+	        	if(useint==''){
+	        		var shiyong=$("#shiyong").css("display"); 
+		        	if(shiyong=="none"){
+						$("#shiyong").css("display","block");
+						$("#zhankai").addClass("kg");
+						$("#zhekou").css("display","none");
+						$('#useyh').text(cou);
+						$('#zhehe').text(cou);
+						$('#coupon').val(cou);
+					}else{
+						$("#shiyong").css("display","none");
+						$("#zhankai").removeClass("kg");
+						$("#zhekou").css("display","block");
+						$('#useyh').text(0);
+						$('#zhehe').text(0);
+						$('#coupon').val('');
+					}
+	        	}else{
+	        		var shiyong=$("#shiyong").css("display"); 
+		        	if(shiyong=="none"){
+		                var total=parseFloat(useint)+parseFloat(cou);
+		                console.log(total);console.log(2222);
+		                if(total > <?=$info['total']?>){
+		                    $("#tr3").css('display','block');
+		                    $("#tr1").css('display','none');
+		                    $("#tr3").text('使用的积分和优惠券总额超出商品价格！');
+		                }else{
+		                    $("#shiyong").css('display','block'); 
+		                    $("#zhekou").css('display','none');
+		                    $('#useyh').text(cou);
+		            		$('#zhehe').text(cou);
+		            		$('#integral').val(useint);
+		            		$('#coupon').val(cou);
+		                }
+		            }else{
+						$("#shiyong").css("display","none");
+						$("#zhekou").css("display","block");
+						$('#useyh').text(0);
+						$('#zhehe').text(0);
+						$('#coupon').val('');
+					}
+	        	}
+	        }
+	    }
+    }else{
+        $('#tr3').text('请输入正确的优惠券');
+    }
+}
+
+function Show_Hidden_02(){
+    $("#tr2").css('display','block'); 
+    var useint = $("#int").val();
+    var re=/^[0-9]+$/;
+    var reg=new RegExp(re);
+    if(useint==''){
+        $("#tr2").css('display','none');
+        $("#tr4").css('display','block');
+        $("#tr4").text('请输入积分');
+    }else if(reg.test(useint)){
+        if(useint > <?=$integral?>){
+            $("#tr2").css('display','none');
+            $("#tr4").css('display','block');
+            $("#tr4").text('积分不足');
+        }else if(<?=$info['total']?> < useint){
+            $("#tr2").css('display','none');
+            $("#tr4").css('display','block');
+            $("#tr4").text('您所使用的积分超过了本次购买价格！');
+        }else{
+            $("#tr4").css('display','none');
+            $('#useint').text(useint);
+            $('#useprice2').text(useint);
+        }
+    }else{
+        $("#tr4").css('display','block');
+        $("#tr2").css('display','none');
+        $("#tr4").text('请输入正确的积分');
+    }
+}
+
+function xianshi02(){
+    var useint = $("#int").val();
+    var coupon = $("#zhehe").text();
+    var re=/^[0-9]+$/;
+    var reg=new RegExp(re);
+    if(useint==''){
+    	$("#tr4").css('display','block');
+        $("#tr2").css('display','none');
+        $("#tr4").text('请输入积分');
+    }else if(reg.test(useint)){
+        if(useint ><?=$integral?>){
+        	$("#tr4").css('display','block');
+        	$("#tr2").css('display','none');
+            $("#tr4").text('积分不足');
+        }else if(<?=$info['total']?> < useint){
+        	$("#tr4").css('display','block');
+        	$("#tr2").css('display','none');
+            $("#tr4").text('您所使用的积分超过了本次购买价格！');
+        }else{
+            if(coupon==''){
+            	var shiyong=$("#shiyong2").css("display"); 
+	        	if(shiyong=="none"){
+					$("#shiyong2").css('display','block'); 
+	                $("#zhekou1").css('display','none');
+	                $('#useyh2').text(useint);
+	            	$('#zhehe2').text(useint);
+	            	$('#integral').val(useint);
+				}else{
+					$("#shiyong2").css("display","none");
+					$("#zhekou1").css("display","block");
+					$('#useyh2').text(0);
+					$('#zhehe2').text(0);
+					$('#integral').val('');
+				}
+            }else{
+            	var shiyong=$("#shiyong2").css("display"); 
+	        	if(shiyong=="none"){
+	                var total=parseFloat(useint)+parseFloat(coupon);
+	                if(total > <?=$info['total']?>){
+	                    $("#tr4").css('display','block');
+	                    $("#tr2").css('display','none');
+	                    $("#tr4").text('使用的积分和优惠券总额超出商品价格！');
+	                }else{
+	                    $("#shiyong2").css('display','block'); 
+	                    $("#zhekou1").css('display','none');
+	                    $('#useyh2').text(useint);
+	            		$('#zhehe2').text(useint);
+	            		$('#integral').val(useint);
+	            		$('#coupon').val(coupon);
+	                }
+	            }else{
+					$("#shiyong2").css("display","none");
+					$("#zhekou1").css("display","block");
+					$('#useyh2').text(0);
+					$('#zhehe2').text(0);
+					$('#integral').val('');
+				}
+            }
+        }
+    }else{
+        $('#tr4').text('请输入正确的积分');
+    }
+}
+</script>
+<!-- 优惠券处理 -->
+
+<form action="<{:U('Order/doUpdateAddress')}>" method="post" id='formId'>
+<div class="modal" id="modal">
+	<div class="modal-con">
+			<p>修改收货人信息</p>
+			<p><span><a class="bitian">*</a>收货人:&nbsp;</span><input type="hidden" name="id" id="a_id"/><input type="text" name="a_name" id="a_name"/></p>
+			<p><span><a class="bitian">*</a>手机号码:&nbsp;</span><input type="hidden" name="default" id="default"/><input type="text" name="mobile" id="mobile"/></p>
+			<p><span>固定电话:&nbsp;</span><input type="text" name="phone" id="phone" /></p>
+			<p><span>邮编:&nbsp;</span><input type="text"  name="zipcode"  id="zipcode"/></p>
+			<p>
+				<span><a class="bitian">*</a>所在区域:&nbsp;</span>
+				<select required class='prov' id='prov' name="province" onchange='areas("city",this.value)'>
+                		<option value="" >-请选择-</option>
+                </select>
+                                
+                <select required class='city' id='city' name="city" onchange='areas("district",this.value)'>
+                    <option value="">-请选择-</option>
+                </select>
+                               
+                <select required class='district' id='area' name="district" > 
+                    <option value="">-请选择-</option>
+                </select>
+			</p>
+			<p><span> <a class="bitian">*</a>详细地址:&nbsp;</span><textarea name="addr" rows="2" cols="40" id="addr"></textarea></p>
+			<a href="javascript:;" id='bc'>保存</a>
+			<a class="close" onclick="closemodal()"><img src="__PUBLIC__/img/close.png" alt="" /></a>
+	</div>
+</div>
+</form>
+
+<!-- 收货地址 -->
+<script>
+	function showmodal(id){
+		$("#modal").css("display","block");
+		$.getJSON("<{:U('Order/address')}>", {id:id}, function(data){
+			$("#a_name").val(data['info']['a_name']);
+			$("#a_id").val(data['info']['a_id']);
+			$("#default").val(data['info']['default']);
+			$("#mobile").val(data['info']['a_mobile_phone']);
+			$("#phone").val(data['info']['a_phone']);
+			$("#zipcode").val(data['info']['a_zipcode']);
+			$("#addr").html(data['info']['a_addr']);
+			for (var i = 0; i < data.area.length; i++) {
+                if (data['info']['a_pro']==data['area'][i]['name']) {
+                    $("#prov").append('<option selected value="'+data['area'][i]['id']+'">'+data['area'][i]['name']+'</option>');
+                }else{
+                    $("#prov").append('<option value="'+data['area'][i]['id']+'">'+data['area'][i]['name']+'</option>');
+                }
+            }
+			areas('city',data['pro_id'],data['info']['a_city'],data['info']['a_area']);
+		})
+
+	}
+	function closemodal(){
+		$("#modal").css("display","none")
+	}
+	$("#bc").click(function(){
+		$('#formId').submit();
+	})
+	function shouhuodizhiselect(a,n){
+    	$(a).addClass("shouhuodizhiactive").siblings().removeClass("shouhuodizhiactive");
+    	$("#addr_id").val(n);
+    	$("#thuan1").html($("#areaname"+n).html()+$("#areadianhua"+n).html());
+    	$("#thuan2").html($("#areadizhi"+n).html());
+    	
+	}
+	function shouhuodizhiactive(n,a){
+		var shifou=confirm("确定将此地址设置为默认地址吗？");
+		if(shifou){
+			$.getJSON("<{:U('User/defaultAddress')}>?id="+n, function(data){
+		        if(data==2){
+		            alert('设置默认失败');
+		        }else{
+					alert('设置默认成功');
+					$(".showshezhimirendizhi").html("设置为默认地址");
+					$(a).html("默认地址").css("color","#36c");
+		        }
+		    });
+		}
+	}
+
+    function areas(o,v,c,d){
+        $.getJSON("<{:U('User/area')}>",{'v':v},function(data){
+            if (o=='city') {
+                $('.district').html('');
+                $('.district').append('<option value="">-请选择-</option>');
+            }
+            $('.'+o).html('');
+            $('.'+o).append('<option value="">-请选择-</option>');
+            for (var i = 0; i < data.length; i++) {
+                if (c==data[i]['name']) {
+                    $('.'+o).append('<option selected value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+                }else{
+                    $('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+                }
+            }
+           if(d!=''){
+                var city = $('.city').val();
+                $.getJSON("<{:U('User/area')}>",{'v':city},function(data){
+                    $('.district').html('');
+                    $('.district').append('<option value="">-请选择-</option>');
+                    for (var i = 0; i < data.length; i++) {
+                        if (d==data[i]['name']) {
+                            $('.district').append('<option selected value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+                        }else{
+                            $('.district').append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+                        }
+                    }
+                })
+            }
+        })
+    }
+</script>
+<!-- 收货地址 -->
+<!-- 切换支付方式 -->
+<script type="text/javascript">
+	$("#payway span").click(function(){
+		$(this).addClass("zhifuway2").siblings().removeClass("zhifuway2");
+		if ($(".zhifuway2 input").val()==1) {
+            $("#pay_method").val(1);
+        }else if($(".zhifuway2 input").val()==2){
+            $("#pay_method").val(2);
+        }else if($(".zhifuway2 input").val()==3){
+            $("#pay_method").val(3);
+        }
+	})
+</script>
+<!-- 切换支付方式 -->	

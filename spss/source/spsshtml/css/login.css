@@ -1,0 +1,28 @@
+.right-xieyi{
+	height: 66px;
+}
+.right-xieyi>input{
+	width: 13px;
+	height: 13px;
+	border: none;
+}
+
+.kongde{
+	display: inline-block;
+	width: 100px;
+}
+.wangjipass{
+	margin-left: 10px;
+	color: #636363;
+}
+.zhuce-con-right{
+	height: 466px;
+}
+.zhuce-con-left{
+	background-position: 50% 0%;
+}
+.zhuce-con{
+	width: 1200px;
+	height:680px;
+	margin: 143px auto;
+}

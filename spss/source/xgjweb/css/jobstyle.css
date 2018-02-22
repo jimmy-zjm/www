@@ -1,0 +1,200 @@
+@CHARSET "UTF-8";
+/*人才招聘列表*/
+.JobList-conter{
+	width:1100px;
+	margin:0 auto;}
+	
+.JobList-conter-left{
+	float:left;
+	width:620px;}
+	
+.JobList-conter-left-table{
+	width:600px;
+	height:415px;
+	border:1px solid #d4d4d4;
+	border-radius:5px;}
+	
+.JobList-conter-left-table-title{
+	width:600px;
+	height:50px;
+	line-height:50px;
+	border-bottom:1px solid #eaeaea;
+	text-align:center;}
+	
+.JobList-conter-left-table-title-name{
+	float:left;
+	width:135px;}
+
+.JobList-conter-left-table-title-place{
+	float:left;
+	width:140px;}
+	
+.JobList-conter-left-table-title-time{
+	float:left;
+	width:180px;}
+	
+.JobList-conter-left-table-title-number{
+	float:left;
+	width:140px;}
+	
+.JobList-conter-left-table-list{
+	margin-top:20px;
+	width:600px;
+	height:310px;
+	border-bottom:1px solid #eaeaea;
+	color:#000;
+	font-size:16px;}
+	
+.JobList-conter-left-table-list-demo{
+	width:600px;
+	height:60px;
+	line-height:60px;
+	text-align:center;}
+
+.JobList-conter-left-table-list-demo-name{
+	float:left;
+	width:135px;}
+	
+.JobList-conter-left-table-list-demo-name a{
+	color:#011e9e;}
+
+.JobList-conter-left-table-list-demo-place{
+	float:left;
+	width:140px;}
+	
+.JobList-conter-left-table-list-demo-time{
+	float:left;
+	width:180px;}
+	
+.JobList-conter-left-table-list-demo-number{
+	float:left;
+	width:140px;}
+
+.JobList-conter-right{
+	float:right;
+	width:470px;}
+
+.JobList-conter-right-img{
+	width:402px;
+	height:469px;
+	float:right;}
+
+
+.JobList-conter-right-img img{
+	width:402px;
+	height:469px;}
+/*人才招聘列表end*/
+
+
+
+
+
+
+
+
+
+
+/*人才招聘详细页*/
+.JobInfo-conter{
+	width:1100px;
+	margin:0 auto;}
+	
+.JobInfo-conter-left{
+	float:left;
+	width:620px;}
+	
+.JobInfo-conter-left-table{
+	width:600px;
+	border:1px solid #d4d4d4;
+	border-radius:5px;
+	font-size:14px;
+	color:#000;}
+	
+.JobInfo-conter-left-table-01{
+	width:600px;
+	border-bottom:1px solid #eaeaea;}
+	
+.JobInfo-conter-left-table-01-left{
+	float:left;
+	width:100px;
+	height:55px;
+	line-height:55px;
+	text-align:right;}
+	
+.JobInfo-conter-left-table-01-right{
+	float:right;
+	width:450px;
+	line-height:35px;
+	margin-right:40px;}
+	
+.JobInfo-conter-left-table-01-right span{
+	margin-top:10px;
+	display:block;
+	margin-bottom:20px;}
+	
+.JobInfo-conter-left-table-02{
+	width:160px;
+	height:35px;
+	line-height:35px;
+	background:#fd5a35;
+	border:1px solid #fd5a35;
+	border-radius:5px;
+	margin:0 auto;
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:20px;}
+	
+.JobInfo-conter-left-table-02 a{
+	color:#fff;
+	font-size:16px;}
+
+
+.JobInfo-conter-right{
+	float:right;
+	width:470px;}
+
+.JobInfo-conter-right-img{
+	width:402px;
+	height:469px;
+	float:right;}
+
+
+.JobInfo-conter-right-img img{
+	width:402px;
+	height:469px;}
+/*人才招聘详细页end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

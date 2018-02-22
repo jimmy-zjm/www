@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="editor/kindeditor.js"></script>
+
+<script>
+//alert(12355);
+function finance_msg(message_status,d_id){
+    var finance_message=$("#finance_message").val();//alert(finance_message);
+	$.get('finance.php?msg&d_id='+d_id+'&finance_message='+finance_message+'&message_status='+message_status,function(data){
+		data=data.replace(/(^\s*)|(\s*$)/g, "");
+		//alert(data);
+		if(data=='success'){
+			alert('操作成功');
+		}else if(data=='lose'){
+			alert('操作失败');
+		};
+		
+		//$('#child_list_tab').html(data);
+	}); 
+}
+</script>
+</head>
+
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >财务管理</a></li>
+	    <li><a href="finance.php?info&d_id={:$d_id:}">财务结算详情</a></li>
+	    </ul>
+	 </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    	<table class="imgtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>编号</th>
+		    <th>结算金额</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    {:foreach $finance_log_list as $v:}
+		     <tr>
+		    <td>{:$v.log_id:}</td>
+		    <td>{:$v.finance_price:}元</td>
+		   	<td>{:'Y-m-d H:i:s'|date:$v.log_time:}</td>
+		    </tr>
+		    {:/foreach:}
+		    
+			</tbody>
+		    
+		 </table>
+    	 <div class="page">
+			{:$finance_log_page:}
+		 </div>
+		 
+    </div> 
+ 
+</div> 
+  
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+    
+

@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+body{
+	background-color:#ecf0f5;
+}
+.aboutUsBanner{
+	background:url('../images/aboutbanner.jpg');
+	background-position: center center;
+    background-size: cover;   
+    height: 390px;
+    width: 100%;
+}
+.aboutUsTitle{
+	width:1100px;
+	margin:0 auto;
+	height:50px;
+	top:-50px;
+	position: relative;   
+    z-index: 9;
+}
+.aboutUsTitle li a{
+	float:left;
+	color:#343838;
+	font-size:24px;	
+	width:160px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	background-color:#d6d7d7;
+	margin:0 10px;	
+	background:url('../images/aboutTitle1.png');
+}
+.aboutUsTitle li a:hover{	
+	background:url('../images/aboutTitle.png');
+	margin:0 10px;	
+	color:#fff;
+}
+.aboutUs{
+	width:1100px;
+	background-color:#fff;
+	margin:0 auto 50px;
+	min-height:100px;
+}
+.aboutUs h1{
+	color:#403e3e;
+	font-size:24px;
+	font-weight:400;
+	height:80px;
+	line-height:80px;
+	padding-left:30px;
+	border-bottom:1px solid #737171;
+}
+.aboutContent{
+	padding:20px 78px;
+	color:#51534a;
+	font-size:14px;
+}

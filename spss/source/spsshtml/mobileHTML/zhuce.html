@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"/>
+		<title></title>
+		<link rel="stylesheet" href="css/publick.css" />
+		<link rel="stylesheet" href="css/zhuce.css"/>
+		<script type="text/javascript" src="js/jquery-1.11.1.js">		</script>
+	</head>
+	<body>
+		<div class="head">
+			<a class="head-1 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/back.png" alt="" />
+			</a>
+			<a class="head-2 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/logo.png" alt="" />
+			</a>
+			<a class="head-3 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/people-s.png" alt="" />
+			</a>
+		</div>
+		<div class="content">
+			<div class="login-con1">注册账户</div>
+			<div class="login-con2">
+				<span class="img-left"><img src="img/people-b.png"/></span>
+				<input class="input-right" type="text" placeholder="已验证手机号"/>
+			</div>
+			<div class="login-con2 login-con3 login-con4 ">
+				<span class="img-left"><img src="img/zhuce-yanzhengshuru.png" alt="" /></span>
+				<input class="input-right" type="password" placeholder="请输入验证码">
+				<a onclick="daojishi()" class="yanzheng"><img src="img/zhuce-yanzheng.png" alt="" ></a>
+			</div>
+			<div class="login-con2 login-con3 ">
+				<span class="img-left"><img src="img/password.png" alt="" /></span>
+				<input class="input-right" type="password" placeholder="请输入密码"/>
+			</div>
+			<div class="login-con2 login-con3 ">
+				<span class="img-left"><img src="img/password.png" alt="" /></span>
+				<input class="input-right" type="password" placeholder="请再次输入密码"/>
+			</div>
+			<div class="login-con5">
+				<input type="button" name="" id="" value="注册" />
+			</div>
+			<a class="login-con6" href="javascript:;">已注册过上品上生帐户，点此登录></a>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+			var num=59;
+			function daojishi(){
+				 num=num-1;
+				$(".yanzheng").html(num+"S");
+				$(".yanzheng").css("background",'url(img/jishibg.png)');
+				
+				if(num<1){
+					$("#huoqu").html("重新发送");
+				}else{
+					setTimeout("daojishi()",1000);
+				}
+			}
+	</script>
+</html>
+

@@ -1,0 +1,37 @@
+<!--include "./tpl/head.tpl"-->
+<link rel="stylesheet" type="text/css" href="css/quotedprice.css">
+<link rel="stylesheet" type="text/css" href="css/imgupload.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>房屋面积信息</header>
+	<section  class="container">
+		<p class="sys-item">添加标题</p>
+		<p class="sys-item">
+		 	<input class="upload-text upload-biaoti" type="text" name="" placeholder="请输入标题">
+		</p>
+		<p class="sys-item last-row">添加内容</p>
+		<textarea class="upload-text upload-neirong" placeholder="请输入内容"></textarea>
+		<p class="sys-item">上传照片</p>
+        <div class="z_photo">
+			<div class="z_file">
+				<input type="file" name="file[]" id="file" value="" accept="image/*;capture=camera" multiple onchange="imgChange('z_photo','z_file');" />
+
+			</div>
+		</div>
+	</section>
+
+
+	<!--遮罩层-->
+        <div class="z_mask">
+            <!--弹出框-->
+            <div class="z_alert">
+                <p>将删除已选的所有图片？<br>你需要重新选择！</p>
+                <p>
+                    <span class="z_cancel">取消</span>
+                    <span class="z_sure">确定</span>
+                </p>
+            </div>
+        </div>
+       <script src="js/imgupload.js"></script>
+</body>
+</html>

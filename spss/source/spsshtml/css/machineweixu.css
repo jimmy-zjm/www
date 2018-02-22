@@ -1,0 +1,94 @@
+body{
+	font-family: "微软雅黑";
+}
+.baoyang-content{width: 100%; height: 1491px;}
+.baoyang-content-top{width: 80%;height:376px;margin: 0 auto;margin-top: 100px;}
+.baoyang-content-mid{width: 100%;height:267px;}
+.baoyang-content-bottom{width: 100%;height:750px;}
+.baoyang-content-top-con{width: 100%;height:287px;margin-top:9%;box-shadow: 1px 1px 1.5px 1.5px grey;}
+.baoyang-content-top-left{width: 25%;height:287px;background-color:#989898 ;float: left;}
+.baoyang-content-top-right{width: 75%;height:287px;float: left;}
+.baoyang-content-top-right>p:first-child{
+	width: 75%;height:16%;margin: 0 auto;line-height: 46px;font-weight: 600;
+	margin-top: 20px;
+	}
+.baoyang-content-top-right>p:last-child{
+	width: 75%;height:32%;margin: 0 auto;line-height: 30px;
+	text-indent: 2em;margin-top: 10px;
+	}
+.baoyang-content-mid img{
+	width: 100%;height:100%;
+	}
+.content-baoyang-bottom-con{
+	width: 80%;
+	height: 690px;
+	border: 2px solid #d1d3d3;
+	margin: 30px auto;
+	border-radius: 9px;
+}
+.content-baoyang-bottom-con>div:first-child{
+	width: 100%;
+	height: 40%;
+}
+.content-baoyang-bottom-con>div:nth-child(2),.content-baoyang-bottom-con>div:nth-child(3){
+	width: 100%;
+	height: 30%;
+	
+}
+.content-baoyang-bottom-miaoshu,.content-baoyang-bottom-info{
+	border-bottom: 1px solid #d1d3d3;
+}
+.content-baoyang-bottom-miaoshu>.content-baoyang-bottom-miaoshu-tit{
+	width: 100%;
+	height: 57px;
+	background: #d0d3d3;
+	line-height: 57px;
+	text-indent: 2em;
+}
+.content-baoyang-bottom-miaoshu>li{
+	width: 50%;
+	height: 55px;
+	line-height: 57px;
+}
+.content-baoyang-bottom-miaoshu>li:last-child{
+	width: 50%;
+	height: 90px;
+	line-height: 86px;
+}
+.content-baoyang-bottom-miaoshu>li>input{
+	width: 70%;
+	height: 30px;
+	float: left;
+	margin-top: 10px;
+}
+.content-baoyang-bottom-miaoshu>li>.baoyang-bottom-miaoshu-input{
+	width: 180px;
+	height: 50px;
+	float: left;
+}
+.baoyang-bottom-miaoshu-input>label{
+	float: right;
+}
+.content-baoyang-bottom-info>p{
+	width: 100%;
+	height:32%;
+	line-height: 66px;
+	margin-left: 100px;
+}
+.content-baoyang-bottom-tijiao{
+	position: relative;
+}
+.content-baoyang-bottom-tijiao>input{
+	position: absolute;
+	right: 20px;
+	top: 60px;
+	display: block;
+	width: 168px;
+	height: 42px;
+	font-size: 18px;
+	border: none;
+	color: #fff;
+	box-shadow: 1px 1px grey;
+	background:#fd3939;
+	cursor: pointer;
+}

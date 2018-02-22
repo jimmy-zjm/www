@@ -1,0 +1,140 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/repairs.css">	
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/imgupload.css">	
+</head>
+<body>
+	<div class="section">
+		<div class="header">
+			<p class="header-title">填写信息</p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+		</div>
+		<form action="<{:U('getsub')}>" method="post" enctype="multipart/form-data">
+			<div  class="editInfo-box">
+				<p class="info-item">请选择系统</p>
+				<ul class="product-infolist">
+					<?php foreach ($data as $k => $v): ?>
+						
+						<li>
+							
+								<input type="checkbox" name="quoteName[]" value='<{$v.name}>'><{$v.name}>
+							
+						</li>
+						
+					<?php endforeach ?>
+				</ul>
+				<p class="info-title">问题描述 <span class="fr" id="tishi"></span></p>
+				<textarea id="wenti" name='content' placeholder="在此输入你设备遇到的问题" onkeyup="statWordNum('wenti','tishi',140)"></textarea>
+				<p class="info-title">添加图片</p>
+				<div class="z_photo">
+					<div class="z_file">
+						<input type="file" name="file[]" id="file" value="" accept="image/*;capture=camera" multiple onchange="imgChange('z_photo','z_file');" />
+
+					</div>
+				</div>
+				<p class="info-item">联系人<input type="text" name='c_name' placeholder="请输入姓名"></p>
+				<p class="info-item">联系手机<input type="text" name='tel' placeholder="请输入手机号"></p>
+				<div class="info-item address-box"><span class="fl">联系人地址</span>
+							<select required class='prov address' id='proa' name="province" onchange='areasa("citya",this.value)'>
+								<option value="请选择省份" >-请选择-</option>
+								<?php foreach ($area as $key => $v): ?>
+									<option value="<{$v.id}>"><{$v.name}></option>
+								<?php endforeach ?>
+							</select>　
+
+							<select  class='citya address'  id='cita' name="city" onchange='areasa("districta",this.value)'>
+								<option value="请选择城市">-请选择-</option>
+							</select>　
+
+							<select  class='districta address' id='disa' name="district" >
+								<option value="请选择地区">-请选择-</option>
+							</select>　
+						
+					
+				</div>
+				<p class="info-item">详细地址<input type="text" name='address' placeholder="请输入详细地址"></p>
+				<p class="info-item">预约日期
+					<input id="selectday" type="" name="yy_time" class="fr" placeholder="请选择">
+				</p>
+				<p class="info-item hasArrow">服务政策和收费标准</p>
+
+			</div>
+			<input type="hidden" name="tab" value="<{$_GET.tab}>">
+			<input type="hidden" name="u_id" value="<{$u_id}>">
+			<input type="hidden" name="ide" value="<{$ide}>">
+			<input type="submit" name="" class="my-btm-btn">
+		</form>
+	</div>
+	<!--图片取消时的遮罩层-->
+	<div class="z_mask">
+
+		<div class="z_alert">
+			<p>将删除已选的所有图片？<br>你需要重新选择！</p>
+			<p>
+				<span class="z_cancel">取消</span>
+				<span class="z_sure">确定</span>
+			</p>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="__PUBLIC__/WeChat/js/imgupload.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/WeChat/js/datePicker.js"></script>
+	
+
+
+
+	<script type="text/javascript">
+         
+      $(".product-infolist li").stop().click(function(){
+      	var $input=$(this).find("input");
+      
+      	   if($input.prop("checked")){
+              $input.prop("checked",false);
+               $(this).removeClass('active');
+              
+      	   }else{
+              $input.prop("checked",true);
+               $(this).addClass('active');
+      	   }
+      })
+	
+
+
+		function areasa(o,v,c,d){
+			$.getJSON("<{:U('area')}>",{'v':v},function(data){
+				if (o=='citya') {
+					$('.districta').html('');
+					$('.districta').append('<option value="">-请选择-</option>');
+				}
+				$('.'+o).html('');
+				$('.'+o).append('<option value="">-请选择-</option>');
+				for (var i = 0; i < data.length; i++) {
+					$('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+				}
+			})
+		}
+
+
+
+		$("#selectday").focus(function(){
+			document.activeElement.blur();/*在手机端不让手机键盘弹出*/
+		});
+		var today=getToday();
+		function getToday(){
+			var d=new Date();
+			return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+		}
+		var calendar = new datePicker();
+		calendar.init({
+			'trigger': '#selectday', /*按钮选择器，用于触发弹出插件*/
+			'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+			'minDate':today,/*最小日期*/
+			'maxDate':"2100-12-31",/*最大日期*/
+			'onSubmit':function(){/*确认时触发事件*/
+				var theSelectData=calendar.value;
+			},
+			'onClose':function(){/*取消时触发事件*/
+			}
+		});
+	</script>
+</body>
+</html>

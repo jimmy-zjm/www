@@ -1,0 +1,107 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/swiper-3.4.2.min.css">
+</head>
+<body>
+	<header><!-- <a href="javascript:history.back();"> --></a>施工订单</header>
+	<section  class="container">
+		<form id='form1' action="" >
+			
+			<div class="workorder-selectbox">	
+				<!-- <?php if ($user['level']==1): ?>
+				<div class="sys-item">公司 
+					<select name="company" id="" onchange='getCompanyData(this.value)'>
+						<option value="">请选择...</option>
+						<?php foreach ($data as $k => $v): ?>
+							<option value="<{$v.id}>"><{$v.company}></option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<?php endif ?>
+				<?php if ($user['level']!=3): ?>
+				<div class="sys-item">员工姓名 
+					<select name="real_name" id="real_name">
+						<option value="">请选择...</option>
+						<?php if ($user['level']!=1): ?>
+							<?php foreach ($data as $k => $v): ?>
+								<option value="<{$v.id}>"><{$v.real_name}></option>
+							<?php endforeach ?>
+						<?php endif ?>
+					</select>
+				</div>
+				<?php endif ?>
+				<div class="last-row">订单状态
+					<select name="status" id="">
+						<option value="">请选择...</option>
+						<option value="0">上门测量</option>
+						<option value="1">设计图纸</option>
+						<option value="2">施工安装</option>
+						<option value="3">设备调试</option>
+						<option value="4">业主验收</option>
+					</select>
+				</div> -->
+				<div class="search-strip col-md-7 col-md-fr">
+					<input id="search-text" placeholder="商品名称/订单编号/客户名称/手机号" type="text" name="key">
+					<button id="search-btn" type="button" onclick='buttt()'>搜索</button>
+				</div>
+			
+			</div>
+		</form>
+		<div class="clearfix"></div>
+		<div class="workorder-list">
+			<p class="sys-title">订单列表</p>
+			<div class="order-list">
+			<?php foreach ($list as $k => $v): ?>
+				<!--  -->
+				<p class="sys-item">
+					<span class="item-name">订单编号</span>
+					<span class="ell"><{$v.sn}></span>
+				</p>
+				<p class="sys-item">
+					<span class="item-name">客户信息</span>
+					<span class="ell"><{$v.c_name}>&nbsp;&nbsp;&nbsp;<{$v.tel}></span>
+				</p>
+				<p class="sys-item">
+					<span class="item-name">房屋地址</span>
+					<span class="ell"><{$v.province}>-<{$v.city}>-<{$v.district}>-<{$v.address}></span>
+				</p>
+				<p class="sys-item">
+					<span class="item-name">下单账号</span>
+					<span class="ell"><{$v.u_name}></span>
+				</p>
+				<p class="last-row">
+					<a href="<{:U('Order/detail',array('id'=>$v['id']))}>" class="orderdetail-btn">订单详情</a>
+				</p>
+			<?php endforeach ?>
+			<{$page}>
+			</div>	
+			
+		</div>
+	</section>
+<script type="text/javascript">
+	/*function getCompanyData(id){
+		$.getJSON('<{:U("getCompanyData")}>',{'id':id},function(re){
+			$('#real_name').html('<option value="">请选择...</option>');
+			for (var i = 0; i < re.length; i++) {
+				$('#real_name').append('<option value="'+re[i].id+'">'+re[i].real_name+'</option>');
+			}
+			
+		})
+	}*/
+
+	function buttt(){
+		var data = $('#form1').serializeArray();
+		$.get('<{:U("getOrderList")}>',{'data':data},function(re){
+			$('.order-list').html(re);
+		})
+	}
+
+	$(".page a").click(function(){
+        var p = $(this).attr("data-page");
+        var data = $("#form1").serializeArray();
+        $.get("<{:U('getOrderList')}>",{"data":data,"p":p},function(re){
+            $(".order-list").html(re);
+        })
+    })
+</script>
+</body>
+</html>

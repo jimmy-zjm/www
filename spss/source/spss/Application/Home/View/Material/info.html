@@ -1,0 +1,386 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/public.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/dibandetail.css" />
+	
+<!--content-->
+<div class="content" >
+	<div class="zhankong"></div>
+	<div class="con-top">
+		<div class="con-top-left">
+			<p>
+				<img id="img1" src="<?= C(TP_APP_URL).'/Public/Uploads/'.$img['0']['url'] ?>" alt="" />
+			</p>
+			<p>
+				<?php foreach ($img as $k => $v): ?>
+					<a class="simg"  onclick="addborder(<{$k}>,'<?= C(TP_APP_URL).'/Public/Uploads/'.$v['url'] ?>')"><img src="<?= C(TP_APP_URL).'/Public/Uploads/'.$v['url'] ?>" alt="" /></a>
+				<?php endforeach ?>
+			</p>
+			<p>
+				<a href="javascript:;" onclick='fenxiang()'>分享</a>
+				<span onclick="changecolor()"><a id="shoucang" <?php if(!empty($collect)){ ?> class='bianse' <?php } ?> href="javascript:;">★</a>收藏商品</span>
+				<span>(<a href="javascript:;" id='count'><{$count}></a>人气)</span>
+				<div style='display: none;margin-left: 20px;' class="bdsharebuttonbox" data-tag="share_1">
+					<a class="bds_mshare" data-cmd="mshare"></a>
+					<a class="bds_qzone" data-cmd="qzone" href="#"></a>
+					<a class="bds_tsina" data-cmd="tsina"></a>
+					<a class="bds_baidu" data-cmd="baidu"></a>
+					<a class="bds_renren" data-cmd="renren"></a>
+					<a class="bds_tqq" data-cmd="tqq"></a>
+					<a data-cmd="more">更多</a>
+				</div>
+			</p>
+		</div>
+		<div class="con-top-right">
+			<p class="con-top-right-1"><{$data.goods_title}></p>
+			<p class="con-top-right-2"><{$data.pro_info}></p>
+			<p class="con-top-right-3"><span>价格</span><span>￥：<span id='price1'><{$data.market_price}></span></span></p>
+			<p class="con-top-right-4"><span>促销价</span><span>￥：<span id='price2'><{$data.shop_price}></span></span></p>
+			<!-- <p></p> -->
+			
+			<?php foreach ($list as $k => $v): ?>
+				<?php if ($v['mode'] == 1 && !empty($v['attr']) && !empty($v['name'])): ?>
+				<p class="con-top-right-5-left key<{$k}>"><span><{$v.name}></span>
+					<?php foreach ($v['attr'] as $key=>$val): ?>
+						<?php if($v['mode']==1){ ?>
+						<span class=" val<{$k}>" <?php if (!empty($price[$val['id']])): ?> price="<{$price[$val['id']]}>" <?php endif ?> onclick="imgaddborder(this,<{$k}>,<{$val.id}>)" ><{$val['attr_value']}></span>
+						<?php }else{ ?>
+						<i class="fukuanhou" ><{$val.attr_value}></i>
+						<?php } ?>
+					<?php endforeach ?>
+				</p>
+				<?php endif ?>
+			<?php endforeach ?>
+			
+			<p class="con-top-right-6"><span>数量</span><span class="jiajiancount"><input type="text" class="inputcount" id='num' value='1' onchange="num(this.value)" /><span class="jiajianbtn"><a class="jia" onclick="addcount()">+</a><a class="jian" onclick="jiancount()">-</a></span>件<!-- <{$data.after_sales_support|default="件"}> --></span></p>
+			<p class="fuwu fuwu1 con-top-right-7"><span>服务说明</span></p>
+			<p class="fuwu con-top-right-8"><{$data.package_list}></p>
+			<p class="con-top-right-9"><a href="javascript:;" id='ljg' onclick='shopCar(1)'>立即购买</a><a href="javascript:;" name="加入购物车" onclick='shopCar(2)'>加入购物车</a></p>
+		</div>
+	</div>
+	
+	<div class="con-bottom">
+		<ul class="con-bottom-tab">
+			<li onclick="dibandetailtabs(this,0)" class="tabli" style="color: red;border-color: red;">产品详情</li>
+			<li onclick="dibandetailtabs(this,1)" class="tabli">累计评价 <span><?= $commentCount ?></span></li>
+			<li onclick="dibandetailtabs(this,2)" class="tabli">服务说明</li>
+		</ul>
+		<div class="tabs tabs1" id="tab1">
+			
+			<div class="tab1-con1" id="tab1con1" style='padding-top:25px '>
+				<h4 style='padding-left:10px;padding-bottom:15px;'>产品参数：</h4>
+					<?php foreach ($list as $k => $v): ?>
+						<?php if ($v['mode'] == 0 && !empty($v['attr']) && !empty($v['name'])): ?>
+						<div class="con-top-right-5-left key<{$k}>" style='width:30%;float:left;'><i class="fukuanhou"><{$v.name}>:</i>
+							<?php foreach ($v['attr'] as $key=>$val): ?>
+								<i class="fukuanhou" ><{$val.attr_value}></i>
+							<?php endforeach ?>
+						</div>
+						<?php endif ?>
+					<?php endforeach ?>
+					<div class="clear"></div>
+					<?= html_entity_decode($data['goods_detail'],ENT_QUOTES,'UTF-8'); ?>
+			</div>
+			<!-- <div class="tab1-con2 tab1-con-img" id="tab1con2">
+				<?= html_entity_decode($data['particulars'],ENT_QUOTES,'UTF-8'); ?>
+			</div> -->
+			<!-- <div class="tab1-con3 tab1-con-img" id="tab1con3">
+				<fieldset>
+				    <legend align="center">&nbsp;商品实拍&nbsp;</legend>
+				</fieldset>
+				
+			</div>
+			<div class="tab1-con4 tab1-con-img" id="tab1con4">
+				<fieldset>
+				    <legend align="center">&nbsp;商品细节&nbsp;</legend>
+				</fieldset>
+			</div>
+			<div class="tab1-con5 tab1-con-img" id="tab1con5">
+				<fieldset>
+				    <legend align="center">&nbsp;服务质量&nbsp;</legend>
+				</fieldset>
+			</div>
+			<div class="tab1-con6 tab1-con-img" id="tab1con6">
+				<fieldset>
+				    <legend align="center">&nbsp;买家须知&nbsp;</legend>
+				</fieldset>
+			</div> -->
+			<div class="tab1-con7 tab1-con-img" id="tab1con7">
+				<fieldset>
+				   <legend align="center">&nbsp;促销专区&nbsp;</legend>
+				</fieldset>
+				<?php foreach ($goods as $k => $v): ?>
+					<a href="<{:U('info',array('id'=>$v['id']))}>" style="display: block;">
+					<li>
+						<p><img src="<?= C(TP_APP_URL).'/Public/Uploads/'.$v['face_image'] ?>" alt="" /></p>
+						<p><{$v.goods_title}></p>
+						<p>原价<span><{$v.market_price}></span>元/㎡</p>
+						<p><span><{$v.shop_price}></span>元/㎡</p>
+					</li>
+					</a>
+				<?php endforeach ?>
+			</div>
+			<!-- <div class="tab1-fixed">
+				<p onclick="tabfixed(0)"><span ><img class="fixspan" src="__PUBLIC__/img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con1">商品参数</a></p>
+				<p onclick="tabfixed(1)"><span ><img class="fixspan" src="__PUBLIC__/img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con2">商品情景</a></p>
+				<p onclick="tabfixed(2)"><span ><img class="fixspan" src="__PUBLIC__/img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con3">商品实拍</a></p>
+				<p onclick="tabfixed(3)"><span ><img class="fixspan" src="__PUBLIC__/img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con4">商品细节</a></p>
+				<p onclick="tabfixed(4)"><span ><img class="fixspan" src="__PUBLIC__/img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con5">服务质量</a></p>
+				<p onclick="tabfixed(5)"><span ><img class="fixspan" src="__PUBLIC__/img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con6">买家须知</a></p>
+				<p onclick="tabfixed(6)"><span ><img class="fixspan" src="__PUBLIC__/img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con7">促销专区</a></p>
+			</div> -->
+		</div>
+		<div class="tabs tabs2" >
+			<div>
+				<?php if(empty($star)){ ?>
+				暂无评价
+				<?php }else{ ?>
+				<span><{$star}>%</span>好评度
+				<?php } ?>
+			</div>
+			<div id='page'>
+			<?php foreach ($comment as $k => $v): ?>
+				<div class="tabs2-con2">
+					<p class="tabs2-con2-1">
+						<span class="tabs2-con2-1-txt1"><{$v.content}></span>
+						<span class="tabs2-con2-1-img1">
+							<?php foreach ($v['imgArray'] as $key => $val): ?>
+								<img class="activeimg" index="0" onclick="activeimg(this)" src="__PUBLIC__/Uploads/<{$val}>" alt="" />
+							<?php endforeach ?>
+						</span>
+						<span class="tabs2-con2-1-img2"><img class="bigimg" src="" alt="" /></span>
+					</p>
+					<p class="tabs2-con2-2">
+						<span><?php for ($i=0; $i < $v['star']; $i++) { ?>★<?php } ?></span>
+						<span><?= date('Y-m-d H:i:s',$v['add_time']) ?></span>
+					</p>
+					<p class="tabs2-con2-3">
+						<span><img src="__PUBLIC__/Uploads/<{$v.face}>" width='60' height='60' alt="" /></span>
+						<span><{$v.user_name}></span>
+					</p>
+				</div>
+			<?php endforeach ?>
+			<{$page}>
+			</div>
+		</div>
+		
+		<div class="tabs tabs3" id="tab3">
+			<div class="tab1-con1" id="tab1con1">
+				<?= html_entity_decode($data['goods_explain'],ENT_QUOTES,'UTF-8'); ?>
+			</div>
+		</div>
+	</div>
+</div>
+<input type="hidden"  id='market_price' value='<{$data.market_price}>'>
+<input type="hidden"  id='shop_price' value='<{$data.shop_price}>'>
+<?php foreach ($list as $k => $v): ?>
+	<?php if ($v['mode']==1): ?>
+		<input type="hidden" key='<{$k}>' class='attr' id="attr<{$k}>" value=''>
+	<?php endif ?>
+<?php endforeach ?>
+
+<script src="__PUBLIC__/js/headfoot.js"></script>
+
+<script>
+//	加减数量bg
+	function addcount(){
+		var add=parseInt($("#num").val());
+		add=add+1;
+		if(add<=0){
+			$("#num").val(0);
+		}else{
+			$("#num").val(add);
+		}
+	}
+	function jiancount(){
+		var add=parseInt($("#num").val());
+		add=add-1;
+		if(add<=0){
+			$("#num").val(0);
+		}else{
+			$("#num").val(add);
+		}
+	}
+//	加减数量end
+	function shopCar(tz){
+		var attr   = new Array();
+		var length = $('.attr').length;
+		for (var i = 0; i < length; i++) {
+			var k   = $('.attr').eq(i).attr('key');
+			var v  = $('#attr'+k).val();
+			attr[i] = [k,v];
+			if (v=='') {
+				var key = $('.key'+k+' span').html();
+				alert('请选择'+key);
+				return;
+			}
+		}	
+		var num = $('#num').val();
+		if (num < 1) {
+			alert('数量不能小于1');
+			return;
+		}
+		$.post("<{:U('goCart')}>",{'attr':attr,'id':<{$_GET.id}>,'num':num,'tz':tz},function(data){
+			if(tz==1){
+				if(isNaN(data)) {
+					if (data=='login') window.location.href="<{:U('User/login')}>";
+					else alert(data);
+				}else  window.open("<{:U('Order/index')}>?goods_id="+data+"&num="+num);
+			}else{
+				if(!isNaN(data)) alert('添加成功');
+				else alert(data);
+			}
+		})
+	}
+
+
+	$('.page a').click(function(){
+		var p = $(this).attr('data-page');
+		$.get("<{:U('page')}>",{'id':<{$_GET.id}>,'p':p},function(data){
+			$('#page').html(data);
+		})
+	})
+
+	window.onscroll=function(){
+			var tabtop=$("#tab1")[0].offsetTop;
+			var doctop=$(window).scrollTop();
+			var stop=tabtop-doctop;
+			if(doctop>=stop){
+				$(".tab1-fixed").css("position","fixed");
+				$(".tab1-fixed").css("top",300+"px");
+				$(".tab1-fixed").css("right",208+"px");
+			}else{
+				$(".tab1-fixed").css("position","absolute");
+				$(".tab1-fixed").css("top",0+"px");
+				$(".tab1-fixed").css("right",0+"px");
+			}
+			
+		}
+	function tabfixed(n){
+		for(var i=0;i<7;i++){
+			if(i==n){
+				$(".fixspan").eq(i).attr("src","__PUBLIC__/img/danxuan-btn2.jpg");
+				$(".fixa").eq(i).css("color","red");
+			}else{
+				$(".fixspan").eq(i).attr("src","__PUBLIC__/img/danxuan-btn.jpg");
+				$(".fixa").eq(i).css("color","#666");
+			}
+		}
+	}
+	function dibandetailtabs(n,z){
+		$(".tabli").css("border-color","#666").css("color","#aaa");
+		$(n).css("border-color","red").css("color","red");
+		if(z==0){
+			$(".tabli").eq(1).css("border-left","none");
+			$(".tabli").eq(0).css("border-right","1px solid red");
+			$(".tabs1").css("display","block");
+			$(".tabs2").css("display","none");
+			$(".tabs3").css("display","none");
+		}else if(z==1){
+			$(".tabli").eq(0).css("border-right","none");
+			$(".tabli").eq(1).css("border-left","1px solid red");
+			$(".tabli").eq(2).css("border-left","1px solid red");
+			$(".tabli").eq(1).css("border-right","none");
+			$(".tabs1").css("display","none");
+			$(".tabs2").css("display","block");
+			$(".tabs3").css("display","none");
+		}else{
+			$(".tabli").eq(0).css("border-right","none");
+			$(".tabli").eq(1).css("border-left","1px solid #666");			
+			$(".tabli").eq(1).css("border-right","none");
+			$(".tabli").eq(2).css("border-left","1px solid red");
+			$(".tabs1").css("display","none");
+			$(".tabs2").css("display","none");
+			$(".tabs3").css("display","block");
+		}
+	}
+	function addborder(n,dizhi){
+		for(var i=0;i<5;i++){
+			if(i==n){
+				$(".simg").eq(i).css("border-color","red")
+				$("#img1").attr("src",dizhi)
+			}else{
+				$(".simg").eq(i).css("border-color","#fff")
+			}
+			
+		}
+	}
+	function changecolor(){
+		var attr   = new Array();
+		var length = $('.attr').length;
+		for (var i = 0; i < length; i++) {
+			var k   = $('.attr').eq(i).attr('key');
+			var v  = $('#attr'+k).val();
+			attr[i] = [k,v];
+			if (v=='') {
+				var key = $('.key'+k+' span').html();
+				alert('请选择'+key);
+				return;
+			}
+		}	
+		$.post('<{:U("collect")}>',{'attr':attr,'id':<?= $_GET['id'] ?>},function(data){
+			if (data == 1) {
+				$("#shoucang").addClass("bianse");
+				var count = parseInt($("#count").text()) + parseInt(1);
+				$("#count").text(count);
+				alert('收藏成功');
+			}else alert(data);
+		})
+	}
+	function imgaddborder(t,k,id){
+		$('.val'+k).removeClass("imgborder");
+		$(t).addClass("imgborder");
+		$('#attr'+k).val(id);
+		var length = $('.imgborder').length;
+		var price  = 0;
+		for (var i = 0; i < length; i++) {
+			var pr = $('.imgborder').eq(i).attr('price')
+			if (pr != undefined) price += parseFloat(pr);
+		}
+		var market_price = $('#market_price').val();
+		var shop_price   = $('#shop_price').val();
+		var price1 		 = parseFloat(market_price) + price;
+		var price2   	 = parseFloat(shop_price) + price;
+		$('#price1').html(price1.toFixed(2));
+		$('#price2').html(price2.toFixed(2));
+	}
+
+
+	function num(t){
+		if (t<1) $('#num').val('1');
+	}
+
+	function activeimg(t){	
+		var count = $(t).attr("index");
+		var img   = $(t).attr("src");
+		var reimg = $(t).parent().next().children().attr("src");
+		// $(".bigimg").attr("src",img);
+		$(t).parent().next().children().attr("src",img);
+		if (img == reimg) {
+			$(t).parent().next().children().attr("src",'');
+			$(t).parent().next().css("display","none");
+			$(t).parent().parent().next().next().css("margin-top","30px");
+			$(t).parent().parent().next().css("margin-top","30px");
+		}else{
+			$(t).parent().next().css("display","block");
+			$(t).parent().parent().next().next().css("margin-top","150px");
+			$(t).parent().parent().next().css("margin-top","150px");
+		}
+	}
+
+	function fenxiang(){
+		$('.bdsharebuttonbox').toggle();
+	}
+
+</script>
+
+<script>
+
+	window._bd_share_config = {
+		common : {
+			bdUrl : "http://www.myspss.com__APP__/<{$_SESSION['url']}>", 
+		},
+		share : [{
+			"bdSize" : 16
+		}],
+	}
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>

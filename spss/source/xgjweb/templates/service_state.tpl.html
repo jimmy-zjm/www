@@ -1,0 +1,217 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/servicestyle.css" >
+
+
+
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!-- 通用Jquery -->
+
+<script type="text/javascript">
+$(function(){
+
+	//简洁用户评分代码
+	$(".pfxtFen li").click(function(){
+		$(this).addClass("pfxtCur");
+		$(this).prevAll().addClass("pfxtCur");
+		$(this).nextAll().removeClass("pfxtCur");
+	});
+		
+	$(".pfxtFen li").dblclick(function(){
+		$(".pfxtFen li").removeClass("pfxtCur");
+	});
+	
+})
+</script>
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<!-- 中间楼层 -->
+<div class="service-center">
+	<div class="clear2"></div>
+    
+    <div class="service-center-bk">
+        {:include file="common/service.html":}
+        
+        <div class="service-center-right">
+        	<div class="service_state-center">
+            	<div class="clear27"></div>
+                
+            	<div class="service_state-center-title">
+                	<span>
+                    	服务状态
+                    </span>
+                </div>
+                
+                <div class="service_state-center-table">
+                	<div class="clear36"></div>
+                    
+                	<div class="service_state-center-table-img">
+                    	<div class="service_state-center-table-img-demo01 service_state-center-table-img-demo01-lan01"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo01 service_state-center-table-img-demo01-hui01"-->
+                        	<span>
+                            	在线报修
+                            </span>
+                        </div>
+                        
+                        <div class="service_state-center-table-img-demo02 service_state-center-table-img-demo02-lan"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo02 service_state-center-table-img-demo02-hui"-->
+                        </div>                        
+                        
+                        <div class="service_state-center-table-img-demo01 service_state-center-table-img-demo01-lan02"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo01 service_state-center-table-img-demo01-hui02"-->
+                        	<span>
+                            	线下预约
+                            </span>
+                        </div>
+                        
+                        <div class="service_state-center-table-img-demo02 service_state-center-table-img-demo02-lan"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo02 service_state-center-table-img-demo02-hui"-->
+                        </div>
+                        
+                        <div class="service_state-center-table-img-demo01 service_state-center-table-img-demo01-lan03"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo01 service_state-center-table-img-demo01-hui03"-->
+                        	<span>
+                            	上门服务
+                            </span>
+                        </div>
+                        
+                        <div class="service_state-center-table-img-demo02 service_state-center-table-img-demo02-lan"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo02 service_state-center-table-img-demo02-hui"-->
+                        </div>
+                        
+                        <div class="service_state-center-table-img-demo01 service_state-center-table-img-demo01-lan04"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo01 service_state-center-table-img-demo01-hui04"-->
+                        	<span>
+                            	服务评价
+                            </span>
+                        </div>
+                        
+                        <div class="service_state-center-table-img-demo02 service_state-center-table-img-demo02-lan"><!--进行判断，如果是没有进行到这步，calss="service_state-center-table-img-demo02 service_state-center-table-img-demo02-hui"-->
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear15"></div>
+                    
+                    <div class="service_state-center-table-list service_state-center-table-list1"><!--此处进行判断，如果是第一步，调用class="service_state-center-table-list service_state-center-table-list1" ，如果是第二步，调用class="service_state-center-table-list service_state-center-table-list2",，如果是第三步，调用class="service_state-center-table-list service_state-center-table-list3"-->
+                        <div class="service_state-center-table-demo">
+                            <div class="service_state-center-table-demo-01">
+                                在线报修
+                            </div>
+                            
+                            <div class="service_state-center-table-demo-02">
+                                <span>
+                                    2016-06-06
+                                </span>
+                                
+                                <span>
+                                    周四
+                                </span>
+                                
+                                <span>
+                                    09：16：05
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="service_state-center-table-demo">
+                            <div class="service_state-center-table-demo-01">
+                                线下预约
+                            </div>
+                            
+                            <div class="service_state-center-table-demo-02">
+                                <span>
+                                    2016-06-06
+                                </span>
+                                
+                                <span>
+                                    周四
+                                </span>
+                                
+                                <span>
+                                    09：16：05
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="service_state-center-table-demo">
+                            <div class="service_state-center-table-demo-01">
+                                上门服务
+                            </div>
+                            
+                            <div class="service_state-center-table-demo-02">
+                                <span>
+                                    2016-06-06
+                                </span>
+                                
+                                <span>
+                                    周四
+                                </span>
+                                
+                                <span>
+                                    09：16：05
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="service_state-center-table-demo">
+                            <div class="service_state-center-table-demo-01">
+                                服务评价
+                            </div>
+                            
+                            <div class="service_state-center-table-demo-03">
+                            	<div class="service_state-center-table-demo-03-01">
+                                    <ul class="pfxtFen" title="双击取消评分">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </div>
+                                
+                                <div class="service_state-center-table-demo-03-02">
+                                	<input type="button" value="提交"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+{:include file="footer.tpl.html":}
+
+
+
+
+
+<script>
+$( "#tabs01" ).tabs();
+</script>
+
+<!--弹出产品说明书-->
+{:include file="common/manual.html":}
+<!--弹出产品说明书end-->
+
+</body>
+</html>

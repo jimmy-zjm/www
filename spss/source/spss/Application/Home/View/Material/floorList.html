@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="__PUBLIC__/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/producelist.css"/>
+<div class="top"><img src="<{$image}>" alt="" /></div>
+<div class="main">
+	<div class="content">
+
+		<div class="cont1">
+			<p><input type="text" id='key' name='keyword' onkeydown="keydown()" value="<?= $_GET['keyword'] ?>"><span onclick='key()'></span></p>
+		</div>
+
+		<?php foreach ($list as $k => $v): ?>
+			<div class="cont2">
+				<span><{$k}></span>
+				<?php foreach ($v as $val): ?>
+					<span style="<?= $val['id']==$_GET['id']?'color:red':'color:#000' ?>" class="changered" value="<{$val.id}>"><{$val.name}></span>
+				<?php endforeach ?>
+			</div>
+		<?php endforeach ?>
+		<div class="cont4">
+			<?php foreach ($data as $k => $v): ?>
+				<li style="margin-right: 18px"> 
+					<a href="<{:U('info',array('id'=>$v['id']))}>">
+						<p><img src="<?= C(TP_APP_URL).'/Public/Uploads/'.$v['face_image'] ?>" alt="" /></p>
+						<p><{$v.goods_title}></p>
+						<p>原价<span><{$v.market_price}></span>元/㎡</p>
+						<p><span><{$v.shop_price}></span>元/㎡</p>
+					</a>
+				</li>
+			<?php endforeach ?>
+		</div>
+		<{$page}>
+		<div class="zhankong"></div>
+	</div>
+</div>
+<script>
+	$(".changered").click(function(){
+		href('id',$(this).attr('value'));
+	})
+
+	function key(){
+		href('keyword',$('#key').val());
+	}
+
+	function href(k,v){
+		location.href = "__APP__/Material/floorList/"+k+"/"+v;
+	}
+
+	function keydown() {
+		var currKey=event.keyCode||event.which||event.charCode;//支持IE、FF 
+		if (currKey == 13) key();
+	}
+</script>

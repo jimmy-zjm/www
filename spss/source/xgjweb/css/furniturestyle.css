@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+.furniture{
+	width:563px;
+	height:400px;
+	padding-top:100px;
+	margin:0px auto;
+	
+}
+.furniture-top{
+	width:563px;
+	height:191px;
+	margin:0px auto;
+	background:url(../images/jjjc.jpg) no-repeat;
+}
+.furniture-bot{
+	width:150px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	margin:50px auto 0;
+	border:1px solid #32bfc6;
+
+}
+.furniture-bot a{
+	color:#383838;
+	font-size:18px;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/shopcar1.css" />
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="empty">
+				
+			</div>
+			<div class="tabtit">
+				<a href="javascript:;">1.我的购物车</a>
+				<a href="javascript:;">2.填写订单信息</a>
+				<a href="javascript:;">3.完成支付</a>
+			</div>
+			<div class="tab1">
+				<div class="tab1-info">
+					<p class="tab1-info-tit">
+						<span class="tab1-info-tit-border">商品信息</span>
+						<span class="tab1-info-tit-border">单价</span>
+						<span class="tab1-info-tit-border">数量</span>
+						<span class="tab1-info-tit-border">金额</span>
+						<span >操作</span>
+					</p>
+					<p class="tab1-info-con">
+						<span><input type="checkbox" id="check1"></span>
+						<span><img src="img/shopcar-img1_03.png" alt="" /></span>
+						<span>商品信息</span>
+						<span></span>
+						<span >￥：<span class="price">1000.00</span></span>
+						<span class="shopcount"><a href="javascript:;" onclick="reduce(0)">-</a><a href="javascript:;" class="shownum">1</a><a href="javascript:;" onclick="add(0)">+</a></span>
+						<span >￥：<span class="sumprice">1000.00</span></span>
+						<span class="caozuo"><a href="javascript:;">收藏</a><a href="javascript:;">删除</a></span>
+					</p>
+					<p class="tab1-info-con">
+						<span><input type="checkbox" id="check2"></span>
+						<span><img src="img/shopcar-img1_03.png" alt="" /></span>
+						<span>商品信息</span>
+						<span></span>
+						<span >￥：<span class="price">1000.00</span></span>
+						<span class="shopcount"><a href="javascript:;" onclick="reduce(1)">-</a><a href="javascript:;" class="shownum">1</a><a href="javascript:;" onclick="add(1)">+</a></span>
+						<span >￥：<span class="sumprice">1000.00</span></span>
+						<span class="caozuo"><a href="javascript:;">收藏</a><a href="javascript:;">删除</a></span>
+					</p>
+				</div>
+				<p class="jiesuan caozuo">
+					<span><input type="checkbox" id="allc" onclick="allcheck()"></span>
+					<a href="javascript:;">收藏</a>
+					<a href="javascript:;">删除</a>
+					<span class="issum">已选商品:<span class="zonghe">2</span>件</span>
+					<span class="sum issum">合计金额:￥<span class="zonghe">1000.00</span></span>
+					<a href="javascript:;">结算</a>
+				</p>
+			</div>
+			<div class="empty2">
+				
+			</div>
+		</div>
+		<script>
+			function allcheck(){
+				if($("#allc")[0].checked==true){
+					$("#check1")[0].checked="true";
+					$("#check2")[0].checked="true";
+				}
+				if($("#allc")[0].checked==false){
+					$("#check1")[0].checked="";
+					$("#check2")[0].checked="";
+				}
+			}
+			function reduce(n){
+				var show=parseInt($(".shownum").eq(n).html());
+				var price=parseFloat($(".price").eq(n).html());
+				var sumprice=parseFloat($(".sumprice").eq(n).html());
+				if(show<=0){
+				}else{    
+					show=show-1;
+					$(".shownum").eq(n).html(show);
+					$(".sumprice").eq(n).html(sumprice-price);
+				}
+			}
+			function add(n){
+				var show=parseInt($(".shownum").eq(n).html());
+				var price=parseFloat($(".price").eq(n).html());
+					show=show+1;
+					$(".shownum").eq(n).html(show);
+					$(".sumprice").eq(n).html(show*price);
+			}
+			
+		</script>
+	</body>
+</html>

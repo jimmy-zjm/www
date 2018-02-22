@@ -1,0 +1,1159 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!-- 通用Jquery -->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+
+
+
+    <div class="user-right">
+    	<div class="user_homeorder-title">
+        	<span>
+            	健康舒适家订单
+            </span>
+        </div>
+        
+        <!--家居订单列表-->
+        {:if !empty($orderInfo):}  
+        <div class="user_homeorder-order">
+        	<div class="user_homeorder-order-title">
+            	<div class="user_homeorder-order-title-01">
+                	订单号
+                </div>
+                    
+                <div class="user_homeorder-order-title-02">
+                	总价
+                </div>
+                
+                <div class="user_homeorder-order-title-03">
+                	分期状态
+                </div>
+                
+                <div class="user_homeorder-order-title-04">
+                	金额
+                </div>
+                
+                <div class="user_homeorder-order-title-05">
+                	备注
+                </div>
+                
+                <div class="user_homeorder-order-title-06">
+                	施工阶段
+                </div>
+                
+                <div class="user_homeorder-order-title-07">
+                	支付状态
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="user_homeorder-order-center">
+            	<div class="user_homeorder-order-center-01">
+                	{:$orderInfo.order_code:}
+                </div>
+                
+                <div class="user_homeorder-order-center-02">
+                	￥{:$orderInfo.goods_amount:}<br/>
+                </div>
+                
+                <div class="user_homeorder-order-center-03">                
+                	<div class="user_homeorder-order-center-03-input">
+                    	<div class="user_homeorder-order-center-03-input-checkbox">
+                        	<input {:if empty($orderInfo['adjust_goods_amount']):} id="input1" onclick="c()" name='ts[]'{:/if:} type="checkbox" {:if !empty($orderInfo['adjust_goods_amount']):} disabled {:else if $orderInfo['pay_status'] gt 0:} disabled {:else if $orderInfo['pay_status'] eq 0:}{:/if:} />
+                        </div>
+                        
+                        <div class="user_homeorder-order-center-03-input-span">
+                        	500元
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="user_homeorder-order-center-03-input">
+                    	<div class="user_homeorder-order-center-03-input-checkbox">
+                        	<input {:if empty($orderInfo['adjust_goods_amount']):} id="input2" onclick="a()" name='ts[]'{:/if:} type="checkbox" {:if $orderInfo['pay_status'] eq 1 or $orderInfo['pay_status'] eq 3 or $orderInfo['pay_status'] eq 4 or !empty($orderInfo['adjust_goods_amount']):}disabled{:else :}{:/if:} />
+                        </div>
+                        
+                        <div class="user_homeorder-order-center-03-input-span">
+                        	第二笔
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="user_homeorder-order-center-03-input">
+                    	<div class="user_homeorder-order-center-03-input-checkbox">
+                        	<input {:if empty($orderInfo['adjust_goods_amount']):} id="input3" onclick="b()" name='ts[]'{:/if:} type="checkbox"  {:if $orderInfo['pay_status'] eq 1  or  $orderInfo['pay_status'] eq 4 or !empty($orderInfo['adjust_goods_amount']):}disabled{:else:}{:/if:}/>
+                        </div>
+                        
+                        <div class="user_homeorder-order-center-03-input-span">
+                        	第三笔
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-04">
+                	<div class="user_homeorder-order-center-04-demo">
+                    	￥<span {:if empty($orderInfo['adjust_goods_amount']):} id="price1"{:/if:}>500.00</span>
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-04-demo">
+                    	￥<span {:if empty($orderInfo['adjust_goods_amount']):} id="price2"{:/if:}>{:$orderInfo.ecpri:}</span>
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-04-demo">
+                        ￥<span {:if empty($orderInfo['adjust_goods_amount']):} id="price3"{:/if:}>{:if empty($orderInfo.goods_amount):}0{:else:}{:if $orderInfo.trpri lt 0:}0{:else:}{:$orderInfo.trpri:}{:/if:}{:/if:}</span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-05">
+                	<div class="user_homeorder-order-center-05-demo">
+                    	预付款
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                    	辅材/人工费
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                    	主机设备
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-06">
+                	<div class="user_homeorder-order-center-05-demo">
+                    	免费设计
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                    	入场施工
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                    	安装调试
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-07">
+                	<div class="user_homeorder-order-center-07-demo">
+						{:if $orderInfo.pay_status eq 0:}  未支付 {:else:} 已支付  {:/if:}
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-07-demo">
+                    	{:if $orderInfo.pay_status eq 1  or  $orderInfo.pay_status eq 3 or  $orderInfo.pay_status eq 4 :}    已支付  {:else:} 未支付  {:/if:}
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-07-demo">
+						{:if $orderInfo.pay_status eq 1  or  $orderInfo.pay_status eq 4 :}    已支付  {:else:} 未支付  {:/if:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+
+        {:if !empty($orderInfo['adjust_goods_amount']):}    
+        <div class="user_homeorder-title">
+            <span>
+                调整后订单
+            </span>
+        </div>
+        
+        <!--家居调整订单列表--> 
+        <div class="user_homeorder-order">
+            <div class="user_homeorder-order-title">
+                <div class="user_homeorder-order-title-01">
+                    订单号
+                </div>
+                
+                <div class="user_homeorder-order-title-02">
+                    总价
+                </div>
+                
+                <div class="user_homeorder-order-title-03">
+                    分期状态
+                </div>
+                
+                <div class="user_homeorder-order-title-04">
+                    金额
+                </div>
+                
+                <div class="user_homeorder-order-title-05">
+                    备注
+                </div>
+                
+                <div class="user_homeorder-order-title-06">
+                    施工阶段
+                </div>
+                
+                <div class="user_homeorder-order-title-07">
+                    支付状态
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="user_homeorder-order-center">
+                <div class="user_homeorder-order-center-01">
+                    {:$orderInfo.order_code:}
+                </div>
+                
+                <div class="user_homeorder-order-center-02">
+                    ￥{:$orderInfo.adjust_goods_amount + $orderInfo.adjust_cj_money:}<br/>
+                </div>
+                
+                <div class="user_homeorder-order-center-03">                
+                    <div class="user_homeorder-order-center-03-input">
+                        <div class="user_homeorder-order-center-03-input-checkbox">
+                            <input id="input1" onclick="c()" name='ts[]' type="checkbox" {:if $orderInfo['pay_status'] eq 0 :}{:else:}disabled{:/if:} />
+                        </div>
+                        
+                        <div class="user_homeorder-order-center-03-input-span">
+                            500元
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="user_homeorder-order-center-03-input">
+                        <div class="user_homeorder-order-center-03-input-checkbox">
+                            <input id="input2" onclick="a()" name='ts[]' type="checkbox" {:if $orderInfo['pay_status'] eq 1 or $orderInfo['pay_status'] eq 3 or $orderInfo['pay_status'] eq 4:}disabled{:else :}{:/if:} />
+                        </div>
+                        
+                        <div class="user_homeorder-order-center-03-input-span">
+                            第二笔
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="user_homeorder-order-center-03-input">
+                        <div class="user_homeorder-order-center-03-input-checkbox">
+                            <input id="input3" onclick="b()" name='ts[]' type="checkbox"  {:if $orderInfo['pay_status'] eq 1  or  $orderInfo['pay_status'] eq 4 :}disabled{:else:}{:/if:}/>
+                        </div>
+                        
+                        <div class="user_homeorder-order-center-03-input-span">
+                            第三笔
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-04">
+                    <div class="user_homeorder-order-center-04-demo">
+                        ￥<span id="price1">500.00</span>
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-04-demo">
+                        ￥<span id="price2">{:($orderInfo.adjust_goods_amount + $orderInfo.adjust_cj_money)/2:}</span>
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-04-demo">
+                        ￥<span id="price3">{:if empty($orderInfo.adjust_goods_amount) or (($orderInfo.adjust_goods_amount + $orderInfo.adjust_cj_money)/2-500) lt 0:}0{:else:}{:(($orderInfo.adjust_goods_amount + $orderInfo.adjust_cj_money)/2-500):}{:/if:}</span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-05">
+                    <div class="user_homeorder-order-center-05-demo">
+                        预付款
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                        辅材/人工费
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                        主机设备
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-06">
+                    <div class="user_homeorder-order-center-05-demo">
+                        免费设计
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                        入场施工
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-05-demo">
+                        安装调试
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="user_homeorder-order-center-07">
+                    <div class="user_homeorder-order-center-07-demo">
+                        {:if $orderInfo.pay_status eq 0:}  未支付 {:else:} 已支付  {:/if:}
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-07-demo">
+                        {:if $orderInfo.pay_status eq 1  or  $orderInfo.pay_status eq 3 or  $orderInfo.pay_status eq 4 :}    已支付  {:else:} 未支付  {:/if:}
+                    </div>
+                    
+                    <div class="user_homeorder-order-center-07-demo">
+                        {:if $orderInfo.pay_status eq 1  or  $orderInfo.pay_status eq 4 :}    已支付  {:else:} 未支付  {:/if:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            {:/if:}
+            <div class="user_homeorder-order-buy">
+                <div class="user_homeorder-order-buy-01">
+                    <span class="span01">
+                        测量费：
+                    </span>
+                    
+                    <span class="span02">
+                        ￥500.00
+                    </span>
+                    
+                    <span class="span05">
+                    </span>
+                    
+                    <span class="span03">
+                        （预付款支付后
+                    </span>
+                    
+                    <span class="span04">
+                        返还
+                    </span>
+                    
+                    <span class="span03">
+                        500元测量费用）
+                    </span>
+                </div>
+                
+                <div class="user_homeorder-order-buy-02">
+                    <span class="span01">
+                        总&nbsp;&nbsp;&nbsp;价：
+                    </span>
+                    
+                    <span class="span02">
+                        ￥
+                    </span>
+                    
+                    <span class="span02" id="total_price">
+                        0
+                    </span>
+                    
+                    <span class="span05">
+                    </span>
+                    
+                    <span class="span03">
+                        （一次性支付享受
+                    </span>
+                    
+                    <span class="span04">
+                        9.5折
+                    </span>
+                    
+                    <span class="span03">
+                        优惠，或申请
+                    </span>
+                    
+                    <span class="span04">
+                        分期付款
+                    </span>
+                    
+                    <span class="span03">
+                        ）
+                    </span>
+                </div>
+                
+                <div class="user_homeorder-order-buy-03">
+                    {:if $orderInfo.pay_status eq 0:}
+                    <div class="user_homeorder-order-buy-03-01">
+                        <form action="furnishorder.php?cancel" method="post">
+                            <input type="hidden" name="order_id" value="{:$orderInfo.order_id:}"/>
+                            <input class="mmm" type="submit" value="取消订单" id="submit" onclick="return confirm('确认取消订单？')"/>
+                        </form>
+                    </div>
+                    {:/if:}
+                	<div class="user_homeorder-order-buy-03-01">
+                    	<form action="furnishorder.php?orderPay" method="post">
+                            <input type="hidden" name="order_id" value="{:$orderInfo.order_id:}"/>
+                            <input type="hidden" name="pay_method" value="{:$orderInfo.pay_method:}">
+                            <input type="hidden" id="option" name="option" value=""/>
+                            <input type="hidden" id="price" name="price" value=""/>
+                            {:if $orderInfo['pay_status'] eq 1 || $orderInfo['pay_status'] eq 4:}
+                            <input class="mmm" type="button" value="支付" id="submit2"/>
+                            {:else:}
+                            <input class="mmm" type="button" value="支付" id="submit2" onclick="d()"/>
+                            {:/if:}
+                            
+                        </form>
+                    </div>
+                    
+                    <div class="user_homeorder-order-buy-03-02">
+                    	<div class="user_homeorder-order-buy-03-02-01">
+                        	<form action="furnishorder.php?orderPayAll" method="post">
+                                <input type="hidden" name="order_id" value="{:$orderInfo.order_id:}">
+                                <input type="hidden" name="pay_method" value="{:$orderInfo.pay_method:}">
+                                <input type="hidden" id="option1" name="option" value="">
+                                <input type="hidden" id="price11" name="price" value="">
+                                {:if $orderInfo['pay_status'] eq 1 || $orderInfo['pay_status'] eq 4:}
+                                <input class="mmma" id="submit1" type="button" value="全额支付">
+                                {:else:}
+                                <input class="mmma" id="submit1" type="button" value="全额支付" onclick="e()">
+                                {:/if:}
+                                                                    
+                            </form>
+                        </div>
+                        
+                        <div class="user_homeorder-order-buy-03-02-02">
+                        	<span>
+                            	该支付方式将帮助您付清剩余款项
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <!--没有订单的情况-->
+        {:else:}
+        <div class="order-no">
+            <div class="clear2"></div>
+            <div class="clear2"></div>
+            <div class="order-no-img">
+            	<img src="images/133.png"/>
+            </div>
+
+            <div class="clear2"></div>
+
+            <div class="order-no-a">
+            	您买的东西太少了，购物车里空空的，快去挑选合适的商品吧！
+            </div>
+            
+            <div class="clear2"></div>
+            <div class="clear2"></div>
+        </div>
+        {:/if:}
+        <!--没有订单的情况end-->
+        <!--家居订单列表end-->
+        
+        <div class="clear2"></div>
+        <div class="clear27"></div>
+        
+        <!--施工进度-->
+        {:if !empty($countPlan):}
+        <div class="user_homeorder-sgjd">
+        	<div class="user_homeorder-sgjd-title">
+            	<span>
+                	施工进度
+                </span>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="user_homeorder-sgjd-center">
+                <div id="tabs01">
+                    <ul>                        
+                        {:foreach from=$countPlan key=num item=z:}
+                        <li>
+                        	<a href="#tabs-{:$num+1:}">{:$z.alias:}</a>
+                        </li>
+                        {:/foreach:}
+                    </ul>
+                    
+                    <div class="clear"></div>
+                    
+					         {:foreach from=$Plan key=num item=i:}
+                    <div id="tabs-{:$num+1:}">
+                    	<div class="user_homeorder-sgjd-center-name">
+                        	<span>
+                            	{:$countPlan.$num.quote_name:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_homeorder-sgjd-center-title">
+                        	<div class="user_homeorder-sgjd-center-title-01">
+                            	开始时间
+                            </div>
+                            
+                            <div class="user_homeorder-sgjd-center-title-02">
+                            	结束时间
+                            </div>
+                            
+                            <div class="user_homeorder-sgjd-center-title-03">
+                            	任务
+                            </div>
+                            
+                            <div class="user_homeorder-sgjd-center-title-04">
+                            	结果
+                            </div>
+                            
+                            <div class="user_homeorder-sgjd-center-title-05">
+                            	执行人
+                            </div>
+                            
+                            <div class="user_homeorder-sgjd-center-title-06">
+                            	审核人
+                            </div>
+                            
+                            <div class="user_homeorder-sgjd-center-title-07">
+                            	备注
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        {:foreach from=$i key=num item=z:}
+                        <div class="{:if ($num+2)%2==0:}user_homeorder-sgjd-center-list01{:else:} user_homeorder-sgjd-center-list02{:/if:}">  
+                            <div class="user_homeorder-sgjd-center-list-bk">
+                                <div class="user_homeorder-sgjd-center-list-01" title="{:'Y-m-d H:i'|date:$z.start_time:}">
+                                    {:'Y-m-d H:i'|date:$z.start_time:}
+                                </div>
+                                
+                                <div class="user_homeorder-sgjd-center-list-02" title="{:'Y-m-d H:i'|date:$z.end_time:}">
+                                    {:'Y-m-d H:i'|date:$z.end_time:}
+                                </div>
+                                
+                                <div class="user_homeorder-sgjd-center-list-03" title="{:if $z.task_work eq 1:}上门施工{:elseif $z.task_work eq 2:}深度设计{:elseif $z.task_work eq 3:}辅材施工{:else:}主设备安装{:/if:}">
+                                    {:if $z.task_work eq 1:}上门施工
+                                    {:elseif $z.task_work eq 2:}深度设计
+                                    {:elseif $z.task_work eq 3:}辅材施工
+                                    {:else:}主设备安装{:/if:}
+                                </div>
+                                
+                                <div class="user_homeorder-sgjd-center-list-04" title="{:if $z.status eq 1:}未完成{:elseif $z.status eq 2:}已完成{:/if:}">
+                                    {:if $z.status eq 1:}未完成
+                                    {:elseif $z.status eq 2:}已完成{:/if:}
+                                </div>
+                                
+                                <div class="user_homeorder-sgjd-center-list-05" title="{:$z.task_name:}">
+                                    {:$z.task_name:}
+                                </div>
+                                
+                                <div class="user_homeorder-sgjd-center-list-06" title="{:$z.assigner:}">
+                                    {:$z.assigner:}
+                                </div>
+                                
+                                <div class="user_homeorder-sgjd-center-list-07" title="{:if $z.check_status eq 1:}用户未验收{:else:}用户已验收{:/if:}">
+                                    {:if $z.check_status eq 1:}用户未验收
+                                    {:else:}用户已验收{:/if:}
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        {:/foreach:}
+                        
+                        <div class="clear2"></div>
+                    </div>
+                    {:/foreach:}
+                    
+                </div>
+            </div>
+        </div>
+        {:/if:}
+        <!--施工进度end-->
+        
+        <div class="clear12"></div>
+        <div class="clear15"></div>
+        
+        <!--质量审核-->
+        {:if !empty($countPlan):}
+        <div class="user_homeorder-zlsh">
+        	<div class="user_homeorder-zlsh-title">
+            	<span>
+                	质量审核
+                </span>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="user_homeorder-zlsh-center">
+                <div id="tabs02">
+                    <ul>                        
+                        {:foreach from=$countPlan key=num item=z:}
+                        <li>
+                        	<a href="#tabs-{:$num+1:}">{:$z.alias:}</a>
+                        </li>
+                        {:/foreach:}
+                    </ul>
+                    
+                    <div class="clear"></div>
+                    
+					{:foreach from=$Plan key=num item=i:}
+                    <div id="tabs-{:$num+1:}">
+                    	<div class="user_homeorder-zlsh-center-name">
+                        	<span>
+                            	{:$countPlan.$num.quote_name:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_homeorder-zlsh-center-title">
+                        	<div class="user_homeorder-zlsh-center-title-01">
+                            	施工阶段
+                            </div>
+                            
+                            <div class="user_homeorder-zlsh-center-title-02">
+                            	状态
+                            </div>
+                            
+                            <div class="user_homeorder-zlsh-center-title-03">
+                            	审核人
+                            </div>
+                            
+                            <div class="user_homeorder-zlsh-center-title-04">
+                            	验收状态
+                            </div>
+                            
+                            <div class="user_homeorder-zlsh-center-title-05">
+                            	验收凭证
+                            </div>
+                            
+                            <div class="user_homeorder-zlsh-center-title-06">
+                            	时间
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+
+                        {:foreach from=$i key=num item=z:}
+                        <div class="{:if ($num+2)%2==0:}user_homeorder-zlsh-center-list01{:else:} user_homeorder-zlsh-center-list02{:/if:}">  
+                            <div class="user_homeorder-zlsh-center-list-bk">
+                                <div class="user_homeorder-zlsh-center-list-01" title="{:if $z.task_work eq 1:}上门施工{:elseif $z.task_work eq 2:}深度设计{:elseif $z.task_work eq 3:}辅材施工{:else:}主设备安装{:/if:}">
+                                    {:if $z.task_work eq 1:}上门施工
+                                    {:elseif $z.task_work eq 2:}深度设计
+                                    {:elseif $z.task_work eq 3:}辅材施工
+                                    {:else:}主设备安装{:/if:}
+                                </div>
+                                
+                                <div class="user_homeorder-zlsh-center-list-02" title="{:if $z.status eq 1:}未完成{:elseif $z.status eq 2:}已完成{:/if:}">
+                                    {:if $z.status eq 1:}未完成
+                                    {:elseif $z.status eq 2:}已完成{:/if:}
+                                </div>
+                                
+                                <div class="user_homeorder-zlsh-center-list-03" title="{:$z.assigner:}">
+                                    {:$z.assigner:}
+                                </div>
+                                
+                                <div class="user_homeorder-zlsh-center-list-04" title="{:if $z.check_status eq 1:}用户未验收{:else:}用户已验收{:/if:}">
+                                    {:if $z.check_status eq 1:}用户未验收
+                                    {:else:}用户已验收{:/if:}
+                                </div>
+                                
+                                <div class="user_homeorder-zlsh-center-list-05" title="{:if $z.check_proof eq 1:}验收单未上传{:else:}验收单已上传{:/if:}">
+                                    {:if $z.check_proof eq 1:}验收单未上传
+                                    {:else:}验收单已上传{:/if:}
+                                </div>
+                                
+                                <div class="user_homeorder-zlsh-center-list-06" title="{:'Y-m-d H:i'|date:$z.check_time:}">
+                                    {:'Y-m-d H:i'|date:$z.check_time:}
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        {:/foreach:}
+                        
+                        <div class="clear2"></div>
+                    </div>
+                    {:/foreach:}
+                    
+                </div>
+            </div>
+        </div>
+        {:/if:}
+        <!--质量审核end-->
+        
+        <div class="clear12"></div>
+        <div class="clear15"></div>
+        
+        <!--文件区-->
+        {:if !empty($dealerOrderFile):}
+        <div class="user_homeorder-wjq">            
+            <div class="user_homeorder-wjq-center">                        
+                
+                <div id="tabs-{:$num+1:}">
+                    <div class="user_homeorder-wjq-center-name">
+                        <span>
+                            文件区
+                        </span>
+                    </div>
+                    
+                    <div class="user_homeorder-wjq-center-title">
+                        <div class="user_homeorder-wjq-center-title-01">
+                            订单号
+                        </div>
+                        
+                        <div class="user_homeorder-wjq-center-title-02">
+                            名称
+                        </div>
+                        
+                        <div class="user_homeorder-wjq-center-title-03">
+                            类型
+                        </div>
+                        
+                        <div class="user_homeorder-wjq-center-title-04">
+                            上传人
+                        </div>
+                        
+                        <div class="user_homeorder-wjq-center-title-05">
+                            时间
+                        </div>
+                        
+                        <div class="user_homeorder-wjq-center-title-06">
+                            操作
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    {:foreach from=$dealerOrderFile key=num item=z:}
+                    <div class="{:if ($num+2)%2==0:}user_homeorder-wjq-center-list01{:else:} user_homeorder-wjq-center-list02{:/if:}">  
+                        <div class="user_homeorder-wjq-center-list-bk">
+                            <div class="user_homeorder-wjq-center-list-01" title="{:$z.order_code:}">
+                                {:$z.order_code:}
+                            </div>
+                            
+                            <div class="user_homeorder-wjq-center-list-02" title="{:$z.file_name:}">
+                                {:$z.file_name:}
+                            </div>
+                            
+                            <div class="user_homeorder-wjq-center-list-03" title="{:$z.file_type:}">
+                                {:$z.file_type:}
+                            </div>
+                            
+                            <div class="user_homeorder-wjq-center-list-04" title="{:$z.upload_name:}">
+                                {:$z.upload_name:}
+                            </div>
+                            
+                            <div class="user_homeorder-wjq-center-list-05" title="{:'Y-m-d H:i'|date:$z.file_time:}">
+                                {:'Y-m-d H:i'|date:$z.file_time:}
+                            </div>
+                            
+                            <div class="user_homeorder-wjq-center-list-06">
+                                <a href="user.php?downLoad&file_name={:$z.file_name:}">下载</a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    {:/foreach:}
+                    
+                    <div class="clear"></div>
+                    
+                    
+                    <div class="clear2"></div>
+                </div>
+                
+            </div>
+        </div>
+        {:/if:}
+        <!--文件区end-->
+        
+        <div class="clear12"></div>
+        <div class="clear15"></div>
+        
+        <!--产品手册-->
+        {:if !empty($Producttxt):}
+        <div class="user_homeorder-cpsc">            
+            <div class="user_homeorder-cpsc-center">                        
+                
+                <div id="tabs-{:$num+1:}">
+                    <div class="user_homeorder-cpsc-center-name">
+                        <span>
+                            产品手册
+                        </span>
+                    </div>
+                    
+                    <div class="user_homeorder-cpsc-center-title">
+                        <div class="user_homeorder-cpsc-center-title-01">
+                            产品名称
+                        </div>
+                        
+                        <div class="user_homeorder-cpsc-center-title-02">
+                            缩略图
+                        </div>
+                        
+                        <div class="user_homeorder-cpsc-center-title-03">
+                            产品描述
+                        </div>
+                        
+                        <div class="user_homeorder-cpsc-center-title-04">
+                            上传人
+                        </div>
+                        
+                        <div class="user_homeorder-cpsc-center-title-05">
+                            时间
+                        </div>
+                        
+                        <div class="user_homeorder-cpsc-center-title-06">
+                            操作
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+
+                    {:foreach from=$Producttxt key=num item=i:}
+            		{:foreach from=$i key=num item=z:}
+                    <div class="{:if ($num+2)%2==0:}user_homeorder-cpsc-center-list01{:else:} user_homeorder-cpsc-center-list02{:/if:}">  
+                        <div class="user_homeorder-cpsc-center-list-bk">
+                            <div class="user_homeorder-cpsc-center-list-01" title="{:$z.quote_name:}">
+                                {:$z.quote_name:}
+                            </div>
+                            
+                            <div class="user_homeorder-cpsc-center-list-02" title="">
+                                <img src="{:$z.file_img:}" />
+                            </div>
+                            
+                            <div class="user_homeorder-cpsc-center-list-03" title="{:$z.file_describe:}">
+                                {:$z.file_describe:}
+                            </div>
+                            
+                            <div class="user_homeorder-cpsc-center-list-04" title="{:$z.upload_name:}">
+                                {:$z.upload_name:}
+                            </div>
+                            
+                            <div class="user_homeorder-cpsc-center-list-05" title="{:'Y-m-d H:i'|date:$z.file_time:}">
+                                {:'Y-m-d H:i'|date:$z.file_time:}
+                            </div>
+                            
+                            <div class="user_homeorder-cpsc-center-list-06">
+                                <a href="user.php?downLoad&file_name={:$z.file_name:}">下载</a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    {:/foreach:}
+                    {:/foreach:}
+                    
+                    <div class="clear"></div>
+                    
+                    
+                    <div class="clear2"></div>
+                </div>
+                
+            </div>
+        </div>
+        {:/if:}
+        <!--产品手册end-->
+    </div>
+   
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+{:include file='footer.tpl.html':}
+
+<style>
+.jiank_zhif_anniu{
+    width:900px;
+}
+
+.jiank_zhif_anniu-01{
+    float: left;
+    border:1px solid #ff8080;
+    background:#fee1e1;
+    width:80px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+}
+
+.jiank_zhif_anniu-01:hover{
+    background:#f00;
+}
+
+.jiank_zhif_anniu-01:hover input{
+    color:#fff;
+}
+
+.jiank_zhif_anniu-01 input{
+    background:none;
+    border:none;
+    width:80px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    color:#f00;
+}
+
+.jiank_zhif_anniu-02{
+    margin-left:25px;
+    float: left;
+    border:1px solid #ff8080;
+    background:#fee1e1;
+    width:80px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+}
+
+.jiank_zhif_anniu-02:hover{
+    background:#f00;
+}
+
+.jiank_zhif_anniu-02-bk:hover .jiank_zhif_anniu-03-bk{
+    display:block;
+}
+
+.jiank_zhif_anniu-02:hover input{
+    color:#fff;
+}
+
+.jiank_zhif_anniu-02 input{
+    background:none;
+    border:none;
+    width:80px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    color:#f00;
+}
+
+.jiank_zhif_anniu-03-bk{
+    float:left;
+    display:none;
+    line-height:30px;
+}
+
+.jiank_zhif_anniu-03{
+    border:1px solid #ccc;
+    line-height: 30px;
+    padding-left:10px;
+    padding-right:10px;
+    max-width:500px;
+    margin-left:20px;
+}
+
+.jiank_zhif{
+    overflow: initial;
+}
+
+.jiank_zhif_anniu{
+    overflow: initial;
+}
+</style>
+
+<!--jquery-ui调用-->
+<script>
+
+$( "#tabs01" ).tabs();/*点击切换滑动门*/
+$( "#tabs02" ).tabs();/*点击切换滑动门*/
+
+
+</script>
+<!--jquery-ui调用end-->
+
+<script>
+    var input3 = document.getElementById("input3");
+    var input2 = document.getElementById("input2");
+    var input1 = document.getElementById("input1");
+    var price1 = document.getElementById("price1");
+    var price2 = document.getElementById("price2");
+    var price3 = document.getElementById("price3");
+    var total_price = document.getElementById("total_price");
+    var option = document.getElementById("option");
+    var price = document.getElementById("price");
+    var submit = document.getElementById("submit");
+    var submit2 = document.getElementById("submit2");
+
+    var option1 = document.getElementById("option1");
+    var submit1 = document.getElementById("submit1");
+    var price11 = document.getElementById("price11");
+
+    function e(){
+        if (confirm("是否确认全部支付？")){
+            submit1.type = 'submit';
+            if (input1.disabled==true && input2.disabled==false && input3.disabled==false) {
+                price11.value=parseFloat(price2.innerHTML)+parseFloat(price3.innerHTML);
+                option1.value=6;
+            }else if(input1.disabled==true && input2.disabled==true && input3.disabled==false){
+                price11.value=price3.innerHTML;
+                option1.value=4;
+            }else if(input1.disabled==false && input2.disabled==false && input3.disabled==false){
+                price11.value=parseFloat(price1.innerHTML)+parseFloat(price2.innerHTML)+parseFloat(price3.innerHTML);
+                option1.value=7;
+            }else if(input1.disabled==true && input2.disabled==true && input3.disabled==true){
+                submit1.type = 'button';
+                alert('所有款项以全部付完！');
+            }
+        }else{
+            submit1.type = 'button';
+            return false;
+        }
+        
+    }
+
+    function d(){
+        // console.log(submit2.type)
+        if (input1.checked==false && input2.checked==false && input3.checked==false) {
+            submit2.type = 'button';
+            alert('请选择您要支付的款项！');
+        }else{
+            submit2.type = 'submit';
+        }
+    }
+
+    function c(){
+        
+        if (input1.checked==false) {
+            input3.checked = false;
+            input2.checked = false;
+        }
+        if (input1.checked==true) {
+            //alert(price1.innerHTML);
+            total_price.innerHTML=price1.innerHTML;
+            price.value=price1.innerHTML;
+            option.value=2;
+        }else{
+            total_price.innerHTML=0;
+            price.value=0;
+        }
+
+
+    }
+
+    function a(){
+        
+        if (input2.checked==true && input1.disabled==false) {
+            input1.checked = true;
+        }
+
+        if (input2.checked==false) {
+            input3.checked = false;
+        }
+
+        if (input2.checked==true) {
+            if (input1.disabled==true) {
+                total_price.innerHTML=price2.innerHTML;
+                price.value=price2.innerHTML;
+                option.value=3;
+            }else{
+                total_price.innerHTML=parseFloat(price1.innerHTML)+parseFloat(price2.innerHTML);
+                price.value=parseFloat(price1.innerHTML)+parseFloat(price2.innerHTML);
+                option.value=5;
+            }
+        }else{
+            if (input1.disabled==true) {
+                total_price.innerHTML=0;
+                price.value=0;
+            }else{
+                total_price.innerHTML=price1.innerHTML;
+                price.value=price1.innerHTML;
+                option.value=2;
+            }
+        }
+
+    }
+    function b(){
+        
+        if (input3.checked==true) {
+            if (input1.disabled==false) {
+                input1.checked = true;
+            }
+            if (input2.disabled==false) {
+                input2.checked = true;
+            }
+            
+        }
+
+        if (input3.checked==true) {
+            if (input2.checked==true && input1.disabled==false) {
+                total_price.innerHTML=parseFloat(price1.innerHTML)+parseFloat(price2.innerHTML)+parseFloat(price3.innerHTML);
+                price.value=parseFloat(price1.innerHTML)+parseFloat(price2.innerHTML)+parseFloat(price3.innerHTML);
+                option.value=7;
+            }else if(input2.checked==true && input1.disabled==true){
+
+                total_price.innerHTML=parseFloat(price2.innerHTML)+parseFloat(price3.innerHTML);
+                price.value=parseFloat(price2.innerHTML)+parseFloat(price3.innerHTML);
+                option.value=6;
+            }else if(input1.disabled==true && input2.disabled==true){
+                total_price.innerHTML=price3.innerHTML;
+                price.value=price3.innerHTML;
+                option.value=4;
+            }
+        }else{
+            if (input2.checked==true && input1.disabled==false) {
+                total_price.innerHTML=parseFloat(price1.innerHTML)+parseFloat(price2.innerHTML);
+                price.value=parseFloat(price1.innerHTML)+parseFloat(price2.innerHTML);
+                option.value=5;
+            }else if(input2.checked==true && input1.disabled==true){
+                total_price.innerHTML=price2.innerHTML;
+                price.value=price2.innerHTML;
+                option.value=3;
+            }else if(input1.disabled==true && input2.disabled==true){
+                total_price.innerHTML=0;
+                price.value=0;
+            }
+        }
+
+
+    }
+</script>

@@ -1,0 +1,239 @@
+@charset "utf-8";
+/*视频列表页*/
+.video_list-conter{
+	width:1100px;
+	margin:0 auto;}
+	
+.video_list-conter-left{
+	width:210px;
+	float:left;}
+	
+.video_list-conter-left-nev{
+	width:210px;
+	border:1px solid #dcdcdc;
+	position: relative;
+	z-index:17;}
+
+
+.video_list-conter-left-nev_fixed{
+	position: fixed;
+	top: 70px;
+	z-index: 999;
+	width:210px;
+}
+	
+.video_list-conter-left-nev-title{
+	width:210px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+	color:#fff;
+	background:#ffb2a1;}
+	
+.video_list-conter-left-nev-list{
+	width:210px;
+	min-height:335px;
+	margin-top:10px;}
+	
+.video_list-conter-left-nev-list-demo01{
+	width:210px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#3f3e3e;
+	text-align:center;}
+	
+.video_list-conter-left-nev-list-demo01 a{
+	font-size:14px;
+	color:#3f3e3e;}
+	
+.video_list-conter-left-nev-list-demo02{
+	width:210px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#c4bd6f;
+	text-align:center;}
+	
+.video_list-conter-left-nev-list-demo02 a{
+	font-size:14px;
+	color:#1ca6b9;}
+
+.video_list-conter-right{
+	float:right;
+	width:855px;}
+
+.video_list-conter-right-title{
+	width:855px;
+	height:40px;
+	border-bottom:1px solid #666666;
+	font-size:18px;
+	color:#000000;}	
+
+.video_list-conter-right-title span{
+	margin-left:10px;
+	font-size:18px;
+	color:#000000;}	
+	
+.video_list-conter-right-video{
+	width:855px;
+	margin:0 auto;}
+
+.video_list-conter-right-video-play{
+	float:left;}
+	
+.video_list-conter-right-video-play .vjs-default-skin .vjs-big-play-button{
+	top:4em;
+	left:7em;}
+
+.video_list-conter-right-video-list{
+	float:right;
+	width:165px;
+	height:320px;}
+	
+.video_list-conter-right-video-list-demo{
+	width:165px;
+	height:35px;
+	line-height:35px;
+	font-size:16px;
+	color:#666666;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.video_list-conter-right-video-list-demo a{
+	color:#666666;}
+	
+.video_list-conter-right-video-list-demo .a{
+	color:#1ca6b9;}
+	
+.video_list-conter-right-video-list-demo a:hover{
+	color:#1ca6b9;}
+
+.video_list-conter-right-floor-list{
+	width:855px;}
+	
+.video_list-conter-right-floor-list-demo{
+	width:180px;
+	height:160px;
+	float:left;
+	margin-left:20px;
+	margin-right:10px;}
+	
+.video_list-conter-right-floor-list-demo-img{
+	width:180px;
+	height:100px;}
+	
+.video_list-conter-right-floor-list-demo-img img{
+	width:180px;
+	height:100px;}
+	
+.video_list-conter-right-floor-list-demo-img a{
+	display:block;}
+
+.video_list-conter-right-floor-list-demo-name{
+	width:180px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.video_list-conter-right-floor-list-demo-name a{
+	font-size:16px;
+	color:#000000;}
+/*视频列表页end*/	
+	
+	
+
+/*视频详细页*/
+.video_info-conter{
+	width:855px;
+	margin:0 auto;}
+
+.video_info-conter-title{
+	width:855px;
+	height:40px;
+	border-bottom:1px solid #666666;
+	font-size:18px;
+	color:#000000;}	
+
+.video_info-conter-title span{
+	margin-left:10px;
+	font-size:18px;
+	color:#000000;}	
+	
+.video_info-conter-video{
+	width:855px;
+	margin:0 auto;}
+
+	
+.video_info-conter-video-play .vjs-default-skin .vjs-big-play-button{
+	top:7em;
+	left:12em;}
+
+.video_info-conter-video-list{
+	float:right;
+	width:165px;
+	height:320px;}
+	
+.video_info-conter-video-list-demo{
+	width:165px;
+	height:35px;
+	line-height:35px;
+	font-size:16px;
+	color:#666666;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.video_info-conter-video-list-demo a{
+	color:#666666;}
+	
+.video_info-conter-video-list-demo .a{
+	color:#c4bd6f;}
+	
+.video_info-conter-video-list-demo a:hover{
+	color:#c4bd6f;}
+
+.video_info-conter-floor-list{
+	width:855px;}
+	
+.video_info-conter-floor-list-demo{
+	width:180px;
+	height:160px;
+	float:left;
+	margin-left:20px;
+	margin-right:10px;}
+	
+.video_info-conter-floor-list-demo-img{
+	width:180px;
+	height:100px;}
+	
+.video_info-conter-floor-list-demo-img img{
+	width:180px;
+	height:100px;}
+	
+.video_info-conter-floor-list-demo-img a{
+	display:block;}
+
+.video_info-conter-floor-list-demo-name{
+	width:180px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.video_info-conter-floor-list-demo-name a{
+	font-size:16px;
+	color:#000000;}
+/*视频详细页end*/
+
+
+
+
+

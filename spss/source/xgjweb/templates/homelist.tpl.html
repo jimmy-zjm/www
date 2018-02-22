@@ -1,0 +1,702 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/homefurnish.css" ><!-- 第二版home页面CSS -->
+
+<script type="text/javascript" src="js/huadongmen.js"></script><!--滑动门-->
+
+<script src="js/homeFurnish.js" type="text/javascript"></script><!-- 系统选择多选效果-->
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="home_furnish-center">
+	<div class="home_furnish-center-left">
+    	<div class="home_furnish-center-left-title">
+        	功能分类
+        </div>
+        
+        <div class="home_furnish-center-left-list">
+        	<div class="home_furnish-center-left-demo{:if $id eq 1:}02{:/if:}" title="新风/除霾/加温/除湿">
+            	<a href="furnish.php?id=1&cat_id=9" name="furnish_id=1&cat_id=9">
+                	中央新风
+                </a>
+            </div>
+            
+            <div class="home_furnish-center-left-demo{:if $id eq 2:}02{:/if:}" title="净水/软水/超滤/纯水/开水">
+            	<a href="furnish.php?id=2&cat_id=10" name="furnish_id=2&cat_id=10">
+                	中央水处理
+                </a>
+            </div>
+            
+            <div class="home_furnish-center-left-demo{:if $id eq 3:}02{:/if:}" title="制冷+制热">
+            	<a href="furnish.php?id=3&cat_id=11" name="furnish_id=3&cat_id=11">
+                	中央空调
+                </a>
+            </div>
+            
+            <div class="home_furnish-center-left-demo{:if $id eq 4:}02{:/if:}" title="制冷+制热/采暖">
+            	<a href="furnish.php?id=4&cat_id=12" name="furnish_id=4&cat_id=12">
+                	中央空调+采暖
+                </a>
+            </div>
+            
+            <div class="home_furnish-center-left-demo{:if $id eq 5:}02{:/if:}" title="采暖+循环热水">
+            	<a href="furnish.php?id=5&cat_id=13" name="furnish_id=5&cat_id=13">
+                	中央采暖+循环热水
+                </a>
+            </div>
+            
+            <div class="home_furnish-center-left-demo{:if $id eq 6:}02{:/if:}" title="采暖+非循环热水">
+            	<a href="furnish.php?id=6&cat_id=14" name="furnish_id=6&cat_id=14">
+                	中央采暖+非循环热水
+                </a>
+            </div>
+            
+            <div class="home_furnish-center-left-demo{:if $id eq 7:}02{:/if:}" title="循环热水">
+            	<a href="furnish.php?id=7&cat_id=15" name="furnish_id=7&cat_id=15">
+                	循环热水
+                </a>
+            </div>    
+            
+            <div class="home_furnish-center-left-demo{:if $id eq 8:}02{:/if:}" title="中央吸尘">
+            	<a href="furnish.php?id=8&cat_id=16" name="furnish_id=8&cat_id=16">
+                	中央吸尘
+                </a>
+            </div>
+            
+            <div class="home_furnish-center-left-demo" style='display: none;' title="智能/安防">
+            	<a href="javascript:;" name="furnish_id=9&cat_id=17">
+                	智能/安防
+                </a>
+            </div>        
+        </div>
+    </div>
+    
+    <div class="home_furnish-center-right">
+    	<div class="home_furnish-center-right-title">
+        	<span class="span01">
+            	功能知识介绍
+            </span>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="home_furnish-center-right-tabs">            
+            <ul class="tabs" id="tabs2">
+            	{:foreach $content as $k=>$v:}
+                <li>
+                    <a href="javascript:;">
+                    	{:$v['title']:}
+                    </a>
+                </li>
+                {:/foreach:}
+            </ul>
+            
+            <div class="clear15"></div>
+            
+            <ul class="tab_conbox" id="tab_conbox2">
+            	{:foreach $content as $k=>$v:}
+                <li class="tab_con">
+                	<div class="home_furnish-center-right-tabs-introduce">
+                    	<div class="home_furnish-center-right-tabs-introduce-img">
+                        	<img src="{:$v['image']:}"/>
+                        </div>
+                        
+                        <div class="home_furnish-center-right-tabs-introduce-word">
+                        	{:$v['content']:}
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </li>
+                {:/foreach:}
+            </ul>
+        </div>
+        
+        <div class="clear36"></div>
+        <div class="clear36"></div>
+        
+        <div class="home_furnish-center-right-title">
+        	<span class="span01">
+            	功能选择
+            </span>
+            
+            <span class="span02">
+            	选择适合您的健康舒适产品
+            </span>
+        </div>
+        
+        <div class="clear"></div>
+        
+        {:if $id==1:}
+        <!--新风/除霾/除湿/加湿-->
+        <div class="home_furnish-center-right-checkbox xilie5" id="xilie5">
+        	<div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_5_1" name="home_furnish_xl_5_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	热回收新风
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_5_2" name="home_furnish_xl_5_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	膜除霾
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_5_3" name="home_furnish_xl_5_3"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome3'>
+                	电除霾
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_5_4" name="home_furnish_xl_5_4"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome4'>
+                	除湿
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_5_5" name="home_furnish_xl_5_5"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome5'>
+                	加湿
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                	新风/除霾/除湿/加湿
+                </span>
+            </div>
+        </div>        
+        <!--新风/除霾/除湿/加湿end-->
+        
+        {:else if $id==3:}
+        <!--制冷/制热-->
+        <div class="home_furnish-center-right-checkbox xilie1" id="xilie1">
+        	<div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_1_1" name="home_furnish_xl_1_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	中央氟空调
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_1_2" name="home_furnish_xl_1_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	中央水空调
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_1_3" name="home_furnish_xl_1_3"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome3'>
+                	地源空调
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                	制冷/制热
+                </span>
+            </div>
+        </div>
+        
+        <!--制冷/制热end-->
+        
+        {:else if $id==4:}
+        <!--制冷/采暖-->
+        <div class="home_furnish-center-right-checkbox xilie2" id="xilie2">
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_2_1" name="home_furnish_xl_2_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	中央水空调
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_2_2" name="home_furnish_xl_2_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	地源水空调
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_2_3" name="home_furnish_xl_2_3"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome3'>
+                	湿法地板采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_2_4" name="home_furnish_xl_2_4"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome4'>
+                	干法地板采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                	制冷/采暖
+                </span>
+            </div>
+        </div>
+        <!--制冷/采暖end-->
+        
+        {:else if $id==6:}
+        <!--采暖/非循环热水-->
+        <div class="home_furnish-center-right-checkbox xilie3" id="xilie3">
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_3_1" name="home_furnish_xl_3_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	湿法地板采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_3_2" name="home_furnish_xl_3_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	干法地板采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_3_3" name="home_furnish_xl_3_3"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome3'>
+                	散热器采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_3_4" name="home_furnish_xl_3_4"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome4'>
+                	非循环热水
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                    采暖/非循环热水
+                </span>
+            </div>
+        </div>
+        <!--采暖/即热热水end-->
+        
+        {:else if $id==5:}
+        <!--采暖/循环热水-->
+        <div class="home_furnish-center-right-checkbox xilie4" id="xilie4">
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_4_1" name="home_furnish_xl_4_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	湿法地板采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_4_2" name="home_furnish_xl_4_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	干法地板采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_4_3" name="home_furnish_xl_4_3"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome3'>
+                	散热器采暖
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_4_4" name="home_furnish_xl_4_4"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome4'>
+                	水箱循环热水
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_4_5" name="home_furnish_xl_4_5"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome5'>
+                	太阳能热水
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                	采暖/循环热水
+                </span>
+            </div>
+        </div>
+        <!--采暖/循环热水end-->
+        
+        {:else if $id==2:}
+        <!--净水/软水/超滤/纯水/开水-->
+        <div class="home_furnish-center-right-checkbox xilie6" id="xilie6">
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_6_1" name="home_furnish_xl_6_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	前置过滤
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_6_2" name="home_furnish_xl_6_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	净水
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_6_3" name="home_furnish_xl_6_3"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome3'>
+                	软水
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_6_4" name="home_furnish_xl_6_4"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome4'>
+                	超滤
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_6_5" name="home_furnish_xl_6_5"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome5'>
+                	纯水
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_6_6" name="home_furnish_xl_6_6"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome6'>
+                	开水及水龙头
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                	净水/软水/超滤/纯水/开水
+                </span>
+            </div>
+        </div>
+        <!--净水/软水/超滤/纯水/开水end-->
+        
+        {:else if $id==7:}
+        <!--循环热水-->
+        <div class="home_furnish-center-right-checkbox xilie7" id="xilie7">
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_7_1" name="home_furnish_xl_7_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	容积式燃气热水器 
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_7_2" name="home_furnish_xl_7_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	容积式电热水器
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                	循环热水
+                </span>
+            </div>
+        </div>        
+        <!--循环热水end-->
+        
+        {:else if $id==8:}
+        <!--中央吸尘-->
+        <div class="home_furnish-center-right-checkbox xilie8" id="xilie8">
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_8_1" name="home_furnish_xl_8_1"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome1'>
+                	中央气动吸尘
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="home_furnish-center-right-checkbox-demo">
+            	<div class="home_furnish-center-right-checkbox-demo-input">
+                	<input type="checkbox" id="xl_8_2" name="home_furnish_xl_8_2"/>
+                </div>
+            	
+                <div class="home_furnish-center-right-checkbox-demo-span" id='dome2'>
+                	中央电动吸尘
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="home_furnish-center-right-checkbox-span">
+            	<span class="span01">
+                	您所选择的健康舒适体验为：
+                </span>
+                
+                <span class="span02" id='x1'>
+                	中央吸尘
+                </span>
+            </div>
+        </div>
+        <!--中央吸尘end-->
+        
+        {:/if:}
+        <div class="clear27"></div>
+        
+        <div class="home_furnish-center-right-title">
+        	<span class="span01">
+            	相关产品
+            </span>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="home_furnish-center-right-product" id='content'>
+            {:foreach $list as $k=>$v:}
+        	<div class="home_furnish-center-right-product-demo"><!--循环该demo-->
+            	<div class="home_furnish-center-right-product-demo-img">
+                	<a href="price.php?cid={:$v['quote_id']:}" name="home_price_cid={:$v['quote_id']:}">
+                    	<img src="{:$v['img']:}"/>
+                    </a>
+                </div>
+                
+                <div class="home_furnish-center-right-product-demo-name" title="{:$v['quote_name']:}">
+                	<a href="price.php?cid={:$v['quote_id']:}" name="home_price_cid={:$v['quote_id']:}">
+                    	{:$v['quote_name']:}
+                    </a>
+                </div>
+                
+                <div class="home_furnish-center-right-product-demo-a">
+                	<a href="price.php?cid={:$v['quote_id']:}" name="home_price_cid={:$v['quote_id']:}">
+                    	了解详情
+                    </a>
+                </div>
+            </div>
+            {:/foreach:}
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear27"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+
+</body>
+</html>
+

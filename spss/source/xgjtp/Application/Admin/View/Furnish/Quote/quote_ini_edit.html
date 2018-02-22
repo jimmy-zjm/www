@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="">首页</a></li>
+	    <li><a href="">健康舒适家居</a></li>
+	    <li><a href="<{:U('index')}>">产品材料</a></li>
+	    <li><a href="">更换识别码</a></li>
+	    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    	<form action="<{:U('saveGoodsSn')}>" method="post">
+	    	<ul class="forminfo">
+			    <li><label>原产品材料</label></li>
+			    <li style="margin-left:20px;">
+			    	<span>名称：<{$list.goods_name}></span>
+			    	<span>型号：<{$list.goods_model}></span>
+			    	<span>编码：<{$list.goods_sn}></span>
+			    </li>
+			    <li><label>新产品编码</label><input style="width:150px" id="newsn" type="text" name="newSn" class="dfinput" value="" required='required'/><a href="javascript:;" onclick="select()"> 查看该产品编码材料</a></li>
+			    <li>
+			    	<label>全部修改</label>
+			    	<label><input type="radio" name='isAll' checked value='2'/>否</label>
+			    	<label><input type="radio" name='isAll' value='1'/>是</label>
+			    </li>
+			    <li id='data' style="margin-left:20px;"></li>
+			    <li><label>&nbsp;</label>
+		    		<input type="hidden" name='childId' value="<{$list.child_id}>"/>
+		    		<input type="hidden" name='goods_sn' value="<{$list.goods_sn}>"/>
+		    		<input type="hidden" name='level' value="<{$list.level}>"/>
+		    		<input type="hidden" name='quote_id' value="<{$list.quote_id}>"/>
+		    		<input type="button" class="btn" id='but' value="编辑" onclick="updata(this.type)"/>
+			    </li>
+			    <li style='color:red;'>*如选择全部修改则会将此型号下的所有当前编码全部修改</li>
+	    	</ul>
+	    	</form>
+	    </div>
+
+	    <script>
+	    	function select(){
+
+	    		var newsn = $("#newsn").val();
+	    		var oldsn = <{$list.goods_sn}>;
+	    		if (newsn==oldsn) {
+	    			$("#data").html("<font style='color:red;'>新旧编码一致，不用改</font>");return;
+	    		}
+	    		if (newsn=='') {
+	    			$("#data").html("<font style='color:red;'>请输入您要修改的新编码</font>");return;
+	    		}
+
+	    		$.get("<{:U('doupdata_sn')}>",{"newsn":+newsn},function(data){
+	    			if (data == 'error') {
+	    				$("#data").html("<font style='color:red;'>你要更改的编码不存在</font>");return;
+	    			}
+	    			var list = eval('(' + data + ')');
+	    			$("#data").html("<span>名称 : "+list['goods_name']+"</span><span>型号 : "+list['goods_model']+"</span><span>编码 : "+list['goods_sn']+"</span>");
+	    			document.getElementById('but').type = 'submit';
+	    		})
+	    	}
+
+	    	function updata(type){
+	    		var newsn = $("#newsn").val();
+	    		var oldsn = <{$list.goods_sn}>;
+	    		if (newsn==oldsn) $("#data").html("<font style='color:red;'>新旧编码一致，不用改</font>");
+	    		else if (newsn=='') $("#data").html("<font style='color:red;'>请输入您要修改的新编码</font>");
+	    		else if (type=='button') $("#data").html("<font style='color:red;'>请先查看您要修改产品编码材料</font>");
+	    	}
+	    </script>
+</body>
+</html>
+

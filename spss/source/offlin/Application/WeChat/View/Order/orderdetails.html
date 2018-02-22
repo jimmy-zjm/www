@@ -1,0 +1,128 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/repairs.css">
+</head>
+<body>
+	<div class="section">
+		
+		<div class="header">
+			<p class="header-title">订单详情</p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+			<!-- <a class="searchBtn" href=""></a> -->
+		</div>
+		<div class="repairs-box">
+			<p>
+				<a class="lookbtn redfont" href="javascript:;">订单详情</a>
+				
+			</p >
+			<dl class="repairs-detail">
+				<dd>
+					订单编号：<{$data.sn}>
+					
+				</dd>
+				<dd>
+					房屋信息：<{$data.addr}>
+				</dd>
+			</ul>
+		</div>
+		<div class="repairs-box">
+			<p class="record-title">
+				选择系统
+			</p >
+			<dl class="repairs-detail">
+				
+					<?php foreach ($quoteinfo as $v){?>
+					<dd><{$v.name}> <a class="rred-btn" href="<{:U('detailedList',['id'=>$v['id']])}>">查看清单</a></dd>
+					<?php }?>
+				
+			
+		</div>
+		 <!-- <div class="repairs-box">
+			<p class="record-title">
+				订单金额
+			</p >
+			<dl class="repairs-detail">
+				<dd>
+					<{$data.money}>元
+				</dd>
+			</ul>
+		</div>  -->
+		<div class="repairs-box">
+			<p class="record-title">
+				当前进度
+			</p >
+			<ul class="speed-list">
+				<li <?= $data['status']>=0?'class="redfont"':'' ?>>上门测量</li>
+				<li <?= $data['status']>=1?'class="redfont"':'' ?>>设计图纸</li>
+				<li <?= $data['status']>=2?'class="redfont"':'' ?>>施工安装</li>
+				<li <?= $data['status']>=3?'class="redfont"':'' ?>>设备调试</li>
+				<li <?= $data['status']>=4?'class="redfont"':'' ?>>业主验收</li>
+			</ul>
+		</div>
+
+
+        <div class="repairs-box">
+			<p class="record-title">
+				项目负责
+			</p >
+			<ul class="task-list">
+				<li>
+					<span>上门测量</span>
+					<a href="<{:U('process',['oid'=>$oid,'type'=>1])}>">房屋面积</a>
+				</li>
+				<?php if($data['status']>=1):?>
+					<li>
+						<span>设计图纸</span>
+						<span class="task-list-worker ell"><{$list['1']['worker']}></span>
+						<span><{$list['1']['phone']}></span>
+						<a href="<{:U('process',['oid'=>$oid,'type'=>2])}>">查看图纸</a>
+					</li>
+				<?php else: ?>
+					<li>
+						<span>设计图纸</span>
+						<span class="redfont">未分配</span>
+					</li>
+				<?php endif ?>
+
+				<?php if($data['status']>=2):?>
+					<li>
+						<span>施工安装</span>
+						<span class="task-list-worker ell"><{$list['2']['worker']}></span>
+						<span><{$list['2']['phone']}></span>
+						<a href="<{:U('process',['oid'=>$oid,'type'=>3])}>">施工进度</a>
+					</li>
+				<?php else: ?>
+					<li>
+						<span>施工安装</span>
+						<span class="redfont">未分配</span>
+					</li>
+				<?php endif ?>
+
+				<?php if($data['status']>=3):?>
+					<li>
+						<span>设备调试</span>
+						<span class="task-list-worker ell"><{$list['3']['worker']}></span>
+						<span><{$list['3']['phone']}></span>
+						<a href="<{:U('process',['oid'=>$oid,'type'=>4])}>">调试进度</a>
+					</li>
+				<?php else: ?>
+					<li>
+						<span>设备调试</span>
+						<span class="redfont">未分配</span>
+					</li>
+				<?php endif ?>
+ 
+				<!-- <li>
+					业主验收
+					<?php if($data['status']>=3):?>
+					<a href="<{:U('process',['oid'=>$oid,'type'=>5])}>">验收进度</a>
+					<?php endif ?>
+				</li> -->
+
+			</ul>
+		</div>
+
+	</div>
+	
+	
+</body>
+</html>

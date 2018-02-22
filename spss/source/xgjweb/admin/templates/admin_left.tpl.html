@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+$(function(){	
+	//导航切换
+	$(".menuson .header").click(function(){
+		var $parent = $(this).parent();
+		$(".menuson>li.active").not($parent).removeClass("active open").find('.sub-menus').hide();
+		
+		$parent.addClass("active");
+		if(!!$(this).next('.sub-menus').size()){
+			if($parent.hasClass("open")){
+				$parent.removeClass("open").find('.sub-menus').hide();
+			}else{
+				$parent.addClass("open").find('.sub-menus').show();	
+			}
+			
+			
+		}
+	});
+	
+	// 三级菜单点击
+	$('.sub-menus li').click(function(e) {
+        $(".sub-menus li.active").removeClass("active")
+		$(this).addClass("active");
+    });
+	
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('.menuson').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('.menuson').slideUp();
+		}else{
+			$(this).next('.menuson').slideDown();
+		}
+	});
+})	
+</script>
+
+
+</head>
+
+<body style="background:#fff3e1;">
+<div class="lefttop"><span></span>栏目</div>
+
+  	<dl class="leftmenu" id='jk'>
+ 	{:if $permission eq 0:}
+	    <dd>
+	    	<div class="title" >
+	    		<span><img src="images/leftico01.png" /></span>健康舒适家居
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="furnish.php" target="rightFrame">产品材料</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="category.php" target="rightFrame">系统分类</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="quote.php" target="rightFrame">报价清单</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="coupon.php" target="rightFrame">优惠券</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="comment.php?furnish" target="rightFrame">用户评论</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="problem.php?prob_no" target="rightFrame">用户问题</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="autoputaway.php?tab=1" target="rightFrame">商品批量上下架</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	    <dd>
+	    	<div class="title" >
+	    		<span><img src="images/leftico01.png" /></span>服务商管理
+	   		</div>
+	    	<ul class="menuson" >
+	        	<li><div class="header"><cite></cite><a href="dealer.php" target="rightFrame">服务商列表</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="dealer_order.php?tab=1" target="rightFrame">订单管理</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="finance.php?tab=1" target="rightFrame">财务结算</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	    <dd id='eu'>
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>欧洲团代购
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="eugroup.php" target="rightFrame">商品列表</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="eu_cat.php" target="rightFrame">商品分类</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="eu_recommend.php" target="rightFrame">每日推荐</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">频道推荐</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">商品品牌</a><i></i></div></li>
+	        	
+	        </ul>    
+	    </dd>
+	    
+	    <dd id='jd'>
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>机电售后服务
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="#" target="rightFrame">机电售后服务</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">机电售后服务</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+ 	
+	    <dd id='gf'>
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>健康绿色食品
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="greenfood.php" target="rightFrame">绿色食品列表</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">绿色食品</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	    
+	    <dd >
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>网站订单/评论
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="#" target="rightFrame">网站订单</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">用户评论</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	    
+	    <dd >
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>文章管理
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="article.php?cat" target="rightFrame">文章分类</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="article.php" target="rightFrame">文章列表</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	    
+	    <dd >
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>广告/视频
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="ad.php?tab=1" target="rightFrame">广告管理</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="video.php" target="rightFrame">视频管理</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	   {:else if $permission eq 1:}
+	   <dd>
+	    	<div class="title" >
+	    		<span><img src="images/leftico01.png" /></span>健康舒适家居
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="furnish.php" target="rightFrame">产品材料</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="category.php" target="rightFrame">系统分类</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="quote.php" target="rightFrame">报价清单</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">舒适家居订单</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="coupon.php" target="rightFrame">优惠券</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="comment.php?furnish" target="rightFrame">用户评论</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="autoputaway.php?tab=1" target="rightFrame">商品批量上下架</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	   {:else if $permission eq 2:}
+	   <dd >
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>欧洲团代购
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="eugroup.php" target="rightFrame">商品列表</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="eu_cat.php" target="rightFrame">商品分类</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="eu_recommend.php" target="rightFrame">每日推荐</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">频道推荐</a><i></i></div></li>
+        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">商品品牌</a><i></i></div></li>
+	        	
+	        </ul>    
+	    </dd>
+	   {:else if $permission eq 3:}
+	   <dd id='gf'>
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>健康绿色食品
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="greenfood.php" target="rightFrame">绿色食品列表</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">绿色食品</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	   {:else if $permission eq 4:}
+	   <dd id='jd'>
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>机电售后服务
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="#" target="rightFrame">机电售后服务</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="#" target="rightFrame">机电售后服务</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	   {:else if $permission eq 5:}
+	   <dd >
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>文章管理
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="article.php?cat" target="rightFrame">文章分类</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="article.php" target="rightFrame">文章列表</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	   {:else if $permission eq 6:}
+	   <dd >
+	    	<div class="title">
+	    		<span><img src="images/leftico01.png" /></span>广告/视频
+	   		</div>
+	    	<ul class="menuson" >
+	    		<li><div class="header"><cite></cite><a href="ad.php?tab=1" target="rightFrame">广告管理</a><i></i></div></li>
+	        	<li><div class="header"><cite></cite><a href="video.php" target="rightFrame">视频管理</a><i></i></div></li>
+	        </ul>    
+	    </dd>
+	   {:/if:} 
+ 	</dl>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单-列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+
+<script language="javascript">
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+</head>
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="<{:U('Admin/Index/index/main')}>">首页</a></li>
+        	<li><a href="<{:U('index')}>">机电耗材</a></li>
+        </ul>
+    </div>
+<style type="text/css">
+.seachform1 li{
+margin-bottom: 10px; 
+  }  
+</style>
+    <div class="rightinfo">
+    	<!-- 搜索 -->
+    	<form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+            <ul class="seachform1" style="width:100%">
+                <li><label>系统名称</label>
+                <!-- <input style="width: 200px;" name="quote_name" type="text" value="" placeholder='' class="scinput1"> -->
+                    <div class="vocation">
+                        <select class="select3" required name="quote_name">
+                            <option value="0">全部</option>
+                            <?php foreach ($quoteData as $v): ?>
+                            <option value="<{$v.quote_id}>"><{$v.quote_name}></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </li>
+                <li><label>耗材名称</label><input name="c_name" type="text" value="" class="scinput1"></li>
+                <li><label>产品名称</label><input name="product_name" type="text" value="" class="scinput1"></li>
+                <li><label>是否上下架</label>
+                    <div class="vocation">
+                    <select class="select3" id='selt' name="is_put">
+                    <option value="" >全部</option>
+                    <option value="1" >已上架</option>
+                    <option value="2" >已下架</option>
+                    </select>
+                </div>
+                </li>
+                <li ><label>&nbsp;</label><input type="submit" onclick="ajax_get_table('search-form2',1)" name="send" class="scbtn" value="查询">  
+                <input type="button"   onclick="daochu('search-form2')" class="scbtn1" value="导出">
+            </ul>
+        </form>
+        <!-- 搜索 -->
+        <!-- 添加按钮 -->
+        <div class="tools">
+            <ul class="toolbar">
+                <li class=""><a href="<{:U('add')}>"><span><img src="__PUBLIC__/Admin/images/t01.png"></span>添加</a></li>
+            </ul>
+        </div>
+        <!-- 内容 -->
+        <div id="ajax_return"> </div>
+        <!-- 内容 -->   
+    </div>
+    
+    <script>
+    $('.tablelist tbody tr:odd').addClass('odd');
+    $(document).ready(function(){
+        // ajax 加载商品列表
+        ajax_get_table('search-form2',1);
+
+    });
+
+    // ajax 抓取页面 form 为表单id  page 为当前第几页
+    function ajax_get_table(form,page){
+        cur_page = page; //当前页面 保存为全局变量
+        $.ajax({
+            type : "POST",
+            url:"<{:U('ajaxIndex')}>"+'?p='+page,//+tab,
+            data : $('#'+form).serialize(),// 你的formid
+            success: function(data){
+                $("#ajax_return").html('');
+                $("#ajax_return").append(data);
+            }
+        });
+    }  
+    function tog(id){
+        $.ajax({
+            url:"<{:U('tog')}>",
+            data:{id:id},
+            success:function(data){
+                if(data>0){
+                    //后台修改成功
+                    if($('#tab'+id).html()=='已下架'){
+                        $('#tab'+id).html('已上架').removeClass('red').addClass('blue');
+                    }else{
+                        $('#tab'+id).html('已下架').removeClass('blue').addClass('red');
+                    }
+                }
+            }
+        });
+    }    
+</script> 
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="__PUBLIC__/css/dibandetail.css" />
+
+	<!--content-->
+	<div class="content">
+		<!--<div class="zhankong"></div>-->
+		<div class="con-top">
+			<img src="__PUBLIC__/img/diban-detail.png" alt="" />
+		</div>
+		<div class="con-bottom">
+			<ul class="con-bottom-tab">
+				<li onclick="dibandetailtabs(1)" id="tabli1" style="color: red;">产品详情</li>
+				<li onclick="dibandetailtabs(2)" id="tabli2">累计评价</li>
+				<li onclick="dibandetailtabs(3)"id="tabli3">服务详情</li>
+			</ul>
+			<div class="tab1" id="tab1"></div>
+			<div class="tab2" id="tab2">我是tab2</div>
+			<div class="tab3" id="tab3">我是tab3</div>
+		</div>
+	</div>
+	
+
+<script>
+	function dibandetailtabs(n){
+		if(n==1){
+			$("#tab1").removeClass("tabactive");
+			$("#tab2").addClass("tabactive");
+			$("#tab3").addClass("tabactive");
+			$("#tabli1")[0].style.color="red";
+			$("#tabli2")[0].style.color="#aaa";
+			$("#tabli3")[0].style.color="#aaa";
+		}else if(n==2){
+			$("#tab2").removeClass("tabactive");
+			$("#tab1").addClass("tabactive");
+			$("#tab3").addClass("tabactive");
+			$("#tabli2")[0].style.color="red";
+			$("#tabli1")[0].style.color="#aaa";
+			$("#tabli3")[0].style.color="#aaa";
+		}else if(n==3){
+			$("#tab3").removeClass("tabactive");
+			$("#tab1").addClass("tabactive");
+			$("#tab2").addClass("tabactive");
+			$("#tabli3")[0].style.color="red";
+			$("#tabli1")[0].style.color="#aaa";
+			$("#tabli2")[0].style.color="#aaa";
+		}
+	}
+	   
+</script>
+

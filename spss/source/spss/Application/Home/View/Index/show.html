@@ -1,0 +1,772 @@
+
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/pointstyle.css" ><!-- 全国展示中心point页面调用CSS -->
+
+
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/ditu.css" ><!--地图特效-->
+
+<div class="clear" ></div>
+
+<!--banner-->
+<div class="point-banner" id="nav_ditu">
+	<div class="m_map">
+        <div class="mp mp1">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>新疆体验店分布</p><br />
+                       <if condition="isset($district['新疆'])">
+							<foreach name="district['新疆']" item="v">
+								<a href="javascript:;" data-to="go2"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp2">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>青海体验店分布</p><br />
+						<if condition="isset($district['青海'])">
+							<foreach name="district['青海']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp3">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>四川体验店分布</p><br />
+                       <if condition="isset($district['四川'])">
+							<foreach name="district['四川']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>            
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp4">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>西藏体验店分布</p><br />
+                        <if condition="isset($district['西藏'])">
+							<foreach name="district['西藏']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp5">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>贵州体验店分布</p><br />
+                        <if condition="isset($district['贵州'])">
+							<foreach name="district['贵州']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp6">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>甘肃体验店分布</p><br />
+                        <if condition="isset($district['甘肃'])">
+							<foreach name="district['甘肃']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp7">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>重庆体验店分布</p><br />
+                       <if condition="isset($district['重庆'])">
+							<foreach name="district['重庆']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                               
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp8">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>云南体验店分布</p><br />
+                        <if condition="isset($district['云南'])">
+							<foreach name="district['云南']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                   
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp9">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>广西体验店分布</p><br />
+                       <if condition="isset($district['广西'])">
+							<foreach name="district['广西']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp10">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>海南体验店分布</p><br />
+                       <if condition="isset($district['海南'])">
+							<foreach name="district['海南']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp11">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>内蒙古体验店分布</p><br />
+                        <if condition="isset($district['内蒙古'])">
+							<foreach name="district['内蒙古']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                          
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp12">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>黑龙江体验店分布</p><br />
+                        <if condition="isset($district['黑龙江'])">
+							<foreach name="district['黑龙江']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp13">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>吉林体验店分布</p><br />
+                        <if condition="isset($district['吉林'])">
+							<foreach name="district['吉林']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp14">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>辽宁体验店分布</p><br />
+                        <if condition="isset($district['辽宁'])">
+							<foreach name="district['辽宁']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp15">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>北京体验店分布</p><br />
+                       <if condition="isset($district['北京'])">
+							<foreach name="district['北京']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp16">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>天津体验店分布</p><br />
+                        <if condition="isset($district['天津'])">
+							<foreach name="district['天津']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp17">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>河北体验店分布</p><br />
+                        <if condition="isset($district['河北'])">
+							<foreach name="district['河北']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp18">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>山西体验店分布</p><br />
+                        <if condition="isset($district['山西'])">
+							<foreach name="district['山西']" item="v"> 
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp19">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>宁夏体验店分布</p><br />
+                         <if condition="isset($district['宁夏'])">
+							<foreach name="district['宁夏']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                          
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp20">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>陕西体验店分布</p><br />
+                         <if condition="isset($district['陕西'])">
+							<foreach name="district['陕西']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                          
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp21">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>河南体验店分布</p><br />
+                         <if condition="isset($district['河南'])">
+							<foreach name="district['河南']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                          
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp22">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>山东体验店分布</p><br />
+                         <if condition="isset($district['山东'])">
+							<foreach name="district['山东']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp23">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>湖北体验店分布</p><br />
+                         <if condition="isset($district['湖北'])">
+							<foreach name="district['湖北']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp24">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>江苏体验店分布</p><br />
+                        <if condition="isset($district['江苏'])">
+							<foreach name="district['江苏']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp25">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>安微体验店分布</p><br />
+                         <if condition="isset($district['安徽'])">
+							<foreach name="district['安徽']" item="v"> 
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                          
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp26">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>上海体验店分布</p><br />
+                         <if condition="isset($district['上海'])">
+							<foreach name="district['上海']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp27">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>浙江体验店分布</p><br />
+                         <if condition="isset($district['浙江'])">
+							<foreach name="district['浙江']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp28">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>福建体验店分布</p><br />
+                         <if condition="isset($district['福建'])">
+							<foreach name="district['福建']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp29">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>江西体验店分布</p><br />
+                         <if condition="isset($district['江西'])">
+							<foreach name="district['江西']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp30">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>湖南体验店分布</p><br />
+                         <if condition="isset($district['湖南'])">
+							<foreach name="district['湖南']" item="v"> 
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp31">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>广东体验店分布</p><br />
+                        <if condition="isset($district['广东'])">
+							<foreach name="district['广东']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mp mp32">
+            <div class="feng">
+                <div class="tree">
+                    <div class="du_size">
+                        <p>台湾体验店分布</p><br />
+                         <if condition="isset($district['台湾'])">
+							<foreach name="district['台湾']" item="v">
+							<a href="javascript:;"><{$v}></a>
+							</foreach>
+						<else />
+							 <span >暂无体验馆</span>
+						</if>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--banner-->
+
+<div class="clear1"></div>
+
+
+
+<!--调转到中间区域-->
+<div id="go1">
+	<div id="content"></div>
+</div>
+<!--调转到中间区域end-->
+
+<div class="point-search">  
+	<div class="point-search-span">
+    	查找体验店 
+    </div>  
+    
+    <div class="point-search-left">
+    	<input id="keywords" name="keywords" type="text" value="输入关键字进行搜索"  onFocus="if (value =='输入关键字进行搜索'){value =''}" onBlur="if (value ==''){value='输入关键字进行搜索'}"/>
+    </div>
+    
+    <div class="point-search-right"> 
+    	<input type="button" id="btn" value="搜索"/>
+    </div>
+    
+    <div class="clear2"></div>
+</div>
+<!--搜索end-->
+
+<div class="clear2"></div>
+
+
+<!--底部图片-->
+<div class="point-bottom">
+    <!-- 图标广告 -->
+    <div class="point-ad" >
+        <img src="__PUBLIC__/img/show.png"/>
+    </div>
+    <!-- 图标广告end -->
+</div>
+<!--底部图片end-->
+
+
+
+
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="point-center" id="point-center">
+   
+    <foreach name="dealer" key="key" item="d">
+    <div class="point-center-list" style="<if condition='($key+3)%3 eq 0'>margin-left:0;</if>">
+        <div class="point-center-list-left">
+            <div class="point-center-list-left-01 album-click" style="cursor:pointer" >
+                <img src='<if condition="$d.d_store_figure eq ''">__PUBLIC__/img/jianshe.jpg<else /><{$d.d_store_figure|getimage}></if>'/>
+				
+                <ul>
+                    <foreach name="d.images"  item="img">
+                    <li data-img="<{$img.url}>"></li>
+                    </foreach>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div class="point-center-list-right">
+			<span><{$d.d_province}><{$d.d_city}><{$d.d_area}></span>
+			<span>服务热线：4008001027</span>          
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    </foreach>
+    
+    <div class="page" style="clear:both"><{$page}></div>
+</div>
+
+<div class="clear3"></div>
+
+
+
+<div class="clear"></div>
+
+<!--相册弹出框-->
+<script type="text/javascript" src="__PUBLIC__/js/carousel.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/album.js"></script>
+<link href="__PUBLIC__/css/album.css" rel="stylesheet" type="text/css" media="all" />
+<div id="album-bk" style="display:none;">
+    <div id="album-bk2">
+        <div class="album" id="album">
+        <div id="album-delete">
+            <a href="javascript:;">
+                <img src="__PUBLIC__/img/close.png"width='30'/>
+            </a>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="album-image-md" id="album-image-md">
+            <p class="album-image-bd">
+                <img src="" class="album-image" id="album-image" alt="相册图片-示例图片（1）" width="674" height="750" />
+            </p>
+            
+            <ul class="album-image-nav hide" id="album-image-nav">
+                <li class="album-image-nav-left-block" id="album-image-nav-left-block">
+                    <a href="#prev-image" class="album-image-btn-prev" id="album-image-btn-prev">
+                        ‹
+                    </a>
+                </li>
+                
+                <li class="album-image-nav-right-block" id="album-image-nav-right-block">
+                    <a href="#next-image" class="album-image-btn-next" id="album-image-btn-next">
+                        ›
+                    </a>
+                </li>
+            </ul>
+            
+            <p class="album-image-loading-overlay hide" id="album-image-loading-overlay">
+                <img src="__PUBLIC__/img/loading.gif" alt="loading..." width="100" height="100" />
+            </p>
+        </div>
+        
+        <div class="album-carousel" id="album-carousel" style="display:none;">    
+            <div class="album-carousel-zone" id="album-carousel-zone">
+                <ul class="album-carousel-list" id="album-carousel-list">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script type="text/javascript">
+$("#album-bk").css('height',$(document).height());
+
+jQuery(function(){
+        $(".album-click").click(function(){
+            var html = '';
+            $(this).find('ul li').each(function(k,v){
+                html += '<li class="album-carousel-thumb"><a href="'+$(v).attr('data-img')+'"></a></li>';
+            });
+            if(html==''){
+                html = '<li class="album-carousel-thumb"><a href="'+$(this).find('img').attr('src')+'"></a></li>'
+            }
+            $('#album-carousel-list').html(html);
+            $("#album-bk").fadeIn();
+           new jQuery.Album();
+
+        });
+
+        $("#album-delete").click(function(){
+            $("#album-bk").fadeOut();
+        });
+        
+    });
+    
+</script>
+<!--相册弹出框end-->
+
+<div class="clear"></div>
+
+
+
+
+
+<script>
+$(function(){	
+    /*点击城市, 执行搜索*/
+    $('.du_size a').click(function() {
+     //   $('#_city').val($(this).text());
+       // var formData = $('#theForm').serialize();
+        window.location.href = '__APP__/Index/show/city/'+$(this).text()+'#content';
+		
+			
+	
+    });
+
+    /*点击搜索*/
+    $('#btn').click(function() {
+        var city = $('#keywords').val();
+        window.location.href = '__APP__/Index/show/city/'+city+'#content';
+    });
+
+    /*编辑框按回车键, 执行搜索*/
+    $('#keywords').keyup(function(eve){
+        if(eve.keyCode==13) $('#btn').click();
+    });
+		 
+});
+</script>
+
+
+<script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".mp").mouseover(function () {
+                $(this).find(".feng").show();
+            }).mouseout(function () {
+                $(this).find(".feng").hide();
+
+            });
+        });
+    </script>
+
+
+
+<script>
+	$('#nav_ditu').on('click','a',function(e){
+		var target = e.target;
+		var id = $(target).data("to");
+		$('html,body').animate({scrollTop:$('#'+id).offset().top}, 800);
+	});
+</script>

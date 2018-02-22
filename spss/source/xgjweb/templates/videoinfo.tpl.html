@@ -1,0 +1,117 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/videostyle.css" ><!-- 视频video页面调用CSS -->
+
+
+<!--视频播放器-->
+<link href="css/video-js.css" rel="stylesheet" type="text/css">
+<script src="js/video.js" type="text/javascript"></script>
+<script>
+	videojs.options.flash.swf = "swf/video-js.swf";
+</script>
+<!--视频播放器-->
+
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear36"></div>
+
+
+<!-- 中间楼层 -->
+<div class="video_info-conter"> 
+    <!--视频播放-->
+    <div class="video_info-conter-video">
+        <div class="video_info-conter-title">
+            <span>
+                视频欣赏
+            </span>
+        </div>
+        
+        <div class="clear12"></div>
+        {:if !empty($video.row.video):}
+        <div class="video_info-conter-video-play">
+            <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="855" height="510" poster="{:$video.row.image|getimages:}" data-setup="{}">
+                <source src="{:$video.row.video|getimages:}" type='video/mp4' />
+                <source src="{:$video.row.video|getimages:}" type='video/webm' />
+                <source src="{:$video.row.video|getimages:}" type='video/ogg' />
+                <source src="{:$video.row.video|getimages:}" type='video/avi' />
+                <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+            </video>
+        </div>
+        {:else:}
+        <div class="video_info-conter-video-play_no">
+           
+        
+        </div>
+        {:/if:}
+        <div class="clear"></div>
+    </div>
+    <!--视频播放end-->
+    
+    <div class="clear3"></div>
+    
+    <!--楼层列表-->
+    <div class="video_info-conter-floor">
+        <div class="video_info-conter-title">
+            <span>
+                环境问题
+            </span>
+        </div>
+        
+        <div class="clear12"></div>
+        
+        <div class="video_info-conter-floor-list">
+            {:if !empty($video['info']):}
+            {:foreach $video['info'] as $k=>$v:}
+            <div class="video_info-conter-floor-list-demo">
+                <div class="video_info-conter-floor-list-demo-img">
+                    <a href="index.php?videoinfo={:$v.id:}">
+                        <img src="{:$v.image|getimages:}"/>
+                    </a>                    	
+                </div>
+                
+                <div class="video_info-conter-floor-list-demo-name" title="水污染水污染水污染水">
+                    <a href="index.php?videoinfo={:$v.id:}">
+                        {:$v.title:}
+                    </a>
+                </div>
+            </div>
+            {:/foreach:}
+
+            {:else:}
+            <div class="video_info-conter-video-play_no">
+               
+            
+            </div>
+            {:/if:}
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--楼层列表end-->
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+
+
+<div class="clear30"></div>
+
+{:include file="footer.tpl.html":}
+
+<style>
+.video_info-conter-video-play_no{
+    width:855px;
+    height:100px;
+}
+
+</style>
+</body>
+</html>

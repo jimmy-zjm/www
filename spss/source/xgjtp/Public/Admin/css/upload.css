@@ -1,0 +1,146 @@
+.upload-content{
+	width:90%;
+	margin:0 auto 100px auto;
+	font-size:20px;
+}
+.product-name{
+	font-size:22px;
+	text-align:center;
+}
+.text-title{
+	height:40px;
+	line-height:40px;
+	margin-top:10px;
+}
+.upload-content>*{
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.add-title{
+	height:40px;
+	line-height:40px;
+	font-size:20px;
+}
+.add-content{
+	min-height:300px;
+	line-height:30px;
+	font-size:20px;
+}
+#submitBtn{
+	height:40px;
+	width:60%;
+	margin:30px 20%;
+	background-color: #ff0001;
+	color:#fff;
+	border:none 0;
+	border-radius:5px;
+}
+/*图片*/
+.z_photo {
+            /*width: 500px;*/
+            height: 130px;
+            padding: 5px;
+            box-sizing:border-box;
+            overflow: auto;
+            clear: both;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+        }
+        
+        .z_photo img {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .z_addImg {
+            float: left;
+            margin-right: 20px;
+        }
+        
+        .z_file {
+            width: 120px;
+            height: 100px;
+            /*background: url(../img/z_add.png) no-repeat;*/
+            background: url(../images/bg_camera.png) center center no-repeat;
+
+            background-size: auto 60%;
+            float: left;
+            margin-right: 20px;
+            border:2px solid #666;
+            border-radius:7px;
+            -webkit-box-sizing:border-box ;
+            -moz-box-sizing:border-box ;
+            box-sizing:border-box;
+        }
+        
+        .z_file input::-webkit-file-upload-button {
+            width: 120px;
+            height: 100px;
+            border: none;
+            position: absolute;
+            outline: 0;
+            opacity: 0;
+        }
+        
+        .z_file input#file {
+            display: block;
+            width: auto;
+            border: 0;
+            vertical-align: middle;
+            opacity:0;
+             width: 120px;
+            height: 100px;
+        }
+        /*遮罩层*/
+        
+        .z_mask {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: none;
+        }
+        
+        .z_alert {
+            width: 300px;
+            height: 200px;
+            border-radius:5px;
+            background: #fff;
+            font-size: 24px;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -200px;
+        }
+        
+        .z_alert p:nth-child(1) {
+            line-height: 150px;
+        }
+        
+        .z_alert p:nth-child(2) span {
+            display: inline-block;
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            float: left;
+            border-top: 1px solid #ddd;
+        }
+        
+        .z_cancel {
+        	box-sizing:border-box;
+            border-right: 1px solid #ddd;
+            border-bottom-left-radius:5px;
+            background-color: rgb(48, 171, 227);
+           
+        }
+        .z_sure{
+        	 border-bottom-right-radius:5px;
+        	 background-color: rgb(255, 64, 64);
+        }

@@ -1,0 +1,44 @@
+<include file="Public/header" /> <!-- 包含头部模版header -->
+<link rel="stylesheet" href="__PUBLIC__/css/zhifusucess.css"/>
+	<?php if($status==1){?>
+		<div class="content">
+			<div class="con1">
+			<!-- 成功时显示的div -->
+				<div class="payShow"><img src="__PUBLIC__/img/paySuccess.png" alt="" />
+                   <p class="payShow-title01">支付成功</p>
+                   <p  class="payShow-title02">感谢你的定金!</p>
+				</div>
+			</div>
+			<div class="kong"></div>
+			<!-- 成功时显示的div -->
+			<div class="btmBtn">
+			<a href="<{:U('Order/index')}>" class="con2 btn ">
+				查看订单
+			</a>
+			<a href="<{:U('Index/index')}>" class="con3 btn back">
+				返回首页
+			</a>
+			</div>
+		</div>
+	<?php }else{?>	
+		<div class="content">
+			<div class="con1">
+				<!-- 失败时显示的div -->
+				<div class="payShow"><img src="__PUBLIC__/img/payFailure.png" alt="" />
+                   <p class="payShow-title01"><{$msg}></p>
+                   <p  class="payShow-title02">请重新支付!</p>
+				</div> 
+			</div>
+			<div class="kong"></div>			
+			<!-- 失败时显示的div -->
+			<div class="btmBtn">
+			<a href="<{:U('Order/pay',['oid'=>$oid])}>" class="con2 btn ">
+				再次支付
+			</a>
+			<a href="<{:U('Index/index')}>" class="con3 btn back">
+				返回首页
+			</a>
+			</div>
+		</div>
+	<?php }?>	
+

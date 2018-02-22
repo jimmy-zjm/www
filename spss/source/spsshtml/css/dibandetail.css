@@ -1,0 +1,578 @@
+/****************************8*content*/
+.content{
+	width: 100%;
+	height: auto;
+}
+.zhankong{
+	width: 100%;
+	height: 135px;
+}
+/****************************8*content-top*/
+.con-top{
+	width: 1200px;
+	height: 660px;
+	margin: 0 auto;
+}
+.con-top-left{
+	width: 492px;
+	height: 660px;
+	float: left;
+}
+.con-top-left>p:first-child{
+	width: 485px;
+	height: 485px;
+	overflow: hidden;
+}
+.con-top-left>p:first-child>img{
+	width: 485px;
+	height: 485px;
+	
+}
+.con-top-left>p:nth-child(2){
+	width: 485px;
+	height: 75px;
+	margin-top: 27px;
+}
+.con-top-left>p:nth-child(2)>a{
+	display: block;
+	width: 75px;
+	height: 75px;
+	float: left;
+	margin-left: 17px;
+	border: 2px solid #fff;
+}
+.con-top-left>p:nth-child(2)>a>img{
+	width: 100%;
+	height: 100%;
+}
+.con-top-left>p:nth-child(2)>a:nth-child(1){
+	border-color: red;
+}
+.con-top-left>p:nth-child(3){
+	width: 485px;
+	height: 20px;
+	margin-top: 25px;
+}
+.con-top-left>p:nth-child(3)>a:nth-child(1){
+	width: 60px;
+	height: 20px;
+	font-size: 13px;
+	color: #666;
+	text-align: right;
+	display: inline-block;
+	background: url(../img/dibandetail-share.jpg) no-repeat;
+	background-position: 18px 3px;
+}
+.con-top-left>p:nth-child(3)>span:nth-child(2){
+	margin-left: 10px;
+	font-size: 13px;
+	color: #666;
+	cursor: pointer;
+}
+.con-top-left>p:nth-child(3)>span:nth-child(3){
+	font-size: 13px;color: #666;
+	margin-left: 10px;
+}
+.bianse{
+	color: red;
+	font-size: 16px;
+}
+.con-top-right{
+	width:675px;
+	height: 600px;
+	float: left;
+	margin-left: 30px;
+}
+.con-top-right>p:nth-child(1){
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	font-weight: 600;
+}
+.con-top-right>p:nth-child(2){
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	color: #c40000;
+}
+.con-top-right>p:nth-child(3){
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+	color: #666;
+}
+.con-top-right>p:nth-child(3)>span:first-child{
+	display: inline-block;
+	width: 70px;
+	height: auto;
+}
+.con-top-right>p:nth-child(3)>span:last-child{
+	font-size: 18px;
+	text-decoration: line-through;
+	color: #000;
+}
+.con-top-right>p:nth-child(4){
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15px;
+	color: #666;
+}
+.con-top-right>p:nth-child(4)>span:first-child{
+	display: inline-block;
+	width: 70px;
+	height: auto;
+}
+.con-top-right>p:nth-child(4)>span:last-child{
+	font-size: 23px;
+	text-decoration: line-through;
+	color: #000;
+	color: #c40000;
+}
+.con-top-right>p:nth-child(5){
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	font-size: 15px;
+	color: #000;
+}
+.con-top-right>p:nth-child(5)>span:first-child{
+	display: inline-block;
+	width: 70px;
+	height: auto;
+	color: #666;
+}
+.con-top-right>p:nth-child(6){
+	width: 100%;
+	height: 52px;
+	line-height: 52px;
+	font-size: 15px;
+	color: #000;
+}
+.con-top-right>p:nth-child(6)>span:first-child{
+	display: block;
+	float: left;
+	width: 70px;
+	height: 50px;
+	line-height: 52px;
+	color: #666;
+}
+.con-top-right>p:nth-child(6)>span:nth-child(2){
+	display: block;
+	float: left;
+	width: 52px;
+	height: 52px;
+	line-height: 0;
+	background-size: 52px 52px;
+	text-align: center;
+	z-index: 1000;
+	cursor: pointer;
+}
+.imgborder{
+	background: url(../img/dibandetail-xuanzhon2.png) no-repeat;
+}
+.con-top-right>p:nth-child(6)>span:nth-child(2)>img{
+	width: 44px;
+	height: 44px;
+	margin-top: 3px;
+	
+}
+.con-top-right>p:nth-child(6)>span:nth-child(3){
+	display: block;
+	float: left;
+	width: 52px;
+	height: 52px;
+	line-height: 0;
+	background-size: 52px 52px;
+	text-align: center;
+	z-index: 1000;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.con-top-right>p:nth-child(6)>span:nth-child(3)>img{
+	width: 44px;
+	height: 44px;
+	margin-top: 3px;
+}
+.con-top-right>p:nth-child(7){
+	width: 100%;
+	height: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	line-height: 40px;
+	font-size: 15px;
+	color: #000;
+}
+.con-top-right>p:nth-child(7)>span:first-child{
+	display: inline-block;
+	width: 70px;
+	height: auto;
+	color: #666;
+}
+.con-top-right>p:nth-child(7)>span:last-child{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background: url(../img/dibandetail-xuanzhon2.png);
+	text-align: center;
+	line-height: 50px;
+	height: auto;
+	color: #666;
+}
+.con-top-right>p:nth-child(8){
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+	color: #000;
+}
+.con-top-right>p:nth-child(8)>span:first-child{
+	color: #666;
+	display: inline-block;
+	width: 70px;
+}
+.con-top-right>p:nth-child(9){
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+	color: #000;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.con-top-right>p:nth-child(9)>span:first-child{
+	color: #666;
+	display: inline-block;
+	width: 70px;
+}
+.con-top-right>p:nth-child(9)>span:last-child>input{
+	width: 70px;
+	height:35px;
+	text-align: center;
+}
+.con-top-right>p:nth-child(10){
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	color: #000;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.con-top-right>p:nth-child(10)>span:first-child{
+	color: #666;
+	display: inline-block;
+	width: 70px;
+}
+.con-top-right>p:nth-child(10)>span:last-child{
+	display: inline-block;
+	width: 167px;
+	height:30px;
+	background: url(../img/dibandetail-xuanzhon1.png);
+	background-size: 167px 30px;
+	text-align: center;
+}
+.con-top-right>p:nth-child(11){
+	width: 530px;
+	height: 93px;
+	line-height: 22px;
+	font-size: 15px;
+	color: #000;
+	margin-left: 70px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.con-top-right>p:nth-child(12){
+	width: 530px;
+	height:47px;
+	line-height: 22px;
+	font-size: 16px;
+	color: #000;
+	margin-left: 70px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.con-top-right>p:nth-child(12)>a{
+	display: block;
+	float: left;
+	width: 188px;
+	height: 47px;
+	text-align: center;line-height: 47px;
+	color: #fff;
+}
+.con-top-right>p:nth-child(12)>a:first-child{
+	background: url(../img/button-red.jpg);
+}
+.con-top-right>p:nth-child(12)>a:last-child{
+	background: url(../img/button-blue.jpg);
+	margin-left: 20px;
+}
+/****************************8*content-bottom*/
+
+.con-bottom{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.con-bottom-tab{
+	width: 1200px;
+	height:30px;
+}
+.con-bottom-tab>li{
+	width: 80px;
+	height: 30px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	color: #aaa;
+	cursor: pointer;
+	border: 1px solid #666;
+}
+.con-bottom-tab>li:nth-child(1){
+	border-right: none;
+}
+.con-bottom-tab li:nth-child(2){
+	width: 110px;
+}
+.tabs{
+	width: 1200px;
+	height: auto;
+}
+.tabs1{
+	position: relative;
+}
+.tab1-con1{
+	width: 1200px;
+	height: 117px;
+	border: 1px solid #999;
+	margin-bottom: 30px;
+}
+.tab1-con1>p{
+	width: 1200px;
+	height: 39px;
+	line-height: 39px;
+	text-align: left;
+	text-indent:1em;
+	font-size: 13px;
+	clear: both;
+	content: "";
+	overflow: hidden;
+	color: #666;
+}
+.tab1-con1-span{
+	margin-left: 50px;
+}
+fieldset{
+	border: 1px solid #999;
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	color: #666;
+}
+.tab1-con-img{
+	width: 1200px;
+	height: auto;
+	text-align: center;
+	margin-bottom: 60px;
+	font-size: 16px;
+	color: #666;
+}
+.tab1-con-img>img{
+	width: 800px;
+	height: 800px;
+	margin: 0 auto;
+}
+.tab1-con7{
+	width: 1200px;
+	height: 470px;
+}
+.tab1-con7>li{
+	width: 225px;
+	height: 300px;
+	margin-top: 45px;
+	margin-right: 15px;
+	float: left;
+	font-size: 13px;
+	color: #000;
+	text-align: left;
+}
+.tab1-con7>li>p{
+	width: 210px;
+	height: 25px;
+	/*line-height: 25px;*/
+	margin: 0 auto;
+}
+.tab1-con7>li>p:nth-child(2){
+	height: auto;
+}
+.tab1-con7>li>p:nth-child(3){
+	text-decoration: line-through;
+}
+.tab1-con7>li>p:nth-child(4)>span{
+	color: red;
+	font-size: 16px;
+}
+.tab1-con7>li>p:first-child{
+	width: 225px;
+	height: 225px;
+}
+.tab1-con7>li>p:first-child>img{
+	width: 225px;
+	height: 225px;
+}
+.tab1-fixed{
+	width: 140px;
+	height: 400px;
+	border: 1px solid #999;
+	position: absolute;
+	top: 0;
+	right: 0;
+	/*top: 500px;
+	right: 208px;*/
+}
+.tab1-fixed>p{
+	width: 140px;
+	height: 48px;
+	line-height: 48px;
+	cursor: pointer;
+}
+.tab1-fixed>p:first-child{
+	margin-top: 25px;
+}
+.tab1-fixed>p>a{
+	color: #999;
+}
+.tab1-fixed>p>span{
+	width: 50px;
+	height: 48px;
+	display: inline-block;
+}
+.tab1-fixed>p>span>img{
+	margin-left: 25px;
+}
+/***********************************tabs2*/
+.tabs2{
+	display: none;
+	width: 1200px;
+	height: auto;
+	clear: both;
+	content: "";
+	overflow: hidden;
+}
+.tabs2>div:nth-child(1){
+	width: 1200px;
+	height: 83px;
+	border: 1px solid #999;
+	line-height: 83px;
+	text-indent: 1em;
+	border-left: none;
+	border-bottom: none;
+}
+.tabs2>div:nth-child(1)>span{
+	font-size: 23px;
+	color: red;
+}
+.tabs2-con2{
+	width: 1200px;
+	height: auto;
+	border-top:1px solid #999 ;
+	margin-top: 20px;
+	clear: both;content: "";overflow: hidden;
+}
+.tabs2-con2>p{
+	float: left;
+}
+.tabs2-con2-1{
+	width: 670px;
+	height: auto;
+	margin: 15px auto;
+	font-size: 14px;
+	color: #999;
+	border: 1px solid red;
+}
+.tabs2-con2-1-txt1{
+	width: 670px;
+	height: auto;
+	display: block;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+.tabs2-con2-1-img1{
+	width: 670px;
+	display: block;
+}
+.tabs2-con2-1-img1>img{
+	width: 65px;
+	height: 65px;
+	border: 2px solid #d1d1d1;
+	margin-left: 15px;
+	cursor: pointer;
+}
+.tabs2-con2-1-img2{
+	display: none;
+	width: 300px;
+	height: 300px;
+	border: 2px solid #d1d1d1;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.tabs2-con2-1-img2>img{
+	width: 300px;
+	height: 300px;
+}
+.tabs2-con2-2{
+	width: 150px;
+	height: 70px;
+	margin-left: 100px;
+	margin-top: 30px;
+}
+.tabs2-con2-2 span:first-child{
+	width: 150px;
+	height: 40px;
+	font-size: 30px;
+	line-height: 40px;
+	color: #999;
+	display: block;
+	color: #ff3232;
+	
+}
+.tabs2-con2-2 span:last-child{
+	width: 150px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 30px;
+	color: #999;
+	display: block;
+}
+.tabs2-con2-3{
+	width: 180px;
+	height: 75px;
+	margin-left: 20px;
+	margin-top: 30px;
+	border: 1px solid red;
+}
+.tabs2-con2-3>span:first-child{
+	display: block;
+	float: left;
+	width: 70px;
+	height: 70px;
+	margin-top: 10px;
+}
+.tabs2-con2-3 span:last-child{
+	display: block;
+	float: left;
+	width: 110px;
+	height: 70px;
+	margin-top: 0px;
+	line-height: 70px;
+	color: #999;
+	font-size: 12px;
+}
+.imgredborder{
+	border-color:red !important;
+}

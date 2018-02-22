@@ -1,0 +1,53 @@
+<div class="tuan-navigation">
+    <div class="tuan-navigation-bk">
+        <div class="tuan-navigation" >
+          <div class="tuan-navigation-right">
+                <div class="tuan-navigation-right-01">
+                    <div class="tuan-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    
+                    <div class="tuan-navigation-right-01-span"  id="cart_total">
+                    0
+                    </div>
+                </div>
+            
+                <div class="tuan-navigation-right-02">
+                <a href="cart.php">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="tuan-navigation-center">
+                <div class="tuan-navigation-a">
+                <a href="?">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="tuan-navigation-a">
+                    <a href="javascript:;">
+                        单品团          
+                    </a>
+                </div>
+                
+                <div class="tuan-navigation-a">
+                    <a href="?raiders">
+                        代购攻略           
+                    </a>
+                </div>
+                
+                <!-- <div class="tuan-navigation-a">
+                    <a href="javascript:;">
+                        明日预告            
+                    </a>
+                </div>        -->             
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

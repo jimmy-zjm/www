@@ -1,0 +1,42 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/order.css">
+</head>
+<body>
+	<div class="section">
+		
+		<div class="header">
+			<p class="header-title">我的订单</p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+			<a class="searchBtn" href="<{:U('search')}>"></a>
+		</div>
+		<ul class="order-list">
+			<?php foreach ($list as $k => $v): ?>
+			<li>
+				<div class="item-top">
+					房屋信息
+					<p class="item-title ell"><{$addr[$v['id']]}></p>
+				</div>
+				<div class="item-body">
+					<div>
+						<p class="item-name">订单编号：<{$v.sn}></p>
+						<!-- <p class="item-number">订单金额：<{$money[$v['id']]}></p>  -->
+						<p class="item-number">下单时间：<{$v.add_time|date="Y-m-d H:i:s",###}></p> 
+						<p class="item-btn-list">
+							<a href="<{:U('orderdetails',['oid'=>$v['id']])}>">订单详情</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<?php endforeach ?>
+		</ul>
+	</div>
+	
+	<script type="text/javascript" src="__PUBLIC__/WeChat/js/threeColor.js"></script>
+	<script>
+      
+
+
+      bgColor();
+	</script>
+</body>
+</html>

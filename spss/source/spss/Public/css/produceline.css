@@ -1,0 +1,165 @@
+.content{
+	width: 100%;
+	height: 1260px;
+	overflow: hidden;
+	min-width:1200px;
+}
+.produceline-banner{
+	width: 100%;
+	height: 450px;
+	position: relative;
+}
+.produceline-banner img:nth-child(1){
+	width: 100%;
+	height: 450px;
+}
+.banner-zi1{
+	position: absolute;
+	left:44%;
+	top:220px;
+	color: #fff;
+	font-size: 2.75em;
+	font-weight: 100;
+}
+.banner-zi2{
+	position: absolute;
+	left:44%;
+	top:290px;
+	background: #fff;
+	width: 280px;
+	height: 2px;
+}
+.banner-zi3{
+	position: absolute;
+	left:50%;
+	top:320px;
+	color: #d7d7d7;
+	font-size: 1.37em;
+}
+
+/*produceline-main*/
+.produceline-main{
+	height: 810px;
+	width: 100%;
+	background: #ffffff;
+}
+.produceline-main .produceline-tab{
+	width: 49.9%;
+	height: 70px;
+	float: left;
+	text-align: center;
+	line-height: 70px;
+	font-size: 1.375em;
+	border-bottom: 1px solid #d9d9d9;
+}
+.produceline-main>div:first-child{
+	border-right: 1px solid #D9D9D9;
+}
+.produceline-tab1-show{
+	width: 100%;
+	height: 740px;
+	background: #fff;
+}
+.produceline-tab1-show h5{
+   margin:0 auto;
+	width: 100%;
+	min-width:1200px;
+	height:100px;
+	line-height:100px;
+	text-align:center;
+	font-size:18px;
+	border-bottom:1px solid #d9d9d9;
+}
+.produceline-tab1-show-main{
+	width: 900px;
+	height: 740px;
+	margin: 0 auto;
+}
+
+.produceline-tab1-showcont{
+	width: 900px;
+	height: 600px;
+	position: relative;
+	top:20px;
+	left: 0px;
+	}
+.produceline-yuanb{
+	position: relative;
+	left:180px;
+	bottom:510px;
+	z-index: 1;
+	
+}
+.produceline-yuans{
+	position: absolute;
+	left:290px;
+	top:158px;
+	z-index: 1;
+	
+}
+/*.produceline-computer1-go{
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+}*/
+.produceline-computer1{
+	z-index: 1000;
+	position: relative;
+	
+}
+.produceline-tab1-showcont-go{
+	position: relative;
+	left: 60%;
+	bottom: 71%;
+	font-size:1.25em;
+	width: 50%;
+	height: 400px;
+}
+.produceline-tab1-showcont-go>a{
+	position: absolute;
+	z-index: 1000;
+	cursor: pointer;
+	color: #000;
+	display: block;
+	width: 100%;
+	height: 50px;
+	/*border: 1px solid blue;*/
+}
+.produceline-tab1-showcont-go a:nth-child(1){
+	left:0px;
+	bottom: 340px;
+}
+.produceline-tab1-showcont-go a:nth-child(2){
+	left:50px;
+	bottom: 290px;
+}
+.produceline-tab1-showcont-go a:nth-child(3){
+	left:82px;
+	bottom: 240px;
+}.produceline-tab1-showcont-go a:nth-child(4){
+	left:100px;
+	bottom: 180px;
+}
+.produceline-tab1-showcont-go a:nth-child(5){
+	left:100px;
+	bottom: 130px;
+}
+.produceline-tab1-showcont-go a:nth-child(6){
+	left:90px;
+	bottom: 80px;
+}
+.produceline-tab1-showcont-go a:nth-child(7){
+	left:72px;
+	bottom: 30px;
+}
+.produceline-tab1-showcont-go a:nth-child(8){
+	left:30px;
+	bottom: -20px;
+}
+.produceline-tab1-showcont-go a span{
+	width: 40px;
+	height: 15px;
+	display: inline-block;
+	background: url(../img/produceline-landian.png) no-repeat;
+	}

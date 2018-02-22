@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>广告位置-编辑</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">广告管理</a></li>
+            <li><a href="#">广告位置</a></li>
+            <li><a href="#">编辑</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('update')}>" method="post">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <!-- 广告位名称 -->
+                <li><label>广告位名称<b>*</b></label><input name="name" type="text" value="<{$adpos.name}>" class="dfinput" /><i></i></li>
+
+                <!-- 广告位宽度 -->
+                <li><label>广告位宽度<b>*</b></label><input name="width" type="number" value="<{$adpos.width}>" class="dfinput" style="width:100px;" /> px<i>宽度为1到1024之间</i></li>
+
+                <!-- 广告位高度 -->
+                <li><label>广告位高度<b>*</b></label><input name="height" type="number" value="<{$adpos.height}>" class="dfinput" style="width:100px;" /> px<i>高度为1到1024之间</i></li>
+
+                <!-- 广告位置的描述 -->
+                <li><label>广告位置的描述</label>
+                <textarea name="pos_desc" id="" cols="20" class="textinput" rows="10"><{$adpos.pos_desc}></textarea>
+                <i>描述不能超过255个字符</i></li>
+
+                <!-- 保存按钮 -->
+                <li><label>&nbsp;</label>
+                    <input name="id" type="hidden" class="btn" value="<{$adpos.id}>"/>
+                    <input name="" type="submit" class="btn" value="保存"/>
+                </li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

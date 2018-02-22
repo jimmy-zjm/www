@@ -1,0 +1,550 @@
+<include file="Public/head"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header>精确报价</header>
+	<section  class="container">
+		<form action="<{:U('offer',array('catId'=>$_GET['catid']))}>" name="form1" id="form1" method="post">
+			<div class="sys-box">
+				<?php foreach ($quoteList as $key => $val): ?>
+					<p class="sys-title"><{$key}></p>
+					<?php foreach ($val as $k => $v): ?>
+						<label>
+							<p class="sys-item"><{$v.quote_name}> 
+								<input type="radio" class='radio1' name='quote_id[<{$key}>]' value="<{$v.quote_id}>" <?= $_SESSION['pad_post']['quote_id'][$key] == $v['quote_id']?'checked':'' ?>>
+							</p>
+						</label>
+					<?php endforeach ?>
+				<?php endforeach ?>
+				<input type="hidden" id='type' name="type" value='1'>
+			</div>
+			<div class="info-box">
+				<p class="sys-title">填写相关信息</p>
+				<p class="sys-item">
+					<span class="item-name">联系人</span>
+					<input class="info-input" type="text" onchange="loading()" name="name" id='name' value="<?= $_SESSION['pad_post']['name']?>" placeholder="姓名">
+				</p>
+				<p class="sys-item">
+					<span class="item-name">联系方式</span>
+					<input class="info-input" type="text" name="tel" id='tel' onchange="loading()" value="<?= $_SESSION['pad_post']['tel'] ?>" placeholder="号码">
+				</p>
+				<p class="sys-item">
+					<span class="item-name">房屋地址</span>
+					<select class="address prov" required name="cho_Province" onchange='changeArea("city",this.value)'>
+						<option value="请选择" >   
+							请选择
+						</option>
+						<?php foreach ($dealerService as $k => $v): ?>
+							<option value="<{$k}>"><{$k}></option>
+						<?php endforeach ?>
+					</select>
+					<select class="address city" required name="cho_City" onchange='changeArea("district",this.value)'>
+						<option value="请选择">
+							请选择城市
+						</option>
+					</select>
+					<select class="address district" required name="cho_Area" >
+						<option value="请选择">
+							请选择地区
+						</option>
+					</select>
+				</p>
+				<p class="sys-item">
+					<span class="item-name"></span>
+					<input type="text" class='info-input diqu' name="diqu" value="<?= $_SESSION['pad_post']['diqu'] ?>" placeholder='请输入详细地址'>
+				</p>
+				<div class="sys-item house-kind">
+					<span class="item-name">房屋类型</span>
+					<label>公寓<input type="radio" class='radio2' id="gongyu" name="house" value="1" <?= $_SESSION['pad_post']['house'] == 1?'checked':'' ?>/></label>
+					<label>叠加<input type="radio" class='radio2' id="diejia" name="house" value="2" <?= $_SESSION['pad_post']['house'] == 2?'checked':'' ?>/></label>
+					<label>联排<input type="radio" class='radio2' id="lianpai" name="house" value="3" <?= $_SESSION['pad_post']['house'] == 3?'checked':'' ?> /></label>
+					<label>独栋<input type="radio" class='radio2' id="dudong" name="house" value="4" <?= $_SESSION['pad_post']['house'] == 4?'checked':'' ?>/></label>
+
+				</div>
+				<div class="sys-item">
+					<!-- <span class="item-name"></span> -->
+					<p class="room-item">
+						<select name="type1" onchange="houseArea(this,1)" >
+							<option value="0">--请选择--</option>
+							<?php for ($i=1; $i < 21; $i++) { ?>
+							<option id='t<{$i}>' value="<{$i}>" <?= $_SESSION['pad_post']['type1'] == $i?'selected="selected"':'' ?>>
+								<{$i}>
+							</option>
+							<?php } ?>
+						</select>
+						室
+					</p>
+					<p class="room-item">
+						<select name="type2" onchange="houseArea(this,2)" >
+							<option value="0">--请选择--</option>
+							<?php for ($i=1; $i < 11; $i++) { ?>
+							<option value="<{$i}>" <?= $_SESSION['pad_post']['type2'] == $i?'selected="selected"':'' ?>><{$i}></option>
+							<?php } ?>
+
+						</select>
+						厅
+					</p>
+					<p class="room-item">
+						<select name="type3" onchange="houseArea(this,3)"  >
+							<option value="0">--请选择--</option>
+							<?php for ($i=1; $i < 11; $i++) { ?>
+							<option value="<{$i}>" <?= $_SESSION['pad_post']['type3'] == $i?'selected="selected"':'' ?>><{$i}></option>
+							<?php } ?>
+						</select>
+						厨
+					</p>
+
+				</div>
+				<div class="sys-item">
+					<!-- <span class="item-name"></span> -->
+					<p class="room-item">
+						<select onchange="houseArea(this,4)"  name="type4" >
+							<option value="0">--请选择--</option>
+							<?php for ($i=1; $i < 11; $i++) { ?>
+							<option value="<{$i}>" <?= $_SESSION['pad_post']['type4'] == $i?'selected="selected"':'' ?>><{$i}></option>
+							<?php } ?>
+						</select>
+						卫
+					</p>
+					<div id='click01'>
+						<p class="room-item">
+							<select onchange="houseArea(this,6)" name="type6" id='type6'>
+								<option value="0">--请选择--</option>
+								<?php for ($i=1; $i < 11; $i++) { ?>
+								<option value="<{$i}>" <?= $_SESSION['pad_post']['type6'] == $i?'selected="selected"':'' ?>><{$i}></option>
+								<?php } ?>
+
+							</select>
+							阁楼
+						</p>
+						<p class="room-item">
+							<select onchange="houseArea(this,7)" name="type7" id='type7' >
+								<option value="0">--请选择--</option>
+								<?php for ($i=1; $i < 11; $i++) { ?>
+								<option value="<{$i}>" <?= $_SESSION['pad_post']['type7'] == $i?'selected="selected"':'' ?>><{$i}></option>
+								<?php } ?>
+							</select>
+							地下室
+						</p>
+					</div>
+				</div>
+				<div class="house-info">
+					<p class="sys-item">
+						房间说明
+					</p>
+
+
+					<div class="sys-item sys-auto room1" <?php if (empty($_SESSION['pad_post']['bedroom'])): ?> style='display:none;' <?php endif ?>>
+						<span class='house-item'>卧室（㎡ )</span>
+						<div class="fl">
+							<?php foreach ($_SESSION['pad_post']['bedroom'] as $k => $v): ?>
+								<input type='tel' typename="area" onkeyup="areas()" name='bedroom[]' value="<{$v}>"/>
+							<?php endforeach ?>
+						</div>
+					</div>
+
+
+					<div class="sys-item sys-auto room2" <?php if (empty($_SESSION['pad_post']['liveroom'])): ?> style='display:none;' <?php endif ?>>
+						<span class="house-item">客厅 (㎡)</span>
+						<div class="fl">
+							<?php foreach ($_SESSION['pad_post']['liveroom'] as $k => $v): ?>
+								<input type='tel' typename="area" onkeyup="areas()" name='liveroom[]' value="<{$v}>"/>
+							<?php endforeach ?>
+						</div>
+					</div>
+
+
+
+					<div class="sys-item sys-auto room3" <?php if (empty($_SESSION['pad_post']['kitchen'])): ?> style='display:none;' <?php endif ?>>
+						<span class="house-item">厨房 (㎡)</span>
+						<div class="fl">
+							<?php foreach ($_SESSION['pad_post']['kitchen'] as $k => $v): ?>
+								<input type='tel' typename="area" onkeyup="areas()" name='kitchen[]' value="<{$v}>"/>
+							<?php endforeach ?>	
+						</div>
+					</div>
+
+
+
+					<div class="sys-item sys-auto room4" <?php if (empty($_SESSION['pad_post']['bathroom'])): ?> style='display:none;' <?php endif ?>>
+						<span class="house-item">浴室 (㎡)</span>
+						<div class="fl">
+							<?php foreach ($_SESSION['pad_post']['bathroom'] as $k => $v): ?>
+								<input type='tel' typename="area" onkeyup="areas()" name='bathroom[]' value="<{$v}>"/>
+							<?php endforeach ?>
+						</div>
+					</div>
+
+
+
+					<div class="sys-item sys-auto room6" <?php if (empty($_SESSION['pad_post']['gelou'])): ?> style='display:none;' <?php endif ?>>
+						<span class="house-item">阁楼 (㎡)</span>
+						<div class="fl">
+							<?php foreach ($_SESSION['pad_post']['gelou'] as $k => $v): ?>
+								<input type='tel' typename="area" onkeyup="areas()" name='gelou[]' value="<{$v}>"/>
+							<?php endforeach ?>
+						</div>
+					</div>
+
+
+
+					<div class="sys-item sys-auto room7" <?php if (empty($_SESSION['pad_post']['database'])): ?> style='display:none;' <?php endif ?>>
+						<span class="house-item">地下室 (㎡)</span>
+						<div class="fl">
+							<?php foreach ($_SESSION['pad_post']['database'] as $k => $v): ?>
+								<input type='tel' typename="area" onkeyup="areas()" name='database[]' value="<{$v}>"/>
+							<?php endforeach ?>
+						</div>
+					</div>
+
+
+					<div class="sys-item">
+						<span class="house-item">使用面积 (㎡)</span>
+						<input id="areanum" type="text" name="area" value="<{$_SESSION.pad_post.area}>" readonly/>
+					</div>
+
+					<div class="sys-item">
+						<span class="house-item">建筑面积 (㎡)</span>
+						<input id="build" type="text" name="build" value="<{$_SESSION.pad_post.build}>"/>
+					</div>
+
+					<div class="sys-item">
+						<span class="house-item">常住人口 (人)</span>
+						<input id="people" type="text" name="people" value="<{$_SESSION.pad_post.people}>" />
+					</div>
+
+				</div>
+				<div class="img-show">
+
+					<img src="__PUBLIC__/Dealer/img/homeinfo.png">
+
+				</div>
+				<div class="wenzi-show">
+					a代表长,b代表宽,区域面积=a*b.客厅面积=玄关面
+					积+走廊面积+客厅面积,衣帽间面积计算在相邻卧
+					室内,室内阳台面积计算在相对应房间内。
+				</div>
+			</div>
+			<div class="money-box">
+				<p class="sys-title">费用合计</p>
+				<?php foreach ($moneyList as $k => $v): ?>
+					<p class="sys-item"><{$v['name']}><span onclick="inputQid(<{$v['q_id']}>)" class="rightredborder-btn">查看清单</span><span class="sys-money">￥<{$v['money']['all']}>元</span></p>
+				<?php endforeach ?>
+				<p class="sys-item">合计<span class="sys-money">￥<{$moneyAll['zhuCai']+$moneyAll['fuCai']}>元</span></p>
+			</div>
+
+			<input type="hidden" name="href" id="href" value='details'>
+			<input type="hidden" name="q_id" id="q_id" value=''>
+			<input type="hidden" name="cid" value="<{$_GET.catId}>">
+			<input  class="my-btm-btn" type="button" value="精确报价" id="accurate" onclick="homeQuote();"/>
+		</form>
+	</section>
+
+	<include file="Public/foot"/>
+	
+	<script type="text/javascript"> 
+		// 省市县三级联动
+		function changeArea(c,v){
+			if (c=='district') var prov = $('.prov').val();
+			else prov = '';
+			$.getJSON("<{:U('changeArea')}>",{'city':c,'v':v,'prov':prov},function(data){
+				$('.'+c).html('');
+				if (c=='city') {
+					$('.district').html('');
+					$('.district').append("<option value='请选择'>请选择地区</option>");
+					$('.'+c).append("<option value='请选择'>请选择城市</option>");
+				}else if (c=='district') $('.'+c).append("<option value='请选择'>请选择地区</option>");
+				for (var i = 0; i < data.length; i++) {
+					$('.'+c).append("<option value="+data[i]+">"+data[i]+"</option>");
+				}
+			})
+		}
+
+	    //房屋类型选择
+	    $(function(){
+	    	$("#gongyu").click(function(){
+	    		$("#click01").hide();
+	    		$(".room6").hide();
+	    		$(".room7").hide();
+	    		$(".room6").html('');
+	    		$(".room7").html('');
+	    		$("#type6").val(0);
+	    		$("#type7").val(0);
+	    		areas();
+	    	});
+
+	    	$("#diejia").click(function(){
+	    		$("#click01").show();
+
+	    	});
+
+	    	$("#lianpai").click(function(){
+	    		$("#click01").show();
+	    	});
+
+	    	$("#dudong").click(function(){
+	    		$("#click01").show();
+	    	});
+	    });
+
+
+	//房屋面积
+	function houseArea(t,o){
+		if (t.value == '' || t.value == 0) {
+			$('.room'+o).css('display','none');
+			$(".room"+o).html('');
+		}else{
+			if (o==1){
+				var n = '卧室';
+				var name = 'bedroom[]';
+			}else if(o==2){
+				var n = '客厅';
+				var name = 'liveroom[]';
+			}else if(o==3){
+				var n = '厨房'; 
+				var name = 'kitchen[]';
+			}else if(o==4){
+				var n = '浴室'; 
+				var name = 'bathroom[]';
+			}else if(o==6){
+				var n = '阁楼'; 
+				var name = 'gelou[]';
+			}else if(o==7){
+				var n = '地下室'; 
+				var name = 'database[]';
+			}
+
+			$('.room'+o).css('display','block');
+			$(".room"+o).html('');
+			$(".room"+o).append("<spsn class='house-item'>"+n+"（㎡ )</spsn>");
+			$(".room"+o).append("<div class='fl'></div>");
+			for(var i=0;i<t.value;i++){
+				$(".room"+o+" "+"div").append("<input type='tel' typename='area' onkeyup='areas()' name='"+name+"' value=''/>");
+			}
+			// $(".room"+o).append("</spsn>");
+		}
+		areas();
+	}
+
+
+	//计算房屋面积
+	function areas(){
+		var num = 0;
+		var lis = document.getElementsByTagName('input');
+		for (var i = 0; i < lis.length; i++) {
+			if (lis[i].getAttribute('typename')=='area') {
+				if (lis[i].value=='') {
+					var a = 0;
+				}else{
+					var a = lis[i].value;
+				}
+				var num = (parseFloat(num) + parseFloat(a)).toFixed(1);
+			}
+		}
+		$('#areanum').val(num);
+	}
+
+    //查询数据自动填入
+    function loading(){
+    	var name = $('#name').val();
+    	var tel = $('#tel').val();
+    	if (name=='' || tel=='') return;
+    	var re=/^1[34578]\d{9}$/;
+    	var reg=new RegExp(re);
+    	if(!reg.test(tel)){
+    		alert('您输入的电话号码不正确！');
+    	}
+    	if(reg.test(tel) && name != ''){
+    		$.getJSON('<{:U("selectHouse")}>',{'name':name,'tel':tel},function(data){
+    			if (data == false) return;
+    			/*****************************/
+                //省市县/区详细地址
+                $('.prov').html('<option value="请选择">请选择</option>');
+                for (var i = 0; i < data.provList.length; i++) {
+                	if (data.province == data.provList[i]) $('.prov').append("<option selected value="+data.provList[i]+">"+data.provList[i]+"</option>");
+                	else $('.prov').append("<option value="+data.provList[i]+">"+data.provList[i]+"</option>");
+                }
+                for (var i = 0; i < data.cityList.length; i++) {
+                	if (data.city == data.cityList[i]) $('.city').append("<option selected value="+data.cityList[i]+">"+data.cityList[i]+"</option>");
+                	else $('.city').append("<option value="+data.cityList[i]+">"+data.cityList[i]+"</option>");
+                }
+                for (var i = 0; i < data.districtList.length; i++) {
+                	if (data.district == data.districtList[i]) $('.district').append("<option selected value="+data.districtList[i]+">"+data.districtList[i]+"</option>");
+                	else $('.district').append("<option value="+data.districtList[i]+">"+data.districtList[i]+"</option>");
+                }
+                $('.diqu').val(data.address);    //详细地址
+                /*****************************/
+
+                /*****************************/
+                //房屋类型
+                if (data.type==1) document.getElementById("gongyu").checked = true;
+                else document.getElementById("gongyu").checked = false;
+                if (data.type==2) document.getElementById("diejia").checked = true;
+                else document.getElementById("diejia").checked = false;
+                if (data.type==3) document.getElementById("lianpai").checked = true;
+                else document.getElementById("lianpai").checked = false;
+                if (data.type==4) document.getElementById("dudong").checked = true;
+                else document.getElementById("dudong").checked = false;
+                /*****************************/
+
+                var areaArea = data.area.split('|');
+                var arr = data.layout.split(',');
+                var aa = document.getElementsByTagName('select');
+
+                if (data.attic>0 || data.basement>0) $('#click01').css('display','block');
+                else $('#click01').css('display','none');
+                for (var i = 0; i < aa.length; i++) {
+                	if(aa[i].name=='type1'){
+                		aa[i].value = arr[0];
+                	}
+                	if(aa[i].name=='type2'){
+                		aa[i].value = arr[1];
+                	}
+                	if(aa[i].name=='type3'){
+                		aa[i].value = arr[2];
+                	}
+                	if(aa[i].name=='type4'){
+                		aa[i].value = arr[3];
+                	}
+                	if(aa[i].name=='type6'){
+                		aa[i].value = arr[5];
+                	}
+                	if(aa[i].name=='type7'){
+                		aa[i].value = arr[6];
+                	}
+                };
+
+                /*******************************/
+                //每个房屋面积
+
+                for (var i = 0; i < 7; i++) {
+                	if (i!=4) {
+                		var roomArea = areaArea[i].split(',');
+                		if (roomArea.length > 0 && roomArea[0] != '0') {
+                			if (i==0){
+                				var n = '卧室';
+                				var areaName = 'bedroom[]';
+                			}else if(i==1){
+                				var n = '客厅';
+                				var areaName = 'liveroom[]';
+                			}else if(i==2){
+                				var n = '厨房'; 
+                				var areaName = 'kitchen[]';
+                			}else if(i==3){
+                				var n = '浴室'; 
+                				var areaName = 'bathroom[]';
+                			}else if(i==5){
+                				var n = '阁楼'; 
+                				var areaName = 'gelou[]';
+                			}else if(i==6){
+                				var n = '地下室'; 
+                				var areaName = 'database[]';
+                			}
+                			var ii = parseInt(i)+parseInt(1);
+                			$('.room'+ii).css('display','block');
+                			$('.room'+ii).html('');
+                			$(".room"+ii).append("<spsn class='house-item'>"+n+"（㎡ )");
+
+                			for(var j=0;j<roomArea.length;j++){
+                				$(".room"+ii).append("<input type='tel' typename='area' onkeyup='areas()' name='"+areaName+"' value='"+roomArea[j]+"'/>");
+                			}
+                			$(".room"+ii).append("</spsn>");
+                		}
+                	}
+                }
+
+                /*******************************/
+                $('#areanum').val(data.total_area);
+                $('#people').val(data.people);
+                $('#build').val(data.build);
+            })
+}
+}
+
+$('#href').val('details');
+$('#q_id').val('');
+
+    //判断地址是否选择完毕
+    function homeQuote(){
+    	var name     = $('#name').val();
+    	var tel      = $('#tel').val();
+    	var prov     = $('.prov').val();
+    	var city     = $('.city').val();
+    	var district = $('.district').val();
+    	var address  = $('.diqu').val();
+    	var build    = $('#build').val();
+    	var people   = $('#people').val();
+
+    	for (var i = 0; i < $('.radio1').length; i++) {
+    		if ($('.radio1')[i].checked == true) var pass1 = true;
+    	}
+    	if (pass1 != true) {
+    		alert('请选择报价产品');return false;
+    	}
+    	if (name == '') {
+    		alert('请填写客户姓名');return false;
+    	}
+    	if (tel == '') {
+    		alert('请填写联系方式');return false;
+    	}
+    	if (prov == '请选择') {
+    		alert('请选择省份');return false;
+    	}
+    	if (city == '请选择') {
+    		alert('请选择城市');return false;
+    	}
+    	if (district == '请选择') {
+    		alert('请选择区县');return false;
+    	}
+    	if (address == '') {
+    		alert('请填写详细地址');return false;
+    	}
+
+    	for (var i = 0; i < $('.radio2').length; i++) {
+    		if ($('.radio2')[i].checked == true) var pass2 = true;
+    	}
+
+    	if (pass2 != true) {
+    		alert('请选择房屋类型');return false;
+    	}
+
+    	if (build == '') {
+    		alert('请填写建筑面积');return false;
+    	}
+
+    	if (people == '') {
+    		alert('请填写常住人口');return false;
+    	}
+
+    	document.getElementById('accurate').type = 'submit';
+    }
+
+    function inputQid(id){
+    	$('#q_id').val(id);
+    	$('#href').val('offer');
+    	$('#form1').submit();
+    }
+
+
+    function myfun(){
+    	$.getJSON("<{:U('padPostArea')}>",function(data){
+    		$('.prov').html('<option value="请选择">请选择</option>');
+    		for (var i = 0; i < data.prov.length; i++) {
+    			if (data.provName == data.prov[i]) $('.prov').append("<option selected value="+data.prov[i]+">"+data.prov[i]+"</option>");
+    			else $('.prov').append("<option value="+data.prov[i]+">"+data.prov[i]+"</option>");
+    		}
+    		for (var i = 0; i < data.city.length; i++) {
+    			if (data.cityName == data.city[i]) $('.city').append("<option selected value="+data.city[i]+">"+data.city[i]+"</option>");
+    			else $('.city').append("<option value="+data.city[i]+">"+data.city[i]+"</option>");
+    		}
+    		for (var i = 0; i < data.district.length; i++) {
+    			if (data.districtName == data.district[i]) $('.district').append("<option selected value="+data.district[i]+">"+data.district[i]+"</option>");
+    			else $('.district').append("<option value="+data.district[i]+">"+data.district[i]+"</option>");
+    		}
+    	})
+    }
+    window.onload=myfun;
+</script>
+
+</body>
+</html>

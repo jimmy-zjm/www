@@ -1,0 +1,138 @@
+.con5{
+	width: 100%;
+	height: 1900px;
+	position: relative;
+}
+.con5-1{
+	position: absolute;
+	top: 60px;
+	left: 0;
+}
+.con5-2{
+	position: absolute;
+	top: 134px;
+	left: 0;
+}
+.con5-2-2{
+	position: absolute;
+	top: 164px;
+	left: 0;
+}
+.con5-3{
+	position: absolute;
+	top: 170px;
+	right: 0;
+	text-align: right;
+}
+.con5-4{
+	position: absolute;
+	top: 559px;
+	right: 0;
+	text-align: right;
+}
+.con5-butinghua{
+	width: 45.7%;
+	height: auto;
+	position: absolute;
+	right: 0;
+	top: 635px;
+	text-align: left;
+}
+.con5-butinghua1{
+	width: 45.7%;
+	height: auto;
+	position: absolute;
+	right: 0;
+	top: 665px;
+	text-align: left;
+}
+.con5-7{
+	position: absolute;
+	left: 0;
+	top:665px ;
+}
+.nvde{
+	position: absolute;
+	left: 0;
+	top:890px ;
+}
+.con5-8{
+	position: absolute;
+	bottom: 580px;
+	left: 0;
+}
+.con5 .con5-9-1{
+	width: 51%;
+	height: 25px;
+	position: absolute;
+	bottom: 520px;
+	left: 0;
+	text-align: right;
+}
+.con5 .con5-9-2{
+	width: 51%;
+	height: 25px;
+	position: absolute;
+	bottom: 495px;
+	left: 0;
+	text-align: right;
+}
+.con5-10-1{
+	position: absolute;
+	right: 5%;
+	bottom: 60px;
+}
+.con7{
+	width: 100%;
+	height: 700px;
+	background: #494443;
+	position: relative;
+}
+.con7-1{
+	position: absolute;
+	top: 38px;
+	right: 3%;
+}
+.con7-2{
+	position: absolute;
+	top: 186px;
+	left: 5%;
+}
+.con7-3{
+	position: absolute;
+	top: 174px;
+	right: 12.5%;
+}
+.con7-4{
+	position: absolute;
+	top: 284px;
+	left: 25%;
+}
+.con7-5{
+	position: absolute;
+	top: 523px;
+	left: 10%;
+}
+
+.con7-6{
+	position: absolute;
+	top: 535px;
+	right: 0%;
+}
+.con7-7{
+	position: absolute;
+	bottom: -7px;
+}
+.con8-3{
+	position: absolute;
+	right: 0;
+	top: 300px;
+	text-align: right;
+}
+.con9-3{
+	position: absolute;
+	right: 8%;
+	top: 250px;
+	text-align: center;
+}
+

@@ -1,0 +1,134 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet" type="text/css" href="css/test.css"/>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear"></div>
+
+<div class="test-top">
+	<div class="test-top-bk">
+        <div class="test-top-left">
+            <span>
+                {:$content.quote_name:}
+            </span>
+        </div>
+        
+        <div class="test-top-right">
+            <div class="test-top-right-nav">
+            	<div class="test-top-right-nav-demo">
+                    <a href="price.php?cid={:$smarty.get.cid:}" class="a01" name="homelist2_price_cid={:$smarty.get.cid:}">
+                        报价
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a <a href="test.php?summary&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_summary_cid={:$smarty.get.cid:}">
+                        概述
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?principle&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_principle_cid={:$smarty.get.cid:}">
+                        原理
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?advantage&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_advantage_cid={:$smarty.get.cid:}">
+                        产品优势
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?standard&cid={:$smarty.get.cid:}" class="a02" name="homelist2_test_standard_cid={:$smarty.get.cid:}">
+                        施工标准
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?service&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_service_cid={:$smarty.get.cid:}">
+                        售后
+                    </a>
+                </div>  
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?parameter&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_parameter_cid={:$smarty.get.cid:}">
+                        参数
+                    </a>
+                </div>        
+                
+                <div class="clear"></div>
+            </div>        
+           
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="test-center">
+	<div class="test-center-demo01">
+	{:if !empty($content.standard):}
+		{:$content.standard|html_entity_decode:}
+	{:else:}
+    	<img src="images/1150.jpg"/>
+        <img src="images/1151.jpg"/>
+        <img src="images/1152.jpg"/>
+        <img src="images/1153.jpg"/>
+        <img src="images/1154.jpg"/>
+        <img src="images/1155.jpg"/>
+        <img src="images/1156.jpg"/>
+        <img src="images/1157.jpg"/>
+        <img src="images/1158.jpg"/>
+        <img src="images/1159.jpg"/>
+        <img src="images/1160.jpg"/>
+        <img src="images/1161.jpg"/>
+        <img src="images/1162.jpg"/>
+        <img src="images/1163.jpg"/>
+        <img src="images/1164.jpg"/>
+        <img src="images/1165.jpg"/>
+        <img src="images/1166.jpg"/>
+        <img src="images/1167.jpg"/>
+        <img src="images/1168.jpg"/>
+        <img src="images/1169.jpg"/>
+        <img src="images/1170.jpg"/>
+        <img src="images/1171.jpg"/>
+        <img src="images/1172.jpg"/>
+        <img src="images/1173.jpg"/>
+        <img src="images/1174.jpg"/>
+        <img src="images/1175.jpg"/>
+        <img src="images/1176.jpg"/>
+        <img src="images/1177.jpg"/>
+        <img src="images/1178.jpg"/>
+        <img src="images/1179.jpg"/>
+        <img src="images/1180.jpg"/>
+        <img src="images/1181.jpg"/>
+        <img src="images/1182.jpg"/>
+        <img src="images/1183.jpg"/>
+        <img src="images/1184.jpg"/>
+        <img src="images/1185.jpg"/>
+        <img src="images/1186.jpg"/>
+	{:/if:}
+    </div>    
+    
+    <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+
+{:include file="footer.tpl.html":}
+</body>
+</html>

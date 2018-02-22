@@ -1,0 +1,674 @@
+{:include file="header_supermarket.tpl.html":}
+<link rel="stylesheet" type="text/css" href="css/supermarket-goods.css" ><!-- 欧洲母婴baby页面调用CSS -->
+
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!--jqury-ui调用-->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+
+
+<!--商品图片缩略图切换+放大镜-->
+<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<!--商品图片缩略图切换+放大镜end-->
+
+<!--视频播放器-->
+<link href="css/video-js.css" rel="stylesheet" type="text/css">
+<script src="js/video.js" type="text/javascript"></script>
+<script>
+	videojs.options.flash.swf = "swf/video-js.swf";
+</script>
+<!--视频播放器-->
+
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">	
+	<!--主导航-->
+	{:include file='common/daohang_supermarket.html':}
+    <!--主导航end-->
+    {:include file="category/category_supermarket.tpl.html":}	
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear3"></div>
+
+<!--商品简介-->
+<div class="supermarket_goods-intro">
+    <div class="supermarket_goods-intro-left">
+		
+        <!--放大镜-->
+        <div id="preview" class="spec-preview"> 
+            <span class="jqzoom">
+            	<img jqimg="{:$goods_info['face_image']|getImage:}" src="{:$goods_info['face_image']|getImage:}" />
+            </span>
+        </div>
+        <!--放大镜end-->
+        
+        <!--缩略图-->
+        <div class="spec-scroll">
+        	<a class="prev"></a> 
+            
+        	<a class="next"></a>
+        
+            <div class="items">
+                <ul>
+                {:foreach $goods_image as $k=>$v:}
+                    <li>
+                    	<img bimg="{:$v['url']|getImage:}" src="{:$v['url']|getImage:}" onmousemove="preview(this);">
+                    </li>
+                {:/foreach:}    
+                </ul>
+            </div>
+        </div>
+        <!--缩略图end-->
+        
+        <div class="clear32"></div>
+        
+        <div class="supermarket_goods-intro-left-gz">          
+            <a href="javascript:;"  onclick="chageImg({:$goods_info['id']:})" >
+                {:if in_array($goods_info['id'],$concern_list):}
+                <span  id="sp{:$goods_info['id']:}">
+                	已关注
+                </span>
+                
+                <img  id="img{:$goods_info['id']:}"  src="images/xin04.png">                
+                {:else:}
+                <span id="sp{:$goods_info['id']:}">
+                	关注
+                </span>
+                
+                <img id="img{:$goods_info['id']:}" src="images/xin05.png" >
+                {:/if:}
+            </a> 
+        </div>
+    </div>
+
+    <div class="supermarket_goods-intro-middle">
+        <div class="supermarket_goods-intro-middle-name">
+            <span>
+                {:$goods_info['goods_title']:}
+            </span>
+        </div>
+
+        <div class="clear"></div>    
+        
+        <div class="supermarket_goods-intro-middle-operate">
+        	<span>
+            	{:$goods_info['pro_info']:}
+            </span>
+        </div>    
+        
+        <div class="supermarket_goods-intro-middle-price">
+            <div class="supermarket_goods-intro-middle-price-left">
+                价　　格：
+            </div>
+
+            <div class="supermarket_goods-intro-middle-price-right">
+                ￥{:$goods_info['market_price']|round:1:}
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="supermarket_goods-intro-middle-promotional_price">
+            <div class="supermarket_goods-intro-middle-promotional_price-left">
+            <input type='hidden' id='tol' readonly value="{:$goods_info['purchase']:}"/>
+                促&nbsp;&nbsp;销&nbsp;&nbsp;价：
+            </div>
+
+            <div class="supermarket_goods-intro-middle-promotional_price-right" id='total'>
+                ￥{:$goods_info['purchase']|round:1:}
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="supermarket_goods-intro-middle-freight">
+            <div class="supermarket_goods-intro-middle-freight-left">
+                运　　费：
+            </div>
+
+            <div class="supermarket_goods-intro-middle-freight-right">
+                包　　邮 
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+        
+        <div class="supermarket_goods-intro-middle-number">
+			<div class="supermarket_goods-intro-middle-number-left">
+                数　　量：
+            </div>
+
+            <div class="supermarket_goods-intro-middle-number-center">
+                <div class="f_l add_chose">
+                    <div class="reduction">
+                        <a class="reduce" href="javascript:void(0)">
+                            <img  src="images/jian01.png" onclick='num1()'/>
+                        </a>
+                    </div>
+
+                    <div class="number">
+                        <input type="text" onkeyup="num2()" name="qty_item_1" value="1" id="qty_item_1" class="text" />
+                    </div>
+
+                    <div class="plus">
+                        <a class="add" href="javascript:void(0)">
+                            <img  src="images/jia01.png" onclick='num()'/>
+                        </a>
+                    </div>
+                </div> 
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+		<div class="supermarket_goods-intro-middle-freight">
+            <div class="supermarket_goods-intro-middle-freight-left">
+                产　　地：
+            </div>
+
+            <div class="supermarket_goods-intro-middle-freight-right">
+                {:$goods_info['country']:}
+            </div>
+
+            <div class="clear"></div>
+        </div>
+		<div class="supermarket_goods-intro-middle-freight">
+            <div class="supermarket_goods-intro-middle-freight-left">
+                包装规格：
+            </div>
+
+            <div class="supermarket_goods-intro-middle-freight-right">
+                {:$goods_info['package_list']:}
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        {:if $goods_info['discount_amount'] gt 0:}<div class="supermarket_goods-intro-middle-freight" > <span style="color:#666">可使用<span style="color:red">{:$goods_info['discount_amount']:}元</span>优惠券<span></div>{:/if:}
+        <div class="clear3"></div>
+        
+        <div class="supermarket_goods-intro-middle-buy">
+        	<div class="supermarket_goods-intro-middle-buy-input">
+            	<input type="button" id='ljg' value="立即购买"/>
+            </div>
+            
+            <div class="supermarket_goods-intro-middle-buy-a" id="shoppingId">
+            	<a href="javascript:void(0)">
+                	<img src="images/gouwuche03.png">
+                </a>
+            </div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="supermarket_goods-intro-middle-policy">
+        	<div class="supermarket_goods-intro-middle-policy-display">
+            	<div class="supermarket_goods-intro-middle-policy-display-span">
+                	<span>
+                    	上品上生海外超市的商品均为海外原装正品，符合原产国标准
+                    </span>
+                </div>
+                
+                <div class="supermarket_goods-intro-middle-policy-display-a" id="policy_dj">
+                	<a href="javascript:;">
+                    	<span>
+                        	海外政策
+                        </span> 
+                        
+                        <img src="images/jiantoubottom02.png" id="policy_img"/>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="supermarket_goods-intro-middle-policy-hide" id="policy_hide">
+            	<div class="supermarket_goods-intro-middle-policy-hide-bk">
+                    1.海外超市商品均从境外或境内保税仓（含自贸区）发货，商品配送周期一般为5-20天<br />（以收到身份信息并被审核通过后起算），具体以商品详情页描述为准；<br />
+                    2.所有商品均为海外原装正品，符合原产国标准，参照个人合理自用物品向中国海关及检疫部门申报，并依相关<br />规定缴纳进口税（相关税收标准在商品页有具体说明可参考）；<br />
+                    3.海外超市商品均属跨境交易，暂不提供国内购物发票，如需国际通用形式发票可联络海外超市客服；<br />
+                    4.海外超市商品暂不支持7天无理由退换及无理由拒收商品等；<br />
+                    5.购买海外超市商品需要做入境申报，根据中国海关总署令要求，需要您配合上传身份证信息进行个人物品入境申报，身份证信息将严格保管，绝不对外泄露，请您放心。
+            	</div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+<!--商品简介end-->
+
+<form action="cart.php?addOvCart" method="post" id="theForm">
+    <input type="hidden" name="luggage" id='luggage' value="1" />
+    <input type="hidden" name="amount" id='amount' value="1" />
+    <input type="hidden" name="id" id="goods_id" value="{:$goods_info.id:}" />
+</form>
+
+
+<div class="clear34"></div>
+
+<!--中间-->
+<div class="supermarket_goods-conter">
+    <div class="supermarket_goods-conter-between">
+        <div class="supermarket_goods-conter-product">
+            <div id="tabs">
+                <ul>
+                    <li>
+                        <a href="#tabs-1">
+                            产品详情
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#tabs-2">
+                            用户评论
+                        </a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+
+                <div class="clear"></div>
+
+                <div id="tabs-1">
+                	<div class="clear12"></div>
+                    
+                    <!--商品详情-->
+                    <div class="supermarket_goods-conter-product-detailed">
+                         {:$goods_info['goods_detail']|htmlspecialchars_decode:}
+
+                        <div class="clear2"></div>
+                    </div>
+                    <!--商品详情end-->
+                </div>
+
+                <div id="tabs-2">
+                	<!--用户评论-->
+                    <div class="supermarket_goods-conter-product-criticism">
+						<div class="supermarket_goods-conter-product-criticism-list">
+                        	<div class="supermarket_goods-conter-product-criticism-list-total">
+                            	<div class="supermarket_goods-conter-product-criticism-list-total-span">
+                                	<span>
+                                    	平均客户评论：
+                                    </span>
+                                </div>
+                                
+                                <div class="supermarket_goods-conter-product-criticism-list-total-star"><!--总星级评分-->
+                                    {:for $i=0;$i<$goods_comment;$i++:}
+                                	<div class="supermarket_goods-conter-product-criticism-list-total-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    {:/for:}
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                             <!--用户评论-->
+                            <div class="bobygoods-conter-product-evaluate" id="comment_content">
+                                加载中...
+                                <!-- 这里的评论内容在模板里面 -->
+                            </div>
+                            <!--用户评论end-->
+                            <div id="page"></div>
+
+                        </div>
+                    </div>
+                    <!--用户评论end-->
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<!--中间-->
+
+<div class="clear2"></div>
+<div class="clear2"></div>
+<div class="clear2"></div>
+
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+<!--加入购物车弹框-->
+<div id="shopping-box">
+    <div class="shopping-box-conter">
+        <div class="shopping-box-conter-span">
+            您的商品已经加入到购物车了，点击确定可以继续购买其他商品。也可直接前往{:if isset($smarty.session.zp):}<a href="cart.php?cartList#tabs-1">{:else:}<a href="cart.php?cartList#tabs-2">{:/if:}购物车</a>查看
+        </div>
+
+        <div id="shoppingOutId">
+            <a href="javascript:history.go(-1)">
+                确定
+            </a>
+        </div>
+
+    </div>
+</div>
+<!--加入购物车弹框-->
+<script type="text/javascript">
+$("#shopping-box").css('height',$(document).height());
+jQuery(function(){
+        $("#shoppingId").click(function(){
+        });
+
+        $("#shoppingOutId").click(function(){
+            $("#shopping-box").fadeOut();
+
+        });
+    });
+</script>
+<!--加入购物车弹框end-->
+
+
+<script>
+$( "#tabs" ).tabs();
+</script>
+
+<!-- 评价模板 -->
+<script type="text/html" id="comment_tpl">
+<% if(comm_list.length>0){ %>
+    <% for(var i=0;i<comm_list.length;i++){ %>
+ <div class="supermarket_goods-conter-product-criticism-list-demo"><!--有几条评论，就循环几个demo，下面给他加分页，一页显示3条-->
+    <div class="supermarket_goods-conter-product-criticism-list-demo-name">
+        <span>
+            用户<%=comm_list[i].user_name%>：
+        </span>        
+    </div>
+    
+    <div class="supermarket_goods-conter-product-criticism-list-demo-info">
+        <div class="supermarket_goods-conter-product-criticism-list-demo-info-word">        
+            <%=comm_list[i].content%>
+        </div>
+		
+        <div class="supermarket_goods-conter-product-criticism-list-demo-info-word">            
+            <% for(var j = 0; j < comm_list[i].imagesNum; j++) { %>
+                <img src="<%=comm_list[i].images[j]%>" alt="" width='100' height='100'>
+            <% } %>
+        </div>
+		        
+        <div class="supermarket_goods-conter-product-criticism-list-demo-info-star"><!--总星级评分-->
+            <% for(var l = 0; l < comm_list[i].star; l++) { %>
+            <div class="supermarket_goods-conter-product-criticism-list-demo-info-star-demo"><!--有几颗星，就循环几个demo-->
+                <img src="images/xing03.png">
+            </div>
+            <% } %> 
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="supermarket_goods-conter-product-criticism-list-demo-time">                                  
+        <span>
+            <%=comm_list[i].addtime%>  
+        </span>      
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+<% } %>
+<% }else{%>
+    <!--用户评论没有的话-->
+    <div class="supermarket_goods-conter-product-evaluate-no">              
+        <span>该商品还没有人写评价呢~~</span>
+    </div>
+    <!--用户评论没有的话-->
+<% } %>
+</script>
+<!-- 评价模板 -->
+
+
+<!-- 属性模板 -->
+<script type="text/html" id="attr_tpl">
+<% for(var i=0;i<list.length;i++){ %>
+  <div class="supermarket_goods-intro-middle-type-left">
+    选择<%=list[i][0].attr_name%>：
+  </div>
+
+  <div class="supermarket_goods-intro-middle-type-right">
+    <div class="yListr">
+      <ul>
+        <li class="attr_list" data-id="<%=list[i][0].attr_id%>">
+
+          <% for (var j = 0; j < list[i].length; j ++) { %>
+          <em data-id="<%=list[i][j].id%>" class="<% if(list[i][j].have_stock==0){ %>disabled<%}%>">
+              <%=list[i][j].attr_value%>
+            <i></i>
+          </em>
+          <% } %>
+
+          <div class="clear"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% } %>
+
+
+
+</script>
+<!-- 属性模板 -->
+<script src="js/template-native.js"></script>
+<script src="js/laypage.js"></script>
+
+
+<!--分享-->
+<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!--分享end-->
+
+
+<!-- ======================================================NEW=============================================== -->
+<script type="text/javascript">
+    /**
+     * 金钱格式化
+     */
+    function numberFormat(s){
+        s=s.toString();
+        if(/[^0-9\.]/.test(s)) return "invalid value";
+        s=s.replace(/^(\d*)$/,"$1.");
+        s=(s+"00").replace(/(\d*\.\d\d)\d*/,"$1");
+        var re=/(\d)(\d{3},)/;
+        while(re.test(s))
+                s=s.replace(re,"$1,$2");
+        s=s.replace(/,(\d\d)$/,".$1");
+        return s.replace(/^\./,"0.")
+    }
+</script>
+<!-- 增加购货数量改变价格 -->
+<script type="text/javascript">
+    function num(){
+        var i=1;
+        var q=$("#qty_item_1").val()
+        var num=parseFloat(q)+i;
+        var total=$("#tol").val();
+        $("#total").html('￥'+numberFormat(total*num));
+        $("#tol").val(total);
+        $("#qty_item_1").val(num);
+        $("#amount").val(num);
+    }
+</script>
+<!-- 增加购货数量改变价格end -->
+<!-- 减少购货数量改变价格 -->
+<script type="text/javascript">
+    function num1(){
+        var i=1;
+        var q=$("#qty_item_1").val()
+        var num=parseFloat(q)-i;
+        if(num<1){
+            num=1;
+        }
+        var total=$("#tol").val();
+        $("#total").html('￥'+numberFormat(total*num));
+        $("#tol").val(total);
+        $("#qty_item_1").val(num);
+        $("#amount").val(num);
+    }
+</script>
+<!-- 减少购货数量改变价格 -->
+<!-- 购货数量改变价格 -->
+<script type="text/javascript">
+    function num2(){
+        var q=$("#qty_item_1").val()
+        var re=/^\d+$/;
+        var reg=new RegExp(re);
+        if (q=='' || q=='0' || !reg.test(q)) {
+            var num=parseFloat(1);
+        }else{
+            var num=parseFloat(q);
+        }
+        
+        if(num<1){
+            num=1;
+        }
+        var total=$("#tol").val();
+        $("#total").html('￥'+numberFormat(total*num));
+        $("#tol").val(total);
+        $("#qty_item_1").val(num);
+        $("#amount").val(num);
+    }
+</script>
+<!-- 购货数量改变价格 -->
+<script type="text/javascript">
+    /*
+    点击加入购物车
+     */
+    $('#ljg').click(function(){
+        var num = $("#qty_item_1").val();
+        var goods_id = $('#goods_id').val();
+        window.location.href="ovorder.php?show&goods_id="+goods_id+"&num="+num;
+    });
+</script>
+<script type="text/javascript">
+    /*
+    点击加入购物车
+     */
+    $('#shoppingId').click(function(){
+        var flag = false;
+        var inputs = $('#theForm input');
+        var formData = $('#theForm').serialize();
+        console.log(formData);
+        $.ajax({
+            url:'ajax.php?addOvCart',
+            data:formData,
+            dataType:'json',
+            success:function(d){
+                // console.log(d);
+                if(d.code>0){
+                    $("#shopping-box").fadeIn();
+                }else{
+                    alert(d.message);
+                }
+            }
+        });
+    });
+    
+
+    /*
+    获取评论列表
+     */
+    $.ajax({
+        url:"ajax.php?getCommentList2",
+        data:{
+            id:$('#goods_id').val()
+        },
+        dataType:"json",
+        success:function(d){
+           // console.log(d);
+            if(d.code>0){
+                $('#comment_total').html('（'+d.data.total+'）');
+                var tpl = template('comment_tpl',d.data);
+                $('#comment_content').html(tpl);
+                laypage({
+                    cont: 'page', //容器。值支持id名、原生dom对象，jquery对象,
+                    pages: d.data.total_page, //总页数
+                    jump:function(obj,first){
+                        if(!first){
+                            getCommentList(obj.curr);
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+    function getCommentList(p){
+        $.ajax({
+            url:"ajax.php?getCommentList2",
+            data:{
+                id:$('#goods_id').val(),
+                p:p,
+            },
+            dataType:"json",
+            success:function(d){
+                // console.log(d);
+                if(d.code>0){
+                    var tpl = template('comment_tpl',d.data);
+                    $('#comment_content').html(tpl);
+                }
+            }
+        });
+    }
+</script>
+
+<!--政策的隐藏显示效果-->
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#policy_dj").click(function(){
+		$("#policy_hide").toggle();
+		var policy_img=document.getElementById('policy_img')
+		if (policy_img.src.match("jiantoutop")){
+			policy_img.src="images/jiantoubottom02.png";
+		}
+		else{
+			policy_img.src="images/jiantoutop02.png";
+		}
+	});
+});
+</script>
+<!--政策的隐藏显示效果end-->
+<script type="text/javascript">
+/*
+点击关注商品
+ */
+function chageImg(id){
+    $.get('ajax.php?concern',{id:id,class_id:3},function(data){
+		//console.log(data);return;
+        if(data.code==1){
+            $('#sp'+id).html('已关注');
+            $('#img'+id).attr('src','images/xin04.png');
+            
+        }else if(data.code==2){
+            $('#sp'+id).html('关注');
+            $('#img'+id).attr('src','images/xin05.png');
+            
+        }else{
+          alert(data.message);
+        }
+    },'json');
+};
+</script>
+</body>
+</html>

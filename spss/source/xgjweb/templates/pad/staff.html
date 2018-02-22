@@ -1,0 +1,131 @@
+{:include file="pad/head.html":}
+<div class="staff-titile">
+	<span>
+    	员工管理
+    </span>
+</div>
+
+<div class="clear27"></div>
+
+<div class="staff-center">	
+	<div class="staff-center-list">
+    	<div class="staff-center-list-title">            
+            <div class="staff-center-list-title-real_name ">
+            	真实姓名                                  
+            </div>
+            
+            <div class="staff-center-list-title-name">
+            	用户名                                                                  
+            </div>
+            
+            <div class="staff-center-list-title-job">
+            	职位                                                                   
+            </div>
+            
+            <div class="staff-center-list-title-sex">
+            	性别
+            </div>
+            
+            <div class="staff-center-list-title-tel">
+            	手机
+            </div>
+            
+            <div class="staff-center-list-title-birthday">
+            	生日
+            </div>
+            
+            <div class="staff-center-list-title-operation">
+            	操作
+            </div>
+            
+            <div class="clear"></div>
+        </div>        
+       
+        {:foreach $list as $k=>$v:}
+        <div class="staff-center-list-demo">            
+            <div class="staff-center-list-demo-real_name ">
+            	{:$v.real_name:}
+            </div>
+            
+            <div class="staff-center-list-demo-name">
+            	{:$v.name:}
+            </div>
+            
+            <div class="staff-center-list-demo-job">
+            	{:$v.position|positionStatus:}
+            </div>
+            
+            <div class="staff-center-list-demo-sex">
+                {:if $v.sex eq '0':}女
+                {:else if $v.sex eq '1':}男
+            	{:else if $v.sex eq '2':}保密
+                {:/if:}
+            </div>
+            
+            <div class="staff-center-list-demo-tel">
+            	{:$v.tel:}
+            </div>
+            
+            <div class="staff-center-list-demo-birthday">
+            	{:$v.birthday:}
+            </div>
+            
+            <div class="staff-center-list-demo-operation">
+            	<div class="staff-center-list-demo-operation-a">
+                	<a href="pad.php?staffInfo&id={:$v.id:}">
+                    	查看
+                    </a>
+                </div>
+                {:if $v.is_open eq '2':}
+                <div class="staff-center-list-demo-operation-input" id="demo_input" onclick="shuangji({:$v.id:})">
+                	<input type="button" value="启用" id="staff_operation_button"/>
+                </div>
+                {:else if $v.is_open eq '1':}
+                <div class="staff-center-list-demo-operation-input" style="background-color:#ff7286;" id="demo_input" onclick="shuangji({:$v.id:})">
+                    <input type="button" value="停用" id="staff_operation_button"/>
+                </div>
+                {:/if:}
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div> 
+        
+        {:/foreach:}
+            
+
+        <div id="page"></div>           
+    </div>   
+</div>
+
+<div class="clear"></div>
+   
+{:include file="pad/flooter.html":}
+
+
+
+<!--双击改变input里面的值-->
+<script type="text/javascript">
+function shuangji(id){
+    var but = $('#staff_operation_button').val();
+    $.get('pad.php?userOpen',{'font':but,'id':id},function(data){
+        if (data==1) {
+            if(but=='启用'){
+                $("#demo_input").css('background-color','#ff7286');
+                $("#staff_operation_button").val("停用");
+            }else{
+                $("#demo_input").css('background-color','#1eb0fc');
+                $("#staff_operation_button").val("启用");
+            }
+        }
+    })
+	
+}
+</script>
+<!--双击改变input里面的值end-->
+</body>
+</html>
+

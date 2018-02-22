@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="">首页</a></li>
+	    <li><a href="">健康舒适家居</a></li>
+	    <li><a href="<{:U('index')}>">报价清单</a></li>
+	    <li><a href="">选择分类</a></li>
+	    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    <ul class="forminfo">
+	    <li><label>材料</label><input name="formula" type="text" class="dfinput" value='<{$name}>' readonly/></li>
+
+		<li><label>原类名</label><input name="formula" type="text" class="dfinput" value='<?php echo empty($text)?'无':$text ?>' readonly/></li>
+
+	    <form action="<{:U('dooptionfenlei')}>" method="post" enctype="multipart/form-data" >
+		
+	    <li><label>新类名</label>
+    		<select name='id' id='aaaa' style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+    			<option value="">请选择...</option>
+				<?php foreach($data as $v){ ?>
+				<option value="<?=$v['id'] ?>"><?=$v['text'] ?></option>
+				<?php } ?>
+			</select>
+	    </li>
+	    <input type="hidden" name="cid" value="<{$cid}>"/>
+	    <input type="hidden" name="quote_id" value="<{$quote_id}>"/>
+	    <input type="hidden" name="level" value="<{$level}>"/>
+	    <li><label>&nbsp;</label><input onclick="submit()" name="" id="bbb" type="submit" class="btn" value="确定"/></li>
+		</form>
+		
+	    </ul>
+		
+	    </div>
+	    
+</body>
+</html>
+

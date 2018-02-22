@@ -1,0 +1,102 @@
+{:include file="pad/head.html":}
+<div class="login-img01">
+	<img src="images/1208.jpg"/>
+</div>
+
+<div class="clear3"></div>
+
+<div class="login-center">
+	<div class="login-center-left">
+    	<img src="images/1209.png"/>
+    </div>
+    
+    <div class="login-center-right">
+    	<div class="clear2"></div>
+        
+    	<div class="login-center-right-form">
+        	<div class="login-center-right-form-demo01">
+            	<div class="login-center-right-form-demo01-img">
+                	<img src="images/1210.png"/>
+                </div>
+                
+                <div class="login-center-right-form-demo01-input">
+                	<input type="text" name="name" id="name" tabindex="1" x-webkit-grammar="builtin:translate"  value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入您的用户名" onFocus="if(value =='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入您的用户名'){value =''}" onBlur="if (value ==''){value='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入您的用户名';checkmobilephone(this)}else{checkmobilephone(this)}"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="login-center-right-form-demo01">
+            	<div class="login-center-right-form-demo01-img">
+                	<img src="images/1211.png"/>
+                </div>
+                
+                <div class="login-center-right-form-demo01-input">
+                	<span id="password_text01" onclick="this.style.display='none';document.getElementById('psd').style.display='block';document.getElementById('psd').focus().select();" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入您的密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        
+                    <input name="psd" id="psd"  type="password" tabindex="1" style="display:none;" onblur="if(this.value==''){document.getElementById('password_text01').style.display='block';this.style.display='none';checkpassword(this)}else{checkpassword(this)};"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="login-center-right-form-demo02">
+            	<input type="checkbox" name='auto' value='1' />
+                
+                <span class="span01" >自动登录</span>
+                
+                <span class="span02" id='fpsd'>忘记密码？</span>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="login-center-right-form-demo03">
+            	<input type="button" id='sub' value="登&nbsp;录"/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="clear"></div>
+<script type="text/javascript">
+	$(function() {  
+		$("#sub").click(function() {  
+			var params = $("input").serialize();  
+			var url = "?doLogin";  
+			$.ajax({  
+			type: "post",  
+			url: url,  
+			data: params,  
+				success: function(msg){  
+					if(msg == 4){
+                        alert('登录信息错误，请核对!!!');
+						window.location.href="pad.php?login";
+					}else if(msg == 1){
+						window.location.href="pad.php?index";
+					}else if(msg == 2){
+                        alert('请正确输入账号密码');
+                    }else if(msg == 3){
+                        alert('您的账号已在别的地方登录，请退出后再次登录！');
+                    }else if(msg==5){
+                        alert('您的账号异常，请联系管理员!!!');
+                        window.location.href="pad.php?login";
+                    }
+					//console.log(msg); 
+				}  
+			});  
+		});  
+	}); 
+    $("#fpsd").click(function() {  
+            alert('请联系客服，进行密码重置！');
+        }); 
+</script>
+</body>
+</html>

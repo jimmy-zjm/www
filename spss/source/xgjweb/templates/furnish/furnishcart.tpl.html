@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>健康舒适家居购物车</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/shoppinghomestyle.css" ><!-- 健康舒适家居购物车shopping-home页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!--jqury-ui调用-->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+<script type="text/javascript" src="js/zhiding.js"></script><!--导航置顶-->
+
+<!--选择城市-->
+<script type="text/javascript" src="js/xiala/city-data.js"></script>
+<script type="text/javascript" src="js/xiala/hzw-city-picker.min.js"></script>
+<!--选择城市end-->
+
+</head>
+<body style="background:#ecf0f5;">
+<!-- top顶部 -->
+<div class="index-top-bk">
+    <div class="index-top">  
+    	<div class="index-top-01">
+        	您好
+        </div> 
+        
+        <div class="index-top-02"><!--未登录状态显示此DIV-->
+        	<a href="#">
+            	请登录
+            </a>
+        </div>
+        
+        <div class="index-top-03"><!--未登录状态显示此DIV-->
+        	<a href="#">
+            	免费注册
+            </a>
+        </div>
+        
+        <div class="index-top-04"><!--已登录状态显示此DIV-->
+        	<a href="#">
+            	幻想之城
+            </a>
+        </div>
+        
+        <div class="index-top-05"><!--已登录状态显示此DIV-->
+        	<a href="#">
+            	退出登录
+            </a>
+        </div>
+        
+        <div class="index-top-13">
+        	热线：4008001027
+        </div> 
+        
+        <div class="index-top-12">
+        	<img src="images/585.png"/>
+        </div> 
+        
+        <div class="index-top-11">
+        	<a href="#">
+            	手机版
+            </a>
+        </div>
+        
+        <div class="index-top-10">
+        	<a href="#">
+            	我的订单
+            </a>
+        </div>
+        
+        <div class="index-top-09">
+        	<img src="images/584.png"/>
+        </div>   
+        
+        <div class="index-top-08">
+        	<a href="#">
+            	我的购物车
+            </a>
+        </div>    
+        
+        <div class="index-top-07">
+        	&or;
+        </div> 
+        
+        <div class="index-top-06">
+        	<a href="#">
+            	我的收藏
+            </a>
+        </div>
+                
+        <div class="clear"></div>    
+    </div>
+</div>
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!-- head头部 -->
+<div class="index-head">
+	<div class="index-head-bk">
+    	<div class="index-head-01">
+        	<a href="#">
+            	<img src="images/logo4.png"/>
+            </a>
+        </div>
+    	
+        <div class="index-head-02">
+            <div class="index-head-02-01">
+                <input type="text" value="海外淘"  onFocus="if (value =='海外淘'){value =''}" onBlur="if (value ==''){value='海外淘'}"/>
+            </div>
+            
+            <div class="index-head-02-02">
+                <input type="button"  value=""/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="index-head-03">
+        	<div class="index-head-03-01">
+            	<div class="index-head-03-01-01">
+                	<img src="images/586.png"/>
+                </div>
+                
+                <div class="index-head-03-01-02">
+                	<a href="#">
+                    	全国体验展示馆及安装服务中心
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-head-03-02">
+            	<div class="index-head-03-02-01">
+                	<img src="images/587.png"/>
+                </div>
+                
+                <div class="index-head-03-02-02">
+                	服务区域
+                </div>
+                
+                <div class="index-head-03-02-03">                	
+                    <input type="text" id="cityChoice" value="上海"  onFocus="if (value =='上海'){value =''}" onBlur="if (value ==''){value='上海'}">                    
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+        <div class="index-navigation-bk" id="mynavbk">
+            <div class="index-navigation" >
+                <div class="index-navigation-center">
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            关于我们
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            品质生活          
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            健康舒适家居           
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            机电售后服务            
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            资源分享            
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            支付方式                        
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            百科知识                  
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<!--导航end-->
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="shoppinghome-conter">
+<form action="furnishorder.php?show" method="post" id="theForm">
+	<div class="shoppinghome-conter-title">
+    	健康舒适家居购物车
+    </div>
+    
+    <div class="shoppinghome-conter-detailed">
+    	<div style='display:none;'class="shoppinghome-conter-detailed-title">
+        	我的：<span>幻想之城</span>
+        </div>
+        <div class="shoppinghome-conter-detailed-title">
+            <input type="checkbox" id="selectAll"/>全选
+        </div>
+        {:foreach $cartlist as $v:}
+        <div class="shoppinghome-conter-detailed-list">
+        	<div class="shoppinghome-conter-detailed-list-01">
+            <input name="cart_id[]" class="selectSelf" value="{:$v['cart_id']:}" type="checkbox" />
+            	{:$v['shop_name']:}
+            </div>
+            
+            <div class="shoppinghome-conter-detailed-list-02">
+            	价格：
+            </div>
+            
+            <div class="shoppinghome-conter-detailed-list-03">
+            	￥{:$v['price']:}元
+            </div>
+
+            <div class="shoppinghome-conter-detailed-list-05">
+                抵扣券：
+            </div>
+            
+            <div class="shoppinghome-conter-detailed-list-06">
+                ￥{:$v['discount_amount']:}元
+            </div>
+            
+            <div class="shoppinghome-conter-detailed-list-04">
+            	<a href="?del&cart_id={:$v['cart_id']:}">
+                	删除
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+       {:/foreach:} 
+    </div>
+      
+    <div class="clear2"></div>
+    
+    <div class="shoppinghome-conter-buy">
+        <div class="shoppinghome-conter-detailed-title">
+            <a href="javascript:;">
+                        删除选中的商品
+                    </a>
+        </div>
+    	<div class="shoppinghome-conter-buy-bk">
+        	<a href="javascript:;">
+            
+            	一键支付
+            </a>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    </form> 
+</div>
+<!--中间end-->
+
+<div class="clear"></div>
+
+
+<!-- 底部广告 -->
+<div class="bottom">
+	<img src="images/213.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+<!-- 底部列表 -->
+<div class="foot">
+    <div class="foot-list">
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                购物指南
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    购物流程
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    会员介绍
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    常见问题
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    联系客服
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+			<div class="foot-list-gw-title">
+                配送方式
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    国内配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    海外配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    标准配送
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+            	支付方式
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	在线支付
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	分期付款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	邮局汇款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	公司转账
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                售后服务
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    售后政策
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    退款说明
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                  	返修/退换货
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    取消订单
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-right">
+            暖扬扬线下服务区
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+    <div class="root-center">
+        <div class="root-list">
+            <a href="#">
+              	关于我们
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	联系我们
+            </a>
+        </div>
+        
+        <div class="root-list">
+            <a href="#">
+              	人才招聘
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	招商加盟
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	商务合作
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	友情链接
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	各类证件
+            </a>
+        </div>
+      
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear27"></div>
+    
+    <div class="root-bei">
+    	备案号：沪ICP备16002183
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="clear3"></div>
+</div>
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<!--jquery-ui调用-->
+<script>
+$( "#selectmenu" ).selectmenu();/*下拉*/
+</script>
+<!--jquery-ui调用end-->
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+<style>
+.shoppinghome-conter-detailed-list-01{
+    width:500px;
+}
+
+.shoppinghome-conter-detailed-list-05{
+    width:100px;
+    text-align:right;
+    float:left;
+}
+
+.shoppinghome-conter-detailed-list-06{
+    width:100px;
+    float:left;
+}
+
+.shoppinghome-conter-detailed-list-04{
+    float:right;
+}
+</style>
+<script>
+            /*点击去结算 提交表单*/
+            $('.shoppinghome-conter-buy-bk a').click(function(){
+                if($('.selectSelf:checked').length > 0){
+                    $('#theForm').submit();
+                }else{
+                    alert('请选择要购买的商品');
+                }
+            });  
+            /*点击选择全部*/
+            $('#selectAll').click(function(){
+                var checked = $(this).prop('checked');
+                $('.shoppinghome-conter-detailed-list input').prop('checked',checked)
+                $('#selectAll').prop('checked',checked);
+            });
+
+            /*点击删除全部*/
+            $('.shoppinghome-conter-detailed-title a').click(function(){
+                var formData = $('#theForm').serialize();
+                //alert(formData);
+                location.href = 'furnishcart.php?delAll&'+formData;
+            });  
+</script>
+</body>
+</html>
+
+
+
+
+

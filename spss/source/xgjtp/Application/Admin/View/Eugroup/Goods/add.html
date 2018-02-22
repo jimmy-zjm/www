@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+  <script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('.editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+    $(".select2").uedSelect({
+        width : 167
+    });
+    $(".select3").uedSelect({
+        width : 100
+    });
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">欧洲团代购</a></li>
+        <li><a href="<{:U('index')}>">商品列表</a></li>
+        <li><a href="<{:U('add')}>">添加商品</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+    <div id="usual1" class="usual">
+
+    <!-- 选项卡 -->
+    <div class="itab">
+        <ul>
+        <li><a href="#tab1" class="selected">通用信息</a></li>
+        <li><a href="#tab2">详细描述</a></li>
+        <li><a href="#tab3">服务说明</a></li>
+        <li><a href="#tab4">其他信息</a></li>
+        <li><a href="#tab5">商品属性</a></li>
+        <li><a href="#tab6">商品相册</a></li>
+		<!-- <li><a href="#tab6">商品视频</a></li> -->
+
+        <!-- <li><a href="#tab7">商品详情</a></li> -->
+
+        </ul>
+    </div>
+    <form action="<{:U('insert')}>" method="post" enctype="multipart/form-data">
+
+        <!-- 选项卡一 -->
+        <div id="tab1" class="tabson">
+        <!-- <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div> -->
+            <ul class="forminfo">
+
+                <!-- 商品名称 -->
+                <li>
+                    <label>商品名称<b>*</b></label>
+                    <input name="goods_title" type="text" id="goods_title" class="dfinput" placeholder="请填写单位名称"  style="width:518px;"/>
+                    <input type="hidden" id="goods_title_style" name="goods_title_style" value="" />
+                    <img src="__PUBLIC__/Admin/images/colorpicker.png" id="cp3" style="cursor:pointer">
+                    <!-- <div style="display:inline;margin:3px;">
+                        <label><input type="checkbox" name="" id="" />加粗</label>
+                        <label><input type="checkbox" name="" id="" />下划线</label>
+                        <label><input type="checkbox" name="" id="" />斜体</label>
+                        <label><input type="checkbox" name="" id="" />删除线</label>
+                    </div> -->
+                </li>
+
+                <!-- 促销信息 -->
+                <li>
+                    <label>促销信息</label>
+                    <input name="pro_info" type="text" class="dfinput" placeholder="促销信息"  style="width:518px;"/>
+                    <i>显示在商品标题下面的促销信息。</i>
+                </li>
+                <!-- 商品编号 -->
+                <li>
+                    <label>商品编号</label>
+                    <input name="goods_sn" type="text" class="dfinput" placeholder="请填写商品编号" style="width:218px;"/>
+                    <i>如果您不输入商品编号，系统将自动生成一个唯一的编号。</i>
+                </li>
+                 <!-- 商品助记码 -->
+                <li>
+                    <label>商品助记码</label>
+                    <input name="goods_mnemonic" type="text" class="dfinput" placeholder="请填写商品助记码" style="width:218px;"/>
+                </li>
+
+                <!-- 商品所属分类 -->
+                <li>
+                    <label>商品分类<b>*</b></label>
+                    <div class="vocation">
+                        <select class="select1" name="cate_id">
+                            <option value="0">请选择...</option>
+                            <?php foreach ($cate_list as $cate): ?>
+                            <option value="<{$cate.id}>"><?php echo str_repeat('——', $cate['lev']) ?> <{$cate.name}></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </li>
+
+                <!-- 商品所属品牌 -->
+                 <li>
+                    <label>商品品牌</label>
+                    <div class="vocation">
+                        <select class="select1" name="brand_id">
+                            <option value="">请选择...</option>
+                            <?php foreach ($brand_list as $brand): ?>
+                            <option value="<{$brand.id}>"><{$brand.name}></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </li>
+
+
+                <!-- 商品价格 -->
+                <li>
+                    <label>市场价格<b>*</b></label>
+                    <input name="market_price" type="text" class="dfinput" placeholder="请填写市场价格"/>
+                </li>
+                
+                <!-- 采购价格 -->
+                <li>
+                    <label>现售价格<b>*</b></label>
+                    <input name="shop_price" type="text" class="dfinput" placeholder="请填写现售价格"/>
+                </li>
+
+                <!-- 优惠金额 -->
+                <li>
+                    <label>优惠券额度<b>*</b></label>
+                    <input name="discount_amount" type="text" class="dfinput" placeholder="优惠券抵用金额"/>
+                </li>
+
+                <!-- 积分额度 -->
+                <li>
+                    <label>积分额度<b>*</b></label>
+                    <input name="integral" type="text" class="dfinput"  placeholder="积分抵用额度"/>
+                </li>
+
+                <!-- 本店售价 -->
+                <!-- <li>
+                    <label>本店售价<b>*</b></label>
+                    <input name="shop_price" type="text" class="dfinput" disabled="disabled" placeholder="请填写本店售价"/>
+                    <i>本店售价为：本店售价+邮递价格+本店售价*关税税率</i>
+                </li> -->
+
+                
+                <!-- 关税税率 -->
+				<!-- <li>
+					<label>关税税率<b>*</b></label>
+                    <input name="duties" type="text" class="dfinput" value='0.00' placeholder="请填写关税税率"/>
+                    <i>关税税率为小数（例：0.50）</i>
+                </li> -->
+
+                <!-- 增值税税率 -->
+                <!-- <li>
+                    <label>增值税税率<b>*</b></label>
+                    <input name="vat" type="text" class="dfinput" value='0.00' placeholder="请填写关税税率"/>
+                    <i>增值税税率为小数（例：0.50）</i>
+                </li> -->
+                
+                <!-- 服务费税率 -->
+                <!-- <li>
+                    <label>服务费税率<b>*</b></label>
+                    <input name="service_charge" type="text" class="dfinput" value='0.00' placeholder="请填写关税税率"/>
+                    <i>服务费税率为小数（例：0.50）</i>
+                </li> -->
+				<li>
+                    <label>运费价格<b>*</b></label>
+                    <input name="luggage" type="text" class="dfinput" value='0.00-0.00' placeholder="请填写运费价格"/>
+                    <i>运费为：海运运费和空运运费（例：100-150）</i>
+                </li>
+            
+                <li>
+                    <label>商品封面图片</label>
+                    <input type="file" name="face_image" accept="image/*" style="position:relative;top:7px;" />
+                </li>
+
+
+
+            </ul>
+        </div>
+
+        <!-- 商品描述信息 -->
+        <div id="tab2" class="tabson">
+            <textarea class="editor_id" name="goods_detail" style="width:850px;height:400px;"></textarea>
+        </div>
+
+        <div id="tab3" class="tabson">
+            <textarea class="editor_id" name="goods_explain" style="width:850px;height:400px;"></textarea>
+        </div>
+
+        <!-- 其他信息 -->
+        <div id="tab4" class="tabson">
+            <ul class="forminfo">
+                <li>
+                    <label>是否上架</label>
+                    <label style="width:230px;"><input type="checkbox" name="is_putaway" id="" style="position:relative;top:2px;" checked value="1"/>打勾表示允许销售，否则不允许销售。</label>
+                </li>
+                <li>
+                    <label>是否新品</label>
+                    <label style="width:230px;"><input type="checkbox" name="is_new" id="" style="position:relative;top:2px;"  value="1"/>新品</label>
+                </li>
+                <li>
+                    <label>是否推荐</label>
+                    <label style="width:230px;"><input type="checkbox" name="is_rec" id="" style="position:relative;top:2px;"  value="1"/>推荐</label>
+                </li>
+                <li>
+                    <label>是否热卖</label>
+                    <label style="width:230px;"><input type="checkbox" name="is_hot" id="" style="position:relative;top:2px;"  value="1"/>热卖</label>
+                </li>
+                <li>
+                    <label>商品重量</label>
+                    <input type="text" name="weight" class="dfinput" id="" style="width:100px;"/>
+                    重量单位:
+                    <select name="weight_unit" style="opacity:1;border:solid 1px #c3ab7d;height:35px;">
+                        <option value="1">千克</option>
+                        <option value="0.001">克</option>
+                    </select>
+                </li>
+
+                <li>
+                    <label>警告库存</label>
+                    <input type="number" name="warn_number" value="1" class="dfinput" />
+                </li>
+                <li>
+                    <label>商品关键字</label>
+                    <input type="text" name="seo_keywords" class="dfinput" style="width:500px;" />
+                    <i>用于seo优化, 多个用逗号隔开</i>
+                </li>
+                <li>
+                    <label>商品简单描述</label>
+                    <textarea name="seo_description" class="textinput" id="" cols="20" rows="5" style="width:328px;height:70px;"></textarea>
+                    <i>用于seo优化</i>
+                </li>
+                <li>
+                    <label>服务说明</label>
+                    <input type="text" name="package_list" class="dfinput" style="width:500px;" />
+                    <i>显示在商品详情页面</i>
+                </li>
+                <li>
+                    <label>单位</label>
+                    <input class="dfinput" type="text" name="after_sales_support" value="件">
+                    <i>显示在商品详情页面数量的单位</i>
+                </li>
+                <li>
+                    <label>商家备注</label>
+                    <textarea name="seller_note" class="textinput" id="" cols="20" rows="5" style="width:328px;height:70px;"></textarea>
+                    <i>仅供商家自己看的信息</i>
+                </li>
+
+                <li></li>
+            </ul>
+        </div>
+
+        <!-- 商品属性 -->
+        <div id="tab5" class="tabson">
+            <ul class="forminfo">
+                <!-- 商品所属类型 -->
+                <li>
+                    <label>商品类型<b>*</b></label>
+                    <div class="vocation">
+                        <select class="select1" id="goods_type" name="type_id">
+                            <option value="">请选择...</option>
+                            <?php foreach ($type_list as $type): ?>
+                            <option value="<{$type.id}>"><{$type.name}></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+            <ul  class="forminfo"  id="attr_box">
+
+                <!-- 属性模版
+                <input type="hidden" name="attr_id_list[]" value="" />
+                <li>
+                    <label>属性</label>
+                    <input type="text" class="dfinput" name="attr_value_list[]" />
+                </li>
+
+                <li>
+                    <label><a href="javascript:;" onclick="addSpec(this)">[+]</a>属性2</label>
+                    <select name="attr_value_list[]" style="opacity:1;border:solid 1px #c3ab7d;height:35px;">
+                        <option value="">aaaa</option>
+                        <option value="">bbbb</option>
+                    </select>
+                    &nbsp;&nbsp;属性价格：
+                    ￥ <input type="text" name="attr_price_list[]" class="dfinput" id="" style="width:100px;" /> 元
+                </li>
+
+                <li>
+                    <label>属性3</label>
+                    <textarea name="attr_value_list[]" class="textinput" id="" cols="20" rows="5" style="width:328px;height:70px;"></textarea>
+                </li>
+                属性模版 -->
+                <li></li>
+            </ul>
+        </div>
+
+        <!-- 商品相册-->
+        <div id="tab6" class="tabson">
+            <ul class="forminfo goods-image">
+                <li><a href="javascript:;" onclick="addImage(this)">[+]</a>上传图片 <input type="file" accept="image/*" multiple name="img_url[]" class="fdinput" id="" /></li>
+            </ul>
+
+           <!--  <ul class="imglist">
+
+                <li>
+                    <span><img src="http://localhost/001.jpg"></span>
+                    <p><a href="javascript:;">删除</a></p>
+                </li>
+
+            </ul> -->
+        </div>
+		<!-- 商品视频-->
+        <!-- <div id="tab6" class="tabson">
+            <ul class="forminfo goods-image">
+				<li><a href="javascript:;" onclick="addImage(this)">[+]</a>
+				视频标题<input type="text"  name="video_title[]" style="border: 1px solid #999;width: 300px;height: 20px;"/></br></br>
+		　　   <li> 上传视频 <input type="file"  name="video_url[]" class="fdinput" id="" /></li>
+            </ul>
+
+             <ul class="imglist">
+
+                <li>
+                    <span><img src="http://localhost/001.jpg"></span>
+                    <p><a href="javascript:;">删除</a></p>
+                </li>
+
+            </ul> 
+        </div> -->
+
+        <!-- <div id="tab7" class="tabson">
+            <textarea class="editor_id" name="particulars" style="width:850px;height:400px;"><{$goods.particulars}></textarea>
+        </div> -->
+
+        <div style="margin:0 auto;width:320px">
+            <input name="class_id" type="hidden" value="1"/>
+            <input name="" type="submit" class="btn" value="发布商品"/>
+            <input name="" type="reset" class="btn" value="重置"/>
+        </div>
+    </form>
+    </div>
+    </div>
+    <script type="text/javascript">
+
+        /*选择类型下拉框的时候获取相应的属性列表*/
+        $('#goods_type').change(function(){
+            //类型id
+            var typeId = parseInt(this.value);
+            $.ajax({
+                url:"<{:U('Admin/Eugroup/Goods/getAttrListByTypeId')}>",
+                data:{id:typeId},
+                success:function(data){
+                    $('#attr_box').html(data);
+                }
+            });
+        });
+
+
+        //点击[+]号 添加多个下拉框
+        function addSpec(obj){
+            //在当前的li后面克隆一个li,并把加号修改为减号
+            var removeSpec = '<li>'+$(obj).parent().parent().clone().html().replace('addSpec(this)">[+]','removeSpec(this)">[-]')+'</li>';
+            $(obj).parent().parent().after(removeSpec);
+        }
+
+        //点击[-]号 删除下拉框
+        function removeSpec(obj){
+            //删除当前的tr
+            $(obj).parent().parent().remove();
+        }
+
+
+        //添加一个图片上传按钮
+        function addImage(obj){
+            var image = '<li>'+$(obj).parent().clone(true).html().replace('addImage(this)">[+]','removeImage(this)">[-]')+'</li>';
+            $(obj).parent().after(image);
+        }
+
+        //删除一个图片上传按钮
+        function removeImage(obj){
+            $(obj).parent().remove();
+        }
+
+        //颜色选择器
+        $("#cp3").colorpicker({
+            fillcolor:true,
+            success:function(o,color){
+                $("#goods_title").css("color",color);
+                $("#goods_title_style").val(color);
+            },
+            reset:function(o){
+                $("#goods_title").css("color","");
+                $("#goods_title_style").val("");
+            }
+        });
+
+        //tab切换
+        $("#usual1 ul").idTabs();
+
+        //表格隔行变色
+        $('.tablelist tbody tr:odd').addClass('odd');
+
+        /*日期时间框插件***********************************/
+        !function(){
+          laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+        }();
+        var start = {
+            elem: '#groupbuy_start_date',
+            format: 'YYYY/MM/DD hh:mm:ss',
+            min: laydate.now(), //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                 end.min = datas; //开始日选好后，重置结束日的最小日期
+                 end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+        var end = {
+            elem: '#groupbuy_end_date',
+            format: 'YYYY/MM/DD hh:mm:ss',
+            min: laydate.now(),
+            max: '2099-06-16 23:59:59',
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+        laydate(start);
+        laydate(end);
+        /*日期时间框插件***********************************/
+
+
+        //防止, 添加失败, 后退回来, 所有更新一下状态
+        handlePromote($('#is_groupbuy').attr('checked'));
+        //添加促销的时候把添加促销价的输入框的禁用取消掉
+        function handlePromote(status){
+            if(status){
+                var color = '';
+            }else{
+                var color = '#eee';
+            }
+            $('#promote').attr('disabled',!status).css('background', color);
+            $('#groupbuy_start_date').attr('disabled',!status).css('background', color);
+            $('#groupbuy_end_date').attr('disabled',!status).css('background', color);
+            $('#groupbuy_max_num').attr('disabled',!status).css('background', color);
+            $('#groupbuy_min_num').attr('disabled',!status).css('background', color);
+        }
+    </script>
+</body>
+</html>

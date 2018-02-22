@@ -1,0 +1,173 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+	<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+    	<!--基本信息-->
+		<div class="user_index-info">
+        	<div class="user_index-info-img">
+            	<div class="user_index-info-img-cover">
+                	<img src="images/1205.png"/>
+                </div>
+                
+                <div class="user_index-info-img-original">
+                	<img src="{:$userInfo.face|getImages:}"/>
+                </div>            	
+            </div>
+            
+            <div class="user_index-info-left">
+            	<div class="user_index-info-left-name" title="{:$userInfo.user_name:}">
+                	{:$userInfo.user_name:}
+                </div>
+                
+                <div class="user_index-info-left-grade">
+                	银牌会员
+                </div>
+                
+                <div class="user_index-info-left-safety">
+                	<div class="user_index-info-left-safety-span">
+                    	账户安全：
+                    </div>
+                    
+                    <div class="user_index-info-left-safety-level">
+                    	<!--此处进行判断，哪个等级就放出哪个DIV，从低到高-->
+                    	<!--<div class="user_index-info-left-safety-level-low">
+                        </div>-->
+                        
+                        <div class="user_index-info-left-safety-level-in">
+                        </div>
+                        
+                        <!--<div class="user_index-info-left-safety-level-high">
+                        </div>-->
+                    </div>
+                    
+                    <div class="user_index-info-left-safety-a">
+                    	<a href="user.php?passWordModifyShow">
+                        	提升
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="user_index-info-right">
+            	<div class="user_index-info-right-money-title">
+                	资产中心
+                </div>
+                
+            	<div class="user_index-info-right-money" title="积分{:$userInfo.integral:};优惠券：{:$userInfo.coupon:}">
+                	<span class="span01">
+                    	积分：
+                    </span>
+                    
+                    <span class="span02">
+                    	{:$userInfo.integral:}
+                    </span>
+                    
+                    <span class="span01">
+                    	优惠券：
+                    </span>
+                    
+                    <span class="span02">
+                    	{:$userInfo.coupon:}
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--基本信息end-->
+        
+        <div class="clear27"></div>
+		
+        <!--关注的产品-->
+    	<div class="user_index-concern_goods">
+        	<div class="user_index-concern_goods-title">
+            	<div class="user_index-concern_goods-title-span">
+                	<span>
+                    	关注中心
+                    </span>
+                </div>
+                
+                <div class="user_index-concern_goods-title-more">
+                	<a href="user.php?concernGoods">
+                    	查看更多
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="user_index-concern_goods-list">
+				{:foreach from=$concern item="item" key="key":}
+				{:if $key lt 10:}
+            	<div class="user_index-concern_goods-list-demo">
+                	<div class="user_index-concern_goods-list-demo-img">
+                    		{:if $item.class_id eq 1:}
+                            <a href="price.php?cid={:$item.goods_id:}">
+                            {:elseif  $item.class_id eq 2:}
+                            <a href="goods.php?id={:$item.goods_id:}">
+							{:else:}
+									 <a href="baby.php?detail&id={:$item.goods_id:}">
+                            {:/if:}     
+                        	<img src="{:$item.c_images|getImages:}"/>
+                        </a>
+                    </div>
+                    
+                    <div class="user_index-concern_goods-list-demo-name" title="{:$item.c_goodsname:}">
+                    		{:if $item.class_id eq 1:}
+                            <a href="price.php?cid={:$item.goods_id:}">
+                            {:elseif  $item.class_id eq 2:}
+                            <a href="goods.php?id={:$item.goods_id:}">
+							{:else:}
+									 <a href="baby.php?detail&id={:$item.goods_id:}">
+                            {:/if:}     
+                        	{:$item.c_goodsname:}
+                        </a>
+                    </div>
+                    
+                    <div class="user_index-concern_goods-list-demo-price">
+                    	¥{:$item.c_goodsprice:}
+                    </div>
+                </div>
+				{:/if:}
+                {:/foreach:}
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--关注的产品end-->
+        
+		<div class="clear2"></div>
+    </div>
+	<!-- user右边end，引用头部时倒入这个div -->
+  
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+
+
+
+
+
+<!-- 底部列表 -->
+{:include file='footer.tpl.html':}
+<!-- 根部链接end -->
+ 

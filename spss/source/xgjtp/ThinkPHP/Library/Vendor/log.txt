@@ -1,0 +1,2 @@
+2017-04-12 16:19:54  {"productCode":"QUICK_WAP_PAY","body":"","subject":"","out_trade_no":"201704121000157987","total_amount":500,"timeout_express":"1m"}
+2017-04-12 16:20:36  {"productCode":"QUICK_WAP_PAY","body":"","subject":"","out_trade_no":"201704121000157987","total_amount":500,"timeout_express":"1m"}

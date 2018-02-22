@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="__PUBLIC__/css/homezhishi.css" />
+		<!--content-->
+		<div class="content">
+			<div class="con-top">
+				<img src="<{$image}>">
+			</div>
+			<div class="konwtitle">
+				<div>
+					<foreach name="data" key="key" item="val">
+						<if condition="$key lt 3">
+							<span id="tabs<{$key}>" class="knowtisp"  onclick="tabs('tab<{$key}>','tabs<{$key}>')" style='<if condition="$key eq 0">color:#1eb0fc;</if>'> <{$val.cat_name}> </span>
+						</if>
+					</foreach>
+				</div>
+			</div>
+			<div class="con-bottom">
+				<foreach name="data" key="key" item="val">
+					<ul class="con-bottom-tab"id="tab<{$key}>" style='<if condition="$key neq 0">display:none;</if>'>
+						<foreach name="val.list" key="k" item="v">
+							<li><a href="__APP__/knowledge/detail/id/<{$v.article_id}>.html"><img src="<{$v.image|getimage}>"></a><a href="__APP__/knowledge/detail/id/<{$v.article_id}>.html"><{$v.title}></a></li>
+						</foreach>
+					</ul>
+				</foreach>
+
+			</div>
+		</div>
+
+	<script>
+
+		   function tabs(t,a){
+				$('.knowtisp').css('color','#333');
+				$('.con-bottom-tab').css('display','none');
+				$('#'+t).css('display','block') ;
+				$('#'+a).css('color','#1eb0fc');
+		   }
+	</script>
+

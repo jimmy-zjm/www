@@ -1,0 +1,44 @@
+{:include file='user_top.tpl.html':}
+{:include file='user_left.tpl.html':}
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="useraddresscenter-title">  
+           取消订单记录
+        </div>
+      
+		<div class="clear12"></div>
+        
+  		<div id="fuent">
+		<!--返修退换货-->
+            <div class="sqth_msg">
+                <ul>
+                    <li>商品名称</li>
+                    <li>操作时间</li>
+                    <li>商品金额</li>
+                    <li>备注信息</li>
+                </ul>
+            </div>
+            
+            {:foreach from=$cancelOrderInfo key=num item=cancelOrderList:}
+        	<div class="sqth_msg_01">
+                <ul>
+                    <li>{:$cancelOrderList.goods_title:}</li>
+                    <li>{:$cancelOrderList.cancel_time:}</li>
+                    <li>￥{:$cancelOrderList.goods_price:}元</li>
+                    <li>{:$cancelOrderList.cancel_remark|truncate:12:"...":}</li>
+                </ul>
+            </div>
+            {:/foreach:}
+            
+		</div>
+       <!--返修退换货end-->
+
+	<!-- user右边end，引用头部时倒入这个div -->
+  
+
+</div>
+
+</div>
+
+
+{:include file='user_footer.tpl.html':}

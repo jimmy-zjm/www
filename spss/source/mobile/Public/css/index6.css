@@ -1,0 +1,33 @@
+.fastOpreation .con6-5{
+	width: 45%;
+}
+.fastOpreation .con6-7{
+	right:58px;
+	bottom:60px
+}
+.moreUse .con5-3{
+	left:50px;
+	bottom:58px;
+	top:auto
+}
+.dustBag{
+	height:690px;
+}
+.dustBag .con12-3{
+	padding-top:85px;
+}
+.productInfo{
+	height: 680px;
+}
+
+.productInfo .infoTitle{
+	position: absolute;
+	left:8.5%;
+	top:20px
+}
+.productInfo .con8-1{
+	top:90px;
+}
+.productInfo .con8-son2{
+	right:60px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>电费计算</title>
+	<script src="__PUBLIC__/js/jquery-1.11.1.js"></script>
+</head>
+<body>
+<style type="text/css">
+tr{
+	height:40px;
+}
+</style>
+	<div style='border:1px solid gray;width:600px;height:500px;margin:auto;background-color:#e2e0e1;'>
+		<h2 style='text-align:center'>壁挂炉采暖与空调采暖费用</h2>
+		<div style='margin-top:60px;'>
+			<table style='margin-left:10%;'>
+				<tr>
+					<td>房屋所在地：</td>
+					<td>
+						<select required class='prov' name="province" onchange='area("city",this.value)'>
+							<option value="" >-请选择-</option>
+							<?php foreach ($prov as $key => $v): ?>
+								<option value="<{$v.id}>"><{$v.name}></option>
+							<?php endforeach ?>
+						</select>
+						<span>　省　</span>
+						<select required class='city' name="city" onchange='area("district",this.value)'>
+							<option value="">-请选择-</option>
+						</select>
+						<span>　市　</span>
+						<select required class='district' name="district">
+							<option value="">-请选择-</option>
+						</select>
+						<span>　区　</span>
+					</td>
+				</tr>
+			</table>
+			<table style='margin-left:10%;'>
+				<tr>
+					<td>采暖面积:</td>
+					<td><input id='area' type="text" name="">（m²）</td>
+				</tr>
+				<tr>
+					<td>天然气单价:</td>
+					<td><input id='price1' type="text" name="">（元）</td>
+				</tr>
+				<tr>
+					<td>电费单价:</td>
+					<td><input id='price2' type="text" name="">（元）</td>
+				</tr>
+			</table>
+		</div>
+		<div style='text-align:center;margin-top:20px;'>
+			<button onclick='jisuan()' style='width:200px;'>计算</button>
+		</div>
+		<div style='margin-left:10%;font-size:14px;margin-top:20px;'>说明：以上海为例，平均采暖周期为120天。</div>
+		<div>
+			<div style='width:90%;background-color:white;margin:auto;'>
+				<table style='width:100%;margin-top: 20px;border:1px solid gray;text-align: center;'>
+				<tr>
+					<th>采暖面积</th>
+					<th>壁挂炉采暖天然气费</th>
+					<th>空调采暖电费</th>
+				</tr>
+				<tr>
+					<td id='area1'></td>
+					<td id='all1'></td>
+					<td id='all2'></td>
+				</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	function jisuan(){
+		var area   = document.getElementById('area').value;
+		var price1 = document.getElementById('price1').value;
+		var price2 = document.getElementById('price2').value;
+		var area1  = document.getElementById('area1');
+		var all1   = document.getElementById('all1');
+		var all2   = document.getElementById('all2');
+		
+
+		area1.innerHTML = area+'m²';
+		all1.innerHTML  = (0.1*10*120*0.117*price1*area).toFixed(1)+'元';
+		all2.innerHTML  = (0.1*10*120*price2/3*area).toFixed(1)+'元';
+	}
+	</script>
+	<script type="text/javascript">	
+	function area(o,v){
+		$.getJSON("<{:U('area')}>",{'v':v},function(data){
+			if (o=='city') {
+				$('.district').html('');
+				$('.district').append('<option value="">-请选择-</option>');
+			}
+			$('.'+o).html('');
+			$('.'+o).append('<option value="">-请选择-</option>');
+			for (var i = 0; i < data.length; i++) {
+				$('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+			}
+		})
+	}
+</script>
+</body>
+</html>

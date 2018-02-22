@@ -1,0 +1,428 @@
+{:include file="dealer/dealer_header_xin.tpl.html":}
+<script src="js/laydate.js" type="text/javascript"></script><!-- 日历 -->
+
+<!--js控制只能输入数整数或小数-->
+<script language="JavaScript" type="text/javascript">
+function clearNoNum(obj){
+obj.value = obj.value.replace(/[^\d.]/g,""); //清除"数字"和"."以外的字符
+obj.value = obj.value.replace(/^\./g,""); //验证第一个字符是数字而不是
+obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的
+obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3'); //只能输入两个小数
+}
+</script>
+<!--js控制只能输入数整数或小数-->
+<!--导航-->
+<div class="dealer-nev-bk">
+    <div class="dealer-nev">
+    	<div class="dealer-nev-left">
+        	<img src="images/jiantou05.png"/>
+            
+            <span>
+            	账户
+            </span>
+        </div>
+        
+        <div class="dealer-nev-right">
+        	<div class="dealer-nev-right-demo">
+            	<a href="dealer.php?password">
+                	密码管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?advice">
+                	意见反馈
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?account">
+                	账户
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?aftersale">
+                	售后管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?order">
+                	订单管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?center">
+                	我的中心
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--导航end-->
+
+<div class="clear30"></div>
+
+<!--中间-->
+<div class="dealer-center">
+	<div class="dealer_account-center">
+    	<!--第一张表格-->
+    	<div class="dealer_account-center-tabs01">
+        	<div class="dealer_account-center-tabs01-title">
+            	<div class="dealer_account-center-tabs01-title-span">
+                	<span>
+                    	我的账户
+                    </span>
+                </div>
+                
+                <div class="dealer_account-center-tabs01-title-a">
+                	<a href="javascript:;" onclick="tanchu01()">
+                    	申请提现
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="dealer_account-center-tabs01-balance">
+            	<div class="dealer_account-center-tabs01-balance-span">
+                	总金额（元）：
+                </div>
+                
+                <div class="dealer_account-center-tabs01-balance-number">
+                	￥{:$totalMoney:}
+                </div>
+                
+                <div class="dealer_account-center-tabs01-balance-rule">
+                	<a href="javascript:;" onclick="tanchu02()">
+                    	结算规则
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_account-center-tabs01-list">
+            	<div class="dealer_account-center-tabs01-list-title">
+                	<div class="dealer_account-center-tabs01-list-title-order">
+                    	订单号
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs01-list-title-contacts">
+                    	联系人
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs01-list-title-phone">
+                    	电话
+                    </div>
+                    
+                    <!-- <div class="dealer_account-center-tabs01-list-title-with_single">
+                    	跟单人
+                    </div> -->
+                    
+                    <div class="dealer_account-center-tabs01-list-title-settlement">
+                    	结算状态
+                    </div>
+                    
+                    <!-- <div class="dealer_account-center-tabs01-list-title-progress">
+                    	进度状态
+                    </div> -->
+                    
+                    <div class="dealer_account-center-tabs01-list-title-money">
+                    	结算金额
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs01-list-title-time">
+                    	时间
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                {:foreach $dealer_order as $v:}
+                <div class="dealer_account-center-tabs01-list-demo">
+                	<div class="dealer_account-center-tabs01-list-demo-order">
+                    	{:$v.order_code:}
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs01-list-demo-contacts">
+                    	{:$v.consignee:}
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs01-list-demo-phone">
+                    	{:$v.mobile_phone:}
+                    </div>
+                    
+                    <!-- <div class="dealer_account-center-tabs01-list-demo-with_single">
+                    	{:$v.order_merchandiser:}
+                    </div> -->
+                    
+                    <div class="dealer_account-center-tabs01-list-demo-settlement">
+                    	{:if $v.pay_status eq 0:}未结算
+                        {:else if $v.pay_status eq 1:}第一笔结算
+                        {:else if $v.pay_status eq 2:}第二笔结算
+                        {:else if $v.pay_status eq 3:}第三笔结算
+                        {:/if:}
+                    </div>
+                    
+                    <!-- <div class="dealer_account-center-tabs01-list-demo-progress">
+                    	{:if $v.schedule_status eq 1:}未设计
+                        {:else if $v.schedule_status eq 2:}已设计
+                        {:else if $v.schedule_status eq 3:}辅材施工中
+                        {:else if $v.schedule_status eq 4:}辅材完工
+                        {:else if $v.schedule_status eq 5:}主设备施工中
+                        {:else if $v.schedule_status eq 6:}主设备完工
+                        {:else if $v.schedule_status eq 41:}第一笔已清算
+                        {:else if $v.schedule_status eq 61:}全部清算
+                        {:/if:}
+                    </div> -->
+                    
+                    <div class="dealer_account-center-tabs01-list-demo-money">
+                    	{:$v.price:}
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs01-list-demo-time">
+                    	{:$v.add_time|date_format:"%Y-%m-%d %H:%M":}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                {:/foreach:}
+                
+                <div class="clear32"></div>
+                
+                <div class="page">
+                    {:$page_nav:}
+                </div>
+                
+                <div class="clear32"></div>
+                
+            </div>
+        </div>
+        <!--第一张表格end-->
+        
+        <div class="clear32"></div>
+        
+        <!--第二张表格-->
+        <div class="dealer_account-center-tabs02">
+        	<div class="dealer_account-center-tabs02-title">
+            	<div class="dealer_account-center-tabs02-title-span">
+                	<span>
+                    	结算记录
+                    </span>
+                </div>
+                                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_account-center-tabs02-list">
+            	<div class="dealer_account-center-tabs02-list-title">
+                	<div class="dealer_account-center-tabs02-list-title-time">
+                    	时间
+                    </div> 
+                    
+                    <div class="dealer_account-center-tabs02-list-title-settlement">
+                    	结算状态
+                    </div>                    
+                    
+                    <div class="dealer_account-center-tabs02-list-title-money">
+                    	结算金额
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                {:foreach $dealer_settlement as $vo:}
+                <div class="dealer_account-center-tabs02-list-demo">
+                	<div class="dealer_account-center-tabs02-list-demo-time">
+                    	 {:$vo.apply_time|date_format:"%Y-%m-%d %H:%M":}
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs02-list-demo-settlement">
+                    	{:if $vo.finance_status eq 0:}申请中
+						{:else if $vo.finance_status eq 1:}同意结算
+                        {:else if $vo.finance_status eq 2:}已结算
+						{:else if $vo.finance_status eq 3:}拒绝结算
+						{:/if:}
+                    </div>
+                    
+                    <div class="dealer_account-center-tabs02-list-demo-money">
+                    	{:$vo.money:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                {:/foreach:}  
+                
+                <div class="clear32"></div>
+                
+                <div class="page">
+                    {:$page_nav_settlement:}
+                </div>
+                
+                <div class="clear32"></div>
+                
+            </div>
+        </div>
+        <!--第二张表格end-->
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+
+
+{:include file="footer.tpl.html":}
+
+
+
+<!--申请提现弹出-->
+<div id="tanchu_Id" class="tanchu">   
+    <div class="tanchu_withdrawals-center-bk"> 
+        <div class="tanchu_withdrawals-center">
+            <div class="tanchu_withdrawals-center-title">                
+                <div class="tanchu_withdrawals-center-title-span">
+                	申请提现
+                </div>
+                
+                <div class="tanchu_withdrawals-center-title-cha" id="tanchu_Out_Id" onclick="delete01()">
+                	<img src="images/cha04.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <form action="dealer.php?getaccount" method="post">
+                <div class="tanchu_withdrawals-center-form">
+                	<div class="clear2"></div>
+                    <div class="tanchu_withdrawals-center-form-demo01">
+                        <div class="tanchu_withdrawals-center-form-demo01-left">
+                            我的余额：
+                        </div>
+                        
+                        <div class="tanchu_withdrawals-center-form-demo01-right">
+                           ¥{:$totalMoney:}
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear27"></div>
+                    
+                    <input type="hidden" name="totalMoney" value="{:$totalMoney:}"/>
+                    
+                    <div class="tanchu_withdrawals-center-form-demo02">
+                        <div class="tanchu_withdrawals-center-form-demo02-left">
+                            结算金额：
+                        </div>
+                        
+                        <div class="tanchu_withdrawals-center-form-demo02-right">
+                            <input type="text" name="getMoneyNum"  onkeyup="clearNoNum(this)" value="" />
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear2"></div>
+                    
+                    <div class="tanchu_withdrawals-center-form-sub">
+                        <input type="submit" value="提交" />
+                    </div>
+                </div>  
+            </form>
+                      
+        </div>
+    </div>
+</div>
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function tanchu01(){
+	$("#tanchu_Id").fadeIn();	
+}
+
+function delete01(){
+	$("#tanchu_Id").fadeOut();
+}
+</script>
+<!--申请提现弹出end-->
+
+
+
+<!--提现规则弹出-->
+<div id="tanchu_Id02" class="tanchu">   
+    <div class="tanchu_rule-center-bk"> 
+        <div class="tanchu_rule-center">
+            <div class="tanchu_rule-center-title">                
+                <div class="tanchu_rule-center-title-span">
+                	提现规则
+                </div>
+                
+                <div class="tanchu_rule-center-title-cha" id="tanchu_Out_Id" onclick="delete02()">
+                	<img src="images/cha04.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear2"></div>
+            
+            <div class="tanchu_rule-center-word">
+                1.施工费为销售价格3%计算<br />
+                2.合作伙伴利润为销售价格5%<br />
+                3.施工费用15%作为平台服务佣金<br />
+                4.施工费用85%分三次支付，第一次支付在深化设计后，占应付款20%，第二次支付占辅材施工后，占30%，第三次在主设备调试后，占应付款50%<br />
+                5.利润分配二次支付，第一次在辅材施工后，占应付款40%,第二次在主设备调试后，占应付款60%<br />
+                6.每次申请结算日为每月25号<br />
+                7.申请结算得到确认核实后，应将发票寄往新感觉财务部，在收到发票后，财务部给予转款<br />
+			</div>
+            
+            <div class="clear2"></div>
+        </div>
+    </div>
+</div>
+<script>
+$(".tanchu").css('height',$(document).height());
+function tanchu02(){
+	$("#tanchu_Id02").fadeIn();	
+}
+
+function delete02(){
+	$("#tanchu_Id02").fadeOut();
+}
+</script>
+<!--提现规则弹出end-->
+
+
+</body>
+</html>

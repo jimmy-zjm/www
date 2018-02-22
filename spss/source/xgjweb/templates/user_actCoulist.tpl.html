@@ -1,0 +1,202 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+    <div class="user-right">
+    	<div class="user_actCoulist-title">         
+            <span>
+            	优惠券 
+            </span> 	
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="user_actCoulist-center">
+			<div class="user_actCoulist-center-title">                
+                <div class="user_actCoulist-center-title-02">
+                	<div class="user_actCoulist-center-title-02-01">
+                    	<span class="span01">
+                        	可用优惠券金额：
+                        </span>
+                        
+                        <span class="span02">
+                        	￥{:$couponAvailable:}元
+                        </span>
+                    </div>
+                    
+                    <div class="user_actCoulist-center-title-02-02">
+                    	<span class="span01">
+                    		已使用优惠券金额：
+                        </span>
+                        
+                        <span class="span02">
+                        	￥{:$useMoney:}元
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="user_actCoulist-center-list">
+            	<div class="user_actCoulist-center-list-top">
+                	<div class="user_actCoulist-center-list-top-span">
+                    	优惠券兑换
+                    </div>
+                    
+                    <div class="user_actCoulist-center-list-top-a">
+                    	<a href="user.php?couponShow">
+                        	查看明细
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                    <div class="user_actCoulist-center-list-form">
+                    	<div class="clear32"></div>
+                        
+                    	<div class="user_actCoulist-center-list-form-text">
+                        	<div class="user_actCoulist-center-list-form-text-span">
+                            	请输入需兑换优惠券卡号：
+                            </div>
+                            
+                            <div class="user_actCoulist-center-list-form-text-input">
+                            	<input type="text" id='code' name='code'/>
+
+                            </div>
+                            <span id='returnCode' style='color:red;'></span>
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear33"></div>
+                        
+                        <div class="user_actCoulist-center-list-form-password">
+                        	<div class="user_actCoulist-center-list-form-password-span">
+                            	请输入需兑换优惠券密码：
+                            </div>
+                            
+                            <div class="user_actCoulist-center-list-form-password-input">
+                            	<input type="password" id='pass' name='pass'/>
+                            </div>
+                            <span id='returnPass' style='color:red;'></span>
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear32"></div>
+                        
+                        <div class="user_actCoulist-center-list-form-sub">
+                        	<input type="button" id='butt' value="确定兑换"/>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+               
+                <div class="clear"></div>
+                
+                <div class="user_actCoulist-center-list-span">
+                	<span>
+                    	使用记录
+                    </span>
+                </div>
+                
+                <div class="user_actCoulist-center-list-title">
+                	<div class="user_actCoulist-center-list-title-01">
+                    	使用内容
+                    </div>
+                    
+                    <div class="user_actCoulist-center-list-title-02">
+                    	商品类型
+                    </div>
+                    
+                    <div class="user_actCoulist-center-list-title-03">
+                    	使用时间
+                    </div>
+                    
+                    <div class="user_actCoulist-center-list-title-04">
+                    	使用金额
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                {:foreach $couponInfo as $k=>$v:}
+                <div class="user_actCoulist-center-list-demo">
+                	<div class="user_actCoulist-center-list-demo-01">
+                    	<div class="user_actCoulist-center-list-demo-01-01" title="{:$v.goods_name:}">
+                        	商  品：{:$v.goods_name:}
+                        </div>
+                        
+                        <div class="user_actCoulist-center-list-demo-01-02" title="{:$v.sn:}">
+                        	订单号：{:$v.sn:}
+                        </div>
+                    </div>
+                    
+                    <div class="user_actCoulist-center-list-demo-02" title="{:if $v.class_id eq 1:}欧洲建材代购{:else:}健康舒适家居{:/if:}">
+                    	{:if $v.class_id eq 1:}欧洲建材代购{:else:}健康舒适家居{:/if:}
+                    </div>
+                    
+                    <div class="user_actCoulist-center-list-demo-03" title="{:$v.use_time|date_format:'%Y-%m-%d %H:%M:%S':}">
+                    	{:$v.use_time|date_format:'%Y-%m-%d %H:%M:%S':}
+                    </div>
+                    
+                    <div class="user_actCoulist-center-list-demo-04" title="￥{:$v.use_money:}元">
+                    	￥{:$v.use_money:}元
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                {:/foreach:}
+                
+                <div class="clear"></div>
+                
+                <div class="clear32"></div>
+                
+                <div class='page'>{:$page:}</div>
+                
+                <div class="clear32"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+	
+  
+	<div class="clear"></div>
+</div>
+
+<div class="clear27"></div>
+
+
+{:include file='footer.tpl.html':}
+
+<script>
+    $('#butt').click(function(){
+        var code = $('#code').val();
+        var pass = $('#pass').val();
+        if (code=='') $('#returnCode').html('请输入需兑换优惠券卡号');
+        if (pass=='') $('#returnPass').html('请输入需兑换优惠券密码');
+        if (code!='' && pass!='') {
+            $.get('user.php?activationCoupon',{'code':code,'pass':pass},function(data){
+                alert(data);
+            })
+        }
+        
+    })
+</script>

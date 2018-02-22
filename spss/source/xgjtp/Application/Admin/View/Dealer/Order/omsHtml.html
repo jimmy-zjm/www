@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>服务商订单详情</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+</head>
+
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	    <li><a >订单管理</a></li>
+	    <li><a href="<{:U('index')}>">订单列表</a></li>
+	    <li><a >订单详情</a></li>
+	    </ul>
+	 </div>
+    
+<div class="formbody">
+  <div id="usual1" class="usual"> 
+  	<form action="<{:U('oms')}>" method="post">
+  	<ul class="forminfo">
+  		<li>
+  			<label>发货批次</label>
+          <?php if ($batch==''){ ?>
+            <label><input type="radio" name='os' value='1' checked/>第一批</label>
+          <?php }else if($batch=='1'){ ?>
+            <label><input type="radio"  name='os' value='2' checked/>第二批</label>            
+          <?php } ?>
+  		</li>
+  		<li></li>
+        <li>
+        	<label>备注</label>
+        	<textarea class="dfinput" style="width:400px;height:200px;" name="text" id="" cols="30" rows="10"></textarea>
+        </li>
+        <li style="margin-top:50px;">
+        	<label>&nbsp;</label>
+        	<input type="hidden" name='oid' value="<{$order_id}>"/>
+        	<input name="" type="submit" class="btn" value="提交"/>
+        </li>
+  </div>    
+  </form>   
+</div> 
+ 
+
+
+</body>
+
+</html>

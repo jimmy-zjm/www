@@ -1,0 +1,146 @@
+@CHARSET "UTF-8";
+
+
+
+
+/*banner*/
+.point-banner{
+	margin:0 auto;
+	width:100%;
+	min-width:1200px;
+	height:690px;
+	background:url(../img/1190.png);}
+
+/*banner*/
+
+
+
+
+/*中间地图*/
+.point-center{
+	width:1200px;
+	margin:0 auto;}
+	
+.point-center-list{
+	width:380px;
+	height:265px;
+	float:left;
+	margin-left:20px;
+	border:1px solid #dfdfdf;
+	background:#fff;
+	margin-bottom:25px;}
+	
+.point-center-list-left{
+	
+	margin-left:25px;
+	margin-top:20px;}
+	
+.point-center-list-left-01{
+	width:330px;
+	height:185px;}
+	
+.point-center-list-left-01 img{
+	width:330px;
+	height:185px;}
+	
+	
+.point-center-list-right{
+	
+	margin-left:28px;
+	margin-top:20px;}
+	
+.point-center-list-right span:nth-child(1) {
+	float:left;
+	height:40px;
+	font-size:14px;
+	width:auto;
+	
+}
+.point-center-list-right>span:nth-child(2) {
+	float:right;
+	padding-right:25px;
+	font-size:14px;
+	height:40px;
+	width:auto;
+	
+}
+		
+
+	
+/*中间地图end*/
+
+/*中间图片*/
+.point-bottom{
+	width:100%;
+	height:146px;
+	background-color:#40d4ff;
+}
+.point-ad{
+	width:1200px;
+	margin:0 auto;}
+	
+.point-ad img{
+	width:1200px;}
+/*中间图片end*/
+
+
+
+
+
+
+/*新搜索*/
+.point-search{
+	width:1200px;
+	margin:0 auto;}
+	
+.point-search-span{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	color:#000000;
+	margin:0 auto;}
+	
+.point-search-left{
+	float:left;
+	width:300px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #cdcdcd;
+	background:#fff;
+	border-radius:5px;}
+	
+.point-search-left input{
+	width:270px;
+	height:40px;
+	line-height:40px;
+	border:none;
+	background:none;
+	font-size:14px;
+	color:#ccc;
+	margin-left:10px;}
+	
+.point-search-right{
+	float:left;
+	margin-left:10px;
+	width:144px;
+	height:42px;
+	line-height:42px;
+	text-align:center;
+	font-size:16px;
+	color:#000000;}
+	
+.point-search-right input{
+	width:144px;
+	height:42px;
+	line-height:42px;
+	text-align:center;
+	font-size:18px;
+	border-radius:3px;
+	color:#fff;
+	border:none;
+	background-color:#50d8ff;}
+
+/*新搜索*/
+
+

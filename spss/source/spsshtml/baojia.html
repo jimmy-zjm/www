@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="css/headfoot.css" />
+		<link rel="stylesheet" href="css/baojia.css" />
+		<script src="js/jquery-1.11.1.js"></script>
+		 <script>  
+	        (function (doc, win) {  
+	          var docEl = doc.documentElement,  
+	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',  
+	            recalc = function () {  
+	              var clientWidth = docEl.clientWidth;  
+	              if (!clientWidth) return;  
+	              docEl.style.fontSize = 100* (clientWidth / 1024) + 'px';  
+	            };  
+	  
+	          if (!doc.addEventListener) return;  
+	          win.addEventListener(resizeEvt, recalc, false);  
+	          doc.addEventListener('DOMContentLoaded', recalc, false);  
+	        })(document, window);  
+	    </script>
+	</head>
+	<body>
+		<!--nav-->
+		<div class="home-nav">
+			<ul>
+				<div class="home-nav1">
+					<li><a href="javascript:;">舒适健康家居</a></li>
+					<li><a href="javascript:;" onmousemove="homejiancaihover()">舒适健康建材</a></li>
+					<li><a href="javascript:;" onmousemove="homeshouhouhover()">舒适健康售后</a></li>
+					<li><a href="javascript:;">家居知识了解</a></li>
+					<li class="home-nav-logo"><a href="#"><img src="./img/home-logo.png" alt="" /></a></li>
+				</div>
+				<div class="home-nav2">
+					<li><a href="javascript:;">关于我们</a></li>
+					<li><a href="javascript:;">全国体验馆</a></li>
+					<li><a href="javascript:;">在线客服</a></li>
+				</div>
+				<div class="home-nav3">
+					<a href="javascript:;"></a>
+					<a  href="javascript:;" class="home-login" id="homelogin" onmouseover="homeloginhover()"></a>
+					<a href="javascript:;"></a>
+				</div>				
+				
+				
+			</ul>
+		</div>
+		<div class="home-login-hover" id="loginhover" onmouseleave="homeloginleave()">
+			<p>退出登录</p>
+			<p>修改密码</p>
+			<p>我的地址</p>
+			<p>我的订单</p>
+			<p>我的收藏</p>
+			<!--<p class="home-login-btn">登录</p>
+			<p class=" home-login-btn home-regest-btn">注册</p>-->
+		</div>
+		<div class="home-login-hover1" style="margin-top: 0.05rem;background: #f2f2f2;box-shadow: -1 -1 #666;border-top: 1px solid #000;" id="jiancaihover" onmouseleave="homejiancaileave()">
+			<p style="font-size: 0.11rem;width: 0.5rem;">无醛地板</p>
+			<p style="font-size: 0.11rem;width: 0.5rem;">厨房卫浴</p>
+		</div>
+		<div class="home-login-hover2" id="shouhouhover" onmouseleave="homeshouhouleave()" style="margin-top: 0.05rem;background: #f2f2f2;box-shadow: -1 -1 #666;border-top: 1px solid #000;" id="jiancaihover" onmouseleave="homejiancaileave()">
+			<p style="font-size: 0.11rem;width: 0.5rem;">机电保养</p>
+			<p style="font-size: 0.11rem; width: 0.5rem;">机电维修</p>
+			<p style="font-size: 0.11rem;width: 0.5rem;">机电耗材</p>
+		</div>
+  <!--main-->
+	<div class="content">
+		<div class="content-head">
+			<div class="content-head-main">
+				<div>房屋信息</div>
+				<div>
+					<li><input style="" id="baojiaradio" type="radio" name="area"/>上海市闵行区联航路1188弄</li>
+					<li><input type="radio" name="area"/>上海市闵行区联航路1188弄</li>
+					<li><input type="radio" name="area"/>上海市闵行区联航路1188弄</li>
+				</div>
+				<div>
+					<li class="houmianli"><input type="radio" name="area"/>上海市闵行区联航路1188弄</li>
+					<li class="houmianli"><input type="radio" name="area"/>上海市闵行区联航路1188弄</li>
+					<li class="houmianli"><input type="radio" name="area"/>上海市闵行区联航路1188弄</li>
+				</div>
+			</div>
+		
+		</div>
+		<div class="baojia-jingquebaojia">
+			<img src="img/baojia-fengzhi.jpg" alt="" >
+		</div>
+		<div class="baojia-sel">
+			<div class="baojia-sel-left">
+				<div class="baojia-sel-left-top" >
+					<div class="zhankong1"></div>
+					<div class="baojia-home1">
+						<div>
+							<select name="" >
+								<option value="" >-请选择-</option>
+							</select>
+							<span>省</span>
+						</div>
+						<div>
+							<select name="">
+								<option value="">-请选择-</option>
+							</select>
+							<span>市</span>
+						</div>
+						<div>
+							<select name="">
+								<option value="">-请选择-</option>
+							</select>
+							<span>县/区</span>
+						</div>
+						<div style="width: auto;height:2rem">
+							<p class="baojia-xiangxidizhi" >详细地址</p>
+							<input class="shurudizhi" placeholder="联航路1188号"  value="" style="width: 2.5rem;height: 0.2rem;font-size:0.1rem;placeholder-color:#000;">
+							<p class="baojia-gongxi" style="margin-top:0.3rem;font-size:0.10rem;width: 3.1rem">恭喜!您所在的地域有我们专业的服务商提供服务</p>
+						</div>
+						
+						
+					</div>
+					<div class="baojia-home2" >
+						<div class="baojia-hometype" style="float: left;width: 1rem;height: 1.6rem;">
+							<li style="height: 0.4rem;"><input type="radio" name="xuanzefangzi" onclick="selroom(1)">&nbsp;&nbsp;公寓</li>
+							<li style="height: 0.4rem;"><input type="radio" name="xuanzefangzi" onclick="selroom(2)"/>&nbsp;&nbsp;叠加</li>
+							<li style="height: 0.4rem;"><input type="radio" name="xuanzefangzi" onclick="selroom(3)"/>&nbsp;&nbsp;联排</li>
+							<li style="height: 0.4rem;"> <input type="radio" name="xuanzefangzi" onclick="selroom(4)"/>&nbsp;&nbsp;独栋</li>
+						</div>
+						<div class="baojia-hometype-room" >
+							<div class="baojia-room-sel" >
+								<select name="select1" id="sel1" onclick="roomnum(this,1)">
+									<option value="0">-请选择-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<span>室厅</span>
+							</div>
+							<div class="baojia-room-sel" >
+								<select name="select2" id="sel2" onclick="roomnum(this,2)">
+									<option value="0">-请选择-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<span>室</span>
+							</div>
+							<div class="baojia-room-sel" >
+								<select name="select3" id="sel3" onclick="roomnum(this,3)" >
+									<option value="0">-请选择-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<span>厨</span>
+							</div>
+							<div class="baojia-room-sel" >
+								<select name="select4" id="sel4" onclick="roomnum(this,4)">卫
+									<option value="0">-请选择-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<span>卫</span>
+							</div>
+							<div class="baojia-room-sel" >
+								<select name="select5" id="sel5" onclick="roomnum(this,5)">
+									<option value="0">-请选择-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<span>阳台</span>
+							</div>
+							<div class="baojia-room-sel baojiaroomsel6"  id="sel6fa">
+								<select name="select6" id="sel6" onclick="roomnum(this,6)">阁楼
+									<option value="0">-请选择-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="7">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<span>阁楼</span>
+							</div>
+							<div class="baojia-room-sel baojiaroomsel6" id="sel7fa">
+								<select name="select7" id="sel7" onclick="roomnum(this,7)">地下室
+									<option value="0">-请选择-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<span>地室</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="baojia-sel-left-img">
+					<img src="img/baojia-fangzi.jpg"/>
+				</div>
+			</div>
+			<div class="baojia-sel-right" id="tijiao">
+				<div class="baojia-selnum">
+					<div class="baojia-selnum-1" id="baojiaoroom1">
+						<li></li>
+					</div>
+					<div class="baojia-selnum-1" id="baojiaoroom2">
+						<li></li>
+					</div>
+					<div class="baojia-selnum-1" id="baojiaoroom3">
+						<li></li>
+					</div>
+					<div class="baojia-selnum-1" id="baojiaoroom4">
+						<li></li>
+					</div>
+					<div class="baojia-selnum-1" id="baojiaoroom5">
+						<li></li>
+					</div>
+					<div class="baojia-selnum-1" id="baojiaoroom6">
+						<li></li>
+					</div>
+					<div class="baojia-selnum-1" id="baojiaoroom7">
+						<li></li>
+					</div>
+					<div class="allarea">
+						<li>全部面积（m²）
+							<input type="text" />
+						</li>
+					</div>
+				</div>
+				
+				<div class="baojia-shengcheng" id="tijiao">
+					<input class="baocun" type="submit" name="" value='保存填写内容'>
+					<input class="shencheng" type="button" name="" value='生成精确报价'>
+
+				</div>
+			</div>
+		
+			<div class="baojia-content-zhoubian">
+			<div class="baojia-content-price">
+				<div>
+					<span>材料原价 :&nbsp;<a>￥60690.00</a></span>
+					<span>优惠价格:&nbsp;<a>￥51587.00</a></span>
+					<span>施工费用:&nbsp;<a>￥5298.00</a></span>
+					<span>仅需支付 :&nbsp;<a>￥56885.00</a></span>
+					<span>查看清单</span>
+				</div>
+					
+			</div>
+			<div class="baojia-content-tit"><p>售后周边</p></div>
+			<div class="baojia-content-cont1">
+				<div class="baojia-content-cont1-left"></div>
+				<div class="baojia-content-cont1-right">
+					<p>保养</p>
+					<p style="border: 1px solid #ff9200;">上品线原价￥<a>1500</a> <span>现价：￥1000</span></p>
+					<p style="border: none;">*所有系统产品自交付之日起两年内为正常质保时间</p>
+				</div>
+			</div>
+			<div class="baojia-content-cont1 baojia-content-cont2">
+				<div class="baojia-content-cont1-left"></div>
+				<div class="baojia-content-cont1-right">
+					<p>保养</p>
+					<p style="border: 1px solid #ff9200;width: 50%;margin-left: 0.6rem;">上品线五次上门费用￥200 &nbsp;原价：￥500</p>
+					<p>上品线五次上门费用￥200 &nbsp;原价：￥500</p>
+				</div>
+			</div>
+			<div class="baojia-content-cont1 baojia-content-cont3" >
+				<div class="baojia-content-cont1-left"></div>
+				<div class="baojia-content-cont1-right">
+					<p>保养</p>
+					<p style="border: 1px solid #ff9200;width: 50%;margin-left: 0.6rem;">上品线五次上门费用￥200 &nbsp;原价：￥500</p>
+					<p>上品线五次上门费用￥200 &nbsp;原价：￥500</p>
+				</div>
+			</div>
+			<div class="tuijian">
+				<p>推荐商品</p>
+			</div>
+			<div class="baojia-content-tuijian">
+				<ul>
+					<li><a href="#"></a><span>推荐商品</span></li>
+					<li><a href="#"></a><span>推荐商品</span></li>
+					<li><a href="#"></a><span>推荐商品</span></li>
+					<li><a href="#"></a><span>推荐商品</span></li>
+				</ul>
+				
+			</div>
+			<div class="baojia-content-jiesuan">
+				<div>
+					<p>客服热线：400-800-1027</p>
+					<p>周一至周五9：00-18：00 &nbsp;&nbsp;<a >在线客服</a> <span></span>RMB:￥1000000.00 &nbsp;&nbsp;<a>前往购物车结算</a></p>
+				</div>
+				
+			</div>
+		</div>
+		</div>	
+	</div>
+	<!--foot-->
+		<div class="home-footer">
+			<div class="home-footer1" style="1900px">
+				<ul>
+					<li><a href="dealer.php">服务与支持</a></li>
+					<li><a href="#">全国展示体验馆</a></li>
+					<li><a href="#">合作伙伴</a></li>
+					<li><a href="#">安装服务商登录</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">帮助中心</a></li>
+					<li><a href="#">购买指南</a></li>
+					<li><a href="#">支付方式</a></li>
+					<li><a href="#">配送政策</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">公司简介</a></li>
+					<li><a href="#">联系我们</a></li>
+					<li><a href="#">假如我们</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">关注我们</a></li>
+					<li><span class="home-weixin"></span><a href="#">微信公众号</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">客服热线</a></li>
+					<li class="home-service"><span class="service-number"></span><a href="#">400-800-1027</a></li>
+					<li><a href="#">周一至周五9：00-18：00</a></li>
+					<li><a href="#" class="service-online">在线客服</a></li>
+				</ul>
+			</div>
+			<div class="home-footer2" style="19rem" >
+				备案号：沪ICP备16030510号-1
+			</div>
+		</div>
+</body>
+	<script >
+		function homejiancaihover(){
+			var hover=document.getElementById("jiancaihover");
+			hover.style.display="block";
+		}
+		function homeshouhouhover(){
+			var hover=document.getElementById("shouhouhover");
+			hover.style.display="block";
+		}
+		function homeloginhover(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="block";
+		}
+		function homeloginleave(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="none";
+		}
+		function homeshouhouleave(){
+		var hover=document.getElementById("shouhouhover");
+			hover.style.display="none";
+		}
+		function homejiancaileave(){
+		var hover=document.getElementById("jiancaihover");
+			hover.style.display="none";
+		}
+
+	</script>
+	<script type="text/javascript">
+		function selroom(index){
+			if(index==1){
+				$("#sel6fa").addClass("baojiaroomsel6");
+				$("#sel7fa").addClass("baojiaroomsel6");
+			}else if(index==2||index==3||index==4){
+				$("#sel6fa").removeClass("baojiaroomsel6");
+				$("#sel7fa").removeClass("baojiaroomsel6");
+			}
+		}
+		function roomnum(n,index){
+			var tijiao=document.getElementById("tijiao");
+			tijiao.style.display="block";
+			n=$(n).val();
+			if(index==1){
+				$("#baojiaoroom1").html("");
+				for(var i=0;i<n;i++){
+					$("#baojiaoroom1").append("<li style='height: 0.3rem;width: 80%;line-height: 0.2rem;'><input type='text' ></li>")
+					
+				}
+				$("#baojiaoroom1 li:first-child").prepend("卧室（m²）");
+			}else if(index==2){
+				$("#baojiaoroom2").html("");
+				for(var i=0;i<n;i++){
+					$("#baojiaoroom2").append("<li style='height: 0.3rem;width: 80%;line-height: 0.3rem;'><input type='text' ></li>")
+				}	
+				$("#baojiaoroom2 li:first-child").prepend("餐厅（m²）");
+			}else if(index==3){
+				$("#baojiaoroom3").html("");
+				for(var i=0;i<n;i++){
+					$("#baojiaoroom3").append("<li style='height: 0.3rem;width: 80%;line-height: 0.3rem;'><input type='text' ></li>")
+				}	
+				$("#baojiaoroom3 li:first-child").prepend("厨房（m²）");
+			}else if(index==4){
+				$("#baojiaoroom4").html("");
+				for(var i=0;i<n;i++){
+					$("#baojiaoroom4").append("<li style='height: 0.3rem;width:80%;line-height: 0.3rem;'><input type='text' ></li>")
+				}	
+				$("#baojiaoroom4 li:first-child").prepend("卫浴（m²）");
+			}else if(index==5){
+				$("#baojiaoroom5").html("");
+				for(var i=0;i<n;i++){
+					$("#baojiaoroom5").append("<li style='height: 0.3rem;width: 80%;line-height: 0.3rem;'><input type='text' ></li>")
+				}
+				$("#baojiaoroom5 li:first-child").prepend("阳台（m²）");
+			}else if(index==6){
+				$("#baojiaoroom6").html("");
+				for(var i=0;i<n;i++){
+					$("#baojiaoroom6").append("<li style='height: 0.3rem;width: 80%;line-height: 0.3rem;'><input type='text'></li>")
+				}
+				$("#baojiaoroom6 li:first-child").prepend("阁楼（m²）");
+			}else if(index==7){
+				$("#baojiaoroom7").html("");
+				for(var i=0;i<n;i++){
+					$("#baojiaoroom7").append("<li style='height: 0.3rem;width: 80%;line-height: 0.3rem;'><input type='text' ></li>")
+				}	
+				$("#baojiaoroom7 li:first-child").prepend("地室（m²）");
+			}
+		}
+	</script>
+	<script>
+		function homeloginhover(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="block";
+		}
+		function homeloginleave(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="none";
+		}
+	</script>
+</html>

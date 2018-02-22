@@ -1,0 +1,75 @@
+
+		<link rel="stylesheet" href="__PUBLIC__/css/machinehaocai.css" />
+		<div class="baoyang-content">
+			<div class="baoyang-content-top">
+				<div class="baoyang-content-top-con">
+					<div class="baoyang-content-top-left">
+						<img src="__PUBLIC__/img/maintain1.jpg" alt="" />
+					</div>
+					<div class="baoyang-content-top-right">
+						<p>机电耗材说明</p>
+						<p>耗材是指在健康舒适家居系统产品中，因正常使用而需要定期更换的产品，通常指新风系统的过滤、水处理系统的滤芯滤料等。部分耗材的更换可以由业主根据说明书自行更换，也可以由专业的人员上门进行更换，同时会收取相应的服务费。各耗材可根据实际使用情况进行更换，具体参考更换见各耗材详细说明。</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class="content-baoyang-mid">
+				<ul>
+					<a href="<{:U('Customer/consumable',array('quote_id'=>'5'))}>"><li class="li1">上品新风系统</li></a>
+					<p></p>
+					<a href="<{:U('Customer/consumable',array('quote_id'=>'93'))}>"><li class="li2">上生新风系统</li></a>
+					<p></p>
+					<a href="<{:U('Customer/consumable',array('quote_id'=>'15'))}>"><li class="li3">上品水处理系统</li></a>
+					<p></p>
+					<a href="<{:U('Customer/consumable',array('quote_id'=>'94'))}>"><li class="li4">上生水处理系统</li></a>
+					<p></p>
+					<a href="<{:U('Customer/consumable',array('quote_id'=>'32'))}>"><li class="li5">上品除尘系统</li></a>
+					<p></p>
+					<a href="<{:U('Customer/consumable',array('quote_id'=>'98'))}>"><li class="li6">上生除尘系统</li></a>	
+				</ul>
+			</div>
+			<!-- <a href="detail.html" style="display: block;"> -->
+			<div class="content-baoyang-bottom">
+				<ul>
+					<?php foreach ($data as $k=>$v){?>
+						<li class="bottom-li">
+							<a href="<{:U('detail',array('id'=>$v['id']))}>">
+							<div class="bottom-li-top">
+								<p class="bottom-li-top-img"><img src="<{$v['c_img']|getImage=###,'350','350'}>" alt=""></p>
+								<p class="bottom-li-top-tit"><?=$v['c_name']?></p>
+							</div>
+							</a>
+							<div class="bottom-li-bottom">
+								<p class="bottom-li-bottom-zi">适用机型：<?=$v['product_name']?></p>
+								<p class="bottom-li-bottom-zi">建议处理量：<?=$v['parameter']?></p>
+								<p class="bottom-li-bottom-zi">建议更换周期：<?=$v['cycle']?></p>
+								<p class="bottom-li-bottom-zi">原价：<span class="bottom-li-bottom-zi-yuanjia"><span><?=$v['old_price']?></span>元</span></p>
+								<p class="bottom-li-bottom-zi">现价：<span class="bottom-li-bottom-zi-xianjia"><span><?=$v['price']?></span>元</span></p>
+								<p class="joinshop"><button onclick="sub(<?=$v['id']?>)"  name="加入购物车">加入购物车</button></p>
+							</div>
+						</li>
+						<!--<div class="kong"></div>-->
+					<?php }?>
+				</ul>
+			</div>
+		</div>
+		<!-- </a> -->
+<div class="clear2"></div>
+
+
+<script type="text/javascript">
+	function sub(id){
+		$.post("<{:U('Customer/addCart')}>",{id:id}, function(data){
+			if(data=='-1'){
+				alert('该商品已下架');
+			}else if(data=='-2'){
+				alert('添加失败');
+			}else if(data=='1'){
+				alert('添加成功');
+				window.location.href="<{:U('Cart/index')}>";
+			}else{
+				window.location.href="<{:U('User/login')}>";
+			}
+		})
+	}
+</script>

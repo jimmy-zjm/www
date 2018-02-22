@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+
+.payfails-center{
+	width:1100px;
+	margin:0 auto;}
+
+.payfails-center-left{
+	width:350px;
+	height:480px;
+	float:left;}
+	
+.payfails-center-left-img{
+	width:153px;
+	height:140px;
+	margin-top:100px;
+	float:right;}
+
+.payfails-center-left-img img{
+	width:153px;
+	height:140px;}
+	
+.payfails-center-right{
+	width:720px;
+	height:360px;
+	float:right;
+	margin-top:120px;}
+	
+.payfails-center-right-title{
+	width:100%;
+	height:80px;
+	font-size:30px;
+	color:#373737;}
+	
+.payfails-center-right-info{
+	width:100%;
+	height:60px;
+	font-size:14px;
+	color:#373737;}
+
+.payfails-center-right-info .span01{
+	margin-right:5px;}
+
+.payfails-center-right-info .span02{
+	margin-right:30px;}
+	
+.payfails-center-right-a{
+	width:1005;
+	height:25px;
+	line-height:25px;
+	color:#373737;
+	font-size:18px;}
+
+.payfails-center-right-a a{
+	color:#373737;
+	font-size:16px;
+	margin-left:10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

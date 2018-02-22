@@ -1,0 +1,78 @@
+<!--foot-->
+		<div class="home-footer">
+			<div class="home-footer1">
+				<ul>
+					<li><a href="javascript:;">服务与支持</a></li>
+					<li><a href="<{:U('Index/show')}>">全国展示体验馆</a></li>
+					<li><a href="<{:U('Index/aboutus')}>#a6">合作伙伴</a></li>
+					<li><a href="<{:U('Dealer/index')}>">安装服务商登录</a></li>
+				</ul>
+				<ul>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>53))}>">帮助中心</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>53))}>">购物流程</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>54))}>">配送政策</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>55))}>">支付方式</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>52))}>">购买指南</a></li>
+				</ul>
+				<ul>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>56))}>">售后服务</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>56,a_id=>146))}>">保修政策</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>56,a_id=>147))}>">取消订单</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>56,a_id=>148))}>">退换货政策</a></li>
+					<li><a href="<{:U('Index/checkArticle',array('cat_id'=>56,a_id=>149))}>">常见问题</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">关注微信号</a></li>
+					<!-- <li><span class="home-weixin"></span><a href="#">微信公众号</a></li> -->
+					<li><img src="__PUBLIC__/img/weixin.jpg" width="100"></li>
+				</ul>
+				<ul>
+					<li><a href="#">客服热线</a></li>
+					<li class="home-service"><span class="service-number"></span><a href="#">400-800-1027</a></li>
+					<li><a href="#">周一至周五9：00-18：00</a></li>
+					<!-- <li><a href="javascript:;"onclick="qimoChatClick();" class="service-online">在线客服</a></li> -->
+				</ul>
+			</div>
+			<div class="clear2"></div>
+			<div class="home-footer2">
+				备案号：沪ICP备16030510号-1
+			</div>
+		</div>
+		<script src="__PUBLIC__/js/headfoot.js"></script>
+
+		<!-- 7moor在线客服开始 -->	
+		<if condition="!empty( $Think.session.user.userId ) and !empty( $Think.session.user.userName )">
+		<script type='text/javascript'>
+				var qimoClientId = {userId:"<{$Think.session.user.userId}>", nickName:"<{$Think.session.user.userName}>"};// 自定义用户的唯一id,userId由英文字母,数字,下划线组成
+		</script>
+		</if>
+		<script type='text/javascript' src='http://webchat.7moor.com/javascripts/7moorInit.js?accessId=ecdab400-a94d-11e5-bbcd-fbb9b9d68830&autoShow=false' async='async'></script>
+		<!-- 7moor在线客服结束 -->	
+
+		<!-- 99click网站统计开始 -->
+		<input type="hidden" id='o_userId' value='<if condition="!empty( $Think.session.user.userId ) "><{$Think.session.user.userId}></if>'>
+		<script type='text/javascript' src='__PUBLIC__/js/jquery.cookie.js'></script>
+		<script type="text/javascript">
+		try{
+			var _ozuid;
+			var _user=$('#o_userId').val();//需传值，用户登陆后的用户id，如果没有登录传空值，即_user=’’;
+			var _domain=document.domain.match(/\.[a-zA-Z0-9.-]+/);
+			if($.cookie("ozuid") &&(_user==''|| null==_user)){  //cookie有值，但是用户尚未登录 ;那么取cookie值
+				_ozuid=$.cookie("ozuid");
+			}else if($.cookie("ozuid") &&(null!= _user)){ //cookie有值，但是用户已登录 ;那么更新cookie值，再取cookie值
+				$.cookie("ozuid",_user,{path:"/",expires:365,domain:_domain});
+				_ozuid=$.cookie("ozuid");
+			}else if(!$.cookie("ozuid") &&(_user==''|| null==_user)){//cookie无值，用户也未登录，不能记录会员行为
+				//无动作
+			}else if(!$.cookie("ozuid") &&(null!= _user)){
+				$.cookie("ozuid",_user,{path:"/",expires:365,domain:_domain}); //cookie无值，但是用户已登录 ;那么存储cookie值，再取cookie值
+				_ozuid=$.cookie("ozuid");
+			}
+		}catch(e){
+		}
+		</script>
+		<script type='text/javascript' src='__PUBLIC__/js/o_code.js'></script>
+		<!-- 99click网站统计结束 -->
+	</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!--include "./tpl/head.tpl"-->
+<!-- Header mit Keyvisual -->
+<div class="jumbotron" id="header">
+  <div class="container">
+    <div class="row header">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 text-right" id="header_index1">
+       <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="img/home/banner1.png">
+            <div class="hidden-xs myswiper-textBox">
+              <p   class="myswiper-text1">Moderne Haustechnologie</p>
+              <h4  class="myswiper-text2">heizen</h4>
+              <h4  class="myswiper-text3">lüften</h4>
+              <h4  class="myswiper-text4">gemütlich </h4>
+            </div>
+          </div>
+          <div class="swiper-slide"><img src="img/home/banner2.png">
+           <div class="hidden-xs myswiper-textBox">
+            <p   class="myswiper-text1">Moderne Haustechnologie</p>
+            <h4  class="myswiper-text2">heizen</h4>
+            <h4  class="myswiper-text3">lüften</h4>
+            <h4  class="myswiper-text4">gemütlich </h4>
+          </div>
+        </div>
+        <div class="swiper-slide"><img src="img/home/banner3.png">
+         <div class="hidden-xs myswiper-textBox">
+          <p   class="myswiper-text1">Moderne Haustechnologie</p>
+          <h4  class="myswiper-text2">heizen</h4>
+          <h4  class="myswiper-text3">lüften</h4>
+          <h4  class="myswiper-text4">gemütlich </h4>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+<div class="container" role="main">
+
+
+
+  <!-- Inhalte-->
+        <!--<div class="page-header">
+        <h2>Überschrift</h2>
+      </div>
+    -->
+    <div class="row ">
+     <article class="col-sm-6 col-md-3" id="">
+      <div class="row marginbottom1em home-des-div">
+        <img src="img/icon_luzi.png" class="pull-left col-xs-3 col-sm-4" alt="Hoffzen Haustechnologie Firmensitz">
+        <h4 class="col-sm-offset-4 col-xs-offset-3">GAS<br>WARMWASSER<br>BOILER</h4> 
+      </div>
+      <p class="">Besonders Sauber, effizient, verlässlich und energiesparend. Ihre höchste Ansprüche an eine komfortable Wärme- und Warmwasserversorgung erfüllen wir mit unseren nachhaltigen qualifizierten Produkten made in EU. </p>
+      <p><a href="wasserkocher.html" class="btn btn2  btn-md" role="button">Mehr erfahren &raquo;</a>
+      </p>
+
+    </article>
+    <article class="col-sm-6 col-md-3" id="ueber_uns">
+      <div class="row marginbottom1em home-des-div">
+        <img src="img/icon_guandao.png" class="pull-left col-xs-3 col-sm-4" alt="Hoffzen Haustechnologie Firmensitz">
+        <h4 class="col-sm-offset-4 col-xs-offset-3">ROHRLEITUNG<br>UND<br>STEUERSYSTEM</h4> 
+      </div>
+      <p class="">Hoffzen hochwertige Leitungs- und Steuersysteme sind in der Trinkwasserinstallation, Heizungsbau, Fußbodenheizungen, Sanitärinstallation, Altbausanierung, Kühlanlagen, etc. eingesetzt. Ihr Komfort wird durch unseren Einsatz gewünscht erreicht. </p>
+      <p><a href="pipeline.html" class="btn btn2  btn-md" role="button">Mehr erfahren &raquo;</a>
+      </p>
+
+    </article>
+    <article class="col-sm-6 col-md-3" id="heizkoerper">
+      <div class="row marginbottom1em home-des-div">
+        <img src="img/icon_heating.png" class="pull-left col-xs-3 col-sm-4" alt="Heizkörper">
+        <h4 class="col-sm-offset-4 col-xs-offset-3">HEIZKÖRPER</h4>
+      </div>
+      <p>Ob Flach­heiz­körper, vertikale Heiz­wände und Bad­heiz­körper: Alle Produkte von Hoffzen orientieren sich an den Be­dürf­nissen der End­kunden und setzen in punkto Qualität inter­nationale Standards.</p>
+      <p><a href="radiator.html" class="btn btn2 btn-md" role="button">Mehr erfahren &raquo;</a>
+      </p>
+    </article>
+    <article class="col-sm-6 col-md-3" id="fresh_air">
+      <div class="row marginbottom1em home-des-div">
+        <img src="img/icon_newair.png" class="pull-left col-xs-3 col-sm-4" alt="Ventilationssystem Fresh Air">
+        <h4 class="col-sm-offset-4 col-xs-offset-3">NNOVATIV<br>LÜFTEN</h4>
+      </div>
+      <p>Das Venti­lations­system Fresh Air hält Raum­luft 24 Stunden am Tag frisch, auch wenn die Fenster geschlossen sind. Der Raum kann selbst „atmen“, die Luft ist immer frisch, die Kälte bleibt draußen.</p>
+      <p><a href="freshair.html" class="btn btn2 btn-md" role="button">Mehr erfahren &raquo;</a>
+      </p>
+    </article>
+
+  </div>
+
+  
+  <!-- Footer -->
+  <!--include "./tpl/foot.tpl"-->
+  
+
+</div>
+<!-- /container -->
+
+
+<script type="text/javascript" src="js/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript">
+
+  
+
+ var mySwiper = new Swiper('.swiper-container', {
+        autoplay: 3000,//可选选项，自动滑动
+        pagination : '.swiper-pagination',
+        paginationClickable :true,
+        loop:true,
+        effect: 'fade',
+        onSlideChangeStart: function(swiper){ 
+      swiper.slides.eq(swiper.activeIndex).find("div").addClass('active') //
+    },
+    onSlideChangeEnd: function(swiper){
+     swiper.slides.each(function(index, el) {
+       if (index!=swiper.activeIndex) {
+        $(this).find("div").removeClass('active');
+      }
+    });
+   },
+ })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单详情</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<style>.ping {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: none;
+    z-index: 5;}
+    .white_content {
+    position: absolute;
+    top: 110px;
+    left: 30%;
+    width: 450px;
+    height: 480px;
+    border: 1px solid orange;
+    background-color: white;
+    z-index: 1002;
+}
+</style>
+<style>
+.qrfh_input{
+    float:right;
+    margin-right:20px;
+    background:#ff0000;
+    border:1px solid #ff0000;
+    border-radius:5px;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+}
+
+.qrfh_input input{
+    border:none;
+    background:none;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    font-size:14px;
+    color:#fff;
+}
+.orderall div{
+    width:100%;text-align:right;
+}
+.orderall div h3{
+    height:30px;
+    font-size:15px;
+    line-height:30px;
+    padding-right:100px;
+}
+</style>
+</head>
+
+<body>
+
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="">订单列表</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    <div class="formtitle"><span>基本信息<font style="margin-left:20px;">订单号：</font><{$info['sn']}></span></div>
+    <div class="toolsli">
+        <div style='width:100%;float:left;'>
+            <ul>
+                <li style='margin-left:20px;float:left;'><strong>下单人用户名：<{$info['user_name']}></strong></li>
+                <li style='margin-left:20px;float:left;'><strong>下单时间：</strong><{$info['add_time']}></li>
+                <li style='margin-left:20px;float:left;'><strong>付款时间：</strong><{$info['pay_time']}></li>
+                <!-- <li><strong>发货时间：</strong><{$info['post_time']}></li> -->
+                <li style='margin-left:20px;float:left;'><strong>支付方式：</strong>
+                    <?php if($info['pay_method']==1){ ?>支付宝
+                    <?php }else if ($info['pay_method']==2){?>银联
+                    <?php }else if ($info['pay_method']==3){?>无卡
+                    <?php }else if ($info['pay_method']==9){?>积分
+                    <?php } ?>
+                </li>
+                <li style='margin-left:20px;float:left;'><strong>支付单号：</strong><{$info['pay_code']}></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formtitle"><span>收货人信息</span>
+    </div>
+
+
+    <div class="toolsli">
+        <div style='width:100%;float:left;'>
+            <ul>
+                <li style='margin-left:20px;float:left;'><strong>姓名：</strong><{$info['shr_name']}></li>
+                <li style='margin-left:20px;float:left;'><strong>手机：</strong><{$info['shr_phone']}></li>
+                <li style='margin-left:20px;float:left;'><strong>地址：</strong><{$info['shr_pro']}><{$info['shr_city']}><{$info['shr_area']}><{$info['shr_addr']}></li>
+                <li style='margin-left:20px;float:left;'><strong>电子邮件：</strong><{$info['shr_email']}></li>
+                <li style='margin-left:20px;float:left;'><strong>身份证号：</strong><{$info['identity_card']}></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="formtitle"><span>商品信息</span></div>
+    
+    
+    <div class="toolsli">
+            <table class="listtable">
+                <tr>
+                    <th>图片</th>
+                    <th>商品名称</th>
+                    <th>商品编号/供应商识别号</th>
+                    <th>数量</th>
+                    <th>价格</th>
+                    <th>订单状态</th>
+                </tr>
+                <?php foreach ($list as $key => $value): ?>
+                    <tr style="border-bottom:1px solid #f0dcbe">
+                        <td>订单编号：<{$value.split_sn}></td>
+                        <td colspan="4">发货时间：<?php echo !empty($value['time'])?date('Y-m-d H:i:s',$value['time']):'还未发货' ?> </td>
+                        <td><span style='color:red;text-align: right;padding-right: 50px;'><?php echo $value['order_status']==3?'退':'' ?></span></td>
+                    </tr>
+                    <tr  style="border-bottom:1px solid #f0dcbe">
+                        <td><img style='width: 54px;height: 54px;'src="__PUBLIC__/Uploads/<{$value['goods_image']}>"/></td>
+                        <td><{$value['goods_title']}></td>
+                        <td>
+                            <p style="color:black;">商 &nbsp品 &nbsp 编 &nbsp号：<{$value['goods_sn']}></p>
+                            <p style="color:black;">供应商识别号：<?= !empty($value['identifier'])?$value['identifier']:''?></p>
+                        </td>
+                        <td><{$value['goods_num']}></td>
+                        <td><{$value['goods_price']}></td>
+                        <td>
+                            <?php if($value['order_status']=='0'){ ?>等待付款
+                            <?php }else if ($value['order_status']==1){?>等待发货
+                            <?php }else if ($value['order_status']==2){?>等待收货
+                            <?php }else if ($value['order_status']==3){?>退货中
+                            <?php }else if ($value['order_status']==4){?>待评论
+                            <?php }else if ($value['order_status']==5){?>已完成
+                            <?php }else if ($value['order_status']==6){?>已取消
+                            <?php }else if ($value['order_status']==7){?>删除
+                            <?php }else if ($value['order_status']==8){?>取消订单
+                            <?php } ?>
+                            <?php if($value['order_status']==1){ ?>
+                            |&nbsp<a href="javascript:;" onclick="fahuo(<{$value.id}>)">确认发货</a>
+                            <?php }else if($value['order_status']>1){ ?>
+                            |&nbsp<a href="javascript:;">已发货</a>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                    <tr   style="border-bottom:1px solid #b19d7f"> 
+                        <td colspan="3" style="text-align:left;padding-right:100px;color:red;"><?php if($value['is_putaway']==0) {?>此商品已下架<?php }?></td>
+                        <td colspan="4" style="text-align:right;padding-right:100px;"><?php if(empty($value['express_code'])) {?>送货方式：<{$value.express_name}> 快递单号：<{$value.express_code}> <?php }?> &nbsp &nbsp &nbsp &nbsp 物流信息
+                        <?php if($value['order_status']==3){ ?>|
+                        <button class='scbtn3' onclick="checkinfo(<{$value.id}>)">查看备注</button>
+                        <?php }else if($value['order_status']==2 ||$value['order_status']==4||$value['order_status']==1) {?>|
+                        <button class='scbtn3' onclick="tuihuo(<{$value.id}>)">退货/退款</button>
+                        <?php }?>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
+    </div>
+    <div  class="orderall" >
+        <div><h3>订单总额： ¥<{$info.total_price}></h3></div>
+        <div><h3>运费金额： ¥0.00</h3></div>
+        <div><h3>使用优惠券： ¥-<{$coupon}></h3></div>
+        <div><h3>使用积分： ¥-<{$integral}>.00</h3></div>
+        <div><h3>支付金额： ¥<{$info.deal_price}></h3></div>
+		<div><h3>可获得积分： <{$info['deal_price']*5/100|floor}></h3></div>
+    </div>
+    
+    </div>
+
+    <div class="clear"></div>
+
+
+    <div class="tip home1" style="height:250px;">
+        <form action="<{:U('fahuo')}>" method="post">
+            <div class="tiptop"><span>提示信息</span><a></a></div>
+                <div class="tipinfo">
+                    <div class="tipright">
+                        <p>送货方式<b style='color:red;'>*</b><input type="text" name='express_name' class="dfinput" style="width:240px;margin-left:20px;" value=''/></p>
+                        <p>快递单号<b style='color:red;'>*</b><input type="text" name='express_code' class="dfinput" style="width:240px;margin-left:20px;" value=''/></p>
+                        <!-- <div>
+                            <div style="float:left;"><b>备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注</b></div>
+                            <div style="float:left;"><textarea name="remarks" class="dfinput"  cols="30" style="width:240px;height:100px;margin:2px 0 10px 26px;" rows="10"></textarea></div>
+                        </div> -->
+                        <input type="hidden" id='order_sn' name='order_sn' value="<{$info['sn']}>"/>
+                        <input type="hidden" id='infoid' name='infoid' value=""/>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            <div class="tipbtn">
+            <input name="" type="submit"  class="sure" value="确定" />&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" />
+            </div>
+        </form>
+    </div>
+
+
+ <div class="tip home" style="height:250px;display:none;" >
+    <form action="<{:U('tuihuo')}>" method="post">
+        <div class="tiptop"><span>提交备注</span><a></a></div>
+            <div class="tipinfo">
+                <div class="tipright">
+                    <textarea  style="width:330px;height:80px;" name='content' id='content' class="textinput"></textarea>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <input type="hidden" id='split_id' name='split_id' value=""/>
+            <input type="hidden" id='order_id' name='order_id' value="<{$id}>"/>
+        <div class="tipbtn">
+        <input name="" type="button"  class="cancel" value="取消" />&nbsp;
+        <input name="" type="submit"  class="sure" value="确定" />
+        </div>
+    </form>
+</div>   
+
+<div class="tip home2" style="height:250px;display:none;" >
+    <div class="tiptop"><span>查看备注</span><a></a></div>
+    <p style="padding-left: 20px;padding-top: 20px;">[<label id='name'></label>]   于<label id='time'></label> 修改备注内容：</p>
+        <div class="tipinfo">
+            <div class="tipright">
+                <textarea style="width:330px;height:80px;" name='content' id='content1' class="textinput"></textarea>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <input type="hidden" id='split_id' name='split_id' value=""/>
+        <input type="hidden" id='order_id' name='order_id' value="<{$id}>"/>
+    <div class="tipbtn">
+    </div>
+</div> 
+
+</body>
+</html>
+<script>
+    function tuihuo(id){
+        $('#split_id').val(id);
+        $(".home").fadeIn(200);
+    }
+</script>
+<script>
+    function checkinfo(id){
+        // $.getJSON(
+        // "<{:U('checkinfo')}>",
+        // {id:id},
+        // function(res){
+        //     $('#content1').html(res.content); 
+
+        // })
+        $.ajax({ 
+            url: "<{:U('checkinfo')}>", 
+            data: {id:id}, 
+            dataType: 'json',
+            success: function(res){
+                $('#name').html(res.admin_name); 
+                $('#time').html(res.time); 
+                $('#content1').html(res.content); 
+            }
+        });
+        $(".home2").fadeIn(200);
+    }
+    $(document).ready(function(){
+      $(".tiptop a").click(function(){
+      $(".home2").fadeOut(200);
+    });
+
+      $(".sure").click(function(){
+      $(".home2").fadeOut(100);
+    });
+
+      $(".cancel").click(function(){
+      $(".home2").fadeOut(100);
+    });
+
+    });
+</script>
+<script>
+    $(document).ready(function(){
+      $(".tiptop a").click(function(){
+      $(".home").fadeOut(200);
+    });
+
+      $(".sure").click(function(){
+      $(".home").fadeOut(100);
+    });
+
+      $(".cancel").click(function(){
+      $(".home").fadeOut(100);
+    });
+
+    });
+
+    
+</script>
+
+<script>
+    function fahuo(id){
+        $('#infoid').val(id);
+        $(".home1").fadeIn(200);
+    }
+</script>
+<script>
+    $(document).ready(function(){
+      
+
+      $(".tiptop a").click(function(){
+      $(".home1").fadeOut(200);
+    });
+
+      $(".sure").click(function(){
+      $(".home1").fadeOut(100);
+    });
+
+      $(".cancel").click(function(){
+      $(".home1").fadeOut(100);
+    });
+
+    });
+
+    
+</script>

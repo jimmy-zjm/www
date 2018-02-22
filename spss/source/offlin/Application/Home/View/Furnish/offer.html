@@ -1,0 +1,120 @@
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>查看清单</header>
+
+	<section  class="container">
+		<div class="list-mianji">
+			<p class="sys-title">
+				房屋面积
+			</p>
+			<p class="sys-item">
+				<span class="col-xs-6 col-sm-4 col-md-3">使用面积: <{$areaAll}>㎡</span>
+				<span class="col-xs-6 col-sm-4 col-md-3">建筑面积: <{$build}>㎡</span>
+			</p>
+
+			<?php for ($i=0; $i <count($houseArea) ; $i++) { ?>
+		    <?php if ($i != 4 && $houseArea[$i]['0'] != '0'): ?>
+		    <p class="sys-item">
+	            <?php foreach ($houseArea[$i] as $k => $v): ?>
+	                <span class="col-xs-6 col-sm-4 col-md-3">
+	                    <?php if ($i == 0){ ?>卧 &nbsp; 室
+	                    <?php }elseif($i == 1){ ?>客 &nbsp; 厅
+	                    <?php }elseif($i == 2){ ?>厨 &nbsp; 房
+	                    <?php }elseif($i == 3){ ?>卫生间
+	                    <?php }elseif($i == 5){ ?>阁 &nbsp; 楼
+	                    <?php }elseif($i == 6){ ?>地下室
+	                    <?php } ?>
+	                    <{$k+1}>: &nbsp; <{$v}>㎡
+	                </span>
+	            <?php endforeach ?>
+	        </p>
+		    <?php endif ?>
+		    <?php } ?>
+			
+		</div>
+		<div class="list-price">
+			<p class="sys-title">
+				产品报价
+			</p>
+			<p class="sys-item">
+				主材费用
+				<span class="sys-money">￥<?= $moneyAll['all']-$moneyAll['install']-$moneyAll['fuCai'] ?>元</span>
+			</p>
+			<p class="sys-item">
+				单价
+				<span class="sys-money">￥<?= (ceil((($moneyAll['all']-$moneyAll['install']-$moneyAll['fuCai'])/$build)*100))/100 ?>元/㎡</span>
+			</p>
+			<p class="sys-item">
+				辅材及施工费用
+				<span class="sys-money">￥<?= $moneyAll['install']+$moneyAll['fuCai'] ?>元</span>
+			</p>
+			<p class="sys-item">
+				单价
+				<span class="sys-money">￥<?= (ceil((($moneyAll['install']+$moneyAll['fuCai'])/$build)*100))/100 ?>元/㎡</span>
+			</p>
+		</div>
+		<a href="javascript:;" class="rightredborder-btn" onclick='types()'>保存</a>
+		<div class="clearfix"></div>
+		<p class="main-title"><{$quoteName}></p>
+		<div class="list-sys">
+			<?php foreach ($list as $k => $v): ?>
+				<p class="sys-title"><{$listType[$k]}></p>
+				<?php foreach ($v as $key => $val): ?>
+					<p class="sys-item"><{$val['name']}></p>
+					<div class="list-sysbox">
+						<img src="<{$val['img']|getimage}>">
+						<div>
+							<p class="ell">产品编码：<{$val['sn']}></p>
+							<p class="ell">产品型号：<{$val['model']}></p>
+							<p class="ell">产品品牌：<{$val['brand']}></p>
+							<p class="ell">标准数量：<{$val['num']}></p>
+						</div>
+					</div>
+				<?php endforeach ?>
+			<?php endforeach ?>
+			<!-- <div class="sys-item">数量
+				<p class="fr btn-box">
+				<span class="minusbtn">-</span>
+					<span class="shownum">1</span>
+		
+					<span class="addbtn">+</span>
+		
+				</p>
+			</div> -->
+		    <!-- <p class="sys-item">
+				总计金额
+				<span class="sys-money">￥31457</span>
+			</p>
+			<p class="sys-item last-row">
+				<a href="add.html" class="newadd-btn">新增</a>
+			</p> -->
+		</div>
+	</section>
+
+
+	<script>
+	    function types(){
+	        var c_id = <{$customerId}>;
+	        var name = "<{$quoteName}>";
+	        // var money = <{$moneyAll['all']}>;
+	        // var zprice = <{$moneyAll['all']-$moneyAll['install']-$moneyAll['fuCai']}>;
+
+	        $.get('<{:U("addCustomerQuote")}>',{'c_id':c_id,'name':name},function(data){
+	            if (data['info'] != undefined) {
+	            	alert(data['info']);
+            	}else{
+            		if (data > 0) {
+		                alert('保存成功！');
+		            }else{
+		                alert('保存失败！');
+		            }
+            	}
+	        })
+	    }
+	</script>
+	
+
+</body>
+</html>

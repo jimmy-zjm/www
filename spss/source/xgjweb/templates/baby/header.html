@@ -1,0 +1,97 @@
+<div class="baby-top">
+    <div class="baby-top-bk">
+        <div class="baby-top-01">
+            <a href="index.php">
+                上品上生首页
+            </a>
+        </div>
+        {:if empty($smarty.session.userName):}
+        <div class="baby-top-08">
+            <a href="user.php?login"><!--未登录状态显示此DIV-->
+                请登录
+            </a>
+        </div>
+        
+        <div class="baby-top-09">
+            <a href="user.php?register"><!--未登录状态显示此DIV-->
+                免费注册
+            </a>
+        </div>
+        {:else:}
+        
+        <div class="baby-top-10"><!--已登录状态显示此DIV-->
+            <a href="javascript:;">
+                {:$smarty.session.userName:}
+            </a>
+        </div>
+        
+        <div class="baby-top-11"><!--已登录状态显示此DIV-->
+            <a href="user.php?userQuit">
+                退出登录
+            </a>
+        </div>
+        {:/if:}
+        <div class="baby-top-02">
+            4008001027
+        </div>
+
+        <div class="baby-top-03">
+            热线：
+        </div>
+
+        <div class="baby-top-04">
+            &or;
+        </div>
+
+        <div class="baby-top-05">
+            <a href="user.php?concernGoods">
+                 我的关注
+            </a>
+        </div>
+
+        <div class="baby-top-06">
+            <a href="user.php?order">
+                我的订单
+            </a>
+        </div>
+
+        <div class="baby-top-07">
+            <a href="index.php?aboutus">
+                关于我们
+            </a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<!--top顶部end-->
+
+<div class="clear"></div>
+
+<!--head头部-->
+<div class="baby-head">
+    <div class="baby-head-bk">
+        <div class="baby-head-left">
+            <a href="baby.php"><img src="images/681.png"/></a>
+        </div>
+        <form action="search.php">
+            <div class="baby-head-right">
+                <div class="baby-head-right-01">
+                    <input type="text" name="s" value="玩具"  onFocus="if (value =='玩具'){value =''}" onBlur="if (value ==''){value='玩具'}"/>
+                </div>
+
+                <div class="baby-head-right-02">
+                    <input type="submit" value="" />
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </form>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<!--head头部end-->
+<div class="clear"></div>

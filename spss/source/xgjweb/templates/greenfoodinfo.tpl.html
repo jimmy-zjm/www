@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+
+
+<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/foodstyle.css" ><!-- 生活健康食品页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!--jqury-ui调用-->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+<script src="js/concert.js" type="text/javascript"></script><!-- 关注 -->
+
+
+
+
+
+
+<!--滑动导航-->
+<script type="text/javascript">
+$(document).ready(function() {
+	jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
+		$(tab_conbox).find("li").hide();
+		$(tabtit).find("li:first").addClass("thistab").show(); 
+		$(tab_conbox).find("li:first").show();
+	
+		$(tabtit).find("li").bind(shijian,function(){
+		  $(this).addClass("thistab").siblings("li").removeClass("thistab"); 
+			var activeindex = $(tabtit).find("li").index(this);
+			$(tab_conbox).children().eq(activeindex).show().siblings().hide();
+			return false;
+		});
+	
+	};
+	/*调用方法如下：*/
+	$.jqtab("#tabs","#tab_conbox","click");
+	
+	$.jqtab("#tabs2","#tab_conbox2","mouseenter");
+	
+	$.jqtab("#tabs3","#tab_conbox3","mouseenter");
+	
+	$.jqtab("#tabs4","#tab_conbox4","click");
+	
+});
+</script>
+<!--滑动导航end-->
+
+
+<!--数量增减-->
+<script> 
+function trim(str){
+	return str.replace(/^\s+|\s+$/g,'');
+};
+
+$(document).ready(function(){
+	  $("#cart_id").click(function(){
+		 var now_num=$("#qty_item_1").val(); 
+		 var color=trim($(".yListrclickem").text());
+		 url="order.php?addcart&class_id={:$info.class_id:}&goods_id={:$info.goods_id:}&num="+now_num+"&color="+color;
+		 location.href = url;
+		  //alert(now_num);
+		  //$.get("http://localhost/xgj/source/xgjweb/order.php?cart&goods_id={:$info.goods_id:}&num="+now_num);
+	  });
+	});  
+ 
+    (function($){  
+      
+    function shownum(unprice_id,num_id,price_id,jifen_id){  
+            this.unprice_id=unprice_id;  
+            this.num_id=num_id;  
+            this.price_id=price_id;  
+            this.jifen_id=jifen_id        
+            }  
+        shownum.prototype={  
+            changeprice:function(){   
+                var now_unit= parseInt($("#"+this.unprice_id).text().slice(1));  
+                var now_num=$("#"+this.num_id).val();             
+                $("#"+this.price_id).text("￥"+now_unit*now_num);  
+                $("#"+this.jifen_id).text(now_unit*now_num);  
+                }  
+              
+            }  
+    $(function(){     
+      gouwu();  
+      function gouwu(){  
+         var shownum1=new shownum("price_item_1","qty_item_1","total_item_1","total_points");  
+         shownum1.changeprice();  
+           
+         $(".add").click(function(){  
+             $("#qty_item_1").val(function(index,value){  
+                 value++;  
+                 return value;  
+                 });      
+             shownum1.changeprice();           
+             })  
+            
+          $("#qty_item_1").keyup(function(e){  
+                    if(e.which==38){  
+                        $(".reduce").trigger("click")  
+                    }else if(e.which==40){  
+                        $(".add").trigger("click")  
+                    }else{  
+                            if(e.which<48 || e.which>57){  
+                               $(this).val(function(index,value){  
+                                    var len=value.length;  
+                                    return value.replace(/[^0-9]/ig, "");//剔除非数字  
+                                   });  
+                            }  
+                        shownum1.changeprice();  
+                        }  
+              })  
+          $(".reduce").click(function(){  
+             $("#qty_item_1").val(function(index,value){  
+                 value--;  
+                 value=value<0?0:value;  
+                 return value;  
+                 });      
+             shownum1.changeprice();           
+             })        
+       }  
+    })  
+      
+    })(jQuery)  
+    </script>  
+<!--数量增减end-->       
+<script>
+$("#cart_id").click(function(){
+$.ajax({
+	type:'post',
+	url:'',
+	data:,
+})
+})
+</script>
+
+
+<!--商品图片缩略图切换+放大镜-->
+<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<!--商品图片缩略图切换+放大镜end-->
+<title>欧洲团代购——商品详细页</title>
+</head>
+<body >
+<!-- top顶部 -->
+
+{:include file='header.tpl.html':}
+
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+	                <a href="index.php">
+	                	<img src="images/logo2.png"/>
+	                </a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?strategy">
+                        	健康攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        	健康营养师
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?know">
+                        	健康问答
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear26"></div>
+
+
+<!--中间-->
+<div class="foodgoods-conter">
+<!--详细内容-->
+	<!--详细内容头部-->
+    <div class="foodgoods-parameter">
+        <div class="foodgoods-parameter-left">
+        	<!--产品图片-->
+                    
+            <!--主图-->
+            <div id="preview" class="spec-preview">
+                <span class="jqzoom" >
+                	<img class="jqzoom-img" jqimg="{:$info.goods_img:}" src="{:$info.goods_img:}"  />
+                </span>
+            </div>
+            <!--主图end-->
+            
+            <!--缩略图-->
+            <div class="spec-scroll">
+                <a class="prev">
+                </a>
+            
+                <a class="next">
+                </a>
+                
+                <div class="items">
+                    <ul>
+                        <li>
+                        	<img alt="" bimg="{:$info.goods_img:}" src="{:$info.goods_img:}" onmousemove="preview(this);">
+                        </li>
+                        {:foreach $thumb as $v:}
+                        <li>
+                        	<img alt="" bimg="{:$v.img_url:}" src="{:$v.img_url:}" onmousemove="preview(this);">
+                        </li>
+						{:/foreach:}
+                        
+                   
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+            <!--缩略图end-->
+        
+            <!--产品图片end-->        
+            <div class="clear"></div>
+        
+        
+        
+            <div class="foodgoods-parameter-left-03">
+                <div class="foodgoods-parameter-left-03-01">
+                	商品编号：
+                </div>
+                
+                <div class="foodgoods-parameter-left-03-02">
+                	{:$info.goods_sn:}
+                </div>
+                
+                <div id="{:$info.goods_id:}" class="foodgoods-parameter-left-03-03">
+                   <a class="concertImgDivClass" onclick="return concertGoods({:$info.goods_id:},{:$info.class_id:},{:$info.goods_id:});">       
+                        <div class="foodgoods-parameter-left-03-03-01">
+                        	<img src="images/191.png"/>
+                        </div>
+                    
+                        <div class="foodgoods-parameter-left-03-03-02">
+                        	关注
+                        </div>
+                    
+                    	<div class="clear"></div>
+                    </a>
+                </div>
+                
+                <div class="foodgoods-parameter-left-03-04">
+                    <a href="#">
+                    	<div class="foodgoods-parameter-left-03-04-01">
+                    		<img src="images/190.png"/>
+                   		</div>
+                    
+                        <div class="foodgoods-parameter-left-03-04-02">
+                            分享
+                        </div> 
+                    
+                    	<div class="clear"></div> 
+                    </a>      
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        
+            <div class="foodgoods-parameter-left-04">     
+                1. 此商品不支持7天无理由退货<br />
+                2. 此商品 由 卡地亚国际海外专营店 提供售后服务
+            </div>
+        </div>
+      
+        <div class="foodgoods-parameter-right">
+            <div class="foodgoods-parameter-right-name">
+            	{:$info.goods_name:} 
+            </div>
+        
+            <div class="foodgoods-parameter-right-title">
+            	{:$info.goods_brief:}
+            </div>
+        
+            <div class="foodgoods-parameter-right-price">
+                <div class="foodgoods-parameter-right-price-01">
+                	原价  
+                </div>
+            
+                <div class="foodgoods-parameter-right-price-02">                
+                    <div class="foodgoods-parameter-right-price-02-02">
+                        <div>
+                            <strong id="price_item_1"><span>￥</span>{:$info.shop_price:}</strong>
+                        </div>  
+                    </div>
+                </div>
+            
+                <!--<div class="foodgoods-parameter-right-price-03">
+                    <div class="foodgoods-parameter-right-price-03-01" id="foodgoodsdj1" >
+                    	税费信息
+                    </div>
+                
+                
+                
+                	<div class="clear"></div>
+                </div>-->
+            
+            	<div class="clear"></div>
+            </div>      
+        
+        
+        	<div class="clear"></div>
+        
+            <!--<div class="foodgoods-parameter-right-price-03-02" id="foodgoodsxg1">
+            上品上生全球购的售价由商品价、行邮税、国内费用组成
+            </div>-->
+            
+            <div class="foodgoods-parameter-right-discount">
+                <div class="foodgoods-parameter-right-discount-01">
+                	现价  
+                </div>
+                
+                
+                <div class="foodgoods-parameter-right-discount-02">
+                    <span class="foodgoods-parameter-right-discount-02-01">
+                    	￥
+                    </span>
+                
+                    <span class="foodgoods-parameter-right-discount-02-02">
+                    	{:$info.promote_price:}
+                    </span>
+                </div>        
+                
+                <div class="clear"></div>
+            </div>
+        
+        	<div class="clear"></div>
+        
+            <div class="foodgoods-parameter-right-distribution">
+                <div class="foodgoods-parameter-right-distribution-01">       
+                	配送
+                </div>
+                
+                <div class="foodgoods-parameter-right-distribution-02">              
+                    <select id="selectmenu">
+                        <option value="地域">北京朝阳区三环以内</option>
+                        <option value="多层">北京朝阳区三环以内</option>
+                        <option value="高层">北京朝阳区三环以内</option>
+                        <option value="大平层">北京朝阳区三环以内</option>
+                        <option value="联排别墅">北京朝阳区三环以内</option>
+                        <option value="独栋别墅">北京朝阳区三环以内</option>
+                    </select>
+                </div>
+                
+                <div class="foodgoods-parameter-right-distribution-03">
+                	有货
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        
+        	<div class="clear"></div>
+        
+           <!-- <div class="foodgoods-parameter-right-freight">
+                <div class="foodgoods-parameter-right-freight-01">
+                	配送时间：
+                </div>
+                
+                <div class="foodgoods-parameter-right-freight-02">
+                	23:00前完成下单,预计明天(01月07日)送达
+                </div>
+                
+                <div class="clear"></div>
+            </div>-->
+        
+        
+            <div class="foodgoods-parameter-right-freight">
+                <div class="foodgoods-parameter-right-freight-01">
+                	运费
+                </div>
+                
+                <div class="foodgoods-parameter-right-freight-02">
+                	免运费
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        
+            <div class="foodgoods-parameter-right-color">
+                <div class="foodgoods-parameter-right-color-left">
+                	属性
+                </div>
+                
+                <div class="foodgoods-parameter-right-color-right">
+                    <div class="yListr">                    
+                        <ul>
+                            <li>
+							{:foreach $diff as $v :}
+                                <em >                                
+                                	{:$v:}
+                                <i>
+                                </i>
+                                </em>
+							{:/foreach:}
+                                
+                            	<div class="clear"></div>
+                            </li>                            
+                        </ul>
+                    </div>           
+                </div>
+            </div>
+        
+        	<div class="clear"></div>
+        
+            <div class="foodgoods-parameter-right-number">
+                <div class="foodgoods-parameter-right-number-left">
+               		数量
+                </div>
+                
+                <div class="foodgoods-parameter-right-number-right">
+                    <div class="f_l add_chose">
+                        <div class="reduction">
+                            <a class="reduce" href="javascript:void(0)">
+                            	<img  src="images/jian.jpg"/>
+                            </a> 
+                        </div> 
+                    
+                        <div class="number">
+                        	<input type="text" name="qty_item_1" value="1" id="qty_item_1"class="text" />  
+                        </div>
+                        
+                        <div class="plus">
+                            <a class="add" href="javascript:void(0)">
+                            	<img  src="images/jia.jpg"/>
+                            </a>  
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        
+        	<div class="clear"></div>
+        
+            <div class="foodgoods-parameter-right-buy">
+                <div class="tabs-right-02"> 
+                    <input type="button" id='cart_id' value="加入购物车"/> 
+                </div> 
+                
+                <div class="foodgoods-parameter-right-buy-bk">
+                    <a href="#">
+                    	一键购买
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    
+    </div>
+    <!--详细内容头end部-->
+    
+    <div class="clear8"></div>
+    
+    <!--详细内容底部-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1" >
+        <div class="foodgoods-content-dome">
+            <div id="tabbox">
+                <ul class="tabs" id="tabs3">
+                    <div class="tabs-left">                   
+                        <li id="thistab2">
+                            <a class="tabs-right-a">
+                            	商品详情
+                            </a>
+                        </li>
+                        
+                        <li id="thistab2">
+                            <a class="tabs-right-a">
+                            	规格参数
+                            </a>
+                        </li>
+                        
+                        <li id="thistab2">
+                            <a class="tabs-right-a">
+                            	服务保障
+                            </a>
+                        </li>
+                        
+                        <li id="thistab2">
+                            <a class="tabs-right-a">
+                            	用户评价
+                            </a>
+                        </li>                        
+                    </div>
+                    
+                    <div class="clear"></div>
+                </ul>
+                
+                <ul class="tab_conbox" id="tab_conbox3">
+                    <li class="tab_con">  
+                        <div class="foodgoods-conter-details">
+                        	{:$info.goods_desc:}
+                        </div>
+                    </li>
+                    
+                    <li class="tab_con">
+                        <div class="foodgoods-conter-specifications">
+                        	{:$info.specification:}
+                        </div>  
+                    </li>
+                    
+                    <li class="tab_con"> 
+                        <div class="foodgoods-conter-service">
+                        	<img  src="images/203.jpg"/>
+                        </div>  
+                    </li>
+                    
+                    <li class="tab_con">                    
+                        <div class="foodgoods-content-dome-pj">
+                            <div class="clear3"></div>
+                            	
+                            <div class="foodgoods-content-dome-pj-title">
+                                <div class="foodgoods-content-dome-pj-title-center">
+                                	评价心得
+                                </div>
+                                
+                                <div class="foodgoods-content-dome-pj-title-name">
+                                	评价者
+                                </div>
+                                
+                                <div class="foodgoods-content-dome-pj-title-time">
+                                	评价时间
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            {:foreach $comment as $v:}
+                            <div class="foodgoods-content-dome-pj-center">
+                                <div class="clear3"></div>
+                                
+                                <div class="foodgoods-content-dome-pj-center-center">
+                                	{:$v.content:}
+                                </div>
+                                
+                                <div class="foodgoods-content-dome-pj-center-name">
+                                	{:$v.user_name:}
+                                </div>
+                                
+                                <div class="foodgoods-content-dome-pj-center-time">
+                                	{:'Y-m-d H:i:s'|date:$v.add_time:}
+                                </div>
+                                
+                                <div class="clear3"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            {:/foreach:}
+                            
+                            <div class='page' >{:$page:}</div>
+                        </div>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--详细内容底部end-->
+<!--详细内容end-->
+</div>
+
+
+
+
+
+<div class="clear8"></div>
+
+
+<!-- 底部广告 -->
+<div class="foodgoods-bottom" >
+	<img src="images/518.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+<div class="clear2"></div>
+
+<!-- 底部广告 -->
+<div class="foodgoods-bottom" >
+	<img src="images/519.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+<div class="clear2"></div>
+
+<div class="advertisement" >
+	<img src="images/520.jpg"/>
+</div>
+
+<!-- 底部列表 -->
+<div class="foodgoods-foot">
+  <div class="foot-list">
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        购物指南
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          购物流程
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          会员介绍
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          常见问题
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          联系客服
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        配送方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          国内配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          海外配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          标准配送
+        </a>
+      </div>
+
+
+    </div>
+
+   <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        支付方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          在线支付
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          分期付款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          邮局汇款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          公司转账
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        售后服务
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          售后政策
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          退款说明
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          返修/退换货
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          取消订单
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-right">
+      暖扬扬线下服务区
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- 底部列表end -->
+
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+   <div class="root-center">
+	  <div class="root-list">
+	    <a href="#">
+	      关于我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      联系我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      人才招聘
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      招商加盟
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      商务合作
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      友情链接
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      备案号码
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      各类证件
+	    </a>
+	  </div>
+
+	  <div class="clear"></div>
+   </div>
+</div>
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<!-- 楼层定位end -->
+
+
+<!-- js楼层定位 -->
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+</script>
+<!-- js楼层定位end -->
+
+
+
+
+
+
+<!--滑动门-->
+<style>
+.foodgoods-content-dome .tabs .thistab, .tabs #thistab2 a:hover{
+	background:#000;
+	color:#fff ;}	
+	
+.foodgoods-content-dome .tabs .thistab, .tabs #thistab2 a:hover a{
+	color:#fff ;}
+	
+.foodgoods-content-dome .tabs .thistab a{
+	color:#fff !important;}
+</style>
+<!--滑动门end-->
+
+
+<!--颜色选择-->
+<script type="text/javascript">
+            $(function() {
+                $(".yListr ul li em").click(function() {
+                    $(this).addClass("yListrclickem").siblings().removeClass("yListrclickem");
+                })
+            })
+</script>
+<!--颜色选择end-->
+
+
+
+
+
+
+<!--jquery-ui调用-->
+<script>
+$( "#selectmenu" ).selectmenu();/*下拉*/
+</script>
+<!--jquery-ui调用end-->
+</body>
+</html>

@@ -1,0 +1,960 @@
+{:include file="dealer/dealer_header_xin.tpl.html":}
+
+
+
+<link rel="stylesheet" type="text/css" href="js/themes/default/easyui.css" />
+<script type="text/javascript" src="js/jquery-1.11.3.js" ></script><!-- 通用Jquery -->
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<link rel="stylesheet"  type="text/css"  href="css/homestyle2.css" ><!-- 第二版home页面CSS -->
+<style>
+.homelist2-conter-offer-info-button02{
+	width:650px;
+	margin-left:30px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.homelist2-conter-offer-info-button02-file{
+	float:left;
+	width:100px;
+	height:30px;
+	line-height: 30px;
+	overflow:hidden;
+	cursor: pointer;
+	margin-left:50px;
+}
+
+.homelist2-conter-offer-info-button02-file-span{
+	width:100px;
+	height:30px;
+	line-height: 30px;
+	background:#ccc;
+	position:relative;
+	z-index:1;
+	text-align: center;
+	color: #2b2b2b;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.homelist2-conter-offer-info-button02-file-input{
+	width:100px;
+	height:30px;
+	line-height: 30px;
+	background:none;
+	position:relative;
+	top: -30px;
+	z-index: 2;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity:0;
+	opacity:0;
+	cursor: pointer;
+}
+
+.homelist2-conter-offer-info-button02-file-input input{
+	border:none;
+	background:none;
+}
+
+.homelist2-conter-offer-info-button02-dayin{
+	float:left;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#ccc;
+	color:#2b2b2b;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.homelist2-conter-offer-info-button02-img{
+	width:300px;
+	height:200px;
+	float:left;
+	margin-left:30px;
+}
+
+.homelist2-conter-offer-info-button02-img img{
+	width:300px;
+	height:200px;
+}
+</style>
+
+
+<!--导航-->
+<div class="dealer-nev-bk">
+    <div class="dealer-nev">
+    	<div class="dealer-nev-left">
+        	<img src="images/jiantou05.png"/>
+            
+            <span>
+            	订单管理
+            </span>
+        </div>
+        
+        <div class="dealer-nev-right">
+        	<div class="dealer-nev-right-demo">
+            	<a href="dealer.php?password">
+                	密码管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?advice">
+                	意见反馈
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?account">
+                	账户
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?aftersale">
+                	售后管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?order">
+                	订单管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?center">
+                	我的中心
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--导航end-->
+<div class="clear3"></div>
+
+<form action="dealer.php?doEditOrder" method="post" enctype="multipart/form-data">
+	<div class="homelist2-conter-offer-info-left" style="width:1100px;margin:0 auto;float:none;background:#fff;" id="div1">	
+		<div class="homelist2-conter-offer-info-type">
+		    <div class="homelist2-conter-offer-info-type-title">
+		        房屋类型
+		    </div>
+		    
+		    <div class="homelist2-conter-offer-info-type-radio">
+		    	{:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 1:}
+		        <div class="homelist2-conter-offer-info-type-radio-demo">
+		            <input type="radio" id="gongyu" name="house" value="1" onclick="gongyu()" {:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 1:}checked{:/if :}{:/if :}/>
+		            
+		            <span>公寓</span>
+		        </div>
+		        {:/if :}{:/if :}
+		        {:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 2:}
+		        <div class="homelist2-conter-offer-info-type-radio-demo">
+		            <input type="radio" id="diejia" name="house" value="2" onclick="diejia()" {:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 2:}checked{:/if :}{:/if :}/>
+		            
+		            <span>叠加</span>
+		        </div>
+		        {:/if :}{:/if :}
+		        {:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 3:}
+		        <div class="homelist2-conter-offer-info-type-radio-demo"/>
+		            <input type="radio" id="lianpai" name="house" value="3" onclick="lianpai()" {:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 3:}checked{:/if :}{:/if :}/>
+		            
+		            <span>联排</span>
+		        </div>
+		        {:/if :}{:/if :}
+		        {:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 4:}
+		        <div class="homelist2-conter-offer-info-type-radio-demo"/>
+		            <input type="radio" id="dudong" name="house" value="4" onclick="dudong()" {:if !empty($homeInfo['house_type']):}{:if $homeInfo['house_type'] eq 4:}checked{:/if :}{:/if :}/>
+		            
+		            <span>独栋</span>
+		        </div>
+		        {:/if :}{:/if :}
+		        <div class="clear"></div>
+		    </div>
+		    
+		    <div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="homelist2-conter-offer-info-room">
+		    <div class="homelist2-conter-offer-info-room-right">
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select name="type1" id="bedRoom"  style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <option value="1" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 1:}selected="selected"{:/if :}{:/if :}>1</option>
+		                <option value="2" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 2:}selected="selected"{:/if :}{:/if :}>2</option>
+		                <option value="3" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 3:}selected="selected"{:/if :}{:/if :}>3</option>
+		                <option value="4" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 4:}selected="selected"{:/if :}{:/if :}>4</option>
+		                <option value="5" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 5:}selected="selected"{:/if :}{:/if :}>5</option>
+		                <option value="6" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 6:}selected="selected"{:/if :}{:/if :}>6</option>
+		                <option value="7" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 7:}selected="selected"{:/if :}{:/if :}>7</option>
+		                <option value="8" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 8:}selected="selected"{:/if :}{:/if :}>8</option>
+                        <option value="9" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 9:}selected="selected"{:/if :}{:/if :}>9</option>
+		                <option value="10" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 10:}selected="selected"{:/if :}{:/if :}>10</option>
+		                <option value="11" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 11:}selected="selected"{:/if :}{:/if :}>11</option>
+		                <option value="12" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 12:}selected="selected"{:/if :}{:/if :}>12</option>
+		                <option value="13" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 13:}selected="selected"{:/if :}{:/if :}>13</option>
+		                <option value="14" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 14:}selected="selected"{:/if :}{:/if :}>14</option>
+		                <option value="15" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 15:}selected="selected"{:/if :}{:/if :}>15</option>
+		                <option value="16" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 16:}selected="selected"{:/if :}{:/if :}>16</option>
+                        <option value="17" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 17:}selected="selected"{:/if :}{:/if :}>17</option>
+		                <option value="18" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 18:}selected="selected"{:/if :}{:/if :}>18</option>
+		                <option value="19" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 19:}selected="selected"{:/if :}{:/if :}>19</option>
+		                <option value="20" {:if !empty($house_layout.0):}{:if $house_layout.0 eq 20:}selected="selected"{:/if :}{:/if :}>20</option>
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">室</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo"> 
+		            <select name="type2" id="livingRoom"  style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <option value="1" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 1:}selected="selected"{:/if :}{:/if :}>1</option>
+		                <option value="2" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 2:}selected="selected"{:/if :}{:/if :}>2</option>
+		                <option value="3" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 3:}selected="selected"{:/if :}{:/if :}>3</option>
+		                <option value="4" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 4:}selected="selected"{:/if :}{:/if :}>4</option>
+                        <option value="5" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 5:}selected="selected"{:/if :}{:/if :}>5</option>
+		                <option value="6" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 6:}selected="selected"{:/if :}{:/if :}>6</option>
+		                <option value="7" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 7:}selected="selected"{:/if :}{:/if :}>7</option>
+		                <option value="8" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 8:}selected="selected"{:/if :}{:/if :}>8</option>
+                        <option value="9" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 9:}selected="selected"{:/if :}{:/if :}>9</option>
+		                <option value="10" {:if !empty($house_layout.1):}{:if $house_layout.1 eq 10:}selected="selected"{:/if :}{:/if :}>10</option>
+                        
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">厅</span>
+		        </div>
+
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select name="type3" id="kitchRoom"  style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <option value="1" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 1:}selected="selected"{:/if :}{:/if :}>1</option>
+		                <option value="2" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 2:}selected="selected"{:/if :}{:/if :}>2</option>
+                        <option value="3" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 3:}selected="selected"{:/if :}{:/if :}>3</option>
+		                <option value="4" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 4:}selected="selected"{:/if :}{:/if :}>4</option>
+                        <option value="5" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 5:}selected="selected"{:/if :}{:/if :}>5</option>
+		                <option value="6" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 6:}selected="selected"{:/if :}{:/if :}>6</option>
+                        <option value="7" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 7:}selected="selected"{:/if :}{:/if :}>7</option>
+		                <option value="8" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 8:}selected="selected"{:/if :}{:/if :}>8</option>
+                        <option value="9" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 9:}selected="selected"{:/if :}{:/if :}>9</option>
+		                <option value="10" {:if !empty($house_layout.2):}{:if $house_layout.2 eq 10:}selected="selected"{:/if :}{:/if :}>10</option>
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">厨</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select id="washRoom"  name="type4" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <option value="1" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 1:}selected="selected"{:/if :}{:/if :}>1</option>
+		                <option value="2" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 2:}selected="selected"{:/if :}{:/if :}>2</option>
+		                <option value="3" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 3:}selected="selected"{:/if :}{:/if :}>3</option>
+		                <option value="4" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 4:}selected="selected"{:/if :}{:/if :}>4</option>
+                        <option value="5" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 5:}selected="selected"{:/if :}{:/if :}>5</option>
+		                <option value="6" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 6:}selected="selected"{:/if :}{:/if :}>6</option>
+		                <option value="7" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 7:}selected="selected"{:/if :}{:/if :}>7</option>
+		                <option value="8" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 8:}selected="selected"{:/if :}{:/if :}>8</option>
+                        <option value="9" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 9:}selected="selected"{:/if :}{:/if :}>9</option>
+		                <option value="10" {:if !empty($house_layout.3):}{:if $house_layout.3 eq 10:}selected="selected"{:/if :}{:/if :}>10</option>
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">卫</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select id="galleryRoom" name="type5" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <option value="1" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 1:}selected="selected"{:/if :}{:/if :}>1</option>
+		                <option value="2" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 2:}selected="selected"{:/if :}{:/if :}>2</option>
+		                <option value="3" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 3:}selected="selected"{:/if :}{:/if :}>3</option>
+		                <option value="4" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 4:}selected="selected"{:/if :}{:/if :}>4</option>
+                        <option value="5" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 5:}selected="selected"{:/if :}{:/if :}>5</option>
+		                <option value="6" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 6:}selected="selected"{:/if :}{:/if :}>6</option>
+		                <option value="7" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 7:}selected="selected"{:/if :}{:/if :}>7</option>
+		                <option value="8" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 8:}selected="selected"{:/if :}{:/if :}>8</option>
+                        <option value="9" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 9:}selected="selected"{:/if :}{:/if :}>9</option>
+		                <option value="10" {:if !empty($house_layout.4):}{:if $house_layout.4 eq 10:}selected="selected"{:/if :}{:/if :}>10</option>
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">阳台</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo" id="click01" {:if !empty($homeInfo['house_type']) && $homeInfo['house_type'] gt 1:}style="display:block;"{:/if :}>
+		            <select id="atticRoom" name="type6" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <option value="1" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 1:}selected="selected"{:/if :}{:/if :}>1</option>
+		                <option value="2" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 2:}selected="selected"{:/if :}{:/if :}>2</option>
+		                <option value="3" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 3:}selected="selected"{:/if :}{:/if :}>3</option>
+		                <option value="4" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 4:}selected="selected"{:/if :}{:/if :}>4</option>
+                        <option value="5" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 5:}selected="selected"{:/if :}{:/if :}>5</option>
+		                <option value="6" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 6:}selected="selected"{:/if :}{:/if :}>6</option>
+		                <option value="7" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 7:}selected="selected"{:/if :}{:/if :}>7</option>
+		                <option value="8" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 8:}selected="selected"{:/if :}{:/if :}>8</option>
+                        <option value="9" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 9:}selected="selected"{:/if :}{:/if :}>9</option>
+		                <option value="10" {:if !empty($house_layout.5):}{:if $house_layout.5 eq 10:}selected="selected"{:/if :}{:/if :}>10</option>
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span" id="atticRoomSpan">阁楼</span>
+		            
+		            <select id="cellarRoom" name="type7" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <option value="1" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 1:}selected="selected"{:/if :}{:/if :}>1</option>
+		                <option value="2" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 2:}selected="selected"{:/if :}{:/if :}>2</option>
+		                <option value="3" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 3:}selected="selected"{:/if :}{:/if :}>3</option>
+		                <option value="4" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 4:}selected="selected"{:/if :}{:/if :}>4</option>
+                        <option value="5" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 5:}selected="selected"{:/if :}{:/if :}>5</option>
+		                <option value="6" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 6:}selected="selected"{:/if :}{:/if :}>6</option>
+		                <option value="7" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 7:}selected="selected"{:/if :}{:/if :}>7</option>
+		                <option value="8" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 8:}selected="selected"{:/if :}{:/if :}>8</option>
+                        <option value="9" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 9:}selected="selected"{:/if :}{:/if :}>9</option>
+		                <option value="10" {:if !empty($house_layout.6):}{:if $house_layout.6 eq 10:}selected="selected"{:/if :}{:/if :}>10</option>
+		            </select>
+		            
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span" id="cellarRoomSpan">地下室</span>
+		        </div>
+		    </div>
+		    
+		    <div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="homelist2-conter-offer-info-explain">
+		    <div class="homelist2-conter-offer-info-explain-title">
+		        房间说明
+		    </div>
+		    
+		    <div class="homelist2-conter-offer-info-explain-list">
+		        <ul id="bedRoomList">
+		            {:if !empty($area.1) && $area.1.0 neq 0:}
+		            <div class='roomdivdemo01'>卧室（m2 )</div>
+		            <div class='roomdivdemo03' id='bedRoomList2'>  
+		                {:foreach $area.1 as $k=>$v:}
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area1{:$k:}" name='bedroom[]' value="{:$v:}"/></li> 
+		                {:/foreach:}              			
+		            </div>
+		            {:/if:}
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="livingRoomList">
+
+		            {:if !empty($area.2) && $area.2.0 neq 0:}
+		            <div class='roomdivdemo01'>客厅（m2 )</div>
+		            <div class='roomdivdemo03' id='livingRoomList2'>
+		                {:foreach $area.2 as $k=>$v:}
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area2{:$k:}" name='liveroom[]' value="{:$v:}"/></li> 
+		                {:/foreach:}
+		            </div>
+		            {:/if:}
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="kitchRoomList">
+
+		            {:if !empty($area.3) && $area.3.0 neq 0:}
+		            <div class='roomdivdemo01'>厨房（m2 )</div>
+		            <div class='roomdivdemo03' id='kitchRoomList2'>
+		                {:foreach $area.3 as $k=>$v:}
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area3{:$k:}" name='kitchen[]' value="{:$v:}"/></li> 
+		                {:/foreach:}
+		            </div>
+		            {:/if:}
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="washRoomList">
+
+
+		            {:if !empty($area.4) && $area.4.0 neq 0:}
+		            <div class='roomdivdemo01'>卫生间（m2 )</div>
+		            <div class='roomdivdemo03' id='washRoomList2'>
+		                {:foreach $area.4 as $k=>$v:}
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area4{:$k:}" name='bathroom[]' value="{:$v:}"/></li> 
+		                {:/foreach:}
+		            </div>
+		            {:/if:}		
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="galleryRoomList">
+
+
+		            {:if !empty($area.5) && $area.5.0 neq 0:}
+		            <div class='roomdivdemo01'>阳台（m2 )</div>
+		            <div class='roomdivdemo03' id='galleryRoomList2'>
+		                {:foreach $area.5 as $k=>$v:}
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area5{:$k:}" name='balcony[]' value="{:$v:}"/></li> 
+		                {:/foreach:}
+		            </div>
+		            {:/if:}
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="atticRoomList" class="click02">
+
+
+		            {:if !empty($area.6) && $area.6.0 neq 0:}
+		            <div class='roomdivdemo01'>阁楼（m2 )</div>
+		            <div class='roomdivdemo03' id='atticRoomList2'>
+		                {:foreach $area.6 as $k=>$v:}
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area6{:$k:}" name='gelou[]' value="{:$v:}"/></li> 
+		                {:/foreach:}
+		            </div>
+		            {:/if:}
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="cellarRoomList" class="click03">
+
+		            {:if !empty($area.7) && $area.7.0 neq 0:}
+		            <div class='roomdivdemo01'>地下室（m2 )</div>
+		            <div class='roomdivdemo03' id='cellarRoomList2'>
+		                {:foreach $area.7 as $k=>$v:}
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area7{:$k:}" name='database[]' value="{:$v:}"/></li> 
+		                {:/foreach:}
+		            </div>
+		            {:/if:}
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		    </div>
+		</div>
+		 
+		<div class="clear"></div>
+                
+                <div class="homelist2-conter-offer-info-area">
+                    <div class="homelist2-conter-offer-info-area-01">
+                        全屋面积（m2 )
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-area-02">
+                        <input id="areanum" type="text" name="area" value="" readonly/>
+                    </div>
+                    
+                   
+                 
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear3"></div>
+
+                <div class="homelist2-conter-offer-info-button02" id="none1">
+                	<div class="homelist2-conter-offer-info-button02-dayin">
+                		<div class="homelist2-conter-offer-info-button02-dayin-span" onclick="printme()">
+                			打印
+                		</div>
+                	</div>
+
+                	<div class="homelist2-conter-offer-info-button02-file">
+                		<div class="homelist2-conter-offer-info-button02-file-span">
+                			上传
+                		</div>
+
+                		<div class="homelist2-conter-offer-info-button02-file-input">
+                			<input type="file" name="img" id="file">
+                		</div>
+	
+                		
+                	</div>
+
+                	<div class="homelist2-conter-offer-info-button02-img" style="margin-top:-40px;margin-bottom:20px;">
+                		订单房型面积确认单
+                		<img src="{:$getimage.file_img|getimages:}" onclick="lookimg(this.src)">
+                	</div>
+                	
+					
+                	<div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="homelist2-conter-offer-info-button" id="none2">
+                    <div class="homelist2-conter-offer-info-button-left">
+                        <input type="submit" value="保存填写内容" id="submit_button" onclick="tijiao()"/>
+                    </div>
+                
+                    <div class="homelist2-conter-offer-info-button-right" id="jqbj" {:if empty($dealerAdjustInfo):}style="background:#ccc;"{:/if:}>
+                        <input type="button" value="精确报价" id="accurate" {:if !empty($dealerAdjustInfo):}onclick="homeQuote();"{:/if:}/>
+                    </div>
+                   
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+            </div>
+
+            <div class="clear3"></div>
+
+    <input type="hidden" name="order_sn" value="{:$orderInfo['order_code']:}">
+    <input type="hidden" name="order_id" value="{:$smarty.get.order_id:}">
+
+    <div class="clear3"></div>
+</form>
+
+<div class="homelist2-conter-quote" id="homeQuoteTable" style="display:none;">
+    <div class="homelist2-conter-quote-inventory">
+        <div class="homelist2-conter-quote-inventory-title">
+            <span class="span01">
+                系统调整后价格
+            </span>
+        </div>
+         
+            <div class="items" style="margin:20px;">
+                <ul>
+                    {:foreach $quoteInfo as $k=>$v:}
+                    {:if !empty($v.adjust_quote_price):}
+                    <li style="margin:20px;">您选择的 {:$v.quote_name:} 系统调整后报价为：{:$v.adjust_quote_price:} 元</li>
+                    {:else:}
+                    <li style="margin:20px;">您选择的 {:$v.quote_name:} 系统暂不支持该房型面积</li>
+                    {:/if:}
+                    {:/foreach:}
+                </ul>
+            </div>
+    
+        <div class="clear2"></div>           
+    </div>
+    
+    <div class="clear27"></div>
+
+</div> 
+
+
+{:include file="footer.tpl.html":}
+</body>
+</html>
+
+<script>
+	;jQuery(function(){
+	//卧室
+	$("#bedRoom").combobox({
+		onSelect:function(record){
+			//alert(record.text);
+			//console.log(record);
+			if (record.text == '--请选择--') {
+		   		$("#bedRoomList").children().remove();
+				$("#bedRoomList").html='';
+		   	}else{
+				$("#bedRoomList").html='';
+				$("#bedRoomList").children().remove();
+				$("#bedRoomList").append("<li><div class='roomdivdemo01'>卧室（m2 )</div><div class='roomdivdemo03' id='bedRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#bedRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bedroom[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//客厅
+	$("#livingRoom").combobox({
+
+
+		onSelect:function(record){
+			
+		   	if (record.text == '--请选择--') {
+		   		$("#livingRoomList").children().remove();
+				$("#livingRoomList").html='';
+		   	}else{
+				/*$("#livingRoomList").children().remove();
+				for(var i=0;i<record.value;i++)
+				{
+					$("#livingRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'>111<span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'></span><span><input type='text' value=''  style='width:100px;'/></span></li>");
+				}	*/
+				$("#livingRoomList").html='';
+				$("#livingRoomList").children().remove();
+				$("#livingRoomList").append("<li><div class='roomdivdemo01'>客厅（m2 )</div><div class='roomdivdemo03' id='livingRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#livingRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='liveroom[]'/></li>");
+				}
+                areas();
+				// var aaa = document.getElementById('_easyui_combobox_i2_0');
+
+				// if () {
+				// 	document.getElementById('livingRoomList').innerHTML='';
+				// };
+			}
+		}
+	});
+	//厨房
+	$("#kitchRoom").combobox({
+		onSelect:function(record){
+			/*$("#kitchRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#kitchRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>厨房：</span><span><input type='text' value='10'  style='width:100px;'/></span></li>");
+			}*/	
+			if (record.text == '--请选择--') {
+		   		$("#kitchRoomList").children().remove();
+				$("#kitchRoomList").html='';
+		   	}else{
+				$("#kitchRoomList").html='';
+				$("#kitchRoomList").children().remove();
+				$("#kitchRoomList").append("<li><div class='roomdivdemo01'>厨房（m2 )</div><div class='roomdivdemo03' id='kitchRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#kitchRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='kitchen[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//浴室
+	$("#washRoom").combobox({
+		onSelect:function(record){
+			/*$("#washRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#washRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>浴室：</span><span><input type='text' value='8'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#washRoomList").children().remove();
+				$("#washRoomList").html='';
+		   	}else{
+				$("#washRoomList").html='';
+				$("#washRoomList").children().remove();
+				$("#washRoomList").append("<li><div class='roomdivdemo01'>浴室（m2 )</div><div class='roomdivdemo03' id='washRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#washRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bathroom[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//阳台atticRoom
+	$("#galleryRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#galleryRoomList").children().remove();
+				$("#galleryRoomList").html='';
+		   	}else{
+				$("#galleryRoomList").html='';
+				$("#galleryRoomList").children().remove();
+				$("#galleryRoomList").append("<li><div class='roomdivdemo01'>阳台（m2 )</div><div class='roomdivdemo03' id='galleryRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#galleryRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='balcony[]'/></li>");
+				}	
+			}
+            areas();
+		}
+	});
+	//阁楼
+	$("#atticRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#atticRoomList").children().remove();
+				$("#atticRoomList").html='';
+		   	}else{
+				$("#atticRoomList").html='';
+				$("#atticRoomList").children().remove();
+				$("#atticRoomList").append("<li><div class='roomdivdemo01'>阁楼（m2 )</div><div class='roomdivdemo03' id='atticRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#atticRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='gelou[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});	
+	//地下室
+	$("#cellarRoom").combobox({
+		onSelect:function(record){
+			/*$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px;  margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	*/
+			if (record.text == '--请选择--') {
+		   		$("#cellarRoomList").children().remove();
+				$("#cellarRoomList").html='';
+		   	}else{
+				$("#cellarRoomList").html='';
+				$("#cellarRoomList").children().remove();
+				$("#cellarRoomList").append("<li><div class='roomdivdemo01'>地下室（m2 )</div><div class='roomdivdemo03' id='cellarRoomList2'></div></li>");
+				for(var i=0;i<record.value;i++)
+				{
+					$("#cellarRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='database[]'/></li>");
+				}
+			}
+            areas();
+		}
+	});
+	//大约计算各厅室
+	$("#totalHouseSize").blur(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#washRoomList input").size());
+		//alert($("#kitchRoomList input").size());
+		//alert($("#livingRoomList input").size());
+		//alert($("#galleryRoomList input").size());
+		var al=$("#bedRoomList input").size()*10+$("#kitchRoomList input").size()*10+$("#washRoomList input").size()*8+$("#galleryRoomList input").size()*6-10;
+		//alert($(this).val());
+		//alert(al);
+		var lef=$(this).val()-al;
+		$("#bedRoomList input").eq(0).val(parseInt((lef/5)*2));
+		var k=((lef/5)*3)/($("#bedRoomList input").size());
+		//$("#bedRoomList input").eq(0).val((lef/5)*2);
+		//alert(k);
+		$("#livingRoomList input").val(parseInt(k));
+	});
+	$("#sub").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);		
+		$.ajax({
+			type:"post",
+			url:"?r=quote/get_price/cat_id/11",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val()
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+	
+	$("#foreCompute").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);		
+		$.ajax({
+			type:"post",
+			url:"?r=quote/get_price/cat_id/11",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val()
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+});
+</script>
+
+<script>
+//banner报价隐藏DIV点击显示
+function baojia(){
+    var size = document.getElementById("quick").value;
+    var quickprice = document.getElementById("quickprice");
+    $.get("index.php?quick&size="+size+"&cid={:$smarty.get.cid:}",function(data){
+        quickprice.innerHTML = data+'元';
+    })
+	document.getElementById("baojia").style.display="block";
+    document.getElementById("baojia2").style.display="none";
+}
+</script>
+<!--房屋类型单选框点击隐藏显示事件--> 
+<script type="text/javascript">
+$(function(){
+    $("#gongyu").click(function(){
+        $("#click01").hide();
+        $("#atticRoomList").children().remove();
+        $("#atticRoomList").html='';
+        $("#cellarRoomList").children().remove();
+        $("#cellarRoomList").html='';
+        areas()
+    });
+
+    $("#diejia").click(function(){
+        $("#click01").show();
+        areas()
+    });
+
+    $("#lianpai").click(function(){
+        $("#click01").show();
+        areas()
+    });
+
+    $("#dudong").click(function(){
+        $("#click01").show();
+        areas()
+    });
+});
+</script>
+
+<script>
+    function areas(){
+        var num = 0;
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='area') {
+                if (lis[i].value=='') {
+                    var a = 0;
+                }else{
+                    var a = lis[i].value;
+                }
+                var num = parseFloat(num) + parseFloat(a);
+            }
+        }
+        $('#areanum').val(num);
+    }
+    areas()
+</script>
+
+
+<script>
+	function homeQuote(){
+		if ($('#homeQuoteTable').css('display')=='none') {
+			$('#homeQuoteTable').css('display','block');
+		}else{
+			$('#homeQuoteTable').css('display','none');
+		}
+	}
+</script>
+
+
+
+
+
+
+<script language="javascript">
+	function printme(){
+		$('#de').css('display','none');
+		$('#de2').css('display','none');
+		$('#none1').css('display','none');
+		$('#none2').css('display','none');
+		var dis = $('#homeQuoteTable').css('display');
+		$('#homeQuoteTable').css('display','block');
+		window.print();
+		$('#de').css('display','block');
+		$('#de2').css('display','block');
+		$('#none1').css('display','block');
+		$('#none2').css('display','block');
+		$('#homeQuoteTable').css('display',dis);
+	}
+</script>    
+
+<script> 
+	function lookimg(str){ 
+		var newwin=window.open()
+		myimg=newwin.document.createElement("img")
+		myimg.src=str
+		newwin.document.body.appendChild(myimg)
+	} 
+</script>

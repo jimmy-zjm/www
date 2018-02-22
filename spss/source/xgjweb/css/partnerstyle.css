@@ -1,0 +1,247 @@
+@CHARSET "UTF-8";
+
+/*经销商登陆*/
+.partner-head{
+	height:135px;
+	background:#fff;}
+	
+.partner-head-bk{
+	background:#fff;
+	width:1100px;
+	height:135px;
+	margin:0 auto;}
+	
+.partner-head-logo{
+	width:160px;
+	height:110px;
+	line-height:110px;
+	float:left;
+	margin-top:20px;}
+	
+.partner-head-logo img{
+	width:160px;
+	height:110px;}
+	
+.partner-head-span{
+	float:left;
+	margin-left:20px;
+	padding-left:30px;
+	border-left:1px solid #ccc;
+	height:30px;
+	margin-top:70px;
+	line-height:30px;
+	font-size:26px;
+	color:#3e3e3e;}
+	
+.partner-center{
+	background:#f9eca7;
+	width:100%;}
+
+.partner-center-bk{
+	width:1100px;
+	margin:0 auto;
+	background:#f9eca7;}
+	
+.partner-center-left{
+	float:left;
+	width:600px;}
+	
+.partner-center-left img{
+	width:600px;}
+	
+.partner-center-right{
+	float:left;
+	width:400px;
+	margin-left:50px;
+	background:#fff;
+	border:1px solid #ccc;}
+	
+.partner-center-prompt{
+	margin-left:230px;
+	color:#ff0000;
+	height:30px;
+	line-height:30px;
+	display:none;}
+	
+.partner-center-title{
+	height:100px;
+    line-height:100px;}
+	
+.partner-center-title-left{
+	float:left;
+	margin-left:65px;
+	font-size:20px;
+	color:#505050;}
+	
+.partner-center-title-right{
+	float:right;
+	margin-right:60px;
+	color:#fa5e53;
+	font-size:18px;}
+
+.partner-center-title-right a{
+	color:#fa5e53;
+	font-size:18px;}
+	
+.partner-center-name-span{
+	float:left;
+	width:210px;
+	height:50px;
+	line-height:50px;
+	text-align:right;
+	color:#919090;
+	font-size:24px;}
+	
+.partner-center-name-input{
+	float:left;
+	margin-left:60px;
+	border:1px solid #919090;
+	height:50px;
+	line-height:50px;
+	width:280px;
+	position:relative;
+	z-index:999;}
+	
+.partner-center-name-input input{
+	width:210px;
+	height:50px;
+	line-height:50px;
+	border:none;
+	background:none;
+	color:#919090;
+	font-size:24px;
+	margin-left:50px;}
+
+.partner-center-name-img{
+	position:relative;
+	left:-270px;
+	top:15px;
+	z-index:1;
+	width:25px;
+	height:25px;
+	float:left;}
+	
+.partner-center-name-img img{
+	width:25px;
+	height:25px;}
+	
+.partner-center-password-span{
+	float:left;
+	width:210px;
+	height:50px;
+	line-height:50px;
+	text-align:right;
+	color:#919090;
+	font-size:24px;}
+	
+.partner-center-password-input{
+	float:left;
+	margin-left:60px;
+	border:1px solid #919090;
+	height:50px;
+	line-height:50px;
+	width:280px;
+	position:relative;
+	z-index:999;}
+	
+.partner-center-password-input input{
+	width:210px;
+	height:50px;
+	line-height:50px;
+	border:none;
+	background:none;
+	color:#919090;
+	font-size:24px;
+	margin-left:50px;}
+
+.partner-center-password-img{
+	position:relative;
+	left:-270px;
+	top:15px;
+	z-index:1;
+	width:25px;
+	height:25px;
+	float:left;}
+	
+.partner-center-password-img img{
+	width:25px;
+	height:25px;}
+
+.userreg-center-checkbox{
+	margin-left:70px;}
+	
+.userreg-center-checkbox-01{
+	float:left;
+	height:20px;
+	line-height:20px;
+	margin-right:10px;}
+	
+.userreg-center-checkbox-01 input{
+	height:20px;
+	line-height:20px;}
+
+.userreg-center-checkbox-02{
+	float:left;
+	height:20px;
+	line-height:20px;
+	color:#767070;}
+	
+.userreg-center-checkbox-03{
+	float:right;
+	margin-right:50px;
+	height:20px;
+	line-height:20px;
+	color:#767070;}	
+	
+.userreg-center-checkbox-03 a{
+	color:#767070;}	
+	
+.partner-center-dsf{
+	margin-left:70px;}
+	
+.partner-center-dsf-01{
+	height:30px;
+	line-height:30px;
+	color:#767070;
+	font-size:15px;}
+	
+.partner-center-dsf-02{
+	height:20px;
+	line-height:20px;}
+	
+.partner-center-dsf-02 a{
+	color:#767070;
+	font-size:15px;
+	float:left;}
+	
+.partner-center-dsf-02 span{
+	width:2px;
+	height:20px;
+	margin-left:20px;
+	margin-right:20px;
+	background:#767070;
+	display:block;
+	float:left;}
+	
+.partner-center-confirm{
+	border:1px solid #fa5e53;
+	width:280px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	margin:0 auto;
+	margin-top:50px;}
+	
+.partner-center-confirm input{
+	border:none;
+	background:none;
+	width:280px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:20px;
+	color:#505050;}
+	
+
+	
+/*经销商登陆end*/

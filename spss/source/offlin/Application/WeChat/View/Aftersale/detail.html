@@ -1,0 +1,188 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/repairs.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/WeChat/css/swiper-3.4.2.min.css">
+<style type="text/css">
+	.lookimg-mask{
+		position:fixed;
+		width:100%;
+		height:100%;
+		z-index:9999;
+		display:none;
+		top:0;
+		left:0;
+		background:rgba(0,0,0,.6);
+	}
+	.swiper-container {
+		width: 100%;
+		height: 100%;
+	}
+	.swiper-slide {
+		overflow: hidden;
+	}
+	#mask-close-btn{
+		display:block;
+		position:absolute;
+		z-index:99999;
+		top:20px;
+		right:20px;
+		width:60px;
+		height:60px;
+		background: url(__PUBLIC__/WeChat/img/guanbi.png) center center no-repeat;
+		-webkit-background-size:100% 100%;
+		background-size:100% 100%;
+
+	}
+</style>	
+</head>
+<body>
+	<div class="section">
+		
+		<div class="header">
+			<p class="header-title">维修保养</p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+		</div>
+		<div class="repairs-box">
+			<p>
+				<a class="lookbtn" href="javascript:;">订单详情</a>
+			</p>
+			<?php foreach ($info as $v): ?>
+				<p class="record-title"><{$v['name']}></p>
+			<?php endforeach ?>
+			
+			<dl class="repairs-detail">
+
+				<dd class="repairs-neirong">问题描述：<p><{$list['content']}></p></dd>
+				<?php if (!empty($user)): ?>
+					<dd>施工人员：<{$user['real_name']}></dd>
+					<dd>手机号码：<{$user['tel']}></dd>
+				<?php endif ?>
+
+				<dd>预约时间：<?=date('Y-m-d',$list['yy_time'])?></dd>
+				<?php if (!empty($list['go_time'])): ?>
+					<dd>上门时间：<?=date('Y-m-d',$list['go_time'])?></dd>
+				<?php endif ?>
+
+				<dd class="repairs-img">图片描述：
+					<div class="swiper-container clearfix swiperShow">
+						<div class="swiper-wrapper">
+							<foreach name="list.image" item="item">		
+								<if condition="$item neq '' ">
+									<div class="swiper-slide">
+										<img class="img-canclick01" src="__PUBLIC__/Uploads/<{$item}>">
+									</div>
+								</if>
+							</foreach>
+						</div>
+					</div>
+
+					
+				</dd>
+				<dd class="repairs-img">施工图片：
+				<div class="swiper-container clearfix swiperShow">
+						<div class="swiper-wrapper">
+							<foreach name="list.img" item="i">
+							<if condition="$i neq '' ">
+									<div class="swiper-slide">
+										<img class="img-canclick02" src="__PUBLIC__/Uploads/<{$i}>">
+									</div>
+								</if>
+							</foreach>
+						</div>
+					</div>
+					
+				</dd>
+				<dd class="repairs-neirong">施工内容：<p><{$list['feedback']}></p></dd>
+				<dd class="repairs-status">订单状态：<?php if($list['status']==1){?>未分配<?php }else if($list['status']==2){?>未完成<?php }else if($list['status']==3){?>已完成<?php }?></dd>
+			</dl>
+
+		</div>
+	</div>
+	<!-- look img mask -->
+	<div class="lookimg-mask lookimg-mask01">
+		<span id="mask-close-btn"></span>
+		<div class="swiper-container swiper-container01">
+			<div class="swiper-wrapper">
+				<foreach name="list.image" item="ite">		
+					<if condition="$item neq '' ">
+						<div class="swiper-slide">
+							<div class="swiper-zoom-container">
+								<img  src="__PUBLIC__/Uploads/<{$ite}>">
+							</div>
+						</div>
+					</if>
+				</foreach>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-white"></div>
+			<!-- Add Navigation -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+
+	<!-- look img mask -->
+	<div class="lookimg-mask lookimg-mask02">
+		<span id="mask-close-btn"></span>
+		<div class="swiper-container swiper-container02">
+			<div class="swiper-wrapper">
+				<foreach name="list.img" item="it">		
+					<if condition="$item neq '' ">
+						<div class="swiper-slide">
+							<div class="swiper-zoom-container">
+								<img  src="__PUBLIC__/Uploads/<{$it}>">
+							</div>
+						</div>
+					</if>
+				</foreach>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-white"></div>
+			<!-- Add Navigation -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src='__PUBLIC__/WeChat/js/zepto.min.js'></script>
+	<script type="text/javascript" src='__PUBLIC__/WeChat/js/swiper-3.4.2.jquery.min.js'></script>
+	<script type="text/javascript">
+		var options01={
+			slidesPerView: 3,
+			paginationClickable: true,
+			spaceBetween: 30,
+			freeMode: true
+			
+		};
+		var swiper = new Swiper('.swiperShow', options01);
+
+
+
+
+		var options02={
+			loop:true,
+			zoom: true,
+			observer: true,
+			observeParents: true,
+			pagination: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			
+		};
+		var swiper01 = new Swiper('.swiper-container01',options02);
+		var swiper02 = new Swiper('.swiper-container02',options02);
+
+		$("#mask-close-btn").click(function(){
+			$(this).parent(".lookimg-mask").hide();
+		});
+		$(".img-canclick01").click(function(){	  
+			$(".lookimg-mask01").show();
+			var index=$(".img-canclick01").index(this);
+			swiper01.slideTo(index+1, 0, false);
+		});
+		$(".img-canclick02").click(function(){	  
+			$(".lookimg-mask02").show();
+			var index=$(".img-canclick02").index(this);
+			swiper01.slideTo(index+1, 0, false);
+		});
+	</script>
+

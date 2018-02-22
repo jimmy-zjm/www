@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- erstellt mit www.xml-sitemaps-generator.de  -->
+<!-- angeboten durch www.metatags.de -->
+
+<url>
+    <loc>http://hoffzen.de</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/index.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/heizkoerper.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/freshair.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/service.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/ueber-hoffzen-haustechnologie.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/kontakt.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/ueber-uns.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/fresh-air.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+<url>
+    <loc>http://hoffzen.de/impressum.html</loc>
+
+    <lastmod>2014-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>  
+</urlset>

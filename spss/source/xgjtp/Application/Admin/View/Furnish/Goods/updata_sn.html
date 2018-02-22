@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="">首页</a></li>
+	    <li><a href="">健康舒适家居</a></li>
+	    <li><a href="<{:U('index')}>">产品材料</a></li>
+	    <li><a href="">更换识别码</a></li>
+	    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    	<ul class="forminfo">
+			    <li><label>原识别码</label><input style="width:150px" id="oldsn" type="text" class="dfinput" value='' required='required'/><a href="javascript:;" onclick="select()"> 查看识别码材料</a></li>
+			    <li id="data"></li>
+			    <li><label>新识别码</label><input style="width:150px" id="newsn" type="text" class="dfinput" value="" required='required'/></li>
+			    <li><label>&nbsp;</label><input type="button" class="btn" value="编辑" onclick="updata()"/></li>
+	    	</ul>
+	    </div>
+
+	    <script>
+	    	function select(){
+	    		var oldsn = $("#oldsn").val();
+	    		$.get("<{:U('doupdata_sn')}>",{"oldsn":+oldsn,"type":"1"},function(data){
+	    			var list = eval(data);
+	    			$("#data").html("<span>材料识别码 : "+list['0']['goods_sn']+"</span><span>材料名称 : "+list['0']['goods_name']+"</span><span>材料型号 : "+list['0']['goods_model']+"</span><span>品牌/产地 : "+list['0']['goods_brand']+"</span>");
+	    		})
+	    	}
+
+	    	function updata(){
+	    		var oldsn = $("#oldsn").val();
+	    		var newsn = $("#newsn").val();
+	    		$.get("<{:U('doupdata_sn')}>",{"oldsn":'o'+oldsn,"newsn":'n'+newsn,"type":"2"},function(data){
+	    			console.log(data);
+	    			if (data == 'error') {
+	    				alert('该识别码已存在！');
+	    			}else if(data == 'error1'){
+	    				alert('更换产品材料内产品识别码失败!');
+	    			}else if(data == 'error2'){
+	    				alert('更换报价清单内产品识别码失败!');
+	    			}else if(data == 'ok'){
+	    				alert('编辑成功！');
+	    			}
+	    		})
+
+	    	}
+	    </script>
+</body>
+</html>
+

@@ -1,0 +1,304 @@
+<?php 
+require_once(WWW_DIR."/admin/model/quote_model.php");
+require_once(WWW_DIR."/libs/page.php");
+/**
+ * @author Administrator
+ *
+ */
+class quote{
+	/**
+	 * 报价清单列表
+	 */
+	function quote_list(){
+		admin_check_logon();  
+		
+		$tpl = get_admin_smarty();
+		
+		$quoteOb=new quote_model();
+		
+		//判断是否有分页
+		if(!isset($_GET['p'])){
+			$page = 1;
+		}else{
+			$page = $_GET['p'];
+		}
+		
+		$quote_list=$quoteOb->show_list($page);
+		
+		$quote_count=$quoteOb->show_count();
+		
+		$t = new Page(12, $quote_count, $page, 5, "quote.php?p=");
+		
+		$page=$t->subPageCss2();//分页样式
+		
+		//模板传值
+		$tpl->assign("page",$page);
+		
+		$tpl->assign('quote_list',$quote_list);
+		
+		$tpl->display('admin_furnish_quote_list.tpl.html');
+	}
+	
+	/**
+	 * 添加，报价清单
+	 */
+	function quote_add(){
+		admin_check_logon();
+	
+		$tpl = get_admin_smarty();
+	
+		$tpl->display('admin_furnish_quote_add.tpl.html');
+	}
+	
+	/**
+	 * 添加数据库，报价清单
+	 */
+	function quote_add_save(){
+		admin_check_logon();
+	
+		$db=new db();
+	
+		$rs=$db->add('xgj_furnish_quote', $_POST);
+		
+		if ($rs) {
+			$message='添加成功，正在跳转...';
+			
+			echo jump(1,$message,'quote.php');
+			
+			header("refresh:2;url='quote.php'" );
+		}else{
+			$message='添加失败，正在跳转...';
+			
+			echo jump(2,$message,'quote.php');
+			
+			header("refresh:2;url='quote.php'" );
+		}
+	}
+	
+	/**
+	 * 更新，报价清单
+	 */
+	function quote_edit(){
+		admin_check_logon();
+		
+		$quote_id=$_GET['quote_id'];
+		
+		$tpl = get_admin_smarty();
+		
+		$quoteOb=new quote_model();
+		
+		$quote=$quoteOb->getQuoteByid($quote_id);
+		
+		$tpl->assign('quote',$quote);
+		
+		$tpl->display('admin_furnish_quote_edit.tpl.html');
+	}
+	
+	/**
+	 * 编辑数据库，报价清单
+	 */
+	function quote_edit_save(){
+		admin_check_logon();
+	
+		$db=new db();
+	
+		$quote_id=$_GET['quote_id'];
+	
+		//模板传值
+		$data=array(
+				'quote_name'=>trim($_POST['quote_name']),
+		);
+	
+		$rs=$db->update('xgj_furnish_quote',$data,"quote_id=$quote_id");
+	
+		if (empty($re) || $rs || $re) {
+			
+			$message='修改成功，正在跳转...';
+			
+			echo jump(1,$message,'quote.php');
+			
+			header("refresh:2;url='quote.php'" );
+		}else{
+			$message='修改失败，正在跳转...';
+			
+			echo jump(2,$message,"quote.php?edit&quote_id=$quote_id");
+			
+			header("refresh:2;url='quote.php?edit&quote_id=$quote_id'" );
+		}
+	}
+	
+	/**
+	 * 删除，报价清单
+	 */
+	function quote_del(){
+		admin_check_logon();
+		
+		$quote_id=$_GET['quote_id'];
+		
+		$quoteOb=new quote_model();
+
+		$rs=$quoteOb->del_furnish_quote_id($quote_id);
+		
+		if($rs){
+			$message='删除成功，正在跳转...';
+			
+			echo jump(1,$message,'quote.php');
+			
+			header("refresh:2;url='quote.php'" );
+		}else{
+			$message='删除失败，正在跳转...';
+			
+			echo jump(2,$message,'quote.php');
+			
+			header("refresh:2;url='quote.php'" );
+		}	
+	}
+	
+	/**
+	 * 报价商品配置候选清单列表
+	 */
+	function quote_ini_list(){
+		admin_check_logon();
+		
+		$tpl = get_admin_smarty();
+		
+		$quote_id=$_GET['quote_id'];
+		
+		$level=$_GET['level'];
+		
+		$quoteOb=new quote_model();
+		
+		$goods=$quoteOb->furnish_goods_list();
+		
+		$child_list=$quoteOb->child_level_quote_id($quote_id, $level);
+		
+		$tpl->assign('goods',$goods);
+		
+		$tpl->assign('child_list',$child_list);
+		
+		$tpl->assign('level',$level);
+		
+		$tpl->assign('quote_id',$quote_id);
+		
+		$tpl->display('admin_furnish_quote_ini_list.tpl.html');
+	}
+	
+	/**
+	 * 添加子列表
+	 */
+	function child_list_add(){
+		
+		admin_check_logon();
+		
+		$quoteOb=new quote_model();
+		
+		$tpl = get_admin_smarty();
+		
+		$quote_id=intval($_GET['id']);
+		
+		$level=intval($_GET['level']);
+		
+		$chf_id=intval($_GET['chf_id']);
+		
+		$goods_id=intval($_GET['goods_id']);
+		
+		$db=new db();
+		
+		if($quoteOb->check_identical($level, $chf_id, $quote_id,$goods_id)){
+			echo "<script>alert('操作失败：已存在相同项')</script>";
+			exit;
+		}
+		$goods=$quoteOb->furnish_goods_id($goods_id);
+		
+		$goods_sn=$goods['goods_sn'];
+
+		$data=array(
+				'goods_id'=>$goods_id,
+				'level'=>$level,
+				'chf_id'=>$chf_id,
+				'quote_id'=>$quote_id,
+				'goods_sn'=>$goods_sn
+		);
+		
+		$child_id=$db->add('xgj_quote_child_list', $data);
+		
+		ob_start();
+				
+		$item=$quoteOb->child_goods_id($goods_id,$child_id);
+		//var_dump($item);exit;
+
+		echo "<tr id='child_list_tr_{$item['child_id']}'>
+		<td>
+		<input type='radio' name='goods_id' value='{$item['goods_id']}'/>
+		{$item['goods_id']}
+		</td>
+		<td>{$item['chf_id']}</td>
+		<td>{$item['goods_name']}</td>
+		<td>{$item['goods_sn']}</td>
+		<td><select id='f_formula' name='f_formula' class='quinput'>
+					<option value='' >公式</option>
+					<option value='{$item['f_formula']}'>{$item['f_formula']}</option>	
+			</select>
+		</td>
+		<td><select name='batch_{$item['child_id']}' class='bainput'>
+					<option  value='0' >第一批</option>
+					<option  value='1' >第二批</option>	
+					<option  value='2' >第三批</option>
+			</select>
+		</td>
+		<td><input class='minput' type='text' name='minarea_{$item['child_id']}'value='{$item['minarea']}'/></td>	
+		<td><input class='minput' type='text' name='maxarea_{$item['child_id']}'value='{$item['maxarea']}'/></td>
+		<td><input class='quinput' type='text' name='formula_{$item['child_id']}'value='{$item['formula']}'/></td>
+		<td>
+		<input type='button' value='移除' onclick='remove_list({$item['child_id']})'>
+		|
+		<input type='button' value='修改规则' onclick='change_list({$item['child_id']})'>
+		</td>
+		</tr>";
+		
+		ob_get_flush();
+	}
+	
+	/**
+	 * 删除子清单中的一条记录
+	 */
+	function child_list_del(){
+		admin_check_logon();
+		
+		$child_id=intval($_GET['child_id']);
+		
+		$quoteOb=new quote_model();
+		
+		$re=$quoteOb->del_child_id($child_id);
+		
+		if($re){
+			echo 'success';
+		}
+	}
+	
+	/**
+	 * 修改子清单中的一条记录
+	 */
+	function child_list_change(){
+		admin_check_logon();
+	
+		$child_id=intval($_GET['child_id']);
+	
+		$db=new db();
+		
+		$data=array(
+			'minarea'=>	trim($_GET['minarea']),
+			'maxarea'=>	trim($_GET['maxarea']),
+			'batch'=>	trim($_GET['batch']),
+			'formula'=>	trim($_GET['formula']),
+		);
+	//var_dump($data);
+		$re=$db->update('xgj_quote_child_list', $data, "child_id=$child_id");
+	
+		if($re){
+			echo 'success';
+		}else{
+			echo 'lose';
+		}
+	}
+}

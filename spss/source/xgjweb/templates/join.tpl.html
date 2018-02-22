@@ -1,0 +1,262 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/joinstyle.css" ><!-- 招商加盟join页面调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+{:include file="common/daohang.html":}
+<!--主导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="join-conter">
+	<div class="join-conter-left">
+    	<div class="join-conter-left-title">
+            {:if !empty($data.title):}
+        	{:$data.title:}
+            {:/if:}
+        </div>
+        
+        <div class="join-conter-left-details"><!--此DIV中内容为后台编辑器编辑，暂时放个图片代替-->
+            {:if !empty($data.content):}
+        	{:$data.content:}
+            {:/if:}
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="join-conter-left-a" id="sqhzInId">
+        	<a href="javascript:;">
+            	申请合作
+            </a>
+        </div>
+        
+        <div class="clear2"></div>
+    </div>
+    
+    <div class="join-conter-right">
+    	<div class="clear3"></div>
+		<div class="clear15"></div>
+        
+    	<div class="join-conter-right-img">
+        	<img src="images/870.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear3"></div>
+
+
+<!--申请合作-->
+<div id="sqhzbk">    
+    <div class="clickAddId-conter">
+        <div class="clickAddId-conter-title-x">
+            <a href="javascript:;" id='x'>
+                X
+            </a>
+        </div>
+
+    	<div class="clickAddId-conter-title">
+        	合作申请表
+        </div>
+        
+        <div class="clickAddId-conter-list">
+        	<div class="clear3"></div>
+        	<div class="clickAddId-conter-list-demo">
+            	<div class="clickAddId-conter-list-demo-left">
+                	公司名称
+                </div>
+                
+                <div class="clickAddId-conter-list-demo-right">
+                	<input id="id1" type="text"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="clickAddId-conter-list-demo">
+            	<div class="clickAddId-conter-list-demo-left">
+                	公司主营业务
+                </div>
+                
+                <div class="clickAddId-conter-list-demo-right">
+                	<input id="id2" type="text"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="clickAddId-conter-list-demo">
+            	<div class="clickAddId-conter-list-demo-left">
+                	欲合作项目
+                </div>
+                
+                <div class="clickAddId-conter-list-demo-right">
+                	<input id="id3" type="text"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="clickAddId-conter-list-demo">
+            	<div class="clickAddId-conter-list-demo-left">
+                	联系人
+                </div>
+                
+                <div class="clickAddId-conter-list-demo-right">
+                	<input id="id4" type="text"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="clickAddId-conter-list-demo">
+            	<div class="clickAddId-conter-list-demo-left">
+                	联系电话
+                </div>
+                
+                <div class="clickAddId-conter-list-demo-right">
+                	<input id="id5" type="text"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="clickAddId-conter-list-demo">
+            	<div class="clickAddId-conter-list-demo-left">
+                	联系邮箱
+                </div>
+                
+                <div class="clickAddId-conter-list-demo-right">
+                	<input id="id6" type="text"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="clickAddId-conter-a" id="sqhzOutId" onclick="tijiao()">
+        	<a href="javascript:;">
+            	提交
+            </a>
+        </div>
+        <div class="clear27"></div>
+    </div>
+</div>
+<!--申请合作end-->
+
+<!--申请合作-->
+<script type="text/javascript">
+$("#sqhzbk").css('height',$(document).height());
+
+jQuery(function(){
+		$("#sqhzInId").click(function(){
+			$("#sqhzbk").fadeIn();
+		});
+
+        $("#x").click(function(){
+            $("#sqhzbk").fadeOut();
+        });
+
+		$("#sqhzOutId").click(function(){
+			$("#sqhzbk").fadeOut();
+		});
+	});
+</script>
+<!--申请合作end-->
+<!--提交申请合作-->
+<script>
+    function tijiao(){
+        var company = document.getElementById('id1').value;
+        var c_business = document.getElementById('id2').value;
+        var join = document.getElementById('id3').value;
+        var people = document.getElementById('id4').value;
+        var tel = document.getElementById('id5').value;
+        var email = document.getElementById('id6').value;
+        
+        $.get('index.php?join_add&company='+company+'&c_business='+c_business+'&join1='+join+'&people='+people+'&tel='+tel+'&email='+email,function(data){
+            if (data==1) {
+                $("#sqhzbk").fadeOut();
+                alert('恭喜！申请成功');
+            }else if (data==3) {
+                $("#sqhzbk").fadeIn();
+                alert('请填写完整在提交，谢谢！');
+            }else{
+                $("#sqhzbk").fadeIn();
+                alert('抱歉！申请失败');
+            }
+        });
+    }
+</script>
+<!--提交申请合作end-->
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+<style>
+.clickAddId-conter-title-x{
+    width:500px;
+    height:30px;
+    line-height:30px;
+    text-align:right;
+}
+
+.clickAddId-conter-title-x a{
+    margin-right:10px;
+    color:#2b2b2b;
+    font-size:14px;
+}
+</style>
+
+</body>
+</html>

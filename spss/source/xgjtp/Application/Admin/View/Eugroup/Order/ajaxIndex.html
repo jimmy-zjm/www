@@ -1,0 +1,59 @@
+<table class="listtable">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th colspan="2">订单号</th>
+            <th>下单时间</th>
+            <th>下单人/收货人</th>
+            <th>订单金额</th>
+            <th>应付金额</th>
+            <th>积分</th>
+            <th>订单状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($order_list as $k=>$order): ?>
+        <tr data-id="<{$order.id}>">
+            <td><?php echo $k+1?></td>
+            <td style="border-right:0px solid #f2bf74; width: 5px;text-indent: 12px;"><span style='color:red;'><?php echo $order['is_return']==2?'退':'' ?></span></td>
+            <td><a href="<{:U('info',array('id'=>$order['id']))}>"><{$order.sn}></a></td>
+            <td><{$order.add_time}></td>
+            <td>
+                <span style="height:18px;">下单人：<{$order.user_name}></span>
+                <span>收货人：<{$order.shr_name}></span>
+            </td>
+            <td>￥<{$order.total_price}></td>
+            <td>￥<{$order.deal_price}></td>
+            <td><?= floor($order['deal_price']*0.05)>0?'+'.floor($order['deal_price']*0.05):'0' ?></td>
+            <td>
+                <?php if($order['num']>1) {?>
+                    拆分订单
+                <?php }else{ ?>
+                    <?php echo eu_order_status($order['order_status'])?>
+                <?php } ?>
+            </td>
+            <td>
+                <a href="<{:U('info',array('id'=>$order['id']))}>">查看详情</a>
+                |&nbsp;<a href="<{:U('orderEdit',array('id'=>$order['id']))}>">修改</a>
+                <?php if($order['order_status']==1){?>
+                |&nbsp;<a href="<{:U('oms',array('id'=>$order['id']))}>" onclick="return confirm('确认提交OMS系统？')" style="color:red">提交OMS</a>
+                <?php }?>
+            </td>
+        </tr>
+        <?php endforeach ?>
+        <tr><td colspan="3" style="border-top:1px solid #f2bf74;border-right:0px solid #f2bf74; "><span>合计  订单金额：￥<{$price.total_price_s}>  应付金额：￥<label style='color:red;'><{$price.deal_price_s}></label></span></td><td colspan="4" style="border-top:1px solid #f2bf74;border-right:0px solid #f2bf74; "></td><td colspan="3" style="border-top:1px solid #f2bf74;border-right:0px solid #f2bf74;text-align: right;padding-right: 50px; "><span>总计订单金额：￥<{$price.total_price}>   总计应付金额：￥<label style='color:red;'><{$price.deal_price}></label></span></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- 分页 -->
+        <{$page}>
+
+        <script>
+            // 点击分页触发的事件
+            $(".page a").click(function(){
+                cur_page = $(this).attr('data-page');
+                ajax_get_table('search-form2',cur_page);
+            });
+        </script>

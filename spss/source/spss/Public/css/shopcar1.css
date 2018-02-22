@@ -1,0 +1,273 @@
+/***************content*/
+.content{
+	width: 100%;
+	height: auto;
+}
+.empty{width: 100%;height: 42px;}
+.tabtit{
+	width: 1200px;
+	height:30px;
+	margin: 0 auto;
+}
+.tabtit>a{
+	display: inline-block;
+	width:395px;
+	height: 30px;
+	text-align: center;
+	color: #ccc;
+	line-height: 30px;
+}
+.tabtit>a:nth-child(1){
+	border-right:1px solid #ddd;
+	color: #666;
+}
+.tabtit>a:nth-child(2){
+	border-right:1px solid #ddd ;
+}
+/*********************tab1*/
+.tab1-info{
+	width: 1200px;
+	height: auto;
+	border: 2px solid #d0d3d3;
+	border-radius: 10px;
+	margin: 35px auto;
+}
+.tab1-info-tit{
+	width: 1200px;
+	height: 40px;
+	background: #d0d3d3;
+}
+.tab1-info-tit>span{
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #5d6974;
+}
+.tab1-info-tit>span:first-child{
+	width: 695px;
+	text-align: left;
+	text-indent: 2em;
+}
+.tab1-info-tit-border{
+	border-right: 1px solid #fff;
+}
+.tab1-info-con{
+	width: 1200px;
+	height: 178px;
+	line-height: 0;
+}
+.tab1-info-con>span{
+	display: block;
+	text-align: center;
+	float: left;
+	line-height: 178px;
+	border-top:1px solid #d0d3d3 ;
+	color: #5d6974;
+}
+.tab1-info-con>span:nth-child(1){
+	width: 55px;
+	height: 178px;
+	clear: both;
+	line-height: 0;
+}
+.tab1-info-con>span:nth-child(1)>input{
+	width: 15px;
+	height: 15px;
+	margin-top: 80px;
+}
+.tab1-info-con>span:nth-child(2){
+	width: 122px;
+	height: 178px;
+}
+.tab1-info-con>span:nth-child(2)>img{
+	margin-top: 28px;
+	width: 122px;
+	height: 122px;
+}
+.tab1-info-con>span:nth-child(3){
+	width: 220px;
+	height: 108px;
+	word-break: break-all;
+	line-height: 20px;
+	word-wrap:break-word;
+	padding-top: 70px;
+	text-align: left;
+}
+.tab1-info-con>span:nth-child(4){
+	width: 300px;
+	height: 178px;
+	
+}
+.tab1-info-con>span:nth-child(5){
+	width: 120px;
+	height: 178px;
+}
+.tab1-info-con>span:nth-child(6){
+	width: 120px;
+	height: 178px;
+}
+.tab1-info-con>span:nth-child(7){
+	width: 120px;
+	height: 178px;
+}
+.tab1-info-con>span:nth-child(8){
+	width: 120px;
+	height: 178px;
+}
+.shopcount>a{
+	width: 16px;
+	height: 20px;
+	border: 1px solid #cacaca;
+	display: inline-block;
+	line-height: 20px;
+	background: #ececec;
+}
+.shopcount>a:nth-child(1){
+	border-right: none;
+}
+.shopcount>a:nth-child(2){
+	background: #fff;
+	border-left: none;
+	border-right: none;
+	width: 30px;
+}
+.shopcount>a:nth-child(3){
+	border-left: none;
+}
+.caozuo>a{
+	display: inline-block;
+	width: 43px;
+	height: 22px;
+	line-height: 22px;
+	background: #d0d3d3;
+	border-radius: 3px;
+	font-size:14px;
+	margin-left: 10px;
+	color: #5d6974;
+}
+.caozuo>a:first-child{
+	margin-left: 10px;
+}
+.jiesuan{
+	width: 1200px;
+	height: 70px;
+	margin: 0 auto;
+	line-height: 70px;
+}
+.jiesuan>a{
+	display: inline-block;
+	text-align: center;
+}
+.jiesuan>span{
+	display: inline-block;
+	width: 55px;
+	height: 70px;
+	text-align: center;
+}
+.jiesuan>span>input{
+	width: 15px;
+	height: 15px;
+}
+.jiesuan>a:last-child{
+	float: right;
+	margin-top: 20px;
+	width: 125px;
+	height: 30px;
+	background-color:#f84545;
+	border-radius:3px;
+	color: #fff;
+	line-height: 30px;
+}
+.empty2{
+	width: 100%;
+	height: 100px;
+}
+.jiesuan>.issum{
+	display: inline-block;
+	width: 130px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 500px;
+}
+.jiesuan>.sum{
+	width: 200px;
+	margin-left: 20px;
+}
+.zonghe{
+	color: red;
+}
+
+/*µ¯¿ò*/
+.tanchu{
+	width:100%;
+	position:fixed;
+	top:0px;
+	z-index:999;
+	background:url(../img/touming02.png);
+	display:none;
+	height:auto;
+	font-size:14px;}
+	
+.tanchu_delete-center-bk{
+	width:100%;
+	position:absolute;
+	top:300px;
+	z-index:999;}
+	
+.tanchu_delete-center{
+	width:380px;
+	margin:0 auto;
+	background:#fff;
+	border:2px solid #666;}
+	
+.tanchu_delete-center-title{
+	width:360px;
+	height:35px;
+	line-height:35px;
+	margin:0 auto;}
+
+.tanchu_delete-center-title-span{
+	float:left;}
+	
+.tanchu_delete-center-title-cha{
+	float:right;}
+	
+.tanchu_delete-center-span{
+	width:360px;
+	margin:0 auto;
+	line-height:25px;}
+	
+.tanchu_delete-center-a{
+	width:360px;
+	margin:0 auto;}
+	
+.tanchu_delete-center-a-determine{
+	float:left;
+	width:60px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#52a0e5;
+	border:1px solid #52a0e5;
+	margin-right:20px;}
+	
+.tanchu_delete-center-a-determine a{
+	color:#fff;}
+	
+	
+.tanchu_delete-center-a-close{
+	float:left;
+	width:60px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#fff;
+	border:1px solid #ccc;
+	margin-right:20px;}
+	
+.tanchu_delete-center-a-close a{
+	color:#3c3c3c;}
+
+/*µ¯¿òend*/

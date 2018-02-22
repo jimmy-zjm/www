@@ -1,0 +1,183 @@
+{:include file='user_header.tpl.html':}
+{:include file='user_left.tpl.html':}
+
+<script type="text/javascript" src="js/address.js"></script>
+
+<!-- user右边，引用头部时倒入这个div -->
+<div class="user-right">
+    <div class="useraddress-title">
+        {:if $addrCount le 10:}
+            <div class="useraddress-title-left" >
+                <a href="user.php?addrInfoAddShow">
+                    新增收货地址
+                </a>
+            </div>
+        {:/if:}
+
+        <div class="useraddress-title-right">
+            您已创建<strong style="color: #f60;"> {:$addrCount:} </strong>个收货地址，最多可创建<strong style="color: red;"> 10 </strong>个
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+
+    {:if !empty($addrInfoList):}
+        {:foreach from=$addrInfoList key=num item=addrInfo:}
+            <div class="useraddress-center"><!--有几个收货地址，就循环几次-->
+                <div class="clear2"></div>
+                <div class="useraddress-center-bk">
+                    <div class="useraddress-center-title">
+                        {:if $addrInfo.default eq 1:}
+                            <div class="useraddress-center-title-left">
+                                <!--如果是默认地址，则显示此span，否则隐藏-->
+                                <span>
+                                    默认地址
+                                </span>
+                            </div>
+                        {:/if:}
+
+                        <div class="useraddress-center-title-right">
+                            <a onclick="return confirmDel();" href="user.php?addrInfoDel&addrId={:$addrInfo.a_id:}">
+                                <img src="images/close.png" title="删除" />
+                            </a>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="useraddress-center-list">
+                        <div class="useraddress-center-list-left">
+                            收货人：
+                        </div>
+
+                        <div class="useraddress-center-list-right">
+                            {:$addrInfo.a_name:}
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <!--<div class="useraddress-center-list">-->
+                    <!--<div class="useraddress-center-list-left">-->
+                    <!--所在地区：-->
+                    <!--</div>-->
+
+                    <!--<div class="useraddress-center-list-right">-->
+                    <!--{:$addrInfo.a_area:}-->
+                    <!--</div>-->
+
+                    <!--<div class="clear"></div>-->
+                    <!--</div>-->
+
+                    <div class="clear"></div>
+
+                    <div class="useraddress-center-list">
+                        <div class="useraddress-center-list-left">
+                            地址：
+                        </div>
+
+                        <div class="useraddress-center-list-right">
+                            {:$addrInfo.a_addr:}
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="useraddress-center-list">
+                        <div class="useraddress-center-list-left">
+                            手机：
+                        </div>
+
+                        <div class="useraddress-center-list-right">
+                            {:$addrInfo.a_mobile_phone:}
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="useraddress-center-list">
+                        <div class="useraddress-center-list-left">
+                            固定电话：
+                        </div>
+
+                        <div class="useraddress-center-list-right">
+                            {:$addrInfo.a_phone:}
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="useraddress-center-list">
+                        <div class="useraddress-center-list-left">
+                            电子邮箱：
+                        </div>
+
+                        <div class="useraddress-center-list-right">
+                            {:$addrInfo.a_email:}
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="useraddress-center-bottom">
+                        <a href="user.php?addrDefaultSet&addrId={:$addrInfo.a_id:}">
+                            设置为默认地址
+                        </a>
+
+                        <a href="user.php?addrInfoEditShow&addrId={:$addrInfo.a_id:}" >
+                            编辑
+                        </a>
+                    </div>
+
+                    <div class="clear"></div>
+
+
+                </div>
+            </div>
+        {:/foreach:}
+
+        {:else:}
+            <div class="useraddress-center-no"><!--如果没有设置过收货地址，则显示此DIV-->
+                <div class="clear2"></div>
+                <div class="clear2"></div>
+                <div class="useraddress-center-no-01" style="background-color: red">
+                    <a href="user.php?addrInfoAddShow">
+                        <img src="images/home.jpg"/>
+                    </a>
+                </div>
+
+                <div class="clear2"></div>
+
+                <div class="useraddress-center-no-02">
+                    <a href="user.php?addrInfoAddShow">
+                        您还没有设置过收货地址，请赶快点击我来设置吧
+                    </a>
+                </div>
+
+                <div class="clear2"></div>
+                <div class="clear2"></div>
+            </div>
+    {:/if:}
+
+
+</div>
+
+
+<!-- user右边end，引用头部时倒入这个div -->
+
+<div class="clear"></div>
+
+
+{:include file='user_footer.tpl.html':}

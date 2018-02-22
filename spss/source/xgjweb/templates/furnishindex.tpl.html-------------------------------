@@ -1,0 +1,4013 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet"  type="text/css"  href="css/style.css" /><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/homestyle.css" /><!-- 健康家居home页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<!-- banner轮播图片 -->
+<script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet" />
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+
+<title>健康舒适家居ˇ首页</title>
+</head>
+
+<body>
+<!-- top顶部 -->
+
+{:include file='header.tpl.html':}
+
+<!-- top顶部end -->
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                	<a href="index.php">
+	                	<img src="images/logo2.png"/>
+                	</a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="furnish.php?strategy">
+                         机电攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?pay">
+                         分期介绍
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?show">
+                        全国体验中心
+                    </a>
+                </div>
+      
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end--> 
+
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="homeindex-box">
+
+<!-- 导航菜单 -->
+<div class="box">
+    <div class="box-title">
+      商品分类
+    </div>
+
+    <div class="box-tm">
+
+    </div>
+	<ul>
+	    	<li><a href="furnish.php?cat_id=1" style="color:#000;"><div class="box-dh"><span>新风/除霾/除湿/加湿</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=1">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             新风/除霾/除湿/加湿
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                新风
+                              </div>
+    
+                              <div class="box-04">
+                                新风+除湿
+                              </div>
+    
+                              <div class="box-04">
+                                新风+加湿
+                              </div>
+                              
+                              <div class="box-04">
+                                新风膜除霾
+                              </div>
+                              
+                              <div class="box-04">
+                                新风膜除霾+除湿
+                              </div>
+                              
+                              <div class="box-04">
+                                新风膜除霾+加湿
+                              </div>
+                              
+                              <div class="box-04">
+                                新风电除霾
+                              </div>
+                              
+                              <div class="box-04">
+                                新风电除霾+除湿
+                              </div>
+                              
+                              <div class="box-04">
+                                 新风电除霾+加湿
+                              </div>
+    
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                       
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=3" style="color:#000;"><div class="box-dh"><span>制冷/制热</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=3">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             制冷/制热
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                中央氟空调
+                              </div>
+    
+                              <div class="box-04">
+                                中央水空调
+                              </div>
+    
+                              <div class="box-04">
+                                地源水空调
+                              </div>                              
+                              
+    
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=6" style="color:#000;"><div class="box-dh"><span>采暖/即热式热水</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=6">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             采暖/即热热水
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                壁挂炉湿法地板采暖
+                              </div>
+    
+                              <div class="box-04">
+                                壁挂炉干法地板采暖
+                              </div>
+    
+                              <div class="box-04">
+                                壁挂炉散热片采暖
+                              </div>
+                              
+                              
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=4" style="color:#000;"><div class="box-dh"><span>制冷/采暖</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=4">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             制冷/采暖
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                中央水空调+湿法地板采暖
+                              </div>
+    
+                              <div class="box-04">
+                                中央水空调+干法地板采暖
+                              </div>
+    
+                              <div class="box-04">
+                                地源水空调+湿法地板采暖
+                              </div>
+                              
+                              <div class="box-04">
+                                地源水空调+干法地板采暖
+                              </div>
+                              
+                                  
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=7" style="color:#000;"><div class="box-dh"><span>吸尘</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=7">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             中央吸尘
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                气动中央吸尘
+                              </div>
+    
+                              <div class="box-04">
+                                电动中央吸尘
+                              </div>
+    
+                              
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=8" style="color:#000;"><div class="box-dh"><span>电采暖</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=8">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             电采暖
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                地板电采暖
+                              </div>
+    
+                              <div class="box-04">
+                                散热片电采暖
+                              </div>
+    
+                              
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=2" style="color:#000;"><div class="box-dh"><span>净水/软水/超滤/纯水/开水</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=2">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             净水/软水/超滤/纯水/开水
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                前置过滤+净水+超滤+龙头
+                              </div>
+    
+                              <div class="box-04">
+                                前置过滤+净水+纯水+龙头
+                              </div>
+    
+                              <div class="box-04">
+                                前置过滤+净水+纯水+开水机+龙头
+                              </div>
+                              
+                              <div class="box-04">
+                                前置过滤+净水+软水+超滤+龙头
+                              </div>
+                              
+                              <div class="box-04">
+                                前置过滤+净水+软水+纯水+龙头
+                              </div>
+                              
+                              <div class="box-04">
+                                前置过滤+净水+软水+纯水+开水机+龙头
+                              </div>
+                              
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a> 
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	           </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=5" style="color:#000;"><div class="box-dh"><span>采暖/循环热水</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=5">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             采暖/循环热水
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                壁挂炉湿法地板采暖+水箱循环热水
+                              </div>
+    
+                              <div class="box-04">
+                                壁挂炉干法地板采暖+水箱循环热水
+                              </div>
+    
+                              <div class="box-04">
+                               壁挂炉湿法地板采暖+太阳能水箱循环热水
+                              </div>
+                              
+                              <div class="box-04">
+                                壁挂炉干法地板采暖+太阳能水箱循环热水
+                              </div>
+                              
+                              <div class="box-04">
+                                壁挂炉散热片采暖+水箱循环热水
+                              </div>
+                              
+                              <div class="box-04">
+                                壁挂炉散热片采暖+太阳能水箱循环热水
+                              </div>
+                              
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=9" style="color:#000;"><div class="box-dh"><span>循环热水</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=9">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                             循环热水
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                容积式燃气热水器
+                              </div>
+    
+                              <div class="box-04">
+                                空气能热水器
+                              </div>
+                              
+                              <div class="box-04">
+                                壁挂炉+水箱循环热水
+                              </div>
+    
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+            
+            <li><a href="furnish.php?cat_id=10" style="color:#000;"><div class="box-dh"><span>智能控制</span><img src="images/47.png"/></div>
+	        	<ul class="box-list-ul">
+                  <div class="box-list-ul-bk">
+
+	                <div class="box-bk">
+                       
+                       <a href="furnish.php?cat_id=10">
+                       <div class="box-left">
+
+                          <div class="box-01">
+                            <div class="box-02">
+                             
+                            智能控制
+                            </div>
+                            <div class="box-03">
+                              <div class="box-04">
+                                 中央智能控制+APP远程控制                           
+                              </div>
+    
+                              
+                            </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                          
+                        </div>
+                       </a>
+                        <div class="box-right">
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/55.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/56.jpg"/></a>
+                          </div>
+                          
+                          <div class="box-right-img">
+                            <a href="#"><img src="images/57.jpg"/></a>
+                          </div>
+                        </div>
+
+
+	                </div>
+                    
+                   </div>
+	            </ul>
+	            </a>
+	        </li>
+
+	</ul>
+
+
+</div>
+<!-- 导航菜单end -->
+
+<!-- banner轮播图片 -->
+	<div class="flicker-example" data-block-text="false">
+
+  <ul>
+    <li data-background="images/a.jpg">
+
+      <div class="flick-title">SHUSHIKONGQISHUIZHIXINLIN</div>
+      <div class="flick-sub-text"><p>舒适空气水质心灵</p></div>
+    </li>
+    <li data-background="images/b.jpg">
+      <div class="flick-title">SHUSHIKONGQISHUIZHIXINLIN</div>
+      <div class="flick-sub-text">舒适空气水质心灵</div>
+    </li>
+    <li data-background="images/c.jpg">
+      <div class="flick-title">SHUSHIKONGQISHUIZHIXINLIN</div>
+      <div class="flick-sub-text">舒适空气水质心灵</div>
+    </li>
+    <li data-background="images/d.jpg">
+      <div class="flick-title">SHUSHIKONGQISHUIZHIXINLIN</div>
+      <div class="flick-sub-text">舒适空气水质心灵</div>
+    </li>
+    <li data-background="images/e.jpg">
+      <div class="flick-title">SHUSHIKONGQISHUIZHIXINLIN</div>
+      <div class="flick-sub-text">舒适空气水质心灵</div>
+    </li>
+    <li data-background="images/f.jpg">
+      <div class="flick-title">SHUSHIKONGQISHUIZHIXINLIN</div>
+      <div class="flick-sub-text">舒适空气水质心灵</div>
+    </li>
+
+  </ul>
+</div>
+
+
+	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+	</div>
+
+</div>
+<!-- banner轮播图片end -->
+
+<!-- banner轮播图片+导航菜单end -->
+
+
+<div class="clear" ></div>
+
+
+
+<div class="homecontent"><!--中间-->
+    
+    <div class="advertisement"><!-- 广告 -->
+      <img src="images/306.jpg"/>
+    </div>
+    
+    <div class="clear2" ></div>
+    
+    <div class="advertisement"><!-- 广告 -->
+      <img src="images/307.jpg"/>
+    </div>
+
+
+<!-- 楼层1 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+       <div class="homeindex-content-demo1-menu">
+	      <div class="homeindex-content-demo1-menu-titile">
+
+	        <div class="homeindex-content-demo1-menu-titile-span">
+	          新风/除霾/除湿/加湿
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+          <div class="homeindex-content-demo1-menu-navigation">
+            <div class="homeindex-content-demo1-menu-navigation-03">
+              <div class="homeindex-content-demo1-menu-navigation-03-img">
+                <img src="images/94.png"/>
+              </div>
+    
+              <div class="homeindex-content-demo1-menu-navigation-03-a">
+                  <a href="#">
+                    更多
+                  </a>
+               </div>
+    
+               <div class="clear"></div>
+            </div>
+    
+            <div class="clear"></div>
+    
+          </div>
+       </div>
+
+       <div class="clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1">
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/308.jpg"/>
+           </a>
+         </div>
+
+
+
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg3">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg1" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg2" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="clear"></div>
+
+       <!-- 中间3张图片 -->
+       <div class="homeindex-content-demo1-bk">
+        <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第一张 -->
+         <div class="homeindex-content-demo1-Ba-img" id="img">
+           <a href="#">
+             <img src="images/309.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第二张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/310.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba"  id="homeindexhover1"><!-- 第三张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/311.jpg" id="img"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg12">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg10" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg11" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间3张图片end -->
+
+
+    </div>
+
+</div>
+<!-- 楼层1end -->
+
+
+<div class="clear"></div>
+
+<!-- 楼层中的广告位 -->
+		<div class="homeindex-Ad">
+			<div class="flicker-example" data-block-text="false">
+
+			  <ul>
+			    <li>
+		          <div class="flick-img"><img src="images/312.jpg"/></div>
+			      <div class="flick-title">高端顶配 速享冷暖</div>
+                  <div class="flick-title2">超长质保，超耐腐蚀，永久释放您对家的热爱<br />时尚设计 , 完美品质 </div>
+			      <div class="flick-sub-text"><span>德国品质 经久耐用</span></div>
+			      <div class="clear"></div>
+			    </li>
+
+			   <li>
+		          <div class="flick-img"><img src="images/332.jpg"/></div>
+			      <div class="flick-title">匠心工艺 暖心之作</div>
+                  <div class="flick-title2">制冷采暖一步到位，分室分温，轻松掌握全家温度<br />德国品质 经久耐用</div>
+			      <div class="flick-sub-text"><span>用心铸造 完美品质</span></div>
+			      <div class="clear"></div>
+			    </li>
+
+			  </ul>
+			</div>
+
+			<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+			</div>
+		</div>
+<!-- 楼层中的广告位end -->
+
+<div class="clear"></div>
+
+
+<!-- 楼层2 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="2">
+       <div class="homeindex-content-demo2-menu">
+	      <div class="homeindex-content-demo2-menu-titile">
+
+	        <div class="homeindex-content-demo2-menu-titile-span">
+	           制冷/采暖
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo2-menu-navigation">
+
+        
+
+	    <div class="homeindex-content-demo2-menu-navigation-03">
+	      <div class="homeindex-content-demo2-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo2-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+
+
+       <div class="homeindex-content-demo2-zj">
+	       <div class="homeindex-content-demo2-Ba" id="homeindexhover2">
+	         <div class="homeindex-content-demo2-Ba-img">
+	           <a href="#">
+	             <img src="images/333.jpg"/>
+	           </a>
+	         </div>
+
+
+
+	         <div class="homeindex-content-demo2-Ba-Price">
+	           $150.00
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg3">
+	           <div class="homeindex-content-demo2-Ba-title">
+	             雨果博斯（HUGO BOSS)衬衫
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-evaluation">
+	             已有 <span>76 </span>人评价
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-icon">
+	             <div class="homeindex-content-demo2-Ba-icon-01">
+	               <a href="#">
+				     <img src="images/20.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-02">
+	               <a href="#">
+				     <img src="images/21.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-03">
+	               <a href="#">
+				     <img src="images/22.png"/>
+				   </a>
+	             </div>
+	           </div>
+	         </div>
+
+	         <div id="homeindexXg1" class="homeindex-content-demo2-Ba-bk">
+	         </div>
+
+	         <div id="homeindexXg2" class="homeindex-content-demo2-Ba-bk2">
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+	       </div>
+
+	       <div class="homeindex-content-demo2-right">
+<div class="homeindex-content-demo2-Ba" id="homeindexhover2">
+         <div class="homeindex-content-demo2-Ba-img" id="img">
+           <a href="#">
+             <img src="images/334.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo2-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo2-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-icon">
+             <div class="homeindex-content-demo2-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo2-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo2-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+	       </div>
+       </div>
+       <div class="clear"></div>
+
+       <!-- 中间3张图片 -->
+       <div class="homeindex-content-demo2-bk">
+        <div class="homeindex-content-demo2-Ba" id="homeindexhover2"><!-- 第一张 -->
+         <div class="homeindex-content-demo2-Ba-img" id="img">
+           <a href="#">
+             <img src="images/335.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo2-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo2-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-icon">
+             <div class="homeindex-content-demo2-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo2-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo2-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo2-Ba" id="homeindexhover2"><!-- 第二张 -->
+         <div class="homeindex-content-demo2-Ba-img">
+           <a href="#">
+             <img src="images/336.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo2-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo2-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-icon">
+             <div class="homeindex-content-demo2-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo2-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo2-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo2-Ba"  id="homeindexhover2"><!-- 第三张 -->
+         <div class="homeindex-content-demo2-Ba-img">
+           <a href="#">
+             <img src="images/337.jpg" id="img"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo2-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg12">
+           <div class="homeindex-content-demo2-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-icon">
+             <div class="homeindex-content-demo2-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg10" class="homeindex-content-demo2-Ba-bk">
+         </div>
+
+         <div id="homeindexXg11" class="homeindex-content-demo2-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间3张图片end -->
+
+
+    </div>
+
+</div>
+
+<!-- 楼层2end -->
+
+<div class="clear1" ></div>
+
+
+<div class="advertisement"><!-- 广告 -->
+		  <img src="images/338.jpg"/>
+</div>
+
+
+
+<!-- 楼层3 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="3">
+       <div class="homeindex-content-demo1-menu">
+	      <div class="homeindex-content-demo1-menu-titile">
+
+	        <div class="homeindex-content-demo1-menu-titile-span">
+	           制冷/制热
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo1-menu-navigation">
+
+
+	    <div class="homeindex-content-demo1-menu-navigation-03">
+	      <div class="homeindex-content-demo1-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo1-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1">
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/339.jpg"/>
+           </a>
+         </div>
+
+
+
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg3">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg1" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg2" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="clear"></div>
+
+       <!-- 中间3张图片 -->
+       <div class="homeindex-content-demo1-bk">
+        <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第一张 -->
+         <div class="homeindex-content-demo1-Ba-img" id="img">
+           <a href="#">
+             <img src="images/340.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第二张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/341.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba"  id="homeindexhover1"><!-- 第三张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/342.jpg" id="img"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg12">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg10" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg11" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间3张图片end -->
+
+
+    </div>
+
+</div>
+<!-- 楼层3end -->
+
+
+<div class="clear"></div>
+
+
+
+
+
+<!-- 楼层中的广告位 -->
+		<div class="homeindex-Ad">
+			<div class="flicker-example" data-block-text="false">
+
+			  <ul>
+			    <li>
+		          <div class="flick-img"><img src="images/142.jpg"/></div>
+			      <div class="flick-title">品茗之选，品质生活</div>
+                  <div class="flick-title2">全屋软净水，柔软衣物，呵护肌肤，保持水分<br />全铜制接头，安全卫生 ,  经久耐用 </div>
+			      <div class="flick-sub-text"><span>精心大器之选</span></div>
+			      <div class="clear"></div>
+			    </li>
+
+			    <li>
+		          <div class="flick-img"><img src="images/343.jpg"/></div>
+			      <div class="flick-title">双芯超滤 “饮”领健康</div>
+                  <div class="flick-title2">全净水机王 德国品质 全新升级  层层滤净<br />直接饮用 无需用电 不排废水</div>
+			      <div class="flick-sub-text"><span>优品恋上纯净</span></div>
+			      <div class="clear"></div>
+			    </li>
+
+			  </ul>
+			</div>
+
+			<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+			</div>
+		</div>
+<!-- 楼层中的广告位end -->
+
+
+<div class="clear"></div>
+
+<!-- 楼层4 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="4">
+       <div class="homeindex-content-demo2-menu">
+	      <div class="homeindex-content-demo2-menu-titile">
+
+	        <div class="homeindex-content-demo2-menu-titile-span">
+	           净水/软滤/纯水/开水
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo2-menu-navigation">
+
+        
+
+	    <div class="homeindex-content-demo2-menu-navigation-03">
+	      <div class="homeindex-content-demo2-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo2-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+
+
+       <div class="homeindex-content-demo2-zj">
+	       <div class="homeindex-content-demo2-Ba" id="homeindexhover2">
+	         <div class="homeindex-content-demo2-Ba-img">
+	           <a href="#">
+	             <img src="images/344.jpg"/>
+	           </a>
+	         </div>
+
+
+
+	         <div class="homeindex-content-demo2-Ba-Price">
+	           $150.00
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg3">
+	           <div class="homeindex-content-demo2-Ba-title">
+	             雨果博斯（HUGO BOSS)衬衫
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-evaluation">
+	             已有 <span>76 </span>人评价
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-icon">
+	             <div class="homeindex-content-demo2-Ba-icon-01">
+	               <a href="#">
+				     <img src="images/20.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-02">
+	               <a href="#">
+				     <img src="images/21.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-03">
+	               <a href="#">
+				     <img src="images/22.png"/>
+				   </a>
+	             </div>
+	           </div>
+	         </div>
+
+	         <div id="homeindexXg1" class="homeindex-content-demo2-Ba-bk">
+	         </div>
+
+	         <div id="homeindexXg2" class="homeindex-content-demo2-Ba-bk2">
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+	       </div>
+
+	       <div class="homeindex-content-demo2-right">
+<div class="homeindex-content-demo2-Ba" id="homeindexhover2">
+         <div class="homeindex-content-demo2-Ba-img" id="img">
+           <a href="#">
+             <img src="images/345.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo2-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo2-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-icon">
+             <div class="homeindex-content-demo2-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo2-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo2-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+	       </div>
+       </div>
+       <div class="clear"></div>
+
+       <!-- 中间2张图片 -->
+       <div class="homeindex-content-demo3-bk">
+        <div class="homeindex-content-demo3-Ba" id="homeindexhover3"><!-- 第一张 -->
+         <div class="homeindex-content-demo3-Ba-img" id="img">
+           <a href="#">
+             <img src="images/346.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo3-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo3-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-icon">
+             <div class="homeindex-content-demo3-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo3-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo3-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="homeindex-Ad-clear2"></div>
+
+       <div class="homeindex-content-demo3-Ba" id="homeindexhover3"><!-- 第二张 -->
+         <div class="homeindex-content-demo3-Ba-img">
+           <a href="#">
+             <img src="images/347.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo3-Ba-Price">
+           $150.00
+         </div>
+
+
+
+
+         <div class="homeindex-content-demo3-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo3-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-icon">
+             <div class="homeindex-content-demo3-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo3-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo3-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="homeindex-Ad-clear2"></div>
+
+
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间2张图片end -->
+
+
+    </div>
+
+</div>
+
+<!-- 楼层4end -->
+
+<div class="clear1" ></div>
+
+
+<div class="advertisement"><!-- 广告 -->
+		  <img src="images/348.jpg"/>
+</div>
+
+
+<!-- 楼层5 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="5">
+       <div class="homeindex-content-demo1-menu">
+	      <div class="homeindex-content-demo1-menu-titile">
+
+	        <div class="homeindex-content-demo1-menu-titile-span">
+	          采暖/循环热水
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo1-menu-navigation">
+
+        
+
+	    <div class="homeindex-content-demo1-menu-navigation-03">
+	      <div class="homeindex-content-demo1-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo1-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1">
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/349.jpg"/>
+           </a>
+         </div>
+
+
+
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg3">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg1" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg2" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="clear"></div>
+
+       <!-- 中间3张图片 -->
+       <div class="homeindex-content-demo1-bk">
+        <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第一张 -->
+         <div class="homeindex-content-demo1-Ba-img" id="img">
+           <a href="#">
+             <img src="images/350.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第二张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/351.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第三张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/352.jpg" id="img"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg12">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg10" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg11" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间3张图片end -->
+
+
+    </div>
+
+</div>
+<!-- 楼层5end -->
+
+
+<div class="clear"></div>
+
+<div class="advertisement"><!-- 广告 -->
+		  <img src="images/353.jpg"/>
+</div>
+
+<!-- 楼层中的广告位 -->
+		<div class="homeindex-Ad" style="display:none;">
+			<div class="flicker-example" data-block-text="false">
+
+			  <ul>
+			    <li>
+		          <div class="flick-img"><img src="images/120.jpg"/></div>
+			      <div class="flick-title">无尘生活 自在享受</div>
+                  <div class="flick-title2">洗尽奢华，告别尘埃，尽享自然空气<br />精密技术 尘气分离</div>
+			      <div class="flick-sub-text"><span>纯净实力，智无止净</span></div>
+			      <div class="clear"></div>
+			    </li>
+                
+                <li>
+		          <div class="flick-img"><img src="images/120.jpg"/></div>
+			      <div class="flick-title">无尘生活 自在享受</div>
+                  <div class="flick-title2">洗尽奢华，告别尘埃，尽享自然空气<br />精密技术 尘气分离</div>
+			      <div class="flick-sub-text"><span>纯净实力，智无止净</span></div>
+			      <div class="clear"></div>
+			    </li>
+
+			  </ul>
+			</div>
+
+			<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+			</div>
+		</div>
+<!-- 楼层中的广告位end -->
+
+<div class="clear"></div>
+
+
+<!-- 楼层6 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="6">
+       <div class="homeindex-content-demo1-menu">
+	      <div class="homeindex-content-demo1-menu-titile">
+
+	        <div class="homeindex-content-demo1-menu-titile-span">
+	           采暖/即热式热水
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo1-menu-navigation">
+
+        
+	    <div class="homeindex-content-demo1-menu-navigation-03">
+	      <div class="homeindex-content-demo1-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo1-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1">
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/354.jpg"/>
+           </a>
+         </div>
+
+
+
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg3">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg1" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg2" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="clear"></div>
+
+       <!-- 中间3张图片 -->
+       <div class="homeindex-content-demo1-bk">
+        <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第一张 -->
+         <div class="homeindex-content-demo1-Ba-img" id="img">
+           <a href="#">
+             <img src="images/355.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第二张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/356.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第三张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/357.jpg" id="img"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg12">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg10" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg11" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间3张图片end -->
+
+
+    </div>
+
+</div>
+<!-- 楼层6end -->
+
+
+<div class="clear"></div>
+
+
+<!-- 楼层中的广告位 -->
+		<div class="homeindex-Ad">
+			<div class="flicker-example" data-block-text="false">
+
+			  <ul>
+			    <li>
+		          <div class="flick-img"><img src="images/120.jpg"/></div>
+			      <div class="flick-title">无尘生活 自在享受</div>
+                  <div class="flick-title2">洗尽奢华，告别尘埃，尽享自然空气<br />精密技术 尘气分离</div>
+			      <div class="flick-sub-text"><span>纯净实力，智无止净</span></div>
+			      <div class="clear"></div>
+			    </li>
+                
+                <li>
+		          <div class="flick-img"><img src="images/358.jpg"/></div>
+			      <div class="flick-title">精密技术 尘气分离</div>
+                  <div class="flick-title2">洗尽享全屋清洁   飓风离尘 清洁全能<br />灵动随心 创新为你</div>
+			      <div class="flick-sub-text"><span>洗尽奢华，告别尘埃</span></div>
+			      <div class="clear"></div>
+			    </li>
+
+			  </ul>
+			</div>
+
+			<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+			</div>
+		</div>
+<!-- 楼层中的广告位end -->
+
+<div class="clear"></div>
+
+<!-- 楼层7 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="7">
+       <div class="homeindex-content-demo2-menu">
+	      <div class="homeindex-content-demo2-menu-titile">
+
+	        <div class="homeindex-content-demo2-menu-titile-span">
+	           吸尘
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo2-menu-navigation">
+
+        
+
+	    <div class="homeindex-content-demo2-menu-navigation-03">
+	      <div class="homeindex-content-demo2-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo2-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+
+
+       <div class="homeindex-content-demo2-zj">
+	       <div class="homeindex-content-demo2-Ba" id="homeindexhover2">
+	         <div class="homeindex-content-demo2-Ba-img">
+	           <a href="#">
+	             <img src="images/359.jpg"/>
+	           </a>
+	         </div>
+
+
+
+	         <div class="homeindex-content-demo2-Ba-Price">
+	           $150.00
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg3">
+	           <div class="homeindex-content-demo2-Ba-title">
+	             雨果博斯（HUGO BOSS)衬衫
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-evaluation">
+	             已有 <span>76 </span>人评价
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-icon">
+	             <div class="homeindex-content-demo2-Ba-icon-01">
+	               <a href="#">
+				     <img src="images/20.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-02">
+	               <a href="#">
+				     <img src="images/21.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-03">
+	               <a href="#">
+				     <img src="images/22.png"/>
+				   </a>
+	             </div>
+	           </div>
+	         </div>
+
+	         <div id="homeindexXg1" class="homeindex-content-demo2-Ba-bk">
+	         </div>
+
+	         <div id="homeindexXg2" class="homeindex-content-demo2-Ba-bk2">
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+	       </div>
+
+	       <div class="homeindex-content-demo2-right">
+<div class="homeindex-content-demo2-Ba" id="homeindexhover2"><!-- 第一张 -->
+         <div class="homeindex-content-demo2-Ba-img" id="img">
+           <a href="#">
+             <img src="images/360.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo2-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo2-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-icon">
+             <div class="homeindex-content-demo2-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo2-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo2-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+	       </div>
+       </div>
+       <div class="clear"></div>
+
+       <!-- 中间2张图片 -->
+       <div class="homeindex-content-demo3-bk">
+        <div class="homeindex-content-demo3-Ba" id="homeindexhover3"><!-- 第一张 -->
+         <div class="homeindex-content-demo3-Ba-img" id="img">
+           <a href="#">
+             <img src="images/361.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo3-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo3-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-icon">
+             <div class="homeindex-content-demo3-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo3-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo3-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="homeindex-Ad-clear2"></div>
+
+       <div class="homeindex-content-demo3-Ba" id="homeindexhover3"><!-- 第二张 -->
+         <div class="homeindex-content-demo3-Ba-img">
+           <a href="#">
+             <img src="images/362.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo3-Ba-Price">
+           $150.00
+         </div>
+
+
+
+
+         <div class="homeindex-content-demo3-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo3-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-icon">
+             <div class="homeindex-content-demo3-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo3-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo3-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="homeindex-Ad-clear2"></div>
+
+
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间2张图片end -->
+
+
+    </div>
+
+</div>
+
+<!-- 楼层7end -->
+
+<div class="clear1" ></div>
+
+
+<div class="advertisement"><!-- 广告 -->
+		  <img src="images/363.jpg"/>
+</div>
+
+<div class="clear1" ></div>
+
+
+<!-- 楼层8 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="8">
+       <div class="homeindex-content-demo1-menu">
+	      <div class="homeindex-content-demo1-menu-titile">
+
+	        <div class="homeindex-content-demo1-menu-titile-span">
+	           电采暖
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo1-menu-navigation">
+
+        
+	    <div class="homeindex-content-demo1-menu-navigation-03">
+	      <div class="homeindex-content-demo1-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo1-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1">
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/364.jpg"/>
+           </a>
+         </div>
+
+
+
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg3">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg1" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg2" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="clear"></div>
+
+       <!-- 中间3张图片 -->
+       <div class="homeindex-content-demo1-bk">
+        <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第一张 -->
+         <div class="homeindex-content-demo1-Ba-img" id="img">
+           <a href="#">
+             <img src="images/365.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第二张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/366.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第三张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/367.jpg" id="img"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg12">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg10" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg11" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间3张图片end -->
+
+
+    </div>
+
+</div>
+<!-- 楼层8end -->
+
+
+<div class="clear"></div>
+
+
+<!-- 楼层中的广告位 -->
+		<div class="homeindex-Ad">
+			<div class="flicker-example" data-block-text="false">
+
+			  <ul>
+			    <li>
+		          <div class="flick-img"><img src="images/368.jpg"/></div>
+			      <div class="flick-title">舒适热水 畅享四季</div>
+                  <div class="flick-title2">一级能效，超大流量，满足全家沐浴    “一度”钟情</div>
+			      <div class="flick-sub-text"><span>贴心享受</span></div>
+			      <div class="clear"></div>
+			    </li>
+                
+                <li>
+		          <div class="flick-img"><img src="images/369.jpg"/></div>
+			      <div class="flick-title">全家沐浴    “一度”钟情</div>
+                  <div class="flick-title2">双芯温控，抗压防腐，超长使用寿命     温暖全家</div>
+			      <div class="flick-sub-text"><span>温暖全家</span></div>
+			      <div class="clear"></div>
+			    </li>
+
+			  </ul>
+			</div>
+
+			<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+			</div>
+		</div>
+<!-- 楼层中的广告位end -->
+
+<div class="clear"></div>
+
+
+<!-- 楼层9 -->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="9">
+       <div class="homeindex-content-demo2-menu">
+	      <div class="homeindex-content-demo2-menu-titile">
+
+	        <div class="homeindex-content-demo2-menu-titile-span">
+	           循环热水
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo2-menu-navigation">
+
+        
+
+	    <div class="homeindex-content-demo2-menu-navigation-03">
+	      <div class="homeindex-content-demo2-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo2-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+
+
+       <div class="homeindex-content-demo2-zj">
+	       <div class="homeindex-content-demo2-Ba" id="homeindexhover2">
+	         <div class="homeindex-content-demo2-Ba-img">
+	           <a href="#">
+	             <img src="images/370.jpg"/>
+	           </a>
+	         </div>
+
+
+
+	         <div class="homeindex-content-demo2-Ba-Price">
+	           $150.00
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg3">
+	           <div class="homeindex-content-demo2-Ba-title">
+	             雨果博斯（HUGO BOSS)衬衫
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-evaluation">
+	             已有 <span>76 </span>人评价
+	           </div>
+
+	           <div class="homeindex-content-demo2-Ba-icon">
+	             <div class="homeindex-content-demo2-Ba-icon-01">
+	               <a href="#">
+				     <img src="images/20.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-02">
+	               <a href="#">
+				     <img src="images/21.png"/>
+				   </a>
+	             </div>
+
+	             <div class="homeindex-content-demo2-Ba-icon-03">
+	               <a href="#">
+				     <img src="images/22.png"/>
+				   </a>
+	             </div>
+	           </div>
+	         </div>
+
+	         <div id="homeindexXg1" class="homeindex-content-demo2-Ba-bk">
+	         </div>
+
+	         <div id="homeindexXg2" class="homeindex-content-demo2-Ba-bk2">
+	         </div>
+
+	         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+	       </div>
+
+	       <div class="homeindex-content-demo2-right">
+<div class="homeindex-content-demo2-Ba" id="homeindexhover2"><!-- 第一张 -->
+         <div class="homeindex-content-demo2-Ba-img" id="img">
+           <a href="#">
+             <img src="images/371.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo2-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo2-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo2-Ba-icon">
+             <div class="homeindex-content-demo2-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo2-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo2-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo2-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo2-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+	       </div>
+       </div>
+       <div class="clear"></div>
+
+       <!-- 中间2张图片 -->
+       <div class="homeindex-content-demo3-bk">
+        <div class="homeindex-content-demo3-Ba" id="homeindexhover3"><!-- 第一张 -->
+         <div class="homeindex-content-demo3-Ba-img" id="img">
+           <a href="#">
+             <img src="images/372.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo3-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo3-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-icon">
+             <div class="homeindex-content-demo3-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo3-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo3-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="homeindex-Ad-clear2"></div>
+
+       <div class="homeindex-content-demo3-Ba" id="homeindexhover3"><!-- 第二张 -->
+         <div class="homeindex-content-demo3-Ba-img">
+           <a href="#">
+             <img src="images/373.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo3-Ba-Price">
+           $150.00
+         </div>
+
+
+
+
+         <div class="homeindex-content-demo3-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo3-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo3-Ba-icon">
+             <div class="homeindex-content-demo3-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo3-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo3-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo3-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo3-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="homeindex-Ad-clear2"></div>
+
+
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间2张图片end -->
+
+
+    </div>
+
+</div>
+<!-- 楼层9end -->
+
+<div class="clear1" ></div>
+
+
+<div class="advertisement"><!-- 广告 -->
+		  <img src="images/374.jpg"/>
+</div>
+
+<div class="clear1" ></div>
+
+
+
+
+<!-- 楼层10-->
+<div class="homeindex-content">
+
+
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="10">
+       <div class="homeindex-content-demo1-menu">
+	      <div class="homeindex-content-demo1-menu-titile">
+
+	        <div class="homeindex-content-demo1-menu-titile-span">
+	           
+	        </div>
+
+	        <div class="clear"></div>
+	      </div>
+
+      <div class="homeindex-content-demo1-menu-navigation">
+
+        
+	    <div class="homeindex-content-demo1-menu-navigation-03">
+	      <div class="homeindex-content-demo1-menu-navigation-03-img">
+	        <img src="images/94.png"/>
+	      </div>
+
+	      <div class="homeindex-content-demo1-menu-navigation-03-a">
+		      <a href="#">
+		        更多
+		      </a>
+		   </div>
+
+		   <div class="clear"></div>
+	    </div>
+
+	    <div class="clear"></div>
+
+      </div>
+    </div>
+
+       <div class="clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1">
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/375.jpg"/>
+           </a>
+         </div>
+
+
+
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg3">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg1" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg2" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+       <div class="clear"></div>
+
+       <!-- 中间3张图片 -->
+       <div class="homeindex-content-demo1-bk">
+        <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第一张 -->
+         <div class="homeindex-content-demo1-Ba-img" id="img">
+           <a href="#">
+             <img src="images/143.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg6">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg4" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg5" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba"  id="homeindexhover1"><!-- 第二张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/144.jpg"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg9">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg7" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg8" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+
+       <div class="homeindex-content-demo1-Ba" id="homeindexhover1"><!-- 第三张 -->
+         <div class="homeindex-content-demo1-Ba-img">
+           <a href="#">
+             <img src="images/127.jpg" id="img"/>
+           </a>
+         </div>
+
+
+
+         <div class="homeindex-content-demo1-Ba-Price">
+           $150.00
+         </div>
+
+         <div class="homeindex-content-demo1-Ba-cener" id="homeindexXg12">
+           <div class="homeindex-content-demo1-Ba-title">
+             雨果博斯（HUGO BOSS)衬衫
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-evaluation">
+             已有 <span>76 </span>人评价
+           </div>
+
+           <div class="homeindex-content-demo1-Ba-icon">
+             <div class="homeindex-content-demo1-Ba-icon-01">
+               <a href="#">
+			     <img src="images/20.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-02">
+               <a href="#">
+			     <img src="images/21.png"/>
+			   </a>
+             </div>
+
+             <div class="homeindex-content-demo1-Ba-icon-03">
+               <a href="#">
+			     <img src="images/22.png"/>
+			   </a>
+             </div>
+           </div>
+         </div>
+
+         <div id="homeindexXg10" class="homeindex-content-demo1-Ba-bk">
+         </div>
+
+         <div id="homeindexXg11" class="homeindex-content-demo1-Ba-bk2">
+         </div>
+         <div class="homeindex-content-demo1-Ba-02">
+			<img src="images/19.png"/>
+		 </div>
+       </div>
+
+         <div class="homeindex-Ad-clear"></div>
+       </div>
+
+
+       <div class="clear2"></div>
+
+       <!-- 中间3张图片end -->
+
+
+    </div>
+
+</div>
+<!-- 楼层10end -->
+
+
+</div><!--中间end-->
+
+<div class="clear"></div>
+
+<!-- 底部广告 -->
+<div class="homelist-bottom" >
+		  <img src="images/213.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+
+<!-- 底部文件 -->
+
+{:include file='footer.tpl.html':}
+
+<!-- 底部文件end -->
+
+
+
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+<li><a data-slide="6" onClick="gotofloor(this);" href="javascript:void(0);">6F</a></li>
+<li><a data-slide="7" onClick="gotofloor(this);" href="javascript:void(0);">7F</a></li>
+<li><a data-slide="8" onClick="gotofloor(this);" href="javascript:void(0);">8F</a></li>
+<li><a data-slide="9" onClick="gotofloor(this);" href="javascript:void(0);">9F</a></li>
+<li><a data-slide="10" onClick="gotofloor(this);" href="javascript:void(0);">10F</a></li>
+
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+</script>
+<!-- 楼层定位end -->
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!--主导航-->
+<script type="text/javascript" src="./js/daohang.js"></script><!--导航置顶-->
+
+<div class="zhiding supermarket-zhiding">
+    <div class="nev">	
+        <ul>  
+            <div style="float:right;width:auto; position:relative; z-index:10;width:850px;">                 
+                <li style="float:left;">
+                    <div class="nev_msg nev_msg_supermarket02">
+                        <a href="/">
+                            <span>
+                                首页
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                
+                <li style="float:right;width:462px;">
+                	<div class="nev_msg nev_msg_supermarket02">
+                        <form action="search.php?overseas" method="get">
+                            <div id="sb-search" class="sb-search-01">
+                                <input id="create-name-02" class="" name="k" type="text" value="输入关键字进行搜索"  onFocus="if (value =='输入关键字进行搜索'){value =''}" onBlur="if (value ==''){value='输入关键字进行搜索'}"/>
+                            </div>
+                            
+                            <div id="sb-search" class="sb-search-02">
+                                <input type="submit" id="selSubmitId"  class=""value=""/>
+                            </div>                                    
+                        </form>
+                    </div>
+                </li>
+            </div>
+        </ul>
+        
+        <div class="clear"></div>
+    </div>
+</div>    
+
+<style>
+.sb-search-01{
+	float:left;
+	border:1px solid #fff;
+	background:#fff;
+	width:390px;
+	height:40px;
+	margin-right:8px;}
+	
+.sb-search-01 input{
+	border:none;
+	background:none;
+	width:370px;
+	height:40px;
+	line-height:40px;
+	margin-left:10px;
+	font-size:14px;
+	color:#ccc;}
+	
+.sb-search-02{
+	float:left;
+	background:url(./images/sousuo02.png);
+	width:60px;
+	height:40px;}	
+
+.sb-search-02 input{
+	border:none;
+	background:none;
+	width:100%;
+	height:40px;
+	line-height:40px;}
+</style>
+    
+<script src="js/classie.js"></script>
+<script src="js/uisearch.js"></script>
+
+<script>
+new UISearch( document.getElementById( 'sb-search' ) );
+</script>

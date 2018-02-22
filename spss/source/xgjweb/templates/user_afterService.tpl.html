@@ -1,0 +1,628 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!-- 通用Jquery -->
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="user_afterService-title">  
+        	<span>
+            	售后服务记录
+            </span>  	
+        </div>
+    
+    	<div class="clear12"></div>
+    
+        <!--售后服务记录-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="user_afterService-center">
+                <div id="tabs">
+                    <ul>
+                    	<li>
+                        	<a href="#tabs-1">所有记录</a>
+                        </li>
+                        
+                    	<li>
+                        	<a href="#tabs-2">维修</a>
+                        </li>
+                        
+                        <li>
+                        	<a href="#tabs-3">保养</a>
+                        </li>
+                        
+                        <li>
+                        	<a href="#tabs-4">耗材</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="clear27"></div>
+                    
+                    <!--下面切换的样式都一样的，只是服务类别里面的文字描述不同-->
+                 
+                    
+                    <div id="tabs-1">
+                    	<div class="user_afterService-center-title">
+                        	<div class="user_afterService-center-title-name">
+                            	产品名称
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	预约时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	服务时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-star">
+                            	服务评价
+                            </div>
+                            
+                            <div class="user_afterService-center-title-category">
+                            	服务类别
+                            </div>
+                            
+                            <div class="user_afterService-center-title-remarks">
+                            	预约备注
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_afterService-center-list">
+                            {:foreach $data as $k=>$v:}
+                        	<div class="user_afterService-center-list-demo">
+                            	<div class="user_afterService-center-list-demo-name">
+                                    {:$v['quote_name']:} 
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['s_time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-star"><!--总星级评分-->
+                                	<div class="user_afterService-center-list-demo-star-demo"><!--有几颗星，就循环几个demo-->
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-category">
+                                    {:$v['type']:}
+                                </div>
+                                <input type='hidden' id="note{:$v['id']:}" value="{:$v['note']:}"/>
+                                <div class="user_afterService-center-list-demo-remarks" onclick="a({:$v['id']:})"><!--弹框id后面传值-->
+                                    <a href="javascript:;" onclick="a({:$v['id']:})">
+                                    	查看
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            {:/foreach:}
+                            
+                            <div style="text-align:right;" class='page'>
+                                {:if $pcount gt 0:}
+                                  <a href="javascript:;" onclick="page(1,1)">首页</a>
+                                  <a href="javascript:;" onclick="page(1,1)">[上一页]</a>
+                                  <span class="laypage_curr">{:$p:}</span>
+                                  {:/if:}
+                                  {:if $pcount gt 1:}
+                                  <a href="javascript:;" onclick="page(1,{:$p+1:})">{:$p+1:}</a>
+                                  {:/if:}
+                                  {:if $pcount gt 2:}
+                                  <a href="javascript:;" onclick="page(1,{:$p+2:})">{:$p+2:}</a>
+                                  {:/if:}
+                                  {:if $pcount gt 3:}
+                                  <a href="javascript:;" onclick="page(1,{:$p+3:})">{:$p+3:}</a>
+                                  {:/if:}
+                                  {:if $pcount gt 4:}
+                                  <a href="javascript:;" onclick="page(1,{:$p+4:})">{:$p+4:}</a>
+                                  {:/if:}
+                                  {:if $pcount gt 0:}
+                                  {:if $p lt $pcount:}
+                                    <a href="javascript:;" onclick="page(1,{:$p+1:})">[下一页]</a>
+                                  {:else:}
+                                    <a href="javascript:;">[下一页]</a>
+                                  {:/if:}
+                                  <a href="javascript:;" onclick="page(1,{:$pcount:})">[尾页]</a>
+                                  {:/if:}
+                            </div><!--分页-->
+                        </div>
+                    </div>
+                    
+                    <div id="tabs-2">
+                    	<div class="user_afterService-center-title">
+                        	<div class="user_afterService-center-title-name">
+                            	产品名称
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	预约时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	服务时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-star">
+                            	服务评价
+                            </div>
+                            
+                            <div class="user_afterService-center-title-category">
+                            	服务类别
+                            </div>
+                            
+                            <div class="user_afterService-center-title-remarks">
+                            	预约备注
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_afterService-center-list">
+                        	{:foreach $data1 as $k=>$v:}
+                            <div class="user_afterService-center-list-demo">
+                                <div class="user_afterService-center-list-demo-name">
+                                    {:$v['quote_name']:} 
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['s_time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-star"><!--总星级评分-->
+                                    <div class="user_afterService-center-list-demo-star-demo"><!--有几颗星，就循环几个demo-->
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-category">
+                                    {:$v['type']:}
+                                </div>
+                                <input type='hidden' id="note{:$v['id']:}" value="{:$v['note']:}"/>
+                                <div class="user_afterService-center-list-demo-remarks" onclick="a({:$v['id']:})"><!--弹框id后面传值-->
+                                    <a href="javascript:;">
+                                        查看
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            {:/foreach:}
+                            
+                            <div style="text-align:right;" class='page'>
+                                {:if $pcount gt 0:}
+                                  <a href="javascript:;" onclick="page(2,1)">首页</a>
+                                  <a href="javascript:;" onclick="page(2,1)">[上一页]</a>
+                                  <span class="laypage_curr">{:$p:}</span>
+                                  {:/if:}
+                                  {:if $pcount1 gt 1:}
+                                  <a href="javascript:;" onclick="page(2,{:$p+1:})">{:$p+1:}</a>
+                                  {:/if:}
+                                  {:if $pcount1 gt 2:}
+                                  <a href="javascript:;" onclick="page(2,{:$p+2:})">{:$p+2:}</a>
+                                  {:/if:}
+                                  {:if $pcount1 gt 3:}
+                                  <a href="javascript:;" onclick="page(2,{:$p+3:})">{:$p+3:}</a>
+                                  {:/if:}
+                                  {:if $pcount1 gt 4:}
+                                  <a href="javascript:;" onclick="page(2,{:$p+4:})">{:$p+4:}</a>
+                                  {:/if:}
+                                  {:if $pcount1 gt 0:}
+                                  {:if $p lt $pcount1:}
+                                    <a href="javascript:;" onclick="page(2,{:$p+1:})">[下一页]</a>
+                                  {:else:}
+                                    <a href="javascript:;">[下一页]</a>
+                                  {:/if:}
+                                  <a href="javascript:;" onclick="page(2,{:$pcount:})">[尾页]</a>
+                                  {:/if:}
+                            </div><!--分页-->
+                        </div>
+                    </div>
+                    
+                    <div id="tabs-3">
+                    	<div class="user_afterService-center-title">
+                        	<div class="user_afterService-center-title-name">
+                            	产品名称
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	预约时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	服务时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-star">
+                            	服务评价
+                            </div>
+                            
+                            <div class="user_afterService-center-title-category">
+                            	服务类别
+                            </div>
+                            
+                            <div class="user_afterService-center-title-remarks">
+                            	预约备注
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_afterService-center-list">
+                        	{:foreach $data2 as $k=>$v:}
+                            <div class="user_afterService-center-list-demo">
+                                <div class="user_afterService-center-list-demo-name">
+                                    {:$v['quote_name']:} 
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['s_time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-star"><!--总星级评分-->
+                                    <div class="user_afterService-center-list-demo-star-demo"><!--有几颗星，就循环几个demo-->
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-category">
+                                    {:$v['type']:}
+                                </div>
+                                <input type='hidden' id="note{:$v['id']:}" value="{:$v['note']:}"/>
+                                <div class="user_afterService-center-list-demo-remarks" onclick="a({:$v['id']:})"><!--弹框id后面传值-->
+                                    <a href="javascript:;">
+                                        查看
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            {:/foreach:}
+                            
+                            <div style="text-align:right;" class='page'>
+                                {:if $pcount2 gt 0:}
+                                  <a href="javascript:;" onclick="page(3,1)">首页</a>
+                                  <a href="javascript:;" onclick="page(3,1)">[上一页]</a>
+                                  <span class="laypage_curr">{:$p:}</span>
+                                  {:/if:}
+                                  {:if $pcount2 gt 1:}
+                                  <a href="javascript:;" onclick="page(3,{:$p+1:})">{:$p+1:}</a>
+                                  {:/if:}
+                                  {:if $pcount2 gt 2:}
+                                  <a href="javascript:;" onclick="page(3,{:$p+2:})">{:$p+2:}</a>
+                                  {:/if:}
+                                  {:if $pcount2 gt 3:}
+                                  <a href="javascript:;" onclick="page(3,{:$p+3:})">{:$p+3:}</a>
+                                  {:/if:}
+                                  {:if $pcount2 gt 4:}
+                                  <a href="javascript:;" onclick="page(3,{:$p+4:})">{:$p+4:}</a>
+                                  {:/if:}
+                                  {:if $pcount2 gt 0:}
+                                  {:if $p lt $pcount2:}
+                                    <a href="javascript:;" onclick="page(3,{:$p+1:})">[下一页]</a>
+                                  {:else:}
+                                    <a href="javascript:;">[下一页]</a>
+                                  {:/if:}
+                                  <a href="javascript:;" onclick="page(3,{:$pcount:})">[尾页]</a>
+                                  {:/if:}
+                            </div><!--分页-->
+                        </div>
+                    </div>
+                    
+                    <div id="tabs-4" style="display:none">
+                    	<div class="user_afterService-center-title">
+                        	<div class="user_afterService-center-title-name">
+                            	产品名称
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	预约时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-time">
+                            	服务时间
+                            </div>
+                            
+                            <div class="user_afterService-center-title-star">
+                            	服务评价
+                            </div>
+                            
+                            <div class="user_afterService-center-title-category">
+                            	服务类别
+                            </div>
+                            
+                            <div class="user_afterService-center-title-remarks">
+                            	预约备注
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_afterService-center-list">
+                        	{:foreach $data3 as $k=>$v:}
+                            <div class="user_afterService-center-list-demo">
+                                <div class="user_afterService-center-list-demo-name">
+                                    {:$v['quote_name']:} 
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-time">
+                                    {:$v['s_time']:}
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-star"><!--总星级评分-->
+                                    <div class="user_afterService-center-list-demo-star-demo"><!--有几颗星，就循环几个demo-->
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="user_afterService-center-list-demo-star-demo">
+                                        <img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="user_afterService-center-list-demo-category">
+                                    {:$v['type']:}
+                                </div>
+                                <input type='hidden' id="note{:$v['id']:}" value="{:$v['note']:}"/>
+                                <div class="user_afterService-center-list-demo-remarks" onclick="a({:$v['id']:})"><!--弹框id后面传值-->
+                                    <a href="javascript:;">
+                                        查看
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            {:/foreach:}
+                            
+                            <div style="text-align:right;" class='page'>
+                                  {:if $pcount3 gt 0:}
+                                  <a href="javascript:;" onclick="page(4,1)">首页</a>
+                                  <a href="javascript:;" onclick="page(4,1)">[上一页]</a>
+                                  <span class="laypage_curr">{:$p:}</span>
+                                  {:/if:}
+                                  {:if $pcount3 gt 1:}
+                                  <a href="javascript:;" onclick="page(4,{:$p+1:})">{:$p+1:}</a>
+                                  {:/if:}
+                                  {:if $pcount3 gt 2:}
+                                  <a href="javascript:;" onclick="page(4,{:$p+2:})">{:$p+2:}</a>
+                                  {:/if:}
+                                  {:if $pcount3 gt 3:}
+                                  <a href="javascript:;" onclick="page(4,{:$p+3:})">{:$p+3:}</a>
+                                  {:/if:}
+                                  {:if $pcount3 gt 4:}
+                                  <a href="javascript:;" onclick="page(4,{:$p+4:})">{:$p+4:}</a>
+                                  {:/if:}
+                                  {:if $pcount3 gt 0:}
+                                  {:if $p lt $pcount3:}
+                                    <a href="javascript:;" onclick="page(4,{:$p+1:})">[下一页]</a>
+                                  {:else:}
+                                    <a href="javascript:;">[下一页]</a>
+                                  {:/if:}
+                                  <a href="javascript:;" onclick="page(4,{:$pcount:})">[尾页]</a>
+                                  {:/if:}
+                            </div><!--分页-->
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <!--售后服务记录end-->
+    
+    </div>
+    
+      
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+{:include file='footer.tpl.html':}
+
+<!--jquery-ui调用-->
+<script>
+$( "#tabs" ).tabs();/*点击切换滑动门*/
+</script>
+<!--jquery-ui调用end-->
+
+
+
+<style>
+    
+.clickAddId{
+    background:url(./images/touming02.png);
+    display:none;
+    position:absolute;
+    top:0;
+    z-index: 9999;
+    width:100%;
+
+}
+</style>
+
+<!--弹出预约备注-->
+
+<div id="clickAddId" class="clickAddId">   
+	<div class="user_afterService-clickAddId-center-bk"> 
+        <div class="user_afterService-clickAddId-center">
+            <div class="user_afterService-clickAddId-center-title">
+                <div class="user_afterService-clickAddId-center-title-left">
+                    <span>
+                        查看您所预约备注
+                    </span>
+                </div>
+                
+                <div class="user_afterService-clickAddId-center-title-right" id="clickAddOutId01">
+                    <a href="javascript:;">
+                        <img src="images/cha03.png"/>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="user_afterService-clickAddId-center-word" id="noteId">
+
+            </div>
+            
+            <div class="clear36"></div>
+            
+            <div class="user_afterService-clickAddId-center-out" id="clickAddOutId02">
+                <a href="javascript:;">
+                    返回
+                </a>
+            </div>
+            
+            <div class="clear2"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+jQuery(function(){
+
+		$("#clickAddOutId01").click(function(){
+			$("#clickAddId").fadeOut();
+		});
+		
+		$("#clickAddOutId02").click(function(){
+			$("#clickAddId").fadeOut();
+		});
+		
+	});
+   function a(id){
+        var note=$("#note"+id).val();
+        $("#clickAddId").css('height',$(document).height());
+        $("#clickAddId").fadeIn();
+        $("#noteId").html(note);
+         
+   }
+</script>
+
+<!--弹出预约备注end -->
+
+<script>
+  function page(tab,p){
+    $.get("user.php?afterTab&page="+p+"&tab="+tab,function(data){
+        //alert(data);
+      $('#tabs-'+tab).html(data);
+    })
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+

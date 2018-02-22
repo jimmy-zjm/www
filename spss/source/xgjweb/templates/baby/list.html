@@ -1,0 +1,382 @@
+{:include file="header_supermarket.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/supermarket-list.css" >
+
+<!--图片抖动-->
+<script type="text/javascript" src="js/jump.js"></script>
+<script type="text/javascript">
+$(function(){
+	 $(".img_box img").each(function(k,img){
+		new JumpObj(img,3);
+		//第一个参数代表元素对象
+		//第二个参数代表抖动幅度
+	});
+});
+</script>
+<!--图片抖动end-->
+
+<div class="clear"></div>
+
+<div class="index-box">	
+	<!--主导航-->
+	{:include file='common/daohang_supermarket.html':}
+    <!--主导航end-->
+    
+    {:include file="category/category_supermarket.tpl.html":}	
+</div>
+
+<div class="clear3"></div>
+
+<!--品牌列表-->
+<div class="supermarket_list-banner">
+	<div class="supermarket_list-banner-title">
+    	<div class="supermarket_list-banner-title-left">
+        	<img src="images/1137.png"/>
+        </div>
+        
+        <!-- <div class="supermarket_list-banner-title-right">
+        	<a href="javascript:;" onclick='tog()'>
+            	换一批
+            </a>
+        </div> -->
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear32"></div>
+    
+    <div class="supermarket_list-banner-list" id='content'>
+    	        
+        {:foreach $brand_list as $k=>$v:}
+        <div class="supermarket_list-banner-list-demo">
+            <a href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$v['id']:}&val={:$val:}&sk={:$sk:}" name="baby_list&id={:$pid:},{:$id:}" >
+                <img src="{:$v['logo']|getImage:}"/>
+            </a>
+        </div>
+        {:/foreach:}
+                
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--品牌列表end-->
+
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+{:if !empty($goods_list):}
+<div class="supermarket_list-center">
+	<div class="supermarket_list-center-screen">
+        <div class="clear35"></div>
+        
+        <div class="supermarket_list-center-screen-demo">
+            <div class="supermarket_list-center-screen-demo-left">
+                分类：
+            </div>
+            
+            <div class="supermarket_list-center-screen-demo-right">
+                {:foreach $list_cate as $k=>$v:}
+                <div class="supermarket_list-center-screen-demo-right-demo">
+                    <a href="baby.php?list&id={:$v['pid']:},{:$v['id']:}&price={:$price:}&val={:$val:}&sk={:$sk:}" data-id="" name="baby_list&id={:$pid:},{:$id:}&price={:$price:}&val={:$val:}&sk={:$sk:}">
+                        {:$v['name']:}
+                    </a>
+                </div>
+                {:/foreach:}
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="supermarket_list-center-screen-demo">
+            <div class="supermarket_list-center-screen-demo-left">
+                价格区间：
+            </div>
+            
+            <div class="supermarket_list-center-screen-demo-right">
+                {:foreach $price_list as $k=>$v:}
+                <div class="supermarket_list-center-screen-demo-right-demo">
+                    <a href="baby.php?list&id={:$pid:},{:$id:}&price={:$v:}&brand_id={:$b_id:}&val={:$val:}&sk={:$sk:}" data-id="" class="supermarket_list-center-screen-demo-right-demo-a01" name="baby_list&id={:$pid:},{:$id:}&price={:$v:}&brand_id={:$b_id:}&val={:$val:}&sk={:$sk:}">
+                        {:$v:}
+                    </a>
+                </div>
+                {:/foreach:}                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div style="display: none;" id='tet'>{:$val:}</div>
+        
+        <div class="supermarket_list-center-screen-bk" id="screen_hiden">
+            {:if !empty($order_list):}
+            {:foreach $order_list as $k=>$v:}
+            {:if !empty($v['name']):}
+            <div class="supermarket_list-center-screen-demo">
+                <div class="supermarket_list-center-screen-demo-left">
+                    {:$v['name']:}：
+                </div>
+                
+                <div class="supermarket_list-center-screen-demo-right">
+                    {:foreach $v['value_list'] as $ke=>$va:}
+                    <div class="supermarket_list-center-screen-demo-right-demo">
+                        <a href="javascript:;"  onclick="clk('{:$va:}')" data-id="" class="supermarket_list-center-screen-demo-right-demo-a01" name="baby_list&id={:$pid:},{:$id:}&price={:$price:}&val={:$val:}&sk={:$sk:}">
+                            {:$va:}
+                        </a>
+                    </div>
+                    {:/foreach:}
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            {:/if:}
+            {:/foreach:}
+            {:/if:}
+        </div>
+        
+        <div class="clear32"></div>
+    
+        <!--筛选的更多效果-->
+        <div class="supermarket_list-center-screen-more">
+            <div class="supermarket_list-center-screen-more-bk">
+                <a href="javascript:;" id="screen_more" name="baby_list_screen_more">
+                    <span>
+                        更多
+                    </span>
+                    
+                    <img src="images/jiantoubottom.png" id="screen_more_img"/>
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--筛选的更多效果end-->
+        
+        <div class="clear32"></div>
+        
+        <div class="clear35"></div>
+    </div>
+    
+    <div class="clear32"></div>
+    
+    <div class="supermarket_list-center-sort">
+    	<div class="supermarket_list-center-sort-list">
+        	<div class="supermarket_list-center-sort-list-demo-a0{:if isset($smarty.get.sk) && $smarty.get.sk eq zong:}2{:else if !isset($smarty.get.sk):}2{:else:}1{:/if:}">
+            	<a href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=zong" name="baby_list_&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=zong">
+                	综合
+                </a>
+            </div>
+            
+            <div class="supermarket_list-center-sort-list-demo-a0{:if isset($smarty.get.sk) && $smarty.get.sk eq xiao:}2{:else:}1{:/if:}">
+            	<a href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=xiao" name="baby_list_&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=xiao">
+                	销量
+                </a>
+            </div>
+            
+            <div class="supermarket_list-center-sort-list-demo-a0{:if isset($smarty.get.sk) && $smarty.get.sk eq jia:}2{:else:}1{:/if:}">
+            	<a href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=jia" name="baby_list_&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=jia">
+                	价格
+                </a>
+            </div>
+            
+            <div class="supermarket_list-center-sort-list-demo-a0{:if isset($smarty.get.sk) && $smarty.get.sk eq ping:}2{:else:}1{:/if:}">
+            	<a href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=ping" name="baby_list_&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=ping">
+                	评论
+                </a>
+            </div>
+            
+            <div class="supermarket_list-center-sort-list-demo-a0{:if isset($smarty.get.sk) && $smarty.get.sk eq new:}2{:else:}1{:/if:}">
+            	<a href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=new" name="baby_list_&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&val={:$val:}&sk=new">
+                	新品
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="supermarket_list-center-sort-input">
+        	<div class="supermarket_list-center-sort-input-text">
+            	<input type="text" value="在结果中搜索"  id='val' onFocus="if (value =='在结果中搜索'){value =''}" onBlur="if (value ==''){value='在结果中搜索'}"/>
+            </div>
+            
+            <div class="supermarket_list-center-sort-input-button">
+            	<input type="button" value="确定" id='btn' name="baby_list_supermarket_list-center-sort-input-button"/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <!--母婴用品-->
+    <div class="supermarket_index-center-floor" id="sck">
+    	<div class="index-center-eugroup-list" >
+            <div class="index-center-eugroup-list-bk">
+            	{:foreach $goods_list as $val:}
+                <div class="index-center-eugroup-list-demo">
+                	<div class="index-center-eugroup-list-demo-img-bk">
+                        <div class="index-center-eugroup-list-demo-img img_box" title="{:$val['goods_title']:}">
+                            <a href="baby.php?detail&id={:$val['id']:}" target="_blank" name="baby_list_detail&id={:$val['id']:}">
+                                <img src="{:$val['face_image']|getImage:}">
+                            </a>
+                        </div>
+                        {:if $val['is_hot']==1:}
+                        <div class="index-center-eugroup-list-demo-remai">
+                            <img src="images/remai.png"/>
+                        </div>
+						{:/if:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="index-center-eugroup-list-demo-name" title="{:$val['goods_title']:}">
+                        <a href="baby.php?detail&id={:$val['id']:}" target="_blank" name="baby_list_detail&id={:$val['id']:}">
+                            {:$val['goods_title']:}
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>                                    
+                    
+                    <div class="supermarket_index-center-floor-list-demo-info">
+                    	<div class="supermarket_index-center-floor-list-demo-info-collection">
+                            {:if in_array($val['id'],$concern_list):}
+                            <a href="javascript:;" name="baby_list_chageImg&id={:$val['id']:}">
+                                <img  src="images/xin04.png">
+                            </a>
+                            {:else:}
+                            <a href="javascript:;"  onclick="chageImg({:$val['id']:})" name="baby_list_chageImg&id={:$val['id']:}">
+                                <img id="img{:$val['id']:}" src="images/xin05.png">
+                            </a>
+                            {:/if:}
+                        </div>
+                        
+                        <div class="supermarket_index-center-floor-list-demo-info-current_price">
+                            ¥{:$val['purchase']|round:1:}
+                        </div>
+                        
+                        <div class="supermarket_index-center-floor-list-demo-info-original_cost">
+                            ¥{:$val['market_price']|round:1:}
+                        </div>                        
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                {:/foreach:}
+                
+                <div class="clear"></div>
+            </div>
+        </div>      
+        
+        <div class="clear32"></div>
+        
+        <div  class="page">{:$page:}</div>
+        
+        <div class="clear32"></div>
+    </div>
+    <!--母婴用品end-->
+</div>
+{:/if:}
+<!-- 中间楼层end -->
+
+<div class="clear2"></div>
+
+
+<div class="clear"></div>
+
+
+{:include file="footer.tpl.html":}
+
+<style>
+body{
+	background:#f5f5f5;}
+</style>
+
+<!--筛选条件的点击事件-->
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$("#screen_more").click(function(){
+		$("#screen_hiden").toggle();
+		var screen_more_img=document.getElementById('screen_more_img')
+		if (screen_more_img.src.match("jiantoutop")){
+			screen_more_img.src="images/jiantoubottom.png";
+		}
+		else{
+			screen_more_img.src="images/jiantoutop.png";
+		}
+	});
+	
+});
+</script>
+<!--筛选条件的点击事件end-->
+
+<!-- 更多热门品牌换一换 -->
+<script>
+  /*  function tog(){
+        $.get("baby.php?brand&pid={:$pid:}&id={:$id:}&price={:$price:}&val={:$val:}&sk={:$sk:}",function(data,status){
+        $("#content").html(data);
+        });
+    }*/
+</script>
+<script>
+$(document).ready(function(){
+    $("#btn").click(function(){
+        var val=$('#val').val();
+        $.post('baby.php?sck',{pid:{:$pid:},id:{:$id:},key:val},function(data){
+            console.log(data);
+            $("#sck").html(data);
+        });
+    });
+})
+</script>
+
+
+<script type="text/javascript">
+/*
+点击关注商品
+ */
+function chageImg(id){
+    $.get('ajax.php?concern',{id:id,class_id:3},function(data){
+        if(data.code==1){
+           $('#img'+id).attr('src','images/xin04.png');
+        }
+		else if(data.code==2){
+           $('#img'+id).attr('src','images/xin05.png');
+        }
+		else{
+          alert(data.message);
+        }
+    },'json');
+};
+</script>
+
+<script type="text/javascript">
+    function clk(val){
+        var tet=$('#tet').html();
+        if(tet==''){
+            $('#tet').html(val);
+            window.location.href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&sk={:$sk:}&val="+val;
+        }else{
+            $('#tet').html(tet+'|'+val);
+            var xt=$('#tet').html();
+            console.log(xt);
+            window.location.href="baby.php?list&id={:$pid:},{:$id:}&price={:$price:}&brand_id={:$b_id:}&sk={:$sk:}&val="+xt;
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+

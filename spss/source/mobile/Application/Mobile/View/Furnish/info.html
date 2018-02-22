@@ -1,0 +1,77 @@
+<include file="Public/header" />
+<link rel="stylesheet" href="__PUBLIC__/css/baojia2.css"/>
+		<div class="content">
+			<div class="baojia-con1">
+				<span class="baojia-con1-1">房屋区域</span>
+				<span class="baojia-con1-2 "><{$house.pcd}></span>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">详细地址</span>
+				<span class="baojia-con1-2 "><{$house.addr}></span>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">房屋类型</span>
+				<span class="baojia-con1-2 ">
+				<?php if ($house['type1']==1): ?>
+					公寓
+				<?php elseif($house['type1']==2): ?>
+					叠加
+				<?php elseif($house['type1']==3): ?>
+					联排
+				<?php elseif($house['type1']==4): ?>
+					独栋
+				<?php endif ?>
+				</span>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">房屋户型</span>
+				<span class="baojia-con1-2 ">
+				<?php if ($house['type2']==1): ?>
+					一居
+				<?php elseif($house['type2']==2): ?>
+					二居
+				<?php elseif($house['type2']==3): ?>
+					三居
+				<?php elseif($house['type2']==4): ?>
+					四居
+				<?php elseif($house['type2']==5): ?>
+					五居
+				<?php elseif($house['type2']==6): ?>
+					六居
+				<?php elseif($house['type2']==7): ?>
+					六居以上
+				<?php endif ?>
+				</span>
+			</div>
+			<div class="baoj02566.ia-con1 baojia-con2">
+				<span class="baojia-con1-1">房屋面积</span>
+				<span class="baojia-con1-2 "><{$house.area}></span>
+			</div>
+			<div class="baojia-con1 baojia-con2">
+				<span class="baojia-con1-1">预估价格</span>
+				<span class="baojia-con1-2 baojia-jiage "><{$money}></span>
+			</div>
+			<div class=" baojia-tip">
+				以上报价为您本次所输的房屋信息及所选产品相结合产生的预估价格，您可直接拨打客服热线进行精确报价。
+			</div>
+			<div class=" baojia-img">
+				<img src="__PUBLIC__/img/baojia2-1.png" alt="" />
+			</div>
+			<div class="baojia-img baojia-img2">
+				<img src="__PUBLIC__/img/baojia2-2.png" onclick='but()'/>
+			</div>
+		</div>
+
+<script type="text/javascript">
+function but(){
+	$.getJSON('<{:U("Order/payaa")}>', {'cid':<{$cid}>,'hid':<{$house_id}>}, function(data){
+		if(data.status==1){
+			window.location.href = "<{:U('Order/pay')}>"+"?oid="+data.msg;
+		}else{
+			alert(data.msg);
+		}
+	})
+}
+</script>
+	</body>
+</html>

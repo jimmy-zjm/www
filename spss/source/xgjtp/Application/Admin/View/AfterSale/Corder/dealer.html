@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选择分配经销商页面</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+</head>
+
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="<{:U('Admin/Index/index/main')}>">首页</a></li>
+        <li><a href="#">售后管理</a></li>
+        <li><a href="<{:U('Admin/AfterSale/Corder/index')}>">售后保养订单</a></li>
+        </ul>
+    </div>
+    <div class="rightinfo">
+
+        <!-- 表格 -->
+        <table class="tablelist">
+            <thead>
+                <tr>
+                    <th>编号<i class="sort"><img src="__PUBLIC__/Admin/images/px.gif" /></i></th>
+                    <th>经销商公司名称</th>
+                    <th>经销商所在区域</th>
+					<th>经销商公司地址</th>
+                    <th>经销商联系人</th>
+					<th>联系电话</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 品牌遍历区 -->
+                
+				<volist name='deal' id='v'>
+                <tr data-id="<{$v.problem_id}>">
+                    <td><{$v.d_id}></td>
+                    <td><{$v.d_company}></td>
+                    <td><{$v.d_district}></td>
+                    <td><{$v.d_province}><{$v.d_rel_address}></td>
+					<td><{$v.d_linkman}></td>
+					<td><{$v.d_link_phone}></td>
+                    <td>
+                        
+						<a href="<{:U('setAllot',array('id'=>$id,'d_id'=>$v['d_id']))}>" class="tablelink">分配</a>
+                        
+					</td>	
+                </tr>
+				</volist>
+				
+            </tbody>
+        </table>
+
+
+        <!-- 分页开始 -->
+        <{$page}>
+        <!-- 分页结束 -->
+
+
+        <div class="tip">
+            <div class="tiptop"><span>提示信息</span><a></a></div>
+          <div class="tipinfo">
+            <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+            <div class="tipright">
+            <p>是否确认真的删除吗 ？</p>
+            <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+            </div>
+            <div class="tipbtn">
+            <input name="" id="data_id" data-id="" type="button" onclick="window.location.href='<{:U('delete')}>?id='+this.getAttribute('data-id')"  class="sure" value="确定" />&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

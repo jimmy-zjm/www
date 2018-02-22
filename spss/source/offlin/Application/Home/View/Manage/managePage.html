@@ -1,0 +1,24 @@
+<?php foreach ($data['list'] as $key=>$v){?>
+
+<p class="p-item">客户名称<span class="fr"> <{$v['name']}></span></p>
+<p class="p-item">联系方式<span class="fr"><{$v['tel']}> </span></p>
+			
+<p class="p-item">所在住址<span class="fr"> <{$v['proviace']}><{$v['city']}><{$v['district']}><{$v['address']}></span></p>
+<p class="p-item">创建时间<span class="fr"><{$v['time']}></span></p>
+<p class="p-item  gsgl-btmbtn">
+		<a href="javascript:;"onclick="check(<{$v['id']}>)">备注</a>
+		<a class="gsgl-btmbtn-look" href="__APP__/Manage/check/c_id/<{$v['id']}>.html">查看</a>
+</p>
+   
+
+<div class="clear"></div>
+<?php } ?>
+<div class="clear2"></div>
+<{$page}>
+<script>
+    // 点击分页触发的事件
+    $(".page a").click(function(){
+        cur_page = $(this).attr('data-page');
+        ajax_get_table(cur_page);
+    });
+</script>

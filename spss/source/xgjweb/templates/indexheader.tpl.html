@@ -1,0 +1,199 @@
+<!--选择城市-->
+<script type="text/javascript" src="js/xiala/city-data.js"></script>
+<script type="text/javascript" src="js/xiala/hzw-city-picker.min.js"></script>
+<script type="text/javascript" >
+
+function getCookie(name){
+	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+	if(arr=document.cookie.match(reg))
+	return unescape(arr[2]);
+	elsereturn null;
+	} 
+
+</script>
+<!--选择城市end-->
+<!--导航置顶-->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+var topmenu = jQuery("#mynav");
+var topmenu_top = 0;
+reset_topmenu_top(topmenu, topmenu_top);
+jQuery(window).scroll(function() {
+reset_topmenu_top(topmenu, topmenu_top);
+});
+});
+function reset_topmenu_top(topmenu, topmenu_top) {
+var a=140;
+var document_scroll_top = jQuery(document).scrollTop();
+var b=document_scroll_top -a;
+var topmenubk =jQuery("#mynavbk");
+var mynavspan =jQuery("#mynavspan");
+var mynavimg =jQuery("#mynavimg");
+if (b > topmenu_top) {
+topmenu.css('top', b);
+topmenu.css('background', '#f1f1f1');
+topmenubk.css('background', '#f1f1f1');
+mynavspan.css('display', 'none');
+mynavimg.css('display', 'block');
+}
+if (b <= topmenu_top) {
+topmenu.css('top', topmenu_top);
+topmenu.css('background', '#fff');
+topmenubk.css('background', '#fff');
+mynavspan.css('display', 'block');
+mynavimg.css('display', 'none');
+}
+}
+</script> 
+<!--导航置顶-->
+
+<div class="index-top-bk">
+    <div class="index-top">
+      <!-- <div class="index-top-01">
+        <a href="#">
+          English
+        </a>
+      </div> -->
+    
+      <div class="index-top-02">
+        <img src="images/61.png" alt=""/>
+      </div>
+    
+    {:if !isset($smarty.cookies.city_name):}
+      <div class="index-top-03">
+        <input type="text" id="cityChoice" value="{:$city:}"  onFocus="if (value =='上海'){value =''}" onBlur="if (value ==''){value='上海'}">
+      </div>
+    {:else:}
+      <div class="index-top-03">
+        <input type="text" id="cityChoice" value="{:$smarty.cookies.city_name:}"  onFocus="if (value =='上海'){value =''}" onBlur="if (value ==''){value='上海'}">
+      </div>        
+    {:/if:}  
+      <div class="index-top-09">
+        热线：4008001027
+      </div>
+    
+      <div class="index-top-08">
+        <a href="#">
+         我的收藏
+        </a>
+      </div>
+    
+      <div class="index-top-07">
+        <a href="user.php?order">
+         我的订单
+        </a>
+      </div>
+
+    {:if !isset($smarty.cookies.userName):}
+      <div class="index-top-06"><!--未登陆状态下，显示此DIV隐藏欢迎DIV-->
+        <a href="user.php?register">
+         注册
+        </a>
+      </div>
+    
+      <div class="index-top-05"><!--未登陆状态下，显示此DIV隐藏欢迎DIV-->
+        <a href="user.php?login">
+         登陆
+        </a>
+      </div>
+
+      {:else:}
+      
+      <div class="index-top-11"><!--登陆状态下，显示此DIV隐藏登陆DIV-->
+      		<a href="user.php?center" style='color:red'>
+        		{:$smarty.cookies.userName:} |
+          </a>
+        <a href="user.php?userQuit">
+          退出
+        </a>
+      </div>
+
+      <div class="index-top-12"><!--登陆状态下，显示此DIV隐藏登陆DIV-->
+        欢迎：
+      </div>
+
+    {:/if:}
+      <div class="index-top-10">
+        <a href="index.php?aboutus">
+         关于我们
+        </a>
+      </div>
+    
+      <div class="clear"></div>
+    
+    </div>
+</div>
+
+<div class="clear"></div>
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+        callback: function(){
+        	var expiredays=365;
+        	var exdate=new Date()
+        	exdate.setDate(exdate.getDate()+expiredays)
+        	document.cookie="city_name=" +$('#city').val().replace(/[^\u4e00-\u9fa5]/gi,'')+
+        	((expiredays==null) ? "" : "; expires="+exdate.toGMTString());
+              }
+    });
+    cityPicker.init();
+</script>
+
+<!--选择城市end-->
+<!-- head头部 -->
+<div class="index-head">
+	<div class="index-head-bk">
+    	<div class="index-head-01">
+        	<div class="index-head-01-logo">
+            	<a href="index.php">
+                	<img src="images/logo.png" alt=""/>
+            	</a>
+            </div>
+            
+            <div class="index-head-01-sousuo"> 
+                
+                <form action="search.php" method="get">
+                <input type="hidden" name="searchIndex" />
+	            	<div class="index-head-01-sousuo-01">
+	                	<input id="create-name-02" name="goodsName" type="text" value="海外淘"  onFocus="if (value =='海外淘'){value =''}" onBlur="if (value ==''){value='海外淘'}"/>
+	                </div>
+	                
+	                <div class="index-head-01-sousuo-02">
+	                	<input type="submit" id="selSubmitId" value=""/>
+	                </div>
+                </form>
+            </div>
+            
+            <div class="index-head-01-diqiu">
+            	<a href="index.php?show">
+                    <img src="images/diqiu.png"/>
+                    全国服务展示中心
+                </a>
+            </div>
+            
+            <div class="index-head-01-ewm">
+            	<img src="images/erweima.png"/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- head头部end -->
+
+<div class="clear"></div>

@@ -1,0 +1,864 @@
+<include file="header" />
+<!--导航end-->
+
+<div class="clear3"></div>
+
+<!--中间-->
+<div class="dealer-center">
+	<div class="dealer_zhucai-center">
+    	<!--标题-->
+        <div class="dealer_zhucai-center-title">
+            <div class="dealer_zhucai-center-title-01">
+                主材清单
+            </div>
+            
+           <!--  <div class="dealer_zhucai-center-title-02">
+                <a href="javascript:;" onclick="tanchu01()">
+                    我要上传
+                </a>
+            </div> -->
+            
+            <div class="clear"></div>
+        </div>
+        <!--标题end-->
+        
+        <div class="clear32"></div>
+        
+        <!--房屋信息-->
+        <div class="dealer_zhucai-center-info">
+            <div class="dealer_zhucai-center-info-bk">
+                <div class="dealer_zhucai-center-info-01">
+                    <span class="span01">
+                        订单号：
+                    </span>
+                    
+                    <span class="span02">
+                        <{$orderInfo.order_code}>
+                    </span>
+                </div>
+                
+                <div class="dealer_zhucai-center-info-02">
+                    <span class="span01">
+                        联系人：
+                    </span>
+                    
+                    <span class="span02">
+                        <{$orderInfo.consignee}>
+                    </span>
+                    
+                    <span class="span01">
+                        电话：
+                    </span>
+                    
+                    <span class="span02">
+                        <{$orderInfo.mobile_phone}>
+                    </span>
+                    
+                    <span class="span01">
+                        房屋面积：
+                    </span>
+                    
+                    <span class="span02">
+                        <{$orderInfo.total_area}>平米
+                    </span>
+                    
+                    <span class="span01">
+                        房型：
+                    </span>
+                    
+                    <span class="span02">
+                        <{$orderInfo.house_layout.0}>室<{$orderInfo.house_layout.1}>厅<{$orderInfo.house_layout.2}>厨<{$orderInfo.house_layout.3}>卫<{$orderInfo.house_layout.4}>阳台
+                    </span>
+                    
+                    <span class="span01">
+                        地址：
+                    </span>
+                    
+                    <span class="span02">
+                        <{$orderInfo.province}> <{$orderInfo.city}> <{$orderInfo.district}> <{$orderInfo.address}>
+                    </span>
+                    
+                    <span class="span01">
+                        客户要求：
+                    </span>
+                    
+                    <span class="span02">
+                        <{$orderInfo.postscript}>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!--房屋信息end-->
+        
+        <div class="clear32"></div>
+        
+        <!--第一个表格-->
+        <div class="dealer_zhucai-center-tabs01">
+        	<div class="dealer_zhucai-center-tabs01-title">
+            	<div class="dealer_zhucai-center-tabs01-title-img">
+                	主材图
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs01-title-name">
+                	名称
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs01-title-model">
+                	型号
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs01-title-brand">
+                	品牌
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs01-title-univalent">
+                	单价
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs01-title-unit">
+                	单位
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs01-title-standard">
+                	标准量
+                </div>
+                
+                <!-- <div class="dealer_zhucai-center-tabs01-title-amount">
+                	调整量
+                </div> -->
+                
+                <div class="dealer_zhucai-center-tabs01-title-library">
+                	出库地
+                </div>
+                
+                <!-- <div class="dealer_zhucai-center-tabs01-title-operation">
+                	操作
+                </div> -->
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+
+            <?php foreach ($zhuCaiList as $zhucai): ?>
+			<form action="<{:U('zhuCaiList')}>" method="post">
+                <div class="dealer_zhucai-center-tabs01-demo">
+                    <div class="dealer_zhucai-center-tabs01-demo-img">
+                        <img src="<?= getImage($zhucai['goods_img']) ?>"/>
+                    </div>
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-name">
+                        <{$zhucai.goods_name}>
+                    </div>
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-model">
+                        <{$zhucai.goods_model}>
+                    </div>
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-brand">
+                        <{$zhucai.goods_brand}>
+                    </div>
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-univalent">
+                        <{$zhucai.shop_price}>
+                    </div>
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-unit">
+                        <{$zhucai.goods_unit}>
+                    </div>
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-standard">
+                        <{$zhucai.num}>
+                    </div>
+                    
+                    <!-- <div class="dealer_zhucai-center-tabs01-demo-amount">
+                        <input type="number" name="numberChange" value="<{$zhucai.num}>" min="0" max="99"/>
+                    </div> -->
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-library">
+                        上品上生
+                    </div>
+                    
+                    <div class="dealer_zhucai-center-tabs01-demo-operation">
+                    	<input type="hidden" name="goods_sn" value="<{$zhucai.goods_sn}>"/>
+                        <input type="hidden" name="numberOld" value="<{$zhucai.num}>">
+                        <!-- <input type="hidden" name="goods_img" value="<{$zhucai.goods_img}>"/>
+                        <input type="hidden" name="goods_name" value="<{$zhucai.goods_name}>">
+                        <input type="hidden" name="goods_model" value="<{$zhucai.goods_model}>">
+                        <input type="hidden" name="goods_brand" value="<{$zhucai.goods_brand}>">
+                        <input type="hidden" name="shop_price" value="<{$zhucai.shop_price}>">
+                        <input type="hidden" name="goods_unit" value="<{$zhucai.goods_unit}>"> -->
+                        <!-- <input type="button" onclick='buhuo(this)' value="调整"/> -->
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+			</form>
+			<?php endforeach ?>
+            
+            <div class="clear"></div>
+            
+        </div>
+        <!--第一个表格end-->
+        
+        <div class="clear32"></div>
+
+        <script type="text/javascript">
+        function buhuo(t){
+            var data = $(t).parent().parent().parent().serializeArray();
+            $.getJSON('<{:U("buHuo")}>',data,function(re){
+                $('.dealer_zhucai-center-tabs02-demo').html(re[2]);
+                $('.dealer_zhucai-center-tabs03-demo').html(re[1]);
+                $('.total01').html(re['total'][2]);
+                $('.total02').html(re['total'][1]);
+            })
+        }
+        </script>
+
+        <!--标题-->
+        <!-- <div class="dealer_zhucai-center-title">
+            <div class="dealer_zhucai-center-title-01">
+                补货清单
+            </div>
+            
+            <div class="clear"></div>
+        </div> -->
+        <!--标题end-->
+        
+        <!-- <div class="clear"></div> -->
+        
+        <!--第二个表格-->
+        <!-- <div class="dealer_zhucai-center-tabs02">
+        	<div class="dealer_zhucai-center-tabs02-title">
+            	<div class="dealer_zhucai-center-tabs02-title-img">
+                	辅材图
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-name">
+                	名称
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-model">
+                	型号
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-brand">
+                	品牌
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-univalent">
+                	单价
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-unit">
+                	单位
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-complement">
+                	补货量
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-library">
+                	出库地
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-title-operation">
+                	操作
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_zhucai-center-tabs02-demo">
+                <div class="dealer_zhucai-center-tabs02-demo-img">
+                    <img src="{:$v.goods_img|getImages:}"/>
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-name">
+                    {:$v.goods_name:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-model">
+                    {:$v.goods_model:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-brand">
+                    {:$v.goods_brand:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-univalent">
+                   {:$v.shop_price:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-unit">
+                   {:$v.goods_unit:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-complement">
+                    {:$v.numbers:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-library">
+                    暖扬扬
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs02-demo-operation">
+                    <a href="dealer.php?zhuCaiList&delete=1&goods_sn={:$v.goods_sn:}">
+                        删除
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+                
+            <div class="clear"></div>
+			
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_zhucai-center-tabs02-bottom">
+				<div class="dealer_zhucai-center-tabs02-bottom-add_material">
+                	<a href ="javascript:;" onclick="tanchu02()">
+       					增加补货材料
+       				</a>
+                </div>
+                
+				<div class="dealer_zhucai-center-tabs02-bottom-replenishment_orders">
+                	<a href="dealer.php?insertReplenish&add=3">
+                    	补货订单
+                    </a> 
+                </div>
+                
+            	<div class="dealer_zhucai-center-tabs02-bottom-total">
+                    <span class="span01">
+                    	总价:
+                    </span>
+                    
+                    <span class="span02 total01">
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+        </div> -->
+        <!--第二个表格end-->
+        
+        <!-- <div class="clear32"></div> -->
+        
+        <!--标题-->
+        <!-- <div class="dealer_zhucai-center-title">
+            <div class="dealer_zhucai-center-title-01">
+                退货清单
+            </div>
+            
+            <div class="clear"></div>
+        </div> -->
+        <!--标题end-->
+        
+        <!-- <div class="clear"></div> -->
+        
+        <!--第三个表格-->
+        <!-- <div class="dealer_zhucai-center-tabs03">
+        	<div class="dealer_zhucai-center-tabs03-title">
+            	<div class="dealer_zhucai-center-tabs03-title-img">
+                	主材图
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-title-name">
+                	名称
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-title-model">
+                	型号
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-title-brand">
+                	品牌
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-title-univalent">
+                	单价
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-title-unit">
+                	单位
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-title-quantity">
+                	退货量
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-title-operation">
+                	操作
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_zhucai-center-tabs03-demo">
+                <div class="dealer_zhucai-center-tabs03-demo-img">
+                    <img src="{:$vo.goods_img|getImages:}"/>
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-demo-name">
+					{:$vo.goods_name:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-demo-model">
+					{:$vo.goods_model:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-demo-brand">
+					{:$vo.goods_brand:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-demo-univalent">
+                    {:$vo.shop_price:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-demo-unit">
+                    {:$vo.goods_unit:}
+                </div>
+                
+                <div class="dealer_zhucai-center-tabs03-demo-quantity">
+                    {:$vo.numbers:}
+                </div>
+                
+                
+                <div class="dealer_zhucai-center-tabs03-demo-operation">
+                    <a href="dealer.php?zhuCaiList&delete=2&goods_sn={:$vo.goods_sn:}">
+                        删除
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+                
+            <div class="clear"></div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_zhucai-center-tabs03-bottom">
+				<div class="dealer_zhucai-center-tabs03-bottom-add_material">
+                	<a href ="javascript:;" onclick="tanchu03()">
+       					增加退货材料
+       				</a>
+                </div>
+                
+				<div class="dealer_zhucai-center-tabs03-bottom-replenishment_orders">
+                	<a href="dealer.php?insertReplenish&add=4">
+                    	退货订单
+                    </a> 
+                </div>
+                
+            	<div class="dealer_zhucai-center-tabs03-bottom-total">
+                    <span class="span01">
+                    	总价:
+                    </span>
+                    
+                    <span class="span02 total02">
+
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+        </div> -->
+        <!--第三个表格end-->
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+
+
+<include file="Public:footer"/>
+
+
+<!--上传文件弹出-->
+<div id="tanchu_Id" class="tanchu">   
+    <div class="tanchu_file-center-bk"> 
+        <div class="tanchu_file-center">
+            <div class="tanchu_file-center-title">                
+                <div class="tanchu_file-center-title-span">
+                	文件上传
+                </div>
+                
+                <div class="tanchu_file-center-title-cha" id="tanchu_Out_Id" onclick="delete01()">
+                	<img src="images/cha04.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="tanchu_file-center-list">
+            	<form action="dealer.php?uploadFile" method="post" enctype="multipart/form-data">
+                    <div class="tanchu_file-center-list-demo01">
+                        <div class="tanchu_file-center-list-demo01-left">
+                            文件名称：
+                        </div>
+                        
+                        <div class="tanchu_file-center-list-demo01-right">
+                            <input type="text" name="file_name" id="keyword" value="">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="tanchu_file-center-list-demo01">
+                        <div class="tanchu_file-center-list-demo01-left">
+                            文件类型：
+                        </div>
+                        
+                        <div class="tanchu_file-center-list-demo01-right">
+                            <input type="text" name="file_type" id="keyword" value="">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="tanchu_file-center-list-demo01">
+                        <div class="tanchu_file-center-list-demo01-left">
+                            上传人：
+                        </div>
+                        
+                        <div class="tanchu_file-center-list-demo01-right">
+                            <input type="text" name="upload_name" id="keyword" value="">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="tanchu_file-center-list-demo01">
+                        <div class="tanchu_file-center-list-demo01-left">
+                            文件描述：
+                        </div>
+                        
+                        <div class="tanchu_file-center-list-demo01-right">
+                            <input type="text" name="file_describe" id="keyword" value="">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="tanchu_file-center-list-demo02">
+                        <div class="tanchu_file-center-list-demo02-left">
+                            选择文件：
+                        </div>
+                        
+                        <div class="tanchu_file-center-list-demo02-right">
+                            <input type="file" name="file" id="upload">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <input type="hidden" name="class" value="2"/><!--原稿上的input，不清楚意思-->
+                    
+                    <div class="tanchu_file-center-list-demo03"  onclick="delete01()">
+                        <input type="submit" value="上传" />
+                    </div>                
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function tanchu01(){
+	$("#tanchu_Id").fadeIn();	
+}
+
+function delete01(){
+	$("#tanchu_Id").fadeOut();
+}
+</script>
+<!--上传文件弹出end-->
+
+
+
+
+
+
+<!--增加补货材料弹出-->
+<div id="tanchu_Id02" class="tanchu">   
+    <div class="tanchu_add_material-center-bk"> 
+        <div class="tanchu_add_material-center">
+            <div class="tanchu_add_material-center-title">                
+                <div class="tanchu_add_material-center-title-span">
+                	增加补货材料
+                </div>
+                
+                <div class="tanchu_add_material-center-title-cha" id="tanchu_Out_Id" onclick="delete02()">
+                	<img src="images/cha04.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <form action="dealer.php?addReplenishZhu" method="post">
+                <div class="dealer_zhucai-center-tabs04">
+                    <div class="dealer_zhucai-center-tabs04-title">
+                        <div class="dealer_zhucai-center-tabs04-title-img">
+                            主材图
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-title-name">
+                            名称
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-title-model">
+                            型号
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-title-brand">
+                            品牌
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-title-univalent">
+                            单价
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-title-unit">
+                            单位
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-title-amount">
+                            标准量
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    {:foreach $zhucaiList as $zhucai:}
+            		{:if !empty($zhucai['list']):}
+                    <div class="dealer_zhucai-center-tabs04-demo">
+                        <div class="dealer_zhucai-center-tabs04-demo-img">
+                            <img src="{:$zhucai.list.goods_img|getImages:}"/>
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-demo-name">
+                            {:$zhucai.list.goods_name:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-demo-model">
+                            {:$zhucai.list.goods_model:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-demo-brand">
+                            {:$zhucai.list.goods_brand:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-demo-univalent">
+                            {:$zhucai.list.shop_price:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-demo-unit">
+                            {:$zhucai.list.goods_unit:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs04-demo-amount">
+                            <input name="numbers[]" type="number"  max="66" min="0"/>
+                            <input type="hidden" name="goods_sn[]" value="{:$zhucai.goods_sn:}"/>
+							<input type="hidden" name="goods_img[]" value="{:$zhucai.list.goods_img:}"/>
+							<input type="hidden" name="goods_name[]" value="{:$zhucai.list.goods_name:}">
+							<input type="hidden" name="goods_model[]" value="{:$zhucai.list.goods_model:}">
+							<input type="hidden" name="goods_brand[]" value="{:$zhucai.list.goods_brand:}">
+							<input type="hidden" name="shop_price[]" value="{:$zhucai.list.shop_price:}">
+							<input type="hidden" name="goods_unit[]" value="{:$zhucai.list.goods_unit:}">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                        
+                    <div class="clear"></div>
+                    
+                    {:/if:}
+                    {:/foreach:}
+                </div>
+                
+                <div class="clear27"></div>
+                
+                <div class="dealer_zhucai-center-tabs04-sub">
+                    <input type="submit" value="提交" />
+                </div>
+                
+                <div class="clear27"></div>            
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function tanchu02(){
+	$("#tanchu_Id02").fadeIn();	
+}
+
+function delete02(){
+	$("#tanchu_Id02").fadeOut();
+}
+</script>
+<!--增加补货材料弹出end-->
+
+
+
+
+<!--增加退货材料弹出-->
+<div id="tanchu_Id03" class="tanchu">   
+    <div class="tanchu_add_material-center-bk"> 
+        <div class="tanchu_add_material-center">
+            <div class="tanchu_add_material-center-title">                
+                <div class="tanchu_add_material-center-title-span">
+                	增加退货材料
+                </div>
+                
+                <div class="tanchu_add_material-center-title-cha" id="tanchu_Out_Id" onclick="delete03()">
+                	<img src="images/cha04.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <form action="dealer.php?addRefundZhu" method="post">
+                <div class="dealer_zhucai-center-tabs05">
+                    <div class="dealer_zhucai-center-tabs05-title">
+                        <div class="dealer_zhucai-center-tabs05-title-img">
+                            辅材图
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-title-name">
+                            名称
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-title-model">
+                            型号
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-title-brand">
+                            品牌
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-title-univalent">
+                            单价
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-title-unit">
+                            单位
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-title-amount">
+                            标准量
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    {:foreach $zhucaiList as $zhucai:}
+          			{:if !empty($zhucai['list']):}
+                    <div class="dealer_zhucai-center-tabs05-demo">
+                        <div class="dealer_zhucai-center-tabs05-demo-img">
+                            <img src="{:$zhucai.list.goods_img|getImages:}"/>
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-demo-name">
+                            {:$zhucai.list.goods_name:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-demo-model">
+                            {:$zhucai.list.goods_model:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-demo-brand">
+                            {:$zhucai.list.goods_brand:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-demo-univalent">
+                            {:$zhucai.list.shop_price:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-demo-unit">
+                            {:$zhucai.list.goods_unit:}
+                        </div>
+                        
+                        <div class="dealer_zhucai-center-tabs05-demo-amount">
+                            <input name="numbers[]" type="number"  max="66" min="0"/>
+							<input type="hidden" name="goods_sn[]" value="{:$zhucai.goods_sn:}"/>
+							<input type="hidden" name="goods_img[]" value="{:$zhucai.list.goods_img:}"/>
+							<input type="hidden" name="goods_name[]" value="{:$zhucai.list.goods_name:}">
+							<input type="hidden" name="goods_model[]" value="{:$zhucai.list.goods_model:}">
+							<input type="hidden" name="goods_brand[]" value="{:$zhucai.list.goods_brand:}">
+							<input type="hidden" name="shop_price[]" value="{:$zhucai.list.shop_price:}">
+							<input type="hidden" name="goods_unit[]" value="{:$zhucai.list.goods_unit:}">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                        
+                    <div class="clear"></div>
+                    
+                    {:/if:}
+                    {:/foreach:}
+                </div>
+                
+                <div class="clear27"></div>
+                
+                <div class="dealer_zhucai-center-tabs05-sub">
+                    <input type="submit" value="提交" />
+                </div>
+                
+                <div class="clear27"></div>            
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function tanchu03(){
+	$("#tanchu_Id03").fadeIn();	
+}
+
+function delete03(){
+	$("#tanchu_Id03").fadeOut();
+}
+</script>
+<!--增加退货材料弹出end-->
+</body>
+</html>

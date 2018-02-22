@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="editor/kindeditor.js"></script>
+
+<script type="text/javascript">
+    KE.show({
+        id : 'content7',
+        cssPath : './index.css'
+    });
+  </script>
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345
+	});
+	$(".select2").uedSelect({
+		width : 167
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+</script>
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="index.php">首页</a></li>
+    <li><a href="ad.php">广告图片</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1"  class="{:if isset($tab) && $tab eq 1:}selected{:else:}{:/if:}">导航广告</a></li> 
+    <li><a href="#tab2"  class="{:if isset($tab) && $tab eq 2:}selected{:else:}{:/if:}">自定义广告</a></li> 
+  	</ul>
+    </div>  
+    
+    
+    <div id="tab1" class="tabson">
+    
+    <div class="rightinfo">
+       <div class="tools">
+	    	<ul class="toolbar">
+	        <li class="click"><a href="?nav_add"><span><img src="images/t01.png" /></span>添加</a></li>
+	        </ul>
+	    </div>
+	    
+	    <table class="imgtable">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;">编号</th>
+	    <th>广告</th>
+	    <th>名称</th>
+	    <th>类型</th>
+	    <th>URL</th>
+	    <th>排序</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    {:foreach $ad_list_nav as $v:}
+	    <tr>
+	    <td>{:$v.ad_id:}</td>
+	    <td class="imgtd">
+	    <img src="../pictures/ad_nav/upload/thumb/s_{:$v.ad_img:}" />
+	    </td>
+	    <td><a href="?nav_edit&ad_id={:$v.ad_id:}">{:$v.ad_name:}</a></td>
+	    <td>{:$v.ad_type|shift_ad_type:}</td>
+	    <td>{:$v.ad_url:}</td>
+	    <td>{:$v.sort_order:}</td>
+	    <td><a href='?nav_edit&ad_id={:$v.ad_id:}'>修改</a>|<a href='?nav_del&ad_id={:$v.ad_id:}' onclick="return confirm('您确定要删除吗？')">删除</a></td>
+	    </tr>
+	    {:/foreach:}
+	    </tbody>
+	    </table>
+	     	<div class="page">
+				{:$page_nav:}
+			</div>
+    </div>
+    
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+     <div class="rightinfo">
+       <div class="tools">
+	    	<ul class="toolbar">
+	        <li class="click"><a href="?custom_add"><span><img src="images/t01.png" /></span>添加</a></li>
+	        </ul>
+	    </div>
+	    
+	    <table class="imgtable">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;">编号</th>
+	    <th width="460px;">广告</th>
+	    <th>名称</th>
+		<!-- <th>标题</th>
+		<th>内容</th>
+		<th>简介</th> -->
+		<th>位置</th>
+	    <th>类型</th>
+	    <th>URL</th>
+	    <th>排序</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    {:foreach $ad_list_custom as $v:}
+	    <tr>
+	    <td>{:$v.ad_id:}</td>
+	    <td class="imgtd">
+	    <img src="../pictures/ad_custom/upload/thumb/s_{:$v.ad_img:}" />
+	    </td>
+	    <td><a href="?custom_edit&ad_id={:$v.ad_id:}">{:$v.ad_name:}</a></td>
+		<!-- <td>{:$v.title:}</td>
+		<td>{:$v.content:}</td>
+		<td>{:$v.abstract:}</td> -->
+		<td>{:$v.position|shift_ad_position:}</td>
+	    <td>{:$v.ad_type|shift_ad_type:}</td>
+	    <td>{:$v.ad_url:}</td>
+	    <td>{:$v.sort_order:}</td>
+	    <td><a href='?custom_edit&ad_id={:$v.ad_id:}'>修改</a>|<a href='?custom_del&ad_id={:$v.ad_id:}' onclick="return confirm('您确定要删除吗？')">删除</a></td>
+	    </tr>
+	    {:/foreach:}
+	    </tbody>
+	    </table>
+	     	<div class="page">
+				{:$page_custom:}
+			</div>
+    </div>  
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    </div>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

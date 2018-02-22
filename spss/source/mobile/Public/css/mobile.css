@@ -1,0 +1,576 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+a{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	text-decoration:none;
+	
+}
+.head{
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+    text-align: center;
+	box-shadow:0px 1px 5px rgba(155, 160, 165, 0.61);
+    position:relative;
+    z-index:100;
+}
+.head-2 {
+    width: 76%;
+    height: 45px;
+    position: relative;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    line-height: 45px;
+}
+.head-son {
+    display: block;
+    float: left;
+}
+.head .head-1,.head .head-3{
+	display:block;
+	position:relative;
+	float:left;
+	width:45px;
+	height:45px;
+}
+.head .head-3{
+	float:right;
+}
+.head .head-1 img,.head .head-3 img{
+	position:absolute;
+	height:16px;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
+}
+.content{
+	width: 100%;
+	height: auto;
+	overflow:hidden;
+}
+/*第一块*/
+.content-kuai1{
+	width: 100%;
+	height: 530px;
+	position: relative;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+.kuai1-img1{
+	width: 100%;
+	height: 100%;
+}
+.kuai1-img2-anima{
+	animation: kuai1-animation 2s linear ;
+}
+.kuai1-img2{
+	width: 93%;
+	height: 370px;
+	position: absolute;
+	left: 13%;
+	bottom: 10px;
+	z-index: 100;
+
+}
+@keyframes kuai1-animation{
+	0%{bottom: 10px;}
+	50%{bottom:20px ;}
+	100%{bottom: 30px;}
+} 
+/*第一块end*/	
+
+/*第二块*/
+.content-kuai2{
+	width: 100%;
+	height: 520px;
+	overflow: hidden;
+	margin-top: 5px;
+	padding-bottom: 15px;
+}
+.kuai2-1{
+	height:178px;
+	width: 100%;
+}
+.kuai2-3{
+	height: 180px;
+	width: 80%;
+	display: block;
+	margin: 0 auto;
+}
+.content-kuai2-nei{
+	width: 100%;
+	height: 165px;
+	position: relative;
+	top: 10px;
+}
+.kuai2-2{
+	height: 150px;
+	width: 60%;
+}
+.kuai2-4{
+	width: 45%;
+	height: 35px;
+	position: absolute;
+	top: 15px;
+	right: 0;
+}
+.kuai2-txt{
+	width: 45%;
+	height: 14px;
+	margin-top: 10px;
+	font-size: 1em;
+	position: absolute;
+	top: 50px;
+	right: 0;
+	text-align: left;
+	color: #595857;
+}
+.kuai2-txt1{
+	top: 70px;
+}
+/*第二块end*/
+
+/*第三块*/
+.content-kuai3{
+	width: 100%;
+	height: auto;
+	background: #eaeef0;
+	overflow: hidden;
+}
+.kuai3-nei{
+	width: 100%;
+	height: 192px;
+	position: relative;
+	overflow: hidden;
+}
+.kuai3-img1{
+	width: 45%;
+	height: 35px;
+	position: absolute;
+	top: 56px;
+}
+.kuai3-img2{
+	width: 35%;
+	height: 160px;
+	position: absolute;
+	top: 50px;
+	right: 10%;
+	z-index: 100;
+
+}
+.kuai3-img2-anima{
+	animation: kuai3-animation 1s linear ;
+}
+@keyframes kuai3-animation{
+	from{top: 50px;}
+	to{top:30px ;}
+} 
+.kuai3-img4{
+	width: 90%;
+	height: 7px;
+	position: absolute;
+	bottom: 0;
+	transform:translateY(-2px);
+	-webkit-transform:translateY(-2px);
+	left: 5%;
+}
+.kuai3-txt{
+	width: 45%;
+	height: auto;
+	position: absolute;
+	top: 103px;
+	font-size: 1em;
+	color: #595857;
+	text-align: right;
+
+}
+.kuai3-txt1{
+	top: 120px;
+}
+.kuai3-nei1{
+	width: 100%;
+	height: 170px;
+}
+.nei1-txt{
+	width: 100%;
+	height: auto;
+	font-size: 1.5em;
+	color: #3e3a39;
+	margin-top: 19px;
+	text-align: center;
+}
+.kuai3-img3{
+	width: 90%;
+	height: 90px;
+	display: block;
+	margin: 19px auto;
+}
+/*第三块end*/
+/*第四块*/
+.content-kuai4{
+	width: 100%;
+	height: 368px;
+	position: relative;
+}
+.kuai4-img1{
+	width: 100%;
+	height: 100%;
+}
+.kuai4-img2{
+	width: 19%;
+	height: 74px;
+	position: absolute;
+	top:40%;
+	left: 32%;
+	margin: auto;
+	z-index: 100;
+
+}
+.kuai4-img2-anima{
+	animation: kuai4-animation 1s linear;
+}
+.kuai4-img3{
+	width: 40%;
+	height:33px;
+	position: absolute;
+	top: 41%;
+	right: 0;
+	z-index: 100;
+
+}
+@keyframes kuai4-animation{
+	from{transform: rotate(360deg);}
+	to{transform: rotate(0deg);;}
+} 
+.kuai4-txt2{
+	width: 40%;
+	height:35px;
+	position: absolute;
+	right: 0;
+	top: 55%;
+	font-size: 1em;
+	color: #fefefe;
+}
+.kuai4-txt1{
+	top: 50%;
+	font-size: 1.2em;
+}
+.kuai4-txt3{
+	top: 59%
+}
+/*第四块end*/
+/*第五块*/
+.content-kuai5{
+	width: 100%;
+	height: 350px;
+	position: relative;
+	background: #eff2f4;
+}
+.kuai5-img1{
+	width: 50%;
+	height: 180px;
+	position: absolute;
+	bottom: 10px;
+	left: 25%;
+}
+
+.kuai5-img2{
+	width: 55%;
+	height: 30px;
+	position: absolute;
+	top: 30px;
+	left: 22.5%;
+}
+.kuai5-txt{
+	width: 60%;
+	height: 35px;
+	position: absolute;
+	top: 70px;
+	left:20%;
+	color: #3e3a39;
+	font-size: 1.2em;
+	text-align: center;
+}
+.kuai5-txt1{
+	top: 90px;	
+}
+.kuai5-img1-anima{
+	animation: kuai5-animation 1s linear;
+}
+@keyframes kuai5-animation{
+	0%{bottom: 10px;}
+	/*to{bottom:30px ;}*/
+	50%{bottom: 20px;}
+	100%{bottom: 30px;}
+}
+/*第五块end*/
+/*第六块*/
+.content-kuai6{
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+.kuai6-img1{
+	width: 100%;
+	/*height: 250px;*/
+}
+.kuai6-img2{
+	width: 40%;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	top: 30px;
+}
+.kuai6-txt{
+	width: 40%;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	top: 70px;
+	text-align: right;
+	font-size: 1em;
+	color: #fefefe;
+}
+
+.kuai6-img3{
+	width: 50%;
+	height: 160px;
+	position: absolute;
+	left: 25%;
+	bottom: 10px;
+
+}
+.kuai6-img3-anima{
+	animation: kuai6-animation 1s linear;
+}
+@keyframes kuai6-animation{
+	from{bottom: 10px;}
+	to{bottom:50px ;}
+}
+/*第六块end*/
+
+/*第七块*/
+.content-kuai7{
+	width: 100%;
+	height: 360px;
+	position: relative;
+}
+.kuai7-img1{
+	position:absolute;
+	left: 50%;
+	top:20px;
+	transform: translateX(-50%);
+	height: 30px;
+}
+.kuai7-img2{
+	width: 22%;
+	height: 35px;
+	margin-left: 4%;
+	margin-top: 56px;
+}
+.kuai7-txt{
+	font-size: 1em;
+	color: #595857;
+	width: 60%;
+	height: 15px;
+	margin-left: 4%;
+}
+.kuai7-txt-te{
+
+}
+.kuai7-img3{
+	width:75%;
+	height: 200px;
+	position: absolute;
+	bottom: 0px;
+	left: 17%;
+}
+.kuai7-img3-anima{
+	animation: kuai7-img3n-anima 1s linear;
+}
+@keyframes kuai7-img3n-anima{
+	0%{bottom: 0px;}
+	100%{bottom: 17px;}
+}
+.kuai7-anima-all{
+	animation: kuai7-animation-all 2s linear;
+}
+@keyframes kuai7-animation-all{
+	0%{opacity: 0.2;}
+	50%{opacity:0.6 ;}
+	100%{opacity:1}
+}
+/*第七块end*/
+/*第八块*/
+.content-kuai8{
+	width: 100%;
+	height: 320px;
+	position: relative;
+}
+.kuai8-line{
+	width: 85%;
+	height: 1px;
+	background: #c4c4c4;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+.kuai8-img2{
+	margin-left: 4%;
+	width: 22%;
+	height: 35px;
+}
+.kuai8-txt{
+	margin-left: 4%;
+	font-size: 1em;
+	color: #595857;
+	width: 60%;
+	height: 15px;
+	z-index: 1000;
+}
+.kuai8-img3{
+	width: 90%;
+	height: 150px;
+	position: absolute;
+	bottom: 5px;
+	left: 5%;
+}
+.kuai8-img3-anima{
+	animation: kuai8-img3-anima 1s linear;
+}
+@keyframes kuai8-img3-anima{
+	0%{bottom: 5px;}
+	100%{bottom: 20px;}
+}
+.content-kuai9{
+	width: 100%;
+	padding:0 10px 45px 10px;
+	height: auto;
+	box-sizing:border-box;
+}
+.content-kuai9 img{
+	width: 100%;
+	height: 100%;
+	margin-bottom: 20px;
+}
+/*第八块end*/
+
+/*第10块*/
+.content-kuai10{
+	width: 100%;
+	height: 450px;
+	background: url(../img/kuai10-img1.png);
+	position: relative;
+}
+.kuai10-img1{
+	width: 50%;
+	height: 35px;
+	position: absolute;
+	top: 50px;
+	left: 25%;
+}
+.kuai10-img2{
+	width: 60%;
+	height: 90px;
+	position: absolute;
+	bottom: 110px;
+	right: 18%;
+	
+}
+.kuai10-anima{
+	animation: kuai10-anima 1s linear;	
+}
+.kuai10-img3{
+	width: 42%;
+	height: 130px;
+	position: absolute;
+	top: 100px;
+	left: 2%;
+}
+.kuai10-img4{
+	width: 48%;
+	height: 140px;
+	position: absolute;
+	top: 100px;
+	right: 2%;
+}
+.kuai10-img5{
+	width: 50%;
+	height: 110px;
+	position: absolute;
+	bottom: 54px;
+	left: 4%;
+}
+@keyframes kuai10-anima{
+	0%{bottom: 110px;}
+	100%{bottom: 140px;}
+}
+
+/*块11*/
+.content-kuai11{
+	width: 100%;
+	height: 360px;
+	background: #eff2f4;
+	position: relative;
+}
+.kuai11-1{
+	width: 68%;
+	height:35px ;
+	position: absolute;
+	top: 70px;
+	right: 0;
+}
+.kuai11-2{
+	font-size: 14px;
+	position: absolute;
+	top: 135px;
+	right: 9%;
+}
+.kuai11-3{
+	font-size: 14px;
+	position: absolute;
+	top: 155px;
+	right: 21%;
+}
+.kuai11-4{
+	font-size: 14px;
+	position: absolute;
+	top: 175px;
+	right: 26%;
+}
+.kuai11-5{
+	width: 46%;
+	height: 170px;
+	font-size: 16px;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+}
+.kuai11-anima{
+	animation: kuai11-anima 1s linear ;	
+}
+@keyframes kuai11-anima{
+	0%{bottom: 20px;}
+	100%{bottom: 70px;}
+}
+.bottomBtn{
+	display: block;
+	width: 100%;
+	height:45px;
+	text-decoration: none;
+	line-height: 45px;
+	text-align: center;
+	background: #e83428;
+	color: #fff;
+	opacity: 0.9;
+	position: fixed;
+	bottom: 0;
+	z-index:100;
+	font-size: 18px;
+}

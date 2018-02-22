@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Admin/js/jquery.js"></script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	    <li><a >健康舒适家居</a></li>
+	    <li><a href="<{:U('index')}>">用户评论</a></li>
+	    <li><a href="<{:U('info',array('comment_id'=>$info_list[0]['comment_id']))}>">查看评论</a></li>
+	    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    <table class="listtable">
+	    <tbody>
+		    <tr>
+		      <td>
+		      <b><{$info_list[0]['user_name']}></b>&nbsp;于      &nbsp;<?php echo date('Y-m-d H:i:s',$info_list[0]['addtime'])?>&nbsp;对&nbsp;<b><?php if (!empty($info_list[0]['goods_name'])){?><{$info_list[0]['goods_name']}><?php }else if (!empty($info_list[0]['quote_name'])){?><{$info_list[0]['quote_name']}>系统<?php }?></b>&nbsp;发表评论    </td>
+		    </tr>
+		    <tr>
+		      <td><hr size="1" color="#dadada"></td>
+		    </tr>
+		    <tr>
+		      <td>
+		        <div style="overflow:hidden; word-break:break-all;"><{$info_list[0]['content']}></div>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="center">
+					<?php if($info_list[0]['status'] == 1){?>
+						<a href="<{:U('change',array('status'=>2,'comment_id'=>$info_list[0]['comment_id']))}>"><input type="button" class="sure" value='允许显示'/></a>
+					<?php }else if ($info_list[0]['status'] == 2){?>
+						<a href="<{:U('change',array('status'=>1,'comment_id'=>$info_list[0]['comment_id']))}>"><input type="button" class="sure" value="禁止显示"/></a>
+					<?php }?>
+
+
+		                
+		            </td>
+		    </tr>
+	  	</tbody>
+	    </table>
+	    </div>
+</body>
+</html>
+

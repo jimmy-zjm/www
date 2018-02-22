@@ -1,0 +1,259 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/hevaluate.css" ><!-- 个人中心页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/examples.css" ><!-- 星级评分CSS -->
+<div class="clear2"></div>
+
+<div class="user-center">  
+	<div class="user-fuEvaluation">
+    	<div class="user-fuEvaluation-form">
+        	<div class="clear2"></div>
+            
+        	<div class="user-fuEvaluation-form-title">
+            	<span class="span01">
+                	<{$commentRow.comment.user_name}>
+                </span>
+                
+                <span class="span02">
+                	于 <{$commentRow.comment.add_time|date="Y-m-d H:i:s",###}> 对
+                </span>
+                
+                <span class="span01">
+                	<{$commentRow.quote.quote_name}>
+                </span>
+                
+                <span class="span02">
+                	发表了评论
+                </span>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="user-fuEvaluation-form-info">
+            	<div class="user-fuEvaluation-form-info-span">
+                	基本信息：
+                </div>
+                
+                <div class="user-fuEvaluation-form-info-list">
+                	<div class="user-fuEvaluation-form-info-list-demo">
+                    	<span class="span01">
+                        	施工房型：
+                        </span>
+                        
+                        <span class="span02">
+                        	<if condition="$commentRow.quote.house_type eq 1">      公寓
+                            <elseif condition="$commentRow.quote.house_type eq 2" /> 叠加
+                            <elseif condition="$commentRow.quote.house_type eq 3" /> 联排
+                            <elseif condition="$commentRow.quote.house_type eq 4"/> 独栋
+                            </if>
+                        </span>
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-info-list-demo">
+                    	<span class="span01">
+                        	房屋总面积：
+                        </span>
+                        
+                        <span class="span02">
+                        	<{$commentRow.quote.total_area}> 平米
+                        </span>
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-info-list-demo">
+                    	<span class="span01">
+                        	房屋所在地：
+                        </span>
+                        
+                        <span class="span02">
+                        	<{$commentRow.quote.house_city}> 
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="user-fuEvaluation-form-star">
+            	<div class="user-fuEvaluation-form-star-total">
+                	<div class="user-fuEvaluation-form-star-total-span">
+                    	综合得星：
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-star-total-score">
+                        
+                       <for start="0" end="$commentRow.comment.star">
+                    	<div class="user-fuEvaluation-form-star-total-score-img"><!--有几个星就循环几个demo-->
+                        	<img src="__PUBLIC__/img/xing02.png"/>
+                        </div>
+                        </for>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear2"></div>
+                
+                <div class="user-fuEvaluation-form-star-list">
+                	<div class="user-fuEvaluation-form-star-list-demo">
+                    	<div class="user-fuEvaluation-form-star-list-demo-span">
+                            商品满意程度：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-star-list-demo-score">
+                            <for start="0" end="$commentRow.comment.goods">
+                                <div class="user-fuEvaluation-form-star-list-demo-score-img"><!--有几个星就循环几个demo-->
+                                    <img src="__PUBLIC__/img/xing02.png"/>
+                                </div>
+                            </for>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-star-list-demo">
+                    	<div class="user-fuEvaluation-form-star-list-demo-span">
+                            经销商服务：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-star-list-demo-score">
+                           <for start="0" end="$commentRow.comment.distributor">
+                                <div class="user-fuEvaluation-form-star-list-demo-score-img"><!--有几个星就循环几个demo-->
+                                    <img src="__PUBLIC__/img/xing02.png"/>
+                                </div>
+                            </for>
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-star-list-demo">
+                    	<div class="user-fuEvaluation-form-star-list-demo-span">
+                            施工人员服务：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-star-list-demo-score">
+                            <for start="0" end="$commentRow.comment.personnel">
+                            <div class="user-fuEvaluation-form-star-list-demo-score-img"><!--有几个星就循环几个demo-->
+                                <img src="__PUBLIC__/img/xing02.png"/>
+                            </div>
+                            </for>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-star-list-demo">
+                    	<div class="user-fuEvaluation-form-star-list-demo-span">
+                            施工满意程度：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-star-list-demo-score">
+                            <for start="0" end="$commentRow.comment.construction">
+								<div class="user-fuEvaluation-form-star-list-demo-score-img"><!--有几个星就循环几个demo-->
+									<img src="__PUBLIC__/img/xing02.png"/>
+								</div>
+                            </for>
+                           
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-star-list-demo">
+                    	<div class="user-fuEvaluation-form-star-list-demo-span">
+                            是否按时完工：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-star-list-demo-span">
+                            <if condition="$commentRow.comment.is_time eq 1"> 是
+                            <else /> 否
+                            </if> 
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user-fuEvaluation-form-star-list-demo">
+                    	<div class="user-fuEvaluation-form-star-list-demo-span">
+                            工地现场是否整洁：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-star-list-demo-span">
+                        	<if condition="$commentRow.comment.is_clean eq 1"> 是
+                            <else/> 否
+                            </if> 
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+            
+            <div class="clear2"></div>
+            
+            <div class="user-fuEvaluation-form-evaluate">
+            	<div class="user-fuEvaluation-form-evaluate-span">
+                	综合评价：
+                </div>
+                
+                <div class="user-fuEvaluation-form-evaluate-info">
+                	<{$commentRow.comment.content}>
+                </div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <if condition="!empty($commentRow.images)">
+            <div class="user-fuEvaluation-form-picture">
+
+            	<div class="user-fuEvaluation-form-picture-span">
+                	图片展示：
+                </div>
+                
+                <!-- banner轮播图片 -->
+                
+                <div class="flicker-example" data-block-text="false">    
+                    <ul>
+                        <foreach name="commentRow.images"  key="k" item="v">
+                        <li style="text-align:center;margin-top:20px;">
+							<img src="__PUBLIC__/Uploads/<{$v}>"/>
+                        </li>  
+                        </foreach>
+                    </ul>
+                </div>
+                
+                <!-- banner轮播图片end -->
+            </div>
+            </if>
+            
+            <div class="clear3"></div>            
+        </div>
+    </div>
+      
+	<div class="clear"></div>
+</div>
+
+<div class="clear3"></div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+.errors-conter{
+	with:100%;
+	background:#e1dbcf;}
+	
+.errors-conter-img{
+	width:658px;
+	height:499px;
+	margin:0 auto;}
+	
+.errors-conter-img img{
+	width:658px;
+	height:499px;}
+	
+.errors-conter-img a{
+	display:block;}

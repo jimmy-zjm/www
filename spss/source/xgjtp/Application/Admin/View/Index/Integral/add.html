@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>积分列表-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="<{:U('Admin/Index/index/main')}>">首页</a></li>
+            <li><a href="">积分管理</a></li>
+            <li><a href="">积分列表</a></li>
+            <li><a href="">增加积分</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('add_exe')}>" method="post">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <input type="hidden" name="user_id" value="<{$user_id}>"/>
+                <input type="hidden" name="user_name" value="<{$user_name}>"/>
+                <!-- 用户名 -->
+                <li><label>用户名</label><span style="padding-top: 6px;"><{$user_name}></span><i></i></li>
+
+                <!-- 订单编号 -->
+                <li><label>订单编号</label><select class="dfinput" style="width:200px;" name='order'><option value="0">赠送</option></select></li>
+
+                <!-- 积分 -->
+                <li><label>积分</label><input name="integral" type="text" class="dfinput" style="width:200px;" /></li>
+
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

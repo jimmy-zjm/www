@@ -1,0 +1,134 @@
+{:include file='user_header.tpl.html':}
+
+{:include file="category/category.tpl.html":}
+{:include file='user_left.tpl.html':}
+
+
+<script type="text/javascript" src="js/T_checkForm.js"></script>
+<script type="text/javascript" src="js/address.js"></script>
+<style>
+    .ErrorDivClass{
+        float: left;
+        font-size: 18px;
+        color: red;
+        font-family: "Lucida Grande", tahoma, arial, 宋体;
+        margin: -33px 0 0 600px;
+        display: none;
+    }
+
+    .mustTextClass{
+        color: red;
+        font-family: "Lucida Grande", tahoma, arial, 宋体;
+        padding: 0 8px 0 0;
+    }
+</style>
+
+<!-- user右边，引用头部时倒入这个div -->
+<div class="user-right">
+    <div class="useraddresscenter-title">
+        我的收货地址
+    </div>
+
+    <div class="clear12"></div>
+
+    <!--个人信息详细-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+        <form action="order.php?doAddrInfoEdit" method="post">
+            <input type="hidden" name="addrId" value="{:$addrInfoSelList.a_id:}">
+            <div class="useraddresscenter-order">
+                <div class="clear2"></div>
+
+                <div class="useraddresscenter-order-name">
+                    <div class="useraddresscenter-order-name-left">
+                        <span class="mustTextClass">*</span>收货人：
+                    </div>
+
+                    <div class="useraddresscenter-order-name-right">
+                        <input type="text" name="receivingName" id="UserNameTextId" value="{:$addrInfoSelList.a_name:}" />
+                    </div>
+                    <div id="ErrorUserNameDivId" class="ErrorDivClass"></div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="useraddresscenter-order-phone">
+                    <div class="useraddresscenter-order-phone-left">
+                        <span class="mustTextClass">*</span>手机号码：
+                    </div>
+
+                    <div class="useraddresscenter-order-phone-right">
+                        <input type="text" name="mobile" id="mobileTextId" value="{:$addrInfoSelList.a_mobile_phone:}" />
+                    </div>
+                    <div id="ErrorMobileDivId" class="ErrorDivClass"></div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="useraddresscenter-order-phone">
+                    <div class="useraddresscenter-order-phone-left">
+                        固定电话：
+                    </div>
+
+                    <div class="useraddresscenter-order-phone-right">
+                        <input type="text" name="phone" id="phoneTextId" value="{:$addrInfoSelList.a_phone:}" />
+                    </div>
+                    <div id="ErrorPhoneDivId" class="ErrorDivClass"></div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="useraddresscenter-order-email">
+                    <div class="useraddresscenter-order-email-left">
+                        电子邮箱：
+                    </div>
+
+                    <div class="useraddresscenter-order-email-right">
+                        <input type="text" name="email" id="emailTextId" value="{:$addrInfoSelList.a_email:}" />
+                    </div>
+                    <div id="ErrorEmailDivId" class="ErrorDivClass"></div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="useraddresscenter-order-home">
+                    <div class="useraddresscenter-order-home-left">
+                        <span class="mustTextClass">*</span>详细地址：
+                    </div>
+
+                    <div class="useraddresscenter-order-home-right">
+                        <input type="text" name="addr" id="addrTextId" value="{:$addrInfoSelList.a_addr:}" />
+                    </div>
+                    <div id="ErrorAddrDivId" class="ErrorDivClass"></div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+
+
+                <div class="useraddresscenter-order-button">
+                    <input type="submit" id="submitId" value="    保  存    " onclick="return checkAddrAddOrEdit();" />
+                </div>
+
+                <div class="clear2"></div>
+
+                <div class="clear2"></div>
+
+
+            </div>
+        </form>
+    </div>
+    <!--个人信息详细end-->
+
+<!-- user右边end，引用头部时倒入这个div -->
+
+<div class="clear"></div>
+
+
+{:include file='user_footer.tpl.html':}

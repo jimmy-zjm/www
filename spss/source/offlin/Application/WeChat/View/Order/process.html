@@ -1,0 +1,49 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/repairs.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/WeChat/css/swiper-3.4.2.min.css">
+</head>
+<body>
+	<div class="section">
+		
+		<div class="header">
+			<p class="header-title"><{$title}></p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+			<!-- <a class="searchBtn" href=""></a> -->
+		</div>
+		
+		<ul class="process-list color-list">
+			<?php foreach ($list as $key => $val): ?>
+				<li>
+					<p><{$key}></p>
+					<div class="process-list-imgbox">
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+								<?php foreach ($val as $k => $v): ?>
+									<div class="swiper-slide clearfix">
+										<a href="<{:U('look',['oid'=>$oid,'id'=>$v['id'],'type'=>$type])}>"><img src="__PUBLIC__/Uploads/<{$v.img}>" alt=""></a>
+									</div>
+								<?php endforeach ?>
+							</div>
+						</div>
+					</div>
+				</li>
+			<?php endforeach ?>
+		</ul>
+
+	</div>
+	<script type="text/javascript" src='__PUBLIC__/WeChat/js/zepto.min.js'></script>
+	<script type="text/javascript" src='__PUBLIC__/WeChat/js/swiper-3.4.2.jquery.min.js'></script>
+	<script type="text/javascript" src="__PUBLIC__/WeChat/js/threeColor.js"></script>
+	<script>
+		borderColor();
+		var options01={
+			slidesPerView: 3,
+			paginationClickable: true,
+			spaceBetween: 30,
+			freeMode: true
+			
+		};
+		var swiper = new Swiper('.swiper-container', options01);
+	</script>
+</body>
+</html>

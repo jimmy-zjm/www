@@ -1,0 +1,2185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<!--<link rel="stylesheet"  type="text/css"  href="css/style.css"  media="screen and (min-width:1200px)"/>-->
+
+
+<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/foodstyle.css" ><!-- 健康家居home页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<script src="js/concert.js" type="text/javascript"></script><!-- 关注-->
+
+<!-- banner轮播图片 -->
+
+<script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+ 
+</script>
+<!-- banner轮播图片end -->
+
+
+<title>健康舒适家居ˇ首页</title>
+</head>
+
+
+<body>
+<!-- top顶部 -->
+{:include file='header.tpl.html':}
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                <a href="index.php">
+                	<img src="images/logo2.png"/>
+                </a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?strategy">
+                        	健康攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        	健康营养师
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="greenfood.php?know">
+                        	健康问答
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?knowledge">
+                        百科知识
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="food-box">
+    <!-- 导航菜单 -->
+    <div class="box">
+    	<div class="box-title">
+        	食品商品分类
+        </div>
+    
+        <div class="box-tm">
+    
+        </div>
+        
+        <ul>
+            <li>
+               <a href="greenfood.php?cat_id=1"> <div class="box-dh">
+                    <span>
+                    	生活健康食品
+                    </span>
+                    
+               		<img src="images/47.png"/>
+                </div></a>
+                
+                <ul class="box-list-ul">
+                    <div class="box-list-ul-bk">                    
+                        <div class="box-bk">                        
+                            <a href="greenfood.php?cat_id=1">
+                                <div class="box-left">                                
+                               <div class="box-01">
+                                    <div class="box-02">
+                                    
+                                    生活健康食品
+                                    </div>
+                                    
+                                    <div class="box-03">
+                                        <a href='greenfood.php?cat_id=7'><div class="box-04">
+                                        	番茄汁
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=8'><div class="box-04">
+                                        	蔬菜汁
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=9'><div class="box-04">
+                                        	蜂蜜
+                                        </div></a>                                  
+                                    </div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                </div>
+                            </a>
+                        
+                            <div class="box-right">
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/55.jpg"/>
+                                    </a>
+                                </div>
+                            
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/56.jpg"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/57.jpg"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </ul>
+            </li>
+            
+            <li>
+               <a href="greenfood.php?cat_id=2"> <div class="box-dh">
+                    <span>
+                    	绿色食品
+                    </span>
+                    
+               		<img src="images/47.png"/>
+                </div></a>
+                
+                <ul class="box-list-ul">
+                    <div class="box-list-ul-bk">                    
+                        <div class="box-bk">                        
+                            <a href="greenfood.php?cat_id=2">
+                                <div class="box-left">                                
+                                <div class="box-01">
+                                    <div class="box-02">
+                                    
+                                    绿色食品
+                                    </div>
+                                    
+                                    <div class="box-03">
+                                        <a href='greenfood.php?cat_id=10'><div class="box-04">
+                                        	杏鲍菇
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=11'><div class="box-04">
+                                        	野生松茸
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=12'><div class="box-04">
+                                        	人参果
+                                        </div></a>                                    
+                                    </div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                </div>
+                            </a>
+                        
+                            <div class="box-right">
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/55.jpg"/>
+                                    </a>
+                                </div>
+                            
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/56.jpg"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/57.jpg"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </ul>
+            </li>
+            
+            <li>
+               <a href="greenfood.php?cat_id=3"> <div class="box-dh">
+                    <span>
+                    	疗效食品
+                    </span>
+                    
+               		<img src="images/47.png"/>
+                </div></a>
+                
+                <ul class="box-list-ul">
+                    <div class="box-list-ul-bk">                    
+                        <div class="box-bk">                        
+                            <a href="greenfood.php?cat_id=3">
+                                <div class="box-left">                                
+                                <div class="box-01">
+                                    <div class="box-02">
+                                    
+                                    疗效食品
+                                    </div>
+                                    
+                                    <div class="box-03">
+                                        <a href='greenfood.php?cat_id=13'><div class="box-04">
+                                        	减肥食品
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=14'><div class="box-04">
+                                        	低脂食品
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=15'><div class="box-04">
+                                        	糖尿病食品
+                                        </div></a>                                    
+                                    </div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                </div>
+                            </a>
+                        
+                            <div class="box-right">
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/55.jpg"/>
+                                    </a>
+                                </div>
+                            
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/56.jpg"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/57.jpg"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </ul>
+            </li>
+            
+            <li>
+               <a href="greenfood.php?cat_id=4"> <div class="box-dh">
+                    <span>
+                    	营养食品
+                    </span>
+                    
+               		<img src="images/47.png"/>
+                </div></a>
+                
+                <ul class="box-list-ul">
+                    <div class="box-list-ul-bk">                    
+                        <div class="box-bk">                        
+                            <a href="greenfood.php?cat_id=4">
+                                <div class="box-left">                                
+                                <div class="box-01">
+                                    <div class="box-02">
+                                    
+                                    营养食品
+                                    </div>
+                                    
+                                    <div class="box-03">
+                                        <a href='greenfood.php?cat_id=16'><div class="box-04">
+                                        	蛋白粉
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=17'><div class="box-04">
+                                        	复合果汁饮料
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=18'><div class="box-04">
+                                        	灵芝胶囊
+                                        </div> </a>                                   
+                                    </div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                </div>
+                            </a>
+                        
+                            <div class="box-right">
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/55.jpg"/>
+                                    </a>
+                                </div>
+                            
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/56.jpg"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/57.jpg"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="greenfood.php?cat_id=5"><div class="box-dh">
+                    <span>
+                    	特殊食品
+                    </span>
+                    
+               		<img src="images/47.png"/>
+                </div></a>
+                
+                <ul class="box-list-ul">
+                    <div class="box-list-ul-bk">                    
+                        <div class="box-bk">                        
+                            <a href="greenfood.php?cat_id=5">
+                                <div class="box-left">                                
+                                <div class="box-01">
+                                    <div class="box-02">
+                                    
+                                    特殊食品
+                                    </div>
+                                    
+                                    <div class="box-03">
+                                       <a href='greenfood.php?cat_id=19'> <div class="box-04">
+                                        	几丁聚糖
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=20'><div class="box-04">
+                                        	精氨酸
+                                        </div></a>
+										
+                                    </div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                </div>
+                            </a>
+                        
+                            <div class="box-right">
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/55.jpg"/>
+                                    </a>
+                                </div>
+                            
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/56.jpg"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/57.jpg"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </ul>
+            </li>
+            
+            <li>
+               <a href="greenfood.php?cat_id=6"> <div class="box-dh">
+                    <span>
+                    	机能食品
+                    </span>
+                    
+               		<img src="images/47.png"/>
+                </div></a>
+                
+                <ul class="box-list-ul">
+                    <div class="box-list-ul-bk">                    
+                        <div class="box-bk">                        
+                            <a href="greenfood.php?cat_id=6">
+                                <div class="box-left">                                
+                                <div class="box-01">
+                                    <div class="box-02">
+                                    
+                                    机能食品
+                                    </div>
+                                    
+                                    <div class="box-03">
+                                        <a href='greenfood.php?cat_id=21'><div class="box-04">
+                                        	磷脂维生素E
+                                        </div></a>
+                                        
+                                        <a href='greenfood.php?cat_id=22'><div class="box-04">
+                                        	复合素
+                                        </div></a>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                </div>
+                            </a>
+                        
+                            <div class="box-right">
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/55.jpg"/>
+                                    </a>
+                                </div>
+                            
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/56.jpg"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="box-right-img">
+                                	<a href="#">
+                                    	<img src="images/57.jpg"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </ul>
+            </li>              
+    
+        </ul>
+    
+    
+    </div>
+    <!-- 导航菜单end -->
+
+	<!-- banner轮播图片 -->
+	<div class="flicker-example" data-block-text="false">
+        <ul>
+            <li data-background="images/f1.jpg">    
+            	<div class="flick-title">
+                	YINGYANGMEIWEIHUIJU
+                </div>
+                
+            	<div class="flick-sub-text">
+                	营养美味汇聚
+                </div>
+            </li>
+            
+            <li data-background="images/f2.jpg">    
+            	<div class="flick-title">
+                	ZANFANGFUYUSHENGXIANG
+                </div>
+                
+            	<div class="flick-sub-text">
+                	 绽放馥郁生香
+                </div>
+            </li>
+        </ul>
+	</div>
+
+</div>
+<!-- banner轮播图片end -->
+
+<!-- banner轮播图片+导航菜单end -->
+
+
+<div class="clear3" ></div>
+
+
+
+<div class="food-content"><!--中间-->
+    
+    <div class="advertisement"><!-- 广告 -->
+    	<img src="images/444.jpg"/>
+    </div>
+    
+    <div class="clear"></div>
+
+
+    <!-- 楼层1 -->
+    <div class="homeindex-content">
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="foodindex-content-demo-menu">
+                <div class="foodindex-content-demo-menu-titile">                
+                    <div class="foodindex-content-demo-menu-titile-span">
+                    	{:$info.0.0.cat_name:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            
+                <div class="foodindex-content-demo-menu-navigation">
+                    <div class="foodindex-content-demo-menu-navigation-03">
+                        <div class="foodindex-content-demo-menu-navigation-03-img">
+                        	<img src="images/94.png"/>
+                        </div>
+                    
+                        <div class="foodindex-content-demo-menu-navigation-03-a">
+                            <a href="greenfood.php?cat_id={:$info.0.0.parent_id:}">
+                            	更多
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>                    
+                </div>
+            </div>
+        
+            <div class="clear3"></div>
+            
+            <!-- 中间2张图片 -->
+            <div class="foodindex-content-demo1-top">
+               {:for $i=0 to 1:}
+                <div class="foodindex-content-demo1-top-Ba" id="foodindexhover1top"><!-- 第二张 -->
+                    <div class="foodindex-content-demo1-top-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.0.$i.goods_id:}">
+                        	<img src="{:$info.0.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo1-top-Ba-Price">
+                    	￥{:$info.0.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-top-Ba-cener">
+                        <div class="foodindex-content-demo1-top-Ba-title">
+                        	{:$info.0.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-top-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-top-Ba-icon">
+                            <div id="{:$info.0.$i.goods_id:}" class="foodindex-content-demo1-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.0.$i.goods_id:},{:$info.0.$i.class_id:},{:$info.0.$i.goods_id:});">                                	<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.0.$i.class_id:}&goods_id={:$info.0.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-top-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-top-Ba-bk">
+                    </div>
+                    
+                   
+                    <div class=" ">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+				
+			<div class="foodindex-Ad-clear2"></div>
+            {:/for:}
+                
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间2张图片end -->
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片 -->
+            <div class="foodindex-content-demo1-bottom">
+			
+			{:for $i=2 to 4:}
+                <div class="foodindex-content-demo1-bottom-Ba" id="foodindexhover1bottom"><!-- 第一张 -->
+                    <div class="foodindex-content-demo1-bottom-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.0.$i.goods_id:}">
+                        	<img src="{:$info.0.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-Price">
+                    	￥{:$info.0.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-cener">
+                        <div class="foodindex-content-demo1-bottom-Ba-title">
+                        	{:$info.0.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-bottom-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-bottom-Ba-icon">
+                            <div id="{:$info.0.$i.goods_id:}" class="foodindex-content-demo1-bottom-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.0.$i.goods_id:},{:$info.0.$i.class_id:},{:$info.0.$i.goods_id:});">       
+										<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-bottom-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.0.$i.class_id:}&goods_id={:$info.0.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-bottom-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-bk">
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-02">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+                
+                <div class="foodindex-Ad-clear"></div>
+                {:/for:}
+
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片end -->
+            
+        
+        </div>    
+    </div>
+    <!-- 楼层1end -->
+
+
+	<div class="clear"></div>
+
+	<!-- 楼层中的广告位 -->
+    <div class="foodindex-Ad">
+        <div class="flicker-example" data-block-text="false">        
+            <ul>
+                <li>
+                    <div class="flick-img">
+                    	<img src="images/450.jpg"/>
+                    </div>
+                    
+                	<div class="flick-title">
+                    	绿色有机 科学筛选
+                    </div>
+                    
+                	<div class="flick-title2">
+                    	无污染、不添加，获国家有机食品认证<br />原产地直供，精挑细选最佳有机食材
+                    </div>
+                    
+                	<div class="flick-sub-text">
+                    	<span>美味更安全</span>
+                    </div>
+                    
+                	<div class="clear"></div>
+                </li>
+            
+                <li>
+                    <div class="flick-img">
+                    	<img src="images/451.jpg"/>
+                    </div>
+                    
+                	<div class="flick-title">
+                    	尚选绿色 精品选材
+                    </div>
+                    
+                	<div class="flick-title2">
+                    	无污染、不添加，获国家有机食品认证
+                    </div>
+                    
+                	<div class="flick-sub-text">
+                    	<span>绿色高品质</span>
+                    </div>
+                    
+                	<div class="clear"></div>
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+	<!-- 楼层中的广告位end -->
+
+	<div class="clear"></div>
+    
+    <!-- 楼层2 -->
+    <div class="homeindex-content">
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="2">
+        	<div class="foodindex-content-demo-menu">
+                <div class="foodindex-content-demo-menu-titile">                
+                    <div class="foodindex-content-demo-menu-titile-span">
+                    	{:$info.1.0.cat_name:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            
+                <div class="foodindex-content-demo-menu-navigation">
+                    <div class="foodindex-content-demo-menu-navigation-03">
+                        <div class="foodindex-content-demo-menu-navigation-03-img">
+                        	<img src="images/94.png"/>
+                        </div>
+                    
+                        <div class="foodindex-content-demo-menu-navigation-03-a">
+                            <a href="greenfood.php?cat_id={:$info.1.0.parent_id:}">
+                            	更多
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>                    
+                </div>
+            </div>
+        
+        	<div class="clear3"></div>
+            
+            <div class="foodindex-content-demo2-top">
+                <div class="foodindex-content-demo2-top-Ba" id="foodindexhover2top"><!-- 第一张 -->
+                    <div class="foodindex-content-demo2-top-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.1.0.goods_id:}">
+                        	<img src="{:$info.1.0.goods_img:}"/>
+                        </a>
+                    </div>
+                
+                
+                
+                    <div class="foodindex-content-demo2-top-Ba-Price">
+                        ￥{:$info.1.0.promote_price:}
+                    </div>
+                
+                    <div class="foodindex-content-demo2-top-Ba-cener">
+                        <div class="foodindex-content-demo2-top-Ba-title">
+                            {:$info.1.0.goods_name:}
+                        </div>
+                    
+                        <div class="foodindex-content-demo2-top-Ba-evaluation">
+                            已有 <span>76 </span>人评价
+                        </div>
+                    
+                        <div class="foodindex-content-demo2-top-Ba-icon">
+                            <div id="{:$info.1.0.goods_id:}"  class="foodindex-content-demo2-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.1.0.goods_id:},{:$info.1.0.class_id:},{:$info.1.0.goods_id:});">       
+                                    <img src="images/20.png"/>
+                                </a>
+                            </div>
+                        
+                            <div class="foodindex-content-demo2-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.1.0.class_id:}&goods_id={:$info.1.0.goods_id:}&num=1">
+                                    <img src="images/21.png"/>
+                                </a>
+                            </div>
+                        
+                            <div class="foodindex-content-demo2-top-Ba-icon-03">
+                                <a href="#">
+                                    <img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="foodindex-content-demo2-top-Ba-bk">
+                    </div>
+                    
+                    <div class="  ">
+                        <img src="images/19.png"/>
+                    </div>
+                </div>
+            
+                <div class="foodindex-content-demo2-right">
+                    <div class="foodindex-content-demo2-top-Ba" id="foodindexhover2top"><!-- 第二张 -->
+                        <div class="foodindex-content-demo2-top-Ba-img">
+                            <a href="greenfood.php?goods_id={:$info.1.1.goods_id:}">
+                            	<img src="{:$info.1.1.goods_img:}"/>
+                            </a>
+                        </div>
+                        
+                        
+                        
+                        <div class="foodindex-content-demo2-top-Ba-Price">
+                        	￥{:$info.1.1.promote_price:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-top-Ba-cener">
+                            <div class="foodindex-content-demo2-top-Ba-title">
+                            	{:$info.1.1.goods_name:}
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-top-Ba-evaluation">
+                            	已有 <span>76 </span>人评价
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-top-Ba-icon">
+                                <div id="{:$info.1.1.goods_id:}" class="foodindex-content-demo2-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.1.1.goods_id:},{:$info.1.1.class_id:},{:$info.1.1.goods_id:});">       
+                                    	<img src="images/20.png"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="foodindex-content-demo2-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.1.1.class_id:}&goods_id={:$info.1.1.goods_id:}&num=1">
+                                    	<img src="images/21.png"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="foodindex-content-demo2-top-Ba-icon-03">
+                                    <a href="#">
+                                    	<img src="images/22.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-top-Ba-bk">
+                        </div>
+                        
+                        
+                        <div class="  ">
+                        	<img src="images/19.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        	<div class="clear"></div>
+        
+        	<!-- 中间3张图片 -->
+            <div class="foodindex-content-demo2-bottom">
+				{:for $i=2 to 4:}
+                <div class="foodindex-content-demo2-bottom-Ba" id="foodindexhover2bottom"><!-- 第一张 -->
+                    <div class="foodindex-content-demo2-bottom-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.1.$i.goods_id:}">
+                        	<img src="{:$info.1.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-Price">
+                    	￥{:$info.1.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-cener">
+                        <div class="foodindex-content-demo2-bottom-Ba-title">
+                        	{:$info.1.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-bottom-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-bottom-Ba-icon">
+                            <div id="{:$info.1.$i.goods_id:}" class="foodindex-content-demo2-bottom-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.1.$i.goods_id:},{:$info.1.$i.class_id:},{:$info.1.$i.goods_id:});">       
+                                	<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-bottom-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.1.$i.class_id:}&goods_id={:$info.1.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-bottom-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-bk">
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-02">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+                
+                <div class="foodindex-Ad-clear"></div>
+                
+                {:/for:}
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片end -->       
+        
+        </div>
+    
+    </div>
+	<!-- 楼层2end -->
+    
+    <div class="clear"></div>
+    
+    <div class="advertisement"><!-- 广告 -->
+    	<img src="images/459.jpg"/>
+    </div>
+    
+    <div class="clear"></div>
+    
+    <!-- 楼层3 -->
+    <div class="homeindex-content">
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="foodindex-content-demo-menu">
+                <div class="foodindex-content-demo-menu-titile">                
+                    <div class="foodindex-content-demo-menu-titile-span">
+                    	{:$info.2.0.cat_name:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            
+                <div class="foodindex-content-demo-menu-navigation">
+                    <div class="foodindex-content-demo-menu-navigation-03">
+                        <div class="foodindex-content-demo-menu-navigation-03-img">
+                        	<img src="images/94.png"/>
+                        </div>
+                    
+                        <div class="foodindex-content-demo-menu-navigation-03-a">
+                            <a href="greenfood.php?cat_id={:$info.2.0.parent_id:}">
+                            	更多
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>                    
+                </div>
+            </div>
+        
+            <div class="clear3"></div>
+            
+            <!-- 中间2张图片 -->
+            <div class="foodindex-content-demo1-top">
+               {:for $i=0 to 1:}
+                <div class="foodindex-content-demo1-top-Ba" id="foodindexhover1top"><!-- 第二张 -->
+                    <div class="foodindex-content-demo1-top-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.2.$i.goods_id:}">
+                        	<img src="{:$info.2.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo1-top-Ba-Price">
+                    	￥{:$info.2.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-top-Ba-cener">
+                        <div class="foodindex-content-demo1-top-Ba-title">
+                        	{:$info.2.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-top-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-top-Ba-icon">
+                            <div id="{:$info.2.$i.goods_id:}" class="foodindex-content-demo1-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.2.$i.goods_id:},{:$info.2.$i.class_id:},{:$info.2.$i.goods_id:});">       
+								<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.2.$i.class_id:}&goods_id={:$info.2.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-top-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-top-Ba-bk">
+                    </div>
+                    
+                   
+                    <div class=" ">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+				
+			<div class="foodindex-Ad-clear2"></div>
+            {:/for:}
+                
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间2张图片end -->
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片 -->
+            <div class="foodindex-content-demo1-bottom">
+			
+			{:for $i=2 to 4:}
+                <div class="foodindex-content-demo1-bottom-Ba" id="foodindexhover1bottom"><!-- 第一张 -->
+                    <div class="foodindex-content-demo1-bottom-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.2.$i.goods_id:}">
+                        	<img src="{:$info.2.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-Price">
+                    	￥{:$info.2.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-cener">
+                        <div class="foodindex-content-demo1-bottom-Ba-title">
+                        	{:$info.2.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-bottom-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-bottom-Ba-icon">
+                            <div id="{:$info.2.$i.goods_id:}" class="foodindex-content-demo1-bottom-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.2.$i.goods_id:},{:$info.2.$i.class_id:},{:$info.2.$i.goods_id:});">       
+                                	<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-bottom-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.2.$i.class_id:}&goods_id={:$info.2.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-bottom-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-bk">
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-02">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+                
+                <div class="foodindex-Ad-clear"></div>
+                {:/for:}
+
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片end -->
+            
+        
+        </div>    
+    </div>
+    <!-- 楼层3end -->
+
+
+	<div class="clear"></div>
+
+	<!-- 楼层中的广告位 -->
+    <div class="foodindex-Ad">
+        <div class="flicker-example" data-block-text="false">        
+            <ul>
+                <li>
+                    <div class="flick-img">
+                    	<img src="images/465.jpg"/>
+                    </div>
+                    
+                	<div class="flick-title">
+                    	营养定量 健康匹配
+                    </div>
+                    
+                	<div class="flick-title2">
+                    	具备人体所需七大营养要素之一<br />让身体回归最自然的健康平衡
+                    </div>
+                    
+                	<div class="flick-sub-text">
+                    	<span>富营养出品 </span>
+                    </div>
+                    
+                	<div class="clear"></div>
+                </li>
+            
+                <li>
+                    <div class="flick-img">
+                    	<img src="images/466.jpg"/>
+                    </div>
+                    
+                	<div class="flick-title">
+                    	营养定量 健康匹配
+                    </div>
+                    
+                	<div class="flick-title2">
+                    	真正来自于自然、富营养的生态食品<br />非转基因、无化肥，天然有机种植
+                    </div>
+                    
+                	<div class="flick-sub-text">
+                    	<span>美味更安全</span>
+                    </div>
+                    
+                	<div class="clear"></div>
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+	<!-- 楼层中的广告位end -->
+
+	<div class="clear"></div>
+    
+    <!-- 楼层4 -->
+    <div class="homeindex-content">
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="2">
+        	<div class="foodindex-content-demo-menu">
+                <div class="foodindex-content-demo-menu-titile">                
+                    <div class="foodindex-content-demo-menu-titile-span">
+                    	{:$info.3.0.cat_name:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            
+                <div class="foodindex-content-demo-menu-navigation">
+                    <div class="foodindex-content-demo-menu-navigation-03">
+                        <div class="foodindex-content-demo-menu-navigation-03-img">
+                        	<img src="images/94.png"/>
+                        </div>
+                    
+                        <div class="foodindex-content-demo-menu-navigation-03-a">
+                            <a href="greenfood.php?cat_id={:$info.3.0.parent_id:}">
+                            	更多
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>                    
+                </div>
+            </div>
+        
+        	<div class="clear3"></div>
+            
+            <div class="foodindex-content-demo2-top">
+                <div class="foodindex-content-demo2-top-Ba" id="foodindexhover2top"><!-- 第一张 -->
+                    <div class="foodindex-content-demo2-top-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.3.0.goods_id:}">
+                        	<img src="{:$info.3.0.goods_img:}"/>
+                        </a>
+                    </div>
+                
+                
+                
+                    <div class="foodindex-content-demo2-top-Ba-Price">
+                        ￥{:$info.3.0.promote_price:}
+                    </div>
+                
+                    <div class="foodindex-content-demo2-top-Ba-cener">
+                        <div class="foodindex-content-demo2-top-Ba-title">
+                            {:$info.3.0.goods_name:}
+                        </div>
+                    
+                        <div class="foodindex-content-demo2-top-Ba-evaluation">
+                            已有 <span>76 </span>人评价
+                        </div>
+                    
+                        <div class="foodindex-content-demo2-top-Ba-icon">
+                            <div id="{:$info.3.0.goods_id:}" class="foodindex-content-demo2-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.3.0.goods_id:},{:$info.3.0.class_id:},{:$info.3.0.goods_id:});">       
+                                    <img src="images/20.png"/>
+                                </a>
+                            </div>
+                        
+                            <div class="foodindex-content-demo2-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.3.0.class_id:}&goods_id={:$info.3.0.goods_id:}&num=1">
+                                    <img src="images/21.png"/>
+                                </a>
+                            </div>
+                        
+                            <div class="foodindex-content-demo2-top-Ba-icon-03">
+                                <a href="#">
+                                    <img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="foodindex-content-demo2-top-Ba-bk">
+                    </div>
+                    
+                    <div class="  ">
+                        <img src="images/19.png"/>
+                    </div>
+                </div>
+            
+                <div class="foodindex-content-demo2-right">
+                    <div class="foodindex-content-demo2-top-Ba" id="foodindexhover2top"><!-- 第二张 -->
+                        <div class="foodindex-content-demo2-top-Ba-img">
+                            <a href="greenfood.php?goods_id={:$info.3.1.goods_id:}">
+                            	<img src="{:$info.3.1.goods_img:}"/>
+                            </a>
+                        </div>
+                        
+                        
+                        
+                        <div class="foodindex-content-demo2-top-Ba-Price">
+                        	￥{:$info.3.1.promote_price:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-top-Ba-cener">
+                            <div class="foodindex-content-demo2-top-Ba-title">
+                            	{:$info.3.1.goods_name:}
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-top-Ba-evaluation">
+                            	已有 <span>76 </span>人评价
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-top-Ba-icon">
+                                <div id="{:$info.3.1.goods_id:}" class="foodindex-content-demo2-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.3.1.goods_id:},{:$info.3.1.class_id:},{:$info.3.1.goods_id:});">       
+                                    	<img src="images/20.png"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="foodindex-content-demo2-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.3.1.class_id:}&goods_id={:$info.3.1.goods_id:}&num=1">
+                                    	<img src="images/21.png"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="foodindex-content-demo2-top-Ba-icon-03">
+                                    <a href="#">
+                                    	<img src="images/22.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-top-Ba-bk">
+                        </div>
+                        
+                        
+                        <div class="  ">
+                        	<img src="images/19.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        	<div class="clear"></div>
+        
+        	<!-- 中间3张图片 -->
+            <div class="foodindex-content-demo2-bottom">
+				{:for $i=2 to 4:}
+                <div class="foodindex-content-demo2-bottom-Ba" id="foodindexhover2bottom"><!-- 第一张 -->
+                    <div class="foodindex-content-demo2-bottom-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.3.$i.goods_id:}">
+                        	<img src="{:$info.3.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-Price">
+                    	￥{:$info.3.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-cener">
+                        <div class="foodindex-content-demo2-bottom-Ba-title">
+                        	{:$info.3.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-bottom-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-bottom-Ba-icon">
+                            <div id="{:$info.3.$i.goods_id:}" class="foodindex-content-demo2-bottom-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.3.$i.goods_id:},{:$info.3.$i.class_id:},{:$info.3.$i.goods_id:});">       
+                                	<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-bottom-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.3.$i.class_id:}&goods_id={:$info.3.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-bottom-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-bk">
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-02">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+                
+                <div class="foodindex-Ad-clear"></div>
+                
+                {:/for:}
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片end -->       
+        
+        </div>
+    
+    </div>
+	<!-- 楼层4end -->
+    
+    <div class="clear"></div>
+    
+    <div class="advertisement"><!-- 广告 -->
+    	<img src="images/467.jpg"/>
+    </div>
+    
+    <!-- 楼层5 -->
+      <div class="homeindex-content">
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="foodindex-content-demo-menu">
+                <div class="foodindex-content-demo-menu-titile">                
+                    <div class="foodindex-content-demo-menu-titile-span">
+                    	{:$info.2.0.cat_name:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            
+                <div class="foodindex-content-demo-menu-navigation">
+                    <div class="foodindex-content-demo-menu-navigation-03">
+                        <div class="foodindex-content-demo-menu-navigation-03-img">
+                        	<img src="images/94.png"/>
+                        </div>
+                    
+                        <div class="foodindex-content-demo-menu-navigation-03-a">
+                            <a href="greenfood.php?cat_id={:$info.4.0.parent_id:}">
+                            	更多
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>                    
+                </div>
+            </div>
+        
+            <div class="clear3"></div>
+            
+            <!-- 中间2张图片 -->
+            <div class="foodindex-content-demo1-top">
+               {:for $i=0 to 1:}
+                <div class="foodindex-content-demo1-top-Ba" id="foodindexhover1top"><!-- 第二张 -->
+                    <div class="foodindex-content-demo1-top-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.4.$i.goods_id:}">
+                        	<img src="{:$info.4.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo1-top-Ba-Price">
+                    	￥{:$info.4.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-top-Ba-cener">
+                        <div class="foodindex-content-demo1-top-Ba-title">
+                        	{:$info.4.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-top-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-top-Ba-icon">
+                            <div id="{:$info.4.$i.goods_id:}" class="foodindex-content-demo1-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.4.$i.goods_id:},{:$info.4.$i.class_id:},{:$info.4.$i.goods_id:});">       
+                                	<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.4.$i.class_id:}&goods_id={:$info.4.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-top-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-top-Ba-bk">
+                    </div>
+                    
+                   
+                    <div class=" ">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+				
+			<div class="foodindex-Ad-clear2"></div>
+            {:/for:}
+                
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间2张图片end -->
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片 -->
+            <div class="foodindex-content-demo1-bottom">
+			
+			{:for $i=2 to 4:}
+                <div class="foodindex-content-demo1-bottom-Ba" id="foodindexhover1bottom"><!-- 第一张 -->
+                    <div class="foodindex-content-demo1-bottom-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.4.$i.goods_id:}">
+                        	<img src="{:$info.4.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-Price">
+                    	￥{:$info.4.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-cener">
+                        <div class="foodindex-content-demo1-bottom-Ba-title">
+                        	{:$info.4.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-bottom-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo1-bottom-Ba-icon">
+                            <div id="{:$info.4.$i.goods_id:}" class="foodindex-content-demo1-bottom-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.4.$i.goods_id:},{:$info.4.$i.class_id:},{:$info.4.$i.goods_id:});">       
+                                	<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-bottom-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.4.$i.class_id:}&goods_id={:$info.4.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo1-bottom-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-bk">
+                    </div>
+                    
+                    <div class="foodindex-content-demo1-bottom-Ba-02">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+                
+                <div class="foodindex-Ad-clear"></div>
+                {:/for:}
+
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片end -->
+            
+        
+        </div>    
+    </div>
+    <!-- 楼层5end -->
+
+
+	<div class="clear"></div>
+
+	<!-- 楼层中的广告位 -->
+    <div class="foodindex-Ad">
+        <div class="flicker-example" data-block-text="false">        
+            <ul>
+                <li>
+                    <div class="flick-img">
+                    	<img src="images/477.jpg"/>
+                    </div>
+                    
+                	<div class="flick-title">
+                    	万年贡品 营养丰富
+                    </div>
+                    
+                	<div class="flick-title2">
+                    	良好调节生理机能，增强免疫力<br />强壮骨骼，让身体更灵活
+                    </div>
+                    
+                	<div class="flick-sub-text">
+                    	<span>活力加倍</span>
+                    </div>
+                    
+                	<div class="clear"></div>
+                </li>
+            
+                <li>
+                    <div class="flick-img">
+                    	<img src="images/478.jpg"/>
+                    </div>
+                    
+                	<div class="flick-title">
+                    	食尚滋补 强健体能
+                    </div>
+                    
+                	<div class="flick-title2">
+                    	机能营养搭配，激活能量<br />充沛人体精力，活氧健康
+                    </div>
+                    
+                	<div class="flick-sub-text">
+                    	<span>营养荟萃</span>
+                    </div>
+                    
+                	<div class="clear"></div>
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+	<!-- 楼层中的广告位end -->
+
+	<div class="clear"></div>
+    
+    <!-- 楼层6 -->
+   <div class="homeindex-content">
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="2">
+        	<div class="foodindex-content-demo-menu">
+                <div class="foodindex-content-demo-menu-titile">                
+                    <div class="foodindex-content-demo-menu-titile-span">
+                    	{:$info.5.0.cat_name:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            
+                <div class="foodindex-content-demo-menu-navigation">
+                    <div class="foodindex-content-demo-menu-navigation-03">
+                        <div class="foodindex-content-demo-menu-navigation-03-img">
+                        	<img src="images/94.png"/>
+                        </div>
+                    
+                        <div class="foodindex-content-demo-menu-navigation-03-a">
+                            <a href="greenfood.php?cat_id={:$info.5.0.parent_id:}">
+                            	更多
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>                    
+                </div>
+            </div>
+        
+        	<div class="clear3"></div>
+            
+            <div class="foodindex-content-demo2-top">
+                <div class="foodindex-content-demo2-top-Ba" id="foodindexhover2top"><!-- 第一张 -->
+                    <div class="foodindex-content-demo2-top-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.5.0.goods_id:}">
+                        	<img src="{:$info.5.0.goods_img:}"/>
+                        </a>
+                    </div>
+                
+                
+                
+                    <div class="foodindex-content-demo2-top-Ba-Price">
+                        ￥{:$info.5.0.promote_price:}
+                    </div>
+                
+                    <div class="foodindex-content-demo2-top-Ba-cener">
+                        <div class="foodindex-content-demo2-top-Ba-title">
+                            {:$info.5.0.goods_name:}
+                        </div>
+                    
+                        <div class="foodindex-content-demo2-top-Ba-evaluation">
+                            已有 <span>76 </span>人评价
+                        </div>
+                    
+                        <div class="foodindex-content-demo2-top-Ba-icon">
+                            <div id="{:$info.5.0.goods_id:}" class="foodindex-content-demo2-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.5.0.goods_id:},{:$info.5.0.class_id:},{:$info.5.0.goods_id:});">       
+                                    <img src="images/20.png"/>
+                                </a>
+                            </div>
+                        
+                            <div class="foodindex-content-demo2-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.5.0.class_id:}&goods_id={:$info.5.0.goods_id:}&num=1">
+                                    <img src="images/21.png"/>
+                                </a>
+                            </div>
+                        
+                            <div class="foodindex-content-demo2-top-Ba-icon-03">
+                                <a href="#">
+                                    <img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="foodindex-content-demo2-top-Ba-bk">
+                    </div>
+                    
+                    <div class="  ">
+                        <img src="images/19.png"/>
+                    </div>
+                </div>
+            
+                <div class="foodindex-content-demo2-right">
+                    <div class="foodindex-content-demo2-top-Ba" id="foodindexhover2top"><!-- 第二张 -->
+                        <div class="foodindex-content-demo2-top-Ba-img">
+                            <a href="greenfood.php?goods_id={:$info.5.1.goods_id:}">
+                            	<img src="{:$info.5.1.goods_img:}"/>
+                            </a>
+                        </div>
+                        
+                        
+                        
+                        <div class="foodindex-content-demo2-top-Ba-Price">
+                        	￥{:$info.5.1.promote_price:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-top-Ba-cener">
+                            <div class="foodindex-content-demo2-top-Ba-title">
+                            	{:$info.5.1.goods_name:}
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-top-Ba-evaluation">
+                            	已有 <span>76 </span>人评价
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-top-Ba-icon">
+                                <div id="{:$info.5.1.goods_id:}" class="foodindex-content-demo2-top-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.5.1.goods_id:},{:$info.5.1.class_id:},{:$info.5.1.goods_id:});">       
+                                    	<img src="images/20.png"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="foodindex-content-demo2-top-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.5.1.class_id:}&goods_id={:$info.5.1.goods_id:}&num=1">
+                                    	<img src="images/21.png"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="foodindex-content-demo2-top-Ba-icon-03">
+                                    <a href="#">
+                                    	<img src="images/22.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-top-Ba-bk">
+                        </div>
+                        
+                        
+                        <div class="  ">
+                        	<img src="images/19.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        	<div class="clear"></div>
+        
+        	<!-- 中间3张图片 -->
+            <div class="foodindex-content-demo2-bottom">
+				{:for $i=2 to 4:}
+                <div class="foodindex-content-demo2-bottom-Ba" id="foodindexhover2bottom"><!-- 第一张 -->
+                    <div class="foodindex-content-demo2-bottom-Ba-img">
+                        <a href="greenfood.php?goods_id={:$info.5.$i.goods_id:}">
+                        	<img src="{:$info.5.$i.goods_img:}"/>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-Price">
+                    	￥{:$info.5.$i.promote_price:}
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-cener">
+                        <div class="foodindex-content-demo2-bottom-Ba-title">
+                        	{:$info.5.$i.goods_name:}
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-bottom-Ba-evaluation">
+                        	已有 <span>76 </span>人评价
+                        </div>
+                        
+                        <div class="foodindex-content-demo2-bottom-Ba-icon">
+                            <div id="{:$info.5.$i.goods_id:}" class="foodindex-content-demo2-bottom-Ba-icon-01">
+                                <a class="concertImgDivClass" onclick="return concertGoods({:$info.5.$i.goods_id:},{:$info.5.$i.class_id:},{:$info.5.$i.goods_id:});">       
+                                	<img src="images/20.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-bottom-Ba-icon-02">
+                                <a href="order.php?addcart&class_id={:$info.5.$i.class_id:}&goods_id={:$info.5.$i.goods_id:}&num=1">
+                                	<img src="images/21.png"/>
+                                </a>
+                            </div>
+                            
+                            <div class="foodindex-content-demo2-bottom-Ba-icon-03">
+                                <a href="#">
+                                	<img src="images/22.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-bk">
+                    </div>
+                    
+                    <div class="foodindex-content-demo2-bottom-Ba-02">
+                    	<img src="images/19.png"/>
+                    </div>
+                </div>
+                
+                <div class="foodindex-Ad-clear"></div>
+                
+                {:/for:}
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+            <!-- 中间3张图片end -->       
+        
+        </div>
+    
+    </div>
+	<!-- 楼层6end -->
+    
+    <div class="clear"></div>
+    
+    <div class="advertisement"><!-- 广告 -->
+    	<img src="images/483.jpg"/>
+    </div>
+
+
+</div><!--中间end-->
+
+<div class="clear"></div>
+
+
+
+
+<!-- 底部列表 -->
+<div class="foot">
+  <div class="foot-list">
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        购物指南
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          购物流程
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          会员介绍
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          常见问题
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          联系客服
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        配送方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          国内配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          海外配送
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          标准配送
+        </a>
+      </div>
+
+
+    </div>
+
+   <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        支付方式
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          在线支付
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          分期付款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          邮局汇款
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          公司转账
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-gw">
+      <div class="foot-list-gw-title">
+        售后服务
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          售后政策
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          退款说明
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          返修/退换货
+        </a>
+      </div>
+
+      <div class="foot-list-gw-conner">
+        <a href="#">
+          取消订单
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-list-right">
+      暖扬扬线下服务区
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- 底部列表end -->
+
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+   <div class="root-center">
+	  <div class="root-list">
+	    <a href="#">
+	      关于我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      联系我们
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      人才招聘
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      招商加盟
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      商务合作
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      友情链接
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      备案号码
+	    </a>
+	  </div>
+
+	  <div class="root-list">
+	    <a href="#">
+	      各类证件
+	    </a>
+	  </div>
+
+	  <div class="clear"></div>
+   </div>
+</div>
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+
+
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+<li><a data-slide="6" onClick="gotofloor(this);" href="javascript:void(0);">6F</a></li>
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+</script>
+<!-- 楼层定位end -->
+
+
+
+</body>
+</html>

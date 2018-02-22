@@ -1,0 +1,139 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/jobstyle.css" ><!-- 人才招聘页面job页面调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+{:include file="common/daohang.html":}
+    <!--主导航end-->
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="JobList-conter">
+	<div class="advertisement">
+    	<img src="images/868.png"/>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear27"></div>
+    
+	<div class="JobList-conter-left">
+    	<div class="clear27"></div>
+        
+        <div class="JobList-conter-left-table">
+        	<div class="JobList-conter-left-table-title">
+            	<div class="JobList-conter-left-table-title-name">
+                	岗位名称
+                </div>
+                
+                <div class="JobList-conter-left-table-title-place">
+                	工作地点
+                </div>
+                
+                <div class="JobList-conter-left-table-title-time">
+                	发布时间
+                </div>
+                
+                <div class="JobList-conter-left-table-title-number">
+                	招聘人数
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="JobList-conter-left-table-list">
+            	<div class="JobList-conter-left-table-list-demo">
+                    {:foreach $data as $v:}
+                	<div class="JobList-conter-left-table-list-demo-name">
+                    	<a href="index.php?jobinfo&id={:$v.id:}">
+                        	{:$v.name:}
+                        </a>
+                    </div>
+                    
+                    <div class="JobList-conter-left-table-list-demo-place">
+                    	{:$v.address:}
+                    </div>
+                    
+                    <div class="JobList-conter-left-table-list-demo-time">
+                    	{:date('Y.m.d',$v.time):}
+                    </div>
+                    
+                    <div class="JobList-conter-left-table-list-demo-number">
+                    	{:$v.num:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                    {:/foreach:}
+                </div>
+                
+                <div class="clear"></div>
+                
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="JobList-conter-left-table-page" style="text-align:right;height:35px;line-height:35px;">
+            	<div class="page">
+                 {:$page:}   
+                </div><!--此处放翻页-->
+            </div>
+        </div>
+    </div>
+    
+    <div class="JobList-conter-right">
+    	<div class="JobList-conter-right-img">
+        	<img src="images/869.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

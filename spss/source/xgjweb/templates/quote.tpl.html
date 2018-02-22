@@ -1,0 +1,859 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<title>健康舒适家居</title>
+<link rel="stylesheet"  type="text/css"  href="css/style.css" /><!-- 通用CSS -->
+<link rel="stylesheet" type="text/css" href="js/themes/default/easyui.css" />
+<script type="text/javascript" src="js/jquery-1.11.3.js" ></script><!-- 通用Jquery -->
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<link rel="stylesheet"  type="text/css"  href="css/homestyle.css" /><!-- 第二版home页面CSS -->
+<style type="text/css">
+	a{ text-decoration:none;} 	
+	body{ background:#eceff4;}
+	*{ margin:0px; padding:0px;}
+	ul,li{ list-style:none;}		
+	.contentFrame{ width:1200px; margin:0px auto;}	
+	#top{ width:1400px; height:60px; margin:0px auto; background:#434247; position:relative;}
+	#header{ width:1400px; height:200px; margin:0px auto; background:#FFFFFF; border-bottom:2px solid #FFFF33;position:relative;}	
+	#userHouseInfo input{ width:100px; height:32px;}
+	
+	#bedRoomList li{}
+	
+	
+	/*右侧浮动导航*/	
+	.side {
+		position: fixed;
+		width: 40px;
+		height: 275px;
+		right: 0;
+		top: 500px;
+		z-index: 100;
+	}
+	.side ul li {
+		width: 40px;
+		height: 40px;
+		float: left;
+		position: relative;
+		border-bottom: 1px solid #444;
+	}
+
+	.side ul li .sidebox {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: 0;
+		right: 0;
+		transition: all 0.3s;
+		background: #000;
+		opacity: 0.8;
+		filter: Alpha(opacity=80);
+		color: #000;
+		font: 14px/40px "微软雅黑";
+		overflow: hidden;
+	}
+
+	.side ul li .sidetop {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		display: inline-block;
+		background: #000;
+		opacity: 0.8;
+		filter: Alpha(opacity=80);
+		transition: all 0.3s;
+	}
+
+	.side ul li .sidetop:hover {
+		background: #ae1c1c;
+		opacity: 1;
+		filter: Alpha(opacity=100);
+	}
+	
+	.side ul li img {
+		float: left;
+	}
+	/*右侧浮动导航*/
+
+	
+</style>
+<script type="text/javascript">
+
+
+//Provinces/Citys/Town
+;jQuery(function(){
+	$("#citys").combobox();
+	$("#town").combobox();
+	var provinces="";
+	var citys="";
+	var town="";	
+	$("#provinces").combobox({
+		onSelect:function(record){
+			//console.log(record);      //记住这才是真正的js调试器，其他都是扯淡
+			provinces=record.text;
+			$("#citys").combobox({
+				valueField : 'text',
+				textField : 'text',
+				mode : 'remote',
+				url:"furnish.php?aid="+record.value,
+				//data:[{"text":"Eric","value":23}],        //直接赋数据是data,其他如果是连接则是url	
+				onSelect:function(record){
+					//alert("ss");
+					citys=record.text;
+					$("#town").combobox({
+						valueField : 'text',
+						textField : 'text',
+						mode : 'remote',
+						url:"furnish.php?aid="+record.value,
+						onSelect:function(record){
+							town=record.text;
+						}
+					});
+				}	
+			});			
+		}
+	});
+	//这个是总的提交
+	$("#userInfoSubmit").click(function(){
+		alert("提交成功");
+	
+	});
+});	
+
+//插入节点
+;jQuery(function(){
+	//卧室
+	$("#bedRoom").combobox({
+		onSelect:function(record){
+			//alert(record.text);
+			//console.log(record);
+			$("#bedRoomList").children().remove();
+			$("#bedRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>主卧：</span><span><input type='text' value=''  style='width:100px;'/></span></li>");
+			for(var i=1;i<record.value;i++)
+			{
+				$("#bedRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>次卧：</span><span><input type='text' value='10'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//客厅
+	$("#livingRoom").combobox({
+		onSelect:function(record){
+			$("#livingRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+
+
+			{
+				$("#livingRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>客厅：</span><span><input type='text' value=''  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//厨房
+	$("#kitchRoom").combobox({
+		onSelect:function(record){
+			$("#kitchRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#kitchRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>厨房：</span><span><input type='text' value='10'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//浴室
+	$("#washRoom").combobox({
+		onSelect:function(record){
+			$("#washRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#washRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>浴室：</span><span><input type='text' value='8'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//阳台
+	$("#galleryRoom").combobox({
+		onSelect:function(record){
+			$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//大约计算各厅室
+	$("#totalHouseSize").blur(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#washRoomList input").size());
+		//alert($("#kitchRoomList input").size());
+		//alert($("#livingRoomList input").size());
+		//alert($("#galleryRoomList input").size());
+		var al=$("#bedRoomList input").size()*10+$("#kitchRoomList input").size()*10+$("#washRoomList input").size()*8+$("#galleryRoomList input").size()*6-10;
+		//alert($(this).val());
+		//alert(al);
+		var lef=$(this).val()-al;		
+		if(parseInt((lef/5)*2)>0){$("#bedRoomList input").eq(0).val(parseInt((lef/5)*2));}
+		else{$("#bedRoomList input").eq(0).val(0);}				
+		var k=((lef/5)*3)/($("#bedRoomList input").size());
+		//$("#bedRoomList input").eq(0).val((lef/5)*2);
+		//alert(k);
+		if(k>0){$("#livingRoomList input").val(parseInt(k));}
+		else{$("#livingRoomList input").val(0);}
+			
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);
+		var id='{:$quote_id:}';
+		
+		$.ajax({
+			type:"post",
+			
+			//alert(name);
+			//alert("furnish.php?cate_id={:$cate_id:}&name={:$quote.cat_name:}");
+			url:"furnish.php?cate_id={:$cate_id:}",
+				//	alert("furnish.php?cate_id={:$cate_id:}&name="+name);
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				id:id,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val(),
+				Room:$('#bedRoom').combobox('getValue'),
+				Living:$('#livingRoom').combobox('getValue'),
+				Wash:$('#washRoom').combobox('getValue'),
+				Gallery:$('#galleryRoom').combobox('getValue'),
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+	$("#sub").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);
+		var id='{:$quote_id:}';
+		$.ajax({
+			type:"post",
+			url:"furnish.php?cate_id={:$cate_id:}",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				id:id,
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val(),
+				Room:$('#bedRoom').combobox('getValue'),
+				Living:$('#livingRoom').combobox('getValue'),
+				Wash:$('#washRoom').combobox('getValue'),
+				Gallery:$('#galleryRoom').combobox('getValue'),
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+{:include file='header.tpl.html':}
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                	<a href="index.php">
+	                	<img src="images/logo2.png"/>
+                	</a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="furnish.php?strategy">
+                         机电攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?pay">
+                         分期介绍
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?show">
+                        全国体验中心
+                    </a>
+                </div>
+      
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear9"></div>
+
+
+<div id="userInfo" style=" width:1200px;height:500px; margin:0px auto; border-top:2px solid #83bbea; background:#FFFFFF;">
+	<div style="margin-left:50px; height:500px; line-height:60px;">
+		<p>&nbsp;&nbsp;</p>
+		<p><span style="font-size:20px; color:#666666">房屋昵称：</span>&nbsp;<input type="" value="幻想之城" name="" id="" style="width:160px; height:40px; border:1px solid #95b8e7; color:#999999; text-indent:10px;" /><span style="color:#999999">&nbsp;&nbsp;注：[为你的爱屋起昵称]</span></p>
+		<p><span style="font-size:20px; color:#666666">房屋地址：</span>
+			 <select id="provinces" name='Provinces'style="width:200px; height:40px;">
+				<option selected="selected" value="">--请选择--</option>
+				{:foreach from=$data->p item=item:}
+					<option value="{:$item.1:}">{:$item.0:}</option>
+				{:/foreach:}	
+			</select> 省
+		
+			<select id="citys" name="Citys" style="width:200px; height:40px;">
+				<option selected="selected" value="">--请选择--</option>
+			</select> 市
+			
+			<select id="town" name="Town" style="width:200px; height:40px;">
+				<option selected="selected" value="">--请选择--</option>
+			</select> 县
+			
+			
+			<input type="text" value="" name="address" style="width:160px; height:40px; border:1px solid #95b8e7" />
+		</p>
+		<p><span style="font-size:20px; color:#666666">报价需知</span></p>
+		<p>
+			<p style="color:#666666;">&nbsp;&nbsp;&nbsp;&nbsp;1. 健康舒适家居系统价格和房型、面积等有关，为得到精确报价，请精确填写表单</p>			
+			<p style="color:#666666;">&nbsp;&nbsp;&nbsp;&nbsp;2. 在实际施工过程中，施工面积超出填写面积，增加部分需另外支付费用</p>			 
+			<p style="color:#666666;">&nbsp;&nbsp;&nbsp;&nbsp;3. 在实际施工过程中，施工面积不到填写面积，退还多余款项</p>			  			  
+			<p style="color:#666666;">&nbsp;&nbsp;&nbsp;&nbsp;4. 具体费用在深化设计后进行多退少补</p>
+		</p>
+	</div>
+</div>
+
+<div class="filling" style="height:30px;">
+	<!--填充行距-->
+</div>
+
+<div id="userHouseInfo" class="contentFrame" style="height:640px; background:#FFFFFF;border-top:2px solid #45d496; ">
+	<div style="width:1040px; margin-left:50px;line-height:60px;">
+		<p><span style="font-size:20px; color:#666666;">房屋类型：</span></p>
+		<table style="color:#666666;">
+			<td width="40"><input type="radio" name="house_type" id="" value="1" style="width:40px;" checked="checked"/></td>
+			<td width="200">公寓</td>
+			<td width="40"><input type="radio" name="house_type" id="" value="1" style="width:40px;"/></td>
+			<td width="200">叠加</td>
+			<td width="40"><input type="radio" name="house_type" id="" value="2" style="width:40px;"/></td>
+			<td width="200">联排</td>
+			<td width="40"><input type="radio" name="house_type" id="" value="2" style="width:40px;"/></td>
+			<td width="200">独栋 </td>
+		</table>
+	</div>
+	<div style="width:1040px; margin-left:50px;line-height:60px;">
+		<p style="font-size:20px; color:#666666;">房屋类型：&nbsp;&nbsp;(请填写使用面积)</p>
+	</div>	
+	<div style="margin-left:50px;line-height:60px;">
+		房屋户型：
+		<select name="" id="bedRoom"  style="width:80px; height:40px;">
+			<option value="">--请选择--</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+		</select> &nbsp;&nbsp;室 &nbsp;&nbsp;
+		<select name="" id="livingRoom"  style="width:80px; height:40px;">
+			<option value="">--请选择--</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select> &nbsp;&nbsp;厅 &nbsp;&nbsp;
+		<select name="" id="kitchRoom"  style="width:80px; height:40px;">
+			<option value="">--请选择--</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+		</select> &nbsp;&nbsp;厨 &nbsp;&nbsp;
+		<select id="washRoom" style="width:80px; height:40px;">
+			<option value="">--请选择--</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select> &nbsp;&nbsp;浴 &nbsp;&nbsp;
+		<select id="galleryRoom" style="width:80px; height:40px;">
+			<option value="">--请选择--</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select> &nbsp;&nbsp;阳台 &nbsp;&nbsp;
+	</div>
+	<div style="margin-left:50px;line-height:60px;">
+	  <p>房屋面积：
+		<input type="" name="" id="totalHouseSize" style="width:160px; height:40px; border:1px solid #95b8e7; color:#999999; text-indent:10px;" />
+	  </p>
+  	</div>
+	
+	<div style=" margin-left:50px; line-height:50px;">
+		我们为您自动分配的房间面积如下，如需精确报价请正确填写以下内容并且点击精确估价
+	</div>
+	
+	<div style="width:120px; height:160px;position:absolute; margin-left:50px;">
+		房屋户型
+	</div>
+	<div style="width:1000px; height:200px;  margin-left:170px;">
+		<ul id="bedRoomList" style="margin-right:10px;">
+			<li style="width:100px; height:60px; float:left; margin-right:10px;">
+				<span style="width:100px; height:30px; line-height:30px; text-align:center; display:block;">主卧：</span>
+				<span><input type="text" value="10"  style="width:100px;border:1px solid #95b8e7" /></span>
+			</li>
+		</ul>
+		
+		
+		<ul id="livingRoomList" style="margin-right:10px;">
+			<li style="width:100px; height:60px; float:left; margin-right:10px;">
+				<span style="width:100px; height:30px; line-height:30px; text-align:center; display:block;">客厅：</span>
+				<span><input type="text" value="10"  style="width:100px;border:1px solid #95b8e7" /></span>
+			</li>	
+		</ul>
+		
+		<ul id="kitchRoomList" style="margin-right:10px;">
+			<li style="width:100px; height:60px; float:left; margin-right:10px;">
+				<span style="width:100px; height:30px; line-height:30px; text-align:center; display:block;">厨房：</span>
+				<span><input type="text" value="10"  style="width:100px;border:1px solid #95b8e7" /></span>
+			</li>	
+		</ul>
+		
+		<ul id="washRoomList" style="margin-right:10px;">
+			<li style="width:100px; height:60px; float:left; margin-right:10px;">
+				<span style="width:100px; height:30px; line-height:30px; text-align:center; display:block;">浴室：</span>
+				<span><input type="text" value="10"  style="width:100px;border:1px solid #95b8e7" /></span>
+			</li>	
+		</ul>
+		
+		<ul id="galleryRoomList" style="margin-right:10px;">
+			<li style="width:100px; height:60px; float:left; margin-right:10px;">
+				<span style="width:100px; height:30px; line-height:30px; text-align:center; display:block;">阳台：</span>
+				<span><input type="text" value="10"  style="width:100px;border:1px solid #95b8e7" /></span>
+			</li>	
+		</ul>
+		
+	</div>	
+
+	<div id="sub" style=" margin-left:400px;width:200px; height:40px; border:2px solid #cccccc; text-align:center; line-height:40px; cursor:pointer; color:#666666; font-size:20px;">
+		精确报价
+	</div>
+
+</div>
+
+<div class="filling" style="height:30px;">
+	<!--填充行距-->
+</div>
+<div style="width:1200px; height:60px; border-top:2px solid #548db2; background:#FFFFFF; margin:0px auto;">
+	报价
+</div>
+<div class="filling" style="height:30px;">
+	<!--填充行距-->
+</div>
+
+<div id="rollBack" style="width:1200px; height:auto; background:#FFFFFF; margin:0px auto; position:relative;">
+	<div style="margin-left:50px;">
+		<img  src="images/20151209/305.jpg" alt="" />
+	</div>
+	<div style="width:300px; height:560px; position:absolute; left:890px; top:0px;">
+		<p style="width:300px; height:150px; line-height:150px; text-align:center; font-size:24px;">经济型</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">$2000</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">
+			破茧预售&nbsp;超值起约&nbsp;低价来袭
+		</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:24px;">
+			<button style="width:100px; height:30px; line-height:24px;">预购</button>
+		</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">可用卷：$2000</p>
+	</div>
+	<div class="filling" style="height:20px;">
+	</div>
+	
+	<div style="margin-left:50px;">
+		<img  src="images/20151209/305.jpg" alt="" />
+	</div>
+	<div style="width:300px; height:560px; position:absolute; left:890px; top:580px;">
+		<p style="width:300px; height:150px; line-height:150px; text-align:center; font-size:24px;">经济型</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">$2000</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">
+			破茧预售&nbsp;超值起约&nbsp;低价来袭
+		</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:24px;">
+			<button style="width:100px; height:30px; line-height:24px;">预购</button>
+		</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">可用卷：$2000</p>
+	</div>
+	<div class="filling" style="height:20px;">
+	</div>
+	
+	<div style="margin-left:50px;">
+		<img  src="images/20151209/305.jpg" alt="" />
+	</div>
+	<div style="width:300px; height:560px; position:absolute; left:890px; top:1140px;">
+		<p style="width:300px; height:150px; line-height:150px; text-align:center; font-size:24px;">经济型</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">$2000</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">
+			破茧预售&nbsp;超值起约&nbsp;低价来袭
+		</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:24px;">
+			<button style="width:100px; height:30px; line-height:24px;">预购</button>
+		</p>
+		<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">可用卷：$2000</p>
+	</div>
+	<div class="filling" style="height:20px;">
+	</div>
+	<div class="clear2"></div>
+	<!--底部广告start-->
+    <div class="homelist-ad">
+    	<a href="#" >
+        	<img src="images/213.jpg" />
+        </a>
+    </div>
+<!--底部广告end-->
+</div>
+
+
+
+
+<!-- 底部文件 -->
+
+{:include file='footer.tpl.html':}
+
+<!-- 底部文件end -->
+
+<!--右侧浮动导航-->
+<!-- 代码部分begin -->
+<div class="side">
+	<ul>
+        <li id="collect-link">
+            <a href="#">
+                <div class="sidebox">
+                	<img src="images/243.png">        
+               		我的健康舒适家                                
+                </div>
+            </a>
+        </li>
+        
+        <li>
+            <a href="order.php?cartlist">
+                <div class="sidebox">
+                    <img src="images/244.png">
+                    我的购物车
+                </div>
+            </a>
+        </li>
+        
+        <li>
+        	<a href="#">
+                <div class="sidebox">
+                    <img src="images/245.png">
+                    我的收藏
+                </div>
+            </a>
+        </li>
+        
+	  	<li>
+        	<a href="#">
+            	<div class="sidebox">
+                	<img src="images/246.png">
+                    我的分享
+                </div>
+            </a>
+        </li>
+        
+	  	
+        
+	 	<li style="border:none;">
+            <a href="javascript:goTop();" class="sidetop">
+            	<img src="images/247.png">
+            </a>
+        </li>
+  </ul>
+</div>
+<script>
+$(function(){
+	$(".side ul li").hover(function(){
+		$(this).find(".sidebox").stop().animate({"width":"200px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#fff"})	
+	},function(){
+		$(this).find(".sidebox").stop().animate({"width":"40px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})	
+	});
+});
+//回到顶部函数
+function goTop(){
+	$('html,body').animate({'scrollTop':0},300);
+}
+</script>
+<!-- 代码部分end -->
+<!--右侧浮动导航end-->
+
+
+
+<!--弹出预售框-->
+<div id='div_view_pre_order'>
+
+</div>
+
+<div class="collect-tip" id="collect-tip" style="display: none;">	
+    <div class="collect-tip-bk">	
+        <div class="collect-tip-titile">
+        	我的健康舒适家
+        </div>        
+        
+        <div class="collect-tip-shopping">
+        	<div class="collect-tip-shopping-title">
+            	预购总汇
+            </div>
+            
+            <div class="collect-tip-shopping-table">
+            	<div class="collect-tip-shopping-table-title">
+                	<div class="collect-tip-shopping-table-title-01">
+                    	系统名称
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-title-02">
+                    	总价（单位：元）
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-title-03">
+                    	抵扣券（单位：元）
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-title-04">
+                    	操作
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                {:if isset($pre_order):}
+                {:foreach $pre_order as $key=>$item:}
+                
+                <div class="collect-tip-shopping-table-list">
+                	<div class="collect-tip-shopping-table-list-01">
+                    	{:$item.3:}
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-list-02">
+                    	{:$item.2:}元
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-list-03">
+                    	2000
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-list-04">
+                    	<a href="?del&key={:$key:}&q_id={:$item.1:}">
+                        	移除
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+               {:/foreach:}
+               <div class="collect-tip-shopping-table-collect">
+                	<div class="collect-tip-shopping-table-collect-01">
+                    	总计
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-collect-02">
+                    	12000
+                    </div>
+                    
+                    <div class="collect-tip-shopping-table-collect-03">
+                    	4000
+                    </div>
+                </div>
+               {:else:}
+               <div class="collect-tip-shopping-table-list">
+                	没有商品
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+               {:/if:} 
+                
+            </div>
+            
+            <div class="collect-tip-shopping-buy">
+            	<a href="#">
+                	放进购物车
+                </a>
+            </div>
+        </div>               
+        <div class="clear2"></div> 
+    </div>
+</div>
+
+<!--弹出预售框end-->
+<script type="text/javascript">
+function showDistributionTip() {
+  $("#distribution-tip").fadeIn();
+  setTimeout(function () {
+	  $("#distribution-tip").fadeOut();
+  }, 4000)
+}
+$(function(){            
+	//contact float
+	//collect-link
+	$("#contFloat").click(function(event){
+	alert("sss");
+	  event.preventDefault();
+	  $("#contFloat-detail").show();
+	})
+	$("#contFloat-detail-close").click(function(){
+	  $("#contFloat-detail").hide();
+	})
+	$("#collect-link").on("click", function () {
+	  $("#collect-tip").show();
+	})
+
+	$("#a-know").on("click", function () {
+	  $("#collect-tip").hide();
+	})
+	$("#appdown-close").on("click", function () {
+	  $("#apptip").hide();
+	})
+	$("#fromesb-close").on("click", function () {
+	  $("#fromesb-wechat").hide();
+	})
+})
+
+</script>
+</body>
+</html>

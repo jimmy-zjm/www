@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>服务商订单详情</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+<style>.ping {
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	display: none;
+	z-index: 5;}
+	.white_content {
+	position: absolute;
+	top: 110px;
+	left: 30%;
+	width: 450px;
+	height: 480px;
+	border: 1px solid orange;
+	background-color: white;
+	z-index: 1002;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	    <li><a >订单管理</a></li>
+	    <li><a href="<{:U('index')}>">订单列表</a></li>
+	    <li><a >订单详情</a></li>
+	    </ul>
+	 </div>
+    
+<div class="formbody">
+  <div id="usual1" class="usual"> 
+  	<div  class="tabson">
+  		<div style="width:100%;height:40px;line-height:40px;">
+  			<div style="float:left;width:500px;font-size:25px;">订单信息</div>
+  			<foreach name="message" item="v">
+				<div style="float:left;width:300px;font-size:25px;color:#ff0000;">
+					<if condition="$v.refund_status eq 2">消息：合作伙伴申请补货
+					<elseif condition="$v.refund_status eq 1"/>消息：合作伙伴申请退货
+					</if>
+				</div>
+			</foreach>
+  			<div style="float:right;width: 350px;height: 50px;line-height: 50px;text-align:left;margin-left:2%;">            
+            	<if condition="$dealer_order_info[0]['order_status'] eq 5"><a href ="javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" style="font-size:20px;margin-right:20px;">
+                	调整报价
+                </a>
+                <else />
+                <a href ="javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" style="font-size:20px;margin-right:20px;">
+                </if>
+            	<a href ="javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'" style="font-size:20px;">
+                	我要上传
+                </a>
+				<!-- <a href ="<{:U('omsHtml',array('oid'=>$dealer_order_info[0][order_id]))}>" style="padding-left:20px;font-size:20px;">
+                	生成OMS订单
+                </a> -->
+            </div>
+           			<!--弹出预售框-->
+					<div id="light" class="ping">
+						<div class="white_content">
+							<a  style="font-size: 36px; float: right; border: none; color: #000;"
+								href="javascript:void(0)"
+								onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+								×</a>
+							<div style="clear: both;"></div>
+							<div class="fucai_y">
+							   <span style="font-size:30px;height:40px;line-height:40px;">调整报价</span> 
+							   <a href="<{:U('show_image',array('order_id'=>$dealer_order_adjust_info[0]['order_id']))}>" target="_blank">[查看订单调整确认单]</a>
+								<span style="font-size:20px;">原订单信息</span>
+								<ul class="forminfo">
+								    <li style='line-height: 25px;'>
+								    	订单号:<{$dealer_order_adjust_info[0]['order_code']}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								    	房面积:<{$dealer_order_adjust_info[0]['total_area']}>m²&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+								    	房型:<{$dealer_order_adjust_info[0]['house_layout']|house_layout}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+								    	房间面积:<{$dealer_order_adjust_info[0]['type_area']|type_area}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								    </li>
+							    </ul>
+							    
+							    <span style="font-size:20px;">经销商调整信息</span>
+							    
+								<ul class="forminfo">
+								    <li style='line-height: 25px;'>
+								    	订单号:<{$dealer_adjust_info.0.order_code}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								    	房面积:<{$dealer_adjust_info.0.total_area}>m²&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+								    	房型:<{$dealer_adjust_info.0.house_layout|house_layout}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+								    	房间面积:<{$dealer_adjust_info[0]['type_area']|type_area}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								    </li>
+							    </ul>
+							    <span style="margin-left:20%;margin-top:5%;">
+							    <a href="<{:U('adjust',array('order_id'=>$dealer_order_info[0]['order_id']))}>"><input class="btn" type='button' value='通过'/></a>
+							    <a href="<{:U('adjust',array('refuse'=>1,'order_id'=>$dealer_order_info[0]['order_id']))}>"><input class="btn" type='button' value='拒绝'/></a>
+							    </span>
+							</div>
+						</div>
+					</div>
+					<div id="light2" class="ping">
+						<div class="white_content">
+							<a  style="font-size: 36px; float: right; border: none; color: #000;"
+								href="javascript:void(0)"
+								onclick="document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'">
+								×</a>
+							<div style="clear: both;"></div>
+							<div class="fucai_y">
+								<form action="<{:U('file',array('order_id'=>$dealer_order_info[0]['order_id']))}>" method="post" enctype="multipart/form-data">
+									<ul class="forminfo">
+									<li><label>文件名称</label><input name="file_name" type="text" class="dfinput" value=''required='required'/><i></i></li>
+									<li><label style="width:230px;"><input type="radio" name="type" style="position:relative;top:2px;" checked value="1"/>经销商可查看&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name='type'value='2'/>经销商不可查看<i></i></label>
+                					</li>
+			    					<li><label>文件</label><input name="file_img" type="file" /><i></i></li>
+			    					<li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/></li>
+									</ul>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!--弹出框end-->
+  		</div>
+  		<ul class="forminfo">
+		    <li>
+		    	订单号:<{$dealer_order_info.0.order_code}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    </li>
+		    <li>
+		    	联系人:<{$dealer_order_info.0.consignee}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+		    	电话:<{$dealer_order_info.0.mobile_phone}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	房面积:<{$dealer_order_info.0.total_area}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+		    	房型:<{$dealer_order_info.0.house_layout|house_layout}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+		    	地址:<{$dealer_order_info.0.province}><{$dealer_order_info.0.city}><{$dealer_order_info.0.district}><{$dealer_order_info.0.address}>
+		    </li>
+		    <li>
+		    	客户要求:<{$dealer_order_info.0.postscript}>
+		    </li>
+	    </ul>
+  	</div>
+	
+  	<div  class="tabson">
+  		<ul class="forminfo">
+		    <li>
+		    	全部金额:<i style="line-height: 34px;color:red"><{$price_all}></i>&nbsp;元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	已付金额:<i style="line-height: 34px;color:red"><{$price}></i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="listtable" >
+    	
+		    <thead>
+		    <tr>
+		    <th>产品型号</th>
+		    <th>支付阶段</th>
+		    <th>施工阶段</th>
+		    <th>产品清单</th>
+		    <th>支付状态</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <foreach name="dealer_order_info" item="v" >
+		    <tr>
+		    <td><img width='54px'src="<{$v['img']}>"/><span><{$v.quote_name}></span></td>
+		    <td><span>500元</span><span>50%</span><span>50%</span></td>
+<!-- 		<td><span><if condition=" $v['schedule_status'] eq 1">深度设计中<elseif condition="$v['schedule_status'] eq 2"/>深度设计完成</if></span><span><if condition=" $v['schedule_status'] eq 3">辅材安装中<elseif condition="$v['schedule_status'] eq 4"/>辅材安装完成</if></span><span><if condition=" $v['schedule_status'] eq 3">主设备安装中<elseif condition="$v['schedule_status'] eq 4"/>主设备安装完成</if></span></td> -->		    
+			<td><span>深化设计</span><span>辅材安装</span><span>主设备安装</span></td>
+		    <td>
+		    <span>设计图纸</span>
+		    <span>
+			    <if condition="$v.pay_status eq 1 || $v.pay_status eq 3  || $v.pay_status eq 4">
+			    	<!-- <a href="<{:U('stuff_list',array('order_id'=>$v['order_id'],'detail_id'=>$v['detail_id'],'goods_lv'=>2))}>"
+			    	style="color:blue">辅材清单</a> -->
+			    	<a href="<{:U('stuff_list',array('order_id'=>$v['order_id'],'detail_id'=>$v['detail_id'],'goods_lv'=>2,'batch'=>1))}>"
+			    	style="color:blue">第一批清单</a>
+			    	<a href="<{:U('stuff_list',array('order_id'=>$v['order_id'],'detail_id'=>$v['detail_id'],'goods_lv'=>2,'batch'=>2))}>"
+			    	style="color:blue;margin-left:20px;">第二批清单</a>
+			    <else />
+			    	<!-- <p>辅材清单</p> -->
+			    	<p>第一批清单 &nbsp; 第二批清单</p>
+			    </if>
+		    </span>
+		    <span>
+		   <!--  ,'quote_name'=>$v['quote_name'], -->
+			    <if condition=" $v.pay_status eq 1 || $v.pay_status eq 4">
+			   		<!-- <a href="<{:U('stuff_list',array('order_id'=>$v['order_id'],'detail_id'=>$v['detail_id'],'goods_lv'=>1))}>"
+			   		style="color:blue">主设备清单</a> -->
+			   		<a href="<{:U('stuff_list',array('order_id'=>$v['order_id'],'detail_id'=>$v['detail_id'],'goods_lv'=>1,'batch'=>3))}>"
+			   		style="color:blue">第三批清单</a>
+			    <else />
+			    	<!-- <p>主设备清单</p> -->
+			    	<p>第三批清单</p>
+			    </if>
+		    </span>
+		    </td>
+		    <td>
+			    <span>已支付</span>
+			    <span>
+				    <if condition=" $v.pay_status eq 1 || $v.pay_status eq 3 || $v.pay_status eq 4">
+				    	已支付
+				    <else />
+				    	未支付
+				    </if>
+			    </span>
+			    <span>
+				    <if condition=" $v.pay_status eq 1 || $v.pay_status eq 4">
+				    	已支付
+				    <else />
+				    	未支付
+				    </if>
+			    </span>
+		    </td>
+		    </tr>
+		    </foreach>
+			</tbody>
+		    
+		 </table>
+    </div> 
+    
+    
+  	<div  class="tabson">
+		<span style='font-size:20px'>工程安排</span>
+		<div class="itab">
+		  	<ul> 
+		  	<foreach name="dealer_order_info"  item="v">
+			    <li><a href="?info&detail_id=<{$v.detail_id}>&order_id=<{$v.order_id}>" class="<if condition=" $v['detail_id'] eq $detail_id">selected<else /></if>"><{$v['quote_name']}></a></li> 
+		  	</foreach>
+		  	</ul>
+	    </div> 
+	    
+			   	<table class="listtable" >
+				    <thead>
+				    <tr>
+				    <th>开始时间</th>
+		           	<th>结束时间</th>
+		           	<th>工作任务</th>
+		           	<th>实施人</th>
+		           	<th>派单人</th>
+		           	<th>状态</th>
+				    </tr>
+				    </thead>
+				    <tbody>
+				    <foreach name="construct_list"  item="v">
+				    <tr>
+				    <td><?php echo (date("Y-m-d",$v['start_time'])); ?></td>
+				    <td><?php echo (date("Y-m-d",$v['end_time'])); ?></td>
+				    <td><{$v['task_work']|dealer_order_task_work}></td>
+				    <td><{$v['task_name']}></td>
+				    <td><{$v['assigner']}></td>
+				    <td><if condition=" $v['status'] eq 1"><span style="color:blue">未完成</span><elseif condition="$v['status'] eq 2 "/><span style="color:green">已完成</span><elseif condition="$v['status'] eq 3 "/><span style="color:red">已结束</span></if></td>
+				    </tr>
+				     </foreach>
+					</tbody>
+		
+		  </table>
+			
+    </div>  
+    
+    
+    <div class="tabson">
+       	<span style='font-size:20px'>质量审核</span>
+  	   	<table class="listtable" >
+    	
+		    <thead>
+		    <tr>
+		   	<th>工作任务</th>
+            <th>实施人</th>
+            <th>状态</th>
+            <th>验收状态</th>
+            <th>审核人</th>
+            <th>验收人</th>
+            <th>操作</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <foreach name="construct_list"  item="v">
+		    <tr>
+		    <td><{$v['task_work']|dealer_order_task_work}></td>
+		    <td><{$v['task_name']}></td>
+		    <td><if condition=" $v['status'] eq 1"><span style="color:blue">未完成</span><elseif condition="$v['status'] eq 2 "/><span style="color:green">已完成</span><elseif condition="$v['status'] eq 3 "/><span style="color:red">已结束</span></if></td>
+		    <td><if condition=" $v['check_status'] eq 1">用户未验收<elseif condition="$v['check_status'] eq 2"/>用户已验收</if></td>
+		    <td><if condition=" $v['check_proof'] eq 1">验收单未上传<elseif condition="$v['check_proof'] eq 2"/>验收单已上传</if></td>
+		    <td><{$v['assigner']}></td>
+		    <td><if condition=" $v['status'] eq 3"><span style="color:green">已审核</span></if><if condition=" $v['status'] eq 2"><a style="color:red" href="<{:U('check',array('task_work'=>$v['task_work'],'detail_id'=>$v['detail_id'],'construct_id'=>$v['construct_id'],'order_id'=>$v['order_id']))}>">审核</a></if><if condition=" $v['status'] eq 1"><p style="color:#ccc">审核</p></if></td>
+		    </tr>
+		    </foreach>
+			</tbody>
+		    
+		 </table>
+    </div>
+    	
+    <div class="tabson">
+  		
+  	  <span style='font-size:20px'>文件区</span>
+    	<table class="listtable" >
+    	
+		    <thead>
+		    <tr>
+		    <th>名称</th>
+            <th>缩略图</th>
+            <th>类型</th>
+            <th>上传人</th>
+            <th>时间</th>
+            <th>操作</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <foreach name="file_list" item="v">
+		    <tr>
+		    <td><{$v['file_name']}></td>
+		    <td><img src="../pictures/file/upload/thumb/s_<{$v['file_img']}>"/></td>
+		    <td><{$v['file_type']}></td>
+		    <td><{$v['upload_name']}></td>
+		    <td><?php echo (date("Y-m-d",$v['file_time'])); ?></td>
+		    <td><a href="<{:U('file_down',array('file_img'=>$v['file_img']))}>">下载</a></td>
+		    </tr>
+		    </foreach>
+			</tbody>
+		    
+		 </table>
+    </div> 
+    <div class="tabson">
+  		
+  	  <span style='font-size:20px'>产品手册</span>
+    	<table class="listtable" >
+    	
+		    <thead>
+		    <tr>
+		    <th>名称</th>
+            <th>缩略图</th>
+            <th>类型</th>
+            <th>上传人</th>
+            <th>时间</th>
+            <th>操作</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <foreach name="manual_list" item="v">
+		    <tr>
+		    <td><{$v['file_name']}></td>
+		    <td><img src="<{$v['file_img']}>"/></td>
+		    <td><{$v['file_type']}></td>
+		    <td><{$v['upload_name']}></td>
+		    <td><?php echo (date("Y-m-d",$v['file_time'])); ?></td>
+		    <td><a href="<{:U('file_down',array('file_img'=>$v['file_img']))}>">下载</a></td>
+		    </tr>
+		    </foreach>
+			</tbody>
+		    
+		 </table>
+    </div>  	 	
+  </div>       
+</div> 
+<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+</script>
+    
+<script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+</script>   
+
+
+</body>
+
+</html>

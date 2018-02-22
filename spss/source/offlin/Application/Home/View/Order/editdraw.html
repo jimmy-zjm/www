@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/imgupload.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a><{$title}>信息</header>
+	<section  class="container">
+		<p class="sys-item">修改标题</p>
+		<form action="<{:U('editUpload')}>" method="post" enctype="multipart/form-data">
+			<p class="sys-item">
+				<input class="upload-text upload-biaoti" type="text" name="title" placeholder="请输入标题" value="<{$info['title']}>">
+				<input type="hidden" name="oid" value="<{$info['o_id']}>">
+				<input type="hidden" name="types" value="<{$info['types']}>">
+				<input type="hidden" name="oldimg" value="<{$info['img']}>">
+				<input type="hidden" name="id" value="<{$info['id']}>">
+			</p>
+			<p class="sys-item last-row">修改内容
+				<span class="wordnum-tishi fr" id="tishi01"></span>
+			</p>
+			<textarea class="upload-text upload-neirong"  id="neirong01" name='content'  onkeyup="statWordNum('neirong01','tishi01',140)" placeholder="请输入内容"><{$info['content']}></textarea>
+			<p class="sys-item">上传照片</p>
+			<div class="z_photo">
+				<div class="z_file">
+					<input type="file" name="file" id="file" value="" accept="image/*;capture=camera"  onchange="imgChange('z_photo','z_file');" />
+				</div>
+			</div>
+			<input id="submitBtn" class="my-btm-btn" type="submit" name="">
+		</form>
+	</section>
+
+
+	<!--遮罩层-->
+	<div class="z_mask">
+		<!--弹出框-->
+		<div class="z_alert">
+			<p>将删除已选的所有图片？<br>你需要重新选择！</p>
+			<p>
+				<span class="z_cancel">取消</span>
+				<span class="z_sure">确定</span>
+			</p>
+		</div>
+	</div>
+	<script src="__PUBLIC__/Dealer/js/imgupload.js"></script>
+</body>
+</html>

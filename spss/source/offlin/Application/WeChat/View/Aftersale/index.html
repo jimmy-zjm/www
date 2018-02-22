@@ -1,0 +1,68 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/repairs.css">
+</head>
+<body>	
+<div class="section">
+	
+	<div class="header">
+		<p class="header-title">维修保养</p>
+		<a class="backBtn"  href="<{:U('User/index')}>"></a> 
+	</div>
+	<div class="repairs-box">
+		<p class="record-title">保养记录</p>
+
+			<ul class="record-list">
+			<?php foreach ($lists as $v): ?>
+				<li><a href="<{:U('detail',['id'=>$v['id']])}>">
+						<span class="fl item-name ell"><{$v['sale_sn']}></span>
+						<div class="fr">
+							<span><?=date("Y-m-d",strtotime($v['add_time']))?></span>
+						</div>
+					</a>
+				</li>
+			<?php endforeach ?>				
+			</ul>
+		<a class="no-record" href="javascript:;" onclick="editInfos(2)">点我保养</a>
+	</div>
+	<div class="repairs-box">
+		<p class="record-title">维修记录</p>
+		<!-- <ul></ul>
+		<a class="no-record" href="editInfo.html">暂无维修记录，点我维修</a> -->
+			<ul class="record-list">
+			<?php foreach ($list as $v): ?>
+				<li><a href="<{:U('detail',['id'=>$v['id']])}>">
+						<span class="fl item-name ell"><{$v['sale_sn']}></span>
+						<div class="fr">
+							<span><?=date("Y-m-d",strtotime($v['add_time']))?></span>
+						</div>
+					</a>
+				</li>
+			<?php endforeach ?>				
+			</ul>
+			<a class="no-record" href="javascript:;" onclick="editInfos(1)">点我维修</a>
+	</div>
+
+
+	<div class="repairs-box hotline">	
+		客户热线
+		<br>
+		<a href="tel:400-800-1027">400-800-1027</a>		
+	</div>
+
+
+</div>
+
+<script type="text/javascript">
+	function editInfos(tab){
+		var stutas=<{$data}>;
+		if(stutas==0){
+			alert('请联系客服人员，400-800-1027');
+		}else{
+			if(tab==1){
+				window.location.href="<{:U('editInfo',['tab'=>1])}>";
+			}else if(tab==2){
+				window.location.href="<{:U('editInfo',['tab'=>2])}>";
+			}
+		}
+	}
+</script>

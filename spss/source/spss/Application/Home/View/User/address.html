@@ -1,0 +1,474 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+
+<div class="user-center">
+    <include file="User:left" />
+
+    <!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <h2>收货地址</h2>
+         <?php if($tab!='edit'){ ?>
+		<div class="addresstop">
+				<div class="address clear">
+					<span class="addresstitle">新增收货地址</span>
+					<span >电话号码、手机号选填一项, 其余均为必填项</span>
+				</div>
+				<form action="<{:U('User/doAddAddress')}>" method="post" id='formid'>
+					<div class="addressform  clear">
+						<span>所在地区 <i>*</i></span>
+							<div class="addressinp">
+                                <select required class='prov' id='pro' name="province" onchange='area("city",this.value)'>
+                                <option value="" >-请选择-</option>
+                                    <?php foreach ($area as $key => $v): ?>
+                                        <option value="<{$v.id}>"><{$v.name}></option>
+                                    <?php endforeach ?>
+                                </select>　省
+                                                
+                                <select required class='city'  id='cit' name="city" onchange='area("district",this.value)'>
+                                    <option value="">-请选择-</option>
+                                </select>　市
+                                               
+                                <select required class='district' id='dis' name="district" >
+                                    <option value="">-请选择-</option>
+                                </select>　县/区
+							</div>
+					</div>
+					<div class="addressform formpdc clear">
+						<span>详细地址  <i>*</i></span>
+						<div class="addressinp"><textarea placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息" class="diqu"  name="addr" id="addrId"></textarea></div>
+						
+					</div>
+					<div class="addressform clear">
+						<span>邮政编码  </span>
+						<div class="addressinp"><input class="zipcode"  maxlength="16"  placeholder="如您不清楚邮递区号，请填写000000"  type="text" name="zipcode" id="zipcodeId" onchange="zip()"></div>
+						<span class="addresserror" id="zipcodeerror" ></span>
+					</div>
+					<div class="addressform clear">
+						<span>收货人姓名   <i>*</i></span>
+						<div class="addressinp"><input class="zipcode"  placeholder="长度不超过25个字符" onchange="checkname()" type="text" name="a_name" id="a_nameId"></div>
+						<span class="addresserror" id="nameerror"></span>
+					</div>
+					<div class="addressform clear">
+						<span>手机号码   </span>
+						<div class="addressinp"><input class="zipcode"   placeholder="手机号码、电话号码必须填一项"  type="text"  name="mobile" id="mobileId" onchange="aaa()"></div>
+						<span class="addresserror" id="mobileerror"></span>
+					</div>
+					<div class="addressform clear">
+						<span>电话号码   </span>
+						<div class="addressinp">
+								<input class="quhao"   placeholder="区号" name='quhao' id='quhao' type="text" onchange="checkquhao()">&nbsp;-&nbsp;
+								<input class="phonenumber"   placeholder="电话号码" name='number' id='number'  onchange="checknumber()" type="text">&nbsp;-&nbsp;
+								<input class="fenjihao"   placeholder="分机号" name='fenji' id='fenji'  type="text">
+						</div>
+						<span class="addresserror" id='phoneerror'></span>
+					</div>
+					<div class="addressform clear">
+						<span>&nbsp;</span>
+						<div class="addressinp">
+								<input placeholder="区号" class="moren" checked name='default' value='1' type="checkbox">
+								<label>设置为默认收货地址</label>
+						</div>						
+					</div>
+					<div class="addressform clear">
+						<span>&nbsp;</span>
+						<div class="addressinp">
+							<button type="button" id="addbutton" class="addressbot" onclick="addbuttons()">保存</button>
+						</div>						
+					</div>
+				</form>
+		</div>
+		<!-- 省市县三级联动 -->
+		<script type="text/javascript"> 
+		    function area(o,v,c,d){
+		        $.getJSON("<{:U('area')}>",{'v':v},function(data){
+		            if (o=='city') {
+		                $('.district').html('');
+		                $('.district').append('<option value="">-请选择-</option>');
+		            }
+		            $('.'+o).html('');
+		            $('.'+o).append('<option value="">-请选择-</option>');
+		            for (var i = 0; i < data.length; i++) {
+		                $('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+		            }
+		        })
+		    }
+		</script>
+
+		<script>
+		function checkname(){
+			if ($("#a_nameId").val()=='') {
+		    	$("#nameerror").html(''); 
+		    }else{
+				var reg=/^[\u4e00-\u9fa5_a-zA-Z0-9_]{2,25}$/;
+				if(!reg.test($("#a_nameId").val())){ 
+			        $("#nameerror").html('请输入有效的姓名！'); 
+			        return false; 
+				}else{
+				    $("#nameerror").html(''); 
+				}
+		    }
+		}
+
+		function checkquhao(){
+			if ($("#quhao").val()=='') {
+		    	$("#phoneerror").html(''); 
+		    }else{
+				var reg=/^[0-9]{3,4}$/;
+				if(!reg.test($("#quhao").val())){ 
+			        $("#phoneerror").html('请输入有效的区号！'); 
+			        return false; 
+			    }else{
+			    	$("#phoneerror").html(''); 
+			    }
+		    }
+		}
+		function checknumber(){
+			if ($("#number").val()=='') {
+		    	$("#phoneerror").html(''); 
+		    }else{
+		    	var reg=/^[0-9]{7,8}$/;
+				if(!reg.test($("#number").val())){ 
+			        $("#phoneerror").html('请输入有效的电话！'); 
+			        return false; 
+			    }else{
+			    	$("#phoneerror").html(''); 
+			    }
+		    }
+		}
+		function aaa(){
+			var a = $("#mobileId").val();
+			if (a=='') {
+		    	$("#mobileerror").html(''); 
+		    }else{
+			    var myreg = /^1[34578]\d{9}$/; 
+			    if(!myreg.test(a)){ 
+			        $("#mobileerror").html('请输入有效的手机号码！'); 
+			        return false; 
+			    }else{
+			    	$("#mobileerror").html(''); 
+			    }
+			}
+		}
+		function zip(){
+			var a = $("#zipcodeId").val();
+			if (a=='') {
+		    	$("#zipcodeerror").html(''); 
+		    }else{
+			    var reg=/^[1-9]\d{5}(?!\d)$/;
+			    if(!reg.test($("#zipcodeId").val())){ 
+			        $("#zipcodeerror").html('请输入有效的邮编！'); 
+			        return false; 
+			    }else{
+			    	$("#zipcodeerror").html(''); 
+			    }
+			}
+		}
+
+		function addbuttons(){
+		    var a = $("#a_nameId").val();
+		    var b = $("#mobileId").val();
+		    var d = $("#addrId").val();
+		    var e = $("#pro").val();
+		    var f = $("#cit").val();
+		    var g = $("#dic").val();
+		    var q = $("#quhao").val();
+			var n = $("#number").val();
+			if(q!=''){
+				if(n==''){
+					alert('请填写完整电话号码！');
+					return false; 
+				}
+			}
+		    if (a=='' || b=='' || d=='' || e=='请选择省份' || f=='请选择城市' || g=='请选择地区') {
+		        alert('请填写完整再提交！'); 
+		        return false; 
+		    }else{
+		        if (aaa()!==false && zip()!==false && checkname()!==false && checknumber()!==false && checkquhao()!==false) $("#formid").submit();
+		    }
+		}
+		</script>
+		<?php }else{ ?>
+		<div class="addresstop">
+			<div class="address clear">
+				<span class="addresstitle">编辑收货地址</span>
+				<span >电话号码、手机号选填一项, 其余均为必填项</span>
+			</div>
+			<form action="<{:U('User/doUpdateAddress')}>" method="post" id='formid'>
+				<div class="addressform  clear">
+					<span>所在地区 <i>*</i></span>
+						<div class="addressinp">
+                            <select required class='prov' id='prov' name="province" onchange='areas("city",this.value)'>
+                            		<option value="" >-请选择-</option>
+                                <?php foreach ($area as $key => $v){ ?>
+                                    <?php if($v['name']==$data['a_pro']){?>
+                                    <option selected value="<{$v.id}>"><{$v.name}></option>
+                                    <?php }else{?>
+                                    <option value="<{$v.id}>"><{$v.name}></option>
+                                    <?php }?>
+                                <?php } ?>
+                            </select>　省
+                                            
+                            <select required class='city' id='city' name="city" onchange='areas("district",this.value)'>
+                                <option value="">-请选择-</option>
+                            </select>　市
+                                           
+                            <select required class='district' id='area' name="district" >
+                                <option value="">-请选择-</option>
+                            </select>　县/区
+						</div>
+				</div>
+				<div class="addressform formpdc clear">
+					<span>详细地址  <i>*</i></span>
+					<div class="addressinp"><textarea placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息" class="diqu" id="addrTextId" name="addr"><?=$data['a_addr']?></textarea></div>
+					
+				</div>
+				<div class="addressform clear">
+					<span>邮政编码  </span>
+					<div class="addressinp"><input class="zipcode"  maxlength="16"  placeholder="如您不清楚邮递区号，请填写000000"  type="text" name="zipcode" id="emailTextId" value="<?=$data['a_zipcode']?>" onchange="zips()"></div>
+					<span class="addresserror" id="zipcodeerror"></span>
+				</div>
+				<div class="addressform clear">
+					<span>收货人姓名   <i>*</i></span>
+					<div class="addressinp"><input class="zipcode" onchange="checkname()"  placeholder="长度不超过25个字符"  type="text" name="a_name" id="UserNameTextId" value="<?=$data['a_name']?>"></div>
+					<span class="addresserror" id="nameerror"></span>
+				</div>
+				<div class="addressform clear">
+					<span>手机号码   </span>
+					<div class="addressinp"><input class="zipcode"   placeholder="手机号码、电话号码必须填一项"  type="text" name="mobile" id="mobileTextId" value="<?=$data['a_mobile_phone']?>" onblur="tels()"></div>
+					<span class="addresserror" id="mobileerror"></span>
+				</div>
+				<div class="addressform clear">
+					<span>电话号码   </span>
+					<div class="addressinp">
+							<input class="quhao"   placeholder="区号" name='quhao' id='quhao' value="<?=$phone[0]?>" onchange="checkquhao()" type="text">&nbsp;-&nbsp;
+							<input class="phonenumber"   placeholder="电话号码" name='number' id='number' onchange="checknumber()" value="<?=$phone[1]?>" type="text">&nbsp;-&nbsp;
+							<input class="fenjihao"   placeholder="分机号" name='fenji' id='fenji' value="<?=$phone[2]?>" type="text">
+					</div>
+					<span class="addresserror" id="phoneerror"></span>
+				</div>
+				<div class="addressform clear">
+					<span>&nbsp;</span>
+					<div class="addressinp">
+							<input placeholder="区号" class="moren" value='1' type="checkbox" name='default' <?php echo $data['default']==1?'checked':'' ?> >
+							<label>设置为默认收货地址</label>
+					</div>						
+				</div>
+				<div class="addressform clear">
+					<span>&nbsp;</span>
+					<div class="addressinp">
+						<input type="hidden" name="id" value="<?=$data['a_id']?>">
+						<button type="button" onclick="buttons()" class="addressbot" >保存</button>
+					</div>						
+				</div>
+			</form>
+		</div>
+		<!-- 省市县三级联动 -->
+		<script type="text/javascript"> 
+		    areas('city',<{$pro_id}>,"<{$data['a_city']}>","<{$data['a_area']}>");
+		    function areas(o,v,c,d){
+		        $.getJSON("<{:U('area')}>",{'v':v},function(data){
+		            if (o=='city') {
+		                $('.district').html('');
+		                $('.district').append('<option value="">-请选择-</option>');
+		            }
+		            $('.'+o).html('');
+		            $('.'+o).append('<option value="">-请选择-</option>');
+		            for (var i = 0; i < data.length; i++) {
+		                if (c==data[i]['name']) {
+		                    $('.'+o).append('<option selected value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+		                }else{
+		                    $('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+		                }
+		            }
+		            <?php if (!empty($data['a_area'])) { ?>
+		                var city = $('.city').val();
+		                $.getJSON("<{:U('area')}>",{'v':city},function(data){
+		                    $('.district').html('');
+		                    $('.district').append('<option value="">-请选择-</option>');
+		                    for (var i = 0; i < data.length; i++) {
+		                        if (d==data[i]['name']) {
+		                            $('.district').append('<option selected value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+		                        }else{
+		                            $('.district').append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+		                        }
+		                    }
+		                })
+		            <?php } ?>
+		        })
+		    }
+		</script>
+
+
+		<script>
+		function checkname(){
+			if ($("#UserNameTextId").val()=='') {
+		    	$("#nameerror").html(''); 
+		    }else{
+				var reg=/^[\u4e00-\u9fa5_a-zA-Z0-9_]{2,25}$/;
+				if(!reg.test($("#UserNameTextId").val())){ 
+			        $("#nameerror").html('请输入有效的姓名！'); 
+			        return false; 
+				}else{
+				    $("#nameerror").html(''); 
+				}
+		    }
+		}
+
+		function checkquhao(){
+			if ($("#quhao").val()=='') {
+		    	$("#phoneerror").html(''); 
+		    }else{
+				var reg=/^[0-9]{3,4}$/;
+				if(!reg.test($("#quhao").val())){ 
+			        $("#phoneerror").html('请输入有效的区号！'); 
+			        return false; 
+			    }else{
+			    	$("#phoneerror").html(''); 
+			    }
+		    }
+		}
+		function checknumber(){
+			if ($("#number").val()=='') {
+		    	$("#phoneerror").html(''); 
+		    }else{
+		    	var reg=/^[0-9]{7,8}$/;
+				if(!reg.test($("#number").val())){ 
+			        $("#phoneerror").html('请输入有效的电话！'); 
+			        return false; 
+			    }else{
+			    	$("#phoneerror").html(''); 
+			    }
+		    } 
+		}
+		function tels(){
+		    var a = $("#mobileTextId").val();
+			if (a=='') {
+		    	$("#mobileerror").html(''); 
+		    }else{
+			    var myreg = /^1[34578]\d{9}$/; 
+			    if(!myreg.test(a)){ 
+			        $("#mobileerror").html('请输入有效的手机号码！'); 
+			        return false; 
+			    }else{
+			    	$("#mobileerror").html(''); 
+			    }
+			}
+		}
+		function zips(){
+		    var a = $("#emailTextId").val();
+			if (a=='') {
+		    	$("#zipcodeerror").html(''); 
+		    }else{
+			    var reg=/^[1-9]\d{5}(?!\d)$/;
+			    if(!reg.test($("#emailTextId").val())){ 
+			        $("#zipcodeerror").html('请输入有效的邮编125！'); 
+			        return false; 
+			    }else{
+			    	$("#zipcodeerror").html(''); 
+			    }
+			}
+		}
+
+		function buttons(){
+			var a = $("#UserNameTextId").val();
+			var b = $("#mobileTextId").val();
+			var d = $("#addrTextId").val();
+			var e = $("#prov").val();
+			var f = $("#city").val();
+			var g = $("#area").val();
+			var q = $("#quhao").val();
+			var n = $("#number").val();
+			if(q!=''){
+				if(n==''){
+					alert('请填写完整电话号码！');
+					return false; 
+				}
+			}
+		    if (a=='' || b=='' || d=='' || e=='请选择省份' || f=='请选择城市' || g=='请选择地区') {
+		        alert('请填写完整再提交！'); 
+		        return false; 
+		    }else{
+		        if (tels()!==false && zips()!==false && checkname()!==false && checknumber()!==false && checkquhao()!==false) $("#formid").submit();
+		    }
+		}
+		</script>
+		<?php } ?>
+        <div class="useraddresscenter-list clear">
+            
+			<table>
+			<tr>
+				<th>收货人</th>
+				<th>所在地区</th>
+				<th>详细地址</th>
+				<th>邮编</th>
+				<th>电话/手机</th>
+				<th>操作</th>
+				<th> </th>
+			</tr>
+			<?php foreach ($data_ as $k=>$v){ ?>
+			<tr data-id="<{$v['a_id']}>">
+				<td> <?=$v['a_name']?></td>
+				<td> <?=$v['a_pro']?>-<?=$v['a_city']?>-<?=$v['a_area']?></td>
+				<td><?=$v['a_addr']?></td>
+				<td><?=$v['a_zipcode']?></td>
+				<td><?php if ($v['a_phone']=='--'){?> <?php }else{?> <?=$v['a_phone']?> <?php }?> </br><?=$v['a_mobile_phone']?></td>
+				<td> 
+					<a href="<{:U('User/address',array('tab'=>'edit','id'=>$v['a_id']))}>">
+                       编辑
+                    </a>
+					 &nbsp|&nbsp
+                    <a href="javascript:;" onclick="tanchu01(<{$v['a_id']}>)">
+                        移除
+                    </a>
+				</td>
+				<td>
+					<?php if ($v['default']==1){?>
+						<span class="mradress">默认地址</span>
+                    <?php }else{?>
+						<a onclick="def(<{$v['a_id']}>)" href="javascript:;" class="note">设为默认</a>
+					<?php }?>
+				</td>
+			</tr>
+            
+            <?php }?>
+            </table>          
+            <h5 class="addresszhu">  注： 您已创建<?=$num?>个收货地址，最多可创建6个 </h5>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+<include file="Public:delete" />
+<script>
+    function success(id){
+        $("#tanchu_Id").fadeOut();
+        var id=$('#del_id').val();
+        $.get("<{:U('User/delAddress')}>?id="+id, function(data){
+            if(data==1){
+                window.location.href="<{:U('User/address')}>";
+            }else{
+            	window.location.href="<{:U('User/address')}>";
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+function def(id){
+    $.get("<{:U('User/defaultAddress')}>?id="+id, function(data){
+        if(data==1){
+            alert('设置默认成功');
+            location.reload( true );
+        }else{
+            alert('设置默认失败');
+        }
+    });
+}
+</script>
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+</head>
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="">首页</a></li>
+    <li><a href="">招聘与合作</a></li>
+    <li><a href="<{:U('cooperation')}>">合作申请</a></li>
+    <li><a href="">添加备注</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    <form action="<{:U('docedit')}>" method="post" enctype="multipart/form-data" >
+	    <ul class="forminfo">
+	    	<input type="hidden" name="id" value="<{$data.id}>"/>
+	    	<input type="hidden" name="p" value="<{$_GET.p}>"/>
+		    <li><label>任职资格<font style="color:red;">*</font></label>
+                <textarea name="remarks" id="" class="dinput" cols="200" rows="100" style="height:200px;width:400px;"><{$data.remarks}></textarea>
+            </li>
+		    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认编辑"/></li>
+	    </ul>
+    </form>
+    </div>
+</body>
+</html>
+

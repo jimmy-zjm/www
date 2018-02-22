@@ -1,0 +1,55 @@
+/* reset 样式重置 */
+/* 内外边距通常各个浏览器样式表现位置不同,重置内外边距*/
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select {
+ margin:0; padding:0; 
+}
+em { 
+	font-style:normal;
+	 }
+li { 
+	list-style:none;
+display:inline-block; 
+}
+a {
+	color:black;
+ text-decoration:none;
+ }
+ .color2R a:hover{
+	color:red;
+}
+img {
+ border:none;
+  vertical-align:top; 
+ }  /* 去除IE下默认边框,顶部对齐 */
+table{                                    /* 去掉各Table cell 的边距并让其边重合 */
+border-collapse:collapse;border-spacing:0;
+}
+
+input,textarea {
+ border:none; 
+}
+textarea { 
+	resize:none; 
+	overflow:auto; 
+}
+/*默认字体:要注意表单元素并不继承父级 font 的问题 */
+body,input, label, select, option, textarea, button, fieldset, legend{
+ /* 字体大小/行高(12px),字体样式(前三个国外用的多),宋体(后两个编码过的宋体，国内用的多) */
+ font:12px/1.5 Arial, Helvetica, sans-serif,\5b8b\4f53; 
+}
+input, label, select, option, textarea, button, fieldset, legend{
+font-size:100%;
+}
+input{
+	padding:0px;
+	margin:0px;
+}
+
+/* end reset */
+/* ----------------------------------------------------------------------- */
+.ell{overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:nowrap;}
+/* public 公共部分*/
+.clear { zoom:1; }   /* 兼容IE浏览器清除浮动 */
+.clear:after { content:''; display:block; clear:both; }
+.fl { float:left; } /* 左浮动，与右浮动 */
+.fr { float:right; }

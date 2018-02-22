@@ -1,0 +1,175 @@
+body{
+	font-family: "微软雅黑";
+}
+.baoyang-content{width: 1200px; height: auto;margin: 0 auto;padding-top:40px;}
+.baoyang-content-top{width: 1198px;height:287px;margin: 0 auto;}
+.baoyang-content-top-con{width: 100%;height:287px;}
+.baoyang-content-top-left{width: 300px;height:287px;float: left;}
+.baoyang-content-top-left>img{width: 300px;height: 285px;border: 1px solid #c7c7c7;border-right: none;}
+.baoyang-content-top-right{width: 890px;height:285px;float: left;
+	box-shadow: 1px 1px 5px #c7c7c7;
+    border-top: 1px solid #c7c7c7;
+}
+.baoyang-content-top-right>p:first-child{
+	width: 795px;height:80px;margin: 0 auto;line-height: 80px;font-weight: 600;
+}
+.baoyang-content-top-right>p:last-child{
+	width: 795px;height:auto;margin: 0 auto;line-height: 30px;
+	text-indent: 2em;
+	
+	font-size: 14px;
+}
+.content-baoyang-mid{
+	width: 100%;
+	height:auto;
+	}
+/*mid*/
+
+.content-baoyang-mid{
+	width: 1200px;
+	height:250px;
+	margin-top: 0;
+	border: 1px solid #fff;
+}
+.content-baoyang-mid>ul{
+	width: 1200px;
+	height: 178px;
+	margin: 0 auto;	
+	margin-top: 48px;
+}
+.content-baoyang-mid>ul>a{
+	display: block;
+	float: left;
+	width: 176px;
+	height:176px;
+}
+.content-baoyang-mid>ul li{
+	width: 176px;
+	height:176px;
+	float: left;
+	border: 1px solid #4b4b4b;
+	font-size: 16px;
+	text-align: center;
+	line-height: 270px;
+	color: #17386a;
+	border-radius: 23px;
+}
+.content-baoyang-mid>ul>p{
+	width: 25px;
+	height:100px;
+	float: left;
+}
+.li1{
+	background:#f5f5f5  url(../img/jidianhaocai-img1.png) no-repeat;
+	background-position: 0 40px;
+	background-size: 176px 60px;
+}
+.li2{
+	background:#f5f5f5  url(../img/jidianhaocai-img2.png) no-repeat;
+	background-position: 0 30px;
+	background-size: 176px 80px;
+}
+.li3{
+	background:#f5f5f5  url(../img/jidianhaocai-img3.png) no-repeat;
+	background-position: 0 30px;
+	background-size: 176px 80px;
+}
+.li4{
+	background:#f5f5f5  url(../img/jidianhaocai-img4.png) no-repeat;
+	background-position: 0 30px;
+	background-size: 176px 80px;
+}
+.li5{
+	background:#f5f5f5  url(../img/jidianhaocai-img5.png) no-repeat;
+	background-position: 0 30px;
+	background-size: 176px 80px;
+}
+.li6{
+	background:#f5f5f5  url(../img/jidianhaocai-img6.png) no-repeat;
+	background-position: 0 30px;
+	background-size: 176px 80px;
+}
+
+/*mid-end*/
+.content-baoyang-bottom{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	clear: both;
+	content: "";
+	overflow: hidden;
+}
+.bottom-li{
+	width: 270px;
+	height: auto;
+	background: #f0f0f0;
+	margin-bottom: 40px;
+	float: left;
+	margin-left: 14px;
+	margin-right: 14px;
+}
+.bottom-li-top{
+	width: 262px;
+	height: 302px;
+	margin-top: 25px;
+	margin: 0 auto;
+}
+.bottom-li-top-img{
+	width: 258px;
+	height: 258px;
+	border: 1px solid #c1c1c1;
+}
+.bottom-li-top-img>img{
+	width: 258px;
+	height: 258px;
+}
+.bottom-li-top-tit{
+	width: 260px;
+	height: 40px;
+	background: #4c4c4c;
+	text-align: center;
+	line-height: 40px;
+	color: #ffffff;
+}
+.bottom-li-bottom{
+	width: 240px;
+	height: auto;
+	margin: 0 auto;
+}
+.bottom-li-bottom-zi{
+	width: 240px;
+	height: auto;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	line-height: 20px;
+	color: #636363;
+}
+.bottom-li-bottom-zi>.bottom-li-bottom-zi-yuanjia{
+	text-decoration: line-through;
+}
+.bottom-li-bottom-zi-xianjia{
+	color: red;
+}
+.joinshop{
+	width: 121px;
+	height: 32px;
+	margin: 0 auto;
+	padding-bottom: 20px;
+}
+.joinshop>button{
+	width: 121px;
+	height: 32px;
+	color: #fff;
+	border: none;
+	background-color: #f84545;
+	cursor: pointer;
+}
+.kong{
+	width: 40px;
+	height: 100px;
+	float: left;
+}
+
+
+

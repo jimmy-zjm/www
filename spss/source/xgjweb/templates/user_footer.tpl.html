@@ -1,0 +1,244 @@
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+<!-- 底部列表 -->
+<div class="foot">
+    <div class="foot-list">
+        <div class="foot-list-gw">
+           <a href="index.php?pay"> <div class="foot-list-gw-title">
+            购物指南
+            </div></a>
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?pay&cid=36">
+                    购物流程
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                    会员介绍
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                    常见问题
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                    联系客服
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+			<a href="index.php?pay&cid=53"><div class="foot-list-gw-title">
+             配送方式
+            </div></a>
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?pay&cid=53">
+                    国内配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                    海外配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                    标准配送
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <a href="index.php?pay&cid=54"><div class="foot-list-gw-title">
+            	支付方式
+            </div></a>
+            
+            <div class="foot-list-gw-conner">
+                <a href="index.php?pay&cid=54">
+                	在线支付
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                	分期付款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                	邮局汇款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                	公司转账
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <a href="index.php?pay&cid=55"><div class="foot-list-gw-title">
+                售后服务
+            </div></a>  
+        
+            <div class="foot-list-gw-conner">
+                <a href="index.php?pay&cid=55">
+                    售后政策
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                    退款说明
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                  	返修/退换货
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="javascript:;">
+                    取消订单
+                </a>
+            </div>
+        </div>
+            
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+    <div class="root-center">
+        
+            <a href="index.php?aboutus">
+                关于我们
+            </a>
+        
+
+       
+            <a href="index.php?contactus">
+                联系我们
+            </a>
+        
+        
+        
+            <a href="index.php?joblist">
+                人才招聘
+            </a>
+        
+
+        
+            <a href="index.php?join">
+                招商加盟
+            </a>
+        
+
+        
+            <a href="index.php?cooperationlist">
+                商务合作
+            </a>
+        
+      
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear27"></div>
+    
+    <div class="root-bei">
+        备案号：沪ICP备16002183
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="clear3"></div>
+</div>
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+<!--右侧浮动导航-->
+<!-- 代码部分begin -->
+<div class="side">
+	<ul>
+    	<li onclick="qimoChatClick();">
+        	<a href="javascript:;">
+            	<div class="sidebox">
+                	<img src="./images/chat.png">
+                    在线客服
+                </div>
+            </a>
+        </li>
+        
+        <li>
+            <a href="javascript:;">
+                <div class="sidebox">
+                    <img src="./images/244.png">
+                    我的购物车
+                </div>
+            </a>
+        </li>
+        
+        <li>
+        	<a href="javascript:;">
+                <div class="sidebox">
+                    <img src="./images/245.png">
+                    我的关注
+                </div>
+            </a>
+        </li>
+        
+	  	<li>
+        	<a href="javascript:;">
+            	<div class="sidebox">
+                	<img src="./images/246.png">
+                    我的分享
+                </div>
+            </a>
+        </li>
+        
+	 	<li style="border:none;">
+            <a href="javascript:goTop();" class="sidetop">
+            	<img src="./images/247.png">
+            </a>
+        </li>
+  </ul>
+</div>
+<script>
+$(function(){
+    $(".side ul li").hover(function(){
+        $(this).find(".sidebox").stop().animate({"width":"200px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#fd5a35"})    
+    },function(){
+        $(this).find(".sidebox").stop().animate({"width":"40px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})   
+    });
+});
+//回到顶部函数
+function goTop(){
+	$('html,body').animate({'scrollTop':0},300);
+}
+</script>
+<!-- 代码部分end -->
+<!--右侧浮动导航end-->
+
+<div class="clear"></div>
+<script type='text/javascript' src='http://webchat.7moor.com/javascripts/7moorInit.js?accessId=ecdab400-a94d-11e5-bbcd-fbb9b9d68830&autoShow=false' async='async'></script>

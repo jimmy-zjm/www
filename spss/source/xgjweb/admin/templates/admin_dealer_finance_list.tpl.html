@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="editor/kindeditor.js"></script>
+</head>
+
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >服务商管理</a></li>
+	    <li><a href="finance.php?tab=1">财务结算列表</a></li>
+	    </ul>
+	 </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="{:if isset($tab) && $tab eq 1:}selected{:else:}{:/if:}">结算申请</a></li> 
+    <li><a href="#tab2" class="{:if isset($tab) && $tab eq 2:}selected{:else:}{:/if:}">退换货管理</a></li>
+    <li><a href="#tab3" class="{:if isset($tab) && $tab eq 3:}selected{:else:}{:/if:}">伙伴自购统计</a></li> 
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+  		 <div class="tools">
+		    <ul class="prosearch">
+				<form action='finance.php?tab=1' method='post'>
+					<li><label>查询：</label><a><input type='text' name='keywords' class="scinput" placeholder="请输入公司名称查询" value='{:if !empty($keyword):}{:$keyword:}{:else:}{:/if:}'/>
+					<select name='finance_status' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+						<option value='' {:if empty($finance_status):}selected{:else:}{:/if:}>请选择...</option>
+						<option value='1'{:if !empty($finance_status) && $finance_status eq 1:}selected{:else:}{:/if:}>申请中</option>
+						<option value='2'{:if !empty($finance_status) && $finance_status eq 2:}selected{:else:}{:/if:}>未结算</option>
+						<option value='3'{:if !empty($finance_status) && $finance_status eq 3:}selected{:else:}{:/if:}>已结算</option>
+					</select></a>
+					<input type='submit' class="sure" value='搜索' /></li>
+				</form>
+			</ul>
+		</div>
+    	<table class="imgtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>公司编号</th>
+		    <th>公司名称</th>
+		    <th>联系人</th>
+		    <th>电话</th>
+		    <th>财务状态</th>
+		    <th>状态提醒</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    {:foreach $finance_apply_list as $v:}
+		    <tr>
+		    <td><a href="?info&d_id={:$v.d_id:}" ><font color='blue'>{:$v.d_id:}</font></a></td>
+		    <td><a href="?info&d_id={:$v.d_id:}" ><font color='blue'>{:$v.d_company:}</font></a></td>
+		    <td>{:$v.d_legalperson:}</td>
+		    <td>{:$v.d_legalperson_phone:}</td>
+		    <td>{:$v.finance_status|dealer_finance_status:}</td>
+		    <td>{:$v.finance_status|dealer_finance_action_status:}</td>
+		   	<td>{:'Y-m-d H:i'|date:$v.finance_time:}</td>
+		    </tr>
+		    {:/foreach:}
+		    
+			</tbody>
+		    
+		 </table>
+    	 <div class="page">
+			{:$finance_apply_page:}
+		 </div>
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+  		<div class="itab">
+		  	<ul> 
+			    <li><a href="#tab4" class="{:if isset($tab_child) && $tab_child eq 4:}selected{:else:}{:/if:}">施工退货</a></li> 
+			    <li><a href="#tab5" class="{:if isset($tab_child) && $tab_child eq 5:}selected{:else:}{:/if:}">施工补货</a></li>
+		  	</ul>
+	    </div> 
+	    <div id="tab4" class="tabson">
+    	<div class="formbody">
+		    <ul class="forminfo">
+		    	<form action='finance.php?tab=2&tab_child=4' method='post'>
+			    	<li><label>查询</label>
+						<i>
+						<input type='text' name='keyword' class="scinput" placeholder="公司名称" value=''/>
+						 <input  name='refund_start_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px; margin-right:10px; " id='refund_start'/>				          
+						 至
+						<input name='refund_end_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px;" id='refund_end'/>					
+						
+						</i>
+						<input type='submit' class="sure" value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+  		
+  	   <ul class="forminfo">
+		    <li>
+		    	退货订单总数:<i style="line-height: 34px; color:red">{:$refund_order_count:}</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	退货订单总金额:<i style="line-height: 34px;color:red">{:$refund_order_price:}</i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="imgtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>初审</th>
+		    <th>复审</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    {:foreach $refund_order_list as $v:}
+		    <tr>
+		    <td><a href="?refund_info&refund_id={:$v.refund_id:}&refund">{:$v.refund_code:}</a></td>
+		    <td>{:$v.consignee:}</td>
+		    <td>{:$v.mobile_phone:}</td>
+		    <td>{:$v.province:}{:$v.city:}{:$v.district:}{:$v.address:}</td>
+		    <td>{:$v.d_company:}</td>
+		    <td>{:$v.d_legalperson:}</td>
+		    <td>{:$v.d_legalperson_phone:}</td>
+		    <td>{:$v.order_merchandiser:}</td>
+   		    <td>{:if $v.first_audit_status eq 1:}未审核{:else if $v.first_audit_status eq 2:}已审核{:else if $v.first_audit_status eq 3:}审核未通过{:/if:}</td>
+		    <td>{:if $v.review_audit_status eq 1:}未审核{:else if $v.review_audit_status eq 2:}已审核{:else if $v.review_audit_status eq 3:}审核未通过{:/if:}</td>
+		    <td>{:'Y-m-d H:i'|date:$v.refund_time:}</td>
+		    </tr>
+		    {:/foreach:}
+			</tbody>
+		    
+		 </table>
+		 
+		 <div class="page">
+			{:$refund_page:}
+		 </div>
+    	</div>
+    	
+    	<div id="tab5" class="tabson">
+    	<div class="formbody">
+		    <ul class="forminfo">
+		    	<form action='finance.php?tab=2&tab_child=5' method='post'>
+			    	<li><label>查询</label>
+						<i>
+						<input type='text' name='add_keyword' class="scinput" placeholder="公司名称" value=''/>
+						 <input  name='add_start_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px; margin-right:10px; " id='add_start'/>				          
+						 至
+						<input name='add_end_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px;" id='add_end'/>					
+						
+						</i>
+						<input type='submit' class="sure" value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+  		
+  	   <ul class="forminfo">
+		    <li>
+		    	补货订单总数:<i style="line-height: 34px; color:red">{:$add_order_count:}</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	补货订单总金额:<i style="line-height: 34px;color:red">{:$add_order_price:}</i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="imgtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>初审</th>
+		    <th>复审</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    {:foreach $add_order_list as $v:}
+		    <tr>
+		    <td><a href="?refund_info&refund_id={:$v.refund_id:}">{:$v.refund_code:}</a></td>
+		    <td>{:$v.consignee:}</td>
+		    <td>{:$v.mobile_phone:}</td>
+		    <td>{:$v.province:}{:$v.city:}{:$v.district:}{:$v.address:}</td>
+		    <td>{:$v.d_company:}</td>
+		    <td>{:$v.d_legalperson:}</td>
+		    <td>{:$v.d_legalperson_phone:}</td>
+		    <td>{:$v.order_merchandiser:}</td>
+   		    <td>{:if $v.first_audit_status eq 1:}未审核{:else if $v.first_audit_status eq 2:}已审核{:else if $v.first_audit_status eq 3:}审核未通过{:/if:}</td>
+		    <td>{:if $v.review_audit_status eq 1:}未审核{:else if $v.review_audit_status eq 2:}已审核{:else if $v.review_audit_status eq 3:}审核未通过{:/if:}</td>
+		    <td>{:'Y-m-d H:i'|date:$v.refund_time:}</td>
+		    </tr>
+		    {:/foreach:}
+			</tbody>
+		    
+		 </table>
+		 
+		 <div class="page">
+			{:$add_page:}
+		 </div>
+    	</div>
+    </div>  
+    
+    
+    <div id="tab3" class="tabson">
+    	<div class="formbody">
+		    <ul class="forminfo">
+		    	<form action='finance.php?tab=3' method='post'>
+			    	<li><label>查询</label>
+						<i>
+						 <input  name='self_buy_start_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px; margin-right:10px; " id='self_buy_start'/>				          
+						 至
+						<input name='self_buy_end_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px;" id='self_buy_end'/>					
+						<select  name='first_audit_status' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+							<option value=''{:if empty($first_audit_status):}selected{:else:}{:/if:}>审核状态</option>
+							<option value=1 {:if !empty($first_audit_status) && $first_audit_status eq 1:}selected{:else:}{:/if:}>未审核</option>
+							<option value=2 {:if !empty($first_audit_status) && $first_audit_status eq 2:}selected{:else:}{:/if:}>已审核</option>
+							<option value=3 {:if !empty($first_audit_status) && $first_audit_status eq 3:}selected{:else:}{:/if:}>审核未通过</option>
+							
+						</select>
+						</i>
+						<input type='submit' class="sure" value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+  		
+  	   <ul class="forminfo">
+		    <li>
+		    	自购订单总数:<i style="line-height: 34px; color:red">{:$self_buy_order_count:}</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	自购订单总金额:<i style="line-height: 34px;color:red">{:$self_buy_order_price:}</i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="imgtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>审核</th>
+		    <th>清单</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    {:foreach $self_buy_order_list as $v:}
+		    <tr>
+		    <td><a href="?refund_info&refund_id={:$v.refund_id:}&refund">{:$v.order_code:}</a></td>
+		    <td>{:$v.consignee:}</td>
+		    <td>{:$v.mobile_phone:}</td>
+		    <td>{:$v.province:}{:$v.city:}{:$v.district:}{:$v.address:}</td>
+		    <td>{:$v.d_company:}</td>
+		    <td>{:$v.d_legalperson:}</td>
+		    <td>{:$v.d_legalperson_phone:}</td>
+		    <td>{:$v.order_merchandiser:}</td>
+		    <td>{:if $v.first_audit_status eq 1:}未审核{:else if $v.first_audit_status eq 2:}已审核{:else if $v.first_audit_status eq 3:}审核未通过{:/if:}</td>
+		    <td><a href='dealer_order.php?stuff_list&detail_id={:$v.detail_id:}&quote_name={:$v.quote_name:}' style="color:blue">清单</a></td>
+		   	<td>{:'Y-m-d H:i'|date:$v.refund_time:}</td>
+		    </tr>
+		    {:/foreach:}
+			</tbody>
+		    
+		 </table>
+		 
+		 <div class="page">
+			{:$self_buy_page:}
+		 </div>
+    
+    
+    </div> 
+    
+       
+</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+  </div>
+  
+<script type="text/javascript">
+!function(){
+	laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+	laydate({elem: '#refund_start'});//绑定元素
+	laydate({elem: '#refund_end'});//绑定元素
+	laydate({elem: '#add_start'});//绑定元素
+	laydate({elem: '#add_end'});//绑定元素
+	laydate({elem: '#self_buy_start'});//绑定元素
+	laydate({elem: '#self_buy_end'});//绑定元素
+}();
+
+//日期范围限制
+var start = {
+    elem: '#start',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+
+var end = {
+    elem: '#end',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(),
+    max: '2099-06-16',
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+        start.max = datas; //结束日选好后，充值开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
+
+//自定义日期格式
+laydate({
+    elem: '#test1',
+    format: 'YYYY年MM月DD日',
+    festival: true, //显示节日
+    choose: function(datas){ //选择日期完毕的回调
+        alert('得到：'+datas);
+    }
+});
+
+//日期范围限定在昨天到明天
+laydate({
+    elem: '#hello3',
+    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+});
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+    
+

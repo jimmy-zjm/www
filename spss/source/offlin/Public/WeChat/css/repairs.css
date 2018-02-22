@@ -1,0 +1,593 @@
+.section
+{
+    margin-bottom: 40px;
+    padding: 0 40px;
+}
+/* 顶部条 此为部分页面的公共样式，通过less编译到部分css中*/
+.header
+{
+    font-size: 40px;
+    line-height: 88px;
+
+    position: relative;
+
+    height: 88px;
+    margin-top: 34px;
+
+    text-align: center;
+
+    color: #fff;
+    border-radius: 10px;
+    background-color: #fb6165;
+}
+.header a
+{
+    position: absolute;
+    top: 0;
+
+    width: 88px;
+    height: 100%;
+}
+.header a.backBtn
+{
+    left: 0;
+
+    background: url(../img/backbar.png) center center no-repeat;
+}
+.header a.searchBtn
+{
+    right: 0;
+
+    background: url(../img/searchbar.png) center center no-repeat;
+}
+/* 中间部分 */
+.repairs-box
+{
+    margin-top: 34px;
+    padding: 0 24px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+.repairs-box > p
+{
+    font-size: 32px;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 80px;
+
+    border-bottom: 1px solid #ccc;
+}
+.repairs-box > p.record-title
+{
+    line-height: 100px;
+
+    height: 100px;
+}
+.repairs-box > p .lookbtn
+{
+    line-height: 80px;
+
+    float: left;
+
+    width: 33.33333333333333%;
+    height: 80px;
+
+    text-align: center;
+}
+.repairs-box .redfont
+{
+    color: #fb6165;
+}
+.repairs-box .record-list li
+{
+    font-size: 28px;
+    line-height: 96px;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 96px;
+    padding-right: 18px;
+
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    background: url(../img/nextbar.png) right center no-repeat;
+}
+.repairs-box .record-list li div
+{
+    width: 40%;
+}
+.repairs-box .record-list li div span
+{
+    margin-left: 20px;
+}
+.repairs-box .record-list li .item-name
+{
+    width: 60%;
+}
+.repairs-box .record-list li > a
+{
+    display: block;
+}
+.repairs-box .no-record
+{
+    font-size: 32px;
+    line-height: 100px;
+
+    display: block;
+
+    height: 100px;
+
+    text-align: center;
+
+    color: #fb6165;
+}
+.repairs-box .repairs-detail dd
+{
+    font-size: 28px;
+    line-height: 96px;
+
+    min-height: 96px;
+
+    color: #666;
+    border-bottom: 1px solid #ccc;
+}
+.repairs-box .repairs-detail dd.repairs-neirong,.repairs-box .repairs-detail dd.repairs-img
+{
+  height:auto;  
+
+}
+.repairs-box .repairs-detail dd.repairs-img img{
+    float:left;
+    width:200px;
+    height:200px;
+    margin:0 8px 8px 0;
+}
+.repairs-box .repairs-detail dd.repairs-neirong p
+{
+   line-height:40px;
+   word-wrap:break-word;
+}
+.repairs-box .repairs-detail dd.repairs-status
+{
+    color: #fb6165;
+}
+/* 维修保养页面热线电话 */
+.hotline
+{
+    font-size: 32px;
+
+    text-align: center;
+
+    color: #fb6165;
+    border-radius: 10px;
+    background-color: #fff;
+}
+/* 清单详情 */
+.listdetails-list li
+{
+    overflow: hidden;
+
+    margin-top: 30px;
+    padding: 20px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+.listdetails-list img
+{
+    float: left;
+
+    width: 200px;
+    height: 200px;
+}
+.listdetails-list p
+{
+    font-size: 24px;
+    line-height: 66.66px;
+
+    height: 66.66px;
+}
+/*施工进度，查看清单列表 左边框颜色 */
+.color-list li
+{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border-left: 10px solid #fff;
+}
+.color-list li.bStyle1
+{
+    border-left-color: #f8a60a;
+}
+.color-list li.bStyle2
+{
+    border-left-color: #5a4a9c;
+}
+.color-list li.bStyle3
+{
+    border-left-color: #52a43a;
+}
+/*订单详情 	进度 */
+.speed-list
+{
+    overflow: hidden;
+}
+.speed-list li
+{
+    font-size: 24px;
+    line-height: 96px;
+
+    float: left;
+
+    width: 20%;
+    height: 96px;
+
+    text-align: center;
+}
+/*订单详情 项目负责 */
+.task-list
+{
+    padding-bottom: 32px;
+}
+.task-list li
+{
+    font-size: 28px;
+    line-height: 96px;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 96px;
+
+    color: #666;
+    border-bottom: 1px solid #ccc;
+}
+.task-list li span
+{ float:left;
+    margin-left: 15px;
+}
+.task-list li a,.rred-btn
+{
+    font-size: 24px;
+    line-height: 48px;
+
+    float: right;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 140px;
+    height: 48px;
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: #fb6165;
+    border: 1px solid #fb6165;
+    border-radius: 24px;
+}
+.task-list-worker{
+    width:135px;
+}
+/* 查看**信息 */
+.look-box
+{
+    margin: 34px 0;
+    padding: 0 40px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+.look-box .img-title
+{
+    font-size: 36px;
+    line-height: 96px;
+
+    height: 96px;
+
+    text-align: center;
+}
+.look-box img
+{
+    display: block;
+    max-height: 600px;
+    max-width:100%;
+    margin: 0 auto;
+   
+}
+.lookimg-box{
+    height:600px;
+}
+.look-box .img-time,
+.look-box .mark-title
+{
+    font-size: 30px;
+    line-height: 96px;
+    height: 96px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}
+.look-box .mark-info
+{
+    font-size: 24px;
+    padding: 40px 0;
+    color: #666;
+}
+/* 施工进度列表 */
+.process-list li
+{
+    margin-top: 30px;
+    padding: 0 30px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+.process-list li p
+{
+    font-size: 32px;
+    line-height: 100px;
+
+    height: 100px;
+}
+.process-list .process-list-imgbox
+{
+    overflow: hidden;
+}
+.process-list .process-list-imgbox img
+{
+    float: left;
+
+    width: 176px;
+    height: 176px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+
+    background-color: #ccc;
+}
+/* 施工人员信息 */
+.personnelinfo-box
+{
+    font-size: 32px;
+
+    overflow: hidden;
+
+    margin-top: 30px;
+    padding: 24px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+.personnelinfo-box p
+{
+    padding: 5px 0 28px 0;
+}
+.person-info img
+{
+    float: right;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 10px;
+    background-color: #d8d8d8;
+}
+.skill-title
+{
+    border-bottom: 1px solid #ccc;
+}
+.skill-img-list li
+{
+    float: left;
+
+    width: 50%;
+    min-width: 310px;
+    height: 288px;
+    margin-top: 30px;
+}
+.skill-img-list li img
+{
+    display: block;
+
+    width: 288px;
+    height: 288px;
+    margin: 0 auto;
+
+    border-radius: 10px;
+    background-color: #d8d8d8;
+}
+/* 维修保养 的信息填写*/
+.editInfo-box
+{
+    margin-top: 34px;
+    padding: 0 24px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+.editInfo-box .info-title
+{
+    font-size: 28px;
+    line-height: 96px;
+
+    height: 96px;
+
+    color: #666;
+}
+.editInfo-box textarea
+{
+    font-size: 28px;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 260px;
+}
+.editInfo-box .info-item
+{
+    font-size: 28px;
+    line-height: 96px;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 96px;
+    padding-right: 18px;
+
+    color: #666;
+    border-bottom: 1px solid #c4c4c4;
+
+}
+.editInfo-box .hasArrow{
+  background: url(../img/nextbar.png) right center no-repeat;
+}
+.address-box span.fl{
+    width:160px;
+}
+.editInfo-box .address{
+    float:left;
+    width:calc((100% - 260px)/3);
+    height:60px;
+    box-sizing:border-box;
+    font-size:20px;
+    margin:17px 5px 0 0;
+}
+.product-infolist li{
+    margin:5px 0;
+    // border-radius:5px;
+    color:#666;
+    height:80px;
+    line-height:80px;
+    font-size:28px;
+     // box-shadow:0 1px 10px 2px #eee;
+     border-bottom:1px solid #ddd;
+ }
+ .product-infolist li.active{
+    color:#fb6165;
+
+}
+.product-infolist input{
+  // -webkit-appearance : none;
+  visibility:hidden;
+  width:24px;
+  height:24px;
+  margin:0 10px;
+  float:right;
+}
+.editInfo-box .info-item input
+{
+    font-size: 28px;
+
+    height: 95px;
+    float:right;
+    text-align: right;
+    vertical-align: top;
+
+    border: none 0;
+    outline: none;
+}
+.my-btm-btn
+{    -webkit-appearance : none;
+    font-size: 40px;
+    line-height: 88px;
+
+    display: block;
+
+    width: 100%;
+    height: 88px;
+    margin-top: 34px;
+
+    text-align: center;
+
+    color: #fff;
+    border: none 0;
+    border-radius: 10px;
+    outline: none 0;
+    background-color: #fb6165;
+}
+/* 维修 */
+.mask-edit
+{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+
+    display: none;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+
+    background: rgba(0, 0, 0, .5);
+}
+.mask-contacts > div
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: calc(100% - 80px);
+
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.mask-contacts .mask-pInfo
+{
+    font-size: 28px;
+
+    padding: 0 24px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+.mask-contacts .mask-pInfo p
+{
+    line-height: 96px;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 96px;
+
+    border-bottom: 1px solid #eee;
+}
+.mask-contacts .mask-pInfo p input
+{
+    font-size: 28px;
+
+    float: right;
+
+    width: 400px;
+    height: 95px;
+
+    text-align: right;
+
+    border: none 0;
+}
+.mask-productlist
+{
+    overflow-y: auto;
+}
+.mask-productlist ul
+{
+    margin: 0 30px;
+    padding: 40px 0;
+}
+.mask-productlist ul div
+{
+    position: relative;
+
+    height: 200px;
+}
+.mask-productlist ul p
+{
+    line-height: 48px;
+
+    height: auto;
+}
+.mask-productlist ul .buydate
+{
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+}

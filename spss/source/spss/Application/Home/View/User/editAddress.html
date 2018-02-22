@@ -1,0 +1,204 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+    <include file="User:left" />
+    <div class="user-right">
+        <div class="useraddresscenter-title">
+            <div class="useraddresscenter-title-left"> 
+                <span>
+                    收货地址
+                </span>
+            </div>
+            
+            
+            <div class="useraddresscenter-title-right"> 
+                <a href="<{:U('User/addAddress')}>"> 
+                    新增收货地址 
+                </a> 
+            </div>
+            
+            
+            <div class="clear"></div>
+        </div>
+            
+        <div class="clear12"></div>
+        
+        <div id="" class="useraddresscenter-table">
+            <div class="clear3"></div>
+            
+            <form action="user.php?doAddrInfoEdit" method="post">
+                <input type="hidden" name="addrId" value="">
+                
+                <div class="useraddresscenter-table-demo">
+                    <div class="useraddresscenter-table-demo-left">
+                        收&nbsp;货&nbsp;&nbsp;人：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" name="receivingName" id="UserNameTextId" value="" />
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        手　　机：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" name="mobile" id="mobileTextId" value="" onblur="checktel()"/>
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        固定电话：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" name="phone" id="phoneTextId" value="" />
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        电子邮箱：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" name="email" id="emailTextId" value="" />
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        所在地区：
+                    </div>
+                    <div class="useraddresscenter-table-demo-right03">
+                         <span class="ssx-span">
+                                <select required class='prov' name="province" onchange='area("city",this.value)'>
+                                <option value="" >-请选择-</option>
+                                    <?php foreach ($area as $key => $v): ?>
+                                        <option value="<{$v.id}>"><{$v.name}></option>
+                                    <?php endforeach ?>
+                                </select>　省
+                                                
+                                <select required class='city' name="city" onchange='area("district",this.value)'>
+                                    <option value="">-请选择-</option>
+                                </select>　市
+                                               
+                                <select required class='district' name="district" >
+                                    <option value="">-请选择-</option>
+                                </select>　县/区
+                          </span>
+                    </div>  
+                    <div class="clear1"></div>
+
+                    <div class="useraddresscenter-table-demo-left">
+                        地　　址：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right02">
+                        <input type="text" name="addr" id="addrTextId" value="" />
+                    </div>
+                    
+                    <div class="clear2"></div> 
+                    
+                    <div class="useraddresscenter-table-demo-sub">
+                        <input type="button" id="button" value="保存" onclick="buttons()"/>
+                    </div>
+                    
+                    <div class="clear3"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </form>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+<style>
+
+</style>
+
+<!-- 省市县三级联动 -->
+<script type="text/javascript"> 
+    function area(o,v,c,d){
+        $.getJSON("<{:U('area')}>",{'v':v},function(data){
+            if (o=='city') {
+                $('.district').html('');
+                $('.district').append('<option value="">-请选择-</option>');
+            }
+            $('.'+o).html('');
+            $('.'+o).append('<option value="">-请选择-</option>');
+            for (var i = 0; i < data.length; i++) {
+                $('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+            }
+            <?php if (!empty($return['houseInfo']['district'])) { ?>
+                var city = $('.city').val();
+                $.getJSON("<{:U('area')}>",{'v':city},function(data){
+                    $('.district').html('');
+                    $('.district').append('<option value="">-请选择-</option>');
+                    for (var i = 0; i < data.length; i++) {
+                        if (d==data[i]['name']) {
+                            $('.district').append('<option selected value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+                        }else{
+                            $('.district').append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+                        }
+                    }
+                })
+            <?php } ?>
+        })
+    }
+</script>
+<script type="text/javascript">
+    window.onload = function(){
+        area(<{$_SESSION['house_id']}>);
+    };
+</script>
+<script>
+    
+    function aaa(){  
+        $('#pro').val($('#prov').val());
+        $('#ipro').html($('#prov').val());
+        $('#cit').val($('#city').val());
+        $('#icit').html($('#city').val());
+        $('#are').val($('#area').val());
+        $('#iare').html($('#area').val());
+    } 
+    window.onload = aaa;
+</script>
+
+
+<script>
+function checktel(){
+    var myreg = /^1[34578]\d{9}$/; 
+    if(!myreg.test($("#mobileTextId").val())){ 
+        alert('请输入有效的手机号码！'); 
+        return false; 
+    } 
+}
+
+
+function buttons(){
+
+    var a = $("#UserNameTextId").val();
+    var b = $("#mobileTextId").val();
+    var d = $("#addrTextId").val();
+    var e = $("#pro").val();
+    var f = $("#cit").val();
+    var g = $("#are").val();
+    if (a=='' || b=='' || d=='' || e=='请选择省份' || f=='请选择城市' || g=='请选择地区') {
+        alert('请填写完整再提交！'); 
+        return false; 
+    }else{
+        tel()
+        document.getElementById('button').type = 'submit';
+    }
+}
+</script>

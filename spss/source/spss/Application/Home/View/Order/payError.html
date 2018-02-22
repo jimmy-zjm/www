@@ -1,0 +1,33 @@
+
+		<link rel="stylesheet" href="__PUBLIC__/css/shopcar3.css" />
+
+		<div class="content">
+			<div class="empty">
+				
+			</div>
+			<div class="tabtit">
+				<a href="javascript:;">1.我的购物车</a>
+				<a href="javascript:;">2.填写订单信息</a>
+				<a href="javascript:;">3.完成支付</a>
+			</div>
+			<div class="zhifudetail">
+				<p>支付详情</p>
+				<p class="zhifushibai"><span class="shibai-img zhifu-img"><img src="__PUBLIC__/img/shopcar-shibai.png" alt="" /></span>您的订单未能成功提交!</p>
+				<p class="zhifushibai"><span id='sj'>5</span>秒后自动跳转至购物车</p>
+				<p><a href="<{:U('User/homeOrderShow')}>">查看详情</a><a href="<{:U('Cart/index')}>">返回</a></p>
+			</div>
+		</div>
+		<script>
+		var count=5;
+			function daojishi(){
+				count=count-1;
+				$("#sj").html(count);
+				if(count<=0){
+					window.location.href="<{:U('Cart/index')}>"; 
+				}else{
+					setTimeout("daojishi()",1000);
+
+				}
+			}
+			daojishi(5);
+		</script>

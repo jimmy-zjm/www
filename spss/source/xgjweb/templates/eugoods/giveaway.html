@@ -1,0 +1,855 @@
+{:include file="header.tpl.html":}
+<style>
+.index-top-15 {
+	background:url(./images/zuobiao.png);
+}
+
+.index-top-12 {
+	background:url(./images/shouji02.png);
+}
+
+.index-top-09 {
+	background:url(./images/gouwuche02.png);
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/EuropeGoods.css" ><!-- 欧洲母婴baby页面调用CSS -->
+
+<link rel="stylesheet" type="text/css" href="./css/fenxiang.css" ><!--分享-->
+
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!--jqury-ui调用-->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+
+
+<!--商品图片缩略图切换+放大镜-->
+<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<!--商品图片缩略图切换+放大镜end-->
+
+<!--视频播放器-->
+<link href="css/video-js.css" rel="stylesheet" type="text/css">
+<script src="js/video.js" type="text/javascript"></script>
+<script>
+	videojs.options.flash.swf = "swf/video-js.swf";
+</script>
+<!--视频播放器-->
+
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear3"></div>
+
+<!--商品简介-->
+<div class="europe_goods-intro">
+    <div class="europe_goods-intro-left">
+		
+        <!--放大镜-->
+        <div id="preview" class="spec-preview"> 
+            <span class="jqzoom">
+            	<img jqimg="{:$goods['images'].0.jq:}" src="{:$goods['images'].0.src:}" />
+            </span>
+        </div>
+        <!--放大镜end-->
+        
+        <!--缩略图-->
+        <div class="spec-scroll">
+        	<a class="prev"></a> 
+            
+        	<a class="next"></a>
+        
+            <div class="items">
+                <ul>
+                	 {:if !empty($goods['src_image:']):}<div class="items-video" id="video_AddInId"><img src="{:$goods.src_image:}"></div>
+					 {:/if:}
+					 <!--这里需要做判断，如果该产品有存放视频，这放出这个DIV，否则只循环下面的li-->  
+                    {:if !empty($goods['images']):}
+                    {:foreach $goods['images'] as $img:}
+                    <li><img alt="" bimg="{:$img.jq:}" src="{:$img.src:}" onmousemove="preview(this);"></li>
+                    {:/foreach:}
+                    {:/if:}
+
+                </ul>
+            </div>
+        </div>
+        <!--缩略图end-->
+        
+        <div class="clear"></div>
+    </div>
+
+    <div class="europe_goods-intro-middle">
+        <div class="europe_goods-intro-middle-name">
+            <span>
+                {:$goods.goods_title:}
+            </span>
+        </div>
+
+        <div class="clear12"></div>
+        
+        {:foreach $goods['attr_list_desc'] as $attr_name =>$attr_v:}
+        <div class="europe_goods-intro-middle-demo"><!--demoDIV为循环读取后台参数，循环包括下面的<div class="clear33"></div>-->
+            <div class="europe_goods-intro-middle-demo-left">
+                {:$attr_name:}：
+            </div>
+
+            <div class="europe_goods-intro-middle-demo-right">
+                {:$attr_v:}
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear33"></div>
+        {:/foreach:}
+        
+    </div>
+
+
+    <div class="europe_goods-intro-right">
+        <div class="europe_goods-intro-right-list">
+        	<div class="clear33"></div>
+            
+        	<div class="europe_goods-intro-right-list-demo01">
+            	<div class="europe_goods-intro-right-list-demo01-left">
+                	欧洲原价：
+                </div>
+                
+                <div class="europe_goods-intro-right-list-demo01-right">
+                	{:$goods['market_price']:}€
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="europe_goods-intro-right-list-demo01">
+            	<div class="europe_goods-intro-right-list-demo01-left">
+                	折扣价：
+                </div>
+                
+                <div class="europe_goods-intro-right-list-demo01-right">
+                	{:$goods['purchase']:}€
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="europe_goods-intro-right-list-demo03"><!--如果用户点击选择框的时候，下面再多一个<div class="europe_goods-intro-right-list-demo01">，DIV里面left放选择的运输方式，right放运输价格用￥符号做钱的标识-->
+            	<select name='text' id='text' onchange="return pic()">
+                	<option value='1'>
+                    	海运
+                    </option>
+                    <option value='2'>
+                    	空运
+                    </option>
+                </select>
+            </div>
+
+            <div class="clear32"></div>
+            <div class="europe_goods-intro-right-list-demo01">
+                <div class="europe_goods-intro-right-list-demo01-left" >
+                    运费：
+                </div>
+                
+                <div class="europe_goods-intro-right-list-demo01-right" id='yunfei'>
+                    ￥{:$goods['luggage1']:}
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="europe_goods-intro-right-list-demo01">
+            	<div class="europe_goods-intro-right-list-demo01-left">
+                	关税：
+                </div>
+                
+                <div class="europe_goods-intro-right-list-demo01-right">
+                	￥{:$goods['duties1']:}
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="europe_goods-intro-right-list-demo01">
+            	<div class="europe_goods-intro-right-list-demo01-left">
+                	增值税：
+                </div>
+                
+                <div class="europe_goods-intro-right-list-demo01-right" id='vat'>
+                	￥{:$goods['vat1']:}
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="europe_goods-intro-right-list-demo01">
+            	<div class="europe_goods-intro-right-list-demo01-left">
+                	服务费：
+                </div>
+                
+                <div class="europe_goods-intro-right-list-demo01-right" id='service_charge'>
+                	￥{:$goods['service_charge1']:}
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear32"></div>
+            
+            <div class="europe_goods-intro-right-list-span">
+            	（服务费包含：清关费、国内运费、仓储费用、代购服务费）
+            </div>
+            
+			<div class="clear32"></div>
+            
+            <div class="europe_goods-intro-right-list-demo02">
+            	<div class="europe_goods-intro-right-list-demo02-left">
+                <input type='hidden' id='tol' value="{:$goods['total1']:}"/>
+                	总价：
+                </div>
+                
+                <div class="europe_goods-intro-right-list-demo02-right" id='total'>
+                	￥{:$goods['total1']:}
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="europe_goods-intro-right-number">
+        	<div class="europe_goods-intro-right-number-left">
+            	数量：
+            </div>
+            
+            <div class="europe_goods-intro-right-number-right">
+            	<div class="f_l add_chose">
+                    <div class="reduction">
+                        <a class="reduce" href="javascript:void(0)">
+                            <img  src="images/jian01.png" onclick='num1()'/>
+                        </a>
+                    </div>
+
+                    <div class="number">
+                        <input type="text" onkeyup="num2()" name="qty_item_1" value="1" id="qty_item_1" class="text" />
+                    </div>
+
+                    <div class="plus">
+                        <a class="add" href="javascript:void(0)">
+                            <img  src="images/jia01.png" onclick='num()'/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+			<div class="clear"></div>
+        </div>
+        
+		<div class="clear"></div>
+        
+        <div class="europe_goods-intro-right-buy" id="shoppingId">
+        	<a href="javascript:void(0)">
+                <img src="images/gouwuche03.png">
+            </a>
+        </div>
+        
+        <div class="clear33"></div>
+        
+        <div class="europe_goods-intro-right-see">
+        	<div class="europe_goods-intro-right-see-trolley">
+            	<a href="cart.php?cartList#tabs-2">
+                	查看购物车
+                </a>
+            </div>
+            
+            <div class="europe_goods-intro-right-see-follow">
+            	<a href="javascript:;" id="doconcern">
+                	关注
+                </a>
+            </div>
+        </div>
+        
+        <div class="clear12"></div>
+        
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+<!--商品简介end-->
+
+
+<form action="cart.php?addCart" method="post" id="theForm">
+    <input type="hidden" name="luggage" id='luggage' value="1" />
+    <input type="hidden" name="amount" id='amount' value="1" />
+	<input type="hidden" name="giveaway"  id='giveaway' value="1" />
+    <input type="hidden" name="id" id="goods_id" value="{:$goods.id:}" />
+</form>
+
+
+<div class="clear34"></div>
+
+<!--中间-->
+<div class="europe_goods-conter">
+    <div class="europe_goods-conter-between">
+        <div class="europe_goods-conter-product">
+            <div id="tabs">
+                <ul>
+                    <li>
+                        <a href="#tabs-1">
+                            产品详情
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#tabs-2">
+                            用户评论
+                        </a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+
+                <div class="clear"></div>
+
+                <div id="tabs-1">
+                	<div class="clear12"></div>
+                    
+                    <!--商品详情-->
+                    <div class="europe_goods-conter-product-detailed">
+                         {:$goods['goods_detail']|htmlspecialchars_decode:}
+
+                        <div class="clear2"></div>
+                    </div>
+                    <!--商品详情end-->
+                </div>
+
+                <div id="tabs-2">
+                	<!--用户评论-->
+                    <div class="europe_goods-conter-product-criticism">
+						<div class="europe_goods-conter-product-criticism-list">
+                        	<div class="europe_goods-conter-product-criticism-list-total">
+                            	<div class="europe_goods-conter-product-criticism-list-total-span">
+                                	<span>
+                                    	平均客户评论：
+                                    </span>
+                                </div>
+                                
+                                <div class="europe_goods-conter-product-criticism-list-total-star"><!--总星级评分-->
+                                	<div class="europe_goods-conter-product-criticism-list-total-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="europe_goods-conter-product-criticism-list-total-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="europe_goods-conter-product-criticism-list-total-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="europe_goods-conter-product-criticism-list-total-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="europe_goods-conter-product-criticism-list-total-star-demo">
+                                    	<img src="images/xing03.png">
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                             <!--用户评论-->
+                            <div class="bobygoods-conter-product-evaluate" id="comment_content">
+                                加载中...
+                                <!-- 这里的评论内容在模板里面 -->
+                            </div>
+                            <!--用户评论end-->
+                            <div id="page"></div>
+
+                        </div>
+                    </div>
+                    <!--用户评论end-->
+
+                </div>
+
+            </div>
+            
+                        
+            
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<!--中间-->
+
+<div class="clear2"></div>
+<div class="clear2"></div>
+<div class="clear2"></div>
+
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+<!--加入购物车弹框-->
+<div id="shopping-box">
+    <div class="shopping-box-conter">
+        <div class="shopping-box-conter-span">
+            您的商品已经加入到购物车了，点击确定可以继续购买其他商品。也可直接前往{:if isset($smarty.session.zp):}<a href="cart.php?cartList#tabs-1">{:else:}<a href="cart.php?cartList#tabs-2">{:/if:}购物车</a>查看
+        </div>
+
+        <div id="shoppingOutId">
+            <a href="javascript:history.go(-1)">
+                确定
+            </a>
+        </div>
+
+    </div>
+</div>
+<!--加入购物车弹框-->
+<script type="text/javascript">
+$("#shopping-box").css('height',$(document).height());
+jQuery(function(){
+        $("#shoppingId").click(function(){
+            // $("#shopping-box").fadeIn();
+        });
+
+        $("#shoppingOutId").click(function(){
+            $("#shopping-box").fadeOut();
+
+        });
+    });
+</script>
+<!--加入购物车弹框end-->
+
+
+
+<!--弹出视频-->
+<div id="clickAdd_video_Id" style="display:{:if isset($v_id) && $vv neq -1:}block;{:/if:}">   
+	<div class="clickAdd_video-center-bk"> 
+        <div class="clickAdd_video-center">
+        	<div class="clickAdd_video-center-title">
+            	<div class="clickAdd_video-center-title-cha" id="video_AddOut01Id">
+                    <a href="javascript:;">
+                        X
+                    </a>
+                </div>
+            </div>
+            {:if !empty($goods['video']):}
+            <div class="clickAdd_video-center-video" >
+            	<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="680" height="380" poster="../xgjtp/Public/Uploads/QuoteVideoImg/2016-04-06/57049970a4588.jpg" data-setup="">
+                    <source class='video' src="{:$goods['video'][$v_id]['video']:}" type='video/mp4' />
+                    <source class='video' src="{:$goods['video'][$v_id]['video']:}" type='video/webm' />
+                    <source class='video' src="{:$goods['video'][$v_id]['video']:}" type='video/ogg' />
+                    <source class='video' src="{:$goods['video'][$v_id]['video']:}" type='video/avi' />
+                    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                </video>
+            </div>
+            {:/if:}
+            <div class="clickAdd_video-center-list">
+                {:if !empty($goods['video']):}
+                <div class="clickAdd_video-center-list-demo" >
+                    <div class="clickAdd_video-center-list-demo-img">
+                            <img src="../xgjtp/Public/Uploads/QuoteVideoImg/2016-04-06/57049970a4588.jpg"/>
+                    </div>
+                    <div class="clickAdd_video-center-list-demo-name02"  title="{:$goods['video'][$v_id]['title']:}">
+                        {:$goods['video'][$v_id]['title']:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                {:foreach $goods['video'] as $k=>$v:}
+                {:if $v_id!=$k:}
+            	<div class="clickAdd_video-center-list-demo" >
+                	<div class="clickAdd_video-center-list-demo-img">
+                        <a href="goods.php?id={:$goods.id:}&vid={:$k+1:}">
+                        	<img src="../xgjtp/Public/Uploads/QuoteVideoImg/2016-04-06/57049970a4588.jpg"/>
+                        </a>
+                    </div>
+                    <input type="hidden" id="video{:$k:}" value="{:$v['video']:}"/>
+                    <div class="clickAdd_video-center-list-demo-name" id="name{:$k:}" title="{:$v['title']:}">
+                    	<a href="goods.php?id={:$goods.id:}&vid={:$k+1:}">{:$v['title']:}</a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                {:/if:}
+                {:/foreach:}
+                {:/if:}
+            </div>
+            
+            <div class="clickAdd_video-center-name" id='title'>
+            	{:$goods['video'][$v_id]['title']:}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$("#clickAdd_video_Id").css('height',$(document).height());
+
+jQuery(function(){
+
+		$("#video_AddInId").click(function(){
+            $("#clickAdd_video_Id").fadeIn();
+        });
+
+		$("#video_AddOut01Id").click(function(){
+            $("#clickAdd_video_Id").fadeOut();
+        });
+		
+		$("#video_AddOut02Id").click(function(){
+            $("#clickAdd_video_Id").fadeOut();
+        });
+
+    });
+</script>
+<!--弹出视频end-->
+
+<script>
+$( "#tabs" ).tabs();
+</script>
+
+<!-- 评价模板 -->
+<script type="text/html" id="comment_tpl">
+<% if(comm_list.length>0){ %>
+    <% for(var i=0;i<comm_list.length;i++){ %>
+ <div class="europe_goods-conter-product-criticism-list-demo"><!--有几条评论，就循环几个demo，下面给他加分页，一页显示3条-->
+    <div class="europe_goods-conter-product-criticism-list-demo-name">
+        <span>
+            用户<%=comm_list[i].user_name%>：
+        </span>        
+    </div>
+    
+    <div class="europe_goods-conter-product-criticism-list-demo-info">
+        <div class="europe_goods-conter-product-criticism-list-demo-info-word">        
+            <%=comm_list[i].content%>
+        </div>
+        
+        <div class="europe_goods-conter-product-criticism-list-demo-info-star"><!--总星级评分-->
+            <div class="europe_goods-conter-product-criticism-list-demo-info-star-demo"><!--有几颗星，就循环几个demo-->
+                <img src="images/xing03.png">
+            </div>
+            
+            <div class="europe_goods-conter-product-criticism-list-demo-info-star-demo">
+                <img src="images/xing03.png">
+            </div>
+            
+            <div class="europe_goods-conter-product-criticism-list-demo-info-star-demo">
+                <img src="images/xing03.png">
+            </div>
+            
+            <div class="europe_goods-conter-product-criticism-list-demo-info-star-demo">
+                <img src="images/xing03.png">
+            </div>
+            
+            <div class="europe_goods-conter-product-criticism-list-demo-info-star-demo">
+                <img src="images/xing03.png">
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="europe_goods-conter-product-criticism-list-demo-time">                                  
+        <span>
+            <%=comm_list[i].addtime%>  
+        </span>      
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+<% } %>
+<% }else{%>
+    <!--用户评论没有的话-->
+    <div class="europe_goods-conter-product-evaluate-no">              
+        <span>该商品还没有人写评价呢~~</span>
+    </div>
+    <!--用户评论没有的话-->
+<% } %>
+</script>
+<!-- 评价模板 -->
+
+
+<!-- 属性模板 -->
+<script type="text/html" id="attr_tpl">
+<% for(var i=0;i<list.length;i++){ %>
+  <div class="europe_goods-intro-middle-type-left">
+    选择<%=list[i][0].attr_name%>：
+  </div>
+
+  <div class="europe_goods-intro-middle-type-right">
+    <div class="yListr">
+      <ul>
+        <li class="attr_list" data-id="<%=list[i][0].attr_id%>">
+
+          <% for (var j = 0; j < list[i].length; j ++) { %>
+          <em data-id="<%=list[i][j].id%>" class="<% if(list[i][j].have_stock==0){ %>disabled<%}%>">
+              <%=list[i][j].attr_value%>
+            <i></i>
+          </em>
+          <% } %>
+
+          <div class="clear"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% } %>
+
+
+
+</script>
+<!-- 属性模板 -->
+<script src="js/template-native.js"></script>
+<script src="js/laypage.js"></script>
+
+
+<!--分享-->
+<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!--分享end-->
+<!--关注-->
+<script src="js/concern.js"></script>
+<!--关注end-->
+
+<!-- ======================================================NEW=============================================== -->
+<!-- 选择运输方式改变价格 -->
+<script>
+    function pic(){
+        //alert($("#text").val());
+        id=$("#text").val();
+        if(id==1){
+            var yunfei={:$goods['luggage1']:};
+            var vat={:$goods['vat1']:};
+            var service={:$goods['service_charge1']:};
+            var total={:$goods['total1']:};
+            //console.log(vat);
+            $("#vat").html("￥"+vat);
+            $("#service_charge").html("￥"+service);
+            $("#total").html("￥"+numberFormat(total));
+            $("#tol").val(numberFormat(total));
+            $("#yunfei").html("￥"+yunfei);
+            $("#luggage").val(id);
+        }else if(id==2){
+            var yunfei={:$goods['luggage2']:};
+            var vat={:$goods['vat2']:};
+            var service={:$goods['service_charge2']:};
+            var total={:$goods['total2']:};
+            $("#vat").html("￥"+vat);
+            $("#service_charge").html("￥"+service);
+            $("#total").html("￥"+numberFormat(total));
+            $("#tol").val(total);
+            $("#yunfei").html("￥"+yunfei);
+            $("#luggage").val(id);
+        }
+         //alert($("#luggage").val());
+    }
+</script>
+<!-- 选择运输方式改变价格end -->
+<!-- 增加购货数量改变价格 -->
+<script type="text/javascript">
+    function num(){
+        var i=1;
+        var q=$("#qty_item_1").val()
+        var num=parseFloat(q)+i;
+        //console.log(num);
+        var total=$("#tol").val();
+        //console.log(total);
+        $("#total").html('￥'+numberFormat(total*num));
+        $("#tol").val(total);
+        $("#qty_item_1").val(num);
+        //alert(num);
+        $("#amount").val(num);
+    }
+</script>
+<!-- 增加购货数量改变价格end -->
+<!-- 减少购货数量改变价格 -->
+<script type="text/javascript">
+    function num1(){
+        var i=1;
+        var q=$("#qty_item_1").val()
+        var num=parseFloat(q)-i;
+        if(num<1){
+            num=1;
+        }
+        var total=$("#tol").val();
+        $("#total").html('￥'+numberFormat(total*num));
+        $("#tol").val(total);
+        $("#qty_item_1").val(num);
+        //alert(num);
+        $("#amount").val(num);
+    }
+</script>
+<!-- 减少购货数量改变价格 -->
+<!-- 购货数量改变价格 -->
+<script type="text/javascript">
+    function num2(){
+        var q=$("#qty_item_1").val()
+        var re=/^\d+$/;
+        var reg=new RegExp(re);
+        if (q=='' || q=='0' || !reg.test(q)) {
+            var num=parseFloat(1);
+        }else{
+            var num=parseFloat(q);
+        }
+        
+        if(num<1){
+            num=1;
+        }
+        var total=$("#tol").val();
+        $("#total").html('￥'+numberFormat(total*num));
+        $("#tol").val(total);
+        $("#qty_item_1").val(num);
+        $("#amount").val(num);
+    }
+</script>
+<!-- 购货数量改变价格 -->
+<script type="text/javascript">
+    /**
+     * 金钱格式化
+     */
+    function numberFormat(s){
+        s=s.toString();
+        if(/[^0-9\.]/.test(s)) return "invalid value";
+        s=s.replace(/^(\d*)$/,"$1.");
+        s=(s+"00").replace(/(\d*\.\d\d)\d*/,"$1");
+        // s=s.replace(".",",");
+        var re=/(\d)(\d{3},)/;
+        while(re.test(s))
+                s=s.replace(re,"$1,$2");
+        s=s.replace(/,(\d\d)$/,".$1");
+        return s.replace(/^\./,"0.")
+    }
+</script>
+<script type="text/javascript">
+    /*
+    点击加入购物车
+     */
+    $('#shoppingId').click(function(){
+        var flag = false;
+        var inputs = $('#theForm input');
+        var formData = $('#theForm').serialize();
+        console.log(formData);
+        $.ajax({
+            url:'ajax.php?addCart',
+            data:formData,
+            dataType:'json',
+            success:function(d){
+                // console.log(d);
+                if(d.code>0){
+                    $("#shopping-box").fadeIn();
+                }else{
+                    alert(d.message);
+                }
+            }
+        });
+    });
+
+    /*
+    点击关注商品
+     */
+    $('#doconcern').click(function(){
+        var id = $('#goods_id').val();
+        if($('#doconcern').html().indexOf('已关注')>=0){
+            return;
+        }
+        $.get('ajax.php?concern',{id:id},function(data){
+            if(data.code>0){
+               $('#doconcern').html('已关注');
+               $('#doconcern').prev('img').attr('src','images/805a.png');
+            }else{
+              alert(data.message);
+            }
+        },'json');
+    });
+
+    /*
+    获取评论列表
+     */
+    $.ajax({
+        url:"ajax.php?getCommentList",
+        data:{
+            id:$('#goods_id').val()
+        },
+        dataType:"json",
+        success:function(d){
+           // console.log(d);
+            
+            if(d.code>0){
+                $('#comment_total').html('（'+d.data.total+'）');
+                var tpl = template('comment_tpl',d.data);
+                $('#comment_content').html(tpl);
+                laypage({
+                    cont: 'page', //容器。值支持id名、原生dom对象，jquery对象,
+                    pages: d.data.total_page, //总页数
+                    jump:function(obj,first){
+                        if(!first){
+                            getCommentList(obj.curr);
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+    function getCommentList(p){
+        $.ajax({
+            url:"ajax.php?getCommentList",
+            data:{
+                id:$('#goods_id').val(),
+                p:p,
+            },
+            dataType:"json",
+            success:function(d){
+                // console.log(d);
+                if(d.code>0){
+                    var tpl = template('comment_tpl',d.data);
+                    $('#comment_content').html(tpl);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

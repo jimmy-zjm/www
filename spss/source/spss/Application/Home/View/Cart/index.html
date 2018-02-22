@@ -1,0 +1,376 @@
+
+		<link rel="stylesheet" href="__PUBLIC__/css/shopcar1.css" />
+
+		<div class="content">
+			<div class="empty">
+				
+			</div>
+			<div class="tabtit">
+				<a href="javascript:;">1.我的购物车</a>
+				<a href="javascript:;">2.填写订单信息</a>
+				<a href="javascript:;">3.完成支付</a>
+			</div>
+			<div class="tab1">
+				<form id='formId'>
+				<div class="tab1-info">
+					<p class="tab1-info-tit">
+						<span class="tab1-info-tit-border">商品信息</span>
+						<span class="tab1-info-tit-border">单价</span>
+						<span class="tab1-info-tit-border">数量</span>
+						<span class="tab1-info-tit-border">金额</span>
+						<span >操作</span>
+					</p>
+					<?php foreach ($data as $k=>$v){?>
+					<p class="tab1-info-con" id="homediv<?=$k?>">
+						<span><input class="quanxuan" id="homeinput<{$k}>" name="cart_id[<{$v.cart_id}>]" onclick="homeinput(<?=$k?>)"  k="<{$k}>" price="<?=$v['price']?>" pclass="<?=$v['class']?>" num="<?=$v['num']?>" type="checkbox" cid="<{$v.cart_id}>-<{$v['class']}>" typename='home' value="<?=$v['num']?>" /></span>
+						<span><img src="<{$v['img']|getImage}>" alt="" /></span>
+						<span><?=$v['shop_name']?></span>
+						<span></span>
+						<span >￥：<span class="price" id="price<{$k}>"><?=$v['price']?></span></span>
+						<span class="shopcount"><a href="javascript:;" onclick="reduce(<{$k}>,<{$v.class}>)">-</a><a href="javascript:;" class="shownum" id="num<{$k}>"><?=$v['num']?></a><a href="javascript:;" onclick="add(<{$k}>,<{$v.class}>)">+</a></span>
+						<span >￥：<span class="sumprice" id="home_per_total<{$k}>">
+                            <?php if ($v['class']==9): ?>
+                                <?php if ($v['num']==1): ?>
+                                    <?=$v['price']?>
+                                <?php elseif ($v['num']>1): ?>
+                                    <?=($v['price']*0.9*($v['num']-1))+$v['price']?>
+                                <?php endif ?>
+                            <?php else: ?>
+                                <?=$v['price']*$v['num']?>
+                            <?php endif ?>
+                        </span></span>
+						<span class="caozuo">
+						<a href="javascript:;" onclick="homeconcern(<{$v.cart_id}>,<{$k}>,<{$v.class}>)">收藏</a>
+						<a href="javascript:;" onclick="tanchu01(<{$v.cart_id}>,<{$k}>,<{$v.class}>,1)">删除</a>
+						</span>
+					</p>
+					<?php } ?>
+				</div>
+				<p class="jiesuan caozuo">
+					<span><input type="checkbox" id="homecheckbox" onclick="hometypeall()" value="" /></span>
+					<a href="javascript:;" onclick="homeconcernall()" >收藏</a>
+					<a href="javascript:;" onclick="tanchu01('','','',2)">删除</a>
+					<span class="issum">已选商品:<span class="zonghe" id="shu">0</span>件</span>
+					<span class="sum issum">合计金额:￥<span class="zonghe" id="home_total_price">0</span></span>
+					<a href="javascript:;" onclick="subs()">结算</a>
+				</p>
+			</div>
+			</form>
+			<div class="empty2">
+				
+			</div>
+		</div>
+
+<script type="text/javascript">
+	function subs(){
+		var data=$("#formId").serialize();
+		$.post("<{:U('Cart/subCart')}>", data, function(d){
+			if(d==1){
+				window.location.href="<{:U('Order/index')}>";
+			}else{
+				alert(d);
+			}
+		})
+	}
+</script>
+
+<!-- 删除弹出 -->
+<div id="tanchu_Id" class="tanchu" style="display: none">   
+    <div class="tanchu_delete-center-bk"> 
+        <div class="tanchu_delete-center">
+            <div class="tanchu_delete-center-title">                
+                <div class="tanchu_delete-center-title-span">
+                	删除商品
+                </div>
+                
+                <div class="tanchu_delete-center-title-cha" id="tanchu_Out_Id" onclick="delete01()">
+                	<img src="__PUBLIC__/img/cha01.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear1"></div>
+            
+            <div class="tanchu_delete-center-span">
+            	确认要删除该宝贝吗？
+            </div>
+            
+            <div class="clear2"></div>
+            <div class="tanchu_delete-center-a">
+            	<div class="tanchu_delete-center-a-determine">
+                    <input type="hidden" name="del_id" id="del_id" value=''>
+                    <input type="hidden" name="dangqian" id="dangqian" value=''>
+                    <input type="hidden" name="cl" id="cl_id" value=''>
+                    <input type="hidden" name="ty" id="ty" value=''>
+                	<a href="javascript:;" onclick="success()">
+                    	确定
+                    </a>
+                </div>
+                
+                <div class="tanchu_delete-center-a-close">
+                	<a href="javascript:;" onclick="delete01()">
+                    	关闭
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear2"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function tanchu01(id,k,cl,ty){
+    $('#del_id').val(id);
+    $('#dangqian').val(k);
+    $('#cl_id').val(cl);
+    $('#ty').val(ty);
+    var lis = document.getElementsByTagName('input');
+    var num = 0;
+    if (ty==1) {
+       $("#tanchu_Id").fadeIn(); 
+    }else{
+    	for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='home' && lis[i].checked==true) {
+                var num = num + 1;
+            }
+        }
+        if (num<1) {
+	        alert('请选择您要删除的商品!');
+	    }else{
+	        $("#tanchu_Id").fadeIn();
+	    }
+    }    
+}
+
+function delete01(){
+	$("#tanchu_Id").fadeOut();
+
+}
+
+function success(){
+	$("#tanchu_Id").fadeOut();
+	var k      = $('#dangqian').val();
+	var del_id = $('#del_id').val();
+	var cl_id  = $('#cl_id').val();
+	var ty     = $('#ty').val();
+
+	if(ty==1){
+		homedelrow(del_id,k,cl_id,ty);
+	}else if(ty==2){
+		homedelall();
+	}
+}
+
+</script>
+<!--删除弹出end-->
+<script>
+	//关注购物车商品
+    function homeconcern(id,k,cl){
+        $.get("<{:U('Cart/moveToConcern')}>",{'cart_id':+id,'class':+cl},function(data){
+            if (data == 2) {
+                alert('先登陆才能进行收藏');
+                window.location.href="<{:U('User/login')}>"; 
+            }else if (data == 1) {
+                alert('收藏成功');
+            }else if (data == 3) {
+                alert('收藏失败');
+            }else if (data == 4){
+                alert('已收藏此商品');
+            }
+        })
+    }
+
+    //全部关注
+    function homeconcernall(){
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='home' && lis[i].checked==true) {
+            	var iii = lis[i].getAttribute('cid');
+                $.get("<{:U('Cart/moveToConcerns')}>",{'cart_id':iii},function(data){
+                })
+            }
+        }
+        alert('收藏成功');
+    }
+
+    //删除购物车内家居商品
+    function homedelrow(id,k){
+        $.get("<{:U('Cart/delHomeCartRow')}>",{'cart_id':+id},function(data){
+            if (data == 1) {
+                $('#homediv'+k).remove(); 
+                suanfa();               
+            }
+        });
+    }
+
+    //全部删除
+    function homedelall(){
+        var lis=$(".quanxuan");
+    	for(var i = 0; i < lis.length; i++){
+    		if(lis[i].checked==true){
+    			lis[i].parentNode.parentNode.remove();
+    			var iii = lis[i].getAttribute('cid');
+             	$.get("<{:U('Cart/delHomeCartAll')}>",{'cart_id':iii},function(data){
+                })
+    		}
+    	}
+
+        $('#home_total_price').html(0);
+        $('#shu').html(0);
+    }
+
+</script>
+<script>
+	//单选
+    function homeinput(){
+        suanfa();
+    }
+    //全选
+    function hometypeall(){
+        var list = document.getElementsByTagName('input');
+        var checkbox = document.getElementById('homecheckbox');
+        if (checkbox.checked==true) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='home') {
+                    list[i].checked=true;
+                }
+            }
+        }else{
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('typename')=='home') {
+                    list[i].checked=false;
+                }
+            }
+        }
+        suanfa();
+    }
+    //减法
+    function reduce(n,c){
+    	var shu=parseInt($("#shu").html());
+		var num=parseInt($("#num"+n).html());
+		var price=parseFloat($("#price"+n).html());
+		if(num<=0){
+		}else{    
+			num=num-1;
+			$("#num"+n).html(num);
+			$("#homeinput"+n).attr("price",price);
+			$("#homeinput"+n).attr("num",num);
+			$("#homeinput"+n).val(num);
+            if (c==9) {
+                if (num==1) {
+                    $("#home_per_total"+n).html(price);
+                }else if (num>1) {
+                    num = num - 1;
+                    var money = (parseFloat(price*0.9*num) + parseFloat(price));
+                    $("#home_per_total"+n).html(money);
+                }else if(num==0){
+                    $("#home_per_total"+n).html('0');
+                }
+            }else{
+                $("#home_per_total"+n).html(num*price);
+            }
+		}
+        suanfa();
+	}
+	//加法
+	function add(n,c){
+		var shu=parseInt($("#shu").html());
+		var num=parseInt($("#num"+n).html());
+		var price=parseFloat($("#price"+n).html());
+			num=num+1;
+			$("#num"+n).html(num);
+			$("#homeinput"+n).attr("num",num);
+			$("#homeinput"+n).val(num);
+			$("#homeinput"+n).attr("price",price);
+            if (c==9) {
+                if (num==1) {
+                    $("#home_per_total"+n).html(price);
+                }else if (num>1) {
+                    num = num - 1;
+                    var money = (parseFloat(price*0.9*num) + parseFloat(price));
+                    $("#home_per_total"+n).html(money);
+                }else if(num==0){
+                    $("#home_per_total"+n).html('0');
+                }
+            }else{
+                $("#home_per_total"+n).html(num*price);
+            }
+        suanfa();
+	}
+
+
+	function suanfa(){
+		var p = 0;
+		var n = 0;
+		var list = document.getElementsByTagName('input');
+		for (var i = 0; i < list.length; i++) {
+			if (list[i].getAttribute('typename')=='home' && list[i].checked==true) {
+                var nums  = list[i].getAttribute('num');
+                if (list[i].getAttribute('pclass')==9) {
+                    var num   = list[i].getAttribute('num');
+                    var price = list[i].getAttribute('price');
+                    if (num==1) {
+                        var money = price;
+                    }else if (num>1) {
+                        num = num - 1;
+                        var money = (parseFloat(price*0.9*num) + parseFloat(price));
+                    }else{
+                        var money = 0;
+                    }
+                    p += parseFloat(money);
+                }else{
+                    p += parseFloat(list[i].getAttribute('price')*list[i].getAttribute('num'));
+                }
+                n += parseFloat(nums);
+            }
+		}
+		$('#shu').html(n);
+		$('#home_total_price').html(p);
+	}
+	suanfa()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

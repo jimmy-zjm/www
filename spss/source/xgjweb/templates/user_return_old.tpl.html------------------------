@@ -1,0 +1,527 @@
+{:include file='user_top.tpl.html':}
+{:include file='user_left.tpl.html':}
+
+
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="userreturn-title">  
+            返修退换货  	
+        </div>
+      
+    	<div class="clear12"></div>
+      
+        <!--订单状态详细-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="userreturn-order">	
+                <div id="tabs">
+                    <ul>                    
+                        <li>
+                            <a href="#tabs-1">申请返修/退换货</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#tabs-2">返修/退换货记录</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#tabs-3">退款明细</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#tabs-4">维修费明细</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="clear27"></div>
+                    
+                    <div id="tabs-1"><!--申请返修/退换货-->
+                        <div class="userreturn-order-top">	
+                            <div class="userreturn-order-top-name">	
+                                商品名称
+                            </div>
+                            
+                            <div class="userreturn-order-top-details">	
+                                订单详情
+                            </div>
+                            
+                            <div class="userreturn-order-top-total">	
+                                购买金额
+                            </div>
+                            
+                            <div class="userreturn-order-top-operation">	
+                                操作
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+
+
+                        {:if !empty($returnGoodsList):}
+                            {:foreach from=$returnGoodsList key=num item=returnGoods:}
+                                <div class="userreturn-order-center"><!--有多少商品则循环多少次-->
+                                    <div class="userreturn-order-center-name">
+                                        <a href="#">
+                                            {:$returnGoods.goods_name:}
+                                        </a>
+                                    </div>
+
+                                    <div class="userreturn-order-center-details">
+                                        <div class="userreturn-order-center-details-01">
+                                            订单号：{:$returnGoods.order_sn:}
+                                        </div>
+
+                                        <div class="userreturn-order-center-details-02">
+                                            {:$returnGoods.add_time|date_format:'%Y/%m/%d %H:%M:%S':}
+                                        </div>
+                                    </div>
+
+                                    <div class="userreturn-order-center-total">
+                                        ￥{:$returnGoods.goods_amount:}
+                                    </div>
+
+                                    <div class="userreturn-order-center-operation">
+                                        <a href="user.php?returnApplicationShow&classId={:$returnGoods.class_id:}&goodsId={:$returnGoods.goods_id:}">
+                                            申请
+                                        </a>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="clear2"></div>
+                            {:/foreach:}
+
+                            <!--分页开始-->
+                            <div id="pageDivId" class="pg" style="width:1134px; margin: 10px 0 -20px -10px;text-align:right; padding: 0 100px 0 0; line-height:10px; font-size: 16px; background-color: #ecf0f5" >
+                                第{:$page:}页 / 共{:$pageCount:}页 &nbsp;
+
+                                {:if $page eq 1 && $page eq $pageCount:}
+                                &nbsp;
+                                {:elseif $page eq 1:}
+                                <a href="user.php?returnShow&page={:$page+1:}">下一页</a> &nbsp;
+                                <a href="user.php?returnShow&page={:$pageCount:}">尾 页</a>
+                                {:elseif $page eq $pageCount:}
+                                <a href="user.php?returnShow&page=1">首 页</a>&nbsp;
+                                <a href="user.php?returnShow&page={:$page-1:}">上一页</a>
+                                {:else:}
+                                <a href="user.php?returnShow&page=1">首 页</a>&nbsp;
+                                <a href="user.php?returnShow&page={:$page-1:}">上一页</a> &nbsp;
+                                <a href="user.php?returnShow&page={:$page+1:}">下一页</a> &nbsp;
+                                <a href="user.php?returnShow&page={:$pageCount:}">尾 页</a>
+                                {:/if:}
+                            </div>
+                            <!--分页结束-->
+
+                        {:else:}
+
+                            <div class="userreturn-order-center-no"><!--如果没有订单状态，则显示此DIV-->
+                                <div class="userreturn-order-center-no-01">
+                                    <img src="images/133.png"/>
+                                </div>
+
+                                <div class="userreturn-order-center-no-02" style="text-align: center;">
+                                    <a href="#">
+                                                                您目前没有退换货信息！
+                                    </a>
+                                </div>
+                            </div>
+                        {:/if:}
+
+                    </div>
+                    
+                    <div id="tabs-2"><!--申请返修/退换货-->
+                        <div class="userreturn-order-top">	
+                            <div class="userreturn-order-top-name">	
+                                商品名称
+                            </div>
+                            
+                            <div class="userreturn-order-top-details">	
+                                订单详情
+                            </div>
+                            
+                            <div class="userreturn-order-top-total">	
+                                购买金额
+                            </div>
+                            
+                            <div class="userreturn-order-top-operation">	
+                                类型
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+
+
+                        {:if !empty($returnedList):}
+                            {:foreach from=$returnedList key=num item=returned:}
+                                <div class="userreturn-order-center"><!--有多少商品则循环多少次-->
+                                    <div class="userreturn-order-center-name">
+                                        <a href="#">
+                                            {:$returned.goods_name:}
+                                        </a>
+                                    </div>
+
+                                    <div class="userreturn-order-center-details">
+                                        <div class="userreturn-order-center-details-01">
+                                            订单号：{:$returned.order_sn:}
+                                        </div>
+
+                                        <div class="userreturn-order-center-details-02">
+                                            {:$returned.return_time:}
+                                        </div>
+                                    </div>
+
+                                    <div class="userreturn-order-center-total">
+                                        ￥{:$returned.goods_amount:}
+                                    </div>
+
+                                    <div class="userreturn-order-center-operation">
+                                        <span>
+                                            {:if $returned.return_type eq 1:}
+                                                退货
+                                            {:elseif $returned.return_type eq 2:}
+                                                换货
+                                            {:elseif $returned.return_type eq 3:}
+                                                返修
+                                            {:else:}
+                                                未申请
+                                            {:/if:}
+                                        </span>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="clear2"></div>
+                            {:/foreach:}
+                        {:else:}
+                            <div class="userreturn-order-center-no"><!--如果没有订单状态，则显示此DIV-->
+                                <div class="userreturn-order-center-no-01">
+                                    <img src="images/133.png"/>
+                                </div>
+
+                                <div class="userreturn-order-center-no-02" style="text-align: center;">
+                                    <a href="#">
+                                        您没有退换、返修记录！
+                                    </a>
+                                </div>
+                            </div>
+                        {:/if:}
+                    </div>
+                    
+                    <div id="tabs-3"><!--退款明细-->
+                        <div class="userreturn-order-top">	
+                            <div class="userreturn-order-top-name">	
+                                商品名称
+                            </div>
+                            
+                            <div class="userreturn-order-top-details">	
+                                订单详情
+                            </div>
+                            
+                            <div class="userreturn-order-top-total">	
+                                退款金额
+                            </div>
+                            
+                            <div class="userreturn-order-top-operation">	
+                                状态
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+
+
+                        {:if !empty($returnMoneyList):}
+                            {:foreach from=$returnMoneyList key=num item=returnMoney:}
+                                <div class="userreturn-order-center"><!--有多少商品则循环多少次-->
+                                    <div class="userreturn-order-center-name">
+                                        <a href="#">
+                                            {:$returnMoney.goods_name:}
+                                        </a>
+                                    </div>
+
+                                    <div class="userreturn-order-center-details">
+                                        <div class="userreturn-order-center-details-01">
+                                            订单号：{:$returnMoney.order_sn:}
+                                        </div>
+
+                                        <div class="userreturn-order-center-details-02">
+                                            {:$returnMoney.return_time:}
+                                        </div>
+                                    </div>
+
+                                    <div class="userreturn-order-center-total">
+                                        ￥{:$returnMoney.return_money:}
+                                    </div>
+
+                                    <div class="userreturn-order-center-operation">
+                                        <span>
+                                            {:if $returnMoney.return_status eq 1:}
+                                                待审核
+                                            {:elseif $returnMoney.return_status eq 2:}
+                                                审核中
+                                            {:elseif $returnMoney.return_status eq 3:}
+                                                未通过
+                                            {:elseif $returnMoney.return_status eq 4:}
+                                                退款中
+                                            {:elseif $returnMoney.return_status eq 5:}
+                                                已退款
+                                            {:else:}
+                                                未申请
+                                            {:/if:}
+                                        </span>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="clear2"></div>
+                            {:/foreach:}
+                        {:else:}
+                            <div class="userreturn-order-center-no"><!--如果没有订单状态，则显示此DIV-->
+                                <div class="userreturn-order-center-no-01">
+                                    <img src="images/133.png"/>
+                                </div>
+
+                                <div class="userreturn-order-center-no-02" style="text-align: center;">
+                                    <a href="#">
+                                        您没有退款记录！
+                                    </a>
+                                </div>
+                            </div>
+                        {:/if:}
+                    </div>
+                    
+                    <div id="tabs-4"><!--维修费明细-->
+                        <div class="userreturn-order-top">	
+                            <div class="userreturn-order-top-name">	
+                                商品名称
+                            </div>
+                            
+                            <div class="userreturn-order-top-details">	
+                                订单详情
+                            </div>
+                            
+                            <div class="userreturn-order-top-total">	
+                                维修金额
+                            </div>
+                            
+                            <div class="userreturn-order-top-operation">	
+                                状态
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+
+
+                        {:if !empty($repairList):}
+                            {:foreach from=$repairList key=num item=repair:}
+                                <div class="userreturn-order-center"><!--有多少商品则循环多少次-->
+                                    <div class="userreturn-order-center-name">
+                                        <a href="#">
+                                            {:$repair.goods_name:}
+                                        </a>
+                                    </div>
+
+                                    <div class="userreturn-order-center-details">
+                                        <div class="userreturn-order-center-details-01">
+                                            订单号：{:$repair.order_sn:}
+                                        </div>
+
+                                        <div class="userreturn-order-center-details-02">
+                                            {:$repair.return_time:}
+                                        </div>
+                                    </div>
+
+                                    <div class="userreturn-order-center-total">
+                                        ￥{:$repair.repair_money:}
+                                    </div>
+
+                                    <div class="userreturn-order-center-operation">
+                                        <span>
+                                            {:if $repair.return_status eq 1:}
+                                                待审核
+                                            {:elseif $repair.return_status eq 2:}
+                                                审核中
+                                            {:elseif $repair.return_status eq 3:}
+                                                未通过
+                                            {:elseif $repair.return_status eq 6:}
+                                                维修中
+                                            {:elseif $repair.return_status eq 7:}
+                                                已维修
+                                            {:else:}
+                                                未申请
+                                            {:/if:}
+                                        </span>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="clear2"></div>
+
+                            {:/foreach:}
+                        {:else:}
+                            <div class="userreturn-order-center-no"><!--如果没有订单状态，则显示此DIV-->
+                                <div class="userreturn-order-center-no-01">
+                                    <img src="images/133.png"/>
+                                </div>
+
+                                <div class="userreturn-order-center-no-02" style="text-align: center;">
+                                    <a href="#">
+                                        您买的东西太少了，这里都空空的，快去挑选合适的商品吧！
+                                    </a>
+                                </div>
+                            </div>
+                        {:/if:}
+                    </div>
+                    
+                    
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        <!--订单状态详细end-->
+      
+    
+    </div>
+  	<!-- user右边end，引用头部时倒入这个div -->
+
+
+
+{:include file='user_footer.tpl.html':}
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+<li><a data-slide="6" onClick="gotofloor(this);" href="javascript:void(0);">6F</a></li>
+<li><a data-slide="7" onClick="gotofloor(this);" href="javascript:void(0);">7F</a></li>
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+
+<!--jquery-ui调用-->
+<script>
+
+$( "#tabs" ).tabs();/*点击切换滑动门*/
+
+$( "#selectmenu1" ).selectmenu();/*下拉*/
+
+$( "#selectmenu2" ).selectmenu();/*下拉*/
+
+$( "#selectmenu3" ).selectmenu();/*下拉*/
+
+$( "#selectmenu4" ).selectmenu();/*下拉*/
+
+$( "#selectmenu5" ).selectmenu();/*下拉*/
+
+$( "#selectmenu6" ).selectmenu();/*下拉*/
+
+$( "#selectmenu7" ).selectmenu();/*下拉*/
+
+$( "#selectmenu8" ).selectmenu();/*下拉*/
+
+</script>
+<!--jquery-ui调用end-->
+
+</body>
+</html>
+  

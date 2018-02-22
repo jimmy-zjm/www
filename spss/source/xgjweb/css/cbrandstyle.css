@@ -1,0 +1,262 @@
+@CHARSET "UTF-8";
+
+.cbrand {
+	width: 1100px;
+	margin: 0 auto 50px;
+	height: 100%;
+}
+
+.cbrandTitle {
+	width: 1100px;
+	margin: 50px auto 0;
+	height: 48px;
+}
+
+.cbrandTitle_left {
+	float: left;
+	width: 175px;
+}
+
+.cbrandTitle_left h1 {
+	font-size: 24px;
+	letter-spacing: 2px;
+	font-weight: 400;
+	color: #1eb0fc;
+}
+
+.cbrandTitle_left span {
+	color: #a8a8a8;
+	font-size: 16px;
+	font-family: Arial;
+}
+
+.cbrandTitle_right {
+	float: right;
+	width: 925px;
+	height: 40px;
+	border-bottom: 1px solid #a8a8a8;
+}
+
+.brandHisCont_left {
+	width: 430px;
+	height: 340px;
+	float: left;
+}
+
+.brandHisCont {
+	width:1030px;
+	height: 340px;
+	margin-left:27px;
+	margin-top:50px;
+}
+
+.brandHisCont_right {
+	float: right;
+	width: 570px;
+}
+
+.brandHisCont_right_top {
+	color: #525252;
+	font-size: 16px;
+	height: 256px;
+	line-height: 30px;
+	word-break: break-all;
+	word-wrap: break-word;
+	/*white-space: pre-wrap;*/
+	overflow: hidden;
+}
+
+.brandHisCont_right_bot {
+	width: 570px;
+	height: 28px;
+	color: #1eb0fc;
+	font-size: 18px;
+	font-family: Arial;
+}
+
+.brandHisCont_right_bot .span01{
+	font-size:16px;
+	color:#595959;}
+	
+.brandHisCont_right_bot .span02{
+	font-size:18px;
+	color:#2db5fc;}
+
+.cbrandProduct {
+	width: 1250px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+.cbrandProduct li {
+	width: 255px;
+	color: #525252;
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+	float: left;
+	font-size: 14px;
+	padding-left: 50px;
+}
+
+.cbrandProApp {
+	/*height:300px;*/
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.cbrandProApp_left {
+	float: left;
+	width: 360px;
+	height: 240px;
+	padding: 20px;
+}
+
+.cbrandProApp_right {
+	float: left;
+	color: #525252;
+	width: 660px;
+	height: 240px;
+	padding: 20px;
+}
+
+/*商品放大镜*/
+/*图片放大镜样式*/
+
+
+.jqzoom {
+	float: left;
+	border: none;
+	position: relative;
+	padding: 0px;
+	/*cursor: pointer;*/
+	margin: 0px;
+	display: block;
+}
+
+.zoomdiv {
+	z-index: 100;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 350px;
+	height: 350px;
+	background: #ffffff;
+	border: 1px solid #CCCCCC;
+	display: none;
+	text-align: center;
+	overflow: hidden;
+}
+
+.jqZoomPup {
+	z-index: 10;
+	visibility: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #aaa;
+	background: #ffffff /*url(../images/zoom.png) 50% center no-repeat*/;
+	opacity: 0.5;
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+	filter: alpha(Opacity=50);
+}
+
+.jqzoom img {
+	width: 430px;
+	height: 230px;
+}
+
+/*图片小图预览列表*/
+
+
+.spec-preview {
+	width: 430px;
+	height: 230px;
+}
+
+.spec-scroll {
+	clear: both;
+	width: 428px;
+	height: 100px;
+	background: #fff;
+	border-bottom:1px solid #bdbdbd;
+	border-left:1px solid #bdbdbd;
+	border-right:1px solid #bdbdbd;
+}
+
+.spec-scroll .prev {
+	float: left;
+	margin-right: 6px;
+	background: url(../images/jiantou01.png) !important;
+}
+
+.spec-scroll .next {
+	float: right;
+	background: url(../images/jiantou02.png) !important;
+}
+
+.spec-scroll .prev, .spec-scroll .next {
+	display: block;
+	font-family: "宋体";
+	text-align: center;
+	width: 17px;
+	height: 31px;
+	line-height: 31px;
+	cursor: pointer;
+	text-decoration: none;
+	margin-top: 40px;
+}
+
+.spec-scroll .items {
+	float: left;
+	position: relative;
+	width: 388px;
+	height: 108px;
+	overflow: hidden;
+}
+
+.spec-scroll .items ul {
+	position: absolute;
+	width: 999999px;
+	height: 108px;
+}
+
+.spec-scroll .items ul li {
+	float: left;
+	width: 97px;
+	text-align: center;
+	margin-top: 17px;
+}
+
+.spec-scroll .items ul li img {
+	/*border: 1px solid #fff;*/
+	/*padding: 2px;*/
+	width: 87px;
+	height: 68px;
+}
+
+.spec-scroll .items ul li img:hover {
+/*border: 2px solid #FF6600;*/
+	/*padding: 1px;*/
+}
+
+.spec-scroll .items ul .items-video {
+	float: left;
+	width: 102px;
+	text-align: center;
+	margin-top: 8px;
+}
+
+.spec-scroll .items ul .items-video img {
+	/*border: 1px solid #fff;*/
+	/*padding: 2px;*/
+	width: 91px;
+	height: 91px;
+}
+
+.spec-scroll .items ul .items-video img:hover {
+/*border: 2px solid #FF6600;*/
+	/*padding: 1px;*/
+}/*商品图片放大镜end*/

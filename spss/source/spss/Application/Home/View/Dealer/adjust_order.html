@@ -1,0 +1,598 @@
+<include file="header" />
+
+<style>
+.homelist2-conter-offer-info-button02{
+	width:650px;
+	margin-left:30px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.homelist2-conter-offer-info-button02-file{
+	float:left;
+	width:100px;
+	height:30px;
+	line-height: 30px;
+	overflow:hidden;
+	cursor: pointer;
+	margin-left:50px;
+}
+
+.homelist2-conter-offer-info-button02-file-span{
+	width:100px;
+	height:30px;
+	line-height: 30px;
+	background:#ccc;
+	position:relative;
+	z-index:1;
+	text-align: center;
+	color: #2b2b2b;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.homelist2-conter-offer-info-button02-file-input{
+	width:100px;
+	height:30px;
+	line-height: 30px;
+	background:none;
+	position:relative;
+	top: -30px;
+	z-index: 2;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity:0;
+	opacity:0;
+	cursor: pointer;
+}
+
+.homelist2-conter-offer-info-button02-file-input input{
+	border:none;
+	background:none;
+}
+
+.homelist2-conter-offer-info-button02-dayin{
+	float:left;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#ccc;
+	color:#2b2b2b;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.homelist2-conter-offer-info-button02-img{
+	width:300px;
+	height:200px;
+	float:left;
+	margin-left:30px;
+}
+
+.homelist2-conter-offer-info-button02-img img{
+	width:300px;
+	height:200px;
+}
+</style>
+
+
+
+<div class="clear3"></div>
+
+<form action="<{:U('do_adjust_order')}>" method="post" enctype="multipart/form-data">
+	<div class="homelist2-conter-offer-info-left" style="width:1100px;margin:0 auto;float:none;background:#fff;" id="div1">	
+		<div class="homelist2-conter-offer-info-type">
+		    <div class="homelist2-conter-offer-info-type-title">
+		        房屋类型
+		    </div>
+		    
+		    <div class="homelist2-conter-offer-info-type-radio">
+		    	<?php if (!empty($homeInfo['type'])){?>
+		    	<?php if ($homeInfo['type']==1){?>
+		        <div class="homelist2-conter-offer-info-type-radio-demo">
+		            <input type="radio" id="gongyu" name="house" value="1" onclick="gongyu()" 
+		            <?php if ($homeInfo['type']==1 && !empty($homeInfo['type'])){?>
+		            checked
+		            <?php }?>/>
+		            <span>公寓</span>
+		        </div>
+		        <?php }}?>
+		    	<?php if (!empty($homeInfo['type'])){?><?php if ($homeInfo['type']==2){?>
+		        <div class="homelist2-conter-offer-info-type-radio-demo">
+		            <input type="radio" id="diejia" name="house" value="2" onclick="diejia()" <?php if (!empty($homeInfo['type'])){?><?php if ($homeInfo['type']==2){?>checked<?php }}?>/>
+		            
+		            <span>叠加</span>
+		        </div>
+		         <?php }}?>
+		        <?php if (!empty($homeInfo['type'])){?><?php if ($homeInfo['type']==3){?>
+		        <div class="homelist2-conter-offer-info-type-radio-demo"/>
+		            <input type="radio" id="lianpai" name="house" value="3" onclick="lianpai()" <?php if (!empty($homeInfo['type'])){?><?php if ($homeInfo['type']==3){?>checked<?php }}?>/>
+		            
+		            <span>联排</span>
+		        </div>
+		         <?php }}?>
+		        <?php if (!empty($homeInfo['type'])){?><?php if ($homeInfo['type']==4){?>
+		        <div class="homelist2-conter-offer-info-type-radio-demo"/>
+		            <input type="radio" id="dudong" name="house" value="4" onclick="dudong()" <?php if (!empty($homeInfo['type'])){?><?php if ($homeInfo['type']==4){?>checked<?php }}?>/>
+		            
+		            <span>独栋</span>
+		        </div>
+		         <?php }}?>
+		        <div class="clear"></div>
+		    </div>
+		    
+		    <div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="homelist2-conter-offer-info-room">
+		    <div class="homelist2-conter-offer-info-room-right">
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select name="type1" onchange="bedRoom(this)"  style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <?php for ($i=1;$i<21;$i++){?>
+		                	<option value ="<?=$i?>" <?php if (!empty($house_layout[0])){?><?php if ($house_layout[0] == $i){?>selected="selected"<?php }}?>><?=$i?></option>
+		                <?php }?>
+
+		                
+						
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">室</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo"> 
+		            <select name="type2" onchange="livingRoom(this)"  style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+						<?php for ($i=1;$i<11;$i++){?>
+		                	<option value ="<?=$i?>" <?php if (!empty($house_layout[1])){?><?php if ($house_layout[1] == $i){?>selected="selected"<?php }}?>><?=$i?></option>
+		                <?php }?>
+						
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">厅</span>
+		        </div>
+
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select name="type3" onchange="kitchRoom(this)"  style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+						<?php for ($i=1;$i<11;$i++){?>
+		                	<option value ="<?=$i?>" <?php if (!empty($house_layout[2])){?><?php if ($house_layout[2] == $i){?>selected="selected"<?php }}?>><?=$i?></option>
+		                <?php }?>
+						
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">厨</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select onchange="washRoom(this)"  name="type4" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+						<?php for ($i=1;$i<11;$i++){?>
+		                	<option value ="<?=$i?>" <?php if (!empty($house_layout[3])){?><?php if ($house_layout[3] == $i){?>selected="selected"<?php }}?>><?=$i?></option>
+		                <?php }?>
+		                
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">卫</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo">
+		            <select onchange="galleryRoom(this)" name="type5" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <?php for ($i=1;$i<11;$i++){?>
+		                	<option value ="<?=$i?>" <?php if (!empty($house_layout[4])){?><?php if ($house_layout[4] == $i){?>selected="selected"<?php }}?>><?=$i?></option>
+		                <?php }?>
+		                
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span">阳台</span>
+		        </div>
+		        
+		        <div class="homelist2-conter-offer-info-room-right-demo" id="click01" <?php if (!empty($homeInfo['type']) && $homeInfo['type'] > 1){?>style="display:block;"<?php }?>>
+		            <select onchange="atticRoom(this)" name="type6" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <?php for ($i=1;$i<11;$i++){?>
+		                	<option value ="<?=$i?>" <?php if (!empty($house_layout[5])){?><?php if ($house_layout[5] == $i){?>selected="selected"<?php }}?>><?=$i?></option>
+		                <?php }?>
+		                
+		            </select>
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span" id="atticRoomSpan">阁楼</span>
+		            
+		            <select onchange="cellarRoom(this)" name="type7" style="width:85px; height:28px;">
+		                <option value="">--请选择--</option>
+		                <?php for ($i=1;$i<11;$i++){?>
+		                	<option value ="<?=$i?>" <?php if (!empty($house_layout[6])){?><?php if ($house_layout[6] == $i){?>selected="selected"<?php }}?>><?=$i?></option>
+		                <?php }?>
+		                
+		            </select>
+		            
+		            
+		            <span class="homelist2-conter-offer-info-room-right-span" id="cellarRoomSpan">地下室</span>
+		        </div>
+		    </div>
+		    
+		    <div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="homelist2-conter-offer-info-explain">
+		    <div class="homelist2-conter-offer-info-explain-title">
+		        房间说明
+		    </div>
+		    
+		    <div class="homelist2-conter-offer-info-explain-list">
+		        <ul id="bedRoomList">
+		            <?php if (!empty($area[1][0])){?>
+		            <div class='roomdivdemo01'>卧室（m2 )</div>
+		            <div class='roomdivdemo03' id='bedRoomList2'>  
+		                <?php foreach ($area[1] as $k=>$v){?>
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area1<?=$k?>" name='bedroom[]' value="<?=$v?>"/></li> 
+		                <?php }?>             			
+		            </div>
+		            <?php }?>
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="livingRoomList">
+
+		            <?php if (!empty($area[2][0])){?>
+		            <div class='roomdivdemo01'>客厅（m2 )</div>
+		            <div class='roomdivdemo03' id='livingRoomList2'>
+		                <?php foreach ($area[2] as $k=>$v){?>
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area2<?=$k?>" name='liveroom[]' value="<?=$v?>"/></li> 
+		                <?php }?>
+		            </div>
+		            <?php }?>
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="kitchRoomList">
+
+		            <?php if (!empty($area[3][0])){?>
+		            <div class='roomdivdemo01'>厨房（m2 )</div>
+		            <div class='roomdivdemo03' id='kitchRoomList2'>
+		                <?php foreach ($area[3] as $k=>$v){?>
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area3<?=$k?>" name='kitchen[]' value="<?=$v?>"/></li> 
+		                <?php }?>
+		            </div>
+		            <?php }?>
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="washRoomList">
+
+
+		            <?php if (!empty($area[4][0])){?>
+		            <div class='roomdivdemo01'>卫生间（m2 )</div>
+		            <div class='roomdivdemo03' id='washRoomList2'>
+		                <?php foreach ($area[4] as $k=>$v){?>
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area4<?=$k?>" name='bathroom[]' value="<?=$v?>"/></li> 
+		                <?php }?>
+		            </div>
+		            <?php }?>		
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="galleryRoomList">
+		            <?php if (!empty($area[5][0])){?>
+		            <div class='roomdivdemo01'>阳台（m2 )</div>
+		            <div class='roomdivdemo03' id='galleryRoomList2'>
+		                <?php foreach ($area[5] as $k=>$v){?>
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area5<?=$k?>" name='balcony[]' value="<?=$v?>"/></li> 
+		                <?php }?>
+		            </div>
+		            <?php }?>
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="atticRoomList" class="click02">
+		            <?php if (!empty($area[6][0])){?>
+		            <div class='roomdivdemo01'>阁楼（m2 )</div>
+		            <div class='roomdivdemo03' id='atticRoomList2'>
+		                <?php foreach ($area[6] as $k=>$v){?>
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area6<?=$k?>" name='gelou[]' value="<?=$v?>"/></li> 
+		                <?php }?>
+		            </div>
+		            <?php }?>
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		        <ul id="cellarRoomList" class="click03">
+
+		            <?php if (!empty($area[7][0])){?>
+		            <div class='roomdivdemo01'>地下室（m2 )</div>
+		            <div class='roomdivdemo03' id='cellarRoomList2'>
+		                <?php foreach ($area[7] as $k=>$v){?>
+		                <li class='roomdivdemo02'><input type='text' typename="area" onkeyup="areas()" id="area7<?=$k?>" name='database[]' value="<?=$v?>"/></li> 
+		                <?php }?>
+		            </div>
+		            <?php }?>
+		        </ul>
+		        
+		        <div class="clear"></div>
+		        
+		    </div>
+		</div>
+		 
+		<div class="clear"></div>
+                
+                <div class="homelist2-conter-offer-info-area">
+                    <div class="homelist2-conter-offer-info-area-01">
+                        全屋面积（m2 )
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-area-02">
+                        <input id="areanum" type="text" name="area" value="" readonly/>
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-area-01">
+                        常住人口(人)
+                    </div>
+                    
+                    <div class="homelist2-conter-offer-info-area-02">
+                    	<input id="people" type="text" name="people" value="<{$homeInfo.people}>" />
+                    </div>
+                 
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear3"></div>
+
+                <div class="homelist2-conter-offer-info-button02" id="none1">
+                	<div class="homelist2-conter-offer-info-button02-dayin">
+                		<div class="homelist2-conter-offer-info-button02-dayin-span" onclick="printme()">
+                			打印
+                		</div>
+                	</div>
+
+                	<div class="homelist2-conter-offer-info-button02-file">
+                		<div class="homelist2-conter-offer-info-button02-file-span">
+                			上传
+                		</div>
+
+                		<div class="homelist2-conter-offer-info-button02-file-input">
+                			<input type="file" name="img" id="file">
+                		</div>
+	
+                		
+                	</div>
+
+                	<div class="homelist2-conter-offer-info-button02-img" style="margin-top:-10px;margin-bottom:20px;">
+                		订单房型面积确认单
+                		<img src="__PUBLIC__/Uploads/<{$getimage['file_img']}>" onclick="lookimg(this.src)">
+                	</div>
+                	
+					
+                	<div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="homelist2-conter-offer-info-button" id="none2">
+                    <div class="homelist2-conter-offer-info-button-left">
+                        <input type="submit" value="保存填写内容" id="submit_button" "/>
+                    </div>
+                
+                    <div class="homelist2-conter-offer-info-button-right" id="jqbj" <?php if (empty($dealerAdjustInfo)){?>style="background-color:#ccc;"<?php }?>>
+                        <input type="button" value="精确报价" id="accurate" <?php if (!empty($dealerAdjustInfo)){?>onclick="homeQuote();"<?php }?>/>
+                    </div>
+                   
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear3"></div>
+            </div>
+
+            <div class="clear3"></div>
+
+    <input type="hidden" name="order_sn" value="<{$order_sn}>">
+    <input type="hidden" name="order_id" value="<?=$_GET['order_id']?>">
+
+    <div class="clear3"></div>
+</form>
+
+<div class="homelist2-conter-quote" id="homeQuoteTable" style="display:none;">
+    <div class="homelist2-conter-quote-inventory">
+        <div class="homelist2-conter-quote-inventory-title">
+            <span class="span01">
+                系统调整后价格
+            </span>
+        </div>
+         
+            <div class="items" style="margin:20px;">
+                <ul>
+                    <?php foreach ($quoteInfo as $k=>$v){?>
+                    <?php if (!empty($v['adjust_quote_price'])){?>
+                    <li style="margin:20px;">您选择的 <{$v.quote_name}> 系统调整后报价为：<{$v.adjust_quote_price}> 元</li>
+                    <?php }else{?>
+                    <li style="margin:20px;">您选择的 <{$v.quote_name}> 系统暂不支持该房型面积</li>
+                    <?php }?>
+                    <?php }?>
+                </ul>
+            </div>
+    
+        <div class="clear2"></div>           
+    </div>
+    
+    <div class="clear27"></div>
+
+</div> 
+
+
+<include file="footer" />
+</body>
+</html>
+
+<script type="text/javascript">
+
+function bedRoom(t){
+	var num = $(t).val();
+	$("#bedRoomList").html('');
+	if (num != '') {
+		$("#bedRoomList").append("<div class='roomdivdemo01'>卧室（m2 )</div>");
+		$("#bedRoomList").append("<div class='roomdivdemo03' id='bedRoomList2'></div>");
+		for (var i = 0; i < num; i++) {
+			$("#bedRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bedroom[]'/></li>");
+		}
+	}
+	areas();
+}
+function livingRoom(t){
+	var num = $(t).val();
+	$("#livingRoomList").html('');
+	if (num != '') {
+		$("#livingRoomList").append("<div class='roomdivdemo01'>客厅（m2 )</div>");
+		$("#livingRoomList").append("<div class='roomdivdemo03' id='livingRoomList2'></div>");
+		for (var i = 0; i < num; i++) {
+			$("#livingRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='liveroom[]'/></li>");
+		}
+	}
+	areas();
+}
+function kitchRoom(t){
+	var num = $(t).val();
+	$("#kitchRoomList").html('');
+	if (num != '') {
+		$("#kitchRoomList").append("<div class='roomdivdemo01'>厨房（m2 )</div>");
+		$("#kitchRoomList").append("<div class='roomdivdemo03' id='kitchRoomList2'></div>");
+		for (var i = 0; i < num; i++) {
+			$("#kitchRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='kitchen[]'/></li>");
+		}
+	}
+	areas();
+}
+function washRoom(t){
+	var num = $(t).val();
+	$("#washRoomList").html('');
+	if (num != '') {
+		$("#washRoomList").append("<div class='roomdivdemo01'>卫生间（m2 )</div>");
+		$("#washRoomList").append("<div class='roomdivdemo03' id='washRoomList2'></div>");
+		for (var i = 0; i < num; i++) {
+			$("#washRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='bathroom[]'/></li>");
+		}
+	}
+	areas();
+}
+function galleryRoom(t){
+	var num = $(t).val();
+	$("#galleryRoomList").html('');
+	if (num != '') {
+		$("#galleryRoomList").append("<div class='roomdivdemo01'>阳台（m2 )</div>");
+		$("#galleryRoomList").append("<div class='roomdivdemo03' id='galleryRoomList2'></div>");
+		for (var i = 0; i < num; i++) {
+			$("#galleryRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='balcony[]'/></li>");
+		}
+	}
+	areas();
+}
+function atticRoom(t){
+	var num = $(t).val();
+	$("#atticRoomList").html('');
+	if (num != '') {
+		$("#atticRoomList").append("<div class='roomdivdemo01'>阁楼（m2 )</div>");
+		$("#atticRoomList").append("<div class='roomdivdemo03' id='atticRoomList2'></div>");
+		for (var i = 0; i < num; i++) {
+			$("#atticRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='gelou[]'/></li>");
+		}
+	}
+	areas();
+}
+function cellarRoom(t){
+	var num = $(t).val();
+	$("#cellarRoomList").html('');
+	if (num != '') {
+		$("#cellarRoomList").append("<div class='roomdivdemo01'>地下室（m2 )</div>");
+		$("#cellarRoomList").append("<div class='roomdivdemo03' id='cellarRoomList2'></div>");
+		for (var i = 0; i < num; i++) {
+			$("#cellarRoomList2").append("<li class='roomdivdemo02'><input type='text' onkeyup='areas()' typename='area' name='database[]'/></li>");
+		}
+	}
+	areas();
+}
+</script>
+
+<script>
+//banner报价隐藏DIV点击显示
+function baojia(){
+    var size = document.getElementById("quick").value;
+    var quickprice = document.getElementById("quickprice");
+    $.get("index.php?quick&size="+size+"&cid={:$smarty.get.cid:}",function(data){
+        quickprice.innerHTML = data+'元';
+    })
+	document.getElementById("baojia").style.display="block";
+    document.getElementById("baojia2").style.display="none";
+}
+</script>
+
+
+<script>
+    function areas(){
+        var num = 0;
+        var lis = document.getElementsByTagName('input');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getAttribute('typename')=='area') {
+                if (lis[i].value=='') {
+                    var a = 0;
+                }else{
+                    var a = lis[i].value;
+                }
+                var num = Math.ceil((parseFloat(num) + parseFloat(a))*100)/100;
+            }
+        }
+        $('#areanum').val(num);
+    }
+    areas()
+</script>
+
+
+<script>
+	function homeQuote(){
+		if ($('#homeQuoteTable').css('display')=='none') {
+			$('#homeQuoteTable').css('display','block');
+		}else{
+			$('#homeQuoteTable').css('display','none');
+		}
+	}
+</script>
+
+
+
+
+
+
+<script language="javascript">
+	function printme(){
+		$('#de').css('display','none');
+		$('#de2').css('display','none');
+		$('#none1').css('display','none');
+		$('#none2').css('display','none');
+		var dis = $('#homeQuoteTable').css('display');
+		$('#homeQuoteTable').css('display','block');
+		window.print();
+		$('#de').css('display','block');
+		$('#de2').css('display','block');
+		$('#none1').css('display','block');
+		$('#none2').css('display','block');
+		$('#homeQuoteTable').css('display',dis);
+	}
+</script>    
+
+<script> 
+	function lookimg(str){ 
+		var newwin=window.open()
+		myimg=newwin.document.createElement("img")
+		myimg.src=str
+		newwin.document.body.appendChild(myimg)
+	} 
+</script>

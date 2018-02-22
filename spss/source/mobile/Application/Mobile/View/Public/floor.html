@@ -1,0 +1,54 @@
+		<div class="foot">
+			<div class="foot1" onclick="xialashow('guanyuwomen')">
+				<span class="foot-left">关于我们</span>
+				<span class="foot-right" ><img src="__PUBLIC__/img/home/home-xiala.png"/></span>
+			</div>
+			<div class="foot-son guanyuwomen">
+				<a href="<{:U('company')}>" class="foot-son-1">公司简介</a>
+					<!-- <div>
+						<img src="" alt="" />
+						<p></p>
+						<p></p>
+						<img src="" alt="" />
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+					</div> -->
+				<a class="foot-son-1" href="__APP__/Index/contactUs.html">联系我们</a>
+				<a class="foot-son-1">加入我们</a>
+			</div>
+		<!-- 	<div class="foot1 foot2" onclick="xialashow('helpcenter')">
+				<span class="foot-left">帮助中心</span>
+				<span class="foot-right" ><img src="__PUBLIC__/img/home/home-xiala.png"/></span>
+			</div> -->
+			<!-- <div class="foot-son helpcenter">
+				<p class="foot-son-1">客服电话</span>
+			</div> -->
+			<div class="foot1 foot3" onclick="xialashow('erweima')">
+				<span class="foot-left">关注我们</span>
+				<span class="foot-right" ><img src="__PUBLIC__/img/home/home-xiala.png"/></span></div>
+			<div class="foot-son erweima">
+				<a class="foot-son-1" href="__APP__/Index/followUs.html">微信二维码</a>
+			</div>
+			<div class="foot4">
+			
+				<p class="foot4-1">客服电话</p>
+				<p class="foot4-1">400-800-1027</p>
+			</div>
+		</div>
+		
+	</body>
+	<script>
+    	function xialashow(nage){
+    		if($('.'+nage).css('display') == 'none'){
+    			$('.'+nage).css('display','block');
+    		}else{
+    			$('.'+nage).css('display','none');
+    		}
+    		
+    	}
+    </script>
+</html>

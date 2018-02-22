@@ -1,0 +1,26 @@
+1.pad_user表添加字段is_use（后台管理所有账户是否启用）     2016/10/20
+2.pad_user表添加字段sessionid（判断是否已经登录）          2016/10/25
+3.xgj_furnish_quote表添加字段product_img（产品功能图）     2016/10/27
+4.添加xgj_quote_explain系统功能及需求表					   2016/10/28
+5.xgj_quote_explain表修改字段explain为text		 		   										2016/11/01
+6.建表xgj_remarks（退货备注表）							   										2016/11/03
+7.xgj_ov_order表添加is_return字段子订单是否存在退款退货1没有退货2有退货							2016/11/04
+8.xgj_column   海外超市出售商品统计 Admin/Overseas/Sell/index  43								2016/11/04
+8.xgj_column   欧洲建材出售商品统计 Admin/Eugroup/Sell/index  43								2016/11/07
+9.xgj_eu_order表添加is_return字段子订单是否存在退款退货1没有退货2有退货							2016/11/07
+
+5复制一个PAD版报价系统添加已下表
+添加xgj_pad_furnish_cat PAD版				   			   	2016/11/07
+添加xgj_pad_furnish_goods PAD版				   		   		2016/11/07
+添加xgj_pad_furnish_quote PAD版				   		   		2016/11/07
+添加xgj_pad_quote_child_list PAD版				   	   		2016/11/07
+添加xgj_pad_quote_explain PAD版				   		   		2016/11/07
+添加xgj_pad_quote_judge PAD版				   			   	2016/11/07
+添加xgj_pad_quote_type PAD版				   			   	2016/11/07
+
+
+
+6.需要上传xgj_pad_quote_child_list和xgj_quote_child_list    2016/11/25
+10.pad_user表添加字段is_try（后台管理所有账户是否试用）     2016/12/08
+11.pad_user表添加字段start_time（后台管理所有账户试用时间）     2016/12/08
+12.pad_user表添加字段end_time（后台管理所有账户试用时间）     2016/12/08

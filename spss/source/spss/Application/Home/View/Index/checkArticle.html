@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="__PUBLIC__/css/aboutwe.css" />
+<div class="aboutwe">
+	<div class="content">
+		<div class="content1">
+			<a href="javascript:;">首页</a>
+			<a href="javascript:;">&gt;</a>
+			<a href="<{:U('Index/checkArticle',array('cat_id'=>$Info['cat_id']))}>"><?=$Info['cat_name']?></a>
+			<a href="javascript:;">&gt;</a>
+			<a href="<{:U('Index/checkArticle',array('cat_id'=>$Info['cat_id'],'a_id'=>$Info['article_id']))}>"><?=$Info['title']?></a>
+		</div>
+		<div class="content2">
+			<div class="content2-left">
+				<p class="content2-left-tit"><?=$data['cat_name']?></p>
+				<?php foreach ($data['info'] as $k=>$v){?>
+				<p class="content2-tab">
+					<span class="content2-tab-left <?php if($v['article_id']==$Info['article_id']){?>content2-tab-active <?php }?>"></span>
+					<span class="content2-tab-right"><a href="<{:U('Index/checkArticle',array('cat_id'=>$v['cat_id'],'a_id'=>$v['article_id']))}>"><?=$v['title']?></a></span>
+				</p>
+				<?php }?>
+				<!-- <p class="content2-tab">
+					<span  class="content2-tab-left"></span>
+					<span class="content2-tab-right">高管团队</span>
+				</p>
+				<p class="content2-tab">
+					<span  class="content2-tab-left"></span>
+					<span class="content2-tab-right">股东介绍</span>
+				</p> -->
+			</div>
+			<div class="content2-right">
+				<div class="content2-right-tit">
+					<?=$Info['title']?>
+				</div>
+				<div class="content2-right-con">
+					<div class="content2-right-con-small">
+						<?=$Info['content']?>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="clear2"></div>
+	</div>
+</div>
+

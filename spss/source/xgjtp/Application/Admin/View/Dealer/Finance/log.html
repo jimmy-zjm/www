@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>结算管理</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+</head>
+
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	    <li><a >财务管理</a></li>
+	    <li><a href="<{:U('index')}>">财务结算列表</a></li>
+	    <li><a href="javascript:history.go(-1);">财务结算详情</a></li>
+	    </ul>
+	 </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    	<table class="listtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>编号</th>
+		    <th>结算金额</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($finance_log_list as $v){?>
+		     <tr>
+		    <td><{$v.log_id}></td>
+		    <td><{$v.finance_price}>元</td>
+		   	<td><?php echo date('Y-m-d H:i:s',$v['log_time'])?></td>
+		    </tr>
+		    <?php }?>
+		    
+			</tbody>
+		    
+		 </table>
+			<{$finance_log_page}>		 
+    </div> 
+ 
+</div> 
+  
+
+</body>
+
+</html>

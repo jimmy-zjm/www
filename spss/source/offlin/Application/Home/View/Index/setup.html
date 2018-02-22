@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>清单设置</header>
+	<section  class="container">
+		<p class="redtips">
+			勾选的项目是在清单内展示的项目，不勾选
+			就不展示，单价默认不展示在列表
+		</p>
+		<ul class="set-list">
+			<li class="sys-item">产品图<input type="checkbox"  <if condition="$return[0] eq 1">checked</if>></li>
+			<li class="sys-item">品牌<input type="checkbox"<if condition="$return[1] eq 1">checked</if>></li>
+			
+			<li class="sys-item">名称<input type="checkbox"<if condition="$return[2] eq 1">checked</if>></li>
+			<li class="sys-item">产地<input type="checkbox"<if condition="$return[3] eq 1">checked</if>></li>
+			<li class="sys-item">型号<input type="checkbox"<if condition="$return[4] eq 1">checked</if>></li>
+			<li class="sys-item">单价(元)<input type="checkbox"<if condition="$return[5] eq 1">checked</if>></li>
+			<li class="sys-item">数量<input type="checkbox"<if condition="$return['6'] eq 1">checked</if>></li>
+		</ul>
+		<a href="__APP__/User/goOut.html" class="my-btm-btn">退出登陆</a>
+	</section>
+
+	<script type="text/javascript">
+		$('.sys-item input').click(function(){
+			var input = document.getElementsByTagName('input');
+			var inputs = ''
+			for (var i = 0; i < input.length; i++) {
+				if (input[i].checked==true) var inputs = inputs+'|'+1;
+				else var inputs = inputs+'|'+0;
+			}
+			$.get('__APP__/Index/set.html',{'data':inputs},function(re){
+				alert(re);
+			});  
+		})
+	</script>
+</body>
+</html>

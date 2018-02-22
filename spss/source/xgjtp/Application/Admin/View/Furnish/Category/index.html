@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Admin/js/jquery.js"></script>
+
+</head>
+<body>
+	 <div class="place">
+	    <span>位置：</span>
+		    <ul class="placeul">
+			    <li><a href="<{:U('Admin/Index/Index/index')}>">首页</a></li>
+			    <li><a >健康舒适家居</a></li>
+			    <li><a href="<{:U('index')}>">系统分类列表</a></li>
+		    </ul>
+	 </div>
+	    <div class="rightinfo">
+	    
+	    <div class="tools">
+	    	<ul class="toolbar">
+	        <li class="click"><a href="<{:U('add')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</a></li>
+	        </ul>
+	    </div>
+	    
+	    <table class="listtable">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;">编号</th>
+	    <th>图片</th>
+	    <th>分类名称</th>
+	    <th>是否显示</th>
+	    <th>排序</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    <?php foreach ($cat_list as $v): ?>
+	    <tr data-id="<{$v['cat_id']}>">
+	    <td><?php echo (max(1,intval($_GET['p']))-1)*C('FURNISH_CAT_PAGE_SIZE') + ++$i ?></td>
+	    <td class="imgtdd"><img width="54px" src="<{$v['image']}>" /></td>
+	    <td><a href="<{:U('edit',array('cat_id'=>$v['cat_id']))}>"><{$v.cat_name}></a></td>
+   	    <td>
+            <?php if($v['is_show']==1):?>
+            <a href="javascript:;" class="toggleShow blue">已显示</a>
+            <?php else: ?>
+            <a href="javascript:;" class="toggleShow red">已隐藏</a>
+            <?php endif ?>
+        </td>
+   	    <td><{$v.sort_order}></td>
+	    <td><a href="<{:U('edit',array('cat_id'=>$v['cat_id']))}>">修改</a>|<a href="<{:U('del',array('cat_id'=>$v['cat_id']))}>" onclick="return confirm('您确定要删除吗？')">删除</a></td>
+	    </tr>
+	    <?php endforeach ?>
+	    </tbody>
+	    </table>
+	    <!-- 分页开始 -->
+        <{$page}>
+        <!-- 分页结束 -->
+	    </div>
+	    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+        $('.toggleShow').click(function(){
+            var id = $(this).parent().parent().attr('data-id');
+            var that = $(this);
+            $.ajax({
+                url:"<{:U('toggle')}>",
+                data:{id:id},
+                success:function(data){
+                    if(data>0){
+                        //后台修改成功
+                        if(that.html()=='已隐藏'){
+                            that.html('已显示').removeClass('red').addClass('blue');
+                        }else{
+                            that.html('已隐藏').removeClass('blue').addClass('red');
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
+
+	
+    
+

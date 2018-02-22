@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<!--<link rel="stylesheet"  type="text/css"  href="css/style.css"  media="screen and (min-width:1200px)"/>-->
+
+
+<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/userstyle.css" ><!-- 个人中心页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!--jqury-ui调用-->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+
+<!--选择城市-->
+<script type="text/javascript" src="js/xiala/city-data.js"></script>
+<script type="text/javascript" src="js/xiala/hzw-city-picker.min.js"></script>
+<!--选择城市end-->
+
+<script type="text/javascript" src="js/zhiding.js"></script><!--导航置顶-->
+
+<!--多选框全选-->
+<script type="text/javascript">
+function selectAll(checkbox) {
+	$('input[type=checkbox]').prop('checked', $(checkbox).prop('checked'));
+}
+</script>
+<!--多选框全选end-->
+<title>我的健康舒适家</title>
+</head>
+<body style="background:#ecf0f5;">
+<!-- user页面头部，引用头部时倒入这个以上包括meta等标签 -->
+<!-- top顶部 -->
+<div class="index-top-bk">
+    <div class="index-top">  
+    	<div class="index-top-01">
+        	您好
+        </div> 
+        
+        <div class="index-top-02"><!--未登录状态显示此DIV-->
+        	<a href="#">
+            	请登录
+            </a>
+        </div>
+        
+        <div class="index-top-03"><!--未登录状态显示此DIV-->
+        	<a href="#">
+            	免费注册
+            </a>
+        </div>
+        
+        <div class="index-top-04"><!--已登录状态显示此DIV-->
+        	<a href="#">
+            	幻想之城
+            </a>
+        </div>
+        
+        <div class="index-top-05"><!--已登录状态显示此DIV-->
+        	<a href="#">
+            	退出登录
+            </a>
+        </div>
+        
+        <div class="index-top-13">
+        	热线：4008001027
+        </div> 
+        
+        <div class="index-top-12">
+        	<img src="images/585.png"/>
+        </div> 
+        
+        <div class="index-top-11">
+        	<a href="#">
+            	手机版
+            </a>
+        </div>
+        
+        <div class="index-top-10">
+        	<a href="#">
+            	我的订单
+            </a>
+        </div>
+        
+        <div class="index-top-09">
+        	<img src="images/584.png"/>
+        </div>   
+        
+        <div class="index-top-08">
+        	<a href="#">
+            	我的购物车
+            </a>
+        </div>    
+        
+        <div class="index-top-07">
+        	&or;
+        </div> 
+        
+        <div class="index-top-06">
+        	<a href="#">
+            	我的收藏
+            </a>
+        </div>
+                
+        <div class="clear"></div>    
+    </div>
+</div>
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!-- head头部 -->
+<div class="index-head">
+	<div class="index-head-bk">
+    	<div class="index-head-01">
+        	<a href="#">
+            	<img src="images/logo4.png"/>
+            </a>
+        </div>
+    	
+        <div class="index-head-02">
+            <div class="index-head-02-01">
+                <input type="text" value="海外淘"  onFocus="if (value =='海外淘'){value =''}" onBlur="if (value ==''){value='海外淘'}"/>
+            </div>
+            
+            <div class="index-head-02-02">
+                <input type="button"  value=""/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="index-head-03">
+        	<div class="index-head-03-01">
+            	<div class="index-head-03-01-01">
+                	<img src="images/586.png"/>
+                </div>
+                
+                <div class="index-head-03-01-02">
+                	<a href="#">
+                    	全国体验展示馆及安装服务中心
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-head-03-02">
+            	<div class="index-head-03-02-01">
+                	<img src="images/587.png"/>
+                </div>
+                
+                <div class="index-head-03-02-02">
+                	服务区域
+                </div>
+                
+                <div class="index-head-03-02-03">                	
+                    <input type="text" id="cityChoice" value="上海"  onFocus="if (value =='上海'){value =''}" onBlur="if (value ==''){value='上海'}">                    
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+        <div class="index-navigation-bk" id="mynavbk">
+            <div class="index-navigation" >
+                <div class="index-navigation-center">
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            首页
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            账户设置          
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            社区           
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="#">
+                            消息            
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<!--导航end-->
+<div class="clear"></div>
+
+<!-- user页面头部end，引用头部时倒入这个以上包括meta等标签 -->
+
+<div class="clear"></div>
+
+
+<div class="user-center">
+	<!-- user左边菜单，引用头部时倒入user-leftDIV-->
+	<!-- user左边菜单，引用头部时倒入这个div -->
+    <div class="user-left">
+        <div class="user-left-01">
+            <a href="#">
+              我的中心
+            </a>
+        </div>
+        
+        <div class="clear6"></div>
+        
+        <div class="user-left-04">
+        	<span>
+            	健康舒适家
+            </span>
+        </div>
+        
+        <div class="user-left-02">    
+            <a href="#">
+              健康舒适家订单
+            </a>
+        </div>
+    
+        <div class="user-left-02">      
+            <a href="#">
+              我的订单
+            </a>
+        </div>
+    
+        <div class="user-left-02">      
+            <a href="#">
+              评价晒单
+            </a>
+        </div>
+
+        <div class="user-left-02">  
+            <a href="#">
+              取消订单记录
+            </a>
+        </div>
+    
+        <div class="user-left-03">      
+            <a href="#">
+              关注中心
+            </a>
+        </div>
+    
+        <div class="user-left-02">      
+            <a href="#">
+              关注的商品
+            </a>
+        </div>    
+    
+        <div class="user-left-03">      
+            <a href="#">
+              资产中心
+            </a>
+        </div>
+    
+        <div class="user-left-02">      
+            <a href="#">
+              优惠券
+            </a>
+        </div>
+        
+        <div class="user-left-02">      
+            <a href="#">
+              积分
+            </a>
+        </div>
+        
+        <div class="user-left-02">      
+            <a href="#">
+              余额
+            </a>
+        </div>
+        
+        <div class="user-left-03">      
+            <a href="#">
+              客户服务
+            </a>
+        </div>
+    
+        <div class="user-left-02">      
+            <a href="#">
+              返修退换货
+            </a>
+        </div>
+    
+        <div class="user-left-03">      
+            <a href="#">
+              设置
+            </a>
+        </div>
+        
+        <div class="user-left-02">      
+            <a href="#">
+              修改密码
+            </a>
+        </div>
+    
+        <div class="user-left-02">      
+            <a href="#">
+              个人信息
+            </a>
+        </div>
+    
+        <div class="user-left-02">      
+            <a href="#">
+              收货地址
+            </a>
+        </div>
+    </div>
+	<!-- user左边菜单end，引用头部时倒入这个div -->
+
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="usergzdsp-title">  
+            <span>
+            	关注商品 
+            </span> 	
+        </div>
+      
+		<div class="clear12"></div>
+      
+		<!--我关注的商品详细-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="usergzdsp-order">
+            	<div class="usergzdsp-order-top">
+                    <input type="checkbox" onclick="selectAll(this);" />
+                    
+                    <span>全选</span>
+                    
+                    <a href="#">加入购物车</a>
+                    
+                    <img src="images/675.png"/>
+                    
+                    <a href="#">取消关注</a>                   
+                </div>
+                
+                <div class="usergzdsp-order-bk">
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/676.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+            
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/676.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/676.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/676.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/677.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/678.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口爱迪士 ABS风口爱迪士 ABS风口爱迪士 ABS风口爱迪士 ABS风口爱迪士 ABS风口爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/679.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="usergzdsp-demo">
+                    	<div class="usergzdsp-demo-img">
+                        	<img src="images/680.jpg"/>
+                        </div>
+                        
+                        <div class="usergzdsp-demo-title">
+                        	<div class="usergzdsp-demo-title-input">
+                            	<input type="checkbox"/>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-title-span">
+                            	<span>
+                                	爱迪士 ABS风口
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-price">
+                        	¥290
+                        </div>
+                        
+                        <div class="usergzdsp-demo-evaluate">
+                        	<div class="usergzdsp-demo-evaluate-left">
+                            	295人评价
+                            </div>
+                            
+                            <div class="usergzdsp-demo-evaluate-right">
+                            	好评度98%
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="usergzdsp-demo-a">
+                        	<div class="usergzdsp-demo-a-left">
+                            	<a href="#">
+                                	加入购物车
+                                </a>
+                            </div>
+                            
+                            <div class="usergzdsp-demo-a-right">
+                            	<a href="#">
+                            		取消
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+            
+                     
+					<div class="clear"></div>
+				</div>
+            </div>
+            
+            <div class="clear2"></div>    
+        </div>
+		<!--我关注的商品详细end-->  
+        
+        
+    </div>
+	<!-- user右边end，引用头部时倒入这个div -->
+  
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+<!-- 底部广告 -->
+<div class="advertisement" >
+	<img src="images/555.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+<!-- 底部列表 -->
+<div class="foot">
+    <div class="foot-list">
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                购物指南
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    购物流程
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    会员介绍
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    常见问题
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    联系客服
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+			<div class="foot-list-gw-title">
+                配送方式
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    国内配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    海外配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    标准配送
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+            	支付方式
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	在线支付
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	分期付款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	邮局汇款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	公司转账
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                售后服务
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    售后政策
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    退款说明
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                  	返修/退换货
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    取消订单
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-right">
+            暖扬扬线下服务区
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+    <div class="root-center">
+        <div class="root-list">
+            <a href="#">
+              	关于我们
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	联系我们
+            </a>
+        </div>
+        
+        <div class="root-list">
+            <a href="#">
+              	人才招聘
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	招商加盟
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	商务合作
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	友情链接
+            </a>
+        </div>
+
+
+        <div class="root-list">
+
+            <a href="#">
+              	各类证件
+            </a>
+        </div>
+      
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear27"></div>
+    
+    <div class="root-bei">
+    	备案号：沪ICP备16002183
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="clear3"></div>
+</div>
+<!-- 根部链接end -->
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+    <div class="leftmenu">    
+        <ul class="navigation">
+        	<li>
+            	<a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a>
+        	</li>
+        
+        </ul>    
+        
+    	<div class="downbo" onClick="gotop();" href="javascript:void(0);">
+        	TOP
+        </div>
+    	<!-- js效果写的时候收起为downbo2展开是downbo -->
+    </div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+
+<!--jquery-ui调用-->
+<script>
+
+$( "#tabs" ).tabs();/*点击切换滑动门*/
+
+$( "#selectmenu1" ).selectmenu();/*下拉*/
+
+$( "#selectmenu2" ).selectmenu();/*下拉*/
+
+$( "#selectmenu3" ).selectmenu();/*下拉*/
+
+$( "#selectmenu4" ).selectmenu();/*下拉*/
+
+$( "#selectmenu5" ).selectmenu();/*下拉*/
+
+$( "#selectmenu6" ).selectmenu();/*下拉*/
+
+$( "#selectmenu7" ).selectmenu();/*下拉*/
+
+$( "#selectmenu8" ).selectmenu();/*下拉*/
+
+</script>
+<!--jquery-ui调用end-->
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+</body>
+</html>
+  

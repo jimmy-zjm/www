@@ -1,0 +1,177 @@
+
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/searchstyle.css" ><!-- 搜索页search页面调用CSS -->
+
+
+
+
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box"> 
+    {:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+    
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear"></div>
+
+<!-- 中间楼层 -->
+<div class="search-conter">
+    <div class="search-conter-position">
+        <span class="search-conter-position-span01">全部结果</span>
+        <span class="search-conter-position-span01">&gt;</span>
+
+
+        <span class="search-conter-position-span01">{:if !empty($smarty.get.seachall):}{:$smarty.get.seachall:}{:/if:}</span>
+    </div>
+    
+    <div class="clear"></div>
+
+    {:if empty($euList)&&empty($ovList)&&empty($fuList):}
+    <div class="search-conter-no">
+    	<div class="search-conter-no-img">
+        	<img src="images/sousuo.jpg"/>
+        </div>
+        
+        <div class="search-conter-no-span">
+        	抱歉，您搜索的宝贝暂时我们暂时没有，请返回<a href="index.php">首页</a>重新寻找宝贝吧
+        </div>
+    </div>
+    {:else:}
+    
+    <div class="search-conter-screen">
+        <div class="clear35"></div>
+    </div>
+
+    <div class="clear2"></div>    
+    
+    <div class="europe_index-center-floor-tabs-list" >
+        <div class="europe_index-center-floor-tabs-list-bk">   
+		
+		{:if !empty($fuList):}
+        {:foreach $fuList as $fu:}
+            <div class="europe_index-center-floor-tabs-list-demo">
+                <div class="europe_index-center-floor-tabs-list-demo-img">
+                    <div class="europe_index-center-floor-tabs-list-demo-img-01">
+                        <a href="price.php?cid={:$fu.quote_id:}" target="_blank">
+                            <img src="{:$fu.img|getImage:}"/>
+                        </a>
+                    </div>
+                    
+                    <div class="europe_index-center-floor-tabs-list-demo-img-02">
+                        <div class="europe_index-center-floor-tabs-list-demo-img-02-left">
+                            <a href="price.php?cid={:$fu.quote_id:}" target="_blank">
+                                了解更多<img src="images/jiantou03.png">
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-name" title="{:$fu.quote_name:}">
+                    <a href="price.php?cid={:$fu.quote_id:}" target="_blank">
+                        {:$fu.quote_name:}
+                    </a>
+                </div>
+                
+                <div class="clear"></div>                                                         
+            </div>                              
+        {:/foreach:}
+		{:/if:}
+		{:if !empty($ovList):}
+        {:foreach $ovList as $ov:}
+            <div class="europe_index-center-floor-tabs-list-demo">
+                <div class="europe_index-center-floor-tabs-list-demo-img">
+                    <div class="europe_index-center-floor-tabs-list-demo-img-01">
+                        <a href="baby.php?detail&id={:$ov.id:}" target="_blank">
+                            <img src="{:$ov.face_image|getImage:}"/>
+                        </a>
+                    </div>
+                    
+                    <div class="europe_index-center-floor-tabs-list-demo-img-02">
+                        <div class="europe_index-center-floor-tabs-list-demo-img-02-left">
+                            <a href="baby.php?detail&id={:$ov.id:}" target="_blank">
+                                了解更多<img src="images/jiantou03.png">
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-name" title="{:$ov.goods_title:}">
+                    <a href="baby.php?detail&id=={:$ov.id:}" target="_blank">
+                        {:$ov.goods_title:}
+                    </a>
+                </div>
+                
+                <div class="clear"></div>                                                         
+            </div>                              
+        {:/foreach:}
+		{:/if:}
+		{:if !empty($euList):}
+        {:foreach $euList as $g:}
+            <div class="europe_index-center-floor-tabs-list-demo">
+                <div class="europe_index-center-floor-tabs-list-demo-img">
+                    <div class="europe_index-center-floor-tabs-list-demo-img-01">
+                        <a href="goods.php?id={:$g.id:}" target="_blank">
+                            <img src="{:$g.face_image|getImage:}"/>
+                        </a>
+                    </div>
+                    
+                    <div class="europe_index-center-floor-tabs-list-demo-img-02">
+                        <div class="europe_index-center-floor-tabs-list-demo-img-02-left">
+                            <a href="goods.php?id={:$g.id:}" target="_blank">
+                                了解更多<img src="images/jiantou03.png">
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-name" title="{:$g.goods_title:}">
+                    <a href="goods.php?id={:$g.id:}" target="_blank">
+                        {:$g.goods_title:}
+                    </a>
+                </div>
+                
+                <div class="clear"></div>                                                         
+            </div>                              
+        {:/foreach:}
+		{:/if:}
+		
+        </div>
+    </div>
+    {:/if:}
+
+    <div class="clear2"></div>
+
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear2"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+<script src="js/concern.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>属性-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+  <script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('.editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+
+</script>
+<style>
+    .forminfo li>label{width:120px;}
+</style>
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="<{:U('Admin/Index/index/main')}>">首页</a></li>
+            <li><a href="<{:U('Admin/Consumable/index')}>">机电耗材</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('insert')}>" method="post"  enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <!-- 属性名称 -->
+                <li><label>系统名称<b>*</b></label>
+<!--          <input name="quote_name" type="text" required class="dfinput" /><i></i>-->                            
+                    <div class="vocation">
+                        <select class="dfinput" required name="quote_name">
+                            <?php foreach ($quoteData as $v): ?>
+                            <option value="<{$v.quote_id}>"><{$v.quote_name}></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </li>
+                <li><label>产品名称<b>*</b></label><input name="product_name" type="text" required class="dfinput" /><i></i></li>
+                <li><label>耗材名称<b>*</b></label><input name="c_name" type="text" required class="dfinput" /><i></i></li>
+                <li><label>耗材图片<b>*</b></label><input name="c_img" type="file" required class="dfinput" /><i></i></li>
+                <li><label>参数<b>*</b></label><input name="parameter" type="text" required class="dfinput" /><i></i></li>
+                <li><label>周期<b>*</b></label><input name="cycle" type="text" required class="dfinput" /><i></i></li>
+                <li><label>原价<b>*</b></label><input name="old_price" type="text" required class="dfinput" /><i></i></li>
+                <li><label>现价<b>*</b></label><input name="price" type="text" required class="dfinput" /><i></i></li>
+                <li><label>是否上架<b>*</b></label><input name="is_put" type="radio" required  checked value='1' />上架<input name="is_put" type="radio" required  value='2' />下架<i></i></li>
+                <li><label>详情描述</label><textarea name="content" class="editor_id"  style="width:850px;height:400px;"></textarea></li>
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

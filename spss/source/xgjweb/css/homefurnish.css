@@ -1,0 +1,329 @@
+@CHARSET "UTF-8";
+.home_furnish-center{
+	width:1100px;
+	margin:0 auto;}
+	
+.home_furnish-center-left{
+	float:left;
+	width:212px;
+	border:1px solid #dcdcdc;}
+	
+.home_furnish-center-left-title{
+	width:212px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+	color:#ffffff;
+	background:#ffb2a1;}
+
+.home_furnish-center-left-list{
+	width:190px;
+	margin-top:19px;
+	margin-left:15px;}
+	
+.home_furnish-center-left-demo{
+	width:190px;
+	height:35px;
+	font-size:14px;
+	color:#3f3e3e;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+
+.home_furnish-center-left-demo a{
+	color:#3f3e3e;}
+	
+.home_furnish-center-left-demo a:hover{
+	color:#1ca6b9;}
+	
+.home_furnish-center-left-demo02{
+	width:190px;
+	height:35px;
+	font-size:14px;
+	color:#3f3e3e;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.home_furnish-center-left-demo02 a{
+	color:#1ca6b9;}
+	
+.home_furnish-center-left-demo02 a:hover{
+	color:#1ca6b9;}
+
+.home_furnish-center-right{
+	float:right;
+	width:855px;}
+	
+.home_furnish-center-right-title{
+	width:855px;
+	height:40px;
+	border-bottom:1px solid #666666;
+	font-size:18px;
+	color:#000000;}
+
+.home_furnish-center-right-title .span01{
+	margin-left:12px;
+	font-weight:bold;}
+	
+.home_furnish-center-right-title .span02{
+	margin-left:5px;
+	color:#666666;
+	font-size:12px;}
+
+.home_furnish-center-right-tabs .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br{
+	border:none;
+	border-radius:0px;}
+	
+.home_furnish-center-right-tabs .ui-tabs .ui-tabs-nav{
+	margin:0px;
+	padding:0px;
+	background:none;
+	width:855px;
+	margin:0 auto;}
+	
+.home_furnish-center-right-tabs .ui-tabs .ui-tabs-nav span{
+	color:#333333;
+	font-size:20px;
+	font-weight:initial !important;
+	height:58px;
+	line-height:58px;
+	border-bottom:2px solid #000;
+	margin-right:150px;}
+	
+.home_furnish-center-right-tabs .ui-tabs .ui-tabs-nav li.ui-tabs-active{
+	margin:0px;
+	padding:0px;
+	margin-right:27px;}
+	
+.home_furnish-center-right-tabs .ui-tabs .ui-tabs-nav li{
+	margin:0px;
+	padding:0px;
+	margin-right:27px;}
+	
+.home_furnish-center-right-tabs .ui-tabs .ui-tabs-nav .ui-tabs-anchor{
+	padding:0px;}
+	
+.home_furnish-center-right-tabs .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+	border:none !important;
+	background:none !important;}
+	
+.home_furnish-center-right-tabs .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	border:none !important;}
+	
+.home_furnish-center-right-tabs .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited{
+	color:#939393 !important;
+	font-weight:initial !important;
+	margin-top:20px;
+	font-size:16px;	
+	background:#e3e3e3;
+	padding-left:30px !important;
+	padding-right:30px !important;
+	padding-top:5px !important;
+	padding-bottom:5px !important;
+	border-radius:5px;
+	border:1px solid #e3e3e3 !important;}
+
+.home_furnish-center-right-tabs .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
+	color:#ffffff !important;
+	font-weight:initial !important;
+	margin-top:20px;
+	font-size:16px;
+	background:#28b5fd;
+	padding-left:30px !important;
+	padding-right:30px !important;
+	padding-top:5px !important;
+	padding-bottom:5px !important;
+	border-radius:5px;
+	border:1px solid #28b5fd !important;}
+
+.home_furnish-center-right-tabs .ui-tabs .ui-tabs-panel{
+	padding:0px;}
+	
+.home_furnish-center-right-tabs .ui-widget-content{
+	border:none;
+	background:none;}
+
+.home_furnish-center-right-tabs-introduce{
+	width:855px;
+	margin:0 auto;}
+	
+.home_furnish-center-right-tabs-introduce-img{
+	float:left;
+	width:284px;
+	height:170px;}
+	
+.home_furnish-center-right-tabs-introduce-img img{
+	width:284px;
+	height:170px;}
+
+.home_furnish-center-right-tabs-introduce-word{
+	float:left;
+	width:412px;
+	margin-top:30px;
+	margin-left:70px;
+	line-height:25px;
+	color:#403e3e;
+	font-size:16px;}
+
+.home_furnish-center-right-checkbox-demo{
+	float:left;
+	margin-left:10px;
+	margin-right:20px;
+	margin-top:10px;
+	margin-bottom:10px;}
+	
+.home_furnish-center-right-checkbox-demo-input{
+	float:left;
+	margin-top:3px;
+	width:13px;
+	height:13px;}
+
+.home_furnish-center-right-checkbox-demo-input input{
+	width:13px;
+	height:13px;}
+	
+.home_furnish-center-right-checkbox-demo-span{
+	float:left;
+	color:#666;
+	font-size:14px;
+	margin-left:5px;}
+
+.home_furnish-center-right-checkbox-span{
+	width:800px;
+	margin-left:10px;
+	height:60px;
+	font-size:16px;}
+
+.home_furnish-center-right-checkbox-span .span01{
+	color:#666666;}
+
+.home_furnish-center-right-checkbox-span .span02{
+	color:#fd5a35;}
+	
+.home_furnish-center-right-product{
+	width:855px;
+	margin:0 auto;}
+	
+.home_furnish-center-right-product-demo{
+	float:left;
+	width:200px;
+	height:333px;
+	margin-left:40px;
+	margin-right:45px;}
+	
+.home_furnish-center-right-product-demo-img{
+	width:200px;
+	height:200px;}
+
+.home_furnish-center-right-product-demo-img img{
+	width:200px;
+	height:200px;}
+
+.home_furnish-center-right-product-demo-name{
+	width:200px;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	font-size:14px;
+	color:#000;}
+	
+.home_furnish-center-right-product-demo-name a{
+	font-size:14px;
+	color:#000;}
+
+.home_furnish-center-right-product-demo-a{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:url(../images/anniu22.png);
+	margin:0 auto;
+	font-size:14px;
+	color:#000;}
+
+.home_furnish-center-right-product-demo-a a{
+	font-size:14px;
+	color:#000;}
+
+
+
+
+/*新滑动门，鼠标移上效果*/
+.home_furnish-center-right-tabs .tabs{
+	height:auto;}
+	
+.home_furnish-center-right-tabs .tabs li{
+	height:30px;
+	line-height:30px;
+	margin-right:25px;
+	background:#e3e3e3;
+	border-radius:5px;
+	margin-left:0px;
+	margin-top:20px;
+	margin-bottom:10px;}
+	
+.home_furnish-center-right-tabs .tabs li a{
+	padding-left:30px;
+	padding-right:30px;
+	padding-top:0px;
+	padding-bottom:0px;
+	border-radius:5px;
+	color:#929292;}
+	
+.home_furnish-center-right-tabs  .tabs .thistab, .tabs .thistab a:hover{
+	background:#1ca6b9;
+	border-radius:5px;
+	color:#fffffd;}
+
+	
+.home_furnish-center-right-tabs .tab_con{
+	line-height:30px;
+	padding:0px;}
+	
+.home_furnish-center-right-tabs .thistab a{
+	color:#fffffd !important;}
+
+/*新滑动门，鼠标移上效果end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

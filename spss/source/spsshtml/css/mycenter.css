@@ -1,0 +1,121 @@
+.main{
+	width: 100%;
+	height: auto;
+	clear: both;
+	content: "";
+	overflow: hidden;
+}
+.topempty{
+	width: 100%;
+	height: 130px;
+}
+.content{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+.left-content{
+	width: 240px;
+	height: 590px;
+	float: left;
+}
+.right-content{
+	width: 938px;
+	height: auto;
+	float: left;
+	/*border: 1px solid #000;*/
+	margin-left: 20px;
+}
+.right-con1{
+	width: 938px;
+	height: 123px;
+}
+.right-con1>a{
+	display: block;
+	float: left;
+	line-height: 123px;
+	text-align: center;
+	height: 123px;
+	font-size: 15px;
+}
+.right-con1>a:nth-child(1){
+	width: 138px;
+	background: url(../img/mycenter-img3.jpg);
+}
+.right-con1>a:nth-child(1)>span{
+	display: block;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	/*border: 1px solid blue;*/
+	margin: 27px 0 0 40px;	
+}
+.right-con1>a:nth-child(1)>span>img{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+.right-con1>a:nth-child(2){
+	width: 265px;
+	text-align: left;
+	text-indent: 4em;
+	color: #e06962;
+	border-top: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+	background: #f5f8fa;
+}.right-con1>a:nth-child(3){
+	width: 260px;
+	border-top: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+	background: #f5f8fa;
+}.right-con1>a:nth-child(4){
+	width:270px;
+	border: 1px solid #dedede;
+	border-left: none;
+	background: #f5f8fa;
+}
+.right-con2{
+	width: 936px;
+	height: auto;
+	margin-top: 25px;
+	clear: both;
+	content: "";
+	overflow: hidden;
+}
+.right-con2-tit{
+	width: 935px;
+	height: 45px;
+	border: 1px solid #dedede;
+	background: #f5f8fa;
+}
+.right-con2-tit>a{
+	color: #999;
+	font-size: 15px;
+	text-indent: 1em;
+	display: block;
+	width: 100px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	float:left;
+	}
+
+.right-con2-tit>a:last-child{
+	float: right;
+}
+.right-con2-li{
+	float: left;
+	width: 170px;
+	height: auto;
+	margin-left: 15px;
+	cursor: pointer;
+}
+.right-con2-li>p{
+	font-size: 12px;
+	width: 170px;
+	text-align: center;
+	margin-top: 19px;
+}
+.right-con2-li>p:last-child{
+	color: #f44639;
+}

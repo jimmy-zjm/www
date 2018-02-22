@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>服务商订单列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+</head>
+
+<body>
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    	<li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+		    <li><a >服务商订单</a></li>
+	    	<li><a href="<{:U('index')}>">服务商订单列表</a></li>
+	    </ul>
+	 </div>
+
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="<?php echo $tab==1?'selected':'';?>">新订单</a></li> 
+    <li><a href="#tab2" class="<?php echo $tab==2?'selected':'';?>">订单统计</a></li>
+    <li><a href="#tab3" class="<?php echo $tab==3?'selected':'';?>">退换货统计</a></li> 
+    <li><a href="#tab4" class="<?php echo $tab==4?'selected':'';?>">我的订单</a></li> 
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    	<table class="listtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>跟单人</th>
+		    <th>结算状态</th>
+		    <th>进度状态</th>
+		    <th>订单状态</th>
+		    <th>时间</th>
+		    <th>操作</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($new_order_list as $v): ?>
+		    <tr>
+		    <td><a href="<{:U('allot',array('order_id'=>$v['order_id']))}>" ><font color='blue'><{$v.order_code}></font></a></td>
+		    <td><{$v.consignee}></td>
+		    <td><{$v.mobile_phone}></td>
+		    <td><{$v.province}><{$v.city}><{$v.district}><{$v.address}></td>
+		    <td><?php echo $v['allot_status']==0?'未分配':$v['order_merchandiser']?></td>
+		    <td><{$v.pay_status|dealer_order_pay_status}></td>
+		    <td><?php echo $v['allot_status']==0?'未分配':dealer_order_schedule_status($v['order_merchandiser'])?></td>
+		    <td><?php echo $v['allot_status']==0?'未分配':dealer_order_shipping_status($v['shipping_status'])?></td>
+		   	<td><?php echo (date("Y-m-d H:i",$v['add_order_time'])); ?></td>
+		   	<td><a href="<{:U('allot',array('order_id'=>$v['order_id']))}>" ><font color='blue'>分配</font></a></td>
+		    </tr>
+		    <?php endforeach ?>
+		    
+			</tbody>
+		    
+		 </table>
+		<{$new_order_page}>
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+  		<div class="formbody">
+		    <ul class="forminfo">
+		    	<form action="<{:U('index',array('tab'=>2))}>" method='get'>
+			    	<li><label>查询</label>
+						<i>
+						<input type='text' name='keyword' class="scinput" placeholder="订单号/手机/跟单人" value="<?php echo I('get.keyword')?>"/>
+						 <input  name='start_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px; margin-right:10px;"id="demo_start" value=""/>				          
+						 至
+						<input name='end_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px;" id="demo_end"/>					
+						<!-- 省
+						<select  name='d_province' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+							<option value=''<{if empty($province)}>selected<{else}><{/if}>>请选择...</option>
+							<{foreach $dealer_info as $v}>
+							<option value='<{$v.d_province}>'<{if !empty($province) && $province eq $v.d_province}>selected<{else}><{/if}>><{$v.d_province}></option>
+							<{/foreach}>
+						</select> -->
+						<!-- <select name='d_city' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+							<option value=''<{if empty($city)}>selected<{else}><{/if}>>请选择...</option>
+							<{foreach $dealer_info as $v}>
+							<option value='<{$v.d_city}>'<{if !empty($province) && $province eq $v.d_city}>selected<{else}><{/if}>><{$v.d_city}></option>
+							<{/foreach}>
+						</select>
+						市/区  -->
+						</i>
+						<input type='submit' class="sure" name='statistics' value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+  		
+  	   <ul class="forminfo">
+		    <li>
+		    	订单总数:<i style="line-height: 34px; color:red"><{$show_statistics_total}></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	订单总金额:<i style="line-height: 34px;color:red"><{$show_statistics_price}></i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="listtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>结算状态</th>
+		    <th>进度状态</th>
+		    <th>订单状态</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($show_statistics_list as $v): ?>
+		    <!-- <if condition="$v['allot_status'] eq 0">
+		    <td><a href="<{:U('allot',array('order_id'=>$v['order_id']))}>"><{$v.order_code}></a></td>
+		    <else />
+		    <td><a href="<{:U('info',array('order_id'=>$v['order_id']))}>"><{$v.order_code}></a></td>
+		    </if> -->
+		    <tr>
+		    <td><a href="<{:U($v['allot_status'] == 0?'allot':'info',array('order_id'=>$v['order_id']))}>"><{$v.order_code}></a></td>
+		    <td><{$v.consignee}></td>
+		    <td><{$v.mobile_phone}></td>
+		    <td><{$v.province}><{$v.city}><{$v.district}><{$v.address}></td>
+		    <td><?php echo $v['allot_status']==0?'暂无分配':$v['d_dealer']['d_company']?></td>
+		    <td><?php echo $v['allot_status']==0?'暂无分配':$v['d_dealer']['d_legalperson']?></td>
+		    <td><?php echo $v['allot_status']==0?'暂无分配':$v['d_dealer']['d_legalperson_phone']?></td>
+		    <td><?php echo $v['allot_status']==0?'暂无分配':$v['order_merchandiser']?></td>
+		    <td><?php echo $v['allot_status']==0?'暂无分配':dealer_order_pay_status($v['pay_status'])?></td>
+		    <td><?php echo $v['allot_status']==0?'暂无分配':dealer_order_schedule_status($v['schedule_status'])?></td>
+		    <td><?php echo $v['allot_status']==0?'暂无分配':dealer_order_shipping_status($v['shipping_status'])?></td>
+		   	<td><?php echo (date("Y-m-d H:i",$v['add_order_time'])); ?></td>
+		    </tr>
+		    <?php endforeach ?>
+			</tbody>
+		    
+		 </table>
+		<{$show_statistics_page}>
+    </div>  
+    
+    
+    <div id="tab3" class="tabson">
+    	<div class="itab">
+		  	<ul> 
+			    <li><a href="#tab5" class="<?php echo $tab_child==5?'selected':'';?>">退货</a></li> 
+			    <li><a href="#tab6" class="<?php echo $tab_child==6?'selected':'';?>">补货</a></li>
+			    <li><a href="#tab7" class="<?php echo $tab_child==7?'selected':'';?>">伙伴自购</a></li> 
+		  	</ul>
+	    </div> 
+	    <div id="tab5" class="tabson">
+    	<div class="formbody">
+		    <ul class="forminfo">
+		    	<form action="<{:U('index',array('tab'=>3,'tab_child'=>5))}>" method='get'>
+			    	<li><label>查询</label>
+						<i>
+						<input type='text' name='refund_keyword' class="scinput" placeholder="公司名称" value="<?php echo I('get.refund_keyword')?>"/>
+						 <input  name='refund_start_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px; margin-right:10px; " id='refund_start_time'/>				          
+						 至
+						<input name='refund_end_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px;" id='refund_end_time'/>					
+						
+						</i>
+						<input type='submit' class="sure" name='refund' value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+  		
+  	   <ul class="forminfo">
+		    <li>
+		    	退货订单总数:<i style="line-height: 34px; color:red"><{$show_refund_total}></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	退货订单总金额:<i style="line-height: 34px;color:red"><{$show_refund_price}></i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="listtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>初审</th>
+		    <th>复审</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($show_refund_list as $v):?>
+		    <tr>
+		    <td><a href="<{:U('info',array('order_id'=>$v['order_id']))}>"><{$v.order_code}></a></td>
+		    <td><{$v.consignee}></td>
+		    <td><{$v.mobile_phone}></td>
+		    <td><{$v.province}><{$v.city}><{$v.district}><{$v.address}></td>
+		    <td><{$v.d_company}></td>
+		    <td><{$v.d_legalperson}></td>
+		    <td><{$v.d_legalperson_phone}></td>
+		    <td><{$v.order_merchandiser}></td>
+		    <td><?php echo dealer_finance_audit_status($v['first_audit_status'])?></td>
+		    <td><?php echo dealer_finance_audit_status($v['review_audit_status'])?></td>
+		   	<td><?php echo (date("Y-m-d H:i",$v['refund_time'])); ?></td>
+		    </tr>
+		    <?php endforeach?>
+			</tbody>
+		    
+		 </table>
+
+			<{$show_refund_page}>
+    	</div>
+    	
+    	<div id="tab6" class="tabson">
+    	<div class="formbody">
+		    <ul class="forminfo">
+		    	<form action="<{:U('index',array('tab'=>3,'tab_child'=>6))}>" method='get'>
+			    	<li><label>查询</label>
+						<i>
+						<input type='text' name='add_keyword' class="scinput" placeholder="公司名称" value="<?php echo I('get.add_keyword')?>"/>
+						 <input  name='add_start_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px; margin-right:10px; " id='add_start'/>				          
+						 至
+						<input name='add_end_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px;" id='add_end'/>					
+						
+						</i>
+						<input type='submit' class="sure" name='add' value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+  		
+  	   <ul class="forminfo">
+		    <li>
+		    	补货订单总数:<i style="line-height: 34px; color:red"><{$show_add_total}></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	补货订单总金额:<i style="line-height: 34px;color:red"><{$show_add_price}></i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="listtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>初审</th>
+		    <th>复审</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($show_add_list as $v):?>
+		    <tr>
+		    <td><a href="<{:U('info',array('order_id'=>$v['order_id']))}>"><{$v.order_code}></a></td>
+		    <td><{$v.consignee}></td>
+		    <td><{$v.mobile_phone}></td>
+		    <td><{$v.province}><{$v.city}><{$v.district}><{$v.address}></td>
+		    <td><{$v.d_company}></td>
+		    <td><{$v.d_legalperson}></td>
+		    <td><{$v.d_legalperson_phone}></td>
+		    <td><{$v.order_merchandiser}></td>
+		    <td><?php echo dealer_finance_audit_status($v['first_audit_status'])?></td>
+		    <td><?php echo dealer_finance_audit_status($v['review_audit_status'])?></td>
+		   	<td><?php echo (date("Y-m-d H:i",$v['refund_time'])); ?></td>
+		    </tr>
+		    <?php endforeach?>
+			</tbody>
+		    
+		 </table>
+		 
+		<{$show_add_page}>
+    	</div>
+    	
+    	<div id="tab7" class="tabson">
+    		<div class="formbody">
+		    <ul class="forminfo">
+		    	<form action="<{:U('index',array('tab'=>3,'tab_child'=>7))}>" method='get'>
+			    	<li><label>查询</label>
+						<i>
+						 <input  name='self_buy_start_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px; margin-right:10px; " id='self_buy_start'/>				          
+						 至
+						<input name='self_buy_end_time' placeholder="请选择日期" class="laydate-icon" style="width:145px;height:32px;" id='self_buy_end'/>					
+						<select  name='first_audit_status' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+							<option value='' <?php echo I('first_audit_status')==''?'selected':'';?> >审核状态</option>
+							<option value=1 <?php echo I('first_audit_status')==1?'selected':'';?>>未审核</option>
+							<option value=2 <?php echo I('first_audit_status')==2?'selected':'';?>>已审核</option>
+							<option value=3 <?php echo I('first_audit_status')==3?'selected':'';?>>审核未通过</option>
+							
+						</select>
+						</i>
+						<input type='submit' class="sure" name='self_buy' value='搜索' />
+					</li>
+				</form>
+		    </ul>
+	    </div>
+  		
+  	   <ul class="forminfo">
+		    <li>
+		    	自购订单总数:<i style="line-height: 34px; color:red"><{$show_self_buy_total}></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	自购订单总金额:<i style="line-height: 34px;color:red"><{$show_self_buy_price}></i>&nbsp;元
+		    </li>
+	    </ul>
+    	<table class="listtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>审核</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($show_self_buy_list as $v):?>
+		    <tr>
+		    <td><a href="<{:U('info',array('order_id'=>$v['order_id']))}>"><{$v.order_code}></a></td>
+		    <td><{$v.consignee}></td>
+		    <td><{$v.mobile_phone}></td>
+		    <td><{$v.province}><{$v.city}><{$v.district}><{$v.address}></td>
+		    <td><{$v.d_company}></td>
+		    <td><{$v.d_legalperson}></td>
+		    <td><{$v.d_legalperson_phone}></td>
+		    <td><?php echo dealer_finance_audit_status($v['first_audit_status'])?></td>
+		    <td><{$v.order_merchandiser}></td>
+		   	<td><?php echo (date("Y-m-d H:i",$v['refund_time'])); ?></td>
+		    </tr>
+		    <?php endforeach?>
+			</tbody>
+		    
+		 </table>
+		 
+		<{$show_self_buy_page}>
+    	</div>
+    </div> 
+    
+    
+  	<div id="tab4" class="tabson">
+  		<div class="tools">
+		    <ul class="prosearch">
+				<form action="<{:U('index',array('tab'=>4))}>" method='get'>
+					<li>
+					<label>查询：</label>
+					<a><input type='text' name='my_keyword' class="scinput" placeholder="请输入公司名称" value="<?php echo I('get.my_keyword')?>"/>
+					<input type='text' name='my_order_code' class="scinput" placeholder="请输入订单号" value="<?php echo I('get.my_order_code')?>"/>
+					<select name='my_schedule_status' style="width:150px; height:34px; line-height:34px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+						<option value='' <?php echo I('my_schedule_status')==''?'selected':'';?>>请选择...</option>
+						<option value='1'<?php echo I('my_schedule_status')==1?'selected':'';?>>未设计</option>
+						<option value='2'<?php echo I('my_schedule_status')==2?'selected':'';?>>设计中</option>
+						<option value='3'<?php echo I('my_schedule_status')==3?'selected':'';?>>已设计</option>
+					</select>
+					</a>
+					<input type='submit' class="sure" name='my' value='搜索' />
+					</li>
+				</form>
+			</ul>
+		</div>
+  	
+		<table class="listtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>订单号</th>
+		    <th>收货人</th>
+		    <th>电话</th>
+		    <th>地址</th>
+		    <th>分配公司</th>
+		    <th>负责人</th>
+		    <th>电话</th>
+		    <th>跟单人</th>
+		    <th>结算状态</th>
+		    <th>进度状态</th>
+		    <th>订单状态</th>
+		    <th>状态提醒</th>
+		    <th>时间</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    <?php foreach ($show_my_list as $v):?>
+		    <tr>
+		    <td><a href="<{:U('info',array('order_id'=>$v['order_id']))}>"><{$v.order_code}></a></td>
+		    <td><{$v.consignee}></td>
+		    <td><{$v.mobile_phone}></td>
+		    <td><{$v.province}><{$v.city}><{$v.district}><{$v.address}></td>
+		    <td><{$v.d_company}></td>
+		    <td><{$v.d_legalperson}></td>
+		    <td><{$v.d_legalperson_phone}></td>
+		    <td><{$v.order_merchandiser}></td>
+		    <td><?php echo dealer_order_pay_status($v['pay_status'])?></td>
+		    <td><?php echo dealer_order_schedule_status($v['schedule_status'])?></td>
+		    <td><{$v.shipping_status|dealer_order_shipping_status}></td>
+		    <td><?php echo dealer_order_state($v['action_status'])?></td>
+		   	<td><?php echo (date("Y-m-d H:i",$v['allot_time'])); ?></td>
+		    </tr>
+		    <?php endforeach ?>
+			</tbody>
+		    
+		 </table>
+		 
+			<{$show_my_page}>
+    </div> 
+       
+</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+  </div>
+  
+<script type="text/javascript">
+!function(){
+	laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+	laydate({elem: '#demo_start'});//绑定元素
+	laydate({elem: '#demo_end'});//绑定元素
+	laydate({elem: '#refund_start_time'});
+	laydate({elem: '#refund_end_time'});
+	laydate({elem: '#add_start'});//绑定元素
+	laydate({elem: '#add_end'});//绑定元素
+	laydate({elem: '#self_buy_start'});//绑定元素
+	laydate({elem: '#self_buy_end'});//绑定元素
+}();
+
+//日期范围限制
+var start = {
+    elem: '#start',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+
+var end = {
+    elem: '#end',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(),
+    max: '2099-06-16',
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+        start.max = datas; //结束日选好后，充值开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
+</script>
+
+</body>
+
+</html>

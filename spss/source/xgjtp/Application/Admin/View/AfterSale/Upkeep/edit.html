@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('.editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+</script>
+</head>
+<body>
+    <div class="place">
+    <span>位置：</span>
+     <ul class="placeul">
+    <li><a href="">首页</a></li>
+    <li><a href="">售后管理</a></li>
+    <li><a href="">机电保养</a></li>
+    <li><a href="">编辑</a></li>
+    </ul>
+    </ul>
+    </div>
+    <div class="formbody">
+    <form action="<{:U('doEdit')}>" method="post"  enctype="multipart/form-data">
+    <ul class="forminfo">
+
+        <li><label>系统</label><input name="name" type="text" class="dfinput" value='<{$data.name}>' required='required'/></li>
+
+        <li><label>保养内容</label><textarea name='content' class="dfinput" style="width:345px;height:200px;"><{$data.content}></textarea><i>不能超过255个字符</i></li>
+
+        <li><label>保养周期</label><input name="period" type="text" class="dfinput" value='<{$data.period}>' required='required'/></li>
+        <li><label>单次保养费用</label><input name="price" type="text" class="dfinput" value='<{$data.price}>' required='required'/></li>
+
+        <li><label>系统描述</label>
+            <textarea class="editor_id" name="details" style="width:850px;height:400px;"><{$data.details}></textarea>
+        </li>
+        <li><label>保养图片<b>*</b></label>
+            <input name="u_img" type="file"/><input name="old_img" type="hidden"  value="<{$data['u_img']}>"/><i></i></li>
+        <li>
+            <label>是否上下架</label>
+            <label><input type="radio" name="is_use" value='1' <?= $data['is_use']==1?'checked':'' ?>>是</label> <label><input type="radio" name="is_use" value='2' <?= $data['is_use']==2?'checked':'' ?>>否</label>
+        </li>
+        
+        <input type="hidden" name="id" value='<{$_GET.id}>'>
+        <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="编辑"/></li>
+    </ul>
+    </form>
+    </div>
+</body>
+</html>
+

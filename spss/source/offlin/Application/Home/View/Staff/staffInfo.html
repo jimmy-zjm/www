@@ -1,0 +1,79 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/index.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>    
+		客户列表
+	</header>
+	<section  class="container">
+		
+	
+			 <foreach name="list"  key="k" item="v">
+			<div >
+				<p class="p-item">客户名称<span class="fr"> <{$v.name}></span></p>
+				<p class="p-item">联系方式<span class="fr"><{$v['tel']}> </span></p>
+							
+				<p class="p-item">所在住址<span class="fr"> <{$v['proviace']}><{$v['city']}><{$v['district']}><{$v['address']}></span></p>
+				<p class="p-item">创建时间<span class="fr"><{$v['time']|date="Y-m-d H:i:s",###}></span></p>
+				<p class="p-item  gsgl-btmbtn">
+						<a href="javascript:;"onclick="check(<{$v['id']}>)">备注</a>
+						<a class="gsgl-btmbtn-look" href="__APP__/Manage/check/c_id/<{$v['id']}>.html">查看</a>
+				</p>
+				   
+			</div>
+			<div class="clear"></div>
+			</foreach>
+			   <div class='page'><{$page}></div>
+		
+		
+	</section>
+
+
+	<div class='mask-remarks'>
+
+	</div>
+
+   
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+
+
+
+	function check(id){
+		$(".mask-remarks").show("fadeIn('slow/400/fast')");
+        $(".mask-remarks").load('__APP__/Manage/checkinfo/id/'+id);
+	};
+    function clo(){
+        $(".mask-remarks").hide("fadeOut('slow/400/fast')");
+    };
+
+    function sub(){
+        var url = "__APP__/Manage/addRemark";  
+        var c_id=$("#c_id").val();
+        var content=$("#content").val();
+        $.ajax({  
+        type: "post",  
+        url: url,  
+        data: {
+            c_id:c_id,
+            content:content,
+        },  
+            success: function(msg){  
+                if(msg == 1){
+                    alert('保存成功');
+                    $(".mask-remarks").fadeIn();
+                    $(".mask-remarks").load('__APP__/Manage/checkinfo/id/'+c_id);
+                }else if(msg == 2){
+                    alert('保存失败');
+                }
+                //console.log(msg); 
+            }  
+        });  
+    };  
+</script>

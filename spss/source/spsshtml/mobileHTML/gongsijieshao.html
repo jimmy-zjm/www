@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"/>
+		<title></title>
+		<link rel="stylesheet" href="css/publick.css" />
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
+		<link rel="stylesheet" href="css/gongsijieshao.css"/>
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="head">
+			<a class="head-1 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/back.png" alt="" />
+			</a>
+			<a class="head-2 head-son" href="javascript:;">
+				公司介绍
+			</a>
+			<a class="head-3 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/people-s.png" alt="" />
+			</a>
+		</div>
+		<div class="content">
+			<div class="jianjie-1"><img  src="img/gongsijianjie-banner1.png" alt="" /></div>
+			<p class="jianjie-2">乔孚舒适家居系统股份有限公司于2000年在上海成立，主要为中国家庭提供健康舒适类产品如：空调、采暖、热水、水处理、新风除霾、除湿、除尘、智能控制、安防监控等，其他还包括欧洲建材类产品、欧洲家居类产品、欧洲母婴类产品以及中国及欧洲的健康特色食品。</p>
+			<p class="jianjie-2">通过多年的发展，我们在健康舒适家居领域完成了冷、暖、热、水、风、湿、尘、智等全部产品的整合工作，同时在全国大部分地区有我们的销售安装服务商，能为全国各地的家庭提供优质的产品和良好的服务，在健康舒适家居领域我们处在全国领先地位。</p>
+			<div class="jianjie-1"><img  src="img/gongsijianjie-banner2.png" alt="" /></div>
+			<p class="jianjie-2">乔孚旗下目前有三家全资子公司:</p>
+			<p class="jianjie-2">上品上生电子商务有限公司，主要负责线上的销售；</p>
+			<p class="jianjie-2">上海孚荣新能源科技有限公司，主要负责为中国知名的地产公司提供健康舒适家居产品；</p>
+			<p class="jianjie-2">德国霍孚圣公司，主要负责欧洲商品的研究及采购；</p>
+			<p class="jianjie-2">无论是过去还是未来，我们都致力于提升中国家庭的生活品质，就是让中国人住的健康舒适点、穿的体面点，吃的安全点，消费感觉好一点。</p>			
+		</div>
+		<div class="foot">
+			<div class="foot1">
+				<span class="foot-left">关于我们</span>
+				<span class="foot-right" onclick="xialashow('guanyuwomen')"><img src="img/home/home-xiala.png"/></span>
+			</div>
+			<div class="foot-son guanyuwomen">
+				<p class="foot-son-1">公司简介</p>
+				<p class="foot-son-1">我们</p>
+				<p class="foot-son-1">加入我们</p>
+			</div>
+			<div class="foot1 foot2">
+				<span class="foot-left">帮助中心</span>
+				<span class="foot-right" onclick="xialashow('helpcenter')"><img src="img/home/home-xiala.png"/></span>
+			</div>
+			<div class="foot-son helpcenter">
+				<p class="foot-son-1">客服电话</span>
+			</div>
+			<div class="foot1 foot3">
+				<span class="foot-left">关注我们</span>
+				<span class="foot-right" onclick="xialashow('erweima')"><img src="img/home/home-xiala.png"/></span></div>
+			<div class="foot-son erweima">
+				<p class="foot-son-1">微信二维码</p>
+			</div>
+			<div class="foot4">
+			
+				<p class="foot4-1">客服电话</p>
+				<p class="foot4-1">400-800-1027</p>
+			</div>
+		</div>
+		
+	</body>
+	<script>
+    	function xialashow(nage){
+    		if($('.'+nage).css('display') == 'none'){
+    			$('.'+nage).css('display','block');
+    		}else{
+    			$('.'+nage).css('display','none');
+    		}
+    		
+    	}
+    </script>
+</html>
+

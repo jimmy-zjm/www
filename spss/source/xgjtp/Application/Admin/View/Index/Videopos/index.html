@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>视频位置列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script>
+function delete(){
+    if(confirm('您确定要删除吗？')){
+        return true;
+    }else{
+        return false;
+    }
+}
+</script>
+</head>
+<body>
+     <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+        <li><a >视频管理</a></li>
+        <li><a href="<{:U('index')}>">视频位置列表</a></li>
+        </ul>
+        </div>
+        <div class="rightinfo">
+        
+        <div class="tools">
+            <ul class="toolbar">
+            <li class="click"><a href="<{:U('add')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</a></li>
+            </ul>
+        </div>
+        
+        <table class="imgtable">
+        
+        <thead>
+        <tr>
+        <th width="60px;">编号</th>
+        <th>分类名称</th>
+        <th width="150px;">操作</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <{$videoList}>
+        </tbody>
+        </table>
+        </div>
+
+</body>
+</html>
+
+    
+    
+

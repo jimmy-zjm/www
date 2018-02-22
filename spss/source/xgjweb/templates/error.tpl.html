@@ -1,0 +1,168 @@
+{:include file='header.tpl.html':}
+<link rel="stylesheet"  type="text/css"  href="css/errorstyle.css" ><!-- 404报错页面error页面调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+	<!-- 导航菜单 -->
+    {:include file="category/category.tpl.html":}
+	<!-- 导航菜单end -->
+</div>
+
+<div class="clear"></div>
+
+<!-- 中间楼层 -->
+<div class="errors-conter">
+    <div class="errors-conter-img">
+        <a href="index.php">
+            <img src="images/863.png"/>
+        </a>
+    </div>
+</div>
+<!-- 中间楼层end -->
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+    <div class="leftmenu">    
+        <ul class="navigation">
+        	<li>
+            	<a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="6" onClick="gotofloor(this);" href="javascript:void(0);">6F</a>
+        	</li>
+        
+        </ul>    
+        
+    	<div class="downbo" onClick="gotop();" href="javascript:void(0);">
+        	TOP
+        </div>
+    	<!-- js效果写的时候收起为downbo2展开是downbo -->
+    </div>
+</div>
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	//console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

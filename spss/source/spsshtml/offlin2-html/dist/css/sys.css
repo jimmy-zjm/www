@@ -1,0 +1,32 @@
+/*  @import 'base.less'; */
+.sel-sys-list {
+    overflow: hidden;
+    padding: .1rem 0;
+}
+.sel-sys-list li {
+    font-size: .3rem;
+    float: left;    /* padding:0.32rem 0; */
+
+    /* margin:0 0.05rem; */
+
+    text-align: center;
+    color: #878787;
+}
+.sel-sys-list .sys-item {
+    width: 2.6rem;
+    height: 2.6rem;
+    margin: .3rem auto;    /*   background-color: red; */
+}
+.sel-sys-list .sys-item img {
+    width: 2.6rem;
+    height: 2.6rem;
+}
+.sel-sys-list .sys-selected {
+    display: none;
+}
+.sel-sys-list p.sys-item-selected .sys-selected {
+    display: block;
+}
+.sel-sys-list p.sys-item-selected .sys-unselected {
+    display: none;
+}

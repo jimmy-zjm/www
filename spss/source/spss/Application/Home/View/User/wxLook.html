@@ -1,0 +1,31 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+	<include file="User:left" />
+	<div class="user-right">
+		<ul class="user_wxorder-title">
+
+			<li>
+				<a  class="redfont" href="<{:U('wxOrderdetails',['oid'=>$oid])}>">订单详情</a>
+			</li>
+			<li>
+				<a href="<{:U('wxListdetails',['oid'=>$oid])}>">查看清单</a>
+			</li>
+		</ul>
+		<?php if (!empty($list)): ?>
+		<div class="wxlook-box">
+			<p><{$list.title}></p>
+			<div class="wxlook-imglist">
+				<img src="<?= C('WECHAT_URL') ?>/Public/Uploads/<{$list.img}>">
+			</div>
+			<p>上传时间 <span><{$list.add_time}></span></p>
+			<p>备注信息</p>
+			<div class="wxlook-info">
+				<{$list.content}>
+			</div>
+		</div>
+		<?php endif ?>
+		
+		<div class="clear3"></div>
+	</div>
+</div>

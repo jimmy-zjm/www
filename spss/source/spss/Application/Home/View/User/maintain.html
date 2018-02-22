@@ -1,0 +1,134 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+<div class="modal" id="modal">
+	<div class="modal-con">
+			<div class="modal-con-tit">查看您所预约备注
+				<span class="modal-close" onclick="closemodal()"></span>
+			</div>
+			<div class="modal-con-neirong">
+				<p class="modal-con-neirong-show"></p>
+				
+			</div>
+			<div class="modal-back"><a href="javascript:;" onclick="closemodal()">返回</a></div>
+	</div>
+</div>
+
+<div class="user-center" >
+<include file="User:left" />
+    <div class="user-right">
+			<div class="user_afterService-title">  
+				<span>
+					机电维修记录
+				</span>  	
+			</div>
+		
+			<div class="clear1"></div>
+		
+			<!--售后服务记录-->
+			
+			<div class="user_afterService-center">                        
+						<!--下面切换的样式都一样的，只是服务类别里面的文字描述不同-->
+						
+							<div class="user_afterService-center-title">
+								<div class="user_afterService-center-title-name">
+									产品名称
+								</div>
+								
+								<div class="user_afterService-center-title-time">
+									联系人
+								</div>
+								<div class="user_afterService-center-title-time">
+									预约时间
+								</div>
+								<div class="user_afterService-center-title-time">
+									服务时间
+								</div>
+								
+								<div class="user_afterService-center-title-remarks">
+									预约备注
+								</div>
+								<div class="user_afterService-center-title-time">
+									状态
+								</div>
+								
+								<div class="clear"></div>
+							</div>
+							
+							<div class="clear"></div>
+							
+							<div class="user_afterService-center-list">
+								<foreach name="data" key="k" item="v">
+								<div class="user_afterService-center-list-demo">
+									<div class="user_afterService-center-list-demo-name">
+										<{$v['quote_name']}> 
+									</div>
+									<div class="user_afterService-center-list-demo-time">
+										<{$v['name']}>
+									</div>
+									<div class="user_afterService-center-list-demo-time">
+										<{$v['time']|date="Y-m-d",###}>
+									</div>
+									
+									<div class="user_afterService-center-list-demo-time">
+										<if condition=" $v.s_time neq 0">
+												<{$v['s_time']|date="Y-m-d",###}>
+										<else/>
+												等待售后人员安排
+										</if>
+									</div>
+									
+									<input type='hidden' id="note<{$v['id']}>" value="<{$v['note']}>"/>
+									<div class="user_afterService-center-list-demo-remarks" onclick="a(<{$v['id']}>)"><!--弹框id后面传值-->
+										<a href="javascript:;">
+											查看
+										</a>
+									</div>
+									<div class="user_afterService-center-list-demo-time">
+										<if condition=" $v.state eq 1">
+											已解决
+										<else/>
+											进行中
+										</if>
+									</div>
+									<div class="clear"></div>
+								</div>
+								
+								<div class="clear"></div>
+								</foreach>
+								
+							
+							<{$page}>
+							
+						   
+			</div>
+                 
+        </div>
+        <!--售后服务记录end-->
+    
+    </div>
+    
+      
+	<div class="clear"></div>
+</div>
+<div class="clear3"></div>
+<script type="text/javascript">
+	function a(n){
+		$("#modal").css("display","block");
+		
+		$(".modal-con-neirong-show").html($("#note"+n).val());
+	}
+	function closemodal(){
+		$("#modal").css("display","none");
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

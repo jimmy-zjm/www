@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet"  type="text/css"  href="css/style.css" /><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/tuanstyle.css" /><!-- 欧洲团代购tuan页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" /><!--jqury-ui调用-->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+<!--搜索滑动框-->
+<link rel="stylesheet" type="text/css" href="css/sousuo/default.css" />
+<link rel="stylesheet" type="text/css" href="css/sousuo/component.css" />
+<script src="js/sousuo/modernizr.custom.js"></script>
+<!--搜索滑动框end-->
+<!--滑动导航-->
+<script type="text/javascript">
+$(document).ready(function() {
+	jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
+		$(tab_conbox).find("li").hide();
+		$(tabtit).find("li:first").addClass("thistab").show(); 
+		$(tab_conbox).find("li:first").show();
+	
+		$(tabtit).find("li").bind(shijian,function(){
+		  $(this).addClass("thistab").siblings("li").removeClass("thistab"); 
+			var activeindex = $(tabtit).find("li").index(this);
+			$(tab_conbox).children().eq(activeindex).show().siblings().hide();
+			return false;
+		});
+	
+	};
+	/*调用方法如下：*/
+	$.jqtab("#tabs","#tab_conbox","click");
+	
+	$.jqtab("#tabs2","#tab_conbox2","mouseenter");
+	
+	$.jqtab("#tabs3","#tab_conbox3","mouseenter");
+	
+	$.jqtab("#tabs4","#tab_conbox4","click");
+	
+});
+</script>
+<!--滑动导航end-->
+
+<!--数量增减-->
+<script> 
+function trim(str){
+	return str.replace(/^\s+|\s+$/g,'');
+};
+
+
+
+    $(document).ready(function(){
+	  $("#cart_id").click(function(){
+		  var now_num=$("#qty_item_1").val(); 
+		  var color=trim($(".yListrclickem").text());
+		  url="order.php?addcart&class_id={:$goods.class_id:}&goods_id={:$goods.goods_id:}&num="+now_num+"&color="+color;
+		 location.href = url;
+		  //alert(now_num);
+		  //$.get("http://localhost/xgj/source/xgjweb/order.php?cart&goods_id={:$goods.goods_id:}&num="+now_num);
+	  });
+	});  
+	 
+	
+    (function($){  
+      
+    function shownum(unprice_id,num_id,price_id,jifen_id){  
+            this.unprice_id=unprice_id;  
+            this.num_id=num_id;  
+            this.price_id=price_id;  
+            this.jifen_id=jifen_id        
+            }  
+        shownum.prototype={  
+            changeprice:function(){   
+                var now_unit= parseInt($("#"+this.unprice_id).text().slice(1));  
+                var now_num=$("#"+this.num_id).val();             
+                $("#"+this.price_id).text("￥"+now_unit*now_num);
+                $("#"+this.jifen_id).text(now_unit*now_num);  
+                }  
+              
+            }  
+    $(function(){     
+      gouwu();  
+      function gouwu(){  
+         var shownum1=new shownum("price_item_1","qty_item_1","total_item_1","total_points");  
+         shownum1.changeprice();  
+           
+         $(".add").click(function(){  
+             $("#qty_item_1").val(function(index,value){  
+                 value++;  
+                 return value;
+                 });      
+             shownum1.changeprice();           
+             })  
+            
+          $("#qty_item_1").keyup(function(e){  
+                    if(e.which==38){  
+                        $(".reduce").trigger("click")  
+                    }else if(e.which==40){  
+                        $(".add").trigger("click")  
+                    }else{  
+                            if(e.which<48 || e.which>57){  
+                               $(this).val(function(index,value){  
+                                    var len=value.length;  
+                                    return value.replace(/[^0-9]/ig, "");//剔除非数字  
+                                   });  
+                            }  
+                        shownum1.changeprice();  
+                        }  
+              })  
+          $(".reduce").click(function(){  
+             $("#qty_item_1").val(function(index,value){  
+                 value--;  
+                 value=value<0?0:value;  
+                 return value;  
+                 });      
+             shownum1.changeprice();           
+             })        
+       }  
+    })  
+      
+    })(jQuery)  
+    </script>  
+<!--数量增减end-->       
+
+
+
+<!--商品图片缩略图切换+放大镜-->
+<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<!--商品图片缩略图切换+放大镜end-->
+<title>欧洲团代购——商品详细页</title>
+</head>
+<body >
+
+<!-- top顶部 -->
+
+{:include file='header.tpl.html':}
+
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="tuanindex-head" id="tuanlist-head">
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                	<a href="index.php">
+	                	<img src="images/logo2.png"/>
+                	</a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="eugroup.php">
+				        首页
+				    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+				        单品团
+				    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="eugroup.php?euraiders">
+				        代购攻略
+				    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="eugroup.php?euforeshow">
+				        明日预告
+				    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+</div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+
+
+<!--中间-->
+<div class="tuangoods-conter">
+
+
+<!--详细内容-->
+    <!--详细内容头部-->
+    <div class="tuangoods-parameter">
+      <div class="tuangoods-parameter-left">
+            <!--产品参数开始-->
+    
+        <div id="preview" class="spec-preview"> <span class="jqzoom" ><img class="jqzoom-img" jqimg="pictures/eugroup/upload/{:$imgs.0:}" src="pictures/eugroup/upload/{:$imgs.0:}"  /></span> </div>
+        <!--缩图开始-->
+        <div class="spec-scroll"> <a class="prev"></a> <a class="next"></a>
+          <div class="items">
+            <ul>
+             {:foreach $imgs as $v:}
+              <li><img alt="佳能" bimg="pictures/eugroup/upload/{:$v:}" src="pictures/eugroup/upload/{:$v:}" onmousemove="preview(this);"/></li>
+             {:/foreach:}              
+            </ul>
+          </div>
+        </div>
+        <!--缩图结束-->
+    
+       <!--产品参数结束-->
+       
+       <div class="clear"></div>
+    
+            
+            
+        <div class="tuangoods-parameter-left-03">
+          <div class="tuangoods-parameter-left-03-01">
+            商品编号：
+          </div>
+          
+          <div class="tuangoods-parameter-left-03-02">
+            {:$goods.goods_sn:}
+          </div>
+          
+          <div class="tuangoods-parameter-left-03-03">
+             <a href="#">
+                <div class="tuangoods-parameter-left-03-03-01">
+                  <img src="images/191.png"/>
+                </div>
+                
+                <div class="tuangoods-parameter-left-03-03-02">
+                  关注
+                </div>
+                
+                <div class="clear"></div>
+             </a>
+          </div>
+          
+          <div class="tuangoods-parameter-left-03-04">
+             <a href="#">
+                <div class="tuangoods-parameter-left-03-04-01">
+                  <img src="images/190.png"/>
+                </div>
+                
+                <div class="tuangoods-parameter-left-03-04-02">
+                  分享
+                </div> 
+                
+                <div class="clear"></div> 
+             </a>      
+          </div>
+          
+          <div class="clear"></div>
+        </div>
+        
+        <div class="tuangoods-parameter-left-04">     
+            1. 此商品不支持7天无理由退货<br />
+            2. 此商品 由 卡地亚国际海外专营店 提供售后服务
+        </div>
+      </div>
+      
+      <div class="tuangoods-parameter-right">
+        <div class="tuangoods-parameter-right-name">
+			{:$goods.goods_name:}
+        </div>
+        
+        <div class="tuangoods-parameter-right-title">
+          海外专柜直营 意大利直邮 享全球联保
+        </div>
+        
+        <div class="tuangoods-parameter-right-price">
+          <div class="tuangoods-parameter-right-price-01">
+            原价 
+          </div>
+          
+          <div class="tuangoods-parameter-right-price-02">
+           
+            <div class="tuangoods-parameter-right-price-02-02">
+              <div><strong id="price_item_1"><span>￥</span>{:$goods.shop_price:}</strong></div>  
+            </div>
+          </div>
+          
+          <div class="tuangoods-parameter-right-price-03">
+            <div class="tuangoods-parameter-right-price-03-01" id="tuangoodsdj1" >
+              税费信息
+            </div>
+            
+            
+            
+            <div class="clear"></div>
+          </div>
+          
+          <div class="clear"></div>
+        </div>      
+       
+        
+        <div class="clear"></div>
+        
+        <!--<div class="tuangoods-parameter-right-price-03-02" id="tuangoodsxg1">
+              上品上生全球购的售价由商品价、行邮税、国内费用组成
+        </div>-->
+        
+        <div class="tuangoods-parameter-right-discount">
+          <div class="tuangoods-parameter-right-discount-01">
+            现价  
+          </div>
+          
+          
+          <div class="tuangoods-parameter-right-discount-02">
+            <span class="tuangoods-parameter-right-discount-02-01">
+              ￥
+            </span>
+            
+            <span class="tuangoods-parameter-right-discount-02-02">
+             {:$goods.promote_price:}
+            </span>
+          </div>        
+          
+          <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="tuangoods-parameter-right-distribution">
+          <div class="tuangoods-parameter-right-distribution-01">       
+            配送
+          </div>
+          
+          <div class="tuangoods-parameter-right-distribution-02">              
+              <select id="selectmenu">
+                  <option value="地域">地域</option>
+                  <option value="多层">多层</option>
+                  <option value="高层">高层</option>
+                  <option value="大平层">大平层</option>
+                  <option value="联排别墅">联排别墅</option>
+                  <option value="独栋别墅">独栋别墅</option>
+              </select>
+          </div>
+          
+          <div class="tuangoods-parameter-right-distribution-03">
+            有货
+          </div>
+          
+          <div class="tuangoods-parameter-right-distribution-04">
+            <div class="tuangoods-parameter-right-distribution-04-01">
+              配送时间
+            </div>
+            
+            
+            
+            <div class="clear"></div>
+          </div>
+          
+          <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <!--
+        <div class="tuangoods-parameter-right-distribution-04-02">
+              海外直发或保税仓发货，预计5-20个工作日送达
+        </div>
+        -->
+        
+        
+        <div class="tuangoods-parameter-right-freight">
+          <div class="tuangoods-parameter-right-freight-01">
+            运费
+          </div>
+          
+          <div class="tuangoods-parameter-right-freight-02">
+            免运费
+          </div>
+          
+          <div class="clear"></div>
+        </div>
+        
+        <div class="tuangoods-parameter-right-color">
+
+          <div class="tuangoods-parameter-right-color-left">
+            属性
+          </div>
+          
+          <div class="tuangoods-parameter-right-color-right">
+            <div class="yListr">                    
+              <ul>
+                <li>
+                
+                {:foreach $attribute as $v:}
+                  <em >
+                     <img style="float:left;display:none" width="30" height="40" src=""/>   
+                    	{:$v:}
+                     <i></i>
+                  </em>
+               {:/foreach:}   
+                  
+                  <div class="clear"></div>
+                </li>                            
+              </ul>
+            </div>           
+          </div>
+
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="tuangoods-parameter-right-number">
+          <div class="tuangoods-parameter-right-number-left">
+            数量
+          </div>
+          
+          <div class="tuangoods-parameter-right-number-right">
+            <div class="f_l add_chose">
+                <div class="reduction">
+                  <a class="reduce" href="javascript:void(0)">
+                    <img  src="images/jian.jpg"/>
+                  </a> 
+                </div> 
+                
+                <div class="number">
+                  <input type="text" name="qty_item_1" value="1" id="qty_item_1"class="text" /> 
+                  <input type="hidden" name="cart_num" value="" id="cart_num"class="text" /> 
+                </div>
+                
+                <div class="plus">
+                  <a class="add" href="javascript:void(0)">
+                    <img  src="images/jia.jpg"/>
+                  </a>  
+                </div>
+            </div>
+          </div>
+          
+          <div class="clear"></div>
+        </div>
+        
+        <div class="tuangoods-parameter-right-staging">
+          <div class="tuangoods-parameter-right-staging-left">
+            分期付款
+          </div>
+          
+          <div class="tuangoods-parameter-right-staging-right">
+            欧洲团代购商品支持12月内免息分期支付
+          </div>
+        </div>
+        
+        <div class="clear"></div>
+        
+         <div class="tuangoods-parameter-right-buy">
+        	<div  class="tabs-right-02"> 
+               <!-- <span  >
+                加入购物车
+              </span> -->   
+               <input type="button" id='cart_id' value="加入购物车"/>
+            </div> 
+                        
+            <div class="tuangoods-parameter-right-buy-bk" style="margin-right:60px;">
+              <a id='buy_id' href="#">
+                一键购买
+              </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+      </div>
+    
+    </div>
+    <!--详细内容头end部-->
+    
+    <div class="clear8"></div>
+    
+    <!--详细内容底部-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1" >
+      <div class="tuangoods-content-dome">
+               <div id="tabbox">
+                    <ul class="tabs" id="tabs3">
+                      <div class="tabs-left">                   
+                       <li id="thistab2"><a class="tabs-right-a">商品详情</a></li>
+                       <li id="thistab2"><a class="tabs-right-a">规格参数</a></li>
+                       <li id="thistab2"><a class="tabs-right-a">服务保障</a></li>
+                       <li id="thistab2"><a class="tabs-right-a">用户评价</a></li>
+                      </div>
+                      
+                      <div class="tabs-right"> 
+                        <div class="tabs-right-01"> 
+                              <div class="f_l buy">  
+                                    <span class="total-font" id="total_item_1"style='color:#fff'>￥89.00</span>  
+                                    <input type="hidden" name="total_price" id="total_price" value="" />  
+                                    
+                               </div>  
+                        </div>
+                        
+                        <div class="tabs-right-02" style="display:none;"> 
+                          <a href="#">
+                            加入购物车
+                          </a>   
+                        </div>                                           
+                       
+                        <div class="clear"></div>
+                      </div>
+                      
+                      <div class="clear"></div>
+                    </ul>
+                    
+                    <ul class="tab_conbox" id="tab_conbox3">
+                        <li class="tab_con">  
+                          <div class="tuangoods-conter-details">
+                            {:$goods.goods_desc:}
+                          </div>
+                        </li>
+                            
+                        <li class="tab_con">
+                          <div class="tuangoods-conter-specifications">
+                            {:$goods.specification:}
+                          </div>  
+                        </li>
+                    
+                        <li class="tab_con"> 
+                          <div class="tuangoods-conter-service">
+                            <img  src="images/203.jpg"/>
+                          </div>  
+                        </li>
+                        
+                        <li class="tab_con">
+                        <!--  
+                        <table  width=80% cellpadding=10px cellspacing=1px bgcolor=#ccc>
+                                      		 <tr bgcolor='white' height='30px'>
+                                       			<th width=60% align='center'>评价心得</th>	
+                                       			<th width='20%' align='center'>评价时间</th>	
+                                       			<th align='center'>评价者</th>	
+                                       		</tr>
+                                       {:foreach $comment as $v:}
+                                       		<tr bgcolor='white'>
+                                       			<td>{:$v.content:}</td>	
+                                       			<td align='center'>{:$v.add_time:}</td>	
+                                       			<td align='center'>{:$v.user_name:}</td>
+                                       		</tr>
+                                       	{:/foreach:}
+                                       	<tr >
+                                       	   <td colspan='6' align='right'>{:$page:}</td>
+                                       	</tr>
+                                      	</table>
+                        -->
+                        
+                        <div class="tuangoods-content-dome-pj">
+                        	<div style="height:30px;"></div>
+                        	<div class="tuangoods-content-dome-pj-title">
+                        		<div class="tuangoods-content-dome-pj-title-center">
+                        			评价心得
+                        		</div>
+                        		
+                        		<div class="tuangoods-content-dome-pj-title-name">
+                        			评价者
+                        		</div>
+                        		
+                        		<div class="tuangoods-content-dome-pj-title-time">
+                        			评价时间
+                        		</div>
+                        		
+                        		<div class="clear"></div>
+                        	</div>
+                        	
+                        	{:foreach $comment as $v:}
+                        	<div class="tuangoods-content-dome-pj-center">
+                        		<div class="clear3"></div>
+                        		
+                        		<div class="tuangoods-content-dome-pj-center-center">
+                        		{:$v.content:}
+                        		</div>
+                        		
+                        		<div class="tuangoods-content-dome-pj-center-name">
+                        			{:$v.user_name:}
+                        		</div>
+                        		
+                        		<div class="tuangoods-content-dome-pj-center-time">
+                        			{:'Y-m-d H:i:s'|date:$v.add_time:}
+                        		</div>
+                        		
+                        		<div class="clear3"></div>
+                        	</div>
+                        	
+                        	<div class="clear"></div>
+                        	{:/foreach:}
+                        	<div class='page' >{:$page:}</div>
+                        </div>
+                        
+                        
+                     
+                       	  <div class="tuangoods-conter-evaluation" style="display:none;">
+                            <div class="tuangoods-conter-comment-title">   
+                              好评度                           
+                            </div>
+                            
+                            <div class="tuangoods-conter-comment-center"> <!--评价比例显示--> 
+                               <div class="tuangoods-conter-comment-center-left">  <!--左边总评价人数和好评度-->
+                                 <div class="tuangoods-conter-comment-center-left-01"> 
+                                   100% 
+                                 </div>
+                                 
+                                 <div class="tuangoods-conter-comment-center-left-02">  
+                                   <span>0</span>人评价
+                                 </div>                               
+                                 
+                               </div> 
+                               
+                               <div class="tuangoods-conter-comment-center-middle"> <!--中间评价百分比-->
+                                  <div class="tuangoods-conter-comment-center-middle-praise"> <!--好评-->
+                                    <div class="tuangoods-conter-comment-center-middle-praise-title">好评</div>
+                                    
+                                    <div class="tuangoods-conter-comment-center-middle-praise-percent">（100%）</div> 
+                                                                       
+                                    <div class="votebox">
+                                        <dl class="barbox">
+                                            <dd class="barline">
+                                                <div w="90" class="charts"></div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="tuangoods-conter-comment-center-middle-praise"> <!--中评-->
+                                    <div class="tuangoods-conter-comment-center-middle-praise-title">中评</div>
+                                    
+                                    <div class="tuangoods-conter-comment-center-middle-praise-percent">（0%）</div> 
+                                                                       
+                                    <div class="votebox">
+                                        <dl class="barbox">
+                                            <dd class="barline">
+                                                <div w="50" class="charts"></div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="tuangoods-conter-comment-center-middle-praise"> <!--差评-->
+                                    <div class="tuangoods-conter-comment-center-middle-praise-title">差评</div>
+                                    
+                                    <div class="tuangoods-conter-comment-center-middle-praise-percent">（0%）</div> 
+                                                                       
+                                    <div class="votebox">
+                                        <dl class="barbox">
+                                            <dd class="barline">
+                                                <div w="0" class="charts"></div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                  </div>
+                                  
+                               </div>                                
+                                                          
+                            </div>
+                            
+                           
+                          </div>  
+                        </li>                  
+                        
+                        
+                    </ul>
+                </div>
+      </div>
+    </div>
+    <!--详细内容底部end-->
+<!--详细内容end-->
+</div>
+
+
+
+
+
+<div class="clear8"></div>
+
+
+<!-- 底部广告 -->
+<div class="tuangoods-bottom" >
+		  <img src="images/213.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+
+<!-- 底部列表 -->
+
+{:include file='footer.tpl.html':}
+
+<!-- 底部列表end -->
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<!-- 楼层定位end -->
+
+
+<!-- js楼层定位 -->
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+</script>
+<!-- js楼层定位end -->
+
+
+
+
+<!--搜索-->
+<script src="js/sousuo/classie.js"></script>
+<script src="js/sousuo/uisearch.js"></script>
+
+<script>
+			new UISearch( document.getElementById( 'sb-search' ) );
+</script>
+<!--搜索-->
+
+
+
+<!--滑动门-->
+<style>
+.tuangoods-content-dome .tabs .thistab, .tabs #thistab2 a:hover{
+	background:#000;
+	color:#fff ;}	
+	
+.tuangoods-content-dome .tabs .thistab, .tabs #thistab2 a:hover a{
+	color:#fff ;}
+	
+.tuangoods-content-dome .tabs .thistab a{
+	color:#fff !important;}
+</style>
+<!--滑动门end-->
+
+
+<!--颜色选择-->
+<script type="text/javascript">
+
+            $(function() {
+                $(".yListr ul li em").click(function() {
+                    $(this).addClass("yListrclickem").siblings().removeClass("yListrclickem");
+                    
+                })
+            });
+        
+</script>
+<!--颜色选择end-->
+
+
+
+
+<!-- 选择下拉框 -->
+<script type="text/javascript">
+$(function(){
+
+	$(".nav p").click(function(){
+		var ul=$(".new");
+		if(ul.css("display")=="none"){
+			ul.slideDown();
+		}else{
+			ul.slideUp();
+		}
+	});
+
+	$(".set").click(function(){
+		var _name = $(this).attr("name");
+		if( $("[name="+_name+"]").length > 1 ){
+			$("[name="+_name+"]").removeClass("select");
+			$(this).addClass("select");
+		} else {
+			if( $(this).hasClass("select") ){
+				$(this).removeClass("select");
+			} else {
+				$(this).addClass("select");
+			}
+		}
+	});
+
+	$(".nav li").click(function(){
+		var li=$(this).text();
+		$(".nav p").html(li);
+		$(".new").hide();
+		/*$(".set").css({background:'none'});*/
+		$("p").removeClass("select") ;
+	});
+})
+</script>
+<!-- 选择下拉框end -->
+
+
+
+<!--用户评论进度条-->
+<script language="javascript">
+function animate(){
+	$(".charts").each(function(i,item){
+		var a=parseInt($(item).attr("w"));
+		$(item).animate({
+			width: a+"%"
+		},1000);
+	});
+}
+animate();
+</script>
+<!--用户评论进度条end-->
+
+<!--jquery-ui调用-->
+<script>
+$( "#selectmenu" ).selectmenu();/*下拉*/
+</script>
+<!--jquery-ui调用end-->
+
+<style>
+.tuangoods-parameter-right-buy input{
+	background:none;
+	border:none;
+	color:#fff;
+	line-height:45px;
+	font-size:28px;
+	height:45;}
+</style>
+</body>
+</html>

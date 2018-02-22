@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"/>
+		<title></title>
+		<link rel="stylesheet" href="css/publick.css" />
+		<link rel="stylesheet" href="css/zhifu.css"/>
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="head">
+			<a class="head-1 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/back.png" alt="" />
+			</a>
+			<a class="head-2 head-son" href="javascript:;">
+				在线支付
+			</a>
+			<a class="head-3 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/people-s.png" alt="" />
+			</a>
+		</div>
+		<div class="content">
+			<div class="zhifu-con1">商品详情</div>
+			<div class="zhifu-con2">
+				<span class="zhifu-con2-1">上品水空调处理系统</span>
+				<span class="zhifu-con2-2">¥500</span>
+			</div>
+			<div class="zhifu-kong"></div>
+			<div class="zhifu-con3">选择支付方式</div>
+			<div class="zhifu-con4">
+				<span class="con4-1"><img src="img/zhifu-zhifubao.png"/></span>
+				<span class="con4-2">支付宝支付</span>
+				<span class="con4-3" ><img class="xuanze"  src="img/zhifu-check.png"/></span>
+			</div>
+			<div class="zhifu-con4">
+				<span class="con4-1"><img src="img/zhifu-weixin.png"/></span>
+				<span class="con4-2">微信支付</span>
+				<span class="con4-3" ><img class="xuanze"  src="img/zhifu-check.png"/></span>
+			</div>
+			<div class="zhifu-con6">
+				<img src="img/zhifu-queren.png"/>
+			</div>
+		</div>
+		
+	</body>
+	<script>
+			$(".xuanze").click(function(){
+				$(".xuanze").attr("src",'img/zhifu-check.png');
+				$(this).attr("src",'img/zhifu-checked.png');
+			})
+		</script>
+</html>
+

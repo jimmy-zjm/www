@@ -1,0 +1,174 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/paysuccessstyle.css" ><!-- 支付成功页面paysuccess调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+        <div class="index-navigation-bk" id="mynavbk">
+            <div class="index-navigation" >
+                <div class="index-navigation-center">
+                    <div class="index-navigation-a">
+                        <a href="index.php?aboutus">
+                            关于我们
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?qualitylife">
+                            品质生活
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?homeindex">
+                            健康舒适家居
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?service">
+                            机电售后服务
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?share">
+                            资源分享
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?pay">
+                            支付方式
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?knowledge">
+                            百科知识
+                        </a>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+<!--中间-->
+<div class="paysuccess-center">    
+    <div class="paysuccess-center-left">
+        <div class="paysuccess-center-left-img">
+            <img src="images/864.png"/>
+        </div>
+    </div>
+    
+    <div class="paysuccess-center-right">
+        <div class="paysuccess-center-right-title">
+            付款成功！我们将第一时间安排发货！
+        </div>
+        
+        <div class="paysuccess-center-right-info">
+            <span class="span01">
+                订单号：
+            </span>
+            
+            <span class="span02">
+                {:$order.sn:}
+            </span>
+            
+            <span class="span01">
+                支付流水号：
+            </span>
+            
+            <span class="span02">
+                {:$order.trade_no:}
+            </span> 
+            
+            <span class="span01">
+                支付金额：
+            </span>
+            
+            <span class="span02">
+                {:$order.total_fee:}元
+            </span>
+        </div>
+        
+        <div class="paysuccess-center-right-a">
+            <img src="images/865.png"/>
+            
+            <img src="images/865.png"/>
+            
+            <a href="user.php?center">
+                返回会员中心
+            </a>
+        </div>
+    </div>
+</div>
+<!--中间end-->
+
+
+<div class="clear2"></div>
+
+
+<input type="hidden" id='orderid' value='{:if !empty($order.system_id) && $order.system_id eq 1:}eu{:else if $order.system_id eq 8:}ov{:else:}fu{:/if:}{:$order.order_id:}'>
+<input type="hidden" id='ordertotal' value='{:$order.total_fee:}'>
+
+{:foreach $goods as $k=>$v:}
+<input type="hidden" id='goods_id{:$k:}' value="{:if $order['system_id'] neq 1 && $order['system_id'] neq 8:}{:$v['quote_id']:}{:else:}{:$v['goods_id']:}{:/if:}">
+<input type="hidden" id='price{:$k:}' value="{:if $order['system_id'] neq 1 && $order['system_id'] neq 8:}{:if !empty($v['adjust_quote_price']):}{:$v['adjust_quote_price']:}{:else:}{:$v['quote_price']:}{:/if:}{:else:}{:$v['goods_price']:}{:/if:}">
+<input type="hidden" id='goods_num{:$k:}' value="{:if $order['system_id'] neq 1 && $order['system_id'] neq 8:}1{:else:}{:$v['goods_num']:}{:/if:}">
+{:/foreach:}
+<input type="hidden" id='goods_num' value="{:$goods|count:}">
+
+
+<script>
+    var orderid = $('#orderid').val();
+    var ordertotal = $('#ordertotal').val();
+    var goods_num = $('#goods_num').val();
+
+    _ozprm="orderid="+orderid+"&ordertotal="+ordertotal
+    for (var i = 0; i < goods_num; i++) {
+        +"&skulist="+$('#goods_id'+i).val()+","+$('#price'+i).val()+","+$('#goods_num'+i).val()+",,,,,,,;"
+    };
+    
+</script>
+<!-- 底部列表 -->
+
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

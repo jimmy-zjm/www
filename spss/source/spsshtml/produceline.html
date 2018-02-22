@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/headfoot.css" />
+		<link rel="stylesheet" type="text/css" href="css/produceline.css"/>
+	</head>
+	<body>
+		<!--nav-->
+		<div class="home-nav">
+			<ul>
+				<div class="home-nav1">
+					<li><a href="#" >舒适健康家居</a></li>
+					<li><a href="#" onmousemove="homejiancaihover()">舒适健康建材</a></li>
+					<li><a href="#" onmousemove="homeshouhouhover()">舒适健康售后</a></li>
+					<li><a href="#">家居知识了解</a></li>
+					<li class="home-nav-logo"><a href="#"><img src="./img/home-logo.png" alt="" /></a></li>
+				</div>
+				<div class="home-nav2">
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">全国体验馆</a></li>
+					<li><a href="#">在线客服</a></li>
+				</div>
+				<div class="home-nav3">
+					<a href="#"></a>
+					<a  href="javascript:;" class="home-login" id="homelogin" onmouseover="homeloginhover()"></a>
+					<a href="#"></a>
+				</div>				
+				
+				
+			</ul>
+		</div>
+		<div class="home-login-hover" id="loginhover" onmouseout="homeloginhoverout()">
+			<p>退出登录</p>
+			<p>修改密码</p>
+			<p>我的地址</p>
+			<p>我的订单</p>
+			<p>我的收藏</p>
+			<!--<p class="home-login-btn">登录</p>
+			<p class=" home-login-btn home-regest-btn">注册</p>-->
+		</div>
+		<div class="home-login-hover1" id="jiancaihover" onmouseleave="homejiancaileave()">
+			<p>无醛地板</p>
+			<p>厨房卫浴</p>
+		</div>
+		<div class="home-login-hover2" id="shouhouhover" onmouseleave="homeshouhouleave()">
+			<p>机电保养</p>
+			<p>机电维修</p>
+			<p>机电耗材</p>
+		</div>
+		<!--content-->
+		<div class="content">
+			<!---------produceline-banner--------->
+			<div class="produceline-banner">
+				<img src="img/produceline-banner.jpg"/>
+				<p>上&nbsp;品&nbsp;标&nbsp;准&nbsp;线</p>
+				<p></p>
+				<p><a href="" style="color: #d7d7d7;">了解新风系统</a></p>
+			</div>
+			<!--------produceline-main----------->
+			<div class="produceline-main">
+				<div class="produceline-tab1 produceline-tab">
+					<a href="#" style="color:#00a0e9;" id="producelineping" onclick="producetab(1)">上品标准线</a>
+				</div>
+				<div class="produceline-tab2 produceline-tab">
+					<a href="#" style="color: #000;cursor: pointer;" id="producelinesheng" onclick="producetab(2)">上生标准线</a>
+				</div>
+				<div class="produceline-tab1-show" id="producelinetab1" >
+					<div class="produceline-tab1-show-main">
+						<div class="produceline-tab1-showcont">
+						<img src="img/produceline-computer1.png" class="produceline-computer1">
+						<p class="produceline-yuanb">
+							<img src="img/produceline-yuanb.png" alt=""  class="produceline-imgb">
+							<p class="produceline-yuans">
+								<img src="img/produceline-yuans.png" alt=""  class="produceline-imgs">
+							</p>
+						</p>
+					</div>
+	
+					<div class="produceline-tab1-showcont-go">
+						<a href="producedetail.html"><span ></span>上品中央水空调系统</a>
+						<a href="producedetail.html"><span ></span>上品地板采暖系统</a>
+						<a href="producedetail.html"><span ></span>上品新风除霾除湿系统</a>
+						<a href="producedetail.html"><span ></span>上品散热片采暖系统</a>
+						<a href="producedetail.html"><span ></span>上品中央水处理系统</a>
+						<a href="producedetail.html"><span ></span>上品循环热水系统</a>
+						<a href="producedetail.html"><span ></span>上品中央吸尘系统</a>
+						<a href="producedetail.html"><span ></span>上品上生智能化系统</a>
+					</div>
+					</div>
+					
+				</div>
+				<div class="produceline-tab1-show" id="producelinetab2" style="display: block;">
+					<div class="produceline-tab1-show-main">
+						<div class="produceline-tab1-showcont">
+						<img src="img/produceline-computer2.png" class="produceline-computer1">
+						<p class="produceline-yuanb">
+							<img src="img/produceline-yuanb.png" alt=""  class="produceline-imgb">
+							<p class="produceline-yuans">
+								<img src="img/produceline-yuans.png" alt=""  class="produceline-imgs">
+							</p>
+						</p>
+					</div>
+					<div class="produceline-tab1-showcont-go">
+						<a href="#"><span ></span>上生中央水空调系统</a>
+						<a href="#"><span ></span>上生地板采暖系统</a>
+						<a href="#"><span ></span>上生新风除霾除湿系统</a>
+						<a href="#"><span ></span>上生散热片采暖系统</a>
+						<a href="#"><span ></span>上生中央水处理系统</a>
+						<a href="#"><span ></span>上生循环热水系统</a>
+						<a href="#"><span ></span>上生中央吸尘系统</a>
+						<a href="#"><span ></span>上生上生智能化系统</a>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--foot-->
+		<div class="home-footer">
+			<div class="home-footer1">
+				<ul>
+					<li><a href="dealer.php">服务与支持</a></li>
+					<li><a href="#">全国展示体验馆</a></li>
+					<li><a href="#">合作伙伴</a></li>
+					<li><a href="#">安装服务商登录</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">帮助中心</a></li>
+					<li><a href="#">购买指南</a></li>
+					<li><a href="#">支付方式</a></li>
+					<li><a href="#">配送政策</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">公司简介</a></li>
+					<li><a href="#">联系我们</a></li>
+					<li><a href="#">假如我们</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">关注我们</a></li>
+					<li><span class="home-weixin"></span><a href="#">微信公众号</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">客服热线</a></li>
+					<li class="home-service"><span class="service-number"></span><a href="#">400-800-1027</a></li>
+					<li><a href="#">周一至周五9：00-18：00</a></li>
+					<li><a href="#" class="service-online">在线客服</a></li>
+				</ul>
+			</div>
+			<div class="home-footer2">
+				备案号：沪ICP备16030510号-1
+			</div>
+		</div>
+	</body>
+	<script src="js/headfoot.js"></script>
+	<script>
+		function homeloginhover(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="block";
+		}
+		function homeloginhoverout(){
+			var hover=document.getElementById("loginhover");
+			hover.style.display="none";
+			
+		}
+		function producetab(index){
+			var producelinetab1=document.getElementById("producelinetab1");
+			var producelinetab2=document.getElementById("producelinetab2");
+			var producelineping=document.getElementById('producelineping');
+			var producelinesheng=document.getElementById('producelinesheng');
+			if(index==2){
+				producelinetab2.style.display="block";
+				producelinetab1.style.display="none";
+				producelineping.style.color="#000";
+				producelinesheng.style.color="#00a0e9";
+				
+			}else{
+				producelinetab2.style.display="none";
+				producelinetab1.style.display="block";
+				producelineping.style.color="#00a0e9";
+				producelinesheng.style.color="#000";
+			}
+		}
+	</script>
+</html>

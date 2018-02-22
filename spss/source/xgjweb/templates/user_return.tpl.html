@@ -1,0 +1,124 @@
+{:include file='user_top.tpl.html':}
+{:include file='user_left.tpl.html':}
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="useraddresscenter-title">  
+           返修退换货
+        </div>
+      
+		<div class="clear12"></div>
+        
+  		<div id="fuent">
+		<!--退换货-->
+            <div class="useraddresscenter_Repair hd">
+                <ul>
+                    <li>申请退换货</li>
+                    <li>退货记录</li>
+                   
+                </ul>
+            </div>
+         
+            <div class="bd">
+                  
+                        <div class="useraddresscenter_qiuhuan">
+                            {:if !empty($returnGoodsList):}
+                            <div class="useraddresscenter_qiuhuan_msg">
+                                <ul>
+                                    <li>订单编号</li>
+                                    <li>下单日期</li>
+                                    <li style="width:195px;">订单产品</li>
+                                    <li>购买金额</li>
+                                    <li>操作</li>
+                                </ul>
+                            </div>
+                              
+                         
+                         {:foreach from=$returnGoodsList key=num item=returnGoods:}
+                            <div class="useraddresscenter_qiuhuan_01">
+                                <ul>
+                                    <li>{:$returnGoods.sn:}</li>
+                                    <li> {:$returnGoods.add_time|date_format:'%Y/%m/%d %H:%M:%S':}
+                                    </br>
+                                         </li>
+                                    <li style="width:195px;">{:$returnGoods.goods_title:}
+                                        </li>
+                                    <li>￥{:$returnGoods.goods_price:}</li>
+                                    <li> 
+                                      {:if $returnGoods.r_status eq 0:}
+                                      <a href="javascript:;" onclick="aaa({:$returnGoods.id:},{:$returnGoods.gid:})">申请</a>
+                                      <!-- <a href="user.php?returnApplicationShow&classId={:$returnGoods.class_id:}&goodsId={:$returnGoods.goods_id:}">申请</a> -->
+                                      {:else if $returnGoods.r_status eq 1:}
+                                      审核中
+                                      {:else if $returnGoods.r_status eq 2:}
+                                      退货申请已通过
+                                      {:else if $returnGoods.r_status eq 3:}
+                                      退货申请未通过
+                                      {:/if:}
+                                    </li>
+                                </ul>
+                            </div>  
+                       
+                          {:/foreach:}    
+                                 
+                       <!--分页开始-->
+                            <div class='page'>
+                                {:$page:}
+                            </div>
+                            <!--分页结束-->
+                       
+                         {:/if:}
+                    </div>
+                       
+                       
+                         <!--退货记录 -->
+                         <div class="useraddresscenter_qiuhuan">
+                            {:if !empty($returnedList):}
+                      	    <div class="useraddresscenter_qiuhuan_msg">
+                                <ul>
+                                    <li>订单编号</li>
+                                    <li>下单日期</li>
+                                    <li style="width:195px;">订单产品</li>
+                                    <li>购买金额</li>
+                                    <li>状态</li>
+                                </ul>
+                            </div>
+                            
+                             
+                            {:foreach from=$returnedList key=num item=returned:}
+                            <div class="useraddresscenter_qiuhuan_01">
+                                <ul>
+                                    <li>{:$returned.sn:}</li>
+                                    <li> {:$returned.add_time|date_format:'%Y/%m/%d %H:%M:%S':}
+                                    </br>
+                                         </li>
+                                    <li style="width:195px;">{:$returned.goods_title:}
+                                     
+                                      </li>
+                                    <li>￥{:$returned.goods_price:}</li>
+                                    <li>退货成功</li>
+                                </ul>
+                            </div>  
+                            {:/foreach:}
+                           {:/if:} 
+                                      
+                        </div>
+                        
+                       
+                   
+            	</div>
+		</div>
+       <!--返修退换货end-->
+<script id="#fuent"; type="text/javascript">jQuery("#fuent").slide({autoPlay:false});</script>
+	<!-- user右边end，引用头部时倒入这个div -->
+  
+
+</div>
+
+</div>
+<script>
+  function aaa(id,gid){
+    window.location.href="user.php?returnApplicationShow&id="+id+"&gid="+gid;
+  }
+</script> 
+
+{:include file='user_footer.tpl.html':}  

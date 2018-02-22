@@ -1,0 +1,296 @@
+@CHARSET "UTF-8";
+.user-euEvaluate{
+	width:1200px;
+	margin:0 auto;}
+	
+.user-euEvaluate-info{
+	width:1200px;
+	margin:0 auto;}
+	
+.user-euEvaluate-info-left{
+	float:left;
+	width:480px;
+	height:280px;}
+	
+.user-euEvaluate-info-left-img{
+	width:480px;
+	height:280px;
+	border:1px solid #b3b3b3;}
+	
+.user-euEvaluate-info-left-img img{
+	width:480px;
+	height:280px;}
+	
+.user-euEvaluate-info-right{
+	float:right;
+	width:600px;}
+	
+.user-euEvaluate-info-right-title{
+	width:450px;
+	font-size:24px;
+	color:#000000;}
+	
+.user-euEvaluate-info-right-demo{
+	width:450px;}
+	
+.user-euEvaluate-info-right-demo-left{
+	float:left;
+	width:130px;
+	height:40px;
+	font-size:14px;
+	color:#000000;}
+	
+.user-euEvaluate-info-right-demo-right{
+	float:right;
+	width:320px;
+	word-break:break-all;}
+
+.user-euEvaluate-info-right-demo-right .span01{
+	font-size:16px;
+	color:#de5b5b;}
+
+.user-euEvaluate-info-right-demo-right .span02{
+	font-size:14px;
+	color:#000;}
+
+.user-euEvaluate-form{
+	width:1198px;
+	margin:0 auto;
+	background:#efefef;
+	border:1px solid #d6d6d6;}
+	
+.user-euEvaluate-form-span{
+	width:1100px;
+	height:70px;
+	line-height:70px;}
+
+.user-euEvaluate-form-span span{
+	margin-left:65px;
+	font-size:16px;
+	color:#f66;}
+
+.user-euEvaluate-form-star{
+	width:1100px;
+	margin:0 auto;
+	height:30px;
+	line-height:30px;}
+	
+.user-euEvaluate-form-star-span{
+	float:left;
+	width:150px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	color:#666;
+	margin-left:65px;}
+	
+.user-euEvaluate-form-star-select{
+	float:left;
+	width:600px;
+	height:30px;
+	line-height:30px;}
+
+.user-euEvaluate-form-textarea{
+	width:955px;
+	margin:0 auto;
+	border:2px solid #999999;}
+
+	
+.user-euEvaluate-form-textarea-title{
+	width:955px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	border-bottom:2px solid #999;
+	font-size:20px;
+	color:#000000;
+	background:#fff;}
+	
+.user-euEvaluate-form-textarea-span{
+	width:955px;
+	text-align:right;
+	color:#F63;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+	margin:0 auto;}
+	
+	
+.user-euEvaluate-form-textarea-word{
+	width:955px;
+	height:185px;
+	background:#fff;}
+
+.user-euEvaluate-form-textarea-word textarea{
+	border:none;
+	background:none;
+	width:955px;
+	height:185px;
+	font-size:12px;}
+	
+.user-euEvaluate-form-file{
+	width:900px;
+	margin:0 auto;}
+	
+.user-euEvaluate-form-file-left{
+	float:left;
+	width:140px;
+	height:80px;}
+	
+.user-euEvaluate-form-file-left-img{
+	width:36px;
+	height:36px;
+	position:relative;
+	overflow:hidden;
+	margin-left:45px;
+	margin-top:10px;}
+
+.user-euEvaluate-form-file-left-img-images{
+	width:36px;
+	height:36px;
+	position:relative;
+	z-index:1}
+	
+.user-euEvaluate-form-file-left-img-images img{
+	width:36px;
+	height:36px;}
+	
+.user-euEvaluate-form-file-left-img-input{
+	width:36px;
+	height:36px;
+	position:relative;
+	top:-36px;
+	z-index:2;}
+	
+.user-euEvaluate-form-file-left-img-input input{
+	width:36px;
+	height:36px;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	-khtml-opacity: 0;
+	opacity: 0;}
+	
+.user-euEvaluate-form-file-left-span{
+	width:140px;
+	height:30px;
+	line-height:30px;}
+	
+.user-euEvaluate-form-file-left-span .span01{
+	font-size:12px;
+	color:#333333;}
+	
+.user-euEvaluate-form-file-left-span .span02{
+	font-size:12px;
+	color:#de5b5b;}
+
+.user-euEvaluate-form-file-right{
+	float:left;
+	width:760px;
+	height:81px;}
+	
+.user-euEvaluate-form-file-right-demo{
+	float:left;
+	width:139px;
+	height:81px;
+	margin-right:13px;
+	overflow:hidden;
+	position:relative;}
+	
+.user-euEvaluate-form-file-right-demo-bk{
+	position:relative;
+	z-index:2;
+	background:none;
+	width:139px;
+	height:81px;
+	background:none;}
+	
+.user-euEvaluate-form-file-right-demo-bk:hover{
+	background:url(../images/1144.png);}
+	
+.user-euEvaluate-form-file-right-demo-img{
+	position:relative;
+	top:-81px;
+	z-index:1;
+	width:139px;
+	height:81px;}
+	
+.user-euEvaluate-form-file-right-demo-img img{
+	width:139px;
+	height:81px;}
+
+	
+.user-euEvaluate-form-input{
+	width:230px;
+	margin:0 auto;}
+	
+.user-euEvaluate-form-input-sub{
+	float:left;
+	width:111px;
+	height:33px;
+	border-radius:3px;
+	background-color:#ff4001;
+	border:none;
+	text-align:center;
+	font-size:14px;
+	color:#efefef;}
+
+.user-euEvaluate-form-input-sub input{
+	width:111px;
+	height:33px;
+	background:none;
+	border:none;
+	text-align:center;
+	font-size:14px;
+	color:#efefef;}
+	
+.user-euEvaluate-form-input-checkbox{
+	float:right;
+	width:100px;
+	line-height:33px;}
+	
+.user-euEvaluate-form-input-checkbox input{
+	width:13px;
+	height:13px;}
+
+.user-euEvaluate-form-demo{
+	float:left;
+	width:430px;
+	margin-bottom:20px;}
+	
+.user-euEvaluate-form-star{
+	width:900px;
+	margin:0 auto;}
+	
+.user-euEvaluate-form-demo-span{
+	float:left;
+	width:180px;
+	height:29px;
+	line-height:29px;
+	font-size:14px;
+	color:#666;}
+	
+.user-euEvaluate-form-demo-span-img{
+	float:left;
+	width:200px;
+	height:29px;
+	line-height:29px;}
+	
+.user-euEvaluate-form-demo-img-images{
+	float:left;
+	width:31px;
+	height:29px;
+	line-height:29px;
+	margin-right:5px;}
+	
+.user-euEvaluate-form-demo-img-images img{
+	width:31px;
+	height:29px;}
+
+
+
+
+
+
+
+
+/*评价查看页面*/

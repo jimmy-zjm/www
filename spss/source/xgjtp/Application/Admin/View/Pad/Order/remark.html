@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单-列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+
+<script language="javascript">
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+</head>
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">备注</a></li>
+        </ul>
+    </div>
+    <p ><a href="<{:U('Admin/Pad/Order/index')}>" style='font-size: 25px;'>返回订单页</a></p>
+     <form action="<{:U('addRemark')}>" method="post" enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>查看备注</span></div>
+            <ul class="forminfo">
+
+                <li><textarea name="content" cols="" rows="" class="textinput"></textarea></li>
+                <input name="id" type="hidden"  value="<{$id}>"/>
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="reset" class="btn" style="margin-left: 200px;margin-right: 30px" value="重置"/><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+    <div class="formbody">
+    <div class="formtitle"><span>备注历史</span></div>
+        <table class="listtable">
+            <thead>
+                <tr>
+                    <th>操作者</th>
+                    <th>内容</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($data as $v): ?>
+            <tr>
+                <td><?=$v['u_name']?></td>
+                <td><?=$v['content']?></td>
+                <td><?=date('Y-m-d H:i:s',$v['addtime'])?></td>
+            </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+ 

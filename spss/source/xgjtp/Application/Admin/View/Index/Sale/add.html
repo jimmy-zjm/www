@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>优惠活动-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">优惠券管理</a></li>
+            <li><a href="#">优惠活动</a></li>
+            <li><a href="#">添加</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('insert')}>" method="post">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <li><label>地推人员</label>
+                    <select name="dt_id" class="dfinput">
+                        <option value="">请选择...</option>
+                        <?php foreach ($info as $key => $v): ?>
+                        <option value="<{$v['user_id']}>"><{$v['user_name']}></option>
+                        <?php endforeach ?>
+                    </select>
+                </li>
+                <li><label>开始区间</label><input name="start" type="number" class="dfinput"  style="width:150px;"  /><i></i></li>
+				<li><label>结束区间</label><input name="end" type="number" class="dfinput"  style="width:150px;"  /><i></i></li>
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+</body>
+</html>

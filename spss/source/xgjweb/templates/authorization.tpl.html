@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>授权页面</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet"  type="text/css"  href="css/style.css" /><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/authorizationstyle.css" /><!-- 售后服务authorization页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<!-- banner轮播图片 -->
+<script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet"/>
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+</head>
+<body style="background:#ecf0f5;">
+<!-- top顶部 -->
+
+{:include file='header.tpl.html':}
+
+<!-- top顶部end -->
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                	<a href="index.php">
+	                	<img src="images/logo2.png"/>
+                	</a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="furnish.php?strategy">
+                         机电攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?pay">
+                         分期介绍
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?show">
+                        全国体验中心
+                    </a>
+                </div>
+      
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end--> 
+
+<div class="clear"></div>
+
+
+<!-- banner轮播图片 -->
+<div class="flicker-example" data-block-text="false">
+
+  <ul>
+    <li data-background="images/232.jpg">
+
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">全国授权</div>
+    </li>
+    <li data-background="images/232.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">全国授权</div>
+    </li>
+    <li data-background="images/232.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">全国授权</div>
+    </li>
+    <li data-background="images/232.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">全国授权</div>
+    </li>
+    <li data-background="images/232.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">全国授权</div>
+    </li>
+    <li data-background="images/232.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">全国授权</div>
+    </li>
+
+  </ul>
+</div>
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="authorization-conter">	
+    
+    
+    <div class="clear23"></div>
+    
+    <div class="authorization-conter-title">
+    	<span>
+        	凯美授权
+        </span>
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="authorization-conter-introduce">
+    	<div class="authorization-conter-introduce-left">
+        	<div class="authorization-conter-introduce-left-bk">
+            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凯美具有超过30年专业技术及经验。作为艾府杰<br />
+                
+                （AFG Arbonia-Forster-Group)集团下属全资子公司之一，<br />
+                
+                总部设在德国巴伐利亚的小镇，是欧洲淋浴房和供暖设备的顶级<br />
+                
+                制造商之一，拥有员工越1700名。凯美目标明确：将超时代的潮流<br />
+                
+                设计、高品质、强大功能、舒适性以及可靠性进行最佳整合......<br />
+            </div>
+        </div>
+        
+        <div class="authorization-conter-title-introduce-right">
+        	<img src="images/226.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="authorization-conter-title">
+    	<span>
+        	＋GF＋授权
+        </span>
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="authorization-conter-introduce">
+    	<div class="authorization-conter-introduce-left">
+        	<div class="authorization-conter-introduce-left-bk">
+            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乔治费歇尔(Georg Fischer，简称：GF)集团，创立于1802年，<br />
+                
+                总部设在瑞士的Schaffhausen，并在瑞士证券交易所(SWX Swiss<br /> 
+                
+                Exchange)上市。 GF作为一家全球运营的工业集团 ，在欧洲拥有<br />
+                
+                80家公司、在亚洲和中东地区拥有35家公司、在美洲拥有<br />
+                
+                12家公司、在澳大利亚拥有2家公司。GF集团专注于三大核心业务：<br />
+                
+                 GF汽车产品、GF管路系统和GF阿奇夏米尔精密机床。2007年.....
+            </div>
+        </div>
+        
+        <div class="authorization-conter-title-introduce-right">
+        	<img src="images/227.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="authorization-conter-title">
+    	<span>
+        	蓝飘尔授权
+        </span>
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="authorization-conter-introduce">
+    	<div class="authorization-conter-introduce-left">
+        	<div class="authorization-conter-introduce-left-bk">
+            	蓝飘尔公司（Blue inc）是专业的家用水处理产品生产和服务公司，<br /> 
+
+                其主要投资方式美国森美集团（U.S. Summit Company L.P.）。<br /> 
+                
+                森美集团是一家有着60多年历史的跨国集团，在医药、化工、水<br /> 
+                
+                处理、商贸等流域始终保持着国际领导地位。目前集团有1000多<br /> 
+                
+                名员工，从美国纽约辐射到包括中国大陆、台湾、香港、越南、<br /> 
+                
+                泰国、新加坡、马来西亚，印度尼西亚等国家。通过多元文....<br /> 
+            </div>
+        </div>
+        
+        <div class="authorization-conter-title-introduce-right">
+        	<img src="images/228.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="authorization-conter-title">
+    	<span>
+        	丹佛斯授权
+        </span>
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="authorization-conter-introduce">
+    	<div class="authorization-conter-introduce-left">
+        	<div class="authorization-conter-introduce-left-bk">
+            		丹佛斯凭借60多年在供热系统控制和运行方面的经验，成长为供热<br />
+                    
+                    领域的最大供货商。丹佛斯供热产品覆盖了从供热站到热用户的所<br />
+                    
+                    有范围，主要包括住宅供热控制产品、集中供热控制产品及换热机组、<br />
+                    
+                    暖通空调控制元器件、燃烧机和锅炉的控制元件和地面电暖系统。<br />
+                    
+                    拥有完整的产品系列，可用于各种领域，在水及流体的循环过程中<br />
+                    
+                    起控制及调节作用，且安装方式多样......
+            </div>
+        </div>
+        
+        <div class="authorization-conter-title-introduce-right">
+        	<img src="images/229.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="authorization-conter-title">
+    	<span>
+        	瀚福莱授权
+        </span>
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="authorization-conter-introduce">
+    	<div class="authorization-conter-introduce-left">
+        	<div class="authorization-conter-introduce-left-bk">
+            	瀚福莱的创始者，西班牙马尔桑工业公司(MARSAN INDUSTRIA<br />
+                
+                L,S.A)，创建于1971年，拥有四十余年历史。公司座落于西班牙<br />
+                
+                首都马德里，是专业生产电暖气和小家电的欧盟著名跨国公司......<br />
+            </div>
+        </div>
+        
+        <div class="authorization-conter-title-introduce-right">
+        	<img src="images/230.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    
+    
+    <div class="authorization-conter-title">
+    	<span>
+        	百诺肯授权
+        </span>
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="authorization-conter-introduce">
+    	<div class="authorization-conter-introduce-left">
+        	<div class="authorization-conter-introduce-left-bk">
+            	百诺肯饮用水、生活用水质量日益受到关注，全球每天都因为水体<br />
+                
+                污染而导致上万人丧命。数据预计：2020年前全球水处理设备市场<br />
+                
+                容量将达到一万亿美元。中国的水处理设备市场近年来也得到了<br />
+                
+                迅猛的发展。然而，随着市场的发展，消费者意识的提高，饮水安全<br />
+                
+                保障、净水设备、净水系统产品市场更令人关注......<br />
+            </div>
+        </div>
+        
+        <div class="authorization-conter-title-introduce-right">
+        	<img src="images/231.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+        
+    <div class="clear2"></div>
+
+</div>
+
+<!--中间end-->
+
+
+<!-- 底部文件 -->
+
+{:include file='footer.tpl.html':}
+
+<!-- 底部文件end -->
+
+
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+<!--搜索-->
+<script src="js/sousuo/classie.js"></script>
+<script src="js/sousuo/uisearch.js"></script>
+
+<script>
+			new UISearch( document.getElementById( 'sb-search' ) );
+</script>
+<!--搜索-->
+
+
+<!--jquery-ui调用点击滑动导航-->
+<script>
+
+$( "#tabs" ).tabs();
+
+</script>
+<!--jquery-ui调用点击滑动导航end-->
+</body>
+</html>
+
+
+
+
+

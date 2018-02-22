@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" href="css/dibandetail.css" />
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+	
+		<!--content-->
+		<div class="content" >
+			<div class="zhankong"></div>
+			<div class="con-top">
+				<div class="con-top-left">
+					<p>
+						<img id="img1" src="img/dibandetail-img2.jpg" alt="" />
+					</p>
+					<p>
+						<a class="simg"  href="#img1" onclick="addborder(0,'img/dibandetail-img1.jpg')"><img src="img/dibandetail-img1.jpg" alt="" /></a>
+						<a class="simg"  href="#img2" onclick="addborder(1,'img/dibandetail-img3.jpg')"><img src="img/dibandetail-img3.jpg" alt="" /></a>
+						<a class="simg"  href="#img3" onclick="addborder(2,'img/dibandetail-img6.jpg')"><img src="img/dibandetail-img6.jpg" alt="" /></a>
+						<a class="simg"  href="#img4" onclick="addborder(3,'img/dibandetail-img5.jpg')"><img src="img/dibandetail-img5.jpg" alt="" /></a>
+						<a class="simg"  href="#img5" onclick="addborder(4,'img/dibandetail-img4.jpg')"><img src="img/dibandetail-img4.jpg" alt="" /></a>
+					</p>
+					<p>
+						<a href="javascript:;">分享</a>
+						<span onclick="changecolor()"><a id="shoucang" href="javascript:;">★</a>收藏商品</span>
+						<span>(<a href="javascript:;">1353</a>人气)</span>
+					</p>
+				</div>
+				<div class="con-top-right">
+					<p>产品名称</p>
+					<p>包安装&nbsp;此价格包含减震垫和压条</p>
+					<p><span>价格</span><span>￥：799.00</span></p>
+					<p><span>促销价</span><span>￥：379.00</span></p>
+					<p>
+						<span>运费</span>
+						<span>上海闵行区&nbsp;至</span>
+						<select ><option value="">上海市</option></select>
+						<select ><option value="">闵行区</option></select>
+						<select ><option value="">联航路</option></select>
+					</p>
+					<p><span>颜色分类</span><span   class="imgaddbor" onclick="imgaddborder(0)"><img src="img/dibandetail-img1.jpg"></span><span class="imgaddbor" onclick="imgaddborder(1)"><img src="img/dibandetail-img3.jpg"></span></p>
+					<p><span>计价单位</span><span>1㎡</span></p>
+					<p><span>发货时间</span><span>付款后60天内</span></p>
+					<p><span>数量</span><span><input type="number" />件</span></p>
+					<p><span>服务</span><span>送货入户并安装</span></p>
+					<p>送货入户(长途运输+同城配送+步蹄≤1楼免费搬楼(电梯入户免费搬楼))+上门安装(包含收边条，防潮膜，胶垫安装费用，实木地板同时包含龙骨铺装费).送货入户起步价：100元，上门安装起步价：500元。注：针对“免费送货入户并安装订单”，单店铺单次购买<25平方米会产生额外送货安装费用<a href="javascript:;">服务详情</a></p>
+					<p><a href="javascript:;">立即购买</a><a href="javascript:;">加入购物车</a></p>
+				</div>
+			</div>
+			<div class="con-bottom">
+				<ul class="con-bottom-tab">
+					<li onclick="dibandetailtabs(0)" class="tabli" style="color: red;border-color: red;">产品详情</li>
+					<li onclick="dibandetailtabs(1)" class="tabli">累计评价 <span>131</span></li>
+				</ul>
+				<div class="tabs tabs1" id="tab1" style="display: none;">
+					<div class="tab1-con1" id="tab1con1">
+						<p>品牌名称：woodplus</p>
+						<p>主要参数：</p>
+						<p>
+							<span>法向全发射率：0.87</span>
+							<span class="tab1-con1-span">能谱波长：5-15ひm</span>
+							<span class="tab1-con1-span">泄漏电流：0.0221mA</span>
+							<span class="tab1-con1-span">表面最大温差：7°C</span>
+							<span class="tab1-con1-span">工作寿命：大于10万小时</span>
+						</p>
+					</div>
+					<div class="tab1-con2 tab1-con-img" id="tab1con2">
+						<fieldset>
+						    <legend align="center">&nbsp;商品情景&nbsp;</legend>
+						</fieldset>
+					</div>
+					<div class="tab1-con3 tab1-con-img" id="tab1con3">
+						<fieldset>
+						    <legend align="center">&nbsp;商品实拍&nbsp;</legend>
+						</fieldset>
+						
+					</div>
+					<div class="tab1-con4 tab1-con-img" id="tab1con4">
+						<fieldset>
+						    <legend align="center">&nbsp;商品细节&nbsp;</legend>
+						</fieldset>
+					</div>
+					<div class="tab1-con5 tab1-con-img" id="tab1con5">
+						<fieldset>
+						    <legend align="center">&nbsp;服务质量&nbsp;</legend>
+						</fieldset>
+					</div>
+					<div class="tab1-con6 tab1-con-img" id="tab1con6">
+						<fieldset>
+						    <legend align="center">&nbsp;买家须知&nbsp;</legend>
+						</fieldset>
+					</div>
+					<div class="tab1-con7 tab1-con-img" id="tab1con7">
+						<fieldset>
+						   <legend align="center">&nbsp;促销专区&nbsp;</legend>
+						</fieldset>
+						<li>
+							<p><img src="img/dibandetail-tab1-img1.jpg" alt="" /></p>
+							<p>包安装大自然野生原木地板实木地板木地</p>
+							<p>原价<span>400.00</span>元/㎡</p>
+							<p><span>380.00</span>元/㎡</p>
+						</li>
+						<li>
+							<p><img src="img/dibandetail-tab1-img2.jpg" alt="" /></p>
+							<p>包安装大自然野生原木地板实木地板木地</p>
+							<p>原价<span>400.00</span>元/㎡</p>
+							<p><span>380.00</span>元/㎡</p>
+						</li>
+						<li>
+							<p><img src="img/dibandetail-tab1-img3.jpg" alt="" /></p>
+							<p>包安装大自然野生原木地板实木地板木地</p>
+							<p>原价<span>400.00</span>元/㎡</p>
+							<p><span>380.00</span>元/㎡</p>
+						</li>
+						<li>
+							<p><img src="img/dibandetail-tab1-img4.jpg" alt="" /></p>
+							<p>包安装大自然野生原木地板实木地板木地</p>
+							<p>原价<span>400.00</span>元/㎡</p>
+							<p><span>380.00</span>元/㎡</p>
+						</li>
+						<li>
+							<p><img src="img/dibandetail-tab1-img1.jpg" alt="" /></p>
+							<p>包安装大自然野生原木地板实木地板木地</p>
+							<p>原价<span>400.00</span>元/㎡</p>
+							<p><span>380.00</span>元/㎡</p>
+						</li>
+					</div>
+					<!--<div class="tab1-fixed">
+						<p onclick="tabfixed(0)"><span ><img class="fixspan" src="img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con1">商品参数</a></p>
+						<p onclick="tabfixed(1)"><span ><img class="fixspan" src="img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con2">商品情景</a></p>
+						<p onclick="tabfixed(2)"><span ><img class="fixspan" src="img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con3">商品实拍</a></p>
+						<p onclick="tabfixed(3)"><span ><img class="fixspan" src="img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con4">商品细节</a></p>
+						<p onclick="tabfixed(4)"><span ><img class="fixspan" src="img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con5">服务质量</a></p>
+						<p onclick="tabfixed(5)"><span ><img class="fixspan" src="img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con6">买家须知</a></p>
+						<p onclick="tabfixed(6)"><span ><img class="fixspan" src="img/danxuan-btn.jpg"/></span><a class="fixa" href="#tab1con7">促销专区</a></p>
+					</div>-->   
+				</div>
+				<div class="tabs tabs2" >
+					<div>
+						<span>99%</span>好评度
+					</div>
+					<div class="tabs2-con2">
+						<p class="tabs2-con2-1">
+							<span class="tabs2-con2-1-txt1">dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</span>
+							<span class="tabs2-con2-1-img1">
+								<img class="activeimg" index="1" onclick="activeimg('this,1)" src="img/dibandetail-img3.jpg" alt="" />
+								<img class="activeimg" index="2"  onclick="activeimg('this,2)" src="img/dibandetail-img2.jpg" alt="" />
+							</span>
+							<span class="tabs2-con2-1-img2"><img class="bigimg" src="" alt="" /></span>
+						</p>
+						<p class="tabs2-con2-2">
+							<span>★★★★★</span>
+							<span>2016-12-15&nbsp;15:27</span>
+						</p>
+						<p class="tabs2-con2-3">
+							<span><img src="img/user-img.png" alt="" /></span>
+							<span>13888888888</span>
+						</p>
+					</div>
+					<div class="tabs2-con2">
+						<p >ddddddddddddddddddddddddddddddddddddddddddd
+							dddddddddddddddddddddddddddddddddddddddd</p>
+						<p>
+							<span>★★★★★</span>
+							<span>2016-12-15&nbsp;15:27</span>
+						</p>
+						<p>
+							<span><img src="img/user-img.png" alt="" /></span>
+							<span>13888888888</span>
+						</p>
+					</div>
+					<div>分页</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	</body>
+	<script src="js/headfoot.js"></script>
+	<script>
+		window.onscroll=function(){
+				var tabtop=$("#tab1")[0].offsetTop;
+				var doctop=$(window).scrollTop();
+				var stop=tabtop-doctop;
+				if(doctop>=stop){
+					$(".tab1-fixed").css("position","fixed");
+					$(".tab1-fixed").css("top",300+"px");
+					$(".tab1-fixed").css("right",208+"px");
+				}else{
+					$(".tab1-fixed").css("position","absolute");
+					$(".tab1-fixed").css("top",0+"px");
+					$(".tab1-fixed").css("right",0+"px");
+				}
+				
+			}
+		function tabfixed(n){
+			for(var i=0;i<7;i++){
+				if(i==n){
+					$(".fixspan").eq(i).attr("src","img/danxuan-btn2.jpg");
+					$(".fixa").eq(i).css("color","red");
+				}else{
+					$(".fixspan").eq(i).attr("src","img/danxuan-btn.jpg");
+					$(".fixa").eq(i).css("color","#666");
+				}
+			}
+		}
+		function dibandetailtabs(n){
+			for(var i=0;i<2;i++){
+				if(i==n){
+					$(".tabli").eq(i).css("border-color","red")
+					$(".tabli").eq(i).css("color","red")
+					$(".tabs").eq(i).css("display","block")	
+				}else{
+					$(".tabli").eq(i).css("border-color","#999999")
+					$(".tabli").eq(i).css("color","#999")
+					$(".tabs").eq(i).css("display","none")
+				}
+			}
+			
+		}
+		function addborder(n,dizhi){
+			for(var i=0;i<5;i++){
+				if(i==n){
+					$(".simg").eq(i).css("border-color","red")
+					$("#img1").attr("src",dizhi)
+				}else{
+					$(".simg").eq(i).css("border-color","#fff")
+				}
+				
+			}
+		}
+		function changecolor(){
+			$("#shoucang").toggleClass("bianse");
+		}
+		function imgaddborder(n){
+			for(var i=0;i<2;i++){
+				if(i==n){
+					$(".imgaddbor").eq(i).addClass("imgborder");
+				}else{
+					$(".imgaddbor").eq(i).removeClass("imgborder");
+				}
+			}
+		
+		}
+		var mid=1;
+		function activeimg(t,n){
+			var count=$(".tabs2-con2-1-img2").css("display");
+			
+//			var index=$(t).attr("index");
+//			mid=index;
+//			if(mid==n){
+//				if(count=="block"){
+//					$(".tabs2-con2-1-img2").css("display","none");
+//					$('.activeimg').css('border-color','#d1d1d1');
+//					$(".tabs2-con2-3").css("margin-top","30px");
+//					$(".tabs2-con2-2").css("margin-top","30px");
+//				}
+//				else if(count=="none"){
+//					$(".tabs2-con2-1-img2").css("display","block");
+//					$('.activeimg').css('border-color','#d1d1d1');
+//					$(t).css('border-color','red');
+//					$(".bigimg").attr("src",data);
+//					$(".tabs2-con2-3").css("margin-top","150px")
+//					$(".tabs2-con2-2").css("margin-top","150px")
+//				}
+//			}else{
+//				$(".bigimg").attr("src",data);
+//				$('.activeimg').css('border-color','#d1d1d1');
+//					$(t).css('border-color','red');
+//			}
+//			console.log(t);
+//			console.log($(".tabs2-con2-1-img2").css("display"))
+			
+//			$(t).attr("index",count);
+			
+		}
+	</script>
+</html>

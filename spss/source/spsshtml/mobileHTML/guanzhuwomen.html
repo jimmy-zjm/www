@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"/>
+		<title></title>
+		<link rel="stylesheet" href="css/publick.css" />
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
+		<link rel="stylesheet" href="css/lianxiwomen.css"/>
+		<script src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="head">
+			<a class="head-1 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/back.png" alt="" />
+			</a>
+			<a class="head-2 head-son" href="javascript:;">
+				联系我们
+			</a>
+			<a class="head-3 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/people-s.png" alt="" />
+			</a>
+		</div>
+		<div class="content">
+			<img class="wenxinQR" src="img/weixin.png">	
+		</div>
+		<div class="foot">
+			<div class="foot1">
+				<span class="foot-left">关于我们</span>
+				<span class="foot-right" onclick="xialashow('guanyuwomen')"><img src="img/home/home-xiala.png"/></span>
+			</div>
+			<div class="foot-son guanyuwomen">
+				<p class="foot-son-1">公司简介</p>
+				<p class="foot-son-1">联系我们</p>
+				<p class="foot-son-1">加入我们</p>
+			</div>
+			<div class="foot1 foot2">
+				<span class="foot-left">帮助中心</span>
+				<span class="foot-right" onclick="xialashow('helpcenter')"><img src="img/home/home-xiala.png"/></span>
+			</div>
+			<div class="foot-son helpcenter">
+				<p class="foot-son-1">客服电话</span>
+			</div>
+			<div class="foot1 foot3">
+				<span class="foot-left">关注我们</span>
+				<span class="foot-right" onclick="xialashow('erweima')"><img src="img/home/home-xiala.png"/></span></div>
+			<div class="foot-son erweima">
+				<p class="foot-son-1">微信二维码</p>
+			</div>
+			<div class="foot4">
+			
+				<p class="foot4-1">客服电话</p>
+				<p class="foot4-1">400-800-1027</p>
+			</div>
+		</div>
+		
+	</body>
+	<script>
+    	function xialashow(nage){
+    		if($('.'+nage).css('display') == 'none'){
+    			$('.'+nage).css('display','block');
+    		}else{
+    			$('.'+nage).css('display','none');
+    		}
+    		
+    	}
+    </script>
+</html>
+

@@ -1,0 +1,362 @@
+<!-- user页面头部，引用头部时全部导入 -->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+	<!--<link rel="stylesheet"  type="text/css"  href="css/style.css"  media="screen and (min-width:1200px)"/>-->
+
+
+	<link rel="stylesheet"  type="text/css"  href="css/style.css" ><!-- 通用CSS -->
+	<link rel="stylesheet"  type="text/css"  href="css/userstyle.css" ><!-- 欧洲团代购tuan页面调用CSS -->
+	<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+	<script src="js/T_checkForm.js" type="text/javascript"></script>
+	<script src="js/login.js" type="text/javascript"></script>
+	<title>会员中心登陆页</title>
+	<style>
+		#loginError{
+			float: left;
+			margin: -30px 0 0 68px;
+			font-size: 18px;
+			color: red;
+			display: none;
+			font-family: "Lucida Grande", tahoma, arial, 宋体;
+		}
+
+		#userNameErrorDivId,#passwordErrorDivId{
+			float: left;
+			margin: 0px 0 0 68px;
+			font-size: 18px;
+			color: red;
+			font-family: "Lucida Grande", tahoma, arial, 宋体;
+			display: none;
+		}
+	</style>
+</head>
+<body style="background:#333333;">
+<div class="userlogn-head">
+	<div class="userlogn-head-bk">
+		<div class="userlogn-head-logo">
+			<a href="index.php">
+				<img src="images/logo.png"/>
+			</a>
+		</div>
+
+		<div class="userlogn-head-span">
+			欢迎登陆
+		</div>
+
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="clear"></div>
+
+
+<div class="userlogn-center">
+	<div class="clear2"></div>
+
+	<div class="clear2"></div>
+
+	<div class="userlogn-center-bk">
+		<div class="userlogn-center-left">
+			<img src="images/204.jpg"/>
+		</div>
+
+		<div class="userlogn-center-right">
+			<div class="userlogn-center-title">
+				<div class="userlogn-center-title-left">
+					暖扬扬会员
+				</div>
+
+				<div class="userlogn-center-title-right">
+					<img src="images/242.png"/>
+					<a href="user.php?register">
+						立即注册
+					</a>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="clear"></div>
+
+			<form action="" id="loginFormId" method="post">
+
+				<div id="loginError">
+					<!--账号或密码错误,请重试!!!-->
+				</div>
+
+				<div class="userlogn-center-name">
+
+					<div class="userlogn-center-name-input">
+						<input id="userNameTextId" name="userName" type="text" value="" required="required" />
+					</div>
+
+					<div class="userlogn-center-name-img">
+						<img src="images/236.png"/>
+					</div>
+					<div class="clear"></div>
+					<div id="userNameErrorDivId">
+						用户名不得为空
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="clear27"></div>
+
+				<div class="userlogn-center-password">
+
+					<div class="userlogn-center-password-input">
+						<input id="passWordId" name="passWord" type="password" value="" required="required" />
+					</div>
+
+					<div class="userlogn-center-password-img">
+						<img src="images/237.png"/>
+					</div>
+					<div class="clear"></div>
+					<div id="passwordErrorDivId">
+						密码不得为空
+					</div>
+				</div>
+
+				<div class="clear27"></div>
+
+				<div class="userreg-center-checkbox">
+					<div class="userreg-center-checkbox-01">
+						<input id="" name="" type="checkbox" value="" />
+					</div>
+
+					<div class="userreg-center-checkbox-02">
+						自动登录
+					</div>
+
+					<div class="userreg-center-checkbox-03">
+						<a href="user.php?passwordRetrieve">
+							忘记密码？
+						</a>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+
+				<div class="clear"></div>
+
+				<div class="userlogn-center-confirm">
+					<input type="button" id="loginSubmitId" value="登 录" />
+				</div>
+			</form>
+
+			<div class="clear27"></div>
+
+			<div class="userlogn-center-dsf">
+				<div class="userlogn-center-dsf-01">
+					使用合作网站账号登录暖扬扬
+				</div>
+
+				<div class="clear12"></div>
+
+				<div class="userlogn-center-dsf-02">
+                    <a href="javascript:void(0)" onclick="javascript:window.location.href='alipayfastlogin/alipayapi.php'">
+                        <img src="images/zhifubao.png"/>
+                    </a>
+                    
+                    <span></span>
+                    
+                    <a href="#">
+                        <img src="images/qq.png"/>
+                    </a>
+                    
+                    <span></span> 
+                    
+                    <a href="#">
+                    	<img src="images/weixin.png"/>
+                    </a>     
+                    
+                    <div class="clear"></div>        	
+                </div>
+			</div>
+
+			<div class="clear2"></div>
+		</div>
+
+		<div class="clear2"></div>
+	</div>
+</div>
+
+
+<div class="clear"></div>
+
+
+
+
+
+<!-- user底部，引用头部时倒入这个div  -->
+<div class="userbottom">
+
+
+	<div class="clear"></div>
+
+	<!-- 根部链接 -->
+	<div class="root">
+		<div class="root-center">
+			<div class="root-list">
+				<a href="#">
+					关于我们
+				</a>
+			</div>
+
+			<div class="root-list">
+				<a href="#">
+					联系我们
+				</a>
+			</div>
+
+			<div class="root-list">
+				<a href="#">
+					人才招聘
+				</a>
+			</div>
+
+			<div class="root-list">
+				<a href="#">
+					招商加盟
+				</a>
+			</div>
+
+			<div class="root-list">
+				<a href="#">
+					商务合作
+				</a>
+			</div>
+
+			<div class="root-list">
+				<a href="#">
+					友情链接
+				</a>
+			</div>
+
+			<div class="root-list">
+				<a href="#">
+					备案号码
+				</a>
+			</div>
+
+			<div class="root-list">
+				<a href="#">
+					各类证件
+				</a>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	</div>
+	<!-- 根部链接end -->
+
+
+	<div class="clear"></div>
+
+</div>
+<!-- user底部end -->
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+	<div class="leftmenu">
+
+		<ul class="navigation">
+			<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+			<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+			<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+			<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+			<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+			<li><a data-slide="6" onClick="gotofloor(this);" href="javascript:void(0);">6F</a></li>
+			<li><a data-slide="7" onClick="gotofloor(this);" href="javascript:void(0);">7F</a></li>
+
+
+
+		</ul>
+
+		<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+		<!-- js效果写的时候收起为downbo2展开是downbo -->
+	</div>
+</div>
+<script>
+	jQuery(document).ready(function($) {
+		try{
+			var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+			var fs = $('.navigation').children().size();
+			var fss = new Array();
+			for (i = 0; i < fs; i++) {
+				j = i + 1;
+				fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+			}
+
+
+
+			$(window).scroll(function(){
+				var currentTOP = $(window).scrollTop();
+				if(currentTOP>f1-30){
+					$("#skipfloor").show();
+				}else{
+					$("#skipfloor").hide();
+				}
+				if (currentTOP <= f1) {
+					$('.navigation a').removeClass('sel');
+					$('.navigation a[data-slide="1"]').addClass('sel');
+					return;
+				}else{
+					changefl(getFloor(currentTOP));
+				}
+			});
+
+
+			function getFloor(fh){
+				if(fs==0||fh<=f1){
+					return 1;
+				}
+				if(fh>=fss[fs-1]){
+					return fs;
+				}
+				for (k=0; k<fs;k++) {
+					if(fh>fss[k]&&fh<fss[k+1]){
+						return k+1;
+					}
+				}
+			}
+
+			function changefl(fno){
+				$('.navigation a').removeClass('sel');
+				$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+			}
+
+		}catch(e){
+			console.log(e);
+		}
+	});
+
+	function gotop() {
+		$('body,html').animate({
+			scrollTop : 0
+		}, 800);
+	}
+	function gotofloor(thiz) {
+		$("a[class='sel']").attr('class', '');
+		$(thiz).attr("class", "sel");
+		dataslide = $(thiz).attr('data-slide');
+		var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+		$("html,body").animate({
+			scrollTop : pos
+		}, 800);
+	}
+</script>
+
+<!-- 楼层定位end -->
+
+
+
+</body>
+</html>

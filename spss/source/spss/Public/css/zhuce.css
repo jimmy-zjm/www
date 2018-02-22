@@ -1,0 +1,237 @@
+.zhuce {
+	width: 100%;
+	height: 740px;
+}
+.zhuce-con {
+	width: 1200px;
+	height: 685px;
+	margin: 0 auto;
+	padding-top: 42px;
+}
+.zhuce-con-left {
+	float: left;
+	width: 545px;
+	height: 600px;
+	background: url(../img/zhuce-banner.jpg) no-repeat;
+	background-position: 50% 25%;
+}
+.zhuce-con-right {
+	float: right;
+	width: 506px;
+	height: 629px;
+	background: #e6e6e6;
+}
+.zhuce-con-right > li {
+	width: 320px;
+	margin: 0 auto;
+}
+.right-tit {
+	font-size: 20px;
+	line-height: 105px;
+	height: 105px;
+	color: #636363;
+}
+.right-pub {
+	height: 90px;
+}
+.right-pub > span {
+	display: block;
+	float: left;
+	width: 60px;
+	height: 40px;
+	background: #fff url(../img/zhuce-shouji.jpg) no-repeat;
+	background-position: 50% 50%;
+}
+.right-pub > input {
+	float: left;
+	width: 250px;
+	height: 40px;
+	border: none;
+	outline: none;
+}
+.right-pass > span {
+	background: #fff url(../img/zhuce-mima.jpg) no-repeat;
+	background-position: 50% 50%;
+}
+.right-yanzheng > span {
+	background: #fff url(../img/zhuce-yanzhengma.jpg) no-repeat;
+	background-position: 50% 50%;
+}
+.right-yanzheng > input {
+	width: 111px;
+}
+.right-yanzheng > button {
+	line-height: 40px;
+	display: inline-block;
+	width: 117px;
+	height: 40px;
+	margin-left: 22px;
+	cursor: pointer;
+	text-align: center;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	outline: none;
+	background: url(../img/zhuce-yanzheng.jpg) no-repeat;
+}
+.right-xieyi {
+	font-size: 14px;
+	width: 250px;
+	height: 70px;
+	color: #636363;
+}
+.redfont {
+	color: #fc4b4b;
+}
+.denglu {
+
+	/*margin-left: 10px;*/
+	color: #636363;
+}
+.wancheng > input {
+	font-size: 18px;
+	width: 317px;
+	height: 37px;
+	cursor: pointer;
+	color: #fff;
+	border: none;
+	outline: none;
+	background: url(../img/zhuce-zhuce.jpg);
+}
+
+/*modal*/
+
+/*body{
+	position: relative;
+}*/
+.modal {
+	position: fixed;
+	z-index: 1000000;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	min-height: 768px;
+	background: rgba(0, 0, 0, .6);
+}
+.modal-con {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 1100px;
+	height: 700px;
+	margin: auto;
+	border: 10px solid #b4b4b4;    /*border: 1px solid #fff;*/
+	background: #fff;
+}
+.modal-tit {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 50px;
+	width: 1100px;
+	height: 50px;
+	text-align: center;
+	background: #e5e5e5;
+}
+.close {
+	display: block;
+	float: right;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	background: url(../img/close.png);
+	background-size: 20px 20px;
+}
+.modal-neirong {
+	font-size: 14px;
+	overflow-y: scroll;
+	width: 1040px;
+	height: 550px;
+	margin: 20px auto;
+	color: #666;
+}
+.modal-neirong h4 {
+	color: #333;
+}
+.tongyi {
+	width: 1100px;
+	height: 50px;
+}
+.tongyi > a {
+	line-height: 40px;
+	display: block;
+	width: 180px;
+	height: 40px;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+	border-radius: 3px;
+	background: #f6685d;
+}
+#mask-bg {
+	position: fixed;
+	z-index: 999;
+	display: none;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color: rgba(0, 0, 0, .2);
+}
+#mask-bg .verificationBox {
+	font-size: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 270px;
+	padding: 60px;
+	box-sizing:border-box;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+}
+.verificationBox .closeBtn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 20px;
+	height: 20px;
+	color: #d8d9da;
+	cursor:pointer;
+}
+.verificationBox > div * {
+	float: left;
+	height: 40px;
+}
+.verificationBox > div{
+	margin:20px 0;
+	overflow:hidden;
+}
+.verificationBox > div input {
+	width: 160px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	outline: none;
+}
+.verificationBox > div img {
+	height:42px;
+	width: 90px;
+}
+
+#ma-sure-btn {
+	line-height: 40px;
+	display: block;
+	width: 160px;
+	height: 40px;
+	text-align: center;
+	border-radius: 3px;
+	color:#fff;
+	background-color:#fe2826;
+
+}

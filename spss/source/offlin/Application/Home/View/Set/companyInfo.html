@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>公司信息</header>
+	<section class="container">
+
+		<?php foreach ($data as $k => $v): ?>
+			<div class="companyinfo-box">
+				<p class="sys-item">公司名称
+					<span class="fr"><{$v.name}></span>
+				</p>
+				<p class="sys-item">所在地区
+					<span class="fr"><{$v.prov}> <{$v.city}></span>
+				</p>
+				<p class="sys-item sys-auto">
+					<span class="item-name">公司地址</span>
+					<span class="cline"><{$v.city}> <{$v.district}> <{$v.address}></span>
+				</p>
+
+				<p class="redbtn-box clearfix">
+					<a href="<{:U('Set/companyDetail',['id'=>$v['id']])}>">查看详情</a>
+				</p>
+			</div>
+		<?php endforeach ?>
+		
+	</section>
+
+	
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>合作品牌-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+    $(".select2").uedSelect({
+        width : 167
+    });
+    $(".select3").uedSelect({
+        width : 100
+    });
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+          <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+          <li><a >健康舒适家居</a></li>
+          <li><a href="<{:U('index')}>">合作品牌</a></li>
+          <li><a href="<{:U('add')}>">添加</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+    <div id="usual1" class="usual">
+
+    <!-- 选项卡 -->
+    <div class="itab">
+        <ul>
+        <li><a href="#tab1" class="selected">通用信息</a></li>
+        <li><a href="#tab2">合作品牌相册</a></li>
+        </ul>
+    </div>
+    <form action="<{:U('insert')}>" method="post" enctype="multipart/form-data">
+
+        <!-- 选项卡一 -->
+        <div id="tab1" class="tabson">
+            <ul class="forminfo">
+                <!-- 合作品牌名称 -->
+                <li><label>合作品牌名称<b>*</b></label><input name="name" type="text" class="dfinput"/><i></i></li>
+                
+                <!-- 分类名称 -->
+                <li>
+                    <label>分类名称</label>
+                    <div class="vocation">
+                        <select class="select1" name="class_id">
+                            <option value="">请选择...</option>
+                            <option value="1">健康舒适家居</option>
+                            <option value="2">欧洲团代购</option>
+                        </select>
+                    </div>
+                </li>
+
+                <!-- 合作品牌产品 -->
+                <li><label>合作品牌产品</label><input name="product" type="text" value="" class="dfinput" />
+                <i>多个产品以'|'分割开，例'电动气动中央吸尘|电动气动中央吸口|气动中央吸尘'</i></li>
+
+                <!-- 合作品牌url -->
+                <li><label>合作品牌url<b>*</b></label><input name="url" type="text" value="http://" class="dfinput" /><i></i></li>
+
+                <!-- 合作品牌logo -->
+                <li><label>合作品牌logo</label><input type="file" name="logo" id="" /></li>
+
+                <!-- 是否显示 -->
+                <li><label>是否显示</label><cite><input name="is_show" type="radio" value="1" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio" value="0" />否</cite></li>
+                
+                <!-- 合作品牌简述 -->
+                <li><label>合作品牌简述</label><textarea id="editor_id" name="sketch" cols="" rows="" class="textinput"></textarea></li>
+
+                <!-- 合作品牌排序 -->
+                <li><label>合作品牌排序</label><input name="order" type="text" value="50" class="dfinput" /><i>标题不能超过20个字符</i></li>
+
+            </ul>
+        </div>
+
+        <!-- 品牌相册-->
+        <div id="tab2" class="tabson">
+            <ul class="forminfo goods-image">
+                <li><a href="javascript:;" onclick="addImage(this)">[+]</a>上传图片 <input type="file" accept="image/*" multiple name="img_url[]" class="fdinput" id="" /></li>
+            </ul>
+        </div>
+        <div style="margin:0 auto;width:320px">
+            <input name="" type="submit" class="btn" value="保存"/>
+            <input name="" type="reset" class="btn" value="重置"/>
+        </div>
+    </form>
+    </div>
+    </div>
+    <script type="text/javascript">
+        
+        //点击[+]号 添加多个下拉框
+        function addSpec(obj){
+            //在当前的li后面克隆一个li,并把加号修改为减号
+            var removeSpec = '<li>'+$(obj).parent().parent().clone().html().replace('addSpec(this)">[+]','removeSpec(this)">[-]')+'</li>';
+            $(obj).parent().parent().after(removeSpec);
+        }
+
+        //点击[-]号 删除下拉框
+        function removeSpec(obj){
+            //删除当前的tr
+            $(obj).parent().parent().remove();
+        }
+
+
+        //添加一个图片上传按钮
+        function addImage(obj){
+            var image = '<li>'+$(obj).parent().clone(true).html().replace('addImage(this)">[+]','removeImage(this)">[-]')+'</li>';
+            $(obj).parent().after(image);
+        }
+
+        //删除一个图片上传按钮
+        function removeImage(obj){
+            $(obj).parent().remove();
+        }
+
+        //颜色选择器
+        $("#cp3").colorpicker({
+            fillcolor:true,
+            success:function(o,color){
+                $("#goods_name").css("color",color);
+                $("#goods_name_style").val(color);
+            },
+            reset:function(o){
+                $("#goods_name").css("color","");
+                $("#goods_name_style").val("");
+            }
+        });
+        //$("#goods_name").css("color",$("#goods_name_style").val());
+
+        //tab切换
+        $("#usual1 ul").idTabs();
+
+        //表格隔行变色
+        $('.tablelist tbody tr:odd').addClass('odd');
+
+    </script>
+</body>
+</html>
+
+

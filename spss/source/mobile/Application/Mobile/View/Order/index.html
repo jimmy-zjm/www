@@ -1,0 +1,47 @@
+<include file="Public/header" /> <!-- 包含头部模版header -->
+<link rel="stylesheet" href="__PUBLIC__/css/dingdan.css"/>
+
+<div class="content">
+	<?php if(!empty($list)){?>
+	<div class="shopheji">
+		<?php foreach ($list as $k => $v): ?>
+			<div class="shop">
+				<img class="shop-1" src="<?=getImage($v['img']) ?>" alt="" />
+				<p class="shop-2"><{$v.quote_name}> (订金)</p>
+				<p class="shop-3"><span>¥500</span>
+					<span>x<{$v.num}></span></p>
+				</div>
+			<?php endforeach ?>
+			<div class="heji">
+				<p>共<{$num}>件商品&nbsp;合计：¥ <a><{$num*500}></a></p>
+			</div>
+		</div>
+		<div class="backup">
+			<a href="<{:U('User/outLogin')}>"><img src="__PUBLIC__/img/tuichu.png" alt="" /></a>
+		</div>
+		<?php }else{?>
+		<div class="no-dingdan">
+			<img src="__PUBLIC__/img/dingdan-no.png" alt="" />
+		</div>
+
+		<div class="backup">
+			<!-- <a href="<{:U('Index/index')}>"><img src="__PUBLIC__/img/backhome.png" alt="" /></a> -->
+			<a href="<{:U('User/outLogin')}>"><img src="__PUBLIC__/img/tuichu.png" alt="" /></a>
+		</div>
+		<?php }?>
+	</div>
+	<script>
+		$(function(){
+			var $backup=$(".backup");
+			var len=$(".shop").length;
+			if(len<4){
+				$backup.addClass('noMore')
+			}else{
+				$backup.addClass('hasMore')
+			}
+		})
+	</script>
+</body>
+
+</html>
+

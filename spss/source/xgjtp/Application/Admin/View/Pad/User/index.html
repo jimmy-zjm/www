@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户名列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="<{:U('Admin/Index/index/main')}>">首页</a></li>
+        <li><a href="#">用户管理</a></li>
+        <li><a href="#">用户列表</a></li>
+        </ul>
+    </div>
+    <div class="rightinfo">
+        <form action="<{:U('index')}>" method="get">
+            <ul class="prosearch">
+                <li>
+                    <label>查询：</label>
+                    <i>用户名：</i>
+                    <a><input name="name" type="text" value="<{$_GET['name']}>" class="scinput" /></a>
+                    <a><input name="" type="submit" class="sure" value="查询"/></a>
+                 </li>
+            </ul>
+        </form>
+
+        <!-- 添加按钮 -->
+        <div class="tools">
+            <ul class="toolbar">
+                <li class=""><a href="<{:U('add')}>"><span><img src="__PUBLIC__/Admin/images/t01.png"></span>添加</a></li>
+            </ul>
+        </div>
+
+        <!-- 表格 -->
+        <table class="tablelist">
+            <thead>
+                <tr>
+                    <th>编号<i class="sort"><img src="__PUBLIC__/Admin/images/px.gif" /></i></th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+					<th>性别</th>
+                    <th>身份证号</th>
+                    <th>启用账号</th>
+					<th>添加时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 品牌遍历区 -->
+                <?php foreach ($user_list as $key => $user): ?>
+                
+                <tr data-id="<{$user.id}>">
+                    <td><?php echo $key+1 ?></td>
+                    <td><{$user.name}></td>
+                    <td><{$user.email}></td>
+                    <td><if condition="$user.sex eq '1' ">男<elseif condition ="$user.sex eq '0' "/>女<elseif condition ="$user.sex eq '2' "/>保密<else />未填写</if></td>
+                    <td><{$user.number}></td>
+                    <td>
+                        <?php if($user['is_use']==1):?>
+                        <a href="<{:U('toggle',array('id'=>$user['id']))}>" class="toggleShow blue">已启用</a>
+                        <?php else: ?>
+                        <a href="<{:U('toggle',array('id'=>$user['id']))}>" class="toggleShow red">已禁用</a>
+                        <?php endif ?>
+                    </td>
+                    <td><{$user.add_time|date='Y-m-d H:i:s',###}></td>
+                    <td>
+                        <a href="<{:U('edit',array('id'=>$user['id']))}>" class="tablelink">编辑</a>                       
+                </tr>
+                <?php endforeach ?>
+                <!-- 品牌遍历区 -->
+            </tbody>
+        </table>
+
+
+        <!-- 分页开始 -->
+        <{$page}>
+        <!-- 分页结束 -->
+
+
+      
+    </div>
+</body>
+</html>

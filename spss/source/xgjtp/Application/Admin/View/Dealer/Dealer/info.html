@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>经销商详情页面</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+  <script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true,
+          items : ['baidumap'],
+
+      }); 
+      
+      prettyPrint();
+  });
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+    $(".select2").uedSelect({
+        width : 167
+    });
+    $(".select3").uedSelect({
+        width : 100
+    });
+
+});
+</script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    	<li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+		    <li><a >健康舒适家居</a></li>
+	    	<li><a href="<{:U('index')}>">服务商列表</a></li>
+	    	<li><a href="<{:U('info',array('d_id'=>$d_id))}>">服务商详情</a></li>
+	    </ul>
+	    </div>
+	    <div class="formbody">
+    	<div id="usual1" class="usual">
+	    <!-- 选项卡 -->
+	    <div class="itab">
+	        <ul>
+	        <li><a href="#tab1" class="selected">通用信息</a></li>
+	        <li><a href="#tab2">账号信息</a></li>
+	        <li><a href="#tab3">展厅地图</a></li>
+	        <li><a href="#tab4">展厅展示图</a></li>
+	        </ul>
+	    </div>
+		    <div id="tab1" class="tabson">
+			    <ul class="forminfo">
+				    <li><label>服务商公司名称</label><input name="d_company" type="text" class="dfinput" disabled="disabled" value="<{$dealer['d_company']}>"/><i></i></li>
+				    <li><label>区域</label><input name="d_district" type="text" class="dfinput" disabled="disabled" value="<{$dealer['d_district']}>"/></li>
+			    	<li><label>省份</label><input name="d_province" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_province']}>"/><i></i></li>
+				    <li><label>城市</label><input name="d_city" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_city']}>"/><i></i></li>
+				    <li><label>区县</label><input name="d_area" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_area']}>"/><i></i></li>
+
+					<?php foreach($city as $k=>$v){ ?>
+				    <li><label>服务地区 <?=$k+1 ?></label><input name="d_service_city_all" disabled="disabled" type="text" class="dfinput" value="<?=$v ?>"/><i></i></li>
+					<?php } ?>
+
+				    <li><label>级别</label><input name="d_rank" type="text" class="dfinput" disabled="disabled" value="<{$dealer['d_rank']}>"/></li>
+			    	<li><label>状态</label><input name="d_runstatus" type="text" class="dfinput" disabled="disabled" value="<?php echo $dealer['d_runstatus']==1?'正常':'不正常'?>"/></li>
+				    <li><label>负责人</label><input name="d_legalperson" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_legalperson']}>"/><i></i></li>
+				    <li><label>电话</label><input name="d_legalperson_phone" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_legalperson_phone']}>"/><i></i></li>
+				    <li><label>公司简介</label><textarea name="d_company_desc" disabled="disabled" cols="" rows="" class="taretextinput"><{$dealer['d_company_desc']}></textarea><i></i></li>
+				    <li><label>办公地点</label><input name="d_rel_address" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_rel_address']}>"/><i></i></li>
+				    <li><label>送货地点</label><input name="d_pickup_address" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_pickup_address']}>"/><i></i></li>
+				    <li><label>展厅地点</label><input name="d_hall_address" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_hall_address']}>"/><i></i></li>
+			    </ul>
+		    </div>
+		    <div id="tab2" class="tabson">
+			    <ul class="forminfo">
+				    <li><label>账号</label><input name="d_name" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_name']}>"/><i></i></li>
+				    <li><label>密码</label><input name="d_pwd" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_pwd']}>"/><i></i></li>
+				    <li><label>邮箱</label><input name="d_email" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_email']}>"/><i></i></li>
+				    <li><label>联系人</label><input name="d_linkman" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_linkman']}>"/><i></i></li>
+				    <li><label>联系电话</label><input name="d_link_phone" disabled="disabled" type="text" class="dfinput" value="<{$dealer['d_link_phone']}>"/><i></i></li>
+			    </ul>
+		    </div>
+		    <div id="tab3" class="tabson">
+		    	<{$dealer['d_map']}>
+		    </div>
+		    <div id="tab4" class="tabson">
+		    		<ul class="forminfo goods-image">
+			    		<li>展示店面图</li>
+		                <li style=" width:250px;border:3px solid #ED5B13;box-shadow:2px 8px 15px #E5865A;border-radius:4px;padding:3px;">
+		                    <img style="width:250px; height:300px;" src="<{$dealer['d_store_figure']}>" alt="" />
+		                </li>
+						<li>展厅展示图 </li>
+		            </ul>
+		    	<ul class="imglist">
+                <?php foreach ($dealer_image_list as $dealer_image): ?>
+                <li data-id="<{$dealer_image.id}>">
+                    <span style="height:164px;opacity:<?php echo $dealer_image['is_show']==1?'1':'0.3' ?>"><img width="168" height="170" src="<{$dealer_image.url}>"></span>
+                </li>
+                <?php endforeach ?>
+
+            </ul>
+		    </div>
+	    </div>
+	</div>
+<script type="text/javascript">
+        
+        //tab切换
+        $("#usual1 ul").idTabs();
+
+        //表格隔行变色
+        $('.tablelist tbody tr:odd').addClass('odd');
+       
+</script>
+</body>
+</html>
+ 

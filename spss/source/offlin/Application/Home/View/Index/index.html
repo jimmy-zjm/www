@@ -1,0 +1,105 @@
+<include file="Public/head"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/sys.css">
+</head>
+<body>
+	<header>选择所需报价的系统</header>
+	<section class="container">
+		<ul class="sel-sys-list">
+			
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p  <?php if (in_array($quoteCat['0']['cat_id'], $system)): ?> class="sys-item" onclick='selectSys(this,1)'<?php else: ?>class="sys-item sys-item-notselected" <?php endif ?>>
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/xinfeng.png">
+					<img class="sys-selected" src="__PUBLIC__/Dealer/img/xinfeng01.png">
+					<img class="sys-notselected" src="__PUBLIC__/Dealer/img/xinfeng02.png">
+				</p>
+				<!-- 中央新风 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p <?php if (in_array($quoteCat['1']['cat_id'], $system)): ?>  class="sys-item" onclick='selectSys(this,2)' <?php else: ?>class="sys-item sys-item-notselected"  <?php endif ?>>
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/chuli.png">
+					<img class="sys-selected" src="__PUBLIC__/Dealer/img/chuli01.png">
+					<img class="sys-notselected" src="__PUBLIC__/Dealer/img/chuli02.png">
+				</p>
+				<!-- 中央水处理 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p <?php if (in_array($quoteCat['2']['cat_id'], $system)): ?> class="sys-item" onclick='selectSys(this,4)'<?php else: ?>class="sys-item sys-item-notselected"  <?php endif ?>>
+
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/kongtiao.png">
+					<img class="sys-selected" src="__PUBLIC__/Dealer/img/kongtiao01.png">
+					<img class="sys-notselected" src="__PUBLIC__/Dealer/img/kongtiao02.png">
+				</p>
+				<!-- 中央空调 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p <?php if (in_array($quoteCat['3']['cat_id'], $system)): ?> class="sys-item" onclick='selectSys(this,5)' <?php else: ?>class="sys-item sys-item-notselected" <?php endif ?>>
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/dinuan.png">
+					<img class="sys-selected" src="__PUBLIC__/Dealer/img/dinuan01.png">
+					<img class="sys-notselected" src="__PUBLIC__/Dealer/img/dinuan02.png">
+				</p>
+				<!-- 地板采暖 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p  <?php if (in_array($quoteCat['4']['cat_id'], $system)): ?>
+				class="sys-item" onclick='selectSys(this,6)' <?php else: ?>class="sys-item sys-item-notselected" <?php endif ?>>
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/sanre.png">
+					<img class="sys-selected" c_id="<{$quoteCat[8]['cat_id']}>" src="__PUBLIC__/Dealer/img/sanre01.png">
+					<img class="sys-notselected" c_id="<{$quoteCat[8]['cat_id']}>" src="__PUBLIC__/Dealer/img/sanre02.png">
+				</p>
+				<!-- 散热片采暖 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p  <?php if (in_array($quoteCat['5']['cat_id'], $system)): ?> class="sys-item" onclick='selectSys(this,7)' <?php else: ?>class="sys-item sys-item-notselected" <?php endif ?>>
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/reshui.png">
+					<img class="sys-selected" src="__PUBLIC__/Dealer/img/reshui01.png">
+					<img class="sys-notselected" src="__PUBLIC__/Dealer/img/reshui02.png">
+				</p>
+				<!-- 循环热水 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p <?php if (in_array($quoteCat['6']['cat_id'], $system)): ?> class="sys-item" onclick='selectSys(this,8)' <?php else: ?>class="sys-item sys-item-notselected" <?php endif ?>>
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/xichen.png">
+					<img class="sys-selected" src="__PUBLIC__/Dealer/img/xichen01.png">
+					<img class="sys-notselected" src="__PUBLIC__/Dealer/img/xichen02.png">
+				</p>
+				<!-- 中央吸尘 -->
+			</li>
+			<li class="col-xs-6  col-md-4 col-lg-3">
+				<p <?php if (in_array($quoteCat['7']['cat_id'], $system)): ?> class="sys-item"onclick='selectSys(this,9)' <?php else: ?>class="sys-item sys-item-notselected" <?php endif ?>>
+					<img class="sys-unselected" src="__PUBLIC__/Dealer/img/zhineng.png">
+					<img class="sys-selected" src="__PUBLIC__/Dealer/img/zhineng01.png">
+					<img class="sys-notselected" src="__PUBLIC__/Dealer/img/zhineng02.png">
+				</p>
+				<!-- 智能化 -->
+			</li>
+			
+		</ul>
+		<input type="hidden" id='sys' value=''>
+		<a href="javascript:;" onclick='but()' class="my-btm-btn">提交</a>
+	</section>
+	<include file="Public/foot"/>
+
+	<script type="text/javascript">
+		$('#sys').val('');
+		function selectSys(t,id){
+			var cid = $('#sys').val();
+			if($(t).hasClass('sys-item-selected')){
+				$(t).removeClass('sys-item-selected');
+				cid=cid.replace(','+id,"");
+				cid=cid.replace(id+',',"");
+				cid=cid.replace(id,"");
+				$('#sys').val(cid);
+			}else{
+				$(t).addClass('sys-item-selected');
+				if (cid == '') $('#sys').val(id);
+				else $('#sys').val(cid+','+id);
+			}
+		}
+
+		function but(){
+		    var c_id = $('#sys').val();
+		    if (c_id != '') location.href = "<{:U('Furnish/details')}>"+"?catId="+c_id;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<include file="Public/head" />
+<link rel="stylesheet" href="__PUBLIC__/WeChat/css/repairs.css">
+</head>
+<body>
+	<div class="section">
+		
+		<div class="header">
+			<p class="header-title">查看清单</p>
+			<a class="backBtn"  href="javascript:history.back();"></a> 
+			<!-- <a class="searchBtn" href=""></a> -->
+		</div>
+		<div class="repairs-box">
+			<p>
+				<a class="lookbtn" href="<{:U('orderdetails',['oid'=>$oid])}>">订单详情</a>
+			</p >
+		</div>
+		<ul class="listdetails-list color-list">
+			<?php foreach ($list as $k => $v): ?>
+			<li>
+				<img src="<?= getImage($v['img']) ?>">
+				<p><{$v.name}></p>
+				<p>数量:<span><{$v.num}></span></p>
+				<p>规格:<span><{$v.unit}></span></p>
+			</li>
+			<?php endforeach ?>
+		</ul>
+
+	</div>
+	
+	<script type="text/javascript" src="__PUBLIC__/WeChat/js/threeColor.js"></script>
+	<script>
+      borderColor();
+	</script>
+</body>
+</html>

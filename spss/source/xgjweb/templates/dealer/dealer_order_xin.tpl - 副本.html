@@ -1,0 +1,244 @@
+{:include file="dealer/dealer_header_xin.tpl.html":}
+<!--导航-->
+<div class="dealer-nev-bk">
+    <div class="dealer-nev">
+    	<div class="dealer-nev-left">
+        	<img src="images/jiantou05.png"/>
+            
+            <span>
+            	订单管理
+            </span>
+        </div>
+        
+        <div class="dealer-nev-right">
+        	<div class="dealer-nev-right-demo">
+            	<a href="dealer.php?password">
+                	密码管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?advice">
+                	意见反馈
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?account">
+                	账户
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?aftersale">
+                	售后管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?order">
+                	订单管理
+                </a>
+            </div>
+            
+            <div class="dealer-nev-right-demo">
+            	<a href="dealer.php?center">
+                	我的中心
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--导航end-->
+
+<div class="clear30"></div>
+
+<!--中间-->
+<div class="dealer-center">
+	<div class="dealer_order-center">
+    	<div class="dealer_order-center-title">
+        	<div class="dealer_order-center-title-01">
+            	<span>
+                	订单管理
+                </span>
+            </div>
+            
+            <div class="dealer_order-center-title-03">
+            	<a>
+                	高级搜索
+                </a>
+            </div>
+            
+            <div class="dealer_order-center-title-02">
+            	<form action="dealer.php?orderSearch" id="searchText" method="post">
+                    <div class="dealer_order-center-title-02-01">
+                        <input type="text" value="输入关键字"  name="search" id="searchText" onFocus="if (value =='输入关键字'){value =''}" onBlur="if (value ==''){value='输入关键字'}"/>
+                    </div>
+                    
+                    <div class="dealer_order-center-title-02-02">
+                        <input type="button"  value=""/>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <!--此处搜索，请重做，以前用的是超链接的，现在改成input 源代码请查看最底部-->
+                </form>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="dealer_order-center-table">
+        	<div class="dealer_order-center-table-title">
+                <div class="dealer_order-center-table-title-order">
+                    订单号
+                </div>
+                
+                <div class="dealer_order-center-table-title-contacts">
+                    联系人
+                </div>
+                
+                <div class="dealer_order-center-table-title-tel">
+                    电话
+                </div>
+                
+                <div class="dealer_order-center-table-title-address">
+                    地址
+                </div>
+                
+                <div class="dealer_order-center-table-title-with">
+                    跟单人
+                </div>
+                
+                <div class="dealer_order-center-table-title-settlement">
+                    结算状态
+                </div>
+                
+                <div class="dealer_order-center-table-title-progress">
+                    进度状态
+                </div>
+                
+                <div class="dealer_order-center-table-title-alert">
+                    状态提醒
+                </div>
+                
+                <div class="dealer_order-center-table-title-time">
+                    时间
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            {:foreach $dealer_order as $v:}
+            <div class="dealer_order-center-table-demo">
+            	<a href="dealer.php?orderDetail&order_id={:$v.order_id:}">
+                    <div class="dealer_order-center-table-demo-order" title="{:$v.order_code:}">
+                        {:$v.order_code:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-contacts" title="{:$v.consignee:}">
+                        {:$v.consignee:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-tel" title="{:$v.mobile_phone:}">
+                        {:$v.mobile_phone:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-address" title="{:$v.province:}&nbsp;{:$v.city:}&nbsp;{:$v.district:}&nbsp;{:$v.address:}">
+                        {:$v.province:}&nbsp;{:$v.city:}&nbsp;{:$v.district:}&nbsp;{:$v.address:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-with" title="{:$v.order_merchandiser:}">
+                        {:$v.order_merchandiser:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-settlement" title="{:if $v.pay_status eq 0:}未结算{:else if $v.pay_status eq 1:}已全部结算{:else if $v.pay_status eq 2:}第一笔结清{:else if $v.pay_status eq 3:}第二笔结清{:else if $v.pay_status eq 4:}第三笔结清{:/if:}">
+                        {:if $v.pay_status eq 0:}未结算
+                        {:else if $v.pay_status eq 1:}已全部结算
+                        {:else if $v.pay_status eq 2:}第一笔结清
+                        {:else if $v.pay_status eq 3:}第二笔结清
+                        {:else if $v.pay_status eq 4:}第三笔结清
+                        {:/if:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-progress" title="{:if $v.schedule_status eq 1:}未设计{:else if $v.schedule_status eq 2:}已设计{:else if $v.schedule_status eq 3:}辅材施工中{:else if $v.schedule_status eq 4:}辅材完工{:else if $v.schedule_status eq 5:}主设备施工中{:else if $v.schedule_status eq 6:}主设备完工{:else if $v.schedule_status eq 41:}第一笔已清算{:else if $v.schedule_status eq 61:}全部清算{:/if:}">
+                        {:if $v.schedule_status eq 1:}未设计
+                        {:else if $v.schedule_status eq 2:}已设计
+                        {:else if $v.schedule_status eq 3:}辅材施工中
+                        {:else if $v.schedule_status eq 4:}辅材完工
+                        {:else if $v.schedule_status eq 5:}主设备施工中
+                        {:else if $v.schedule_status eq 6:}主设备完工
+                        {:else if $v.schedule_status eq 41:}第一笔已清算
+                        {:else if $v.schedule_status eq 61:}全部清算
+                        {:/if:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-alert" title="{:if $v.action_status eq 1:}New{:else if $v.action_status eq 2:}New{:else if $v.action_status eq 3:}无状态{:/if:}">
+                        {:if $v.action_status eq 1:}New
+                        {:else if $v.action_status eq 2:}New
+                        {:else if $v.action_status eq 3:}无状态
+                     	{:/if:}
+                    </div>
+                    
+                    <div class="dealer_order-center-table-demo-time" title="{:$v.pay_time|date_format:"%Y-%m-%d %H:%M":}">
+                         {:$v.pay_time|date_format:"%Y-%m-%d %H:%M":}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </a>
+            </div>
+            
+            <div class="clear"></div>
+            {:/foreach:}
+            
+            <div class="clear32"></div>
+            
+            <div class="page">{:$page_nav:}</div>
+            
+            <div class="clear32"></div>
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+
+
+{:include file="footer.tpl.html":}
+</body>
+</html>
+
+
+<!--
+原搜素代码
+
+<form action="dealer.php?orderSearch" id="searchText" method="post">
+<input x-webkit-speech="" x-webkit-grammar="builtin:translate" style="color: rgb(196, 196, 196);
+border-radius:4px;"
+onfocus="if(this.value==this.defaultValue){this.value='';};this.style.color='black';"
+onblur="if(this.value==''){this.value=this.defaultValue;this.style.color='#c4c4c4';}" value="订单号 / 联系人 / 手机号" type="text" name="search" id="searchText"/>
+
+</form>
+</div>
+<a href="javascript:search()"><img src="images/sosu_03.png" /></a>
+
+
+ <a href="dealer.php?advancedSearch">	 高级搜索</a>
+ <script type="text/javascript">
+    function search(){
+        document.getElementById("searchText").submit();
+    }
+ </script>-->

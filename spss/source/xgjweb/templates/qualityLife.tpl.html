@@ -1,0 +1,268 @@
+{:include file="header.tpl.html":}
+<!-- banner轮播图片 -->
+<!-- <script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script> -->
+<!-- banner轮播图片end -->
+<link rel="stylesheet"  type="text/css"  href="css/QualityLifestyle.css" ><!-- 首页index页面调用CSS -->
+
+
+
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	<!--主导航-->
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+
+
+	<!-- banner轮播图片 -->
+	<div  style="display: none;" class="flicker-example" data-block-text="false">    
+    	<ul>
+        	<li data-background="images/h.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/m.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/l.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/k.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/i.jpg">
+                <a href="#"></a>
+            </li>
+            
+            <li data-background="images/j.jpg">
+               <a href="#"></a>
+            </li>    
+    	</ul>
+    </div>
+    <!-- banner轮播图片end -->
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="QualityLife-center">
+	<div class="QualityLife-center-demo">
+    	<div class="QualityLife-center-demo-title">
+        	<div class="QualityLife-center-demo-title-img">            	
+            </div>
+            
+            <div class="QualityLife-center-demo-title-span">
+            	<span>
+                	健康家
+                </span>            	
+            </div> 
+        </div>
+        
+        <div class="QualityLife-center-demo-detailed"><!--此DIV显示的内容为后台编辑器编辑内容，编辑器如何编辑，此处怎么显示，暂时先用图片代替-->
+        	<img src="images/663.jpg"/>
+        </div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="QualityLife-center-demo">
+    	<div class="QualityLife-center-demo-title">
+        	<div class="QualityLife-center-demo-title-img">            	
+            </div>
+            
+            <div class="QualityLife-center-demo-title-span">
+            	<span>
+                	舒适家
+                </span>            	
+            </div> 
+        </div>
+        
+        <div class="QualityLife-center-demo-detailed"><!--此DIV显示的内容为后台编辑器编辑内容，编辑器如何编辑，此处怎么显示，暂时先用图片代替-->
+        	<img src="images/664.jpg"/>
+        </div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="QualityLife-center-demo">
+    	<div class="QualityLife-center-demo-title">
+        	<div class="QualityLife-center-demo-title-img">            	
+            </div>
+            
+            <div class="QualityLife-center-demo-title-span">
+            	<span>
+                	品质家
+                </span>            	
+            </div> 
+        </div>
+        
+        <div class="QualityLife-center-demo-detailed"><!--此DIV显示的内容为后台编辑器编辑内容，编辑器如何编辑，此处怎么显示，暂时先用图片代替-->
+        	<img src="images/665.jpg"/>
+        </div>
+    </div>
+    
+    <div class="clear2"></div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear2"></div>
+{:include file="footer.tpl.html":}
+<script>
+$(function(){
+	$(".side ul li").hover(function(){
+		$(this).find(".sidebox").stop().animate({"width":"200px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#fff"})	
+	},function(){
+		$(this).find(".sidebox").stop().animate({"width":"40px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})	
+	});
+});
+//回到顶部函数
+function goTop(){
+	$('html,body').animate({'scrollTop':0},300);
+}
+</script>
+<!-- 代码部分end -->
+<!--右侧浮动导航end-->
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+    <div class="leftmenu">    
+        <ul class="navigation">
+        	<li>
+            	<a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a>
+        	</li>
+        
+        </ul>    
+        
+    	<div class="downbo" onClick="gotop();" href="javascript:void(0);">
+        	TOP
+        </div>
+    	<!-- js效果写的时候收起为downbo2展开是downbo -->
+    </div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

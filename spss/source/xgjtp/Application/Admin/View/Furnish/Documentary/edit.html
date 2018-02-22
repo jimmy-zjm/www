@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户订单跟单信息编辑</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">健康舒适家居</a></li>
+            <li><a href="#">跟单人</a></li>
+            <li><a href="#">编辑</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('update')}>" method="post">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+               
+                <li><label>订单编号</label><{$data.order_id}><i></i></li>
+
+                
+                <li><label>客服人员</label>
+					<select name="kefu_id"  class="dfinput" style="width:150px;" /> 
+						<?php if($data['kefu_id']=='') ?> <option value="" >未选择</option> <?>
+					
+						<?php foreach ($data1 as $key => $val):  ?>
+						<option value="<{$val.user_id}>" <if condition="$val.user_id eq  $data['kefu_id']"> selected="selected"</if> ><{$val.linkman}></option>
+						  <?php endforeach ?>					
+						</select>
+					<i>未选择不修改</i></li>
+
+                
+                <li><label>产品人员</label>
+				<select name="gendan_id"  class="dfinput" style="width:150px;" /> 
+					<?php if($data['gendan_id']=='') ?> <option value="" >未选择</option> <?>
+					<?php foreach ($data1 as $key => $val):  ?>
+					<option value="<{$val.user_id}>" <if condition="$val.user_id eq $data['gendan_id']"> selected="selected"</if> ><{$val.linkman}></option>
+					  <?php endforeach ?>					
+					</select>
+				<i>未选择不修改</i></li>
+
+                             
+
+                <!-- 保存按钮 -->
+                <li><label>&nbsp;</label>
+                    <input name="id" type="hidden" class="btn" value="<{$data.id}>"/>
+                    <input name="" type="submit" class="btn" value="保存"/>
+                </li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

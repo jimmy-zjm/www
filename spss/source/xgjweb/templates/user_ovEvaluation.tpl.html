@@ -1,0 +1,190 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+{:include file="category/category.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/euEvaluate.css" ><!-- 个人中心页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/examples.css" ><!-- 星级评分CSS -->
+
+
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+<![endif]-->
+<div class="clear2"></div>
+
+<div class="user-center">  
+    <div class="user-euEvaluate">
+        <div class="user-euEvaluate-info">
+            <div class="user-euEvaluate-info-left">
+                <div class="user-euEvaluate-info-left-img">
+                    <img src="{:$euGoodsRow.goods_image|getimages:}"/>
+                </div>
+            </div>
+            
+            <div class="user-euEvaluate-info-right">
+                <div class="clear3"></div>
+                
+                <div class="user-euEvaluate-info-right-title">
+                    {:$ovEvaluate.goods_title:}
+                </div>
+                
+                <div class="clear3"></div>
+                
+                <div class="user-euEvaluate-info-right-demo">
+                    <div class="user-euEvaluate-info-right-demo-left">
+                        商品价格：
+                    </div>
+                    
+                    <div class="user-euEvaluate-info-right-demo-right">
+                        <span class="span01">
+                            ￥{:$ovEvaluate.goods_price:}
+                        </span>
+                        
+                        <span class="span02">
+                            元
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user-euEvaluate-info-right-demo">
+                    <div class="user-euEvaluate-info-right-demo-left">
+                        订单编号：
+                    </div>
+                    
+                    <div class="user-euEvaluate-info-right-demo-right">
+                        <span class="span02">
+                            {:$ovEvaluate.sn:}
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user-euEvaluate-info-right-demo">
+                    <div class="user-euEvaluate-info-right-demo-left">
+                        购买日期：
+                    </div>
+                    
+                    <div class="user-euEvaluate-info-right-demo-right">
+                        <span class="span02">
+                            {:$ovEvaluate.pay_time:}
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear33"></div>
+        
+            <div class="user-euEvaluate-form">
+            	<div class="user-euEvaluate-form-star">
+                	<div class="clear2"></div>
+                    <div class="user-euEvaluate-form-demo">
+                        <div class="user-euEvaluate-form-demo-span">
+                            描述符合程度：
+                        </div>
+                        
+                        <div class="user-euEvaluate-form-demo-img">
+                            {:for $i=0;$i<$commentRow.comment.describe;$i++:}
+                            <div class="user-euEvaluate-form-demo-img-images">
+                                <img src="images/xing02.png"/>
+                            </div>
+                            {:/for:}
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user-euEvaluate-form-demo">
+                        <div class="user-euEvaluate-form-demo-span">
+                            物流发货速度：
+                        </div>
+                        
+                        <div class="user-euEvaluate-form-demo-img">
+                            {:for $i=0;$i<$commentRow.comment.logistics;$i++:}
+                            <div class="user-euEvaluate-form-demo-img-images">
+                                <img src="images/xing02.png"/>
+                            </div>
+                            {:/for:}
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user-euEvaluate-form-demo">
+                        <div class="user-euEvaluate-form-demo-span">
+                            商品满意程度：
+                        </div>
+                        
+                        <div class="user-euEvaluate-form-demo-img">
+                            {:for $i=0;$i<$commentRow.comment.goods;$i++:}
+                            <div class="user-euEvaluate-form-demo-img-images">
+                                <img src="images/xing02.png"/>
+                            </div>
+                            {:/for:}
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="clear15"></div>
+                
+                <div class="user-euEvaluate-form-textarea">
+                    <div class="user-euEvaluate-form-textarea-title">
+                        综合评价
+                    </div>
+                    
+                    <div class="user-euEvaluate-form-textarea-word">
+                        {:$commentRow.comment.content:}
+                    </div>
+                </div>
+                
+                <div class="clear12"></div>
+                
+                <div class="user-euEvaluate-form-file">
+                    
+                    <div class="user-euEvaluate-form-file-right">
+                        {:if !empty($commentRow.images):}
+                        {:foreach $commentRow.images as $k=>$v:}
+                        <div class="user-euEvaluate-form-file-right-demo" id="div1" style="display: block;" >
+                            <img id="image1" src="{:$v|getimages:}" width="139" height="81"/>
+                        </div>
+                        {:/foreach:}
+                        {:/if:}
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear12"></div>
+                
+                <div class="clear15"></div>
+            </div>
+
+    </div>
+      
+    <div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+{:include file='footer.tpl.html':}

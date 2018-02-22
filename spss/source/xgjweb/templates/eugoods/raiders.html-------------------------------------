@@ -1,0 +1,186 @@
+
+{:include file="header.tpl.html":}
+<!-- head头部end -->
+<link rel="stylesheet" type="text/css" href="css/sousuo/default.css" />
+<link rel="stylesheet" type="text/css" href="css/sousuo/component.css" />
+<link rel="stylesheet"  type="text/css"  href="css/tuanstyle.css" ><!-- 欧洲团代购tuan页面调用CSS -->
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+        <div class="index-navigation-bk" id="mynavbk">
+            <div class="index-navigation" >
+                <div class="index-navigation-center">
+                    <div class="index-navigation-a">
+                        <a href="index.php?aboutus">
+                            关于我们
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?qualitylife">
+                            品质生活          
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?homeindex">
+                            健康舒适家居           
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?service">
+                            机电售后服务            
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?share">
+                            资源分享            
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?pay">
+                            支付方式                        
+                        </a>
+                    </div>
+                    
+                    <div class="index-navigation-a">
+                        <a href="index.php?knowledge">
+                            百科知识                  
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<!--导航end-->
+
+<div class="clear2"></div>
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="tuanraiders-conter">
+    <div class="tuanraiders-conter-title">
+        <span>
+            代购攻略
+        </span>
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="tuanraiders-conter-demo">
+        <div class="tuanraiders-conter-demo-ask">
+            1.为什么从国外代购商品？
+        </div>
+        
+        <div class="tuanraiders-conter-demo-answer">
+            <img src="images/827.png"/> 
+        </div>
+        
+        <div class="clear2"></div>
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="tuanraiders-conter-demo">
+        <div class="tuanraiders-conter-demo-ask">
+            2.代购的商品真的很好么？ 
+        </div>
+        
+        <div class="tuanraiders-conter-demo-answer">
+            <img src="images/828.png"/> 
+        </div>
+        
+        <div class="clear2"></div>
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="tuanraiders-conter-demo">
+        <div class="tuanraiders-conter-demo-ask">
+            3.为什么从国外代购回来的东西绝大多数是MADE IN CHINA？ 
+        </div>
+        
+        <div class="tuanraiders-conter-demo-answer">
+            <img src="images/829.png"/> 
+        </div>
+        
+        <div class="clear2"></div>
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="tuanraiders-conter-demo">
+        <div class="tuanraiders-conter-demo-ask">
+            4.国外购物和国内购物的不同之处 
+        </div>
+        
+        <div class="tuanraiders-conter-demo-answer">
+            <img src="images/830.png"/> 
+        </div>
+        
+        <div class="clear2"></div>
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="tuanraiders-conter-demo">
+        <div class="tuanraiders-conter-demo-ask">
+            5.澳洲代购费用、周期
+        </div>
+        
+        <div class="tuanraiders-conter-demo-answer">
+            <img src="images/831.png"/> 
+        </div>
+        
+        <div class="clear2"></div>
+    </div>
+    
+    <div class="clear3"></div>  
+</div>
+<!--中间end-->
+
+
+<div class="clear2"></div>
+<div class="clear2"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+</body>
+</html>

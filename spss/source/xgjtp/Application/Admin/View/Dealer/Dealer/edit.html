@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>修改经销商</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+
+
+
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true,
+          items : ['baidumap'],
+
+      }); 
+      
+      prettyPrint();
+  });
+
+</script>
+<script type="text/javascript">
+
+function area(o,v){
+		$.getJSON("<{:U('area')}>",{'v':v},function(data){
+			if (o=='city') {
+				$('.district').html('');
+				$('.district').append('<option value="">-请选择-</option>');
+			}else if(o=='city1'){
+				$('.district1').html('');
+				$('.district1').append('<option value="">-请选择-</option>');
+			}
+			$('.'+o).html('');
+			$('.'+o).append('<option value="">-请选择-</option>');
+			for (var i = 0; i < data.length; i++) {
+				$('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+			}
+		})
+	}
+</script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    	<li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+		    <li><a >健康舒适家居</a></li>
+	    	<li><a href="<{:U('index')}>">服务商列表</a></li>
+	    	<li><a href="<{:U('edit',array('d_id'=>$dealer['d_id']))}>">编辑服务商</a></li>
+	    </ul>
+	    </div>
+	    <div class="formbody">
+    	<div id="usual1" class="usual">
+	    <!-- 选项卡 -->
+	    <div class="itab">
+	        <ul>
+	        <li><a href="#tab1" class="selected">通用信息</a></li>
+	        <li><a href="#tab2">账号信息</a></li>
+	        <li><a href="#tab3">展厅地图</a></li>
+	        <li><a href="#tab4">展厅展示图</a></li>
+	        </ul>
+	    </div>
+	    <form action="<{:U('update')}>" method="post" enctype="multipart/form-data">
+		    <div id="tab1" class="tabson">
+			    <ul class="forminfo">
+				    <li><label>服务商公司名称</label><input name="d_company" type="text" class="dfinput" value="<{$dealer['d_company']}>"/><i>服务商公司名称不能超过30个字符</i></li>
+				    <li><label>区域</label>
+			    	<select name="d_district"  style="width:345px; height:32px; line-height:32px; border-top:solid 1px #e7d5ba; border-left:solid 1px #e7d5ba; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('__PUBLIC__/Admin/images/inputbg.gif'); repeat-x scroll 0 0;">
+						<option value="华中地区" <?php echo $dealer['d_district']=="华中地区"?'selected':'';?>>华中地区</option>
+						<option value="华东地区" <?php echo $dealer['d_district']=="华东地区"?'selected':'';?>>华东地区</option>
+						<option value="西南/西北地区" <?php echo $dealer['d_district']=="西南/西北地区"?'selected':'';?>>西南/西北地区</option>
+						<option value="华北/东北地区" <?php echo $dealer['d_district']=="华北/东北地区"?'selected':'';?>>华北/东北地区</option>
+						<option value="华南地区" <?php echo $dealer['d_district']=="华南地区"?'selected':'';?>>华南地区</option>
+					</select>
+			    	</li>
+                    <li><label>主要服务省市县</label>
+                          <div  class="pcd" >
+                                <select required class='prov' name="province" onchange='area("city",this.value)'>
+									<if condition=" !empty($dealer['d_province']) ">
+											<?php foreach ($area as $key => $v): ?>
+												<option value="<{$v.id}>"  <if condition="$dealer['d_province_id'] eq $v['id']">selected</if>><{$v.name}></option>
+											<?php endforeach ?>
+									<else/>
+											<option  value="" >-请选择-</option>
+									</if>
+									
+								</select>
+								<lable>　省　</lable>
+								<select required class='city' name="city" onchange='area("district",this.value)'>
+										
+										<if condition=" !empty($dealer['d_city']) ">											
+											<foreach name="dealer.d_city_list" item="va">
+												<option value="<{$va.id}>" <if condition="$dealer['d_city_id'] eq $va['id']">selected</if> ><{$va.name}></option>
+											</foreach>
+										<else/>
+												<option  value="" >-请选择-</option>
+										</if>
+										
+								</select>
+								<lable>　市　</lable>
+								<select required class='district' name="district" >
+										<if condition=" !empty($dealer['d_area']) ">
+											<foreach name="dealer.d_area_list" item="va">
+												<option value="<{$va.id}>" <if condition="$dealer[d_area] eq $va[name]">selected="selected"</if> ><{$va.name}></option>
+											</foreach>
+										<else/>
+												<option  value="" >-请选择-</option>
+										</if>
+										
+								</select>
+								<lable>　区　</lable>
+                               
+                           </div>
+                    </li>
+                    <li><label>周边服务省市县</label>
+                        <div  class="pcd" style="float:left">     
+                                  <select  class='prov' id="province1" name="province1" onchange='area("city1",this.value)'>
+									<option value="" >-请选择-</option>
+									<?php foreach ($area as $key => $v): ?>
+										<option value="<{$v.id}>"><{$v.name}></option>
+									<?php endforeach ?>
+								</select>
+								<lable>　省　</lable>
+								<select  class='city1'  id='city1' name="city1" onchange='area("district1",this.value)'>
+										<option value="">-请选择-</option>
+								</select>
+								<lable>　市　</lable>
+								<select  class='district1'   id='district1' name="district1">
+										<option value="">-请选择-</option>
+								</select>
+								<lable>　区　</lable>
+                                   
+                        </div>
+                        <div style="height:36px;line-height:36px;"><a href="javascript:;" onclick="aaaa(<{$dealer['d_id']}>)">[添加]</a></div>
+                     </li>
+                     <li style="margin-left:85px;" id="bbb">
+                        <?php
+                        if (!empty($city)) {
+                            foreach($city as $key=>$value){
+                        ?>
+                        <span><?= $value ?>&nbsp&nbsp&nbsp&nbsp<a href="<{:U('edit_city',array('id'=>$dealer['d_id'],'city'=>$key))}>">删除</a></span>
+                        <?php }} ?>
+                        
+                     </li>
+			    	<!-- <li><label>省份</label><input name="d_province" type="text" class="dfinput" value="<{$dealer['d_province']}>"/><i></i></li>
+				    <li><label>市区</label><input name="d_city" type="text" class="dfinput" value="<{$dealer['d_city']}>"/><i></i></li> -->
+				    <li><label>级别</label>
+			    	<select name="d_rank"  style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('__PUBLIC__/Admin/images/inputbg.gif'); repeat-x scroll 0 0;">
+						<option value="A" <?php echo $dealer['d_rank']=='A'?'selected':'';?> >A</option>
+						<option value="B" <?php echo $dealer['d_rank']=='B'?'selected':'';?>>B</option>
+						<option value="C" <?php echo $dealer['d_rank']=='C'?'selected':'';?>>C</option>
+						<option value="D" <?php echo $dealer['d_rank']=='D'?'selected':'';?>>D</option>
+						<option value="E" <?php echo $dealer['d_rank']=='E'?'selected':'';?>>E</option>
+						<option value="F" <?php echo $dealer['d_rank']=='F'?'selected':'';?>>F</option>
+					</select>
+			    	</li>
+			    	<li><label>状态</label>
+			    	<select name="d_runstatus"  style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('__PUBLIC__/Admin/images/inputbg.gif'); repeat-x scroll 0 0;">
+						<option value="1" <?php echo $dealer['d_runstatus']==1?'selected':'';?>>正常</option>
+						<option value="0" <?php echo $dealer['d_runstatus']==0?'selected':'';?>>不正常</option>
+					</select>
+			    	</li>
+				    <li><label>负责人</label><input name="d_legalperson" type="text" class="dfinput" value="<{$dealer['d_legalperson']}>"/><i>公司法人</i></li>
+				    <li><label>电话</label><input name="d_legalperson_phone" type="text" class="dfinput" value="<{$dealer['d_legalperson_phone']}>"/><i>法人电话</i></li>
+				    <li><label>公司简介</label><textarea name="d_company_desc" cols="" rows="" class="taretextinput"><{$dealer['d_company_desc']}></textarea><i></i></li>
+				    <li><label>办公地点</label><input name="d_rel_address" type="text" class="dfinput" value="<{$dealer['d_rel_address']}>"/><i></i></li>
+				    <li><label>送货地点</label><input name="d_pickup_address" type="text" class="dfinput" value="<{$dealer['d_pickup_address']}>"/><i></i></li>
+				    <li><label>展厅地点</label><input name="d_hall_address" type="text" class="dfinput" value="<{$dealer['d_hall_address']}>"/><i></i></li>
+			    </ul>
+		    </div>
+		    <div id="tab2" class="tabson">
+			    <ul class="forminfo">
+				    <li><label>账号</label><input name="d_name" type="text" class="dfinput" value="<{$dealer['d_name']}>"/><i></i></li>
+				    <li><label>密码</label><input name="d_pwd" type="text" class="dfinput" value="<{$dealer['d_pwd']}>"/><i></i></li>
+				    <li><label>邮箱</label><input name="d_email" type="text" class="dfinput" value="<{$dealer['d_email']}>"/><i></i></li>
+				    <li><label>联系人</label><input name="d_linkman" type="text" class="dfinput" value="<{$dealer['d_linkman']}>"/><i>服务商联系人</i></li>
+				    <li><label>联系电话</label><input name="d_link_phone" type="text" class="dfinput" value="<{$dealer['d_link_phone']}>"/><i>服务商联系人电话</i></li>
+			    </ul>
+		    </div>
+		    <div id="tab3" class="tabson">
+		    	<textarea id="editor_id" name="d_map" style="width:850px;height:400px;"><{$dealer['d_map']}></textarea>
+		    </div>
+		    <div id="tab4" class="tabson">
+		    		<ul class="forminfo goods-image">
+			    		<li><label>展示店面图</label><input name="d_store_figure" type="file" /><i></i></li>
+		                <li style=" width:250px;border:3px solid #ED5B13;box-shadow:2px 8px 15px #E5865A;border-radius:4px;padding:3px;">
+		                    <img style="width:250px; height:300px;" src="<{$dealer['d_store_figure']}>" alt="" />
+		                </li>
+						<li><a href="javascript:;" onclick="addImage(this)">[+]</a>展厅展示图 <input type="file" accept="image/*" multiple name="img_url[]" class="fdinput" id="" /></li>
+		            </ul>
+		    	<ul class="imglist">
+                <?php foreach ($dealer_image_list as $dealer_image): ?>
+                <li data-id="<{$dealer_image.id}>">
+                    <span style="height:164px;opacity:<?php echo $dealer_image['is_show']==1?'1':'0.3' ?>"><img width="168" height="170" src="<{$dealer_image.url}>"></span>
+                    <p>
+                        <a href="javascript:;" onclick="toggleImage(this)">
+                            <?php echo $dealer_image['is_show']==1?'隐藏':'显示' ?>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="javascript:;" onclick="deleteImage(this)">删除</a>
+                    </p>
+                </li>
+                <?php endforeach ?>
+
+            </ul>
+		    </div>
+		    <div style="margin:0 auto;width:320px">
+		    	<input type="hidden" name="d_id" value="<{$dealer.d_id}>" />
+	            <input name="" type="submit" class="btn" value="确认编辑"/>
+	            <input name="" type="reset" class="btn" value="重置"/>
+        	</div>		    
+	    </form>
+	    </div>
+    </div>
+<script type="text/javascript">
+        
+        //点击[+]号 添加多个下拉框
+        function addSpec(obj){
+            //在当前的li后面克隆一个li,并把加号修改为减号
+            var removeSpec = '<li>'+$(obj).parent().parent().clone().html().replace('addSpec(this)">[+]','removeSpec(this)">[-]')+'</li>';
+            $(obj).parent().parent().after(removeSpec);
+        }
+
+        //点击[-]号 删除下拉框
+        function removeSpec(obj){
+            //删除当前的tr
+            $(obj).parent().parent().remove();
+        }
+
+
+        //添加一个图片上传按钮
+        function addImage(obj){
+            var image = '<li>'+$(obj).parent().clone(true).html().replace('addImage(this)">[+]','removeImage(this)">[-]')+'</li>';
+            $(obj).parent().after(image);
+        }
+
+        //删除一个图片上传按钮
+        function removeImage(obj){
+            $(obj).parent().remove();
+        }
+
+        //tab切换
+        $("#usual1 ul").idTabs();
+
+        //表格隔行变色
+        $('.tablelist tbody tr:odd').addClass('odd');
+        
+      //切换图片的显示和隐藏
+        function toggleImage(obj){
+            var id = $(obj).parent().parent().attr('data-id');
+            var that = $(obj);
+            if(!id) return;
+            $.ajax({
+                url:"<{:U('Admin/Dealer/Dealer/toggleImage')}>",
+                data:{id:id},
+                success:function(data){
+                    if(data>0){
+                        //切换成功,修改文字
+                        if($.trim(that.html()) == '隐藏'){
+                            that.html('显示');
+                            that.parent().prev().css('opacity','0.3');
+                        }else{
+                            that.parent().prev().css('opacity','1');
+                            that.html('隐藏');
+                        }
+                    }
+                }
+            });
+        }
+
+        //删除图片ajax
+        function deleteImage(obj){
+            var id = $(obj).parent().parent().attr('data-id');
+            var that = $(obj);
+            if(!id) return;
+            $.ajax({
+                url:"<{:U('Admin/Dealer/Dealer/deleteImage')}>",
+                data:{id:id},
+                success:function(data){
+                    if(data>0){
+                        //删除成功, 删除dom
+                        that.parent().parent().remove();
+                    }
+                }
+            });
+        }
+</script>
+
+<script>
+     function aaaa(id){
+        var province = document.getElementById('province1').value;
+        var city = document.getElementById('city1').value;
+        var area = document.getElementById('district1').value;
+        var bbb = document.getElementById('bbb');
+        var service_city_all = document.getElementById('service_city_all');
+        var service_city = document.getElementById('service_city');
+        if (province == '') {
+            alert('请选择省份');
+        }else if (city == '') {
+            alert('请选择城市');
+        }else if (area == '') {
+            alert('请选择地区');
+        }else{
+            $.get("<{:U('add_city')}>?province="+province+"&city="+city+"&area="+area+"&id="+id,function(data){
+                // console.log(data);
+                bbb.innerHTML=data;
+            })
+        }
+     }
+ </script>
+</body>
+</html>
+ 

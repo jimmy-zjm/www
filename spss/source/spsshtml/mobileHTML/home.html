@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"/>
+		<title></title>
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="css/publick.css" />
+		<link rel="stylesheet" href="css/home.css"/>
+	</head>
+	<body>
+		<div class="head">
+			<a class="head-1 head-son" href="javascript:;">
+				
+			</a>
+			<a class="head-2 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/logo.png" alt="" />
+			</a>
+			<a class="head-3 head-son" href="javascript:;">
+				<img class="chuizhicenter" src="img/people-s.png" alt="" />
+			</a>
+		</div>
+		<div class="content">
+			<div class="content1">
+				<div class="swiper-container">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide"><img src="./img/home/banner1.png" alt="" /></div>
+			            <div class="swiper-slide"><img src="./img/home/banner1.png" alt="" /></div>
+			            <div class="swiper-slide"><img src="./img/home/banner1.png" alt="" /></div>
+			        </div>
+			        <!-- Add Pagination -->
+			        <div class="swiper-pagination"></div>
+			    </div>
+			</div>
+			<div class="content2">
+				<img src="./img/home/home-img1.png" alt="" />
+			</div>
+			<div class="content2">
+				<img src="./img/home/home-img2.png" alt="" />
+			</div>
+			<div class="content2">
+				<img src="./img/home/home-img3.png" alt="" />
+			</div>
+			<div class="content2">
+				<img src="./img/home/home-img4.png" alt="" />
+			</div>
+			<div class="content2">
+				<img src="./img/home/home-img5.png" alt="" />
+			</div>
+			<div class="content2">
+				<img src="./img/home/home-img6.png" alt="" />
+			</div>
+			<div class="content2">
+				<img src="./img/home/home-img7.png" alt="" />
+			</div>
+		</div>
+		<div class="foot">
+			<div class="foot1">
+				<span class="foot-left">关于我们</span>
+				<span class="foot-right" onclick="xialashow('guanyuwomen')"><img src="img/home/home-xiala.png"/></span>
+			</div>
+			<div class="foot-son guanyuwomen">
+				<a href="gongsijieshao.html" class="foot-son-1">公司简介</a>
+					<div>
+						<img src="" alt="" />
+						<p></p>
+						<p></p>
+						<img src="" alt="" />
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+				<a class="foot-son-1">我们</a>
+				<a class="foot-son-1">加入我们</a>
+			</div>
+			<div class="foot1 foot2">
+				<span class="foot-left">帮助中心</span>
+				<span class="foot-right" onclick="xialashow('helpcenter')"><img src="img/home/home-xiala.png"/></span>
+			</div>
+			<div class="foot-son helpcenter">
+				<p class="foot-son-1">客服电话</span>
+			</div>
+			<div class="foot1 foot3">
+				<span class="foot-left">关注我们</span>
+				<span class="foot-right" onclick="xialashow('erweima')"><img src="img/home/home-xiala.png"/></span></div>
+			<div class="foot-son erweima">
+				<p class="foot-son-1">微信二维码</p>
+			</div>
+			<div class="foot4">
+			
+				<p class="foot4-1">客服电话</p>
+				<p class="foot4-1">400-800-1027</p>
+			</div>
+		</div>
+		
+	</body>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/jquery-1.11.1.js"></script>
+	<script>
+	    var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        paginationClickable: true,
+	        spaceBetween: 30,
+	        centeredSlides: true,
+	        autoplay: 2500,
+	        autoplayDisableOnInteraction: false
+	    });
+    </script>
+    <script>
+    	function xialashow(nage){
+    		if($('.'+nage).css('display') == 'none'){
+    			$('.'+nage).css('display','block');
+    		}else{
+    			$('.'+nage).css('display','none');
+    		}
+    		
+    	}
+    </script>
+</html>

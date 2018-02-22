@@ -1,0 +1,100 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/fedback.css" >
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear27"></div>
+
+<!-- 中间楼层 -->
+<div class="fedback-center">
+	<div class="fedback-center-title">
+    	<div class="fedback-center-title-left">
+        	更多反馈
+        </div>
+        
+        <div class="fedback-center-title-right">
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear15"></div>
+    
+    <div class="fedback-center-list">
+    {:foreach $data as $k=>$v:}
+    	<div class="fedback-center-list-demo">
+        	<div class="clear32"></div>
+            
+        	<div class="fedback-center-list-demo-info01">
+            	<div class="fedback-center-list-demo-info01-left">
+                	用户信息
+                </div>
+                
+                <div class="fedback-center-list-demo-info01-right" title="{:$v['province']:}{:$v['city']:}{:$v['district']:}/{:$v['house_layout']|house_layout:}/{:$v['total_area']:}㎡">
+                	<span>
+                    	{:$v['user_name']:}
+                    </span>
+                    
+                    <span>
+                    	{:$v['province']:}{:$v['city']:}{:$v['district']:}/{:$v['house_layout']|house_layout:}/{:$v['total_area']:}㎡
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="fedback-center-list-demo-info01">
+            	<div class="fedback-center-list-demo-info01-left">
+                	安装方案
+                </div>
+                
+                <div class="fedback-center-list-demo-info01-right" title="地暖/壁挂炉/地暖盘管">
+                	{:$v['quote_name']:}
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="fedback-center-list-demo-info02">
+            	<div class="fedback-center-list-demo-info02-left">
+                	业主反馈
+                </div>
+                
+                <div class="fedback-center-list-demo-info02-right" title="{:$v['content']:}">
+                	{:$v['content']:}
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    {:/foreach:}    
+        
+        <div class="clear"></div>
+        
+        <div style="text-align:right;" class='page'>{:$page:}</div>
+    </div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+{:include file="footer.tpl.html":}
+
+</body>
+</html>

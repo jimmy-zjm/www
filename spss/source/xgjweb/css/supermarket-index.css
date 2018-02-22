@@ -1,0 +1,238 @@
+@CHARSET "UTF-8";	
+.supermarket_index-banner{
+	width:1100px;
+	height:495px;
+	margin:0 auto;}
+	
+.supermarket_index-banner-left{
+	float:left;
+	width:880px;
+	height:420px;}
+	
+.supermarket_index-banner-left a{
+	display:block;}
+	
+.supermarket_index-banner-left a img{
+	width:880px;
+	height:420px;}
+	
+.supermarket_index-banner-right{
+	float:right;
+	width:208px;}
+	
+.supermarket_index-banner-right-demo{
+	width:208px;
+	height:205px;}
+	
+.supermarket_index-banner-right-demo a{
+	display:block;}
+	
+.supermarket_index-banner-right-demo a img{
+	width:208px;
+	height:205px;}
+	
+.supermarket_index-center-floor{
+	width:1100px;
+	margin:0 auto;}
+	
+.supermarket_index-center-floor-title{
+	width:1100px;
+	height:45px;
+	line-height:45px;
+	margin:0 auto;
+	border-bottom:2px solid #616161;}
+	
+.supermarket_index-center-floor-title-left{
+	float:left;
+	width:500px;
+	height:45px;
+	line-height:45px;
+	font-size:24px;
+	color:#403e3e;}
+
+.supermarket_index-center-floor-title-right{
+	float:right;
+	text-align:right;
+	font-size:16px;
+	color:#403e3e;
+	margin-right:20px;}
+
+.supermarket_index-center-floor-title-right a{
+	font-size:16px;
+	color:#403e3e;}
+
+.supermarket_index-center-floor-title-right img{
+	width:8px;
+	height:12px;}
+
+.supermarket_index-center-floor-banner{
+	width:1100px;
+	margin:0 auto;}
+	
+.supermarket_index-center-floor-banner-demo{
+	float:left;
+	width:217px;
+	margin-left:3px;}
+
+.supermarket_index-center-floor-banner-demo-img{
+	width:217px;
+	height:110px;
+	text-align:center;}
+
+.supermarket_index-center-floor-banner-demo-img img{
+	width:217px;
+	height:110px;}
+
+.supermarket_index-center-floor-banner-demo-a{
+	width:217px;
+	height:50px;
+	line-height:50px;
+	font-size:20px;
+	color:#403e3e;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	text-align:center;}
+
+.supermarket_index-center-floor-banner-demo-a a{
+	font-size:20px;
+	color:#403e3e;}
+
+.supermarket_index-center-floor-list{
+	width:1100px;
+	margin:0 auto;
+	height:310px;
+	overflow:hidden;
+}
+	
+.supermarket_index-center-floor-list-demo{
+	float:left;
+	width:215px;
+	height:310px;}
+	
+.supermarket_index-center-floor-list-clear{
+	width:5px;
+	height:300px;
+	float:left;}
+	
+.supermarket_index-center-floor-list-demo-img-bk{
+	width:215px;
+	height:215px;	
+	border:1px solid #eee;
+	overflow:hidden;}
+	
+.supermarket_index-center-floor-list-demo-img{
+	width:215px;
+	height:215px;
+	position:relative;}
+	
+.supermarket_index-center-floor-list-demo-img a{
+	display:block;}
+
+.supermarket_index-center-floor-list-demo-img img{
+	width:215px;
+	height:215px;}
+	
+.supermarket_index-center-floor-list-demo-remai{
+	width:30px;
+	height:30px;
+	position:relative;
+	top:-200px;
+	left:160px;}
+	
+.supermarket_index-center-floor-list-demo-remai img{
+	width:30px;
+	height:30px;}	
+	
+.supermarket_index-center-floor-list-demo-name{
+	width:215px;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-size:14px;
+	color:#403e3e;
+	white-space:nowrap;}
+
+.supermarket_index-center-floor-list-demo-name a{
+	font-size:14px;
+	color:#403e3e;}
+	
+.supermarket_index-center-floor-list-demo-info{
+	width:215px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.supermarket_index-center-floor-list-demo-info-original_cost{
+	float:left;
+	font-size:16px;
+	color:#aaa8a8;
+	text-decoration:line-through;
+	margin-left:15px;}
+
+.supermarket_index-center-floor-list-demo-info-current_price{
+	float:left;
+	font-size:20px;
+	color:#ec2626;
+	margin-left:10px;}
+	
+.supermarket_index-center-floor-list-demo-info-collection{
+	float:left;
+	margin-top:10px;
+	width:13px;
+	height:12px;}
+	
+.supermarket_index-center-floor-list-demo-info-collection a{
+	display:block;}
+
+.supermarket_index-center-floor-list-demo-info-collection img{
+	width:13px;
+	height:12px;}
+
+.ui-tabs-nav{
+	width:1100px;
+	line-height:50px;
+	margin:0 auto;}
+
+.ui-tabs-nav li{
+	float:left;}
+	
+.ui-tabs-nav li a{
+	padding-left:28px;
+	padding-right:28px;	}
+	
+#tabss7{
+	border-right:none;}
+
+.lengths{
+	display:none;}
+	
+#tabs-0{
+	display:block;}
+	
+.colors{
+	font-size:16px;
+	color:#403e3e;}
+
+.colors1{
+	font-size:16px;
+	color:#403e3e;}
+	
+.colors2{
+	font-size:16px;
+	color:#ff3e23;}
+
+
+
+
+
+
+
+
+
+

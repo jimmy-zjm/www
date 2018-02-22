@@ -1,0 +1,999 @@
+@charset "utf-8";
+/* CSS Document */
+
+.payment-center{
+	width:1100px;
+	margin:0 auto;}
+	
+.payment-center-title{
+	width:100%;
+	height:90px;
+	background:#fff;
+	line-height:90px;
+	font-size:28px;
+	color:#403E3E;}
+	
+.payment-center-title span{
+	margin-left:55px;}
+	
+.payment-details{
+	width:100%;
+	background:#fff;
+	margin:0 auto;}
+	
+.payment-details-receiver{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-receiver-title{
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	color:#000000;
+	border-bottom:1px solid #dadada;}
+	
+.payment-details-receiver-title-left{
+	float:left;}
+	
+.payment-details-receiver-title-right{
+	float:right;}
+	
+.payment-details-receiver-title-right a{
+	font-size:14px;
+	color:#f6685d;}
+	
+.payment-details-receiver-center .yListr ul{
+	margin:0px;
+	padding:0px;}
+	
+.payment-details-receiver-center .yListr ul li span{
+	width:auto;
+	padding:0px;
+	line-height:40px;
+	margin-left:20px;}
+	
+.payment-details-receiver-center .yListr ul li em.yListrclickem i{
+	background:url(../images/righbt02.png);
+	width:28px;
+	height:19px;}
+	
+.payment-details-receiver-center .yListrclickem{
+	width:990px;
+	padding:0px;
+	background:#fff0e8;
+	border:1px solid #ff8659 !important;}
+	
+.payment-details-receiver-center .yListr ul li em{
+	border:none;
+	width:990px;
+	padding:0px;
+	margin-bottom:20px;
+	border:1px solid #fff;}
+	
+.payment-details-receiver-center a{
+	font-size:14px;}
+	
+.yListr-span-01{
+	margin-left:20px;}
+	
+.yListr-span-02{
+	margin-left:50px;
+	color:#000 !important;
+	text-align:center;
+	width:80px !important;
+	height:25px !important;
+	line-height:25px !important;}
+	
+.yListr-span-03{
+	max-width:350px;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	float:left;
+	margin-left:40px;}
+
+
+.payment-details-receiver-center a{
+	float:right;
+	margin-right:20px;
+	color:#2c2c2c;
+	line-height:40px;}
+	
+.payment-details-method{
+	width:990px;
+	margin:0 auto;}
+
+.payment-details-method-title{
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	color:#000000;
+	border-bottom:1px solid #dadada;}
+	
+.payment-details-method-center .yListr ul li span{
+	width:auto;
+	padding:0px;
+	line-height:40px;}
+	
+.payment-details-method-center .yListr ul li em{
+	padding:0px 30px;
+	margin-right:20px;
+	border:1px solid #c9c9c9;}
+	
+.payment-details-method-center .yListr ul li em.yListrclickem{
+	border:1px solid #e3857e;}
+	
+.payment-details-method-center .yListr ul li em.yListrclickem i{
+	width:28px;
+	height:19px;
+	background:url(../images/righbt02.png);}
+	
+.payment-details-method-center .yListr ul{
+	margin:0px;
+	padding:0px;}
+	
+.payment-details-list{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-list-title{
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	color:#000;
+	border-bottom:1px solid #dadada;}
+	
+.payment-details-list-title-left{
+	float:left;}
+	
+.payment-details-list-title-right{
+	float:right;}
+	
+.payment-details-list-title-right a{
+	font-size:14px;
+	color:#f6685d;}
+	
+.payment-details-list-center{
+	margin-top:10px;
+	margin-bottom:20px;
+	font-size:14px;
+	color:#000;}
+	
+.payment-details-list-center-01{
+	width:100px;
+	height:100px;
+	line-height:100px;
+	float:left;}
+	
+.payment-details-list-center-01 img{
+	width:100px;
+	height:100px;}
+	
+.payment-details-list-center-02{
+	width:400px;
+	height:100px;
+	line-height:100px;
+	float:left;
+	text-align:center;
+	font-size:14px;}
+	
+.payment-details-list-center-02 a{
+	color:#2b2b2b;}
+	
+.payment-details-list-center-03{
+	width:200px;
+	height:100px;
+	line-height:100px;
+	float:left;
+	text-align:center;}
+	
+.payment-details-list-center-04{
+	width:150px;
+	height:100px;
+	line-height:100px;
+	float:left;
+	text-align:center;}
+	
+.payment-details-list-center-05{
+	width:300px;
+	height:100px;
+	line-height:100px;
+	float:right;
+	text-align:right;}
+	
+.payment-details-invoice{
+	width:990px;
+	margin:0 auto;}
+
+.payment-details-invoice-title{
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	color:#000;
+	border-bottom:1px solid #dadada;}
+	
+.payment-details-invoice-center{
+	height:40px;
+	line-height:40px;
+	font-size:14px;}
+	
+.payment-details-invoice-center-01{
+	float:left;
+	margin-left:10px;
+	font-size:14px;
+	color:#000;}
+	
+.payment-details-invoice-center-02{
+	float:left;
+	margin-right:50px;}
+	
+.payment-details-invoice-center-03{
+	float:right;
+	margin-right:10px;}
+	
+.payment-details-invoice-center-03 a{
+	font-size:14px;
+	color:#f6685d;}
+	
+.payment-details-certification{
+	border-bottom:1px solid #F0F0F0;
+	width:1050px;
+	margin:0 auto;}
+
+.payment-details-certification-title{
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#333;
+	font-weight:bold;}
+	
+.payment-details-certification-center{
+	width:1000px;
+	margin:0 auto;}
+	
+.payment-details-certification-center-01{
+	width:1000px;
+	margin:0 auto;
+	background:#FFFDEF;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+	border:1px solid #FFD9A3;}
+	
+.payment-details-certification-center-02{
+	width:1000px;
+	margin:0 auto;}
+	
+.payment-details-certification-center-02-01{
+	float:left;
+	width:100px;
+	height:20px;
+	line-height:20px;
+	font-size:12px;
+	text-align:right;}
+	
+.payment-details-certification-center-02-01 .span01{
+	color:#ff0000;}
+	
+.payment-details-certification-center-02-02{
+	float:left;
+	width:200px;
+	height:20px;
+	line-height:20px;
+	border:1px solid #eee;
+	background:#fff;
+	font-size:12px;
+	margin-left:10px;
+	border-radius:5px;}
+	
+.payment-details-certification-center-02-02 input{
+	width:200px;
+	height:20px;
+	line-height:20px;
+	border:none;
+	background:none;
+	font-size:12px;}
+	
+.payment-details-certification-center-03{
+	width:1000px;
+	margin:0 auto;
+	font-size:12px;}
+	
+.payment-details-certification-center-04{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu02.png);
+	margin-left:30px;}
+	
+.payment-details-certification-center-04 input{
+	border:none;
+	background:none;
+	text-align:center;
+	font-size:14px;
+	color:#fff;
+	width:100px;
+	height:30px;}
+	
+.payment-details-certification-center-01 span{
+	margin-left:20px;}
+	
+#collect-tip-payment-bk{
+	width:424px !important;
+	margin-top:200px !important;}
+	
+#collect-tip-payment-bk .collect-tip-titile{
+	width:424px;
+	height:45px;
+	line-height:45px;
+	background:url(../images/1207.png);
+	font-size:18px;
+	color:#f6685d;
+	border:none;}
+	
+.collect-tip-payment-input01{
+	width:424px;
+	height:25px;
+	line-height:25px;
+	margin:0 auto;
+	font-size:16px;
+	color:#000000;
+	margin-top:15px;}
+	
+.collect-tip-payment-input01-left{
+	float:left;
+	width:125px;
+	height:25px;
+	line-height:25px;
+	text-align:right;}
+	
+.collect-tip-payment-input01-right{
+	float:left;
+	border:1px solid #c5c5c5;
+	background:#fff;
+	width:230px;
+	height:25px;
+	line-height:25px;
+	margin-left:10px;}
+	
+.collect-tip-payment-input01-right input{
+	border:none;
+	background:none;
+	width:210px;
+	height:25px;
+	margin-left:10px;
+	font-size:14px;
+	color:#bababa;}
+	
+.collect-tip-payment-input02{
+	width:424px;
+	height:65px;
+	line-height:65px;
+	margin:0 auto;
+	font-size:16px;
+	color:#000000;}
+	
+.collect-tip-payment-input02-left{
+	float:left;
+	width:125px;
+	height:65px;
+	line-height:65px;
+	text-align:right;}
+	
+.collect-tip-payment-input02-right{
+	float:left;
+	width:270px;
+	height:65px;
+	line-height:65px;
+	margin-left:10px;}
+	
+.collect-tip-payment-input02-right input{
+	border:none;
+	background:none;
+	line-height:40px;
+	margin-left:10px;
+	margin-right:10px;}
+	
+.collect-tip-new-bk{
+	width:310px;
+	height:32px;
+	line-height:32px;
+	margin:0 auto;}
+
+.collect-tip-new-bk a{
+	color:#fffefe;
+	font-size:14px;}	
+
+.collect-tip-new-left{
+	float:left;
+	width:142px;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	background:url(../images/anniu47.png);}
+	
+.collect-tip-new-right{
+	float:right;
+	width:142px;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	background:url(../images/anniu48.png);}
+	
+.payment-details-buy{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-buy-list{
+	width:990px;;
+	line-height:35px;
+	font-size:14px;}
+	
+.payment-details-buy-list-demo-left{
+	float:left;
+	width:80px;}
+	
+.payment-details-buy-list-demo-right{
+	float:left;
+	width:390px;}
+	
+.payment-details-buy-list-demo2{
+	height:60px;
+	line-height:60px;}
+	
+.payment-details-buy-list-demo2-01{
+	float:left;}
+	
+.payment-details-buy-list-demo2-02{
+	float:left;
+	font-size:18px;
+	color:#ff0000;}
+	
+.payment-details-buy-list-demo2-03{
+	float:left;
+	background:#ff0000;
+	width:140px;
+	height:40px;
+	line-height:40px;
+	margin-top:10px;
+	text-align:center;
+	font-size:22px;
+	margin-left:50px;
+	border:1px solid #ff0000;
+	border-radius:5px;}
+	
+.payment-details-buy-list-demo2-03 a{
+	color:#fff;}
+	
+.payment-details-buy-list-demo2-04{
+	float:left;
+	background:#acb7f6;
+	width:80px;
+	height:30px;
+	line-height:30px;
+	margin-top:15px;
+	text-align:center;
+	font-size:16px;
+	margin-left:50px;
+	border:1px solid #acb7f6;
+	border-radius:5px;}
+	
+.payment-details-buy-list-demo2-04 a{
+	color:#fff;}
+	
+.payment-details-buy-list-demo3{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-buy-list-demo3-01{
+	float:left;
+	width:845px;
+	text-align:right;}
+	
+.payment-details-buy-list-demo3-01 .span01{
+	font-size:14px;
+	color:#000000;}
+	
+.payment-details-buy-list-demo3-01 .span02{
+	font-size:14px;
+	color:#000000;
+	margin-left:0px;
+	margin-right:25px;}
+	
+.payment-details-buy-list-demo3-01 .span03{
+	font-size:14px;
+	color:#000000;
+	font-weight:bold;}
+	
+.payment-details-buy-list-demo3-01 .span04{
+	font-size:14px;
+	color:#f6685d;}
+	
+.payment-details-buy-list-demo3-02{
+	float:left;
+	width:113px;
+	height:36px;
+	line-height:36px;
+	background:url(../images/anniu42.png);
+	text-align:center;
+	font-size:14px;
+	color:#fffefe;
+	margin-left:20px;}
+	
+.payment-details-buy-list-demo3-02 a{	
+	font-size:14px;
+	color:#fffefe;}
+	
+.payment-details-payment{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-payment-title{
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	color:#000;
+	border-bottom:1px solid #dadada;}
+	
+.payment-details-payment-center{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-payment-center-integral{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-payment-center-integral-title{
+	width:990px;
+	height:55px;
+	line-height:55px;
+	margin:0 auto;}
+
+.payment-details-payment-center-integral-title-span{
+	float:left;
+	marign-left:10px;
+	font-size:14px;
+	color:#000000;}
+	
+.payment-details-payment-center-integral-title-a{
+	float:left;
+	margin-left:10px;}
+
+.payment-details-payment-center-integral-title-a img{
+	width:19px;
+	height:19px;}
+	
+.payment-details-payment-center-integral-form{
+	width:990px;
+	min-height:135px;
+	border:1px solid #dddddd;
+	margin:0 auto;
+	background:#f5f5f5;
+	display:none;}
+	
+.payment-details-payment-center-integral-form-bk{
+	width:900px;
+	margin:0 auto;}
+	
+.payment-details-payment-center-integral-form-div{
+	width:900px;
+	line-height:24px;
+	margin:0 auto;}
+	
+.payment-details-payment-center-integral-form-div-span01{
+	float:left;
+	font-size:14px;
+	color:#000000;}
+	
+.payment-details-payment-center-integral-form-div-input{
+	float:left;
+	width:70px;
+	height:20px;
+	line-height:20px;
+	border:2px solid #c5c5c5;
+	background:#fff;
+	margin-left:10px;
+	margin-right:10px;
+	text-align:center;}
+	
+.payment-details-payment-center-integral-form-div-input input{
+	width:70px;
+	height:20px;
+	line-height:20px;
+	border:none;
+	background:none;}
+	
+.payment-details-payment-center-integral-form-div-a{
+	float:left;
+	width:60px;
+	height:21px;
+	line-height:21px;
+	text-align:center;
+	font-size:12px;
+	color:#fffefe;
+	background:url(../images/anniu41.png);
+	margin-left:15px;
+	margin-right:15px;}
+	
+.payment-details-payment-center-integral-form-div-a a{
+	font-size:12px;
+	color:#fffefe;}
+	
+.payment-details-payment-center-integral-form-div-span02{
+	float:left;
+	font-size:12px;
+	color:#666666;}
+	
+.payment-details-payment-center-integral-form-div-span03{
+	float:left;
+	font-size:12px;
+	color:#f6685d;}
+	
+.payment-details-payment-center-integral-form-div-span04{
+	float:left;
+	font-size:14px;
+	color:#f6685d;}
+
+
+.payment-details-payment-center-integral-form-none{
+	width:900px;
+	margin:0 auto;
+	min-height:90px;
+	line-height:30px;
+	margin-top:60px;
+	display:none;}
+	
+.payment-details-payment-center-integral-form-none-span01{
+	float:left;
+	font-size:16px;
+	color:#000000;}
+	
+.payment-details-payment-center-integral-form-none-span02{
+	float:left;
+	font-size:16px;
+	color:#ff0000;}
+	
+.payment-details-payment-center-integral-form-none-input{
+	float:left;
+	width:81px;
+	height:30px;
+	line-height:30px;
+	background:url(../images/anniu32.png);
+	margin-left:30px;
+	margin-right:10px;
+	text-align:center;}
+	
+.payment-details-payment-center-integral-form-none-input input{
+	width:81px;
+	height:30px;
+	border:none;
+	background:none;
+	font-size:14px;
+	color:#fff;}
+
+
+
+.payment-details-payment-center-coupon{
+	width:990px;
+	margin:0 auto;}
+	
+.payment-details-payment-center-coupon-title{
+	width:990px;
+	height:55px;
+	line-height:55px;
+	margin:0 auto;}
+
+.payment-details-payment-center-coupon-title-span{
+	float:left;
+	marign-left:10px;
+	font-size:14px;
+	color:#000000;}
+	
+.payment-details-payment-center-coupon-title-a{
+	float:left;
+	margin-left:10px;}
+
+.payment-details-payment-center-coupon-title-a img{
+	width:19px;
+	height:19px;}
+	
+.payment-details-payment-center-coupon-form{
+	width:990px;
+	min-height:135px;
+	border:1px solid #dddddd;
+	margin:0 auto;
+	background:#f5f5f5;
+	display:none;}
+	
+.payment-details-payment-center-coupon-form-bk{
+	width:900px;
+	margin:0 auto;}
+	
+.payment-details-payment-center-coupon-form-div{
+	width:900px;
+	line-height:24px;
+	margin:0 auto;}
+	
+.payment-details-payment-center-coupon-form-div-span-bk{
+	display:none;}
+	
+.payment-details-payment-center-coupon-form-div-span01{
+	float:left;
+	font-size:14px;
+	color:#000000;}
+	
+.payment-details-payment-center-coupon-form-div-input{
+	float:left;
+	width:70px;
+	height:20px;
+	line-height:20px;
+	border:2px solid #c5c5c5;
+	background:#fff;
+	margin-left:10px;
+	margin-right:10px;
+	text-align:center;}
+	
+.payment-details-payment-center-coupon-form-div-input input{
+	width:70px;
+	height:20px;
+	line-height:20px;
+	border:none;
+	background:none;}
+	
+.payment-details-payment-center-coupon-form-div-a{
+	float:left;
+	width:60px;
+	height:21px;
+	line-height:21px;
+	text-align:center;
+	font-size:12px;
+	color:#fffefe;
+	background:url(../images/anniu41.png);
+	margin-left:15px;
+	margin-right:15px;}
+	
+.payment-details-payment-center-coupon-form-div-a a{
+	font-size:12px;
+	color:#fffefe;}
+	
+.payment-details-payment-center-coupon-form-div-span02{
+	float:left;
+	font-size:12px;
+	color:#666666;}
+	
+.payment-details-payment-center-coupon-form-div-span03{
+	float:left;
+	font-size:12px;
+	color:#f6685d;}
+	
+.payment-details-payment-center-coupon-form-div-span04{
+	float:left;
+	font-size:14px;
+	color:#f6685d;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*新增收货地址*/
+#clickAddId{
+	width:100%;
+	background:url(../images/aaa.png);
+	position:absolute;
+	top:0px; 
+	display:none;
+	z-index:9999;}
+
+#clickAddId-conter{
+	width:544px;
+	background:#fff;
+	margin:0 auto;
+	margin-top:280px;
+	border:4 solid #C3C3C3;}
+	
+.clickAddId-conter-title{
+	width:544px;
+	height:42px;
+	line-height:42px;
+	background:url(../images/1206.png);}
+	
+.clickAddId-conter-title-span{
+	float:left;
+	width:300px;
+	margin-left:30px;
+	color:#f6685d;
+	font-size:16px;}
+	
+.clickAddId-conter-title-out{
+	float:right;
+	margin-right:10px;}
+
+.clickAddId-conter-title-out img{
+	width:19px;
+	height:19px;}
+	
+.clickAddId-conter-table {
+	width: 544px;
+	background: #fff;
+	margin:0 auto;
+}
+
+.clickAddId-conter-table-demo {
+	margin-top: 10px;
+}
+
+.clickAddId-conter-table-demo-left {
+	float: left;
+	width: 130px;
+	text-align: right;
+	font-size: 16px;
+	height: 25px;
+	line-height: 25px;
+	color:#000000;
+}
+
+.clickAddId-conter-table-demo-left span{
+	color:#ff0000;
+	margin-right:10px;}
+
+.clickAddId-conter-table-demo-right {
+	float: left;
+	line-height: 25px;
+	border: 1px solid #e6e6e6;
+	margin-left: 10px;
+	width: 185px;
+}
+
+.clickAddId-conter-table-demo-right input {
+	width: 165px;
+	height: 25px;
+	border: none;
+	margin-left: 10px;
+}
+
+.clickAddId-conter-table-button {
+	width: 100px;
+	height: 30px;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 30px;
+	background-color: #f6685d;
+}
+
+.clickAddId-conter-table-button input {
+	border: none;
+	color: #fff;
+	background: none;
+	line-height: 30px;
+	height: 30px;
+}
+
+.clickAddId-conter-table-none{
+	width:430px;
+	height:27px;
+	line-height:27px;
+	margin-left:160px;
+	color:#F33;
+	display:none;}
+	
+.clickAddId-conter-table-demo02 {
+	margin-top: 10px;
+}
+
+.clickAddId-conter-table-demo02-left {
+	float: left;
+	width: 130px;
+	text-align: right;
+	font-size: 16px;
+	height: 25px;
+	line-height: 25px;
+	color:#000000;
+}
+
+.clickAddId-conter-table-demo02-left span{
+	color:#ff0000;
+	margin-right:10px;}
+
+.clickAddId-conter-table-demo02-right {
+	float: left;
+	line-height: 25px;
+	margin-left: 10px;
+	width: 340px;
+}
+
+.clickAddId-conter-table-demo02-right select{
+	width:100px;
+	height:25px;
+	line-height:25px;}
+	
+.clickAddId-conter-table-demo02-right span{
+	margin-right:10px;}
+	
+.clickAddId-conter-table-demo02-right .infolist .liststyle span{
+	height:25px;
+	line-height:25px;
+	border:1px solid #e6e6e6;
+	padding:0px;
+	marign:0px;}
+	
+.clickAddId-conter-table-demo02-right .infolist .liststyle span i{
+	height:25px;
+	line-height:25px;
+	color:#999999;
+	padding-right:10px;}
+
+.clickAddId-conter-table-demo02-right .infolist{
+	min-height:25px;}
+	
+.clickAddId-conter-table-demo02-right .infolist .liststyle span ul{
+	top:25px;}
+/*新增收货地址end*/
+
+
+
+
+#clickModId{
+	width:100%;
+	background:url(../images/aaa.png);
+	position:absolute;
+	top:0px; 
+	display:none;
+	z-index:9999;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

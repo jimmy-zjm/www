@@ -1,0 +1,163 @@
+
+<div class="info-titile">
+	<span>
+    	修改个人资料
+    </span>
+</div>
+
+<form action="#" method="post">
+
+<div class="info-center">
+	<div class="info-center-title">
+    	<div class="info-center-title-01">
+        	<a href="__APP__/User/info.html">
+            	个人资料
+            </a>        	
+        </div>
+        
+        <div class="info-center-title-02">
+        	<a href="__APP__/User/psd.html">
+            	修改密码
+            </a>  
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="info-center-form">
+    	<div class="info-center-form-demo">
+        	<div class="info-center-form-demo-span">
+            	真实姓名：
+            </div>
+            
+            <div class="info-center-form-demo-input">
+            	<input type="text" name="real_name" id="real_name" value="<{$user.real_name}>" tabindex="1" />
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="info-center-form-demo">
+        	<div class="info-center-form-demo-span">
+            	身份证号：
+            </div>
+            
+            <div class="info-center-form-demo-input">
+            	<input type="text" name="number" id="number" value="<{$user.number}>" pattern="^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$" title="身份证号格式不正确" tabindex="1" minlength='18'  maxlength='18'/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="info-center-form-demo">
+        	<div class="info-center-form-demo-span">
+            	手机号码：
+            </div>
+            
+            <div class="info-center-form-demo-input">
+            	<input type="text" name="tel" id="tel" value="<{$user.tel}>" pattern="^1[3|4|5|7|8]\d{9}$" title="手机格式不正确" tabindex="1" minlength='11' maxlength='11'/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="info-center-form-demo">
+        	<div class="info-center-form-demo-span">
+            	电子邮箱：
+            </div>
+            
+            <div class="info-center-form-demo-input">
+            	<input type="email" name="email" id="email" value="<{$user.email}>" tabindex="1" />
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="info-center-form-demo">
+        	<div class="info-center-form-demo-span">
+            	生       日：
+            </div>
+            
+            <div class="info-center-form-demo-input">
+            	<input type="date" name="birthday" id="birthday" value="<{$user.n}>-<{$user.y}>-<{$user.r}>" tabindex="1" />
+            </div>
+        
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="info-center-form-demo">
+        	<div class="info-center-form-demo-span">
+            	性       别：
+            </div>
+            
+            <div class="info-center-form-demo-input02">
+            	<input type="radio" name="sex" value="1" checked tabindex="1" <if condition="$user.sex eq 1">checked</if>/>
+                
+                <span>男</span>
+                
+                <input type="radio" name="sex" value="0" tabindex="1"  <if condition="$user.sex eq 0">checked</if>/>
+                
+                <span>女</span>
+                <input type="radio" name="sex" value="2" tabindex="2"  <if condition="$user.sex eq 2">checked</if>/>
+                                
+                <span>保密</span>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+        
+        <div class="info-center-form-button">
+        	<div class="info-center-form-button-left">
+            	<input type="reset" value="取消"/>
+            </div>
+            
+            <div class="info-center-form-button-right">
+            	<input type="button" id='sub' value="确定"/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear3"></div>
+    </div>
+</div>
+    
+</form>
+<div class="clear"></div>
+
+<script type="text/javascript">
+    $(function() {  
+        $("#sub").click(function() {  
+            var params = $("input").serialize();  
+            var url = "__APP__/User/doInfo";  
+            $.ajax({  
+            type: "post",  
+            url: url,  
+            data: params,  
+                success: function(msg){  
+                    if(msg == 1){
+                        alert('修改成功');
+                    }else if(msg == 2){
+                        alert('修改失败');
+                    }
+                    //console.log(msg); 
+                }  
+            });  
+        });  
+    }); 
+</script>
+

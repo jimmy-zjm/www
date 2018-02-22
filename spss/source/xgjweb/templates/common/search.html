@@ -1,0 +1,310 @@
+
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/searchstyle.css" ><!-- 搜索页search页面调用CSS -->
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box"> 
+    {:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+    
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear"></div>
+
+<!-- 中间楼层 -->
+<div class="search-conter">
+    <div class="search-conter-position">
+        <span class="search-conter-position-span01">全部结果</span>
+        <span class="search-conter-position-span01">&gt;</span>
+        {:foreach $search_result as $ss:}
+        <span class="search-conter-position-span02">{:$ss.name:}<i data-type="{:$ss.type:}" class="result_search"></i></span>
+        <span class="search-conter-position-span01">&gt;</span>
+        {:/foreach:}
+
+        <span class="search-conter-position-span01">{:if !empty($smarty.get.s):}{:$smarty.get.s:}{:/if:}</span>
+    </div>
+    
+    <div class="clear"></div>
+
+    {:if empty($goods_list):}
+    <div class="search-conter-no">
+    	<div class="search-conter-no-img">
+        	<img src="images/sousuo.jpg"/>
+        </div>
+        
+        <div class="search-conter-no-span">
+        	抱歉，您搜索的宝贝暂时我们暂时没有，请返回<a href="index.php">首页</a>重新寻找宝贝吧
+        </div>
+    </div>
+    {:else:}
+    
+    <div class="search-conter-screen">
+        <div class="clear35"></div>
+        
+        <div class="search-conter-screen-demo">
+            <div class="search-conter-screen-demo-left">
+                品牌：
+            </div>
+            
+            <div class="search-conter-screen-demo-right">
+
+                {:foreach $goods_title as $b:}
+                <div class="search-conter-screen-demo-right-demo">
+                    <a href="javascript:;" data-id="{:$b.id:}" class="brand_search">
+                        {:$b.name:}
+                    </a>
+                </div>
+                {:/foreach:}
+                
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="search-conter-screen-demo">
+            <div class="search-conter-screen-demo-left">
+                分类：
+            </div>
+            
+            <div class="search-conter-screen-demo-right">
+                {:foreach $cate_list_eu as $c:}
+                <div class="search-conter-screen-demo-right-demo">
+                    <a href="javascript:;" data-id="{:$c.id:}" class="cate_search">
+                        {:$c.name:}
+                    </a>
+                </div>
+                {:/foreach:}
+                
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="search-conter-screen-demo">
+            <div class="search-conter-screen-demo-left">
+                价格：
+            </div>
+            
+            <div class="search-conter-screen-demo-right">
+                {:foreach $price_list as $p:}
+                <div class="search-conter-screen-demo-right-demo">
+                    <a href="javascript:;" data-id="{:$p:}" class="price_search">
+                        {:$p:}
+                    </a>
+                </div>
+                {:/foreach:}
+                
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear2"></div>
+    
+    
+    <div class="europe_index-center-floor-tabs-list" >
+        <div class="europe_index-center-floor-tabs-list-bk">   
+        {:foreach $goods_list as $g:}
+            <div class="europe_index-center-floor-tabs-list-demo europe_index-center-floor-tabs-list-demo02">
+                <div class="europe_index-center-floor-tabs-list-demo-img">
+                    <div class="europe_index-center-floor-tabs-list-demo-img-01">
+                        <a href="goods.php?id={:$g.id:}" target="_blank">
+                           <img src="{:$g.image:}"/>                           
+                        </a>
+                    </div>
+                    
+                    <div class="europe_index-center-floor-tabs-list-demo-img-02">
+                        <div class="europe_index-center-floor-tabs-list-demo-img-02-left europe_index-center-floor-tabs-list-demo-img-02-left02">
+                            <a href="goods.php?id={:$g.id:}" target="_blank">
+                                了解更多<img src="images/jiantou03.png">
+                            </a>
+                        </div>
+                        
+                        <div class="europe_index-center-floor-tabs-list-demo-img-02-right">
+                            <a href="goods.php?id={:$g.id:}" target="_blank">
+                               - {:$g['sale']:}
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-name" title="{:$g.goods_title:}">
+                    <a href="goods.php?id={:$g.id:}" target="_blank">
+                        {:$g.goods_title:}
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-euro_original">
+                    欧洲原价{:$g.market_price:}€
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-euro_discount">
+                    欧洲折扣价
+                    <span> {:$g.purchase:}€</span>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-renminbi_discount">
+                    人民币
+                    <span>¥{:$g.total1:}</span>
+                </div>
+                
+                <div class="clear"></div>                                                         
+            </div>                              
+        {:/foreach:}   
+            <div class="clear"></div>
+            <div class="page">{:$page:}</div>
+        </div>
+    </div>
+    {:/if:}
+    <form action="search.php" method="get" id="theForm">
+        <input type="hidden" name="bid" value="{:if !empty($smarty.get.bid):}{:$smarty.get.bid:}{:/if:}" id="bid" />
+        <input type="hidden" name="cid" value="{:if !empty($smarty.get.cid):}{:$smarty.get.cid:}{:/if:}" id="cid" />
+        <input type="hidden" name="pid" value="{:if !empty($smarty.get.pid):}{:$smarty.get.pid:}{:/if:}" id="pid" />
+    </form>
+    <div class="clear2"></div>
+    {:if !empty($hot_list):}
+    <div class="search-conter-title">
+        <span>
+            热卖推荐
+        </span>
+    </div>
+    
+    <div class="clear27"></div>
+    
+    <div class="europe_index-center-floor-tabs-list" >
+        <div class="europe_index-center-floor-tabs-list-bk">   
+        	{:foreach $hot_list as $hot:}
+            <div class="europe_index-center-floor-tabs-list-demo">
+                <div class="europe_index-center-floor-tabs-list-demo-img">
+                    <div class="europe_index-center-floor-tabs-list-demo-img-01">
+                        <a href="goods.php?id={:$hot.id:}" target="_blank">
+                            <img src="{:$hot.image:}"/>
+                        </a>
+                    </div>
+                    
+                    <div class="europe_index-center-floor-tabs-list-demo-img-02">
+                        <div class="europe_index-center-floor-tabs-list-demo-img-02-left">
+                            <a href="goods.php?id={:$hot.id:}" target="_blank">
+                                了解更多<img src="images/jiantou03.png">
+                            </a>
+                        </div>
+                        
+                        <div class="europe_index-center-floor-tabs-list-demo-img-02-right">
+                            <a href="goods.php?id={:$g.id:}" target="_blank">
+                                -{:$hot['sale']:}
+                            </a>
+                            <a href="12313" target="_blank">
+                               123
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-name" title="{:$hot.goods_title:}">
+                    <a href="goods.php?id={:$hot.id:}" target="_blank">
+                        {:$hot.goods_title:}
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-euro_original">
+                    欧洲原价{:$hot.market_price:}€
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-euro_discount">
+                    欧洲折扣价
+                    <span> {:$hot.purchase:}€</span>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="europe_index-center-floor-tabs-list-demo-renminbi_discount">
+                    人民币
+                    <span>¥{:$hot.total1:}</span>
+                </div>
+                
+                <div class="clear"></div>                                                         
+            </div>                              
+        {:/foreach:}    
+            <div class="clear"></div>
+        </div>
+    </div>
+    {:/if:}
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear2"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<script>
+    /********************grass**********************/
+
+    /**搜索的条件筛选**/
+    $('.brand_search').click(function(){
+        var id = $(this).data('id');
+        $('#bid').val(id);
+        $('#theForm').submit();
+    });
+    $('.cate_search').click(function(){
+        var id = $(this).data('id');
+        $('#cid').val(id);
+        $('#theForm').submit();
+    });
+    $('.price_search').click(function(){
+        var id = $(this).data('id');
+        $('#pid').val(id);
+        $('#theForm').submit();
+    });
+    $('.result_search').click(function(){
+
+        var type = $(this).data('type');
+        $('#'+type).val('');
+        $('#theForm').submit();
+    });
+    /**搜索的条件筛选**/
+
+
+
+    /********************grass**********************/
+</script>
+<script src="js/concern.js"></script>
+</body>
+</html>

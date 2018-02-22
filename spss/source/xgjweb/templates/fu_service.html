@@ -1,0 +1,101 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet" type="text/css" href="css/test.css"/>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear"></div>
+
+<div class="test-top">
+	<div class="test-top-bk">
+        <div class="test-top-left">
+            <span>
+               {:$content.quote_name:}
+            </span>
+        </div>
+        
+        <div class="test-top-right">
+            <div class="test-top-right-nav">
+            	<div class="test-top-right-nav-demo">
+                    <a <a href="price.php?cid={:$smarty.get.cid:}" class="a01" name="homelist2_price_cid={:$smarty.get.cid:}">
+                        报价
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?summary&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_summary_cid={:$smarty.get.cid:}">
+                        概述
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?principle&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_principle_cid={:$smarty.get.cid:}">
+                        原理
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?advantage&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_advantage_cid={:$smarty.get.cid:}">
+                        产品优势
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?standard&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_standard_cid={:$smarty.get.cid:}">
+                        施工标准
+                    </a>
+                </div>
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?service&cid={:$smarty.get.cid:}" class="a02" name="homelist2_test_service_cid={:$smarty.get.cid:}">
+                        售后
+                    </a>
+                </div>  
+                
+                <div class="test-top-right-nav-demo">
+                    <a href="test.php?parameter&cid={:$smarty.get.cid:}" class="a01" name="homelist2_test_parameter_cid={:$smarty.get.cid:}">
+                        参数
+                    </a>
+                </div>                
+                
+                <div class="clear"></div>
+            </div>        
+           
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="test-center">
+	<div class="test-center-demo01">
+	{:if !empty($content.customer):}
+		{:$content.customer|html_entity_decode:}
+	{:else:}
+    	<img src="images/1145.jpg"/>
+        <img src="images/1146.jpg"/>
+        <img src="images/1147.jpg"/>
+        <img src="images/1148.jpg"/>
+        <img src="images/1149.jpg"/>
+    </div>    
+    {:/if:}
+    <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+
+{:include file="footer.tpl.html":}
+</body>
+</html>

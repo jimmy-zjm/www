@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>国家-编辑</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">国家列表</a></li>
+            <li><a href="">编辑</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('doEdit')}>" method="post" enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <input type="hidden" name="id" value="<{$row.id}>" />
+                <!-- 品牌名称 -->
+                <li><label>国家名称</label><input name="name" type="text" value="<{$row.name}>" class="dfinput" />
+
+                <!-- 品牌logo -->
+                <li><label>原图</label><img height="50px" src="__PUBLIC__/Uploads/<{$row.image}>" /></li>
+                <li><label>国旗图片</label><input type="file" name="image" accept="image/*" id="" /></li>
+                <input type="hidden" name='oldImage' value='<{$row.image}>'/>
+
+                <!-- 是否显示 -->
+                <li><label>是否显示</label><cite><input name="is_show" type="radio" value="1" <?php echo $row['is_show']==1?'checked':'' ?>/>是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio" value="0" <?php echo $row['is_show']==0?'checked':'' ?> />否</cite></li>
+
+                <!-- 品牌排序 -->
+                <li><label>品牌排序</label><input name="sort" type="text" value="<{$row.sort}>" class="dfinput" /><i>排序范围0-255</i></li>
+
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="保存"/></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

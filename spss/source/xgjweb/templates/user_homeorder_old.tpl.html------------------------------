@@ -1,0 +1,1542 @@
+{:include file='user_top.tpl.html':}
+{:include file='user_left.tpl.html':}
+	<!-- user右边，引用头部时倒入这个div -->
+	<div class="user-right">
+        <div class="userhomeorder-title">  
+            <div class="userhomeorder-title-left">  
+                我的订单  	
+            </div>
+            
+            <div class="userhomeorder-title-right">
+                <input id="file" name="file" type="file" value="" />  
+                
+                <span>
+                    我要上传
+                </span>  	
+            </div>
+        </div>
+      
+        <div class="clear12"></div>
+      
+        <!--订单状态详细-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">        	             
+        	<div class="userhomeorder-order">                 
+            	<div id="tabs1">
+                	<div class="clear27"></div>
+                    
+                    <ul>                    
+                        <li><a href="#tabs-1" style="color:#000;">全部订单</a><a href="#" class="tabs-a" style="color:#fff !important;">{:$orderAll:}</a><!--有状态的时候，显示数字--></li>
+                        <li><a href="#tabs-2" style="color:#000;">待付款</a><a href="#" class="tabs-a" style="color:#fff !important;">{:$orderNotPay:}</a><!--有状态的时候，显示数字--></li>
+                        <li><a href="#tabs-3" style="color:#000;">待收货</a><a href="#" class="tabs-a" style="color:#fff !important;">{:$orderWaitReceiv:}</a><!--有状态的时候，显示数字--></li>
+                        <li><a href="#tabs-4" style="color:#000;">待评价</a><a href="#" class="tabs-a" style="color:#fff !important;">{:$orderWaitAssess:}</a><!--有状态的时候，显示数字--></li>
+                    </ul>
+                    <div class="clear27"></div>
+                    
+                    <div class="clear28"></div>
+                    
+                    <div id="tabs-1"><!--全部订单-->
+                    	<div class="userhomeorder-order-demo1">  
+                        	<div class="userhomeorder-order-demo1-title">
+                            	  <div class="userhomeorder-order-demo1-title-left">                                      
+                                      <span class="userhomeorder-order-demo1-title-left-span01">测量费</span>
+                                      <span class="userhomeorder-order-demo1-title-left-span02">￥500</span>
+                                  </div>
+                                  
+                                  <div class="userhomeorder-order-demo1-title-right">
+                                      <span class="userhomeorder-order-demo1-title-right-span01">
+                                      	定金支付后
+                                      </span>
+                                      
+                                      <span class="userhomeorder-order-demo1-title-right-span02">
+                                      	返还
+                                      </span>
+                                      
+                                      <span class="userhomeorder-order-demo1-title-right-span03">
+                                      	¥500
+                                      </span>
+                                      
+                                      <span class="userhomeorder-order-demo1-title-right-span04">
+                                      	测量费
+                                      </span>                    
+                                  </div>
+                                  
+                                  <div class="clear"></div>
+                        	</div>
+                            
+                            <div class="clear"></div>
+                            
+                            <div class="userhomeorder-order-demo1-list">
+                            	  <div class="userhomeorder-order-demo1-list-title">
+                                      <div class="userhomeorder-order-demo1-list-title-01">
+                                          产品型号
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-title-02">
+                                          总价
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-title-03">
+                                          分期状态
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-title-04">
+                                          金额
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-title-05">
+                                          备注
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-title-06">
+                                          施工阶段
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-title-07">
+                                          支付状态
+                                      </div>
+                                      
+                                      <div class="clear"></div>
+                                  </div>
+                                  
+                                  <div class="clear"></div>
+                                     {:foreach from=$orderInfo   key=num item=z:}
+                                  <div class="userhomeorder-order-demo1-list-center"><!--有几个产品就循环多少次此DIV-->
+                                      <div class="userhomeorder-order-demo1-list-center-img">
+                                          <div class="userhomeorder-order-demo1-list-center-img-img">
+                                              <img src="./pictures/quote_sys/upload/{:$z.img:}"/>
+                                          </div>
+                                          
+                                          <div class="userhomeorder-order-demo1-list-center-img-span">
+                                            <!-- 产品型号 -->
+                                            {:$z.order_code:}
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-center-total">
+                                         {:$z.goods_amount:}
+                                      </div>
+                                      
+                                      <div class="userhomeorder-order-demo1-list-center-list">
+                                          <div class="userhomeorder-order-demo1-list-center-list-demo"><!--循环次DIV-->
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-01">
+                                                  <input name="" type="checkbox" value=""  style="display:none;"/><!--判断，如果是支付过的，显示此input，如果是为支付的，隐藏此input-->
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-02">
+                                                 2.5%
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-03">
+                                                  ￥500
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-04">
+                                                  定金
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-05">
+                                                  免费设计
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-06">
+                                                 {:if $z.pay_status eq 2:}
+                                                  <span class="userhomeorder-order-demo1-list-center-list-demo-06-01"><!--判断，如果是支付过的，显示此SPAN-->
+                                                      已支付
+                                                  </span>
+                                                 {:elseif $z.pay_status eq 0:} 
+                                                  <span class="userhomeorder-order-demo1-list-center-list-demo-06-02" style="display:none;"><!--判断，如果是未支付过的，显示此SPAN-->
+                                                      未支付
+                                                  </span>
+                                                 {:/if:} 
+                                              </div>
+                                              
+                                              <div class="clear"></div>
+                                          </div>
+                                          
+                                          <div class="clear"></div>
+                                          
+                                          <div class="userhomeorder-order-demo1-list-center-list-demo"><!--循环次DIV-->
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-01">
+                                                  <input name="" type="checkbox" value=""/><!--判断，如果是支付过的，显示此input，如果是为支付的，隐藏此input-->
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-02">
+                                                  50%
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-03">
+                                                  ￥{:(($z.goods_amount)-500)/2:}
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-04">
+                                                  辅材/人工费
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-05">
+                                                  入场施工
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-06">
+                                               {:if $z.pay_status eq 3:}
+                                                  <span class="userhomeorder-order-demo1-list-center-list-demo-06-01" style="display:none;"><!--判断，如果是支付过的，显示此SPAN-->
+                                                      已支付
+                                                  </span>
+                                               {:elseif $z.pay_status eq 0:}   
+                                                  
+                                                  <span class="userhomeorder-order-demo1-list-center-list-demo-06-02" ><!--判断，如果是未支付过的，显示此SPAN-->
+                                                      未支付
+                                                  </span>
+                                               {:/if:} 
+                                              </div>
+                                              
+                                              <div class="clear"></div>
+                                          </div>
+                                          
+                                          <div class="clear"></div>
+                                          
+                                          <div class="userhomeorder-order-demo1-list-center-list-demo"><!--循环次DIV-->
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-01">
+                                                  <input name="" type="checkbox" value=""/><!--判断，如果是支付过的，显示此input，如果是为支付的，隐藏此input-->
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-02">
+                                                  50%
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-03">
+                                                  ￥{:(($z.goods_amount)-500)/2:}
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-04">
+                                                  主机设备
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-05">
+                                                  安装调试
+                                              </div>
+                                              
+                                              <div class="userhomeorder-order-demo1-list-center-list-demo-06">
+                                                 {:if $z.pay_status eq 0:}
+                                                  <span class="userhomeorder-order-demo1-list-center-list-demo-06-01" style="display:none;"><!--判断，如果是支付过的，显示此SPAN-->
+                                                      已支付
+                                                  </span>
+                                                 {:elseif $z.pay_status eq 4:} 
+                                                  <span class="userhomeorder-order-demo1-list-center-list-demo-06-02" ><!--判断，如果是未支付过的，显示此SPAN-->
+                                                      未支付
+                                                  </span>
+                                                 {:/if:}
+                                              </div>
+                                           
+                                              <div class="clear"></div>
+                                          </div>
+                                          
+                                          <div class="clear"></div>
+                                      </div>
+                                      
+                                      <div class="clear"></div>
+                                  </div>
+                                  
+                           {:/foreach:}       
+                            <div class="userhomeorder-order-demo1-buy"> 
+                                <div class="userhomeorder-order-demo1-buy-01"> 
+                                    <div class="userhomeorder-order-demo1-buy-01-left"> 
+                                     ￥ {:$totaldollar:}             
+                                    </div>
+                                     
+                                    <div class="userhomeorder-order-demo1-buy-01-right"> 
+                                        <a href="#">
+                                        	支付
+                                        </a>
+                                    </div>
+                                     
+                                    <div class="clear"></div>
+                                </div> 
+                                
+                                <div class="clear15"></div>
+                                
+                                <div class="userhomeorder-order-demo1-buy-02">  
+                                    <div class="userhomeorder-order-demo1-buy-02-left"> 
+                                    	<span class="userhomeorder-order-demo1-buy-02-left-01"> 
+                                        	或一次性支付，享受
+                                        </span>
+                                        
+                                        <span class="userhomeorder-order-demo1-buy-02-left-02"> 
+                                        	9.5折
+                                        </span>
+                                        
+                                        <span class="userhomeorder-order-demo1-buy-02-left-01">
+                                        	优惠或申请 
+                                        </span>
+                                        
+                                        <a class="userhomeorder-order-demo1-buy-02-left-03" href="#"> 
+                                        	分期付款
+                                        </a>                                        
+                                    </div>
+                                    
+                                    <div class="userhomeorder-order-demo1-buy-02-right">
+                                        <a href="#">
+                                            一键购买
+                                        </a>  
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                        	</div>
+                            
+                            <div class="clear2"></div>
+                        </div>
+                    </div>
+
+                    <div id="tabs-2"><!--待付款--><!--有几个产品就循环多少次此DIV-->
+                    	bbb
+                    </div>
+                    
+                    <div id="tabs-3"><!--待收货-->
+                    	ccc
+                    </div>
+                    
+                    <div id="tabs-4"><!--待评价-->
+                    	ddd
+                    </div>
+                
+            	</div>               
+            </div>
+        </div>
+        <!--订单状态详细end-->
+        
+        <div class="clear3"></div>
+        
+        <!--施工进度-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="2">
+        	<div class="userhomeorder-sgjd">
+            	<div class="userhomeorder-sgjd-title">
+                	<span>
+                    	施工进度
+                    </span>
+                </div>
+                
+                <div class="userhomeorder-sgjd-center">
+                	<div id="tabs2">
+                        <div class="clear27"></div>
+                        
+                        <ul>                    
+                            <li><a href="#tabs-1" style="color:#000;">新风除霾</a></li>
+                            <li><a href="#tabs-2" style="color:#000;">净水</a></li>
+                            <li><a href="#tabs-3" style="color:#000;">采暖</a></li>
+                        </ul>
+                        <div class="clear27"></div>
+                        
+                        <div id="tabs-1">
+                            <div class="userhomeorder-sgjd-center-demo1">
+                            	<div class="userhomeorder-sgjd-center-demo1-order">
+                                	订单号&nbsp;&nbsp;&nbsp;&nbsp;001
+                                </div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-title">
+                                	<div class="userhomeorder-sgjd-center-demo1-title-01">
+                                    	开始时间
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-02">
+                                    	结束时间
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-03">
+                                    	任务
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-04">
+                                    	结果
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-05">
+                                    	执行人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-06">
+                                    	审核人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-07">
+                                    	备注
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.1
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.1.20
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	安装设计
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	已完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.2.3
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	辅料安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	正在进行中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.2.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	主设备安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	等待中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="clear2"></div>
+                            </div>
+                        </div>
+                        
+                        <div id="tabs-2">
+                            <div class="userhomeorder-sgjd-center-demo1">
+                            	<div class="userhomeorder-sgjd-center-demo1-order">
+                                	订单号&nbsp;&nbsp;&nbsp;&nbsp;001
+                                </div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-title">
+                                	<div class="userhomeorder-sgjd-center-demo1-title-01">
+                                    	开始时间
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-02">
+                                    	结束时间
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-03">
+                                    	任务
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-04">
+                                    	结果
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-05">
+                                    	执行人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-06">
+                                    	审核人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-07">
+                                    	备注
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.1
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.1.20
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	安装设计
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	已完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.2.3
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	辅料安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	正在进行中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.2.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	主设备安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	等待中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="clear2"></div>
+                            </div>
+                        </div>
+                        
+                        <div id="tabs-3">
+                            <div class="userhomeorder-sgjd-center-demo1">
+                            	<div class="userhomeorder-sgjd-center-demo1-order">
+                                	订单号&nbsp;&nbsp;&nbsp;&nbsp;001
+                                </div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-title">
+                                	<div class="userhomeorder-sgjd-center-demo1-title-01">
+                                    	开始时间
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-02">
+                                    	结束时间
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-03">
+                                    	任务
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-04">
+                                    	结果
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-05">
+                                    	执行人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-06">
+                                    	审核人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-title-07">
+                                    	备注
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.1
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.1.20
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	安装设计
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	已完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.2.3
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	辅料安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	正在进行中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-sgjd-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-sgjd-center-demo1-list-01">
+                                    	2016.1.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-02">
+                                    	2016.2.25
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-03">
+                                    	主设备安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-04">
+                                    	等待中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-05">
+                                    	清风
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-06">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-sgjd-center-demo1-list-07">
+                                    	无
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="clear2"></div>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--施工进度end-->
+        
+        <div class="clear3"></div>
+        
+        <!--质量审核-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="3">
+        	<div class="userhomeorder-zlsh">
+            	<div class="userhomeorder-zlsh-title">
+                	<span>
+                    	质量审核
+                    </span>
+                </div>
+                
+                <div class="userhomeorder-zlsh-center">
+                	<div id="tabs3">
+                        <div class="clear27"></div>
+                        
+                        <ul>                    
+                            <li><a href="#tabs-1" style="color:#000;">新风除霾</a></li>
+                            <li><a href="#tabs-2" style="color:#000;">净水</a></li>
+                            <li><a href="#tabs-3" style="color:#000;">采暖</a></li>
+                        </ul>
+                        <div class="clear27"></div>
+                        
+                        <div id="tabs-1">
+                            <div class="userhomeorder-zlsh-center-demo1">
+                            	<div class="userhomeorder-zlsh-center-demo1-order">
+                                	订单号&nbsp;&nbsp;&nbsp;&nbsp;002
+                                </div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-title">
+                                	<div class="userhomeorder-zlsh-center-demo1-title-01">
+                                    	施工阶段
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-02">
+                                    	状态
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-03">
+                                    	审核人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-04">
+                                    	验收状态
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-05">
+                                    	验收凭证
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-06">
+                                    	时间
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	安装设计
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	初稿完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户已验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单已上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	主设备安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	初稿完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户未验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单未上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	辅材安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	等待中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户未验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单未上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="clear2"></div>
+                            </div>
+                        </div>
+                        
+                        <div id="tabs-2">
+                            <div class="userhomeorder-zlsh-center-demo1">
+                            	<div class="userhomeorder-zlsh-center-demo1-order">
+                                	订单号&nbsp;&nbsp;&nbsp;&nbsp;002
+                                </div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-title">
+                                	<div class="userhomeorder-zlsh-center-demo1-title-01">
+                                    	施工阶段
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-02">
+                                    	状态
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-03">
+                                    	审核人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-04">
+                                    	验收状态
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-05">
+                                    	验收凭证
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-06">
+                                    	时间
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	安装设计
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	初稿完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户已验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单已上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	主设备安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	初稿完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户未验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单未上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	辅材安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	等待中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户未验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单未上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="clear2"></div>
+                            </div>
+                        </div>
+                        
+                        <div id="tabs-3">
+                            <div class="userhomeorder-zlsh-center-demo1">
+                            	<div class="userhomeorder-zlsh-center-demo1-order">
+                                	订单号&nbsp;&nbsp;&nbsp;&nbsp;002
+                                </div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-title">
+                                	<div class="userhomeorder-zlsh-center-demo1-title-01">
+                                    	施工阶段
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-02">
+                                    	状态
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-03">
+                                    	审核人
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-04">
+                                    	验收状态
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-05">
+                                    	验收凭证
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-title-06">
+                                    	时间
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	安装设计
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	初稿完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户已验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单已上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	主设备安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	初稿完成
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户未验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单未上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="userhomeorder-zlsh-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                	<div class="userhomeorder-zlsh-center-demo1-list-01">
+                                    	辅材安装
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-02">
+                                    	等待中
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-03">
+                                    	杨波
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-04">
+                                    	用户未验收
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-05">
+                                    	验收单未上传
+                                    </div>
+                                    
+                                    <div class="userhomeorder-zlsh-center-demo1-list-06">
+                                    	2016.1.28
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="clear2"></div>
+                            </div>
+                        </div>                                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--质量审核end-->
+        
+      	<div class="clear3"></div>
+        
+        <!--文件区-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="4">
+        	<div class="userhomeorder-wjq">
+            	<div class="userhomeorder-wjq-title">
+                	<span>
+                    	文件区
+                    </span>
+                </div>
+                
+                <div class="userhomeorder-wjq-center">
+                    <div id="tabs-1">
+                        <div class="userhomeorder-wjq-center-demo1">
+                            <div class="userhomeorder-wjq-center-demo1-title">
+                                <div class="userhomeorder-wjq-center-demo1-title-01">
+                                    订单号
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-title-02">
+                                    名称
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-title-03">
+                                    缩略图
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-title-04">
+                                    类型
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-title-05">
+                                    上传人
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-title-06">
+                                    时间
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-title-07">
+                                    操作
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="userhomeorder-wjq-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                <div class="userhomeorder-wjq-center-demo1-list-01">
+                                    001
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-02">
+                                    图纸
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-03">
+                                    <img src="images/138.jpg"/>
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-04">
+                                	CAD图纸
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-05">
+                                    杨波
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-06">
+                                    2016.1.1
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-07">
+                                    <a href="#">
+                                    	下载
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            
+                            <div class="userhomeorder-wjq-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                <div class="userhomeorder-wjq-center-demo1-list-01">
+                                    001
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-02">
+                                    设计验收单
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-03">
+                                    <img src="images/138.jpg"/>
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-04">
+                                	jpg
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-05">
+                                    杨波
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-06">
+                                    2016.1.1
+                                </div>
+                                
+                                <div class="userhomeorder-wjq-center-demo1-list-07">
+                                    <a href="#">
+                                    	下载
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>                            
+                            
+                            <div class="clear2"></div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!--文件区end-->
+        
+        <div class="clear3"></div>
+        
+        <!--产品手册-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="5">
+        	<div class="userhomeorder-cpsc">
+            	<div class="userhomeorder-cpsc-title">
+                	<span>
+                    	产品手册
+                    </span>
+                </div>
+                
+                <div class="userhomeorder-cpsc-center">
+                    <div id="tabs-1">
+                        <div class="userhomeorder-cpsc-center-demo1">
+                            <div class="userhomeorder-cpsc-center-demo1-title">
+                                <div class="userhomeorder-cpsc-center-demo1-title-01">
+                                    产品名称
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-title-02">
+                                    缩略图
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-title-03">
+                                    产品描述
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-title-04">
+                                    上传人
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-title-05">
+                                    时间
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-title-06">
+                                    操作
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="userhomeorder-cpsc-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                <div class="userhomeorder-cpsc-center-demo1-list-01">
+                                    新风除霾
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-02">
+                                    <img src="images/138.jpg"/>
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-03">
+                                    介绍除霾
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-04">
+                                	杨波
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-05">
+                                    2016.1.1
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-06">
+                                    <a href="#">
+                                    	下载
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            
+                            <div class="userhomeorder-cpsc-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                <div class="userhomeorder-cpsc-center-demo1-list-01">
+                                    净水
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-02">
+                                    <img src="images/138.jpg"/>
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-03">
+                                    介绍净水
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-04">
+                                	杨波
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-05">
+                                    2016.1.1
+                                </div>
+                                
+                                <div class="userhomeorder-cpsc-center-demo1-list-06">
+                                    <a href="#">
+                                    	下载
+                                    </a>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>                            
+                            
+                            <div class="clear2"></div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!--产品手册end-->
+        
+        <div class="clear3"></div>
+        
+        <!--售后服务-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="6">
+        	<div class="userhomeorder-shfw">
+            	<div class="userhomeorder-shfw-title">
+                	<span class="userhomeorder-shfw-title-01">
+                    	售后服务
+                    </span>
+                    
+                    <span class="userhomeorder-shfw-title-02">
+                    	一次购买终身服务
+                    </span>
+                </div>
+                
+                <div class="userhomeorder-shfw-center">
+                    <div id="tabs-1">
+                        <div class="userhomeorder-shfw-center-demo1">
+                            <div class="userhomeorder-shfw-center-demo1-title">
+                                <div class="userhomeorder-shfw-center-demo1-title-01">
+                                    订单号
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-title-02">
+                                    时间
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-title-03">
+                                    服务内容
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-title-04">
+                                    服务状态
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-title-05">
+                                    用户验收
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="userhomeorder-shfw-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                <div class="userhomeorder-shfw-center-demo1-list-01">
+                                    001
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-02">
+                                    2016.1.20
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-03">
+                                    更换新风滤片
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-04">
+                                	已完成
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-05">
+                                    已上传验收单
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                            
+                            <div class="userhomeorder-shfw-center-demo1-list"><!--有多少信息就循环多少次该DIV，包括下面一行clear-->
+                                <div class="userhomeorder-shfw-center-demo1-list-01">
+                                    001
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-02">
+                                    2016.1.20
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-03">
+                                    更换新风滤片
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-04">
+                                	已完成
+                                </div>
+                                
+                                <div class="userhomeorder-shfw-center-demo1-list-05">
+                                    已上传验收单
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>                            
+                            
+                            <div class="clear2"></div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!--售后服务end-->
+        
+        <div class="clear3"></div>
+        
+        <div class="userorder-order-center-no"><!--如果没有订单状态，则显示此DIV-->
+              <div class="userorder-order-center-no-01">
+                  <img src="images/133.png"/>
+              </div>
+              
+              <div class="userorder-order-center-no-02">
+                  <a href="#">
+                      您买的东西太少了，这里都空空的，快去挑选合适的商品吧！
+                  </a>
+              </div>
+         </div>
+    </div>
+  	<!-- user右边end，引用头部时倒入这个div -->
+	<div class="clear"></div>
+</div>
+{:include file='user_footer.tpl.html':}
+<!-- user底部end -->
+
+
+<

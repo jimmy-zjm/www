@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>经销商-列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script language="javascript">
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+<body>
+	 <div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    	<li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+		    <li><a >健康舒适家居</a></li>
+	    	<li><a href="<{:U('index')}>">服务商列表</a></li>
+	    </ul>
+	    </div>
+	    <div class="rightinfo">
+	    
+	    <div class="tools">
+	    	<ul class="toolbar">
+	        <li class="click"><a href="<{:U('add')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</a></li>
+	        </ul>        
+	    </div>
+	    <div class="tools">
+	    <ul class="prosearch">
+		<form action='' method='get'>
+			<li><label>查询：</label><a><input type='text' name='keyword' class="scinput" placeholder="请输入公司名称查询" value="<?php echo I('get.keyword') ?>"/></a>
+			<input type='submit' class="sure" name='send' value='搜索' /></li>
+		</form>
+		</ul>
+		</div>
+		<div style="clear:bold"></div>
+	    <div class="tools">
+	    	<a href="<{:U('index')}>"><button class="btn" >全部</button></a>
+	        <a href="<{:U('index',array('district'=>1))}>"><button class="btn" >华中地区</button></a>
+	        <a href="<{:U('index',array('district'=>2))}>"><button class="btn" >华东地区</button></a>
+	        <a href="<{:U('index',array('district'=>3))}>"><button class="btn" >西南/西北地区</button></a>
+	        <a href="<{:U('index',array('district'=>4))}>"><button class="btn" >华北/东北地区</button></a>
+	        <a href="<{:U('index',array('district'=>5))}>"><button class="btn" >华南地区</button></a>
+        </div>
+	    
+	    <table class="listtable">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;">编号</th>
+	    <th>服务商名称</th>
+	    <th>区域</th>
+	    <th>省份</th>
+	    <th>城市</th>
+	    <th>级别</th>
+	    <th>状态</th>
+	    <th>联系人</th>
+	    <th>联系电话</th>
+	    <th>添加时间</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    <?php foreach ($dealer_list as $v):?>
+	    <tr>
+	    <td><{$v['d_id']}></td>
+	    <td><a href="?edit&d_id=<{$v['d_id']}>"><{$v['d_company']}></a></td>
+	    <td><{$v['d_district']}></td>
+	    <td><{$v['d_province']}></td>
+	    <td><{$v['d_city']}></td>
+	    <td><{$v['d_rank']}>级</td>
+	    <td><{$v['d_runstatus']}></td>
+	    <td><{$v['d_linkman']}></td>
+	    <td><{$v['d_link_phone']}></td>
+	   	<td><{$v['add_time']}></td>
+	    <td><a href="<{:U('info',array('d_id'=>$v['d_id']))}>">详情</a>|<a href="<{:U('edit',array('d_id'=>$v['d_id']))}>">修改</a>|<a href="<{:U('del',array('d_id'=>$v['d_id']))}>" onclick="return confirm('您确定要删除吗？')">删除</a></td>
+	    </tr>
+	    <?php endforeach ?>
+	    </tbody>
+	    </table>
+		<{$page}>
+	    </div>
+
+
+</body>
+</html>
+
+	
+    
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="">首页</a></li>
+	    <li><a href="">健康舒适家居</a></li>
+	    <li><a href="<{:U('index')}>">报价清单</a></li>
+	    <li><a href="">分类</a></li>
+	    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    <form action="<{:U('dofenlei')}>" method="post" enctype="multipart/form-data" >
+	    <ul class="forminfo">
+	    <li><label>类名</label><input id='dddd' name="formula" type="text" class="dfinput" value='' required='required'/></li> 
+	    <li><label>&nbsp;</label><input name="" type="button" class="btn" value="添加" onclick="aaa()"/></li>
+		
+		</form>
+		<br />
+		<div id="add">
+	    <?php foreach ($data as $key => $value){?>
+  			<li>
+  				<label>类名</label>
+  				<input id='dddd<{$key}>' name="formula" type="text" class="dfinput" value='<{$value.text}>' required='required'/>
+  				<a href="javascript:;" onclick="save(<{$value.id}>,<{$key}>)">修改</a>
+  				<a href="javascript:;" onclick="del(<{$value.id}>)">删除</a>
+  			</li>
+  		<?php } ?>
+	  	</div>
+	    </ul>
+
+	    </div>
+
+	    <script>
+	    	function aaa(){
+	    		var text = $('#dddd').val();
+	    		var level = $('#aaaa').val();
+	    		$.get("<{:U('dofenlei')}>?quote_id=<{$_GET['quote_id']}>&text="+text,function(data){
+	    			 $('#add').html(data);
+	    		})
+	    	}
+	    	function del(id){
+	    		if(confirm('确定要删除吗？')){
+				    $.get("<{:U('delfenlei')}>?id="+id+"&quote_id=<{$_GET['quote_id']}>",function(data){
+		    			if (data=='error') {
+		    				alert('删除失败，请重试!');
+		    			}else{
+		    				$('#add').html(data);
+		    				alert('删除成功!');
+		    			}
+		    		})
+				}else{
+				    return false;
+				}
+	    	}
+	    	function save(id,k){
+	    		if(confirm('确定要修改吗？')){
+		    		var text = $('#dddd'+k).val();
+					$.get("<{:U('savefenlei')}>?id="+id+"&quote_id=<{$_GET['quote_id']}>&text="+text,function(data){
+		    			if (data=='error') {
+		    				alert('修改失败，请重试!');
+		    			}else{
+		    				$('#add').html(data);
+		    				alert('修改成功!');
+		    			}
+		    		})
+	    		}else{
+				    return false;
+				}
+	    	}
+	    </script>
+</body>
+</html>
+

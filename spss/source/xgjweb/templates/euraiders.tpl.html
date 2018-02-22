@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet"  type="text/css"  href="css/style.css" /><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/tuanstyle.css" /><!-- 欧洲团代购tuan页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<!--搜索滑动框-->
+<link rel="stylesheet" type="text/css" href="css/sousuo/default.css" />
+<link rel="stylesheet" type="text/css" href="css/sousuo/component.css" />
+<script src="js/sousuo/modernizr.custom.js"></script>
+<!--搜索滑动框end-->
+<title>欧洲团代购——全球攻略</title>
+</head>
+<body >
+
+<!-- top顶部 -->
+
+{:include file='header.tpl.html':}
+
+<!-- top顶部end -->
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                	<a href="index.php">
+	                	<img src="images/logo2.png"/>
+                	</a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="eugroup.php">
+				        首页
+				    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+				        单品团
+				    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="eugroup.php?euraiders">
+				        代购攻略
+				    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="eugroup.php?euforeshow">
+				        明日预告
+				    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+<div class="index-ad">
+		  <img src="images/200.jpg"/>
+</div>
+
+<div></div>
+
+<!--中间-->
+<div class="tuanraiders-conter">
+  <div class="clear2"></div>
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/409.jpg"/>
+    </a>
+  </div>
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/400.jpg"/>
+    </a>
+  </div>
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/401.jpg"/>
+    </a>
+  </div>
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/402.jpg"/>
+    </a>
+  </div>
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/403.jpg"/>
+    </a>
+  </div>
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/404.jpg"/>
+    </a>
+  </div> 
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/405.jpg"/>
+    </a>
+  </div>  
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/406.jpg"/>
+    </a>
+  </div> 
+  
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/407.jpg"/>
+    </a>
+  </div>  
+   
+  <div class="tuanraiders-demo">
+    <a href="#">
+      <img  src="images/408.jpg"/>
+    </a>
+  </div>    
+</div>
+<!--中间end-->
+
+
+<div class="clear2"></div>
+
+
+<!-- 底部广告 -->
+<div class="tuanlist-bottom" >
+		  <img src="images/213.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+
+<!-- 底部列表 -->
+
+{:include file='footer.tpl.html':}
+
+<!-- 底部列表end -->
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+<li><a data-slide="5" onClick="gotofloor(this);" href="javascript:void(0);">5F</a></li>
+
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<!-- 楼层定位end -->
+
+
+<!-- js楼层定位 -->
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+</script>
+<!-- js楼层定位end -->
+
+
+
+
+<!--搜索-->
+<script src="js/sousuo/classie.js"></script>
+<script src="js/sousuo/uisearch.js"></script>
+
+<script>
+			new UISearch( document.getElementById( 'sb-search' ) );
+</script>
+<!--搜索-->
+
+</body>
+</html>

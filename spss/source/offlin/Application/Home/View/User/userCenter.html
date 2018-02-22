@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/index.css">
+</head>
+<body>
+	<div  class="pcenter-top">
+		<img src="__PUBLIC__/Dealer/img/touxiang.png">
+		<p><a href="__APP__/User/info.html"><{$user.name}>&nbsp;></a></p>
+	</div>
+	<div class="pcenter-bottom container">
+		<a href="__APP__/User/psd.html" class="p-item"><span class="span01"></span>修改密码</a>
+		<a href="__APP__/Manage/index.html" class="p-item"><span class="span02"></span>客户管理</a>
+		<if condition="$user.level neq 3"><a href="__APP__/Staff/index.html" class="p-item"><span class="span03"></span>员工信息</a></if>
+	</div>
+
+    
+   

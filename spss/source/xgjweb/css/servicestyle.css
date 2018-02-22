@@ -1,0 +1,675 @@
+@CHARSET "UTF-8";
+
+.service-center{
+	background:#f5f5f5;
+	width:100%;}
+	
+.service-center-bk{
+	width:1100px;
+	margin:0 auto;
+	background:#fff;}
+	
+.service-center-top{
+	width:1098px;
+	height:63px;
+	line-height:63px;
+	border:1px solid #d6d6d6;}
+
+.service-center-top span{
+	color:#383838;
+	font-size:24px;
+	margin-left:45px;}
+	
+.service-center-left{
+	float:left;
+	width:198px;
+	height:633px;
+	border-left:1px solid #d6d6d6;
+	border-right:1px solid #d6d6d6;
+	border-bottom:1px solid #d6d6d6;}
+	
+.service-center-left-tel{
+	width:198px;
+	height:84px;
+	border-bottom:1px solid #d6d6d6;}
+	
+.service-center-left-tel-number{
+	width:198px;
+	margin:0 auto;
+	text-align:center;
+	font-size:18px;
+	color:#666666;}
+	
+.service-center-left-tel-call{
+	width:103px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	margin:0 auto;
+	background:url(../images/anniu12.png);}
+	
+.service-center-left-tel-call a{
+	font-size:18px;
+	color:#666666;}
+	
+.service-center-left-list01-title{
+	width:175px;
+	height:54px;
+	line-height:54px;
+	border-bottom:1px solid #d6d6d6;
+	margin:0 auto;}
+	
+.service-center-left-list01-title-img{
+	float:left;
+	width:30px;
+	height:54px;
+	margin-left:20px;}
+
+.service-center-left-list01-title-img img{
+	width:30px;
+	height:54px;}
+	
+.service-center-left-list01-title-span{
+	float:left;
+	font-size:16px;
+	color:#666;}
+	
+.service-center-left-list01-title-span a{
+	color:#666;}
+	
+.service-center-left-list01-demo{
+	width:155px;
+	height:40px;
+	line-height:40px;
+	margin:0 auto;}
+	
+.service-center-left-list01-demo a{
+	font-size:14px;
+	color:#666;
+	margin-left:15px;}
+	
+.service-center-left-list01-demo02{
+	width:155px;
+	height:40px;
+	line-height:40px;
+	margin:0 auto;
+	background:#87cbff;}
+
+.service-center-left-list01-demo02 a{
+	font-size:14px;
+	color:#ffffff;
+	margin-left:15px;}
+
+.service-center-left-list02-title{
+	width:175px;
+	height:54px;
+	line-height:54px;
+	border-bottom:1px solid #d6d6d6;
+	margin:0 auto;}
+	
+.service-center-left-list02-title-img{
+	float:left;
+	width:30px;
+	height:54px;
+	margin-left:20px;}
+
+.service-center-left-list02-title-img img{
+	width:30px;
+	height:54px;}
+	
+.service-center-left-list02-title-span{
+	float:left;
+	font-size:16px;
+	color:#666;}
+
+.service-center-left-list02-title-span a{
+	color:#666;}
+
+.service-center-right{
+	float:left;
+	width:898px;
+	min-height:633px;
+	border-left:1px solid #d6d6d6;
+	border-right:1px solid #d6d6d6;
+	border-bottom:1px solid #d6d6d6;
+	background:#fff;}
+
+
+/*弹出产品说明书*/
+#clickAddId{
+	width:100%;
+	background:url(../images/touming02.png);
+	position:absolute;
+	top:0px; 
+	display:none;
+	z-index:9999;}
+	
+.service_download-clickAddId-center-bk{
+	width:100%;
+	height:270px;
+	position:fixed;
+	top:300px;}
+
+.service_download-clickAddId-center{
+	width:800px;
+	height:260px;
+	margin:0 auto;
+	background:#fff;}
+	
+.service_download-clickAddId-center-title{
+	width:800px;
+	height:58px;
+	line-height:58px;
+	background:url(../images/hengfu.png);
+	border-bottom:1px solid #dfe1e3;}
+	
+.service_download-clickAddId-center-title-left{
+	float:left;
+	width:700px;
+	height:58px;
+	line-height:58px;}
+	
+.service_download-clickAddId-center-title-left span{
+	font-size:18px;
+	color:#333333;
+	margin-left:75px;}
+	
+.service_download-clickAddId-center-title-right{
+	float:right;
+	margin-top:7px;
+	margin-right:12px;
+	width:25px;
+	height:25px;
+	line-height:25px;}
+	
+.service_download-clickAddId-center-title-right img{
+	width:25px;
+	height:25px;}
+	
+.service_download-clickAddId-center-title-right a{
+	display:block;}
+	
+.service_download-clickAddId-center-file{
+	width:640px;
+	margin:0 auto;}
+	
+.service_download-clickAddId-center-file-left{
+	float:left;
+	width:300px;
+	height:28px;
+	line-height:28px;
+	border:1px solid #b7b7b7;}
+	
+.service_download-clickAddId-center-file-right{
+	float:right;
+	width:300px;
+	height:28px;
+	line-height:28px;
+	border:1px solid #b7b7b7;}
+	
+.service_download-clickAddId-center-file select{
+	background:none;
+	border:none;
+	width:300px;
+	height:28px;
+	line-height:28px;}
+	
+.service_download-clickAddId-center-out{
+	width:242px;
+	height:49px;
+	line-height:49px;
+	margin:0 auto;
+	text-align:center;
+	background:url(../images/anniu13.png);}
+	
+.service_download-clickAddId-center-out a{
+	font-size:18px;
+	color:#fffefe;}
+/*弹出产品说明书end*/
+
+
+
+/*常见问题列表页*/
+.service_faq-center{
+	width:790px;
+	margin-left:50px;}
+	
+.service_faq-center-title{
+	width:790px;
+	border-bottom:2px solid #d6d6d6;
+	font-size:18px;
+	color:#202020;
+	height:40px;
+	line-height:40px;}
+	
+.service_faq-center-list{
+	width:790px;}
+	
+.service_faq-center-list-demo{
+	border-bottom:2px solid #d6d6d6;
+	width:790px;
+	height:45px;
+	line-height:45px;
+	font-size:14px;
+	color:#202020;}
+	
+.service_faq-center-list-demo a{
+	font-size:14px;
+	color:#202020;
+	margin-left:14px;}
+/*常见问题列表页end*/
+
+
+
+
+/*常见问题详细页*/
+.service_article-center{
+	width:790px;
+	margin-left:50px;}
+	
+.service_article-center-title{
+	width:790px;
+	border-bottom:2px solid #d6d6d6;
+	font-size:18px;
+	color:#202020;
+	height:40px;
+	line-height:40px;}
+	
+.service_article-center-word{
+	width:790px;
+	color:#202020;
+	font-size:12px;
+	line-height:25px;}
+	
+.service_article-center-word img{
+	max-width:790px;}
+
+/*常见问题详细页end*/
+
+
+
+
+/*在线保修*/
+.service_saveProblem-center{
+	width:790px;
+	margin-left:50px;}
+	
+.service_saveProblem-center-title{
+	width:790px;
+	border-bottom:2px solid #d6d6d6;
+	font-size:18px;
+	color:#202020;
+	height:40px;
+	line-height:40px;}
+	
+.service_saveProblem-center-zxbx{
+	width:750px;
+	font-size:14px;
+	color:#202020;
+	margin-left:25px;}
+	
+.service_saveProblem-center-zxbx .span01{
+	background:#efefef;}
+	
+.service_saveProblem-center-table-demo{
+	width:790px;}
+
+.service_saveProblem-center-table-demo-01{
+	float:left;
+	width:25px;
+	height:20px;
+	text-align:right;
+	font-size:20px;
+	color:#ed1f1f;}
+	
+.service_saveProblem-center-table-demo-02{
+	float:left;
+	width:120px;
+	font-size:16px;
+	color:#202020;}
+	
+.service_saveProblem-center-table-demo-03{
+	float:left;
+	width:600px;}
+	
+.service_saveProblem-center-table-demo-03-01{
+	width:600px;
+	height:45px;}
+	
+.service_saveProblem-center-table-demo-03-01-01{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-top:4px;}
+	
+.service_saveProblem-center-table-demo-03-01-01 input{
+	width:13px;
+	height:13px;}
+	
+.service_saveProblem-center-table-demo-03-01-02{
+	float:left;
+	font-size:14px;
+	color:#202020;
+	width:500px;
+	height:40px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	margin-left:10px;}
+	
+.service_saveProblem-center-table-demo-04{
+	float:left;
+	width:600px;}
+	
+.service_saveProblem-center-table-demo-04-01{
+	float:left;
+	width:200px;}
+	
+.service_saveProblem-center-table-demo-04-01-01{
+	float:left;
+	width:13px;
+	height:13px;
+	margin-top:4px;}
+	
+.service_saveProblem-center-table-demo-04-01-01 input{
+	width:13px;
+	height:13px;}
+	
+.service_saveProblem-center-table-demo-04-01-02{
+	float:left;
+	width:160px;
+	margin-left:10px;
+	color:#202020;
+	font-size:14px;}
+	
+.service_saveProblem-center-table-demo-05{
+	float:left;
+	width:600px;}
+	
+.service_saveProblem-center-table-demo-05-01{
+	float:left;
+	font-size:14px;
+	color:#202020;
+	height:25px;
+	line-height:25px;}
+	
+.service_saveProblem-center-table-demo-05-02{
+	float:left;
+	margin-left:5px;}
+	
+.service_saveProblem-center-table-demo-06{
+	float:left;
+	width:645px;}
+	
+.service_saveProblem-center-table-demo-06-01{
+	width:566px;
+	height:155px;
+	border:1px solid #b7b7b7;
+	float:left;}
+	
+.service_saveProblem-center-table-demo-06-01 textarea{
+	width:566px;
+	height:155px;
+	border:none;
+	line-height:25px;
+	font-size:18px;}
+	
+.service_saveProblem-center-table-demo-06-02{
+	float:left;
+	width:70px;
+	height:25px;
+	line-height:25px;
+	margin-top:132px;
+	margin-left:5px;}
+	
+.service_saveProblem-center-table-demo-06-02 input{
+	border:none;
+	background:none;
+	width:30px;
+	text-align:right;
+	font-size:15px;
+	color:#707070;}
+	
+.service_saveProblem-center-table-demo-06-02 span{
+	width:30px;
+	font-size:14px;
+	color:#707070;}
+
+.service_saveProblem-center-table-demo-07{
+	width:185px;
+	height:25px;
+	border:1px solid #b7b7b7;
+	float:left;}
+	
+.service_saveProblem-center-table-demo-07 input{
+	width:185px;
+	height:25px;
+	border:none;
+	background:none;}
+	
+.service_saveProblem-center-table-demo-08{
+	width:600px;
+	float:left;}
+	
+.service_saveProblem-center-table-demo-08-01{
+	width:600px;
+	height:35px;}
+
+.service_saveProblem-center-table-demo-08-01 .infolist .liststyle span ul{
+	top:26px;}
+	
+.service_saveProblem-center-table-demo-08-01 .infolist .liststyle span{
+	border:1px solid #b7b7b7;
+	height:25px;
+	line-height:25px;}
+	
+.service_saveProblem-center-table-demo-08-01 .infolist .liststyle span i{
+	height:25px;
+	line-height:25px;}
+	
+.service_saveProblem-center-table-demo-08-02{
+	width:410px;
+	height:25px;
+	border:1px solid #b7b7b7;
+	float:left;}
+	
+.service_saveProblem-center-table-demo-08-02 input{
+	width:410px;
+	height:25px;
+	border:none;
+	background:none;}
+	
+.service_saveProblem-center-table-button{
+	width:201px;
+	height:46px;
+	line-height:46px;
+	text-align:center;
+	margin:0 auto;
+	background:url(../images/anniu14.png);}
+	
+.service_saveProblem-center-table-button input{
+	width:201px;
+	height:46px;
+	text-align:center;
+	color:#fff;
+	font-size:20px;
+	border:none;
+	background:none;}
+.yk_box{
+	display:none; 
+	background: #f2f2f2 none repeat scroll 0 0;
+    margin-top: 8px;
+    padding: 14px 18px;
+    position: relative;
+    width: 664px;
+    z-index: 1;
+	}
+.yk_listlogo {
+    left: 8px;
+    position: absolute;
+    top: -8px;
+}
+.title_list {
+    color: #1eb0fc;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+}	
+
+/*在线保修end*/
+
+
+
+
+
+
+/*服务状态*/
+.service_state-center{
+	width:790px;
+	margin-left:50px;}
+	
+.service_state-center-title{
+	width:790px;
+	border-bottom:2px solid #d6d6d6;
+	font-size:18px;
+	color:#202020;
+	height:40px;
+	line-height:40px;}
+
+.service_state-center-table{
+	width:657px;
+	margin-left:50px;}
+	
+.service_state-center-table-img{
+	width:657px;
+	height:150px;
+	overflow:hidden;}
+	
+.service_state-center-table-img-demo01{
+	width:108px;
+	height:150px;
+	float:left;}
+	
+.service_state-center-table-img span{
+	display:block;
+	margin-top:120px;
+	display:block;
+	text-align:center;
+	font-size:18px;
+	color:#202020;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	width:108px;
+	height:25px;}
+	
+.service_state-center-table-img-demo01-lan01{
+	background:url(../images/983.png) no-repeat;}
+
+.service_state-center-table-img-demo01-hui01{
+	background:url(../images/987.png) no-repeat;}
+	
+.service_state-center-table-img-demo01-lan02{
+	background:url(../images/984.png) no-repeat;}
+
+.service_state-center-table-img-demo01-hui02{
+	background:url(../images/988.png) no-repeat;}
+	
+.service_state-center-table-img-demo01-lan03{
+	background:url(../images/985.png) no-repeat;}
+
+.service_state-center-table-img-demo01-hui03{
+	background:url(../images/989.png) no-repeat;}
+	
+.service_state-center-table-img-demo01-lan04{
+	background:url(../images/986.png) no-repeat;}
+
+.service_state-center-table-img-demo01-hui04{
+	background:url(../images/990.png) no-repeat;}
+	
+.service_state-center-table-img-demo02{
+	width:55px;
+	height:14px;
+	float:left;
+	margin-top:50px;
+	margin-left:10px;
+	margin-right:10px;}
+
+.service_state-center-table-img-demo02-lan{
+	background:url(../images/landian.png);}
+
+.service_state-center-table-img-demo02-hui{
+	background:url(../images/huidian.png);}	
+	
+.service_state-center-table-list{
+	width:650px;}
+	
+.service_state-center-table-list1{
+	width:650px;
+	height:75px;
+	overflow:hidden;}
+	
+.service_state-center-table-list2{
+	width:650px;
+	height:150px;
+	overflow:hidden;}
+	
+.service_state-center-table-list3{
+	width:650px;
+	height:225px;
+	overflow:hidden;}
+	
+.service_state-center-table-demo{
+	width:650px;
+	height:75px;}
+	
+.service_state-center-table-demo-01{
+	width:650px;
+	height:35px;
+	font-size:18px;
+	color:#202020;
+	float:left;}
+	
+.service_state-center-table-demo-02{
+	width:650px;
+	height:40px;
+	font-size:14px;
+	color:#202020;
+	float:left;}
+	
+.service_state-center-table-demo-02 span{
+	margin-left:20px;}
+	
+.service_state-center-table-demo-03-01{
+	float:left;
+	width:210px;
+	height:35px;
+	margin-left:20px;}
+	
+.service_state-center-table-demo-03-02{
+	float:left;
+	width:72px;
+	height:28px;
+	text-align:center;
+	background:url(../images/anniu15.png);}
+	
+.service_state-center-table-demo-03-02 input{
+	width:72px;
+	height:28px;
+	text-align:center;
+	font-size:18px;
+	color:#ffffff;
+	border:none;
+	background:none;}
+/*服务状态end*/
+
+
+
+
+
+
+
+
+

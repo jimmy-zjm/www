@@ -1,0 +1,50 @@
+
+<link rel="stylesheet" href="__PUBLIC__/css/homewenda1.css" />
+
+<!--content-->
+<div class="content">
+	<div class="con-top">
+		<img src="<{$data.image|getImage}>">
+	</div>
+	<div class="con-bottom">
+		<{$data.content}>
+	</div>
+</div>
+
+<script>
+function dibandetailtabs(n){
+	if(n==1){
+		$("#tab1").removeClass("tabactive");
+		$("#tab2").addClass("tabactive");
+		$("#tab3").addClass("tabactive");
+		$("#tabli1")[0].style.color="red";
+		$("#tabli2")[0].style.color="#aaa";
+		$("#tabli3")[0].style.color="#aaa";
+	}else if(n==2){
+		$("#tab2").removeClass("tabactive");
+		$("#tab1").addClass("tabactive");
+		$("#tab3").addClass("tabactive");
+		$("#tabli2")[0].style.color="red";
+		$("#tabli1")[0].style.color="#aaa";
+		$("#tabli3")[0].style.color="#aaa";
+	}else if(n==3){
+		$("#tab3").removeClass("tabactive");
+		$("#tab1").addClass("tabactive");
+		$("#tab2").addClass("tabactive");
+		$("#tabli3")[0].style.color="red";
+		$("#tabli1")[0].style.color="#aaa";
+		$("#tabli2")[0].style.color="#aaa";
+	}
+}
+   
+</script>
+
+<!--PC°æ-->
+<div id="SOHUCS" sid="<{$_GET['id']}>" style="width:800px;margin:0 auto;"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysUx1n6Y',
+conf: 'prod_522cb260bb8de374d6f16b6c0eac545b'
+});
+</script>

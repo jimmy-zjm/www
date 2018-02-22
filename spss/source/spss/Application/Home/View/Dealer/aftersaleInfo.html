@@ -1,0 +1,108 @@
+<include file="header" />
+
+<div class="clear30"></div>
+
+<!--中间-->
+<div class="dealer-center">
+	<div class="dealer_aftersale-center">
+    	<div class="dealer_aftersale-center-tabs01">
+        	<div class="dealer_aftersale-center-tabs01-title">
+                <div class="dealer_aftersale-center-tabs01-title-span">
+                    <?php if ($class == 9){?>保养记录
+                    <?php }else{?>维修记录
+                    <?php }?>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_aftersale-center-tabs01-list">
+            	<div class="dealer_aftersale-center-tabs01-list-title">
+                	<div class="dealer_aftersale-center-tabs01-list-title-order" style="width:190px;margin-left:0px;text-align: center;">
+                        订单号
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-title-order" style="width:190px;margin-left:0px;text-align: center;">
+                        <?php if ($class == 9){?>名称
+                        <?php }else{?>报修内容
+                        <?php }?>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-title-phone" style="width:180px;margin-left:0px;text-align: center;">
+                        开始时间
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-title-address" style="width:180px;margin-left:0px;text-align: center;">
+                        结束时间
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-title-order" style="width:290px;margin-left:00px;text-align: center;">
+                        <?php if ($class == 9){?>保养内容
+                        <?php }else{?>维修内容
+                        <?php }?>
+                    </div>
+
+                    <div class="dealer_aftersale-center-tabs01-list-title-contacts" style="width:65px;margin-left:0px;text-align: center;">
+                        <?php if ($class == 9){?>保养人
+                        <?php }else{?>维修人
+                        <?php }?>
+                    </div>
+                    
+                    <div class="clear"></div>
+            	</div>
+                
+                <div class="clear"></div>
+                <div id='uPageDiv'>
+                <?php foreach ($list as $v) {?>
+                <div class="dealer_aftersale-center-tabs01-list-demo">
+                	<div class="dealer_aftersale-center-tabs01-list-demo-order" style="width:190px;margin-left:0px;text-align: center;">
+                    	<{$v.sn}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-demo-order" style="width:190px;margin-left:0px;text-align: center;">
+                    	<{$v.goods_name}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-demo-phone" style="width:180px;margin-left:0px;text-align: center;">
+                    	<{$v.start_time}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-demo-address" style="width:180px;margin-left:0px;text-align: center;">
+                    	<{$v.end_time}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-demo-order" style="width:290px;margin-left:00px;text-align: center;">
+                    	<{$v.content}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs01-list-demo-contacts" style="width:65px;margin-left:0px;text-align: center;">
+                    	<{$v.task_name}>
+                    </div>
+                    
+                    <div class="clear"></div>
+            	</div>
+                
+                <div class="clear"></div>
+                <?php }?> 
+                </div>
+                <div class="clear32"></div>
+                
+                <div class="clear32"></div>
+            </div>
+        </div>
+        <div class="clear27"></div>
+        
+        
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+
+
+<include file="footer" />
+</body>
+</html>

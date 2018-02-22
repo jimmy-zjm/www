@@ -1,0 +1,368 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+    <include file="User:left" />
+    <div class="user-right">
+    	<div class="user_euOrderDetails-title">  
+        	<span>
+                订单编号：<if condition=" $data.splitAll neq '' "><{$data.order.sn}><else /><{$data.split.split_sn}></if>       
+            </span>  	
+        </div>
+    
+    	<div class="clear2"></div>
+    
+        
+        <div class="user_eu_order-center">
+            <if condition="$data.split.order_status neq 6">
+        	<!--有订单状态-->
+        	<div class="user_eu_order-center-yes">
+            	<div class="user_eu_order-center-yes-state">
+                	<div class="user_eu_order-center-yes-state-title">
+                    	<span>
+                        	订单状态
+                        </span>
+                    </div>
+
+                    <div class="user_eu_order-center-yes-state-img">
+                    	<div class="clear1"></div>
+                        
+                    	<div class="user_eu_order-center-yes-state-img-demo">
+                        	<!--此处进行判断，进行到哪步，放出哪张图片，2张图片是对应的-->
+                        	<img src="__PUBLIC__/img/1192.png"/>
+                            <!-- <img src="__PUBLIC__/img/1196.png"/> -->
+                        </div>
+                        
+                        <div class="user_eu_order-center-yes-state-img-demo">
+                        	<!--此处进行判断，进行到哪步，放出哪张图片，2张图片是对应的-->
+                            <if condition="$data['split']['order_status'] gt 0">
+                        	<img src="__PUBLIC__/img/1193.png"/>
+                            <else />
+                            <img src="__PUBLIC__/img/1197.png"/>
+                            </if>
+                        </div>
+                        
+                        <div class="user_eu_order-center-yes-state-img-demo">
+                        	<!--此处进行判断，进行到哪步，放出哪张图片，2张图片是对应的-->
+                            <if condition="$data['split']['order_status'] gt 2">
+                        	<img src="__PUBLIC__/img/1194.png"/>
+                            <else />
+                            <img src="__PUBLIC__/img/1198.png"/>
+                            </if>
+                        </div>
+                        
+                        <div class="user_eu_order-center-yes-state-img-demo">
+                        	<!--此处进行判断，进行到哪步，放出哪张图片，2张图片是对应的-->
+                            <if condition="$data['split']['order_status'] gt 5">
+                        	<img src="__PUBLIC__/img/1195.png"/>
+                            <else />
+                            <img src="__PUBLIC__/img/1199.png"/>
+                            </if>
+                        </div>
+                        
+                        <div class="clear3"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear1"></div>
+                <if condition="$data.express neq '' ">
+                <div class="user_eu_order-center-yes-logistics">
+                	<div class="user_eu_order-center-yes-logistics-title">
+                    	物流详情
+                    </div>
+                    
+                    <div class="user_eu_order-center-yes-logistics-info">
+                    	<div class="user_eu_order-center-yes-logistics-info-demo">
+                        	物流方式：<{$data.express.express_name}>
+                        </div>
+                        
+                        <div class="user_eu_order-center-yes-logistics-info-demo">
+                        	物流单号：<{$data.express.express_code}>
+                        </div>
+                    </div>
+				</div>
+                </if>
+            </div>
+            
+            <div class="clear1"></div>
+            <!--有订单状态end-->
+            <else />
+            <!--无订单状态-->
+        	<div class="user_eu_order-center-no">
+            	<div class="user_eu_order-center-no-state">
+                	<div class="user_eu_order-center-no-state-title">
+                    	<span>
+                        	订单状态
+                        </span>
+                    </div>
+                    
+                    <div class="user_eu_order-center-no-state-img">
+                    	<div class="clear1"></div>
+                        
+                    	<div class="user_eu_order-center-no-state-img-demo">
+                        	<img src="__PUBLIC__/img/1200.png"/>
+                        </div>
+                        
+                        <div class="clear3"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+            
+            <div class="clear1"></div>
+            <!--无订单状态end-->
+            </if>
+            <!--订单信息-->
+            <div class="user_eu_order-center-info">
+            	<div class="user_eu_order-center-info-title">
+                	<span>
+                        订单详情
+                    </span>
+                </div>
+                
+                <!--收货人信息-->
+                <div class="user_eu_order-center-info-consignee">
+                	<div class="user_eu_order-center-info-consignee-left">
+                    	<div class="user_eu_order-center-info-consignee-left-demo">
+                        	<div class="user_eu_order-center-info-consignee-left-demo-left">
+                            	收&nbsp;&nbsp;货&nbsp;&nbsp;人：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-left-demo-right">
+                            	<{$data.order.shr_name}>
+                            </div>
+                        	 
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_eu_order-center-info-consignee-left-demo">
+                        	<div class="user_eu_order-center-info-consignee-left-demo-left">
+                            	地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-left-demo-right">
+                            	<{$data.order.shr_pro}> <{$data.order.shr_city}> <{$data.order.shr_area}> <{$data.order.shr_addr}>
+                            </div>
+                        	 
+                            <div class="clear"></div>                        	 
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_eu_order-center-info-consignee-left-demo">
+                        	<div class="user_eu_order-center-info-consignee-left-demo-left">
+                            	手机号码：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-left-demo-right">
+                            	<{$data.order.shr_phone}>
+                            </div>
+                        	 
+                            <div class="clear"></div>                        	 
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="user_eu_order-center-info-consignee-right">
+                        <div class="user_eu_order-center-info-consignee-right-demo">
+                        	<div class="user_eu_order-center-info-consignee-right-demo-left">
+                            	付款时间：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-right-demo-right">
+                            	<{$data.order.pay_time}>
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-right-demo-right02">
+                            	付款方式：<if condition="$data.order.pay_method eq 1">支付宝
+                                        <elseif condition="$data.order.pay_method eq 2"/>银联
+                                        <elseif  condition="$data.order.pay_method eq 3"/>无卡
+                                        <!-- <elseif  condition="$data.order.pay_method eq 9"/>积分 -->
+                                        </if> 
+                            </div>
+                        	 
+                            <div class="clear"></div>                        	 
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_eu_order-center-info-consignee-right-demo">
+                        	<div class="user_eu_order-center-info-consignee-right-demo-left">
+                            	订单总额：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-right-demo-right">
+                            	¥<{$data.order.total_price}>
+                            </div>
+
+                            <div class="user_eu_order-center-info-consignee-right-demo-right02" style="display: none">
+                                可获得积分：<span>＋ <?php echo floor($data['order']['deal_price']*0.05);  ?> </span>
+                            </div>
+                        	 
+                            <div class="clear"></div>                        	 
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_eu_order-center-info-consignee-right-demo">
+                        	<div class="user_eu_order-center-info-consignee-right-demo-left">
+                            	运费金额：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-right-demo-right">
+                            	 ¥0.00
+                            </div>
+                        	 
+                            <div class="clear"></div>                        	 
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_eu_order-center-info-consignee-right-demo">
+                        	<div class="user_eu_order-center-info-consignee-right-demo-left">
+                            	使用优惠券：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-right-demo-right">
+                            	¥-<{$data.coupon|default='0'}>
+                            </div>
+                        	 
+                            <div class="clear"></div>                        	 
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <div class="user_eu_order-center-info-consignee-right-demo">
+                        	<div class="user_eu_order-center-info-consignee-right-demo-left" style="display: none">
+                            	使用积分：
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-right-demo-right" style="display: none" >
+                            	¥-<{$data.integral|default='0'}>
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-consignee-right-demo-right02">
+                            	应支付金额：<span>¥<{$data.order.deal_price}></span>
+                            </div>
+                        	 
+                            <div class="clear"></div>                        	 
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear2"></div>
+                </div>
+                
+                <div class="clear"></div>
+                <!--收货人信息end-->
+                
+                <!--商品信息-->
+                <div class="user_eu_order-center-info-goods">
+                	<div class="user_eu_order-center-info-goods-title">
+                    	<div class="user_eu_order-center-info-goods-title-name">
+                        	商品
+                        </div>
+                        
+                        <div class="user_eu_order-center-info-goods-title-identifier">
+                        	商品编号
+                        </div>
+                        
+                        <div class="user_eu_order-center-info-goods-title-number">
+                        	数量
+                        </div>
+                        
+                        <div class="user_eu_order-center-info-goods-title-total">
+                        	总价
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="user_eu_order-center-info-goods-list">
+                        <if condition="$data.splitAll neq '' ">
+                        <foreach name="data.splitAll"  key="k" item="v">
+                    	<div class="user_eu_order-center-info-goods-list-demo">
+                        	<div class="clear1"></div>
+                            
+                        	<div class="user_eu_order-center-info-goods-list-demo-img">
+                                <a href="__APP__/Material/info/id/<{$v.goods_id}>.html">
+                                	<img src="<{$v.goods_image|getImage}>"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-name" title="<{$data.split.goods_title}>  ">
+                                <a href="__APP__/Material/info/id/<{$v.goods_id}>.html">
+                                	<{$v.goods_title}>  
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-identifier" title="<{$data.split.goods_sn}>  ">
+                                <{$v.goods_sn}>  
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-number" title="x <{$data.split.goods_num}>  ">
+                                x <{$v.goods_num}>  
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-total" title="¥<{$data.split.goods_price}> ">
+                                ¥<{$v.goods_price}> 
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        </foreach>
+                        <else />
+                        <div class="user_eu_order-center-info-goods-list-demo">
+                            <div class="clear1"></div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-img">
+                                <a href="__APP__/Material/info/id/<{$v.goods_id}>.html">
+                                    <img src="<{$data.split.goods_image|getImage}>"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-name" title="<{$data.split.goods_title}>  ">
+                                <a href="__APP__/Material/info/id/<{$v.goods_id}>.html">
+                                    <{$data.split.goods_title}>  
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-identifier" title="<{$data.split.goods_sn}>  ">
+                                <{$data.split.goods_sn}>  
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-number" title="x <{$data.split.goods_num}>  ">
+                                x <{$data.split.goods_num}>  
+                            </div>
+                            
+                            <div class="user_eu_order-center-info-goods-list-demo-total" title="¥<{$data.split.goods_price}> ">
+                                ¥<{$data.split.goods_price}> 
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        </if>
+                        
+                        <div class="clear3"></div>
+                    </div>
+                </div>
+                <!--商品信息end-->
+            </div>
+            <!--订单信息end-->
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>

@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<title>用户名-添加</title>
+
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">用户名管理</a></li>
+            <li><a href="#">用户名列表</a></li>
+            <li><a href="#">编辑</a></li>
+        </ul>
+    </div>
+	<div class="formbody">
+		<div id="usual1" class="usual">
+					<div class="itab">
+						<ul>
+							<li><a href="#tab1" class="selected">通用信息</a></li>
+							<li><a href="#tab2">公司信息</a></li>
+							<li><a href="#tab3">系统权限</a></li>
+						</ul>
+					</div>
+					<form action="<{:U('update')}>" method="post">
+					<div class="tabson"  id="tab1" >
+							<ul class="forminfo">
+							   
+							    <li><label>用户名</label><input readonly value="<{$user.name}>" class="dfinput"  /><i></i></li>
+
+							   <li><label>密码</label><input name="psd" type="text"  class="dfinput"  /> <i>为空默认不修改</i></li>
+
+								<li><label>真实姓名</label><input name="real_name" type="text" class="dfinput" value="<{$user.real_name}>"/><i></i></li> 
+
+								<li><label>邮箱</label><input name="email" type="text"  value="<{$user.email}>" class="dfinput" /> <i></i></li>
+
+								<li><label>手机号</label><input name="tel" type="text" value="<{$user.tel}>"   class="dfinput"  /> <i></i></li>
+
+								<li><label>生日</label><input name="birthday" type="text" value="<{$user.birthday}>"class="dfinput" /> <i>例如：19901107</i></li>
+
+								<li><label>性别</label><input name="sex" type="radio"  value='1' <if condition="$user.sex eq '1' "> checked="checked"</if> />男&nbsp;&nbsp;&nbsp;&nbsp;<input name="sex" type="radio"  value='0' <if condition="$user.sex eq '0' "> checked="checked"</if>/>女&nbsp;&nbsp;&nbsp;&nbsp;<input name="sex" type="radio"  value='2' <if condition="$user.sex eq '0' "> checked="checked"</if> />保密<i></i>
+								</li>
+											 
+								 
+
+								 
+								 <li><label>可服务省市县</label>
+									<div id="content-wrap1" style="float:left;"> 
+										<div class="pcd">    
+											<select required class='prov' id='pro' name="prov" onchange='areas("city",this.value)'>
+											<option value="0" >-请选择-</option>
+												<?php foreach ($area as $key => $v): ?>
+													<option value="<{$v.id}>"><{$v.name}></option>
+												<?php endforeach ?>
+											</select>　省
+															
+											<select  class='city'  id='cit' name="cit" onchange='areas("district",this.value)'>
+												<option value="0">-请选择-</option>
+											</select>　市
+														   
+											<!-- <select  class='district' id='dis' name="dis" >
+												<option value="0">-请选择-</option>
+											</select>　县/区 -->
+										</div>
+									</div>
+									<div style="height:36px;line-height:36px;"><a href="javascript:;" onclick="addCity()">[添加]</a></div>
+
+								 </li>
+
+								  <li style="margin-left:85px;" >
+									<?php
+									if (!empty($city)) {
+										foreach($city as $key=>$value){
+									?>
+									<span><?= $value ?>&nbsp&nbsp&nbsp&nbsp<a href="javascript:;" onclick='delCity("<{$value}>",this)'>删除</a></span>
+									<?php }} ?>
+									<div id="bbb"></div>
+								 </li>
+									
+								<li><label>身份证号</label><input name="number"  type="text" class="dfinput"  value="<{$user.number}>"  /> <i></i></li>
+								
+								<!-- 是否使用 -->
+								<li><label>是否启用</label>
+											<cite><input name="is_use" type="radio" value="1"<{$user['is_use']=='1'?'checked':''}> />是&nbsp;&nbsp;&nbsp;&nbsp;
+													   <input name="is_use" type="radio" value="0" <{$user['is_use']=='0'?'checked':''}> />否
+											</cite>
+								</li>
+								<!-- 是否为试用账号 -->
+								<li><label>是否试用</label>
+										<cite><input type="checkbox" style="position:relative;top:2px;" name="is_try" id="is_try" onclick="handlePromote(this.checked);" value="1" <?php echo $user['is_try']==1?'checked':''?>/>是</cite>
+								</li>
+								<!-- <li>
+										<label>试用日期</label>
+											<input name="start_time" id="start_time" placeholder="请输入开始日期" class="laydate-icon" style="height:33px;" disabled value="<{$user.start_time}>">
+											<input name="end_time" id="end_time" placeholder="请输入结束日期" class="laydate-icon" style="height:33px;" disabled value="<{$user.end_time}>">
+								</li>		 -->						
+							</ul>
+					</div>
+					<div  id="tab2"class="tabson" >
+						<div>
+						
+							<ul class="forminfo">	
+								<foreach name="com" item="vo" key="key">
+								<li><label>公司名称</label><input name="savecompany[]"  type="text" class="dfinput" value="<{$vo.name}>"/> <i></i></li>
+								<li><label>公司地址</label>
+									<div id="content-wrap1" > 
+										<div class="pcd">    
+											<select required class='prov' name="saveprovince[]" onchange='areasa("citya",this.value,this)'>
+												<?php foreach ($area as $key => $v): ?>
+													<option value="<{$v.id}>" <if condition="$vo['d_province_id'] eq $v['id']">selected</if>><{$v.name}></option>
+												<?php endforeach ?>
+											</select>　省
+															
+											<select  class='citya'  name="savecity[]" onchange='areasa("districta",this.value,this)'>
+												
+													<foreach name="vo.d_city_list" item="va">
+														<option value="<{$va.id}>" <if condition="$vo['d_city_id'] eq $va['id']">selected</if> ><{$va.name}></option>
+													</foreach>
+												
+											</select>　市
+														   
+											<select  class='districta'  name="savedistrict[]" >
+												
+													<foreach name="vo.d_area_list" item="va">
+														<option value="<{$va.id}>" <if condition="$vo[district] eq $va[name]">selected="selected"</if> ><{$va.name}></option>
+													</foreach>
+												
+											</select>　县/区
+										</div>									
+									</div>
+								 </li>
+								 <li>  <label>具体地址</label>
+										 <input name="saveaddress[]"  type="text" class="dfinput" value="<{$vo.address}>"/>
+										 <i><a href="__APP__/Admin/Pad/User/delcom/id/<{$vo.id}>.html" >删除此公司</a></i>
+								 </li>
+								 <input name="savecomid[]" type="hidden"  value="<{$vo.id}>"/>
+							
+								</foreach>
+							</ul>
+							
+						</div>
+						<div>
+							<a href="javascript:;" onclick="addImage(this)">添加更多公司[+]</a>
+							<ul class="forminfo">							
+								<li><label>公司名称</label><input name="company[]"  type="text" class="dfinput" /> <i></i></li>
+								<li><label>公司地址</label>
+									<div id="content-wrap1" > 
+										<div class="pcd">    
+											<select required class='prov' name="province[]" onchange='areasa("citya",this.value,this)'>
+											<option value="请选择省份" >-请选择-</option>
+												<?php foreach ($area as $key => $v): ?>
+													<option value="<{$v.id}>"><{$v.name}></option>
+												<?php endforeach ?>
+											</select>　省
+															
+											<select  class='citya'  name="city[]" onchange='areasa("districta",this.value,this)'>
+												<option value="请选择城市">-请选择-</option>
+											</select>　市
+														   
+											<select  class='districta'  name="district[]" >
+												<option value="请选择地区">-请选择-</option>
+											</select>　县/区
+										</div>									
+									</div>
+								 </li>
+								 <li><label>具体地址</label><input name="address[]"  type="text" class="dfinput" /> <i></i></li>
+								
+							</ul>
+						</div>
+						
+					</div>
+					<div id="tab3"class="tabson" >
+						
+							<div style="width:60%;line-height:35px;">
+								<?php foreach ($data as $key => $value): ?>
+									<div style="float:left;margin-right:20px;width:200px;">
+										<label><input name="system[]" type="checkbox" <?php if(in_array($value['cat_id'],$system)){ ?>checked<?php } ?> value='<{$value.cat_id}>'/>&nbsp;&nbsp;<{$value.cat_name}></label>
+									</div>
+								<?php endforeach ?>										
+							</div>
+							<div class="clear"></div>				
+						
+					</div>
+					<!-- 保存按钮 -->
+					 <div style="margin:0 auto;width:320px">
+									<!-- <input name="pid" type="hidden"  value="<{$id}>"/> -->
+									<input name="id" type="hidden" class="btn" value="<{$user.id}>"/>
+									<input type="hidden" id='addcity' name="p_service_city_all" value='<{$user.p_service_city_all}>'>
+									<input name="" type="submit" class="btn" value="保存"/>
+					</div>
+					</form>
+		</div>
+	</div>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+
+<script type="text/javascript">
+        !function(){
+          laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+        }();
+        var start = {
+            elem: '#start_time',
+            format: 'YYYY-MM-DD ',
+            min: laydate.now(), //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: false,
+            isclear: true, //是否显示清空
+            istoday: false,
+            choose: function(datas){
+                 end.min = datas; //开始日选好后，重置结束日的最小日期
+                 end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+        var end = {
+            elem: '#end_time',
+            format: 'YYYY-MM-DD ',
+            min: laydate.now(),
+            max: '2099-06-16 23:59:59',
+            istime: false,
+            isclear: true, //是否显示清空
+            istoday: false,
+            choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+        laydate(start);
+        laydate(end);
+</script>
+<script>
+	  //添加一个图片上传按钮
+      function addImage(obj){
+            var image = '<li>'+$(obj).parent().clone(true).html().replace('addImage(this)">添加更多公司[+]','removeImage(this)">删除此公司[-]')+'</li>';
+            $(obj).parent().after(image);
+      }
+	 //删除一个图片上传按钮
+      function removeImage(obj){
+            $(obj).parent().remove();
+      }
+
+    function addCity(v){
+    	var prov = $('#pro').find("option:selected").text();
+    	var city = $('#cit').find("option:selected").text();
+
+    	if (prov == '-请选择-') {
+    		alert('请选择省份');return;
+    	}
+    	if (city == '-请选择-') {
+    		var city = '全部';
+    	}
+
+    	var addcity = $('#addcity').val();
+    	var add = prov+'-'+city;
+    	if (addcity == '') {
+    		$('#addcity').val(add);
+    	}else{
+    		if (addcity.indexOf(add) != -1 || addcity.indexOf(prov+'-全部') != -1) {
+    			return;
+    		}
+    		$('#addcity').val(addcity+'|'+add);
+    	}
+
+    	var data = '<span>'+add+'<a href="javascript:;" style="margin-left:20px;" onclick="delCity(\''+add+'\',this)">删除</a>'+'</span>';
+    	$('#bbb').append(data);
+    }
+    
+    function delCity(val,t){
+    	var str = $('#addcity').val();
+		var str1 = str.replace(val+'|', '');
+		var str1 = str1.replace('|'+val, '');
+		var str1 = str1.replace(val, '');
+		$(t).parent().html('');
+		$('#addcity').val(str1);
+    }
+ </script>
+ <!-- 省市县三级联动 -->
+<script type="text/javascript"> 
+    function areas(o,v,c,d){
+        $.getJSON("<{:U('area')}>",{'v':v},function(data){
+            if (o=='city') {
+                $('.district').html('');
+                $('.district').append('<option value="0">-请选择-</option>');
+            }
+            $('.'+o).html('');
+            $('.'+o).append('<option value="0">-请选择-</option>');
+            for (var i = 0; i < data.length; i++) {
+                $('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+            }
+        })
+    }
+//公司地址
+    function areasa(o,v,c,d){
+		var _this=$(c);
+		var _parent=_this.parent("div");
+        $.getJSON("<{:U('area')}>",{'v':v},function(data){
+            if (o=='citya') {
+                _parent.find('.districta').html('');
+                 _parent.find('.districta').append('<option value="">-请选择-</option>');
+            }
+            _parent.find('.'+o).html('');
+            _parent.find('.'+o).append('<option value="">-请选择-</option>');
+            for (var i = 0; i < data.length; i++) {
+               _parent.find('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+            }
+        })
+    }
+</script>
+ <script type="text/javascript">
+     //防止, 添加失败, 后退回来, 所有更新一下状态
+    handlePromote($('#is_try').attr('checked'));
+    //添加促销的时候把添加促销价的输入框的禁用取消掉
+    function handlePromote(status){
+        if(status){
+            var color = '';
+        }else{
+            var color = '#eee';
+        }
+        $('#start_time').attr('disabled',!status).css('background', color);
+        $('#end_time').attr('disabled',!status).css('background', color);
+    }
+ </script>
+ 
+ <script type="text/javascript">
+  //tab切换
+        $("#usual1 ul").idTabs();
+	 </script>
+</body>
+</html>

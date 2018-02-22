@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理员-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">权限管理</a></li>
+            <li><a href="#">添加管理员</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('generalizeInsert')}>" method="post">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <li><label>用户名:<b>*</b></label><input name="user_name" type="text" class="dfinput" /><i></i></li>
+                <li><label>密　　码:<b>*</b></label><input name="password" type="text" class="dfinput" /><i></i></li>
+                <li><label>真实姓名:</label><input name="truename" type="text" class="dfinput" /><i></i></li>
+                <li><label>电子邮箱:</label><input name="email" type="text" class="dfinput" /><i></i></li>
+                <li><label>联系电话:</label><input name="telphone" type="text" class="dfinput" /><i></i></li>
+
+                <!-- 是否使用 -->
+                <li><label>是否启用</label><cite><input name="is_use" type="radio" value="1" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_use" type="radio" value="0" />否</cite></li>
+
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+</html>

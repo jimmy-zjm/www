@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+</head>
+<style>
+	.forminfo li>label{
+		width:100px;
+	}
+</style>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="">首页</a></li>
+	    <li><a href="">健康舒适家居</a></li>
+	    <li><a href="<{:U('index')}>">报价清单</a></li>
+	    <li><a href="">编辑清单</a></li>
+	    </ul>
+	    </div>
+
+	    <div class="formbody">
+	    <form action="<{:U('dorule')}>" method="post" enctype="multipart/form-data" >
+	    <ul class="forminfo">
+	    <li><label>当前材料</label>
+			<label style="width:800px;">材料：<{$row.name}>，型号：<{$row.model}> ，编码：<{$row.sn}></label>
+	    </li>
+		<li><label>关联材料</label>
+			<div style="height: 36px;line-height:36px;">
+				<label><input type="radio" value='' name='ss' <?= empty($complexList)?'checked':'' ?> onclick="x(1)"/>按下拉菜单选择</label>
+	    		<label><input type="radio" value='' name='ss' onclick="x(2)"/>按关键字搜索</label>
+	    		<label><input type="radio" value='4' name='ss' onclick="x(4)" <?= !empty($room)?'checked':'' ?>/>关联房间</label>
+	    		<label><input type="radio" value='3' name='ss' <?= empty($complexList)?'':'checked' ?> id='rad' onclick="x(3)"/>关联多个材料 <b>(注意：关联多项的时候只能关联物料，关联类型只能选择数量)</b></label>
+			</div>
+			<input id='bbbb' name="" type="text" onchange="c(this.value)" placeholder="请输入关键字" class="dfinput" value='' style="display:none;margin-left:100px;"/>
+			<div id="dis" style="display:none;">
+				<select name='orders' id='cccc' class="dfinput" style="display:none;margin-left:100px;margin-top:5px;width:347px;">
+    				<option value="">不关联</option>
+				</select>
+			</div>
+    		<select name='order' id='aaaa' style="margin-left:100px;width:345px; height:34px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;" onchange='f(this.value,<{$row.id}>)'>
+    			<?php if (!empty($id)){ ?>
+    				<?php if (!empty($quote_name)): ?>
+    					<option value="<{$id}>">系统：<{$quote_name}>，材料：<{$name}>，型号：<{$model}> ，编码：<{$sn}></option>
+    				<?php else: ?>
+    					<option value="<{$id}>">材料：<{$name}>，型号：<{$model}> ，编码：<{$sn}></option>
+    				<?php endif ?>
+    			<?php } ?>
+    			<?php if ($formula['guanlian']=='area') {?>
+    				<option value="area">房屋面积(去除阳台面积)</option>
+    			<?php } ?>
+    			<?php if ($formula['guanlian']=='bedroom') {?>
+    				<option value="bedroom">卧室</option>
+    			<?php } ?>
+    			<?php if ($formula['guanlian']=='living') {?>
+    				<option value="living">客厅</option>
+    			<?php } ?>
+    			<?php if ($formula['guanlian']=='kitchen') {?>
+    				<option value="kitchen">厨房</option>
+    			<?php } ?>
+    			<?php if ($formula['guanlian']=='toilet') {?>
+    				<option value="toilet">卫生间</option>
+    			<?php } ?>
+    			<?php if ($formula['guanlian']=='balcony') {?>
+    				<option value="balcony">阳台</option>
+    			<?php } ?>
+    			<option value="">不关联</option>
+    			<?php if ($formula['guanlian']!='area') {?>
+    				<option value="area">房屋面积(去除阳台面积)</option>
+    			<?php } ?>
+    			<?php if ($formula['guanlian']!='bedroom') {?>
+					<option value="bedroom">卧室</option>
+				<?php } ?>
+    			<?php if ($formula['guanlian']!='living') {?>
+					<option value="living">客厅</option>
+				<?php } ?>
+    			<?php if ($formula['guanlian']!='kitchen') {?>
+					<option value="kitchen">厨房</option>
+				<?php } ?>
+    			<?php if ($formula['guanlian']!='toilet') {?>
+					<option value="toilet">卫生间</option>
+				<?php } ?>
+    			<?php if ($formula['guanlian']!='balcony') {?>
+				<option value="balcony">阳台</option>
+				<?php } ?>
+				<?php foreach($data as $v){ ?>
+				<option value="<?=$v['id'] ?>">材料：<?=$v['name'] ?>，型号：<?=$v['model'] ?> ，编码：<?=$v['sn'] ?></option>
+				<?php } ?>
+			</select>
+			<!-- <input type="button" value='关联多个材料'/> -->
+	    </li>
+
+	    <li class='ss' <?php if (empty($complexList)){ ?> style="display:none;" <?php } ?>><label>&nbsp</label>
+	    	<div style="height: 36px;line-height:36px;">
+	    		<label><input type="checkbox" name='decide[1]' value='1' <?= $decide['0']==1?'checked':'' ?>/>卧室</label>
+		    	<label><input type="checkbox" name='decide[2]' value='1' <?= $decide['1']==1?'checked':'' ?>/>客厅</label>
+		    	<label><input type="checkbox" name='decide[3]' value='1' <?= $decide['2']==1?'checked':'' ?>/>厨房</label>
+		    	<label><input type="checkbox" name='decide[4]' value='1' <?= $decide['3']==1?'checked':'' ?>/>卫生间</label>
+		    	<label><input type="checkbox" name='decide[5]' value='1' <?= $decide['4']==1?'checked':'' ?>/>阳台</label>
+		    	<label> 大于 <input type="text" class="dfinput" style='width:50px;' name="typenumgt" value='<?=$typenumgt ?>'>使用</label>
+		    </div>
+	    </li>
+
+	    <li class='ss' <?= empty($complexList)?'style="display:none;"':'' ?>><label>关联多个材料</label>
+	    	<label style="width:800px;height:100%;" id='complex'>
+	    		<?php foreach($complexList as $k=>$v){ ?>
+	    			材料：<{$v.name}> ，型号：<{$v.model}> ，编码：<{$v.sn}> &nbsp&nbsp&nbsp&nbsp<a href="javascript:;" onclick="del(<{$v.id}>,<{$row.id}>)">删除</a><br>
+	    		<?php } ?>
+	    	</label>
+	    </li>
+
+	    <li id='house' style="display:none;"><label>&nbsp</label>
+	    	<div style="height: 36px;line-height:36px;">
+	    		<label><input type="checkbox" name='house1' value='1' <?= $room['0']==1?'checked':'' ?>/>卧室</label>
+		    	<label><input type="checkbox" name='house2' value='1' <?= $room['1']==1?'checked':'' ?>/>客厅</label>
+		    	<label><input type="checkbox" name='house3' value='1' <?= $room['2']==1?'checked':'' ?>/>厨房</label>
+		    	<label><input type="checkbox" name='house4' value='1' <?= $room['3']==1?'checked':'' ?>/>卫生间</label>
+		    	<label><input type="checkbox" name='house5' value='1' <?= $room['4']==1?'checked':'' ?>/>阳台</label>
+		    	<label><input type="checkbox" name='house6' value='1' <?= $room['5']==1?'checked':'' ?>/>客厅+厨房</label>
+		    </div>
+	    </li>
+  
+	    <li id='typeArea2'><label>关联房型</label>
+	    	<div style="height: 36px;line-height:36px;">
+				<label><input type="checkbox" value='1' name='house_type[]' <?= in_array(1,$house_type)?'checked':'' ?>/>公寓</label>
+	    		<label><input type="checkbox" value='2' name='house_type[]' <?= in_array(2,$house_type)?'checked':'' ?>/>叠加</label>
+	    		<label><input type="checkbox" value='3' name='house_type[]' <?= in_array(3,$house_type)?'checked':'' ?>/>联排</label>
+	    		<label><input type="checkbox" value='4' name='house_type[]' <?= in_array(4,$house_type)?'checked':'' ?>/>独栋</label>
+			</div>
+	    </li>
+
+	    <li id='typeArea1' style="display:none;"><label>关联类型</label>
+	    	<div style="height: 36px;line-height:36px;">
+				<label><input type="radio" value='1' name='numOrAreas' checked  />数量</label>
+			</div>
+	    </li>
+
+	    <li id='typeArea2'><label>关联类型</label>
+	    	<div style="height: 36px;line-height:36px;">
+				<label><input type="radio" value='1' name='numOrArea' <?= $formula['numorarea']==1?'checked':'' ?> />数量</label>
+	    		<label><input type="radio" value='2' name='numOrArea' <?= $formula['numorarea']==2?'checked':'' ?>/>面积</label>
+			</div>
+	    </li>
+
+	    <li><label>关联城市</label>
+	    	<div style="height: 36px;line-height:36px;">
+				<label><input type="radio" value='1' name='judge' <?= $formula['judge']==1?'checked':'' ?> />南</label>
+	    		<label><input type="radio" value='2' name='judge' <?= $formula['judge']==2?'checked':'' ?>/>北</label>
+	    		<label style="margin-left:30px;"><a href="<{:U('judge',array('id'=>$g_id,'quote_id'=>$quote_id,'level'=>$level,'sort'=>$sort))}>">设置南北</a></label>
+			</div>
+	    </li>
+
+	    <li style="height: 34px;line-height:34px;"><label>是否为主机</label>
+	    	<input type="checkbox" name='host' <?= $formula['host']==1?'checked=checked':'' ?>/>是主机
+	    	&nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如不是主机此项不用选)</font>
+	    </li> 
+
+	    <li class='average' style="display:none;"><label>单个面积平均等于</label><input name="average" value="<?= empty($formula['average'])?'':$formula['average'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 1 个 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(此项会自动往大取整 如无必要此项可以不填)</font></li>
+		
+		<li class='average' style="display:none;"><label>上一项总数等于</label><input name="averagenum" value="<?= empty($formula['average_num'])?'':$formula['average_num'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(与上一项关联，如上一项未填写此项不能填写)</font></li>
+
+		<li class='average' style="display:none;"><label>数量等于</label><input name="usenum" value="<?= empty($formula['usenum'])?'':$formula['usenum'] ?>" type="text" class="dfinput" style="width:100px;"/>使用&nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填)</font></li>
+
+	    <li><label>单个面积小于等于</label><input name="singlelt" value="<?= $formula['singlelt']=='0'?'':$formula['singlelt'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填)</font></li>
+
+	    <li><label>单个面积大于</label><input name="singlegt" value="<?= $formula['singlegt']=='0'?'':$formula['singlegt'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填)</font></li>
+		
+		<li><label>总面积小于等于</label><input name="arealt" value="<?= $formula['maxarea']=='0'?'':$formula['maxarea'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填，此处为关联项总面积大小)</font></li>
+	    <li><label>总面积大于</label><input name="areagt" value="<?= $formula['minarea']=='0'?'':$formula['minarea'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填，此处为关联项总面积大小)</font></li>
+
+
+	    <li><label>房屋面积小于等于</label><input name="housemax" value="<?= $formula['housemax']=='0'?'':$formula['housemax'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填，此处为房屋总面积大小)</font></li>
+	    <li><label>房屋面积大于</label><input name="housemin" value="<?= $formula['housemin']=='0'?'':$formula['housemin'] ?>" type="text" class="dfinput" style="width:100px;"/>㎡ 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填，此处为房屋总面积大小)</font></li>
+
+
+		<li><label>总数量小于等于</label><input name="numberlt" value="<?= $formula['maxnum']=='0'?'':$formula['maxnum'] ?>" type="text" class="dfinput" style="width:100px;"/> 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填)</font></li>
+
+		<li><label>总数量大于</label><input name="numbergt" value="<?= $formula['minnum']=='0'?'':$formula['minnum'] ?>" type="text" class="dfinput" style="width:100px;"/> 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填)</font></li>
+
+		<li><label>常住人口小于等于</label><input name="peoplemax" value="<?= $formula['peoplemax']=='0'?'':$formula['peoplemax'] ?>" type="text" class="dfinput" style="width:100px;"/> 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填)</font></li>
+		<li><label>常住人口大于</label><input name="peoplemin" value="<?= $formula['peoplemin']=='0'?'':$formula['peoplemin'] ?>" type="text" class="dfinput" style="width:100px;"/> 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;">(如无必要此项可以不填)</font></li>
+
+
+	    <li style="height: 34px;line-height:34px;"><label>是否取整</label>
+	    	<input type="radio" value='ceil' name='ceilfloor' <?= $ceil==1?'checked=checked':'' ?>/>往大取整
+	    	<input type="radio" value='floor' name='ceilfloor'<?= $floor==1?'checked=checked':'' ?>/>往小取整
+	    	&nbsp;&nbsp;&nbsp;&nbsp;或按指定数量取整 <input name="gongshiceil"  style="width:100px;" type="text" class="dfinput" value='<{$formula.gongshiceil}>'/>
+	    	&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:red;">(如无必要此项可以不选)</font>
+	    </li> 
+
+	    <li><label>固定数量</label><input name="num"  style="width:200px;" type="text" class="dfinput" value='<{$num}>'/></li> 
+	    
+	    <li><label>公式</label><input name="formula" type="text"  style="width:200px;" class="dfinput" value='<{$formula.gongshi}>'/>&nbsp;&nbsp;&nbsp;<input name="append"  style="width:100px;" type="text" class="dfinput" value='<{$formula.append}>'/></li> 
+
+	    <span style="color:red;margin-bottom:10px;">(提示：公式与固定数量只能填写一个，不能同时填写)</span>
+
+	    <div id='custom' style="display:none;">
+	    	<li>
+		    	<label>自定义数量</label><input name="custom" value="<?= $formula['custom']=='0'?'':$formula['custom'] ?>" type="text" class="dfinput" style="width:100px;"/>
+		    </li>
+
+			<li><label>自定义小于等于</label><input name="maxcustom" value="<?= $formula['maxcustom']=='0'?'':$formula['maxcustom'] ?>" type="text" class="dfinput" style="width:100px;"/> 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;"></font></li>
+
+			<li><label>自定义大于</label><input name="mincustom" value="<?= $formula['mincustom']=='0'?'':$formula['mincustom'] ?>" type="text" class="dfinput" style="width:100px;"/> 使用 &nbsp&nbsp&nbsp&nbsp<font style="color:red;"></font></li>
+	    </div>
+	   
+
+	    <input type="hidden" name="id" value="<?= $_GET['id'] ?>"/>
+	    <input type="hidden" id="pid" name="quote_id" value="<?= $_GET['quote_id'] ?>"/>
+	    <input type="hidden" id="lv" name="level" value="<?= $_GET['level'] ?>"/>
+	    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认编辑"/> <a href="javascript:;" onclick="customs()">自定义</a></li>
+	    </ul>
+	    </form>
+	    </div>
+</body>
+</html>
+
+<script>
+	function customs(){
+		$('#custom').toggle()
+	}
+
+	function x(o){
+		$('#house').css('display','none');
+		$('.average').css('display','none');
+
+		if (o!=3) {
+			$('.ss').css('display','none')
+			$('#typeArea2').css('display','block');
+			$('#typeArea1').css('display','none');
+		}else {
+			$('.ss').css('display','block');
+			$('#typeArea2').css('display','none');
+			$('#typeArea1').css('display','block');
+		};
+
+		if (o==2) {
+			$('#aaaa').css('display','none');
+			$('#bbbb').css('display','block');
+			$('#cccc').css('display','block');
+		}else{
+			$('#aaaa').css('display','block');
+			$('#bbbb').css('display','none');
+			$('#cccc').css('display','none');
+			$('#bbbb').val('');
+			$('#dis').css('display','none');
+			$('#cccc').html('<option value="">不关联</option>');
+		}
+
+		if (o==4) {
+			$('#aaaa').css('display','none');
+			$('#bbbb').css('display','none');
+			$('#cccc').css('display','none');
+			$('#dis').css('display','none');
+			$('#house').css('display','block');
+			$('.average').css('display','block');
+		};
+	}
+
+	function c(v,qid){
+		$.get("<{:U(rulechange)}>",{'val':v,'qid':$('#pid').val(),'lv':$('#lv').val()},function(data){
+			$('#dis').css('display','block');
+			if (data!='') {
+				$('#cccc').html(data);
+			}else{
+				$('#cccc').html('<option value="">没有您要的材料</option>');
+			}
+			
+		})
+	}
+
+	function f(v,id){
+		var checked = document.getElementById('rad').checked;
+		if (checked==true) {
+			$.get('<{:U("docomplex")}>',{'id':id,'val':v},function(data){
+				if (data=='error') {
+					alert('该材料已加入')
+				}else if(data=='error2'){
+					alert('关联的只能是材料')
+				}else {
+					$('#complex').html(data)
+				}
+			})
+		}
+	}
+
+	function del(i,id){
+		var checked = document.getElementById('rad').checked;
+		if (checked==true) {
+			$.get('<{:U("docomplexDel")}>',{'id':id,'i':i},function(data){
+				$('#complex').html(data);
+			})
+		}
+	}
+</script>
+<?php if(!empty($room)){ ?>
+<script>
+	x(4)
+</script>
+<?php } ?>

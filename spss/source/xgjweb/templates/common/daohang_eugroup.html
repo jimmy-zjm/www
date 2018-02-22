@@ -1,0 +1,229 @@
+<!--主导航-->
+<script type="text/javascript" src="./js/daohang.js"></script><!--导航置顶-->
+
+<div class="zhiding">
+    <div style="width:1300px;margin:0 auto;">
+        <div class="eugroup_nav">
+            <ul>
+                <li class="eugroup_nav_li-left">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </li>
+                
+                <li class="eugroup_nav_li-clear">                	
+                </li>
+                
+                
+                {:foreach $cate_list as $k=>$v:}
+                <li class="eugroup_nav_li-right">
+                    <span>
+                    	<a class="eugroup_nav_li-right-a" href="eugroup.php?index&cat_id={:$v['id']:}">{:$v['name']:}</a>
+                    </span>
+                
+                    <div class="xs">
+                    {:foreach $v['list'] as $ke=>$va:}
+                        <div class="xs-list">
+                            
+                            <div class="xs-list-nav">
+                                
+                            	<div class="xs-list-nav-title">
+                                	<a href="search.php?cid={:$va['id']:}">{:$va['name']:}</a>
+                                </div>
+                                {:foreach $va['son_list'] as $key=>$val:}
+                                <div class="xs-list-nav-demo"><!--有几个品牌就循环几次demo-->
+                                	<span>
+                                    	<a href="search.php?cid={:$val['id']:}">{:$val['name']:}</a>
+                                    </span>
+                                </div>
+                                {:/foreach:}
+                            </div>
+
+                        </div>
+                        {:/foreach:}
+                    </div>
+                </li>
+                {:/foreach:}   
+                    
+
+                
+                <li class="eugroup_nav_li-right">
+                        <span>
+                        	品牌
+                        </span>
+                    
+                        <div class="xs">
+                      <!--      <div class="xs-list-img">
+                                    <img src="{:$ad_list[0]['image']:}"/>
+                                </div>-->
+                            {:foreach $brand_list as $k=>$v:}
+                            <div class="xs-list">
+                                
+                                <div class="xs-list-nav02">
+                                
+                                	<div class="xs-list-nav-title">
+                                    	<a  href="search.php?bid={:$v['id']:}">{:$v['name']:}</a>
+                                    </div>
+                                  
+                                     
+                                    <!-- <div class="xs-list-nav-demo">
+                                        <span>
+                                            {:$v['name']:}
+                                        </span>
+                                    </div> -->
+                                    
+                                    
+                                </div>
+                                 
+                            </div>
+                            {:/foreach:} 
+                        </div>
+                </li>
+                
+                
+            </ul>
+        </div>
+        
+        <div class="index-navigation-sousuo">
+            <div class="container">
+                <div class="main clearfix">
+                    <div class="column">
+                        <div id="sb-search" class="sb-search">
+                            <form action="search.php" method="get">
+                                <input id="create-name-02" class="sb-search-input" name="s" type="text" />
+                                <input type="submit" id="selSubmitId"  class="sb-search-submit"value=""/>
+                                <span class="sb-icon-search"></span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主导航end--> 
+
+<script src="js/classie.js"></script> 
+<script src="js/uisearch.js"></script> 
+<script>
+new UISearch( document.getElementById( 'sb-search' ) );
+</script>
+
+
+
+<style type="text/css">
+.eugroup_nav {
+	position: relative;
+	width: 1100px;
+	height: 40px;
+	z-index:2;
+	margin-left:100px;
+}
+
+.eugroup_nav_li-left{
+	float:left;
+	line-height:40px;
+	width:142px;
+	text-align:center;
+	font-size:14px;
+	color:##010101;}
+	
+.eugroup_nav_li-left a{
+	color: #383838 !important;}
+	
+.eugroup_nav_li-left a:hover{
+	color:#010101 !important;}
+	
+.eugroup_nav_li-right{
+	float:right;
+	line-height:40px;
+	margin-left:55px;}
+
+.eugroup_nav li .eugroup_nav_li-right-a {
+	display: block;
+	text-decoration: none;
+	color: #383838;
+	font-size:16px;
+}
+
+.eugroup_nav li .eugroup_nav_li-right-a a{
+	color: #383838;}
+
+.eugroup_nav .eugroup_nav_li-right:hover{
+	background:none !important;}
+
+.eugroup_nav .eugroup_nav_li-right:hover .xs {
+	display: block;
+}
+
+.eugroup_nav li a:hover {
+	color:#010101;
+}
+
+.eugroup_nav .eugroup_nav_li-right .xs {
+	border-top: none;
+	display: none;
+	width: 1100px;
+	background: #FFFFFF;
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	color:#000;
+	border-top:2px solid #eb2541;
+}
+
+.eugroup_nav_li-clear{
+	width:100px;
+	float:right;
+	height:40px;}
+	
+.xs-list{
+	width:240px;
+	float:left;
+	margin-top:25px;
+	margin-left:35px;}
+	
+.xs-list-nav{
+	margin-top:25px;}
+	
+.xs-list-nav02{
+	margin-top:0px;}
+
+.xs-list-nav-title{
+	line-height:25px;
+	height:25px;
+	font-size:14px;
+	color:#000000;
+	font-weight:bold;}
+	
+.xs-list-nav-title a{
+	color:#000000;}
+	
+.xs-list-nav-demo{
+	margin-top:10px;
+	line-height:20px;
+	height:20px;
+	font-size:12px;
+	color:#383838;}
+	
+.xs-list-nav-demo span a{
+	color:#383838;}
+	
+.xs-list-nav-demo:hover span{
+	color:#eb2541;}
+	
+.index-navigation-sousuo{
+	width:600px;
+	float:right;
+	margin-right:100px;}
+	
+.xs-list-img{
+	width:1038px;
+	height:120px;
+	margin:0 auto;
+	margin-top:25px;}
+	
+.xs-list-img img{
+	width:1038px;
+	height:120px;}
+</style>

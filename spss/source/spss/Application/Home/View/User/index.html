@@ -1,0 +1,37 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+    <include file="User:left" />
+    <div class="user-right">
+            <div class="right-con1">
+                <a href="__APP__/User/info.html"><span><img src="__PUBLIC__/Uploads/<{$userInfo.face}>" alt=""></span></a>
+                <a href="__APP__/User/info.html"><{$userInfo['user_name']}></a>
+                <a href="javascript:;">账户余额：<span><{$userInfo['integral']}></span></a>
+                <a href="javascript:;">优惠券：<span><{$userInfo['coupon']}></span></a>
+            </div>
+            <div class="right-con2">
+                <div class="right-con2-tit">
+                    <a href="javascript:;">关注中心</a>
+                    <a href="<{:U('User/concern')}>">查看更多</a>
+                </div>
+                <?php foreach ($concern as $k=>$v){?>
+                <li class="right-con2-li " >                    
+                    <if condition="$v['class_id'] eq 1">
+                        <a class="right-con2-li-son" href="__APP__/Furnish/detail/quote_id/<{$v.goods_id}>/lv/1">
+                    <elseif  condition="$v['class_id'] eq 2" />
+                        <a href="__APP__/Material/info/id/<{$v.goods_id}>">
+					<elseif  condition="$v['class_id'] eq 9" />
+                        <a href="__APP__/Customer/upkeep.html">
+					<elseif  condition="$v['class_id'] eq 8" />
+                        <a href="__APP__/Customer/detail/id/<{$v.goods_id}>">
+                    </if>                           
+                        <p class="right-con2-li-1"><img src="<{$v.c_images|getImage}>"/></p>
+                        <p class="right-con2-li-2"><?=$v['c_goodsname']?></p>
+                        <p class="right-con2-li-3">￥<?=$v['c_goodsprice']?></p>
+                    </a>
+                </li>
+                <?php }?>
+            </div>
+      </div>
+</div>
+<div class="clear2"></div>

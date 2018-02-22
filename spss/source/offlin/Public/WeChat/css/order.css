@@ -1,0 +1,130 @@
+.section {
+  padding: 0 40px;
+  margin-bottom: 40px;
+}
+/* 顶部条 此为部分页面的公共样式，通过less编译到部分css中*/
+.header {
+  font-size: 40px;
+  line-height: 88px;
+  position: relative;
+  height: 88px;
+  margin-top: 34px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #fb6165;
+}
+.header a {
+  position: absolute;
+  top: 0;
+  width: 88px;
+  height: 100%;
+}
+.header a.backBtn {
+  left: 0;
+  background: url(../img/backbar.png) center center no-repeat;
+}
+.header a.searchBtn {
+  right: 0;
+  background: url(../img/searchbar.png) center center no-repeat;
+}
+/* 搜索框 */
+.search-box {
+  margin-top: 30px;
+  padding: 0 24px;
+  background-color: #fff;
+  height: 78px;
+  font-size: 32px;
+  border-radius: 10px;
+}
+.search-box input {
+  font-size: 32px;
+  width: 520px;
+  height: 78px;
+  line-height: 78px;
+  border: none 0;
+  background-color: transparent;
+}
+.search-box a {
+  width: 80px;
+  display: block;
+  float: right;
+  height: 78px;
+  line-height: 78px;
+  text-align: center;
+  color: #fb6165;
+}
+/* 定单项 */
+.order-list .bgcolor1 {
+  background-color: #f8a60a;
+}
+.order-list .bgcolor2 {
+  background-color: #5a4a9c;
+}
+.order-list .bgcolor3 {
+  background-color: #52a43a;
+}
+.order-list li {
+  border-radius: 10px;
+  margin-top: 34px;
+  overflow: hidden;
+}
+.order-list .item-top {
+  height: 80px;
+  line-height: 80px;
+  padding: 0 24px;
+  font-size: 32px;
+  color: #fff;
+}
+.order-list .item-top .item-title {
+  float: right;
+  text-align:right;
+  width:calc(100% - 140px);
+}
+.order-list .item-body {
+  background-color: #fff;
+  padding: 30px 24px;
+  height: 180px;
+}
+.order-list .item-body img {
+  float: left;
+  width: 180px;
+  height: 180px;
+}
+.order-list .item-body div {
+  /* width:430px;
+			float:right; */
+  height: 180px;
+  position: relative;
+}
+.order-list .item-body p {
+  /* float:right;
+			width:100%; */
+  font-size:28px;
+  text-align:left;
+}
+.order-list .item-body .item-btn-list {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: auto;
+}
+.order-list .item-body .item-btn-list a {
+  display: block;
+  float: left;
+  height: 48px;
+  line-height: 48px;
+  width: 130px;
+  text-align: center;
+  font-size: 24px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 24px;
+}
+.order-list .item-body .item-btn-list a:nth-of-type(1) {
+  border-color: #fb6165;
+  color: #fb6165;
+}
+.order-list .item-body .item-btn-list a:nth-of-type(2) {
+  margin: 0 20px;
+}

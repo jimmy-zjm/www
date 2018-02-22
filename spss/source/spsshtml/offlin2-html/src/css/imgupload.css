@@ -1,0 +1,109 @@
+/*  */
+.z_photo
+{
+    clear: both;
+    overflow: auto;
+
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: auto;
+    margin: .2rem auto;
+    padding: .1rem;
+
+    border: .02rem solid #eee;
+}
+.z_photo img
+{
+    display: block;
+
+    width: 2.0rem;
+    height: 2.0rem;
+    margin: .1rem auto;
+}
+.z_photo .z_file
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin: .2rem auto;
+
+    background: url(../img/photo.png) center center no-repeat;
+    background-size: 100% 100%;
+}
+.z_photo .z_file input#file
+{
+    display: block;
+
+    width: auto;
+    width: 2.0rem;
+    height: 2.0rem;
+
+    vertical-align: middle;
+
+    opacity: 0;
+    border: 0;
+}
+.z_mask
+{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, .5);
+}
+.z_mask .z_alert
+{
+    font-size: .48rem;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 6.0rem;
+    height: 4.0rem;
+
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    text-align: center;
+
+    border-radius: .1rem;
+    background: #fff;
+}
+.z_mask p:nth-child(1)
+{
+    line-height: 1.5rem;
+}
+.z_mask p:nth-child(2) span
+{
+    line-height: 1.0rem;
+
+    display: inline-block;
+    float: left;
+
+    width: 50%;
+    height: 1.0rem;
+
+    border-top: .02rem solid #ddd;
+}
+.z_mask .z_cancel
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+
+    border-right: .02rem solid #ddd;
+    border-bottom-left-radius: .1rem;
+    background-color: #30abe3;
+}
+.z_mask .z_sure
+{
+    border-bottom-right-radius: .1rem;
+    background-color: #ff4040;
+}

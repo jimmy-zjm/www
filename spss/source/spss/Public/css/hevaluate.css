@@ -1,0 +1,462 @@
+@CHARSET "UTF-8";
+
+.user-fuEvaluate{
+	width:1200px;
+	margin:0 auto;}
+	
+.user-fuEvaluate-info{
+	width:1200px;
+	margin:0 auto;}
+	
+.user-fuEvaluate-info-left{
+	float:left;
+	width:480px;
+	height:280px;}
+	
+.user-fuEvaluate-info-left-img{
+	width:480px;
+	height:280px;
+	border:1px solid #b3b3b3;}
+	
+.user-fuEvaluate-info-left-img img{
+	width:480px;
+	height:280px;}
+	
+.user-fuEvaluate-info-right{
+	float: left;
+    padding-left: 100px;
+    width: 550px;}
+	
+.user-fuEvaluate-info-right-title{
+	width:450px;
+	font-size:24px;
+	color:#000000;}
+	
+.user-fuEvaluate-info-right-demo{
+	width:450px;}
+	
+.user-fuEvaluate-info-right-demo-left{
+	float:left;
+	width:130px;
+	height:40px;
+	font-size:14px;
+	color:#000000;}
+	
+.user-fuEvaluate-info-right-demo-right{
+	float:right;
+	width:320px;
+	word-break:break-all;}
+
+.user-fuEvaluate-info-right-demo-right .span01{
+	font-size:18px;
+	color:#de5b5b;}
+
+.user-fuEvaluate-info-right-demo-right .span02{
+	font-size:14px;
+	color:#666;}
+
+.user-fuEvaluate-form{
+	width:1200px;
+	margin:0 auto;
+	background:#efefef;
+	border:1px solid #d6d6d6;}
+	
+.user-fuEvaluate-form-span{
+	width:1100px;
+	height:70px;
+	line-height:70px;}
+
+.user-fuEvaluate-form-span span{
+	margin-left:65px;
+	font-size:16px;
+	color:#F66;}
+	
+.user-fuEvaluate-form-left{
+	float:left;
+	width:580px;}
+
+.user-fuEvaluate-form-star{
+	width:580px;
+	margin:0 auto;
+	height:30px;
+	line-height:30px;}
+	
+.user-fuEvaluate-form-star-span{
+	float:left;
+	width:150px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	color:#666;
+	margin-left:65px;}
+	
+.user-fuEvaluate-form-star-select{
+	float:left;
+	width:300px;
+	height:30px;
+	line-height:30px;}
+	
+.user-fuEvaluate-form-right{
+	width:350px;
+	float:left;}
+	
+.user-fuEvaluate-form-right-radio{
+	width:350px;
+	height:30px;
+	line-height:30px;}
+	
+.user-fuEvaluate-form-right-radio-span01{
+	float:left;
+	width:200px;
+	float:18px;
+	color:#000000;}
+	
+.user-fuEvaluate-form-right-radio-input{
+	float:left;
+	width:13px;
+	height:13px;
+}
+	
+.user-fuEvaluate-form-right-radio-input input{
+	width:13px;
+	height:13px;}
+	
+.user-fuEvaluate-form-right-radio-span02{
+	float:left;
+	margin-right:20px;
+	font-size:14px;
+	color:#202020;
+	margin-left:5px;}
+
+.user-fuEvaluate-form-textarea{
+	width:955px;
+	margin:0 auto;
+	border:2px solid #999999;}
+	
+.user-fuEvaluate-form-textarea-title{
+	width:955px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	border-bottom:2px solid #999;
+	font-size:20px;
+	color:#000000;
+	background:#fff;}
+	
+.user-fuEvaluate-form-textarea-span{
+	width:955px;
+	text-align:right;
+	color:#F63;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+	margin:0 auto;}
+	
+.user-fuEvaluate-form-textarea-word{
+	width:955px;
+	height:185px;
+	background:#fff;}
+
+.user-fuEvaluate-form-textarea-word textarea{
+	border:none;
+	background:none;
+	width:955px;
+	height:185px;
+	font-size:12px;}
+	
+.user-fuEvaluate-form-file{
+	width:900px;
+	margin:0 auto;}
+	
+.user-fuEvaluate-form-file-left{
+	float:left;
+	width:140px;
+	height:80px;}
+	
+.user-fuEvaluate-form-file-left-img{
+	width:36px;
+	height:36px;
+	position:relative;
+	overflow:hidden;
+	margin-left:45px;
+	margin-top:10px;}
+
+.user-fuEvaluate-form-file-left-img-images{
+	width:36px;
+	height:36px;
+	position:relative;
+	z-index:1}
+	
+.user-fuEvaluate-form-file-left-img-images img{
+	width:36px;
+	height:36px;}
+	
+.user-fuEvaluate-form-file-left-img-input{
+	width:36px;
+	height:36px;
+	position:relative;
+	top:-36px;
+	z-index:2;}
+	
+.user-fuEvaluate-form-file-left-img-input input{
+	width:36px;
+	height:36px;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	-khtml-opacity: 0;
+	opacity: 0;}
+	
+.user-fuEvaluate-form-file-left-span{
+	width:140px;
+	height:30px;
+	line-height:30px;}
+	
+.user-fuEvaluate-form-file-left-span .span01{
+	font-size:12px;
+	color:#333333;}
+	
+.user-fuEvaluate-form-file-left-span .span02{
+	font-size:12px;
+	color:#de5b5b;}
+
+.user-fuEvaluate-form-file-right{
+	float:left;
+	width:760px;
+	height:81px;}
+	
+.user-fuEvaluate-form-file-right-demo{
+	float:left;
+	width:139px;
+	height:81px;
+	margin-right:13px;
+	overflow:hidden;
+	position:relative;}
+	
+.user-fuEvaluate-form-file-right-demo-bk{
+	position:relative;
+	z-index:2;
+	background:none;
+	width:139px;
+	height:81px;
+	background:none;}
+	
+.user-fuEvaluate-form-file-right-demo-bk:hover{
+	background:url(../img/1144.png);}
+	
+.user-fuEvaluate-form-file-right-demo-img{
+	position:relative;
+	top:-81px;
+	z-index:1;
+	width:139px;
+	height:81px;}
+	
+.user-fuEvaluate-form-file-right-demo-img img{
+	width:139px;
+	height:81px;}
+
+	
+.user-fuEvaluate-form-input{
+	width:220px;
+	margin:0 auto;}
+	
+.user-fuEvaluate-form-input-sub{
+	float:left;
+	width:111px;
+	height:33px;
+	background-color:#ff4001;/*:url(../images/anniu39.png);*/
+	border:none;
+	border-radius:3px;
+	text-align:center;
+	font-size:14px;
+	color:#efefef;}
+
+.user-fuEvaluate-form-input-sub input{
+	width:111px;
+	height:33px;
+	background:none;
+	border:none;
+	text-align:center;
+	font-size:14px;
+	color:#efefef;}
+	
+.user-fuEvaluate-form-input-checkbox{
+	float:right;
+	width:85px;
+	line-height:33px;}
+	
+.user-fuEvaluate-form-input-checkbox input{
+	width:13px;
+	height:13px;}
+
+
+
+
+
+
+/*评价查看页面*/
+user-fuEvaluation{
+	width:1000px;
+	margin:0 auto;
+	border:1px solid #d6d6d6;
+	background:#efefef;}
+	
+.user-fuEvaluation-form{
+	width:900px;
+	margin:0 auto;}
+	
+.user-fuEvaluation-form-title{
+	width:900px;
+	line-height:25px;}
+
+.user-fuEvaluation-form-title .span01{
+	font-size:16px;
+	color:#000000;
+	font-weight:bold;}
+	
+.user-fuEvaluation-form-title .span02{
+	font-size:16px;
+	color:#000000;}
+	
+.user-fuEvaluation-form-comment_state{
+	width:900px;
+	line-height:23px;}
+	
+.user-fuEvaluation-form-comment_state-span01{
+	float:left;
+	font-size:18px;
+	color:#000000;
+	margin-right:30px;}
+	
+.user-fuEvaluation-form-comment_state-span02{
+	float:left;
+	font-size:18px;
+	color:#000000;
+	margin-right:20px;}
+	
+.user-fuEvaluation-form-comment_state-a{
+	float:left;
+	background:url(../images/anniu40.png);
+	font-size:12px;
+	color:#ffffff;
+	text-align:center;
+	width:79px;
+	height:23px;
+	line-height:23px;}
+	
+.user-fuEvaluation-form-comment_state-a a{
+	font-size:12px;
+	color:#ffffff;}
+	
+.user-fuEvaluation-form-info{
+	width:900px;
+	margin:0 auto;}
+	
+.user-fuEvaluation-form-info-span{
+	width:900px;
+	margin:0 auto;
+	font-size:18px;
+	color:#000000;}
+	
+.user-fuEvaluation-form-info-list{
+	width:750px;
+	margin-left:30px;
+	margin-top:20px;}
+	
+.user-fuEvaluation-form-info-list-demo{
+	float:left;
+	margin-right:50px;
+	font-size:14px;
+	color:#000000;}
+	
+.user-fuEvaluation-form-info-list-demo .span02{
+	color:#666;}
+	
+.user-fuEvaluation-form-info-list-demo span{
+	margin-right:10px;}
+
+.user-fuEvaluation-form-star{
+	width:900px;
+	margin:0 auto;}
+	
+.user-fuEvaluation-form-star-total{
+	width:900px;
+	margin:0 auto;
+	height:29px;
+	line-height:29px;}
+	
+.user-fuEvaluation-form-star-total-span{
+	float:left;
+	width:100px;
+	height:29px;
+	line-height:29px;
+	font-size:18px;
+	color:#000000;}
+	
+.user-fuEvaluation-form-star-total-score{
+	float:left;
+	width:600px;
+	height:29px;
+	line-height:29px;}
+
+.user-fuEvaluation-form-star-total-score-img{
+	float:left;
+	width:31px;
+	height:29px;
+	line-height:29px;
+	margin-right:5px;}
+
+.user-fuEvaluation-form-star-total-score-img img{
+	width:31px;
+	height:29px;}
+	
+.user-fuEvaluation-form-star-list{
+	width:870px;
+	margin-left:30px;}
+	
+.user-fuEvaluation-form-star-list-demo{
+	float:left;
+	width:430px;
+	margin-bottom:20px;}
+
+.user-fuEvaluation-form-star-list-demo-span{
+	float:left;
+	width:180px;
+	height:29px;
+	line-height:29px;
+	font-size:14px;
+	color:#666;}
+	
+.user-fuEvaluation-form-star-list-demo-score{
+	float:left;
+	width:200px;
+	height:29px;
+	line-height:29px;}
+
+.user-fuEvaluation-form-star-list-demo-score-img{
+	float:left;
+	width:31px;
+	height:29px;
+	line-height:29px;
+	margin-right:5px;}
+
+.user-fuEvaluation-form-star-list-demo-score-img img{
+	width:31px;
+	height:29px;}
+
+.user-fuEvaluation-form-evaluate{
+	width:900px;
+	margin:0 auto;}
+	
+.user-fuEvaluation-form-evaluate-span{
+	width:900px;
+	height:40px;
+	margin:0 auto;
+	font-size:18px;
+	color:#000000;}
+	
+.user-fuEvaluation-form-evaluate-info{
+	width:900px;
+	line-height:20px;
+	margin:0 auto;
+	font-size:12px;
+	color:#000000;}

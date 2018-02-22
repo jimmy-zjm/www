@@ -1,0 +1,444 @@
+@CHARSET "UTF-8";
+.supermarket_list-banner{
+	width:1100px;
+	margin:0 auto;}
+	
+.supermarket_list-banner-title{
+	width:1100px;
+	height:25px;
+	line-height:25px;
+	margin:0 auto;}
+	
+.supermarket_list-banner-title-left{
+	float:left;
+	width:500px;
+	height:25px;}
+
+.supermarket_list-banner-title-left img{
+	width:500px;
+	height:25px;}
+	
+.supermarket_list-banner-title-right{
+	float:right;
+	width:500px;
+	height:25px;
+	line-height:25px;
+	font-size:16px;
+	color:#000000;
+	text-align:right;}
+	
+.supermarket_list-banner-title-right a{
+	font-size:16px;
+	color:#000000;
+	margin-right:10px;}
+	
+.supermarket_list-banner-list{
+	width:1100px;
+	margin:0 auto;
+	background:#fff;}
+	
+.supermarket_list-banner-list-demo{
+	float:left;
+	width:110px;
+	height:60px;
+	margin-left:14px;
+	margin-right:13px;
+	margin-top:5px;
+	margin-bottom:5px;}
+	
+.supermarket_list-banner-list-demo img{
+	width:110px;
+	height:60px;}
+
+.supermarket_list-center-screen{
+	width:1100px;
+	margin:0 auto;
+	background:#fff;}
+	
+.supermarket_list-center-screen-bk{
+	display:none;}
+	
+.supermarket_list-center-screen-demo{
+	width:1100px;
+	background:#fff;}
+	
+.supermarket_list-center-screen-demo-left{
+	float:left;
+	width:120px;
+	height:35px;
+	line-height:35px;
+	font-size:14px;
+	color:#131213;
+	text-align:right;}
+	
+.supermarket_list-center-screen-demo-right{
+	width:830px;
+	float:left;
+	line-height:80px;
+	background:#fff;
+	margin-left:75px;
+	border-bottom:1px solid #c2c2c2;}
+	
+.supermarket_list-center-screen-demo-right02{
+	width:830px;
+	float:left;
+	line-height:80px;
+	background:#fff;
+	margin-left:75px;
+	border-bottom:none !important;}
+	
+.supermarket_list-center-screen-demo-right-demo{
+	float:left;
+	height:35px;
+	line-height:35px;
+	margin-right:35px;
+	font-size:14px;
+	color:#383738;}
+	
+.supermarket_list-center-screen-demo-right-demo a{
+	font-size:14px;
+	color:#383738;}
+
+.supermarket_list-center-screen-demo-right-demo-a01{
+	font-size:14px;
+	color:#383738;}
+	
+.supermarket_list-center-screen-demo-right-demo-a02{
+	font-size:14px;
+	color:#f651ae;}
+
+.supermarket_list-center-screen-more{
+	width:1100px;
+	height:25px;
+	margin:0 auto;}
+	
+.supermarket_list-center-screen-more-bk{
+	float:right;
+	width:70px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	border:1px solid #a0a0a0;}
+
+.supermarket_list-center-screen-more-bk a{
+	font-size:14px;
+	color:#383738;}
+
+.supermarket_list-center-sort{
+	width:1100px;
+	margin:0 auto;}
+	
+.supermarket_list-center-sort-list{
+	float:left;
+	border-right:1px solid #dcdcdc;
+	border-top:1px solid #dcdcdc;
+	border-bottom:1px solid #dcdcdc;}
+	
+.supermarket_list-center-sort-list-demo{
+	float:left;
+	line-height:25px;
+	border-left:1px solid #dcdcdc;}
+
+.supermarket_list-center-sort-list-demo-a01{
+	font-size:14px;
+	color:#383738;
+	background:#fff;
+	float:left;}
+	
+.supermarket_list-center-sort-list-demo-a01 a{
+	color:#383738;
+	font-size:14px;
+	line-height:25px;
+	border-left:1px solid #dcdcdc;
+	padding-left:10px;
+	padding-right:10px;
+	display:block;}
+
+.supermarket_list-center-sort-list-demo-a02{
+	font-size:14px;
+	color:#ffffff;
+	background:#f651ae;
+	float:left;}
+	
+.supermarket_list-center-sort-list-demo-a02 a{
+	color:#ffffff;
+	font-size:14px;
+	line-height:25px;
+	border-left:1px solid #dcdcdc;
+	padding-left:10px;
+	padding-right:10px;
+	display:block;}
+
+.supermarket_list-center-sort-input{
+	float:left;
+	width:250px;
+	height:25px;
+	line-height:25px;
+	margin-left:20px;}
+	
+.supermarket_list-center-sort-input-text{
+	float:left;
+	width:175px;
+	height:25px;
+	line-height:25px;
+	border:1px solid #dcdcdc;
+	background:#fff;
+	font-size:12px;
+	color:#9a9a9a;}
+
+.supermarket_list-center-sort-input-text input{
+	width:155px;
+	height:25px;
+	line-height:25px;
+	border:none;
+	background:none;
+	margin-left:10px;
+	font-size:12px;
+	color:#9a9a9a;}
+
+.supermarket_list-center-sort-input-button{
+	float:left;
+	width:60px;
+	height:25px;
+	line-height:25px;
+	border:1px solid #dcdcdc;
+	border-left:none;
+	background:#e4e4e4;
+	font-size:14px;
+	color:#383738;
+	text-align:center;}
+
+.supermarket_list-center-sort-input-button input{
+	width:60px;
+	height:25px;
+	border:none;
+	background:none;
+	font-size:14px;
+	color:#383738;
+	text-align:center;}
+
+.supermarket_index-center-floor{
+	width:1300px;
+	margin:0 auto;}
+
+.supermarket_index-center-floor-list{
+	width:1100px;
+	margin:0 auto;}
+	
+.supermarket_index-center-floor-list-demo{
+	float:left;
+	width:219px;
+	height:380px;}
+	
+.supermarket_index-center-floor-list-demo-img{
+	width:219px;
+	height:219px;}
+	
+.supermarket_index-center-floor-list-demo-img a{
+	display:block;}
+
+.supermarket_index-center-floor-list-demo-img img{
+	width:219px;
+	height:219px;
+	border:1px solid #aaaaaa;}
+	
+.supermarket_index-center-floor-list-demo-name{
+	width:190px;
+	height:80px;
+	line-height:40px;
+	margin-left:20px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-size:18px;
+	color:#403e3e;}
+
+.supermarket_index-center-floor-list-demo-name a{
+	font-size:18px;
+	color:#403e3e;}
+	
+.supermarket_index-center-floor-list-demo-info{
+	width:190px;
+	height:30px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	line-height:30px;}
+	
+.supermarket_index-center-floor-list-demo-info-original_cost{
+	float:left;
+	font-size:16px;
+	margin-left:10px;
+	color:#aaa8a8;
+	text-decoration:line-through;}
+
+.supermarket_index-center-floor-list-demo-info-current_price{
+	float:left;
+	font-size:20px;
+	color:#ec2626;
+	margin-left:15px;}
+	
+.supermarket_index-center-floor-list-demo-info-collection{
+	float:left;
+	margin-top:10px;
+	width:13px;
+	height:12px;}
+	
+.supermarket_index-center-floor-list-demo-info-collection a{
+	display:block;}
+
+.supermarket_index-center-floor-list-demo-info-collection img{
+	width:13px;
+	height:12px;}
+
+
+.index-center-eugroup-list{
+	width:1300px;
+	margin:0 auto;}
+	
+.index-center-eugroup-list-bk{
+	width:1150px;
+	margin-left:79px;}
+	
+.index-center-eugroup-list-demo{
+	width:206px;
+	height:350px;
+	float:left;
+	margin-left:18px;}
+	
+.index-center-eugroup-list-demo-img-bk{
+	width:207px;
+	height:207px;
+	border:1px solid #fff;}
+	
+.index-center-eugroup-list-demo:hover .index-center-eugroup-list-demo-img img{
+	border:1px solid #54b5c3;}
+	
+.index-center-eugroup-list-demo-img{
+	width:206px;
+	height:206px;
+	position:relative;}
+	
+.index-center-eugroup-list-demo-img a{
+	display:block;}
+	
+.index-center-eugroup-list-demo-img img{
+	width:206px;
+	height:206px;
+	border:1px solid #dcdcdc;}
+	
+.index-center-eugroup-list-demo-remai{
+	position:relative;
+	top:-190px;
+	left:160px;
+	width:30px;
+	height:30px;}
+	
+.index-center-eugroup-list-demo-remai img{
+	width:30px;
+	height:30px;}
+	
+.index-center-eugroup-list-demo-name{
+	width:206px;
+	height:65px;
+	line-height:60px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.index-center-eugroup-list-demo-name a{
+	font-size:14px;
+	color:#403e3e !important;}
+	
+.index-center-eugroup-list-demo-countdown {
+	color: #999999;
+	height: 30px;
+}
+
+.index-center-eugroup-list-demo-countdown .img img {
+	height: 22px;
+	width: 22px;
+}
+
+.index-center-eugroup-list-demo-countdown .img {
+	height: 22px;
+	width: 22px;
+	float: left;
+	margin-right: 10px;
+}
+
+.index-center-eugroup-list-demo-countdown .time {
+	float: left;
+}
+
+.time-span {
+	float: left;
+	font-size:16px;
+	color:#999999;
+}
+
+.time2{
+	font-size:18px;
+	color:#000;}
+	
+.index-center-eugroup-list-demo-buy{
+	width:206px;
+	height:35px;
+	line-height:35px;}
+	
+.index-center-eugroup-list-demo-buy-left{
+	float:left;
+	width:200px;
+	overflow:hidden;
+	font-size:14px;
+	color:#403e3e;}
+	
+.index-center-eugroup-list-demo-buy-left span{
+	font-size:14px;
+	color:#f96f59;
+	margin-left:5px;
+	margin-right:5px;}
+	
+.index-center-eugroup-list-demo-buy-right{
+	float:right;
+	width:100px;
+	height:34px;
+	line-height:34px;
+	background:url(../images/anniu46.png);
+	text-align:center;}
+	
+.index-center-eugroup-list-demo-buy-right a{
+	font-size:14px;
+	color:#403e3e !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

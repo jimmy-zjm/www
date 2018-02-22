@@ -1,0 +1,72 @@
+<div class="index-top-bk">
+    <div class="index-top">        
+		{:if !isset($smarty.session.userName):}
+        <div class="index-top-02"><!--未登录状态显示此DIV-->
+        	<a href="user.php?login">
+            	个人登录
+            </a>
+        </div>
+        
+        <div class="index-top-14">
+            <a href="dealer.php">
+            	安装服务商登录
+            </a>
+        </div>  
+        
+        <div class="index-top-03"><!--未登录状态显示此DIV-->
+        	<a href="user.php?register">
+            	免费注册
+            </a>
+        </div>
+        
+        {:else:}
+        <div class="index-top-04"><!--已登录状态显示此DIV-->
+        	<a href="user.php?center">
+            	{:$smarty.session.userName:}
+            </a>
+        </div>
+        
+        <div class="index-top-05"><!--已登录状态显示此DIV-->
+        	<a href="user.php?userQuit">
+            	退出登录
+            </a>
+        </div>
+        {:/if:}
+        
+        <div class="index-top-13">
+        	热线：4008001027
+        </div>
+        
+        <div class="index-top-16">
+        	<a href="index.php?show">
+            	全国体验展示馆
+            </a>
+        </div>
+        
+        <div class="index-top-15">
+        </div> 
+        
+        <div class="index-top-10">
+        	<a href="user.php?homeOrderShow">
+            	我的订单
+            </a>
+        </div>
+        
+        <div class="index-top-09">
+        </div>   
+        
+        <div class="index-top-08">
+        	<a href="cart.php?cartList">
+            	我的购物车
+            </a>
+        </div>    
+        
+        <div class="index-top-06">
+        	<a href="user.php?concernGoods">
+            	我的收藏
+            </a>
+        </div>
+                
+        <div class="clear"></div>    
+    </div>
+</div>

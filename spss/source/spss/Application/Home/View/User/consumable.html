@@ -1,0 +1,120 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+<div class="modal" id="modal">
+	<div class="modal-con">
+			<div class="modal-con-tit">查看您所预约备注
+				<span class="modal-close" onclick="closemodal()"></span>
+			</div>
+			<div class="modal-con-neirong">
+				<p class="modal-con-neirong-show"></p>
+				
+			</div>
+			<div class="modal-back"><a href="javascript:;" onclick="closemodal()">返回</a></div>
+	</div>
+</div>
+<div class="user-center" >
+<include file="User:left" />
+    <div class="user-right">
+			<div class="user_afterService-title">  
+				<span>
+					机电维修记录
+				</span>  	
+			</div>
+		
+			<div class="clear1"></div>
+		
+			<!--售后服务记录-->
+			
+			<div class="user_afterService-center">                        
+						<!--下面切换的样式都一样的，只是服务类别里面的文字描述不同-->
+						
+							<div class="user_afterService-center-title">
+								<div class="user_afterService-center-title-name">
+									订单号
+								</div>
+								<div class="user_afterService-center-title-time">
+									适用机型
+								</div>
+								<div class="user_afterService-center-title-time" style='width:180px;'>
+									产品名称
+								</div>
+								<div class="user_afterService-center-title-time">
+									购买时间
+								</div>
+								<div class="user_afterService-center-title-time" style='width:100px;'>
+									数量
+								</div>
+								<div class="user_afterService-center-title-time" style='width:140px;'>
+									金额
+								</div>
+								
+								<div class="clear"></div>
+							</div>
+							
+							<div class="clear"></div>
+							
+							<div class="user_afterService-center-list">
+								<foreach name="list" key="k" item="v">
+								<div class="user_afterService-center-list-demo">
+									<div class="user_afterService-center-list-demo-name">
+										<{$v['sn']}> 
+									</div>
+									<div class="user_afterService-center-list-demo-time">
+										<{$v['product_name']}>
+									</div>
+									<div class="user_afterService-center-list-demo-time" style='width:180px;'>
+										<{$v['goods_title']}>
+									</div>
+									<div class="user_afterService-center-list-demo-time">
+										<{$v['pay_time']}>
+									</div>
+
+									<div class="user_afterService-center-list-demo-time" style='width:100px;'>
+										<{$v['goods_num']}>
+									</div>
+
+									<div class="user_afterService-center-list-demo-time" style='width:140px;'>
+										<?= $v['goods_price']*$v['goods_num'] ?>
+									</div>
+									<div class="clear"></div>
+								</div>
+								
+								<div class="clear"></div>
+								</foreach>
+								
+							
+							<{$page}>
+							
+						   
+			</div>
+                 
+        </div>
+        <!--售后服务记录end-->
+    
+    </div>
+    
+      
+	<div class="clear"></div>
+</div>
+<div class="clear3"></div>
+<script type="text/javascript">
+	function a(n){
+		$("#modal").css("display","block");
+		
+		$(".modal-con-neirong-show").html($("#note"+n).val());
+	}
+	function closemodal(){
+		$("#modal").css("display","none");
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

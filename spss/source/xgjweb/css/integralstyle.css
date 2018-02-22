@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+.payon{
+	color:#29b4fc !important;
+}
+.paycenter{
+	width:1100px;
+	height:100%;
+	margin:0 auto;
+	
+}
+.paycenter_left{
+	float:left;
+	width:190px;
+	color:#484848;
+}
+.paycenter_left_top{
+	width:190px;
+	height:75px;
+	border-top:2px solid #c9c2a0;
+	text-align:center;
+	line-height:75px;
+	background-color:#efefef;
+}
+.paycenter_left_top span{
+	font-size:24px;
+		
+}
+.paycenter_left_bot{
+	background-color:#efefef;
+	margin-top:20px;
+	padding-top:30px;
+}
+
+.paycenter_left_bot li{
+	text-align:center;
+	height:48px;	
+}
+.paycenter_left_bot li a{		
+	color:#484848;
+	font-size:18px;
+}
+.paycenter_right{
+	float:right;
+	width:890px;
+	margin-left:20px;
+	color:#484848;
+	font-size:16px;
+}
+.paycenter_right_top{
+	border-top:2px solid #29b4fc;
+	height:55px;
+	padding:10px 30px;
+	line-height:150%;
+	background-color:#efefef;
+}
+.paycenter_right_bot{
+	background-color:#efefef;	
+	padding:30px;
+	min-height:300px;
+	-webkit-box-shadow: #b2b2b2 1px 1px 12px;  /*边框阴影*/
+	-moz-box-shadow: #b2b2b2 1px 1px 12px;  /*边框阴影*/
+	box-shadow: #b2b2b2 1px 1px 12px;  /*边框阴影*/
+}

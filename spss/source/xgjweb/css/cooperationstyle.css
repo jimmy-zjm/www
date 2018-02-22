@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+/*商务合作列表*/
+.CooperationList-conter{
+	width:1100px;
+	margin:0 auto;}
+	
+.CooperationList-conter-left{
+	float:left;
+	width:700px;}
+	
+.CooperationList-conter-left-list{
+	width:680px;}
+	
+.CooperationList-conter-left-list-demo{
+	width:680px;
+	height:40px;
+	line-height:40px;}
+	
+.CooperationList-conter-left-list-demo-time{
+	float:left;
+	width:117px;
+	color:#666666;
+	font-size:16px;}
+
+.CooperationList-conter-left-list-demo-name{
+	float:right;
+	width:560px;
+	height:40px;
+	overflow:hidden;}
+	
+.CooperationList-conter-left-list-demo-name a{
+	color:#333333;
+	font-size:16px;}
+
+.CooperationList-conter-right{
+	float:right;
+	width:370px;}
+
+.CooperationList-conter-right-img{
+	width:288px;
+	height:298px;
+	float:right;}
+
+.CooperationList-conter-right-img img{
+	width:288px;
+	height:298px;}
+	
+.CooperationList-conter-brand{
+	width:100%;}
+	
+.CooperationList-conter-brand-list{
+	width:1050px;
+	margin-left:47px;}
+	
+.CooperationList-conter-brand-list-demo{
+	width:162px;
+	height:162px;
+	float:left;
+	margin-right:8px;
+	margin-bottom:8px;}
+	
+.CooperationList-conter-brand-list-demo img{
+	width:162px;
+	height:162px;}
+/*商务合作列表end*/
+
+
+
+
+
+
+
+
+
+
+
+/*商务合作详细*/
+.CooperationInfo-conter{
+	width:1100px;
+	margin:0 auto;}
+	
+.CooperationInfo-conter-left{
+	float:left;
+	width:630px;}
+
+.CooperationInfo-conter-left-details{
+	width:620px;}
+	
+.CooperationInfo-conter-left-details img{
+	max-width:620px;}
+	
+.CooperationInfo-conter-left-a{
+	float:right;
+	width:120px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	border:1px solid #fd5a35;
+	background:#fd5a35;
+	border-radius:5px;}
+	
+.CooperationInfo-conter-left-a a{
+	font-size:16px;
+	color:#fff;}
+
+.CooperationInfo-conter-right{
+	float:right;
+	width:370px;}
+
+.CooperationInfo-conter-right-img{
+	width:383px;
+	height:318px;
+	float:right;}
+
+.CooperationInfo-conter-right-img img{
+	width:383px;
+	height:318px;}
+	
+.CooperationInfo-conter-brand{
+	width:100%;}
+	
+.CooperationInfo-conter-brand-list{
+	width:1050px;
+	margin-left:47px;}
+	
+.CooperationInfo-conter-brand-list-demo{
+	width:162px;
+	height:162px;
+	float:left;
+	margin-right:8px;
+	margin-bottom:8px;}
+	
+.CooperationInfo-conter-brand-list-demo img{
+	width:162px;
+	height:162px;}
+/*商务合作详细end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

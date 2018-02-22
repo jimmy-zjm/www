@@ -1,0 +1,1560 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+{:include file="category/category.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<!--欧洲建材代购订单管理-->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+    <div class="user-right">
+        <div class="user_eu_order-title">  
+        	<span>
+            	订单管理
+            </span>  	
+        </div>
+    
+    	<div class="clear12"></div>
+    
+        <!--评价晒单-->
+        <div class="user_eu_order-center">
+        	<div class="user_eu_order-center-title">
+            	<ul class="ui-tabs-nav"> 
+                    <li>
+                        <a href="user.php?order" class="{:if $tab=='all':}colors2{:else:}colors{:/if:}" id="tabss0" >
+                            全部订单
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="user.php?order&tab=df" class="{:if $tab=='df':}colors2{:else:}colors{:/if:}" id="tabss1" >
+                            待付款
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="user.php?order&tab=dfh" class="{:if $tab=='dfh':}colors2{:else:}colors{:/if:}" id="tabss1" >
+                            待发货
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="user.php?order&tab=ds" class="{:if $tab=='ds':}colors2{:else:}colors{:/if:}" id="tabss2" >
+                            待收货
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="user.php?order&tab=dp" class="{:if $tab=='dp':}colors2{:else:}colors{:/if:}" id="tabss3" >
+                            待评价
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <div class="user_eu_order-center-substance">
+                {:if $tab eq 'all':}
+                <div id="tabs-0" class="lengths">
+                	<!--订单的第一种状态,如果有多个订单需要循环demo,循环的时候包括下面的clear33 等待付款-->
+                    {:foreach $OrderAll as $k=>$v:}
+                    {:if $v['order_status']==0 and $v['is_pay']==0:}
+                    <div class="user_eu_order-center-substance-demo01">
+                    	<div class="user_eu_order-center-substance-demo01-order_number">                        
+                        	<span>
+                            	订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                            	下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo01-info">
+                        	<div class="user_eu_order-center-substance-demo01-info-left">
+                                {:foreach $v['detail'] as $ke=>$va:}
+                            	<div class="user_eu_order-center-substance-demo01-info-left-demo">
+                                	<div class="user_eu_order-center-substance-demo01-info-left-demo-img">
+                                    	<a href="goods.php?id={:$va['goods_id']:}">
+                                        	<img src="{:$va['goods_image']|getImages:}"/>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-name">
+                                    	<a href="goods.php?id={:$va['goods_id']:}">
+                                        	{:$va['goods_title']:} {:$va['pro_info']:}
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-number">
+                                    	x {:$va['goods_num']:}
+                                    </div>
+                                    
+                                    <div class="clear27"></div>
+                                </div>
+                                {:/foreach:}
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo01-info-right">
+                            	<div class="user_eu_order-center-substance-demo01-info-right-money">
+                                	<div class="user_eu_order-center-substance-demo01-info-right-money-total">
+                                    	总额 ¥{:$v['total_price']:} 
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-meet">
+                                    	应付 ¥{:$v['deal_price']:} 
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-integral">
+                                    	积分 -{:if empty($v['integral']):}0.00{:else:}{:$v['integral']:}{:/if:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-coupon">
+                                    	优惠券 -{:if empty($v['coupon']):}0.00{:else:}{:$v['coupon']:}{:/if:}
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo01-info-right-state">
+                                	<div class="user_eu_order-center-substance-demo01-info-right-state-span">
+                                    	待付款
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-state-a">
+                                    	<a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        	订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo01-info-right-operation">
+                                	<a href="order.php?payOrder&order_id={:$v['id']:}" >
+                                    <div class="user_eu_order-center-substance-demo01-info-right-operation-input">
+                                    	付款
+                                    </div>
+                                    </a>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-operation-a">
+                                    	<a href="javascript:;" onclick="cancel({:$v['id']:})">
+                                        	取消订单
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="clear32"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear36"></div>
+                    
+                    {:elseif $v['order_status']==2 and $v['is_pay']==1 and $v['total_goods_num']!=1:}
+                    <!--订单的第二种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33   确认收货-->
+                    <div class="user_eu_order-center-substance-demo02">
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单金额：¥{:$v['total_price']:}
+                            </span>
+                            
+                            <span>
+                                订单状态：已拆分
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-list">
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo02-list-demo">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-order_number">
+                                    <span>
+                                        订单编号：{:$va['split_sn']:}
+                                    </span>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-img">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        <img src="{:$va['goods_image']|getImages:}"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-name">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        {:$va['goods_title']:} {:$va['pro_info']:}
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-number">
+                                    x {:$va['goods_num']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-money">
+                                    总额 ¥{:$va['goods_price']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-state">
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-span">
+                                        {:$va['order_status']|OrderStatus:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation">
+                                    {:if $va['order_status'] eq 1:}
+                                        <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                            等待发货
+                                        </div>
+                                    {:else if $va['order_status'] eq 2:}
+                                        <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                确认收货
+                                            </div>
+                                        </a>
+                                    {:else if $va['order_status'] eq 5:}
+                                        <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                                查看评价
+                                            </div>
+                                        </a>
+                                    {:else $va['order_status'] eq 4:}
+                                        <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                点击评论
+                                            </div>
+                                        </a>
+                                    {:/if:}
+                                </div>
+                                
+                                <div class="clear36"></div>  
+                            </div>
+                            {:/foreach:}
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    
+                    <!--订单的第二种状态end-->  
+                    {:elseif $v['order_status']==2 and $v['is_pay']==1:}
+                    <!--订单的第三种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33  确认收货-->
+                    <div class="user_eu_order-center-substance-demo03">
+                        <div class="user_eu_order-center-substance-demo03-list-demo">
+                            <div class="user_eu_order-center-substance-demo03-order_number">
+                                <span>
+                                    订单编号：{:$v['sn']:} 
+                                </span>
+                                
+                                <span>
+                                    下单日期：{:$v['add_time']:}
+                                </span>
+                            </div>
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo03-list-demo-img">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    <img src="{:$va['goods_image']|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-name">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    {:$va['goods_title']:} {:$va['pro_info']:}
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-number">
+                                x {:$va['goods_num']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-money">
+                                总额 ¥{:$va['goods_price']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-state">
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-span">
+                                    {:$va['order_status']|OrderStatus:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-a">
+                                    <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        订单详情
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-operation">
+                                <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                    <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                        确认收货
+                                    </div>
+                                </a>
+                            </div>
+                            {:/foreach:}
+                            <div class="clear36"></div>  
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div> 
+                     
+                    <!--订单的第三种状态end-->
+                    {:elseif $v['order_status']==1 and $v['is_pay']==1 and $v['total_goods_num']!=1:}
+                    <!--订单的第二种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33   确认收货-->
+                    <div class="user_eu_order-center-substance-demo02">
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单金额：¥{:$v['total_price']:}
+                            </span>
+                            
+                            <span>
+                                订单状态：已拆分
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-list">
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo02-list-demo">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-order_number">
+                                    <span>
+                                        订单编号：{:$va['split_sn']:}
+                                    </span>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-img">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        <img src="{:$va['goods_image']|getImages:}"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-name">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        {:$va['goods_title']:} {:$va['pro_info']:}
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-number">
+                                    x {:$va['goods_num']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-money">
+                                    总额 ¥{:$va['goods_price']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-state">
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-span">
+                                        {:$va['order_status']|OrderStatus:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation">
+                                    {:if $va['order_status'] eq 1:}
+                                        <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                            等待发货
+                                        </div>
+                                    {:else if $va['order_status'] eq 2:}
+                                        <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                确认收货
+                                            </div>
+                                        </a>
+                                    {:else if $va['order_status'] eq 5:}
+                                        <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                                查看评价
+                                            </div>
+                                        </a>
+                                    {:else $va['order_status'] eq 4:}
+                                        <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                点击评论
+                                            </div>
+                                        </a>
+                                    {:/if:}
+                                </div>
+                                
+                                <div class="clear36"></div>  
+                            </div>
+                            {:/foreach:}
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>
+                      
+                    <!--订单的第二种状态end-->  
+                    {:elseif $v['order_status']==1 and $v['is_pay']==1:}
+                    <!--订单的第三种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33  确认收货-->
+                    <div class="user_eu_order-center-substance-demo03">
+                        <div class="user_eu_order-center-substance-demo03-list-demo">
+                            <div class="user_eu_order-center-substance-demo03-order_number">
+                                <span>
+                                    订单编号：{:$v['sn']:} 
+                                </span>
+                                
+                                <span>
+                                    下单日期：{:$v['add_time']:}
+                                </span>
+                            </div>
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo03-list-demo-img">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    <img src="{:$va['goods_image']|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-name">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    {:$va['goods_title']:} {:$va['pro_info']:}
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-number">
+                                x {:$va['goods_num']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-money">
+                                总额 ¥{:$va['goods_price']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-state">
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-span">
+                                    {:$va['order_status']|OrderStatus:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-a">
+                                    <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        订单详情
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-operation">
+                                    <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                        等待发货
+                                    </div>
+                            </div>
+                            {:/foreach:}
+                            <div class="clear36"></div>  
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    
+                    <!--订单的第三种状态end-->
+                    {:elseif $v['order_status']==5 and $v['is_pay']==1 and $v['total_goods_num']!=1:}
+                    <!--订单的第二种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33   查看评论-->
+                    <div class="user_eu_order-center-substance-demo02">
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单金额：¥{:$v['total_price']:}
+                            </span>
+                            
+                            <span>
+                                订单状态：已拆分
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-list">
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo02-list-demo">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-order_number">
+                                    <span>
+                                        订单编号：{:$va['split_sn']:}
+                                    </span>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-img">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        <img src="{:$va['goods_image']|getImages:}"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-name">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        {:$va['goods_title']:} {:$va['pro_info']:}
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-number">
+                                    x {:$va['goods_num']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-money">
+                                    总额 ¥{:$va['goods_price']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-state">
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-span">
+                                        {:$va['order_status']|OrderStatus:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation">
+                                    {:if $va['order_status'] eq 1:}
+                                        <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                            等待发货
+                                        </div>
+                                    {:else if $va['order_status'] eq 2:}
+                                        <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                确认收货
+                                            </div>
+                                        </a>
+                                    {:else if $va['order_status'] eq 5:}
+                                        <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                                查看评价
+                                            </div>
+                                        </a>
+                                    {:else $va['order_status'] eq 4:}
+                                        <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                点击评论
+                                            </div>
+                                        </a>
+                                    {:/if:}
+                                </div>
+                                
+                                <div class="clear36"></div>  
+                            </div>
+                            {:/foreach:}
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    
+                    <!--订单的第二种状态end-->  
+                    {:elseif $v['order_status']==5 and $v['is_pay']==1:}
+                    <!--订单的第三种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33  查看评论-->
+                    <div class="user_eu_order-center-substance-demo03">
+                        <div class="user_eu_order-center-substance-demo03-list-demo">
+                            <div class="user_eu_order-center-substance-demo03-order_number">
+                                <span>
+                                    订单编号：{:$v['sn']:} 
+                                </span>
+                                
+                                <span>
+                                    下单日期：{:$v['add_time']:}
+                                </span>
+                            </div>
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo03-list-demo-img">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    <img src="{:$va['goods_image']|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-name">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    {:$va['goods_title']:} {:$va['pro_info']:}
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-number">
+                                x {:$va['goods_num']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-money">
+                                总额 ¥{:$va['goods_price']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-state">
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-span">
+                                    {:$va['order_status']|OrderStatus:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-a">
+                                    <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        订单详情
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-operation">
+                                <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                    <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                        查看评价
+                                    </div>
+                                </a>
+                            </div>
+                            {:/foreach:}
+                            <div class="clear36"></div>  
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    
+                    <!--订单的第三种状态end-->
+                    {:elseif $v['order_status']==4 and $v['is_pay']==1 and $v['total_goods_num'] != 1:}
+                    <!--订单的第二种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33   点击评论-->
+                    <div class="user_eu_order-center-substance-demo02">
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单金额：¥{:$v['total_price']:}
+                            </span>
+                            
+                            <span>
+                                订单状态：已拆分
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-list">
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo02-list-demo">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-order_number">
+                                    <span>
+                                        订单编号：{:$va['split_sn']:}
+                                    </span>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-img">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        <img src="{:$va['goods_image']|getImages:}"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-name">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        {:$va['goods_title']:} {:$va['pro_info']:}
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-number">
+                                    x {:$va['goods_num']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-money">
+                                    总额 ¥{:$va['goods_price']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-state">
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-span">
+                                        {:$va['order_status']|OrderStatus:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation">
+                                    {:if $va['order_status'] eq 1:}
+                                        <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                            等待发货
+                                        </div>
+                                    {:else if $va['order_status'] eq 2:}
+                                        <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                确认收货
+                                            </div>
+                                        </a>
+                                    {:else if $va['order_status'] eq 5:}
+                                        <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                                查看评价
+                                            </div>
+                                        </a>
+                                    {:else $va['order_status'] eq 4:}
+                                        <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                点击评论
+                                            </div>
+                                        </a>
+                                    {:/if:}
+                                </div>
+                                
+                                <div class="clear36"></div>  
+                            </div>
+                            {:/foreach:}
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    
+                    <!--订单的第二种状态end-->  
+                    {:elseif $v['order_status']==4 and $v['is_pay']==1:}
+                    <!--订单的第三种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33-->
+                    <div class="user_eu_order-center-substance-demo03">
+                        <div class="user_eu_order-center-substance-demo03-list-demo">
+                            <div class="user_eu_order-center-substance-demo03-order_number">
+                                <span>
+                                    订单编号：{:$v['sn']:} 
+                                </span>
+                                
+                                <span>
+                                    下单日期：{:$v['add_time']:}
+                                </span>
+                            </div>
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo03-list-demo-img">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    <img src="{:$va['goods_image']|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-name">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    {:$va['goods_title']:} {:$va['pro_info']:}
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-number">
+                                x {:$va['goods_num']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-money">
+                                总额 ¥{:$va['goods_price']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-state">
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-span">
+                                    {:$va['order_status']|OrderStatus:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-a">
+                                    <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        订单详情
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-operation">
+                                <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                    <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                        点击评论
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="clear36"></div> 
+                            {:/foreach:} 
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div> 
+                     
+                    <!--订单的第三种状态end-->
+                    {:elseif $v['order_status']==6:}
+                    <div class="user_eu_order-center-substance-demo01">
+                        <div class="user_eu_order-center-substance-demo01-order_number">                        
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo01-info">
+                            <div class="user_eu_order-center-substance-demo01-info-left">
+                                {:foreach $v['detail'] as $ke=>$va:}
+                                <div class="user_eu_order-center-substance-demo01-info-left-demo">
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-img">
+                                        <a href="goods.php?id={:$va['goods_id']:}">
+                                            <img src="{:$va['goods_image']|getImages:}"/>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-name">
+                                        <a href="goods.php?id={:$va['goods_id']:}">
+                                            {:$va['goods_title']:} {:$va['pro_info']:}
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-number">
+                                        x {:$va['goods_num']:}
+                                    </div>
+                                    
+                                    <div class="clear27"></div>
+                                </div>
+                                {:/foreach:}
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo01-info-right">
+                                <div class="user_eu_order-center-substance-demo01-info-right-money">
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-total">
+                                        总额 ¥{:$v['total_price']:} 
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo01-info-right-state">
+                                    <div class="user_eu_order-center-substance-demo01-info-right-state-span">
+                                        已取消
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo01-info-right-operation">
+                                    <a href="javascript:;" onclick="delOrder({:$v['id']:})">
+                                    <div class="user_eu_order-center-substance-demo01-info-right-operation-input">
+                                        删除订单
+                                    </div>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="clear32"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear36"></div>
+                    {:/if:}
+                    {:/foreach:}
+                    <!--订单的第一种状态end-->   
+                   {:if !empty($OrderAll):}
+                    <div class='page'>{:$page:}</div>
+                    {:/if:}
+                </div>
+                {:elseif $tab eq 'df':}
+                <div id="tabs-1" class="lengths" style="display: block">
+                   <!--订单的第一种状态,如果有多个订单需要循环demo,循环的时候包括下面的clear33-->
+                    {:foreach $OrderAll as $k=>$v:}
+                    {:if $v['order_status']==0 and $v['is_pay']==0:}
+                    <div class="user_eu_order-center-substance-demo01">
+                        <div class="user_eu_order-center-substance-demo01-order_number">                        
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo01-info">
+                            <div class="user_eu_order-center-substance-demo01-info-left">
+                                {:foreach $v['detail'] as $ke=>$va:}
+                                <div class="user_eu_order-center-substance-demo01-info-left-demo">
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-img">
+                                        <a href="goods.php?id={:$va['goods_id']:}">
+                                            <img src="{:$va['goods_image']|getImages:}"/>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-name">
+                                        <a href="goods.php?id={:$va['goods_id']:}">
+                                            {:$va['goods_title']:} {:$va['pro_info']:}
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-left-demo-number">
+                                        x {:$va['goods_num']:}
+                                    </div>
+                                    
+                                    <div class="clear27"></div>
+                                </div>
+                                {:/foreach:}
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo01-info-right">
+                                <div class="user_eu_order-center-substance-demo01-info-right-money">
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-total">
+                                        总额 ¥{:$v['total_price']:} 
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-meet">
+                                        应付 ¥{:$v['deal_price']:} 
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-integral">
+                                        积分 -{:if empty($v['integral']):}0.00{:else:}{:$v['integral']:}{:/if:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-money-coupon">
+                                        优惠券 -{:if empty($v['coupon']):}0.00{:else:}{:$v['coupon']:}{:/if:}
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo01-info-right-state">
+                                    <div class="user_eu_order-center-substance-demo01-info-right-state-span">
+                                        待付款
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo01-info-right-operation">
+                                    <a href="order.php?payOrder&order_id={:$v['id']:}" >
+                                    <div class="user_eu_order-center-substance-demo01-info-right-operation-input">
+                                        付款
+                                    </div>
+                                    </a>
+                                    
+                                    <div class="user_eu_order-center-substance-demo01-info-right-operation-a">
+                                        <a href="javascript:;" onclick="cancel({:$v['id']:})">
+                                            取消订单
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="clear32"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear36"></div>
+                    
+                    {:/if:}
+                    {:/foreach:}
+                    {:if !empty($OrderAll):}
+                    <div class='page'>{:$page:}</div>
+                    {:/if:}
+                </div>
+                {:elseif $tab eq 'dfh':}
+                <div id="tabs-4" class="lengths" style="display: block">
+                    {:foreach $OrderAll as $k=>$v:}
+                    {:if $v['order_status']==1 and $v['is_pay']==1 and $v['total_goods_num']!=1:}
+                    <!--订单的第二种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33-->
+                    <div class="user_eu_order-center-substance-demo02">
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单金额：¥{:$v['total_price']:}
+                            </span>
+                            
+                            <span>
+                                订单状态：已拆分
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-list">
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo02-list-demo">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-order_number">
+                                    <span>
+                                        订单编号：{:$va['split_sn']:}
+                                    </span>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-img">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        <img src="{:$va['goods_image']|getImages:}"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-name">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        {:$va['goods_title']:} {:$va['pro_info']:}
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-number">
+                                    x {:$va['goods_num']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-money">
+                                    总额 ¥{:$va['goods_price']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-state">
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-span">
+                                        {:$va['order_status']|OrderStatus:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation">
+                                    {:if $va['order_status'] eq 1:}
+                                        <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                            等待发货
+                                        </div>
+                                    {:else if $va['order_status'] eq 2:}
+                                        <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                确认收货
+                                            </div>
+                                        </a>
+                                    {:else if $va['order_status'] eq 5:}
+                                        <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                                查看评价
+                                            </div>
+                                        </a>
+                                    {:else $va['order_status'] eq 4:}
+                                        <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                点击评论
+                                            </div>
+                                        </a>
+                                    {:/if:}
+                                </div>
+                                
+                                <div class="clear36"></div>  
+                            </div>
+                            {:/foreach:}
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    <!--订单的第二种状态end-->  
+                    {:elseif $v['order_status']==1 and $v['is_pay']==1:}
+                    <!--订单的第三种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33-->
+                    <div class="user_eu_order-center-substance-demo03">
+                        <div class="user_eu_order-center-substance-demo03-list-demo">
+                            <div class="user_eu_order-center-substance-demo03-order_number">
+                                <span>
+                                    订单编号：{:$v['sn']:} 
+                                </span>
+                                
+                                <span>
+                                    下单日期：{:$v['add_time']:}
+                                </span>
+                            </div>
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo03-list-demo-img">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    <img src="{:$va['goods_image']|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-name">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    {:$va['goods_title']:} {:$va['pro_info']:}
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-number">
+                                x {:$va['goods_num']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-money">
+                                总额 ¥{:$va['goods_price']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-state">
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-span">
+                                    {:$va['order_status']|OrderStatus:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-a">
+                                    <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        订单详情
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-operation">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                    等待发货
+                                </div>
+                            </div>
+                            {:/foreach:}
+                            <div class="clear36"></div>  
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    
+                    {:/if:}
+                    {:/foreach:}
+                    {:if !empty($OrderAll):}
+                    <div class='page'>{:$page:}</div>
+                    {:/if:}
+                </div>
+                {:elseif $tab eq 'ds':}
+                <div id="tabs-2" class="lengths" style="display: block">
+                    {:foreach $OrderAll as $k=>$v:}
+                    {:if $v['order_status']==2 and $v['is_pay']==1 and $v['total_goods_num']!=1:}
+                    <!--订单的第二种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33-->
+                    <div class="user_eu_order-center-substance-demo02">
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单金额：¥{:$v['total_price']:}
+                            </span>
+                            
+                            <span>
+                                订单状态：已拆分
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-list">
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo02-list-demo">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-order_number">
+                                    <span>
+                                        订单编号：{:$va['split_sn']:}
+                                    </span>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-img">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        <img src="{:$va['goods_image']|getImages:}"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-name">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        {:$va['goods_title']:} {:$va['pro_info']:}
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-number">
+                                    x {:$va['goods_num']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-money">
+                                    总额 ¥{:$va['goods_price']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-state">
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-span">
+                                        {:$va['order_status']|OrderStatus:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation">
+                                    {:if $va['order_status'] eq 1:}
+                                        <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                            等待发货
+                                        </div>
+                                    {:else if $va['order_status'] eq 2:}
+                                        <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                确认收货
+                                            </div>
+                                        </a>
+                                    {:else if $va['order_status'] eq 5:}
+                                        <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                                查看评价
+                                            </div>
+                                        </a>
+                                    {:else $va['order_status'] eq 4:}
+                                        <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                点击评论
+                                            </div>
+                                        </a>
+                                    {:/if:}
+                                </div>
+                                
+                                <div class="clear36"></div>  
+                            </div>
+                            {:/foreach:}
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div>  
+                    <!--订单的第二种状态end-->  
+                    {:elseif $v['order_status']==2 and $v['is_pay']==1:}
+                    <!--订单的第三种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33-->
+                    <div class="user_eu_order-center-substance-demo03">
+                        <div class="user_eu_order-center-substance-demo03-list-demo">
+                            <div class="user_eu_order-center-substance-demo03-order_number">
+                                <span>
+                                    订单编号：{:$v['sn']:} 
+                                </span>
+                                
+                                <span>
+                                    下单日期：{:$v['add_time']:}
+                                </span>
+                            </div>
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo03-list-demo-img">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    <img src="{:$va['goods_image']|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-name">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    {:$va['goods_title']:} {:$va['pro_info']:}
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-number">
+                                x {:$va['goods_num']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-money">
+                                总额 ¥{:$va['goods_price']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-state">
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-span">
+                                    {:$va['order_status']|OrderStatus:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-a">
+                                    <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        订单详情
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-operation">
+                                <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                    <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                        确认收货
+                                    </div>
+                                </a>
+                            </div>
+                            {:/foreach:}
+                            <div class="clear36"></div>  
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div> 
+                     
+                    {:/if:}
+                    {:/foreach:}
+                    {:if !empty($OrderAll):}
+                    <div class='page'>{:$page:}</div>
+                    {:/if:}
+                </div>
+                {:elseif $tab eq 'dp':}
+                <div id="tabs-3" class="lengths" style="display: block">
+                    {:foreach $OrderAll as $k=>$v:}
+                    {:if $v['order_status']==4 and $v['is_pay']==1 and $v['total_goods_num'] != 1:}
+                    <!--订单的第二种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33   点击评论-->
+                    <div class="user_eu_order-center-substance-demo02">
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单编号：{:$v['sn']:} 
+                            </span>
+                            
+                            <span>
+                                下单日期：{:$v['add_time']:}
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-order_number">
+                            <span>
+                                订单金额：¥{:$v['total_price']:}
+                            </span>
+                            
+                            <span>
+                                订单状态：已拆分
+                            </span>
+                        </div>
+                        
+                        <div class="user_eu_order-center-substance-demo02-list">
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo02-list-demo">
+                                <div class="user_eu_order-center-substance-demo02-list-demo-order_number">
+                                    <span>
+                                        订单编号：{:$va['split_sn']:}
+                                    </span>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-img">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        <img src="{:$va['goods_image']|getImages:}"/>
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-name">
+                                    <a href="goods.php?id={:$va['goods_id']:}">
+                                        {:$va['goods_title']:} {:$va['pro_info']:}
+                                    </a>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-number">
+                                    x {:$va['goods_num']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-money">
+                                    总额 ¥{:$va['goods_price']:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-state">
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-span">
+                                        {:$va['order_status']|OrderStatus:}
+                                    </div>
+                                    
+                                    <div class="user_eu_order-center-substance-demo02-list-demo-state-a">
+                                        <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo02-list-demo-operation">
+                                    {:if $va['order_status'] eq 1:}
+                                        <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                            等待发货
+                                        </div>
+                                    {:else if $va['order_status'] eq 2:}
+                                        <a href="javascript:;" onclick='theGoods({:$va['s_id']:},{:$v['id']:})'>
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                确认收货
+                                            </div>
+                                        </a>
+                                    {:else if $va['order_status'] eq 5:}
+                                        <a href="user.php?euEvaluation&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                                查看评价
+                                            </div>
+                                        </a>
+                                    {:else $va['order_status'] eq 4:}
+                                        <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                            <div class="user_eu_order-center-substance-demo02-list-demo-operation-input">
+                                                点击评论
+                                            </div>
+                                        </a>
+                                    {:/if:}
+                                </div>
+                                
+                                <div class="clear36"></div>  
+                            </div>
+                            {:/foreach:}
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div> 
+                     
+                    <!--订单的第二种状态end-->  
+                    {:elseif $v['order_status']==4 and $v['is_pay']==1:}
+                    <!--订单的第三种状态.如果有多个订单需要循环demo,循环的时候包括下面的clear33-->
+                    <div class="user_eu_order-center-substance-demo03">
+                        <div class="user_eu_order-center-substance-demo03-list-demo">
+                            <div class="user_eu_order-center-substance-demo03-order_number">
+                                <span>
+                                    订单编号：{:$v['sn']:} 
+                                </span>
+                                
+                                <span>
+                                    下单日期：{:$v['add_time']:}
+                                </span>
+                            </div>
+                            {:foreach $v['detail'] as $ke=>$va:}
+                            <div class="user_eu_order-center-substance-demo03-list-demo-img">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    <img src="{:$va['goods_image']|getImages:}"/>
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-name">
+                                <a href="goods.php?id={:$va['goods_id']:}">
+                                    {:$va['goods_title']:} {:$va['pro_info']:}
+                                </a>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-number">
+                                x {:$va['goods_num']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-money">
+                                总额 ¥{:$va['goods_price']:}
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-state">
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-span">
+                                    {:$va['order_status']|OrderStatus:}
+                                </div>
+                                
+                                <div class="user_eu_order-center-substance-demo03-list-demo-state-a">
+                                    <a href="user.php?euOrderDetails&id={:$va['s_id']:}">
+                                        订单详情
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="user_eu_order-center-substance-demo03-list-demo-operation">
+                                <a href="user.php?euEvaluate&id={:$va['id']:}">
+                                    <div class="user_eu_order-center-substance-demo03-list-demo-operation-input">
+                                        点击评论
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="clear36"></div> 
+                            {:/foreach:} 
+                        </div>
+                    </div>  
+                    
+                    <div class="clear36"></div> 
+                     
+                    {:/if:}
+                    {:/foreach:}
+                    {:if !empty($OrderAll):}
+                    <div class='page'>{:$page:}</div>
+                    {:/if:}
+                </div>
+                {:/if:}
+            </div>
+        </div>        
+        <!--评价晒单end-->
+    
+    </div>
+    
+      
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+
+<!--点击切换-->
+<script>
+    function theGoods(id,order_id){
+        $.ajax({  
+        type: "post",  
+        url: "user.php?theGoods",  
+        data: {
+            id:id,
+            order_id:order_id,
+        },  
+            success: function(msg){  
+                if(msg == 1){
+                    alert('确认收货成功');
+                    window.location.reload();
+                }else if(msg == 2){
+                    alert('确认收货失败');
+                    window.location.reload();
+                }
+            }  
+        });  
+    }; 
+    function cancel(order_id){
+        if(confirm("确定要取消订单吗？")){
+            $.ajax({  
+            type: "post",  
+            url: "user.php?cancel",  
+            data: {
+                order_id:order_id,
+            },  
+                success: function(msg){  
+                    if(msg == 1){
+                        alert('取消成功');
+                        window.location.reload();
+                    }else if(msg == 2){
+                        alert('取消失败');
+                        window.location.reload();
+                    }
+                }  
+            }); 
+        }
+    };  
+    function delOrder(order_id){
+        if(confirm("确定要删除订单吗？")){
+            $.ajax({  
+            type: "post",  
+            url: "user.php?delOrder",  
+            data: {
+                order_id:order_id,
+            },  
+                success: function(msg){  
+                    if(msg == 1){
+                        alert('删除成功');
+                        window.location.reload();
+                    }else if(msg == 2){
+                        alert('删除失败');
+                        window.location.reload();
+                    }
+                }  
+            }); 
+        }
+    };
+</script>
+<!--点击切换end-->
+
+{:include file='footer.tpl.html':}

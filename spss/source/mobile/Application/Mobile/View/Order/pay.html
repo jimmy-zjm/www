@@ -1,0 +1,40 @@
+<include file="Public/header" /> <!-- 包含头部模版header -->
+<link rel="stylesheet" href="__PUBLIC__/css/zhifu.css"/>
+	<div class="content">
+		<div class="zhifu-con1">订单详情</div>
+		<div class="zhifu-con2">
+			<span class="zhifu-con2-1"><{$data['quote_name']}></span>
+			<span class="zhifu-con2-2">¥500</span>
+		</div>
+		<div class="zhifu-kong"></div>
+		<div class="zhifu-con3">选择支付方式</div>
+		<div class="zhifu-con4">
+			<span class="con4-1"><img src="__PUBLIC__/img/zhifu-zhifubao.png"/></span>
+			<span class="con4-2">支付宝支付</span>
+			<span class="con4-3" ><img class="xuanze"  src="__PUBLIC__/img/zhifu-checked.png" pay='4'/></span>
+		</div>
+		<div class="zhifu-con4">
+			<span class="con4-1"><img src="__PUBLIC__/img/zhifu-weixin.png"/></span>
+			<span class="con4-2">微信支付</span>
+			<span class="con4-3" ><img class="xuanze"  src="__PUBLIC__/img/zhifu-check.png" pay='5'/></span>
+		</div>
+		<div class="zhifu-con6">
+			<img src="__PUBLIC__/img/zhifu-queren.png" onclick='but()'/>
+		</div>
+	</div>	
+	<form action="<{:U('place')}>" method="post" id='form'>
+		<input type="hidden" name="pay_way" id='pay_way' value="4">
+		<input type="hidden" name="oid" value="<{$order_id}>">
+		<input type="hidden" name="name" value="<{$data['quote_name']}>">
+	</form>
+<script>
+	$(".xuanze").click(function(){
+		$(".xuanze").attr("src",'__PUBLIC__/img/zhifu-check.png');
+		$(this).attr("src",'__PUBLIC__/img/zhifu-checked.png');
+		$('#pay_way').val($(this).attr("pay"));
+	})
+
+	function but(){
+		$('#form').submit();
+	}
+</script>

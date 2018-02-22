@@ -1,0 +1,97 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/produceline.css"/>
+<meta http-equiv="x-ua-compatible" content="IE=9;" />
+	<!--content-->
+	<div class="content">
+		<!--produceline-banner-->
+		<div class="produceline-banner">
+			<img src="<{$img}>"/>
+			<!-- <p class="banner-zi1">上&nbsp;品&nbsp;标&nbsp;准&nbsp;线</p>
+			<p class="banner-zi2"></p>
+			<p class="banner-zi3"><a href="" style="color: #d7d7d7;">了解新风系统</a></p> -->
+		</div>
+		<!--produceline-main-->
+		<div class="produceline-main">
+			<div class="produceline-tab1 produceline-tab">
+				<a href="javascript:;" style="color:#00a0e9;" id="producelineping" onclick="producetab(1)">上品系列豪华型</a>
+			</div>
+			<div class="produceline-tab2 produceline-tab">
+				<a href="javascript:;" style="color: #000;cursor: pointer;" id="producelinesheng" onclick="producetab(2)">上生系列经济型</a>
+			</div>
+			<div class="produceline-tab1-show clear" id="producelinetab1" >
+				<h5>更舒适更安全更智能更豪华的家居系统，您的高端之选。</h5>
+				<div class="produceline-tab1-show-main">
+					<div class="produceline-tab1-showcont">
+					<img src="__PUBLIC__/img/produceline-computer1.png" class="produceline-computer1">
+					<p class="produceline-yuanb">
+						<img src="__PUBLIC__/img/produceline-yuanb.png" alt=""  class="produceline-imgb">
+						<p class="produceline-yuans">
+							<img src="__PUBLIC__/img/produceline-yuans.png" alt=""  class="produceline-imgs">
+						</p>
+					</p>
+				</div>
+
+				<div class="produceline-tab1-showcont-go">
+				<?php foreach ($list as $key => $v): ?>
+					<?php if ($key<7): ?>
+						<a href="<{:U('Furnish/detail',array('quote_id'=>$v['quote_id'],'lv'=>'1'))}>"><span ></span><{$v.quote_name}></a>
+					<?php endif ?>
+				<?php endforeach ?>
+					<a href="javascript:;"><span ></span>上品上生智能化系统</a>
+				</div>
+				</div>
+				
+			</div>
+			<div class="produceline-tab1-show clear" id="producelinetab2" style="display: block;">
+				<h5>更简洁更划算更优惠更经济的家居系统，您的实用之选。</h5>
+				<div class="produceline-tab1-show-main">
+					<div class="produceline-tab1-showcont">
+					<img src="__PUBLIC__/img/produceline-computer2.png" class="produceline-computer1">
+					<p class="produceline-yuanb">
+						<img src="__PUBLIC__/img/produceline-yuanb.png" alt=""  class="produceline-imgb">
+						<p class="produceline-yuans">
+							<img src="__PUBLIC__/img/produceline-yuans.png" alt=""  class="produceline-imgs">
+						</p>
+					</p>
+				</div>
+				<div class="produceline-tab1-showcont-go">
+				<?php foreach ($list as $key => $v): ?>
+					<?php if ($key>=7): ?>
+						<a href="<{:U('Furnish/detail',array('quote_id'=>$v['quote_id'],'lv'=>'1'))}>"><span ></span><{$v.quote_name}></a>
+					<?php endif ?>
+				<?php endforeach ?>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	function homeloginhover(){
+		var hover=document.getElementById("loginhover");
+		hover.style.display="block";
+	}
+	function homeloginhoverout(){
+		var hover=document.getElementById("loginhover");
+		hover.style.display="none";
+		
+	}
+	function producetab(index){
+		var producelinetab1=document.getElementById("producelinetab1");
+		var producelinetab2=document.getElementById("producelinetab2");
+		var producelineping=document.getElementById('producelineping');
+		var producelinesheng=document.getElementById('producelinesheng');
+		if(index==2){
+			producelinetab2.style.display="block";
+			producelinetab1.style.display="none";
+			producelineping.style.color="#000";
+			producelinesheng.style.color="#00a0e9";
+			
+		}else{
+			producelinetab2.style.display="none";
+			producelinetab1.style.display="block";
+			producelineping.style.color="#00a0e9";
+			producelinesheng.style.color="#000";
+		}
+	}
+</script>
+

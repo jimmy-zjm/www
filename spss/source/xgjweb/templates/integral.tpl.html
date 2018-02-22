@@ -1,0 +1,59 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/integralstyle.css" ><!-- 积分css -->
+
+<div class="clear"></div>
+
+<!--导航-->
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+<div class="clear"></div>
+
+<div class="clear2">
+
+</div>
+
+<!--中间-->
+<div class="paycenter">
+	<div class="paycenter_left">
+		<div class="paycenter_left_top"><span>积分和券</span></div>
+		<div class="paycenter_left_bot">
+			<ul>
+			{:foreach from=$data item=v:}
+				
+				<li><a href="?integral&a={:$v.article_id:}"{:if $v.article_id == $content.article_id:}class="payon"{:/if:}>{:$v.title:}</a></li>
+			{:/foreach:}
+			<ul>
+		</div>
+	</div>
+	
+	<div class="paycenter_right">
+		<div class="paycenter_right_bot">
+			{:$content.content:}
+		</div>
+	</div>	
+
+</div>
+<!--中间结束-->
+<!-- 底部列表 -->
+
+
+<div class="clear2"></div>
+
+{:include file="footer.tpl.html":}
+
+
+<div class="clear"></div>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" href="css/zhuce.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<div class="zhuce">
+			<div class="zhuce-con">
+				<div class="zhuce-con-left"></div>
+				<div class="zhuce-con-right">
+					<li class="right-tit">用户登录</li>
+					<li class="right-pub"><span></span><input type="text" placeholder="请输入手机号"></li>
+					<li class="right-pass right-pub"><span></span><input type="password" placeholder="请输入密码"></li>
+					<li class="right-xieyi">
+						<input type="checkbox" />
+						<span>自动登录</span>
+						<span class="kongde"></span>
+						<a href="zhuce.html" class="kuaisuzhuce">快速注册</a>
+						<a href="javascript:;" class="wangjipass">忘记密码</a>
+					</li>
+					<li class="wancheng">
+						<input type="submit" value="登录">
+					</li>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.1.js"></script>
+		<script>
+			var num=59;
+			function fasong(){
+				num=59;
+				daojishi();
+			}
+			function daojishi(){
+				$("#huoqu").css("background","url(img/dumiao.jpg)");
+				$("#huoqu").html(num+"S");
+				num=num-1;
+				if(num<1){
+					$("#huoqu").html("重新发送");
+					return false;
+				} 
+				else {
+					setTimeout("daojishi()",1000);
+				}
+			}
+			
+		</script>
+	</body>
+</html>

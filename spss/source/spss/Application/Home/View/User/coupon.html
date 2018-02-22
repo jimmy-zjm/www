@@ -1,0 +1,151 @@
+
+
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+<div class="user-center">
+<include file="User:left" />
+    <div class="user-right">
+    	<div class="user_coupon-title">         
+            <span>
+            	优惠券 
+            </span> 	
+        </div>
+        
+        <div class="clear2"></div>
+        
+        <div class="user_coupon-center">
+			<div class="user_coupon-center-title">                
+                <div class="user_coupon-center-title-02">
+                	<div class="user_coupon-center-title-02-01">
+                    	<span class="span01">
+                        	可用优惠券金额：
+                        </span>
+                        
+                        <span class="span02">
+                        	￥<{$couponAvailable}>元
+                        </span>
+                    </div>
+                    
+                    <div class="user_coupon-center-title-02-02">
+                    	<span class="span01">
+                    		已使用优惠券金额：
+                        </span>
+                        
+                        <span class="span02">
+                        	￥<{$useMoney}>元
+                        </span>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear2"></div>
+            
+            <div class="user_coupon-center-list">
+            	<div class="user_coupon-center-list-top">
+                	<span>
+                    	兑换明细
+                    </span>
+                </div>
+                
+                <div class="user_coupon-center-list-title">
+                	<div class="user_coupon-center-list-title-01">
+                    	卡号
+                    </div>
+                    
+                    <div class="user_coupon-center-list-title-02">
+                    	面值
+                    </div>
+                    
+                    <div class="user_coupon-center-list-title-03">
+                    	兑换日期
+                    </div>
+                    
+                    <div class="user_coupon-center-list-title-04">
+                    	使用期限
+                    </div>
+                    
+                    <div class="user_coupon-center-list-title-05">
+                    	操作
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+
+                <foreach name="couponList" key="k" item="v">
+                
+                <div class="user_coupon-center-list-demo"  id='del<{$v.id}>'>
+                	<div class="user_coupon-center-list-demo-01">
+                    	<{$v.coupon_number}>
+                    </div>
+                    
+                    <div class="user_coupon-center-list-demo-02">
+                    	￥<{$v.discount_amount}>元
+                    </div>
+                    
+                    <div class="user_coupon-center-list-demo-03">
+                    	<{$v.activate_time|date="Y-m-d H:i:s",###}>
+                    </div>
+                    
+                    <div class="user_coupon-center-list-demo-04">
+                    	<{$v.end_time|date="Y-m-d H:i:s",###}>
+                    </div>
+                    
+                    <div class="user_coupon-center-list-demo-05">
+                    	<a href="javascript:;" onclick='condel(<{$v.id}>)'>
+                        	删除
+                        </a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                </foreach>
+                
+                <div class="user_coupon-center-list-total">
+                	<span class="span01">
+                    	合计兑换优惠券金额：
+                    </span>
+                    
+                    <span class="span02">
+                    	￥<{$sumAmout}>元
+                    </span>
+                </div>
+                
+                <div class="page">
+                	<{$page}>
+                </div>   
+                
+                <div class="clear2"></div>             
+            </div>
+        </div>
+    </div>
+	
+  
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+
+
+
+<script>
+   function condel(id){
+        $.get('__APP__/user/delcoupon',{'id':id},function(data){
+            if (data==1) {
+                $('#del'+id).css('display','none');
+                alert('删除成功');
+            }else{
+                alert('删除失败');
+            }
+        })
+    }
+</script>

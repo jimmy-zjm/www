@@ -1,0 +1,122 @@
+
+		<link rel="stylesheet" href="__PUBLIC__/css/machineweixu.css" />
+		<div class="baoyang-content">
+			<div class="baoyang-content-top">
+				<div class="baoyang-content-top-con">
+					<div class="baoyang-content-top-left">
+						<img src="__PUBLIC__/img/consumable1.jpg" alt="" />
+					</div>
+					<div class="baoyang-content-top-right">
+						<p>机电维修说明</p>
+						<p>消费者在上品上生购买商品后，除可以按照《中华人民共和国产品质量法》、《中华人民共和国消费者权益保护法》以及国家关于产品修理、更换、退货的规定，享受商家提供的相应服务外，还可以享受到：向该商品所属品牌机器故障进行在线咨询、对故障机器一键报修，货可以查阅品牌商相应售后信息的服务，拨打服务热线报修。
+						<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乔孚股服务热线：4008062206  /上品上生服务热线：4008001027 </p>
+					</div>
+				</div>
+				
+			</div>
+			 <div class="baoyang-content-mid">
+				<img src="__PUBLIC__/img/jidianweixiu-img1.png" alt="" />
+			</div>
+			<div class="content-baoyang-bottom">
+				<form action="" id="modAddress" method="post" accept-charset="utf-8">
+					<div class="content-baoyang-bottom-con">
+						<div class="content-baoyang-bottom-miaoshu">
+							<p class="content-baoyang-bottom-miaoshu-tit">产品信息</p> 
+							<li class="selectchanpin">
+								<p class="baoyang-bottom-miaoshu-input">
+									<label >产品：</label>
+								</p>
+								<p class="xuanzechanping">
+								<?php if (empty($_SESSION['user']['userId'])): ?> <a href="<{:U('User/login')}>" style="color:red">请先登录</a><?php endif ?>
+								<?php foreach ($quoteInfo as $k=>$v) {?>
+									
+									   <span><input id="<{$v['order_id']}><{$k}>" quote="<{$v['quote_id']}>" order="<{$v['order_id']}>" onclick="a(<{$v.order_id}><{$k}>)" type="checkbox" name='quote_id[]' value="<{$v['order_id']}>-<{$v['quote_id']}>" /><{$v['alias']}><{$v['quote_name']}></span>
+									
+								<?php }?>
+								</p>
+								<input type="hidden" id="hidden" value=''>
+							</li>
+							<li><p class="baoyang-bottom-miaoshu-input"><label >上门时间：</label></p><input class="laydate-icon" id="demo" name='time' value=""> </li>
+							<li><p class="baoyang-bottom-miaoshu-input"><label >问题描述：</label></p><textarea name="note" rows="6" cols="50"></textarea></li>
+						</div>
+						<div class="content-baoyang-bottom-info">
+							<p>&nbsp;&nbsp;&nbsp;联系人：<input type='text' id='name' name='name'/></p>
+							<p>详细地址：<input style="height: 80px;" type='text' id='addr' name='address' readonly /></p>
+							<p class="shoujihaoma">手机号码：<input  type='text' id='phone' name='phone'/></p>
+						</div>
+						<div class="content-baoyang-bottom-tijiao">
+							<div></div>
+							<input id="btn_saveAddress" name="button" type="button" value="提交申请" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+<script src="__PUBLIC__/js/laydate/laydate.js" type="text/javascript"></script><!-- 日历 -->
+<!--日历-->
+<script type="text/javascript">
+!function(){
+	laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+	laydate({elem: '#demo'});//绑定元素
+}();
+
+//日期范围限制
+var start = {
+    elem: '#start',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+
+var end = {
+    elem: '#end',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(),
+    max: '2099-06-16',
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+        start.max = datas; //结束日选好后，充值开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
+
+</script>
+<!--日历end-->
+<script>
+    function a(o){
+        var id = document.getElementById(o);
+        var input = document.getElementsByTagName('input');
+        //console.log(input.length)
+        if ($('#hidden').val() != id.getAttribute("order")) {
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].type=='checkbox') {
+                    input[i].checked = false;
+                }
+            }
+            id.checked = true;
+            $('#hidden').val(id.getAttribute("order"))
+            $.get("<{:U('Customer/addressInfo')}>",{"order_id":id.getAttribute("order")},function(data){
+                $("#name").val(data.consignee);
+                $("#phone").val(data.mobile_phone);
+                $("#addr").val(data.province+data.city+data.district+data.address);
+            },'json')
+        }
+    }
+</script>
+<script>
+    /*点击保存地址,执行保存 */
+    $('#btn_saveAddress').click(function(){
+        var fromData = $('#modAddress').serialize();
+        $.post("<{:U('Customer/saveProblem')}>",fromData,function(data){
+            alert(data);
+        });
+    });
+</script>

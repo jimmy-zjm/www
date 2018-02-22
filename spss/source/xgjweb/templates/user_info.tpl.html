@@ -1,0 +1,381 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!-- 通用Jquery -->
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+	
+    <div class="user-right">
+    	<div class="user_info-title">         
+            <span>
+            	个人信息 
+            </span> 	
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="user_info-center">
+        	<form id="formEditId" action="user.php?userInfoEdit" method="post" enctype="multipart/form-data">
+            	<div class="user_info-center-list">
+                    <input type="hidden" name="userIdHiddenName" value="{:$infoId:}">
+                    
+                    <input type="hidden" name="oldimg" value="{:$infoFace:}">
+                    
+                    <div class="clear3"></div>
+                    
+                    <!--上传头像-->
+                    <div class="user_info-center-demo01">
+                        <div class="user_info-center-demo01-01">
+                        	
+                        </div>
+                        
+                        <div class="user_info-center-demo01-02">
+                            上传头像
+                        </div>
+                        
+                        <div class="user_info-center-demo01-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo01-04">
+                            <div class="user_info-center-demo01-04-img">
+                                <img src="{:$infoFace|getImages:}" />
+                            </div>
+                            
+                            <div class="user_info-center-demo01-04-file">
+                                <input type="file"  id="file" name="userFace"  value=""/>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <!--上传头像end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--昵称-->
+                    <div class="user_info-center-demo02">
+                        <div class="user_info-center-demo02-01">
+                            *
+                        </div>
+                        
+                        <div class="user_info-center-demo02-02">
+                            昵称
+                        </div>
+                        
+                        <div class="user_info-center-demo02-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo02-04">
+                            <input type="text" name="infoAlias" value="{:$infoAlias:}" />
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <!--昵称end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--真实姓名-->
+                    <div class="user_info-center-demo02">
+                        <div class="user_info-center-demo02-01">
+                            *
+                        </div>
+                        
+                        <div class="user_info-center-demo02-02">
+                            真实姓名
+                        </div>
+                        
+                        <div class="user_info-center-demo02-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo02-04">
+                            <input type="text" name="name" value="{:$infoUserName:}" />
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <!--真实姓名end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--手机号码-->
+                    <div class="user_info-center-demo02">
+                        <div class="user_info-center-demo02-01">
+                            *
+                        </div>
+                        
+                        <div class="user_info-center-demo02-02">
+                            手机号码
+                        </div>
+                        
+                        <div class="user_info-center-demo02-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo02-04">
+                            <input type="text" name="infoMobilePhone"  readonly="readonly"  value="{:$infoMobilePhone:}" />
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <!--手机号码end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--电子邮箱-->
+                    <div class="user_info-center-demo02">
+                        <div class="user_info-center-demo02-01">
+                            *
+                        </div>
+                        
+                        <div class="user_info-center-demo02-02">
+                            电子邮箱
+                        </div>
+                        
+                        <div class="user_info-center-demo02-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo02-04">
+                            <input type="text" name="infoEmail" value="{:$infoEmail:}" />
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <!--电子邮箱end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--身份证号码-->
+                    <div class="user_info-center-demo02">
+                        <div class="user_info-center-demo02-01">
+                            *
+                        </div>
+                        
+                        <div class="user_info-center-demo02-02">
+                            身份证号码
+                        </div>
+                        
+                        <div class="user_info-center-demo02-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo02-04">
+                            <input type="text" name="infoIdentityCard" value="{:$infoIdentityCard:}" />
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <!--身份证号码end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--生日-->
+                    <div class="user_info-center-demo03">
+                        <div class="user_info-center-demo03-01">
+                        </div>
+                        
+                        <div class="user_info-center-demo03-02">
+                            生日
+                        </div>
+                        
+                        <div class="user_info-center-demo03-03">
+                            ：
+                        </div>                   
+                                          
+                        <div class="user_info-center-demo03-04">
+                            {:$infoBirthdayYear:}                     	
+                        </div>
+                        
+                        <div class="user_info-center-demo03-05">
+                            年
+                        </div>
+                        
+                        <div class="user_info-center-demo03-04">
+                            {:$infoBirthdayMonth:}
+                        </div>
+                        
+                        <div class="user_info-center-demo03-05">
+                            月
+                        </div>
+                        
+                        <div class="user_info-center-demo03-04">
+                            {:$infoBirthdayDate:}
+                        </div>
+                        
+                        <div class="user_info-center-demo03-05">
+                            日
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <!--生日end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--性别-->
+                    <div class="user_info-center-demo04">
+                        <div class="user_info-center-demo04-01">
+                        </div>
+                        
+                        <div class="user_info-center-demo04-02">
+                            性别
+                        </div>
+                        
+                        <div class="user_info-center-demo04-03">
+                            ：
+                        </div>
+                        
+                        {:$infoSex:}
+                        
+                        <div class="clear"></div> 
+                    </div>
+                    <!--性别end-->
+                    
+                    <div class="clear33"></div>
+                    
+                    <!--月收入-->
+                    <div class="user_info-center-demo05">
+                        <div class="user_info-center-demo05-01">
+                        </div>
+                        
+                        <div class="user_info-center-demo05-02">
+                            月收入
+                        </div>
+                        
+                        <div class="user_info-center-demo05-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo05-04">
+                            {:$infoMonthlyProfit:}
+                        </div>
+                        
+                        <div class="clear"></div> 
+                    </div>
+                    <!--月收入end-->
+                    
+                    <div class="clear33"></div> 
+                    
+                    <!--教育程度-->
+                    <div class="user_info-center-demo05">
+                        <div class="user_info-center-demo05-01">
+                        </div>
+                        
+                        <div class="user_info-center-demo05-02">
+                            教育程度
+                        </div>
+                        
+                        <div class="user_info-center-demo05-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo05-04">
+                            {:$educationStatus:}
+                        </div>
+                        
+                        <div class="clear"></div> 
+                    </div>
+                    <!--教育程度end-->
+                    
+                    <div class="clear33"></div> 
+                    
+                    <!--所在行业-->
+                    <div class="user_info-center-demo05">
+                        <div class="user_info-center-demo05-01">
+                        </div>
+                        
+                        <div class="user_info-center-demo05-02">
+                            所在行业   
+                        </div>
+                        
+                        <div class="user_info-center-demo05-03">
+                            ：
+                        </div>
+                        
+                        <div class="user_info-center-demo05-04">
+                            <select id="selectmenu6"  name="occupation">
+                                <option value="">请选择</option>
+                                <option value="1" >计算机硬件及网络设备</option>
+                                <option value="2" >计算机软件</option>
+                                <option value="3" >IT服务（系统/数据/维护）/多领域经营</option>
+                                <option value="4" >互联网/电子商务</option>
+                                <option value="5" >网络游戏</option>
+                                <option value="6" >通讯（设备/运营/增值服务）</option>
+                                <option value="7" >电子技术/半导体/集成电路</option>
+                                <option value="8" >仪器仪表及工业自动化</option>
+                                <option value="9" >金融/银行/投资/基金/证券</option>
+                                <option value="10" >保险</option>
+                                <option value="11" >房地产/建筑/建材/工程</option>
+                                <option value="12" >家居/室内设计/装饰装潢</option>
+                                <option value="13" >物业管理/商业中心</option>
+                                <option value="14" >广告/会展/公关/市场推广</option>
+                                <option value="15" >媒体/出版/影视/文化/艺术</option>
+                                <option value="17" >咨询/管理产业/法律/财会</option>
+                                <option value="16" >印刷/包装/造纸</option>
+                                <option value="19" >检验/检测/认证</option>
+                                <option value="18" >教育/培训</option>
+                                <option value="21" >贸易/进出口</option>
+                                <option value="20" >中介服务</option>
+                                <option value="23" >快速消费品（食品/饮料/烟酒/化妆品</option>
+                                <option value="22" >零售/批发</option>
+                                <option value="25" >办公用品及设备</option>
+                                <option value="24" >耐用消费品（服装服饰/纺织/皮革/家具/家电）</option>
+                                <option value="27" >大型设备/机电设备/重工业</option>
+                                <option value="26" >礼品/玩具/工艺美术/收藏品</option>
+                                <option value="29" >汽车/摩托车（制造/维护/配件/销售/服务）</option>
+                                <option value="28" >加工制造（原料加工/模具）</option>
+                                <option value="31" >医药/生物工程</option>
+                                <option value="30" >交通/运输/物流</option>
+                                <option value="34" >酒店/餐饮</option>
+                                <option value="35" >娱乐/体育/休闲</option>
+                                <option value="32" >医疗/护理/美容/保健</option>
+                                <option value="33" >医疗设备/器械</option>
+                                <option value="38" >能源/矿产/采掘/冶炼</option>
+                                <option value="39" >电气/电力/水利</option>
+                                <option value="36" >旅游/度假</option>
+                                <option value="37" >石油/石化/化工</option>
+                                <option value="42" >政府/公共事业/非盈利机构</option>
+                                <option value="43" >环保</option>
+                                <option value="40" >航空/航天</option>
+                                <option value="41" >学术/科研</option>
+                                <option value="46" >其它</option>
+                                <option value="44" >农/林/牧/渔</option>
+                                <option value="45" >跨领域经营</option>
+                            </select>
+                        </div>
+                        
+                        <div class="clear"></div> 
+                    </div>
+                    <!--所在行业end-->
+                    
+                    <div class="clear15"></div>                    
+                </div>
+                
+                <div class="clear15"></div>
+                
+                <div class="user_info-center-submit">
+                    <input type="submit" value="提交" />
+                </div>
+                
+                <div class="clear3"></div>
+            </form> 
+        </div>
+    </div>
+ 
+ 	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+{:include file='footer.tpl.html':}  

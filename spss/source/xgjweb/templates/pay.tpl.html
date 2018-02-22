@@ -1,0 +1,59 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/paystyle.css" ><!-- 售后服务pay页面调用CSS -->
+
+<div class="clear"></div>
+
+<!--导航-->
+{:include file="common/daohang.html":}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="paycenter">
+	<div class="paycenter_left">
+		<div class="paycenter_left_top"><span>付款方式</span></div>
+		<div class="paycenter_left_bot">
+			<ul>
+			<!-- <li><a href=""class="payon">银联网银支付</a></li>-->
+			{:foreach from=$data item=v:}
+				
+				<li><a href="?pay&a={:$v.article_id:}"{:if $v.article_id == $content.article_id:}class="payon"{:/if:}>{:$v.title:}</a></li>
+			{:/foreach:}
+			<ul>
+		</div>
+	</div>
+	
+	<div class="paycenter_right">	
+		<div class="paycenter_right_top">
+			<span>上品上生委托国内最专业的第三方支付平台，银联在线和支付宝作为我们的支付服务商。您在确认付款后会指引去银
+				  联在线和支付宝选择页面，按照相关提示完成付款操作。 上品上生无法获得和保存您的任何银行卡和信用卡信息。
+			</span>
+		</div>
+		<div class="paycenter_right_bot">
+			{:$content.content:}
+		</div>
+	</div>	
+
+</div>
+<!--中间结束-->
+<!-- 底部列表 -->
+
+
+<div class="clear2"></div>
+
+{:include file="footer.tpl.html":}
+
+
+<div class="clear"></div>
+
+
+</body>
+</html>
+
+
+
+
+

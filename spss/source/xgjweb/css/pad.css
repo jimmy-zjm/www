@@ -1,0 +1,2047 @@
+@CHARSET "UTF-8";
+/*弹出产品说明书*/
+#clickAddId{
+	width:100%;
+	background:url(../images/touming02.png);
+	position:absolute;
+	top:0px; 
+	display:none;
+	z-index:9999;}
+	
+#CkId{
+	width:100%;
+	background:url(../images/touming02.png);
+	position:absolute;
+	top:0px; 
+	display:none;
+	z-index:9999;}
+	
+.pad-checkbox-clickAddId-center-bk{
+	width:100%;
+	height:auto;
+	position:fixed;
+	top:20%;}
+
+.pad-checkbox-clickAddId-center{
+	width:80%;
+	height:100%;
+	margin:0 auto;
+	background:#fff;}
+	
+.pad-checkbox-clickAddId-center-title{
+	width:100%;
+	height:4em;
+	line-height:4em;
+	background:url(../images/hengfu.png);
+	border-bottom:1px solid #dfe1e3;}
+	
+.pad-checkbox-clickAddId-center-title-left{
+	float:left;
+	width:80%;
+	height:4em;
+	line-height:4em;}
+	
+.pad-checkbox-clickAddId-center-title-left .span01{
+	font-size:1em;
+	color:#333333;
+	margin-left:75px;
+	font-weight:bold;}
+	
+.pad-checkbox-clickAddId-center-title-left .span02{
+	font-size:0.6em;
+	color:#ff0000;
+	margin-left:10px;}
+	
+.pad-checkbox-clickAddId-center-title-right{
+	float:right;
+	margin-top:7px;
+	margin-right:12px;
+	width:10%;
+	height:4em;
+	line-height:4em;}
+	
+.pad-checkbox-clickAddId-center-title-right img{
+	width:1.5em;
+	height:1.5em;
+	margin-top:0.8em;}
+	
+.pad-checkbox-clickAddId-center-title-right a{
+	display:block;}
+	
+.pad-checkbox-clickAddId-center-form{
+	width:70%;
+	margin:0 auto;}
+	
+.pad-checkbox-clickAddId-center-form-demo{
+	float:left;
+	width:44%;
+	height:2em;
+	line-height:2em;
+	margin-right:5%;
+	font-size:1em;
+	color:#000;}
+	
+.pad-checkbox-clickAddId-center-button{
+	width:70%;
+	height:3em;
+	line-height:3em;
+	margin:0 auto;}
+	
+.pad-checkbox-clickAddId-center-button-left{
+	float:left;
+	width:45%;
+	height:3em;
+	line-height:3em;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	border-radius:5px;
+	text-align:center;}
+	
+.pad-checkbox-clickAddId-center-button-left input{
+	width:100%;
+	height:2em;
+	border:none;
+	background:none;
+	text-align:center;
+	font-size:1.5em;
+	color:#fff;}
+	
+.pad-checkbox-clickAddId-center-button-right{
+	float:right;
+	width:45%;
+	height:3em;
+	line-height:3em;
+	background:#ff0000;
+	border:1px solid #ff0000;
+	border-radius:5px;
+	text-align:center;}
+	
+.pad-checkbox-clickAddId-center-button-right input{
+	width:100%;
+	height:2em;
+	border:none;
+	background:none;
+	text-align:center;
+	font-size:1.5em;
+	color:#fff;}
+	
+	
+/*下面是客户管理查看弹出框*/
+.pad-checkbox-check-center-form{
+	width:70%;
+	margin:0 auto;}
+	
+.pad-checkbox-check-center-form-textarea{
+	width:100%;
+	height:100px;
+	margin:0 auto;
+	border:1px solid #ededed;}
+	
+.pad-checkbox-check-center-form-textarea textarea{
+	width:100%;
+	border:none;
+	background:none;}
+	
+.pad-checkbox-clickAddId-center-list{
+	width:70%;
+	height:200px;
+	overflow-y:scroll;
+	margin:0 auto;}
+	
+.pad-checkbox-clickAddId-center-demo{
+	width:100%;
+	margin:0 auto;}
+	
+.pad-checkbox-clickAddId-center-demo-01{
+	width:100%;
+	line-height:2em;
+	height:2em;
+	margin:0 auto;
+	font-size:0.8em;
+	color:#ccc;}
+	
+.pad-checkbox-clickAddId-center-demo-01-name{
+	float:left;
+	width:70%;
+	height:2me;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:break-word;}
+	
+.pad-checkbox-clickAddId-center-demo-01-time{
+	float:right;
+	text-align:right;
+	width:30%;
+	height:2me;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;}
+	
+.pad-checkbox-clickAddId-center-demo-02{
+	width:100%;
+	margin:0 auto;}
+	
+.pad-checkbox-clickAddId-center-demo-02-word{
+	width:100%;
+	margin:0 auto;
+	word-wrap:break-word;}
+
+/*弹出产品说明书end*/
+
+
+/*登陆页面*/
+/*.login-bk{
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:-1}
+	
+.login-bk img{
+	width:100%;
+	height:100%;}
+	
+.login-center{
+	width:100%;
+	margin:0 auto;}
+	
+.login-center-left{
+	float:left;
+	width:40%;
+	margin-left:5%;
+	margin-top:30%;}
+	
+.login-center-left-span01{
+	font-size:1.5em;
+	color:#edeef0;
+	text-shadow:#000 2px 2px 2px;}
+	
+.login-center-left-span02{
+	font-size:1em;
+	color:#edeef0;}
+	
+.login-center-right{
+	float:left;
+	width:50%;
+	margin-left:5%;
+	margin-top:25%;}
+	
+.login-center-right-form{
+	width:80%;
+	background:url(../images/touming10.png);}
+	
+.login-center-right-form-bk{
+	width:80%;
+	margin:0 auto;}
+	
+.login-center-right-form-table{
+	width:100%;
+	background:url(../images/touming11.png);}
+	
+.login-center-right-form-table-demo01{
+	width:100%;
+	margin:0 auto;
+	line-height:2em;
+	height:2em;
+	border-bottom:1px solid #c5c8cc;}
+	
+.login-center-right-form-table-demo01-span{
+	float:left;
+	width:30%;
+	text-align:center;
+	font-size:1em;
+	color:#636363;
+	border-right:1px solid #c5c8cc;}
+
+.login-center-right-form-table-demo01-input{
+	float:left;
+	width:48%;	
+	line-height:2em;
+	height:2em;
+	margin-left:2%;}
+	
+.login-center-right-form-table-demo01-input input{
+	width:100%;
+	line-height:2em;
+	height:2em;
+	border:none;
+	background:none;}
+	
+.login-center-right-form-bottom{
+	width:100%;
+	margin:0 auto;
+	line-height:3em;
+	font-size:1em;
+	color:#636363;}
+	
+.login-center-right-form-bottom-input{
+	float:left;}
+
+.login-center-right-form-bottom-span01{
+	float:left;}
+	
+.login-center-right-form-bottom-span02{
+	float:right;}
+	
+.login-center-right-form-button{
+	width:100%;
+	line-height:2em;
+	background:url(../images/anniu43.png);
+	text-align:center;
+	font-size:1.2em;
+	color:#fff;}
+
+.login-center-right-form-button input{
+	width:100%;
+	line-height:2em;
+	background:none;
+	border:none;
+	text-align:center;
+	font-size:1.2em;
+	color:#fff;}*/
+/*登陆页面end*/
+
+
+
+
+
+/*修改资料*/
+.info-titile{
+	width:100%;
+	height:5em;
+	line-height:5em;
+	font-size:1em;
+	color:#000000;}
+
+.info-titile span{
+	font-size:1.2em;
+	color:#000000;
+	margin-left:5%;}
+
+.info-center{
+	width:60%;
+	margin:0 auto;}
+	
+.info-center-title{
+	width:100%;
+	margin:0 auto;}
+	
+.info-center-title a{
+	font-size:1.2em;
+	color:#fff;}
+	
+.info-center-title-01{
+	float:left;
+	margin-left:1%;
+	width:49%;
+	height:3em;
+	line-height:3em;
+	font-size:1.2em;
+	color:#fff;
+	background:#1eb0fc;
+	text-align:center;}
+	
+.info-center-title-02{
+	float:left;
+	margin-left:1%;
+	width:49%;
+	height:3em;
+	line-height:3em;
+	font-size:1.2em;
+	color:#cfcdcd;
+	background:#cfcdcd;
+	text-align:center;}
+	
+.info-center-form{
+	width:50%;
+	margin:0 auto;}
+	
+.info-center-form-demo{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	margin:0 auto;}
+	
+.info-center-form-demo-span{
+	float:left;
+	width:35%;
+	height:2em;
+	line-height:2em;}
+	
+.info-center-form-demo-input{
+	float:right;
+	width:64%;
+	height:2em;
+	line-height:2em;
+	border:1px solid #adadad;
+	border-radius:5px;
+	background:#fff;}
+	
+.info-center-form-demo-input input{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	border:none;
+	background:none;}
+	
+.info-center-form-demo-input02 span{
+	margin-right:4%;}
+	
+.info-center-form-button{
+	width:100%;
+	margin:0 auto;}
+	
+.info-center-form-button-left{
+	float:left;
+	width:48%;
+	height:2em;
+	line-height:2em;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	text-align:center;
+	border-radius:5px;}
+	
+.info-center-form-button-left input{
+	font-size:1em;
+	color:#ffffff;
+	text-align:center;
+	width:100%;
+	height:2em;
+	line-height:2em;
+	border:none;
+	background:none;}
+	
+.info-center-form-button-right{
+	float:right;
+	width:48%;
+	height:2em;
+	line-height:2em;
+	background:#ff0000;
+	border:1px solid #ff0000;
+	text-align:center;
+	border-radius:5px;}
+	
+.info-center-form-button-right input{
+	font-size:1em;
+	color:#ffffff;
+	text-align:center;
+	width:100%;
+	height:2em;
+	line-height:2em;
+	border:none;
+	background:none;}
+/*修改资料end*/
+
+
+
+/*选择系统*/
+.index-bk{
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:-1}
+	
+.index-bk img{
+	width:100%;
+	height:100%;}
+	
+.index-titile{
+	width:100%;
+	height:6em;
+	line-height:6em;
+	margin:0 auto;
+	text-align:center;
+	font-size:1.5em;
+	color:#000;}
+	
+.index-center-list-demo{
+	width:100px;
+	height:100px;
+	margin-left:130px;
+	margin-right:110px;
+	margin-bottom:50px;
+	float:left;}
+	
+.index-center-list-demo-img{
+	width:100px;
+	height:100px;
+	position:relative;}
+	
+.index-center-list-demo-img img{
+	width:100px;
+	height:100px;
+	border-radius:10px;
+	border:1px solid #000;}
+	
+.index-center-list-demo-a{
+	width:100px;
+	height:100px;
+	line-height:25px;
+	height:auto;
+	position:relative;
+	top:-70px;
+	font-size:0.9em;
+	color:#000;
+	text-align:center;}
+	
+.index-center-list-demo-a a{
+	font-size:0.9em;
+	color:#fff;}
+/*选择系统end*/
+
+
+
+
+/*产生报价*/
+.pcd select{
+	width:100px;
+	height:30px;
+}
+.pcd input{
+	width:200px;
+	height:30px;
+}
+.offer-titile{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	margin:0 auto;
+	font-size:1.5em;
+	color:#000000;}
+	
+.offer-titile span{
+	margin-left:5%;}
+	
+.offer-titile a{
+	font-size:0.8em;
+	color:#0CF;
+	margin-left:5%;}
+	
+.offer-quote{
+	width:85%;
+	margin:0 auto;}
+	
+.offer-quote-01{
+	width:100%;
+	height:1.5em;
+	line-height:1.5em;
+	font-size:1em;
+	color:#000000;
+	margin:0 auot;}
+	
+.offer-quote-02{
+	width:100%;
+	height:1.5em;
+	line-height:1.5em;}
+	
+.offer-quote-02-span{
+	float:left;
+	font-size:1em;
+	color:#000;}
+	
+.offer-quote-02-a{
+	float:left;
+	background:#ff0000;
+	border:1px solid #ff0000;
+	border-radius:5px;
+	font-size:0.8em;
+	color:#ffffff;
+	margin-left:20px;}
+	
+.offer-quote-02-a a{
+	padding-left:10px;
+	padding-right:10px;
+	font-size:0.8em;
+	color:#ffffff;}
+	
+.offer-quote-02-radio{
+	float:left;
+	margin-left:4%;
+	display:none;}
+	
+.offer-quote-02-radio-demo{
+	float:left;
+	margin-right:30px;}
+	
+.offer-quote-02-radio-input{
+	float:left;
+	width:80px;
+	height:20px;
+	line-height:20px;
+	background:#ff0000;
+	border:1px solid #ff0000;
+	border-radius:5px;
+	margin-top: 20px;
+}
+	
+.offer-quote-02-radio-input input{
+	width:100%;
+	height:20px;
+	text-align:center;
+	color:#fff;
+	border:none;
+	background:none;
+	font-size:0.8em;}
+	
+.offer-inventory{
+	width:85%;
+	margin:0 auto;}
+	
+.offer-inventory-span{
+	float:left;
+	width:50%;
+	height:1.5em;
+	line-height:1.5em;
+	color:#000000;
+	font-size:1em;}
+	
+.offer-inventory-operation{
+	float:right;
+	width:50%;
+	height:1.5em;
+	line-height:1.5em;}
+	
+.offer-inventory-operation-export{
+	float:right;
+	width:auto;
+	height:1.5em;
+	line-height:1.5em;
+	background:#1eb0fc;
+	margin-right:20px;
+	border-radius:5px;}
+	
+.offer-inventory-operation-export a{
+	padding-left:20px;
+	padding-right:20px;
+	color:#ffffff;
+	font-size:0.9em;}
+	
+.offer-inventory-operation-mail{
+	float:right;
+	width:auto;
+	height:1.5em;
+	line-height:1.5em;
+	background:#1eb0fc;
+	border-radius:5px;}
+	
+.offer-inventory-operation-mail a{
+	padding-left:20px;
+	padding-right:20px;
+	color:#ffffff;
+	font-size:0.9em;}
+	
+.offer-center{
+	width:85%;
+	margin:0 auto;}
+	
+.offer-center-list{
+	width:100%;
+	margin:0 auto;}
+	
+.offer-center-list-title{
+	width:100%;
+	height:4em;
+	line-height:4em;
+	border-top:2px solid #000000;
+	border-bottom:2px solid #000;	
+	font-size:1em;
+	color:#000;}
+
+.offer-center-list-title-img{
+	float:left;
+	width:10%;}
+	
+.offer-center-list-title-name{
+	float:left;
+	width:20%;
+	text-align:center;}
+	
+.offer-center-list-title-model{
+	float:left;
+	width:13%;
+	text-align:center;}
+	
+.offer-center-list-title-banner{
+	float:left;
+	width:13%;
+	text-align:center;}
+	
+.offer-center-list-title-place{
+	float:left;
+	width:13%;
+	text-align:center;}
+	
+.offer-center-list-title-univalent{
+	float:left;
+	width:10%;
+	text-align:center;}
+	
+.offer-center-list-title-number{
+	float:left;
+	width:10%;
+	text-align:center;}
+	
+.offer-center-list-demo{
+	width:100%;
+	margin-top:20px;
+	word-wrap:break-word;
+	font-size:0.9em;
+	color:#000;}
+
+.offer-center-list-demo-img{
+	float:left;
+	width:8%;
+	margin-right:2%;}
+	
+.offer-center-list-demo-img img{
+	width:100%;}
+	
+.offer-center-list-demo-name{
+	float:left;
+	width:18%;
+	text-align:center;
+	margin-right:1%;
+	margin-left:1%;
+	margin-top:3%;}
+	
+.offer-center-list-demo-model{
+	float:left;
+	width:11%;
+	text-align:center;
+	margin-right:1%;
+	margin-left:1%;
+	margin-top:3%;}
+	
+.offer-center-list-demo-banner{
+	float:left;
+	width:11%;
+	text-align:center;
+	margin-right:1%;
+	margin-left:1%;
+	margin-top:3%;}
+	
+.offer-center-list-demo-place{
+	float:left;
+	width:11%;
+	text-align:center;
+	margin-right:1%;
+	margin-left:1%;
+	margin-top:3%;}
+	
+.offer-center-list-demo-univalent{
+	float:left;
+	width:11%;
+	text-align:center;
+	margin-right:1%;
+	margin-left:1%;
+	margin-top:3%;}
+	
+.offer-center-list-demo-univalent{
+	float:left;
+	width:8%;
+	text-align:center;
+	margin-right:1%;
+	margin-left:1%;
+	margin-top:3%;}
+/*产生报价end*/
+
+
+
+
+
+
+
+/*客户管理*/
+.manage-titile{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	margin:0 auto;
+	font-size:1.5em;
+	color:#000000;}
+	
+.manage-titile span{
+	margin-left:5%;}
+	
+.manage-form{
+	width:85%;
+	height:1.2em;
+	line-height:1.2em;
+	margin:0 auto;}
+	
+.manage-form-span{
+	float:left;
+	width:12%;
+	color:#000;
+	font-size:1em;
+	margin-right:1%;}
+	
+.manage-form-input01{
+	float:left;
+	width:18%;
+	height:1.2em;
+	line-height:1.2em;
+	margin-right:5%;
+	border:1px solid #dadada;
+	background:#fff;
+	border-radius:5px;
+	font-size:1em;
+	color:#000;}
+	
+.manage-form-input01 input{
+	width:100%;
+	background:none;
+	border:none;
+	font-size:1em;
+	color:#000;}
+	
+.manage-form-input02{
+	float:left;
+	width:8%;
+	height:1.2em;
+	line-height:1.2em;
+	background:#ff7286;
+	border:1px solid #ff7286;
+	font-size:0.9em;
+	color:#fff;
+	text-align:center;
+	border-radius:5px;
+	margin-right:3%;}
+
+.manage-form-input02 input{
+	width:100%;
+	border:none;
+	background:none;
+	font-size:0.9em;
+	color:#fff;
+	text-align:center;}
+	
+.manage-center{
+	width:85%;
+	margin:0 auto;}
+	
+.manage-center-list{
+	width:100%;
+	margin:0 auto;}
+	
+.manage-center-list-title{
+	width:100%;
+	height:4em;
+	line-height:4em;
+	border-top:2px solid #000000;
+	border-bottom:2px solid #000;	
+	font-size:1em;
+	color:#000;}
+
+.manage-center-list-title-name{
+	float:left;
+	width:18%;}
+	
+.manage-center-list-title-tel{
+	float:left;
+	width:18%;
+	text-align:center;}
+	
+.manage-center-list-title-address{
+	float:left;
+	width:28%;
+	text-align:center;}
+	
+.manage-center-list-title-time{
+	float:left;
+	width:18%;
+	text-align:center;}
+	
+.manage-center-list-title-operation{
+	float:left;
+	width:18%;
+	text-align:center;}
+
+.manage-center-list-demo{
+	width:100%;
+	margin-top:20px;
+	word-wrap:break-word;
+	font-size:0.9em;
+	color:#000;}
+
+.manage-center-list-demo-name{
+	float:left;
+	width:16%;
+	margin-right:2%;
+	margin-top:1%;}
+	
+.manage-center-list-demo-tel{
+	float:left;
+	width:16%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;}
+	
+.manage-center-list-demo-address{
+	float:left;
+	width:26%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;}
+	
+.manage-center-list-demo-time{
+	float:left;
+	width:16%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;}
+	
+.manage-center-list-demo-operation-bk{
+	width:10%;
+	float:left;
+	margin-top:1%;
+	margin-left:4%;
+	margin-right:1%;}
+	
+.manage-center-list-demo-operation{
+	float:left;
+	width:45%;
+	height:1.5em;
+	line-height:1.5em;
+	text-align:center;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	border-radius:5px;}
+	
+.manage-center-list-demo-bz{
+	float:right;
+	width:45%;
+	height:1.5em;
+	line-height:1.5em;
+	text-align:center;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	border-radius:5px;}
+	
+.manage-center-list-demo-operation-bk a{
+	font-size:0.9em;
+	color:#fff;}
+
+/*客户管理end*/
+
+
+
+
+
+/*客户管理查看*/
+.check-titile{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	margin:0 auto;
+	font-size:1.5em;
+	color:#000000;}
+	
+.check-titile span{
+	margin-left:5%;}
+	
+.check-info{
+	width:85%;
+	margin:0 auto;
+	font-size:1em;
+	color:#000;}
+	
+.check-info span{
+	margin-right:4%;}
+	
+.check-info-left{
+	float:left;
+	width:60%;}
+	
+.check-info-right{
+	float:right;
+	width:40%;
+	display:none;}
+	
+.check-info-right-span{
+	float:left;
+	width:30%;
+	text-align:right;
+	font-size:0.8em;}
+	
+.check-info-right-input{
+	float:left;
+	width:45%;
+	height:20px;
+	line-height:20px;
+	border:1px solid #eee;}
+	
+.check-info-right-input input{
+	width:100%;
+	border:none;
+	background:none;
+	height:20px;}
+	
+.check-info-right-a{
+	float:left;
+	width:20%;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	border:1px solid #1eb0fc;
+	border-radius:5px;
+	margin-left:3%;
+	background:#1eb0fc;}
+	
+.check-info-right-a a{
+	text-align:center;
+	font-size:0.8em;
+	color:#fff;}
+	
+.check-center{
+	width:85%;
+	margin:0 auto;}
+	
+.check-center-list{
+	width:100%;
+	margin:0 auto;}
+	
+.check-center-list-title{
+	width:100%;
+	height:4em;
+	line-height:4em;
+	border-top:2px solid #000000;
+	border-bottom:2px solid #000;	
+	font-size:1em;
+	color:#000;}
+
+.check-center-list-title-name{
+	float:left;
+	width:17%;}
+	
+.check-center-list-title-price{
+	float:left;
+	width:16%;
+	text-align:center;}
+	
+.check-center-list-title-time{
+	float:left;
+	width:20%;
+	text-align:center;}
+	
+.check-center-list-title-remarks{
+	float:left;
+	width:17%;
+	text-align:center;}
+	
+.check-center-list-title-operation{
+	float:left;
+	width:14%;
+	text-align:center;}
+
+.check-center-list-demo{
+	width:100%;
+	margin-top:20px;
+	word-wrap:break-word;
+	font-size:0.9em;
+	color:#000;}
+
+.check-center-list-demo-name{
+	float:left;
+	width:15%;
+	margin-top:1%;}
+	
+.check-center-list-demo-price{
+	float:left;
+	width:14%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;}
+	
+.check-center-list-demo-time{
+	float:left;
+	width:18%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;}
+	
+.check-center-list-demo-remarks{
+	float:left;
+	width:9%;
+	height:1.5em;
+	line-height:1.5em;
+	text-align:center;
+	margin-top:1%;
+	margin-left:4%;
+	margin-right:3%;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	border-radius:5px;}
+	
+.check-center-list-demo-remarks a{
+	font-size:0.9em;
+	color:#fff;}
+	
+.check-center-list-demo-operation{
+	float:left;
+	width:10%;
+	height:1.5em;
+	line-height:1.5em;
+	text-align:center;
+	margin-top:1%;
+	margin-left:3%;
+	margin-right:1%;}
+	
+.check-center-list-demo-operation-export{
+	float:left;
+	width:44%;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	border-radius:5px;
+	margin-right:2%;}
+	
+.check-center-list-demo-operation-mail{
+	float:left;
+	width:44%;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	border-radius:5px;
+	margin-right:2%;}
+	
+.check-center-list-demo-operation-delete{
+	float:left;
+	width:44%;
+	background:#1eb0fc;
+	border:1px solid #1eb0fc;
+	border-radius:5px;
+	margin-right: 2%;}
+	
+.check-center-list-demo-operation a{
+	font-size:0.9em;
+	color:#fff;}
+/*客户管理查看end*/
+
+
+
+
+
+
+
+/*输入信息*/
+.details-checkbox{
+	width:100%;
+	margin:0 auto;}
+
+.details-checkbox-title{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	margin:0 auto;
+	font-size:1.5em;
+	color:#000000;}
+	
+.details-checkbox-title span{
+	margin-left:5%;}
+
+.details-checkbox-list{
+	width:90%;
+	margin-left:10%;}
+	
+.details-checkbox-list-demo{
+	float:left;
+	width:33%;
+	height:3em;
+	font-size:1em;
+	color:#000;
+	margin-bottom:1em;}
+	
+.details-conter-offer{
+	width:100%;
+	margin:0 auto;
+	background:#fff;}
+	
+.details-conter-offer-title{
+	width:100%;
+	height:3em;
+	line-height:3em;}
+	
+.details-conter-offer-title .span01{
+	font-size:1.5em;
+	color:#000000;
+	margin-left:5%;}
+	
+.details-conter-offer-info{
+	width:90%;
+	margin-left:10%;}
+	
+.details-conter-offer-info-basic{
+	width:100%;
+	height:1em;
+	line-height:1em;}
+	
+.details-conter-offer-info-basic-demo{
+	float:left;
+	width:40%;
+	margin-right:5%;}
+	
+.details-conter-offer-info-basic-demo-span{
+	float:left;
+	width:30%;
+	height:28px;
+	line-height:28px;}
+	
+.details-conter-offer-info-basic-demo-input{
+	float:left;
+	width:50%;
+	height:28px;
+	line-height:28px;
+	border:1px solid #d9d9d9;
+	border-radius:5px;}
+	
+.details-conter-offer-info-basic-demo-input input{
+	border:none;
+	background:none;
+	width:100%;
+	height:28px;
+	line-height:28px;}
+	
+.details-conter-offer-info-region{
+	width:100%;}
+	
+.details-conter-offer-info-region-title{
+	width:100%;
+	height:3em;
+	line-height:3em;
+	font-size:1em;
+	color:#000000;}
+	
+.details-conter-offer-info-region-form .infolist{
+	min-height:28px;}
+	
+.ssx-span{
+	border:none !important;
+	font-size:16px;
+	color:#414146;}
+	
+.details-conter-offer-info-region-form .infolist .liststyle span{
+	height:28px;
+	line-height:28px;
+	font-size:16px;
+	border:1px solid #d9d9d9;
+	border-radius:5px;}
+	
+.details-conter-offer-info-region-form .infolist .liststyle span i{
+	height:28px;
+	line-height:28px;}
+	
+.details-conter-offer-info-region-form .infolist .liststyle span i{
+	font-size:14px;}
+	
+.details-conter-offer-info-region-form.infolist .liststyle span ul{
+	top:30px;}
+	
+#Address{
+	width:10em;
+	height:28px;
+	line-height:28px;}
+	
+#Address input{
+	border:none;
+	background:none;
+	width:100%;
+	height:28px;
+	line-height:28px;
+	margin-left:7px;
+	font-size:16px;
+	color:#414146;}
+	
+.details-conter-offer-info-region-yes{
+	width:900px;
+	height:55px;
+	line-height:55px;
+	font-size:14px;
+	color:#f44639;}
+	
+.details-conter-offer-info-region-none{
+	width:900px;
+	height:55px;
+	line-height:55px;
+	font-size:14px;
+	color:#f44639;}
+	
+.details-conter-offer-info-offer{
+	width:940px;
+	height:90px;}
+	
+.details-conter-offer-info-offer-01{
+	width:940px;
+	font-size:20px;
+	color:#414146;}
+	
+.details-conter-offer-info-offer-02{
+	width:900px;
+	height:50px;
+	line-height:50px;
+	margin-left:15px;
+	font-size:16px;
+	color:#a4a3a3;}
+	
+.details-conter-offer-info-left{
+	float:left;
+	width:60%;}
+	
+.details-conter-offer-info-type{
+	width:100%;}
+	
+.details-conter-offer-info-type-title{
+	width:100%;
+	font-size:1em;
+	height:3em;
+	line-height:3em;
+	color:#000;}
+
+.details-conter-offer-info-type-radio{
+	width:100%;
+	line-height:2em;}
+	
+.details-conter-offer-info-type-radio-demo{
+	float:left;
+	width:18%;
+	margin-right:5%;
+	margin-left:1%;}
+	
+.details-conter-offer-info-type-radio-demo span{
+	font-size:0.9em;
+	color:#000000;
+	margin-left:1%;}
+	
+.details-conter-offer-info-room{
+	width:100%;}
+	
+.details-conter-offer-info-room-left{
+	float:left;
+	width:100px;
+	height:40px;
+	line-height:40px;
+	font-size:20px;
+	color:#414146;}
+	
+.details-conter-offer-info-room-right{
+	width:100%;}
+	
+.details-conter-offer-info-room-right-demo{
+	float:left;
+	height:3em;
+	width:auto;}
+	
+.details-conter-offer-info-room-right-demo .combo{
+	margin-bottom:0px;
+	border:1px solid #d9d9d9;
+	border-radius:5px;}
+	
+#click01{
+	display:none;
+	width:340px;}
+	
+.details-conter-offer-info-room-right-span{
+	margin-left:5px;
+	margin-right:29px;
+	color:#403e3e;
+	font-size:16px;}
+	
+.details-conter-offer-info-area{
+	width:98%;
+	height:28px;
+	line-height:28px;
+	margin-left:2%;}
+	
+.details-conter-offer-info-area-01{
+	float:left;
+	font-size:14px;
+	color:#000;
+	width:115px;
+	margin-right:15px;
+	text-align:right;}
+	
+.details-conter-offer-info-area-02{
+	border:1px solid #d9d9d9;
+	background:#fff;
+	width:80px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	float:left;
+	border-radius:5px;}
+	
+.details-conter-offer-info-area-02 input{
+	border:none;
+	background:none;
+	width:80px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	font-size:14px;
+	color:#000;}	
+	
+.details-conter-offer-info-area-03{
+	float:left;
+	font-size:20px;
+	color:#403e3e;
+	margin-left:15px;
+	margin-right:20px;}	
+	
+.details-conter-offer-info-area-04{
+	float:left;
+	font-size:16px;
+	color:#403e3e}
+	
+.details-conter-offer-info-explain{
+	width:100%;}
+	
+.details-conter-offer-info-explain-title{
+	width:100%;
+	height:3em;
+	line-height:3em;
+	color:#000000;
+	font-size:1em;}	
+
+.details-conter-offer-info-explain-list{
+	width:98%;
+	margin-left:2%;}	
+	
+.details-conter-offer-info-explain-list input{
+	font-size:16px;}
+
+.details-conter-offer-info-explain-list ul{
+	width:100%;}	
+	
+.roomlidemo01{
+	float:left;
+	margin-top:25px;}	
+	
+.roomlidemo02{
+	width:120px;
+	height:40px;
+	line-height:40px;
+	border:2px solid #757474;
+	background:#fff;
+	float:left;
+	margin-right:35px;
+	margin-top:25px;}	
+	
+.roomlidemo02 input{
+	width:120px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	border:none;
+	background:none;}
+	
+.roomdivdemo01{
+	float:left;
+	width:18%;
+	height:28px;
+	line-height:28px;
+	font-size:14px;
+	color:#000000;
+	margin-right:2%;
+	text-align:right;}	
+	
+.roomdivdemo02{
+	width:18%;
+	height:28px;
+	line-height:28px;
+	border:1px solid #d9d9d9;
+	border-radius:5px;
+	background:#fff;
+	float:left;
+	margin-right:2%;
+	margin-bottom:20px;}
+	
+.roomdivdemo02 input{
+	width:100%;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	border:none;
+	background:none;
+	font-size:14px;
+	color:#000;}	
+	
+.roomdivdemo03{
+	width:80%;
+	float:left;}
+
+.details-conter-offer-info-button{
+	width:266px;
+	margin-left:80px;}
+	
+.details-conter-offer-info-button-left{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	float:left;
+	background:url(../images/anniu23.png);
+	font-size:14px;
+	text-align:center;}
+
+.details-conter-offer-info-button-left input{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	border:none;
+	background:none;
+	color:#ffffff;
+	font-size:14px;
+	text-align:center;}
+
+.details-conter-offer-info-button-right{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	float:right;
+	background:url(../images/anniu24.png);
+	font-size:14px;
+	text-align:center;}
+
+.details-conter-offer-info-button-right input{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	border:none;
+	background:none;
+	color:#ffffff;
+	font-size:14px;
+	text-align:center;}
+
+.details-conter-offer-info-span{
+	width:940px;
+	height:60px;
+	line-height:60px;
+	font-size:16px;
+	color:#a1a1a1;}
+	
+.details-conter-offer-info-right{
+	float:right;
+	width:30%;
+	margin-right:10%;}
+	
+.details-conter-offer-info-right img{
+	width:100%;}
+	
+/*输入信息end*/
+
+
+
+
+
+
+
+
+/*员工管理*/
+.staff-titile{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	margin:0 auto;
+	font-size:1.5em;
+	color:#000000;}
+	
+.staff-titile span{
+	margin-left:5%;}
+	
+.staff-center{
+	width:85%;
+	margin:0 auto;}
+	
+.staff-center-list{
+	width:100%;
+	margin:0 auto;}
+	
+.staff-center-list-title{
+	width:100%;
+	height:4em;
+	line-height:4em;
+	border-top:2px solid #000000;
+	border-bottom:2px solid #000;	
+	font-size:1em;
+	color:#000;}
+
+.staff-center-list-title-real_name{
+	float:left;
+	width:14%;}
+	
+.staff-center-list-title-name{
+	float:left;
+	width:14%;
+	text-align:center;}
+
+.staff-center-list-title-job{
+	float:left;
+	width:14%;
+	text-align:center;}
+
+.staff-center-list-title-sex{
+	float:left;
+	width:13%;
+	text-align:center;}
+	
+.staff-center-list-title-tel{
+	float:left;
+	width:14%;
+	text-align:center;}
+	
+.staff-center-list-title-birthday{
+	float:left;
+	width:14%;
+	text-align:center;}
+	
+.staff-center-list-title-operation{
+	float:left;
+	width:17%;
+	text-align:center;}
+
+.staff-center-list-demo{
+	width:100%;
+	margin-top:20px;
+	word-wrap:break-word;
+	font-size:0.9em;
+	color:#000;}
+
+.staff-center-list-demo-real_name{
+	float:left;
+	width:12%;
+	margin-right:2%;
+	margin-top:1%;}
+	
+.staff-center-list-demo-name{
+	float:left;
+	width:12%;
+	margin-left:1%;
+	margin-right:1%;
+	margin-top:1%;
+	text-align:center;}
+	
+.staff-center-list-demo-job{
+	float:left;
+	width:12%;
+	margin-left:1%;
+	margin-right:1%;
+	margin-top:1%;
+	text-align:center;}
+	
+.staff-center-list-demo-sex{
+	float:left;
+	width:11%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	text-align:center;}
+	
+.staff-center-list-demo-tel{
+	float:left;
+	width:12%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	text-align:center;}
+	
+.staff-center-list-demo-birthday{
+	float:left;
+	width:12%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	text-align:center;}
+
+.staff-center-list-demo-operation{
+	float:left;
+	width:15%;
+	height:1.5em;
+	line-height:1.5em;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	text-align:center;}
+	
+.staff-center-list-demo-operation-a{
+	float:left;
+	width:44%;
+	background:#1eb0fc;
+	border-radius:5px;
+	height:1.5em;}
+	
+	
+.staff-center-list-demo-operation-a a{
+	font-size:0.9em;
+	color:#fff;
+	display:block;}
+	
+.staff-center-list-demo-operation-input{
+	float:right;
+	width:44%;
+	background:#1eb0fc;
+	border-radius:5px;
+	height:1.5em;}
+	
+.staff-center-list-demo-operation-input input{
+	font-size:0.9em;
+	color:#fff;
+	border:none;
+	background:none;
+	text-align:center;
+	height:1.5em;
+	line-height:1.5em;
+	width:100%;}
+
+/*员工管理end*/
+
+
+
+
+/*员工信息*/
+.staffInfo-titile{
+	width:100%;
+	height:2em;
+	line-height:2em;
+	margin:0 auto;
+	font-size:1.5em;
+	color:#000000;}
+	
+.staffInfo-titile span{
+	margin-left:5%;}
+	
+.staffInfo-info{
+	width:85%;
+	margin:0 auto;
+	font-size:1em;
+	color:#000;}
+	
+.staffInfo-info-demo01{
+	float:left;
+	width:27%;
+	height:20px;
+	line-height:20px;
+	margin-bottom:20px;}
+	
+.staffInfo-info-demo01 span{
+	margin-left:2%;}
+	
+.staffInfo-info-demo01 input{
+	margin-left:3%;
+	width:40%;
+	height:20px;
+	line-height:20px;}
+	
+.staffInfo-info-demo02{
+	float:left;
+	width:45%;
+	margin-bottom:20px;}
+	
+.staffInfo-info-demo02 .span01{
+	margin-left:2%;
+	margin-right:2%;}
+	
+.staffInfo-info-demo02 .span02{
+	margin-left:1%;
+	margin-right:1%;}
+	
+.staffInfo-info-demo02 select{
+	margin-left:1%;
+	width:15%;
+	height:20px;
+	line-height:20px;}
+	
+.staffInfo-info-demo03{
+	float:left;
+	width:27%;
+	height:20px;
+	line-height:20px;
+	margin-bottom:20px;}
+	
+.staffInfo-info-demo03 .span01{
+	margin-left:2%;
+	margin-right:3%;}
+	
+.staffInfo-info-demo03 .span02{
+	margin-left:1%;
+	margin-right:1%;}
+	
+.staffInfo-info-demo04{
+	float:left;
+	width:27%;
+	height:20px;
+	line-height:20px;
+	margin-bottom:20px;}
+	
+.staffInfo-info-demo04 span{
+	margin-left:2%;}
+	
+.staffInfo-info-demo04 select{
+	margin-left:3%;
+	width:40%;
+	height:20px;
+	line-height:20px;}
+	
+.staffInfo-info-demo05{
+	width:100%;}
+	
+.staffInfo-info-demo05-input{
+	float:right;
+	background:#1eb0fc;
+	border-radius:5px;
+	text-align:center;
+	width:20%;}
+	
+.staffInfo-info-demo05-input input{
+	text-align:center;
+	width:100%;
+	height:30px;
+	line-height:30px;
+	font-size:0.9em;
+	color:#fff;
+	text-align:center;
+	border:none;
+	background:none;}
+	
+.staffInfo-center{
+	width:85%;
+	margin:0 auto;}
+	
+.staffInfo-center-list{
+	width:100%;
+	margin:0 auto;}
+	
+.staffInfo-center-list-title{
+	width:100%;
+	height:4em;
+	line-height:4em;
+	border-top:2px solid #000000;
+	border-bottom:2px solid #000;	
+	font-size:1em;
+	color:#000;}
+
+.staffInfo-center-list-title-name{
+	float:left;
+	width:15%;}
+	
+.staffInfo-center-list-title-tel{
+	float:left;
+	width:20%;
+	text-align:center;}
+
+.staffInfo-center-list-title-address{
+	float:left;
+	width:30%;
+	text-align:center;}
+
+.staffInfo-center-list-title-time{
+	float:left;
+	width:20%;
+	text-align:center;}
+	
+.staffInfo-center-list-title-operation{
+	float:left;
+	width:15%;
+	text-align:center;}
+
+.staffInfo-center-list-demo{
+	width:100%;
+	margin-top:20px;
+	word-wrap:break-word;
+	font-size:0.9em;
+	color:#000;}
+
+.staffInfo-center-list-demo-name{
+	float:left;
+	width:13%;
+	margin-right:2%;
+	margin-top:1%;}
+	
+.staffInfo-center-list-demo-tel{
+	float:left;
+	width:18%;
+	margin-left:1%;
+	margin-right:1%;
+	margin-top:1%;
+	text-align:center;}
+	
+.staffInfo-center-list-demo-address{
+	float:left;
+	width:28%;
+	margin-left:1%;
+	margin-right:1%;
+	margin-top:1%;
+	text-align:center;}
+	
+.staffInfo-center-list-demo-time{
+	float:left;
+	width:18%;
+	text-align:center;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	text-align:center;}
+	
+.staffInfo-center-list-demo-operation{
+	width:13%;
+	float:left;
+	margin-top:1%;
+	text-align:center;}
+	
+.staffInfo-center-list-demo-operation a{
+	color:#fff;}
+
+	
+.staffInfo-center-list-demo-operation-ck{
+	font-size:0.9em;
+	color:#fff;
+	display:block;
+	background:#1eb0fc;
+	border-radius:5px;
+	width:35%;
+	margin:0 auto;
+	float:left;
+	height:1.5em;
+	line-height:1.5em;}
+	
+.staffInfo-center-list-demo-operation-bz{
+	font-size:0.9em;
+	color:#fff;
+	display:block;
+	background:#1eb0fc;
+	border-radius:5px;
+	width:35%;
+	margin:0 auto;
+	float:right;
+	height:1.5em;
+	line-height:1.5em;}
+
+/*员工信息end*/
+
+
+
+
+
+/*登陆页面09-18*/
+.login-img01{
+	width:100%;
+	height:auto;}
+
+.login-img01 img{
+	width:100%;
+	height:auto;}
+	
+.login-center{
+	width:100%;
+	height:auto;}
+	
+.login-center-left{
+	float:left;
+	width:50%;
+	height:auto;
+	text-align:center;}
+	
+.login-center-left img{
+	width:80%;
+	height:auto;}
+	
+.login-center-right{
+	float:left;
+	width:50%;}
+	
+.login-center-right-form{
+	width:70%;}
+	
+.login-center-right-form-demo01{
+	width:98%;
+	height:3em;
+	border-top:1px solid #eee;
+	border-right:1px solid #eee;
+	border-bottom:1px solid #eee;}
+	
+.login-center-right-form-demo01-img{
+	float:left;
+	width:3em;
+	height:3em;}
+	
+.login-center-right-form-demo01-img img{
+	width:3em;
+	height:3em;}
+	
+.login-center-right-form-demo01-input{
+	float:left;
+	width:70%;
+	height:3em;}
+	
+.login-center-right-form-demo01-input span{
+	width:100%;
+	height:3em;
+	line-height:3em;
+	color:#9d9d9d;
+	font-size:0.9em;}
+	
+.login-center-right-form-demo01-input input{
+	width:100%;
+	height:3em;
+	line-height:3em;
+	border:none;
+	background:none;
+	color:#9d9d9d;
+	font-size:0.9em;}
+	
+.login-center-right-form-demo02{
+	width:80%;
+	height:4em;
+	line-height:4em;
+	font-size:0.9em;
+	color:#9d9d9d;
+	margin-left:20%;}
+	
+.login-center-right-form-demo02 input{
+	width:14px;
+	height:14px;}
+	
+.login-center-right-form-demo02 .span01{
+	margin-left:1%;
+	margin-right:24%;}
+	
+.login-center-right-form-demo02 .span02{
+	text-align:right;}
+	
+.login-center-right-form-demo03{
+	width:100%;
+	height:3em;
+	line-height:3em;
+	border:1px solid #1eb0fc;
+	background:#1eb0fc;
+	border-radius:5px;
+	text-align:center;
+	color:#fff;}
+	
+.login-center-right-form-demo03 input{
+	width:100%;
+	line-height:1.9em;
+	border:none;
+	background:none;
+	text-align:center;
+	font-size:1.5em;
+	color:#fff;}
+/*登陆页面09-18end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

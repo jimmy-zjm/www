@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>机电攻略</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet"  type="text/css"  href="css/style.css" /><!-- 通用CSS -->
+<link rel="stylesheet"  type="text/css"  href="css/strategystyle.css" /><!-- 售后服务strategy页面调用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<!--jqury-ui调用-->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui/smoothness/jquery-ui.css" />
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<!--jqury-ui调用end-->
+<!--搜索滑动框-->
+<link rel="stylesheet" type="text/css" href="css/sousuo/default.css" />
+<link rel="stylesheet" type="text/css" href="css/sousuo/component.css" />
+<script src="js/sousuo/modernizr.custom.js"></script>
+<!--搜索滑动框end-->
+<!--滑动导航-->
+<script type="text/javascript">
+$(document).ready(function() {
+	jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
+		$(tab_conbox).find("li").hide();
+		$(tabtit).find("li:first").addClass("thistab").show(); 
+		$(tab_conbox).find("li:first").show();
+	
+		$(tabtit).find("li").bind(shijian,function(){
+		  $(this).addClass("thistab").siblings("li").removeClass("thistab"); 
+			var activeindex = $(tabtit).find("li").index(this);
+			$(tab_conbox).children().eq(activeindex).show().siblings().hide();
+			return false;
+		});
+	
+	};
+	/*调用方法如下：*/
+	$.jqtab("#tabs","#tab_conbox","click");
+	
+	$.jqtab("#tabs2","#tab_conbox2","mouseenter");
+	
+	$.jqtab("#tabs4","#tab_conbox3","click");
+	
+	$.jqtab("#tabs3","#tab_conbox4","mouseenter");
+	
+});
+</script>
+<!--滑动导航end-->
+
+
+
+<!-- banner轮播图片 -->
+<script src="js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+
+		$('.flicker-example').flicker();
+	});
+</script>
+<!-- banner轮播图片end -->
+
+</head>
+<body style="background:#ecf0f5;">
+<!-- top顶部 -->
+
+{:include file='header.tpl.html':}
+
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                	<a href="index.php">
+                		<img src="images/logo2.png"/>
+                	</a>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="furnish.php">
+                        健康舒适家居
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?service=index">
+                        机电售后服务
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?pay">
+                        支付与服务
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?knowledge">
+                        百科知识
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    {:if !empty($smarty.cookies.cartnum):}
+                    <div class="index-navigation-right-01-span">
+                        {:$smarty.cookies.cartnum:}
+                    </div>
+                    {:/if:}
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="order.php?cartlist">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+
+<!-- banner轮播图片 -->
+<div class="flicker-example" data-block-text="false">
+
+  <ul>
+    <li data-background="images/233.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">品质生活 源于细节</div>
+    </li>
+    <li data-background="images/233.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">品质生活 源于细节</div>
+    </li>
+    <li data-background="images/233.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">品质生活 源于细节</div>
+    </li>
+    <li data-background="images/233.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">品质生活 源于细节</div>
+    </li>
+    <li data-background="images/233.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">品质生活 源于细节</div>
+    </li>
+    <li data-background="images/233.jpg">
+      <div class="flick-title">PINZHISHENGHUO YUANYUXIJIE</div>
+      <div class="flick-sub-text">品质生活 源于细节</div>
+    </li>
+
+  </ul>
+</div>
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="strategy-conter">	
+    
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：什么是健康舒适家居?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	健康舒适家居，是一种符合健康住宅标准，要求全面提升家居舒适度的健康生活方式。它是人们运用
+                
+                外部手段（包括设备、技术等），从多方面提高人们生活舒适度，即改变室内空气温度、湿度、空气
+                
+                洁净度、用水品质、室内环境以及人的心理感受等多方面，从而使室内环境达到人体健康舒适的需求。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：中央空调与以往家用空调有哪些不同?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	传统家用空调一般为分体式空调，即由一个室内机和一个室外机组成，日常家中我们常见的那种，
+                
+                为一拖一形式。中央空调则为一拖多，一个室外机，多个室内机。<br />
+                相比于传统空调，中央空调不占用室内空间，隐蔽置于吊顶内，完美配合室内设计风格，且送风量
+                
+                大，送风温差小，房间各角落温度均匀，人体感觉舒适。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：地源空调（水系统）和中央空调（水系统）有什么区别？制冷、制热效果哪个更好?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	地源空调，即是由地源热泵系统组成，利用浅层地能进行供热制冷的新型能源技术空调。夏季制冷时
+                
+                从土壤中吸收冷量，冬季制热亦从土壤中吸收热量进行室内的冷热交换。它环保节能，使室内360°
+                
+                全方位享受舒适，是居家必备的环保型能手。
+
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：什么是湿法地板采暖？什么是干法地板采暖？两者相比价格哪个更高?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	湿法和干法地板采暖，不同之处在于安装的施工方式不一样。<br />
+                
+                湿湿法地板采暖是将加热盘管或发热电缆安装完成后，用混凝土层进行覆盖保护，然后可在上面铺设
+                
+                地砖或石材等地面材料。干法地板采暖是指将加热盘管或发热电缆安装在保温层铝板凹槽内，然后可
+                
+                直接在上面铺设地板材料的安装方式。<br />
+                
+                保温层铝板凹槽造价比较高，所以湿法地板采暖价格相对更高。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：容积式燃气热水器是烧燃气的吗?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	湿是的，燃气热水器是采用燃气作为能源，通过燃气燃烧产生的能量对水进行加热，使水温达到生
+                
+                活、采暖、生产等要求的热水器。<br />
+                
+                按使用的燃气种类可分为：人工煤气热水器、天然气热水器、液化石油气热水器。
+
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：我家人口较多，房间同时使用热水，选择哪一种采暖和热水的套餐搭配比较适合?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	我们会有专业的人员，根据您家庭人数和房间使用情况，算出采暖负荷和热水需求，
+                
+                选出适合您的设备套餐。
+
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：地板电采暖与地板采暖有什么不同?为什么多了一个电字?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	地板采暖包括地板电采暖和地板水采暖，二者属于率属关系。<br />
+                
+                地板电采暖是以发热电缆为热源，使地板散发热量；地板水采暖是以热水为热媒，通过水在加热管
+
+				内循环流动，使地板加热，散发热量。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：热回收新风膜除霾和电除霾，日常使用哪个更省费用?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	膜除霾和高效热回收新风机配套使用的，电除霾和智控热回收式新风换气机配套使用的。<br />
+                
+                前者新风机的热效率为89%，最低能耗为29W；后者热效率在71%至72%之间，最低能耗为150W，
+                
+                所以膜除霾的热回收新风机能吸收空气中更多的能量，最低能耗也较小，所以膜除霾相对节能
+                
+                省费用。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：净水与普通的自来水有什么区别?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	自来水经过中央净水机后出来的水称为净水，净水机里面含有KDF55和活性炭，能够去除掉自来水中
+                
+                的氯气及副产物、重金属、有机污染物等，去除自来水中的异色异味，总的来说比自来水更干净更
+                
+                安全。
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+    
+    <div class="clear23"></div>
+    
+    <div class="strategy-conter-title">
+    	<span>
+        	问：中央吸尘与普通的吸尘器有什么不一样?
+        </span>
+        
+    </div>
+    
+    <div class="clear12"></div>
+    
+    <div class="strategy-conter-introduce">
+    	<div class="strategy-conter-introduce-left">
+        	答：
+        </div>
+        
+        <div class="strategy-conter-title-introduce-right">
+        	<div class="strategy-conter-title-introduce-right-bk">
+            	中央吸尘与普通除尘相比，优点如下：<br />
+                1、主机放置在室外，室内吸尘时基本不产生噪音。<br />
+                
+                2、中央吸尘只需将软管插在吸口上就能开始清洁，软管超长可一次性抵达房间各个角落，真正告
+
+					别低头弯腰，真正直立吸尘，使做家务变得轻松便捷。
+                    
+                    而传统吸尘器有个小主机随时跟在身后，清洁到哪，就要搬到哪，并四处寻找电源插座，费时费力。<br />
+                
+                3、中央吸尘的吸尘袋容量大，一年只需更换1至2次。
+                
+            </div>        	
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="clear2"></div>
+    
+    <div class="advertisement">
+		  <a href="#">
+              <img src="images/213.jpg"/>
+          </a>
+	</div>
+
+</div>
+
+<!--中间end-->
+
+
+<!-- 底部文件 -->
+
+{:include file='footer.tpl.html':}
+
+<!-- 底部文件end -->
+
+
+<!-- 楼层定位 -->
+
+<div class="rf_menu" id="skipfloor" style="display: none;">
+<div class="leftmenu">
+
+<ul class="navigation">
+<li><a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a></li>
+<li><a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a></li>
+<li><a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a></li>
+<li><a data-slide="4" onClick="gotofloor(this);" href="javascript:void(0);">4F</a></li>
+
+
+
+</ul>
+
+<div class="downbo" onClick="gotop();" href="javascript:void(0);">TOP</div>
+<!-- js效果写的时候收起为downbo2展开是downbo -->
+</div>
+</div>
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+
+<!--搜索-->
+<script src="js/sousuo/classie.js"></script>
+<script src="js/sousuo/uisearch.js"></script>
+
+<script>
+			new UISearch( document.getElementById( 'sb-search' ) );
+</script>
+<!--搜索-->
+
+
+<!--jquery-ui调用点击滑动导航-->
+<script>
+
+$( "#tabs" ).tabs();
+
+</script>
+<!--jquery-ui调用点击滑动导航end-->
+</body>
+</html>
+
+
+
+
+

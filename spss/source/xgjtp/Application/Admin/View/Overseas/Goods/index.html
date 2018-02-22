@@ -1,0 +1,277 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品-列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+
+
+<script language="javascript">
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">欧洲团代购</a></li>
+            <li><a href="#">商品列表</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo">
+        <form action="">
+        <ul class="seachform1" style="width:100%">
+
+            <li><label>商品名称</label><input name="goods_title" type="text" value="<?php echo I('get.goods_title') ?>" class="scinput1"></li>
+            <li><label>商品编号</label><input name="goods_sn" type="text" value="<?php echo I('get.goods_sn') ?>" class="scinput1"></li>
+
+            <li><label>分类</label>
+                <div class="vocation">
+                    <select class="select3" name="cate_id">
+                    <option value="0">全部</option>
+                    <?php foreach ($cate_list as $cate): ?>
+                    <option value="<{$cate.id}>" <?php echo $_GET['cate_id']==$cate['id']?'selected':'' ?> ><?php echo str_repeat('——',$cate['lev']) ?> <{$cate.name}></option>
+                    <?php endforeach ?>
+                    </select>
+                </div>
+            </li>
+            <li><label>品牌</label>
+                <div class="vocation">
+                    <select class="select3" name="brand_id">
+                    <option value="0">全部</option>
+                    <?php foreach ($brand_list as $brand): ?>
+                    <option value="<{$brand.id}>" <?php echo $_GET['brand_id']==$brand['id']?'selected':'' ?> ><?php echo str_repeat('——',$brand['lev']) ?> <{$brand.name}></option>
+                    <?php endforeach ?>
+                    </select>
+                </div>
+            </li>
+            <li class=""><label>&nbsp;</label><input type="submit" name="send" class="scbtn" value="查询">   <input name="" type="button" class="scbtn1" onclick="moreSearch(this);" data-togg="0" value="更多条件">   </li>
+        </ul>
+        <div class="formbody moreSearch" id="moreSearch" style="margin-top:10px;display:none;clear:both;padding:0">
+            <div id="usual1" class="usual">
+                <ul class="seachform1">
+                    <li><label>是否上架</label>
+                        <div class="vocation">
+                            <select class="select3" name="is_putaway">
+                                <option value='0'>全部</option>
+                                <option value="1" <?php echo $_GET['is_putaway']==1?'selected':'' ?> >已上架</option>
+                                <option value="2" <?php echo $_GET['is_putaway']==2?'selected':'' ?> >未上架</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>是否团购</label>
+                        <div class="vocation">
+                            <select class="select3" name="is_groupbuy">
+                                <option value='0'>全部</option>
+                                <option value="1" <?php echo $_GET['is_groupbuy']==1?'selected':'' ?> >抢购中</option>
+                                <option value="2" <?php echo $_GET['is_groupbuy']==2?'selected':'' ?> >未开启</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </form>
+
+
+        <div class="tools">
+            <ul class="toolbar">
+            <li class=""><a href="<{:U('add')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</a></li>
+            </ul>
+        </div>
+
+        <table class="imgtable">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>商品图片</th>
+            <th>商品编号</th>
+            <th>商品标题</th>
+            <th>分类&amp;品牌</th>
+            <th>本店价格(元)</th>
+            <th>优惠金额(元)</th>
+
+            <if condition="$Think.cookie.class_id eq 2 ">
+                <else />
+            <th>邮递价格(元)</th>
+            <th>关税税率(%)</th>
+            </if>
+
+            <th>商品状态</th>
+             <if condition="$Think.cookie.class_id eq 1 "><th>赠品</th></if>
+            <th  style="display:none">抢购</th>
+            <th  style="display:none">抢购价格(元)</th>
+            <th>点击次数</th>
+            <th>库存</th>
+            <th>发布时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php foreach ($goods_list as $goods): ?>
+        <tr data-id="<{$goods.id}>">
+                    <td><?php echo (max(1,intval($_GET['p']))-1)*C('GOODS_PAGE_SIZE') + ++$i ?></td>
+            <td class="imgtdd"><img width="54px" src="<{$goods.face_image}>" /></td>
+            <td><{$goods.goods_sn}></td>
+            <td><a href="#"><{$goods.goods_title}></a><p><{$goods.pro_info}></p></td>
+            <td><{$goods.cate_name}><p><{$goods.brand_name}></p></td>
+            <td><{$goods.purchase}><!-- <p><del><{$goods.market_price}></del></p> --></td>
+            <td><{$goods.discount_amount}></td>
+
+            <if condition="$Think.cookie.class_id eq 2 ">
+                <else />
+            <td><{$goods.luggage}></td>
+            <td><{$goods.duties}>%</td>
+            </if>
+            
+            <td>
+                <?php if($goods['is_putaway']==1):?>
+                <span class=" blue">出售中</span>
+                <?php else: ?>
+                <span class=" blue">已下架</span>
+                <?php endif ?>
+            </td>
+           <if condition="$Think.cookie.class_id eq 1 "> <td>
+                <?php if($goods['is_real']==1):?>
+                <a href="javascript:;" class="toggleReal blue">赠品</a>
+                <?php else: ?>
+                <a href="javascript:;" class="toggleReal red">非赠品</a>
+                <?php endif ?>
+            </td></if>
+
+            <td style="display:none">
+                <?php if($goods['is_groupbuy']==1):?>
+                <a href="javascript:;" class="toggleShow blue">抢购中</a>
+                <?php else: ?>
+                <a href="javascript:;" class="toggleShow red">未开启</a>
+                <?php endif ?>
+            </td>
+            <td style="display:none"><{$goods.groupbuy_price}></td>
+            <td><{$goods.click_count}></td>
+            <td><{$goods.stock}></td>
+            <td><{$goods.addtime}></td>
+            <td>
+                <a href="<{:U('Admin/Eugroup/Stock/index',array('id'=>$goods['id']))}>">库存管理</a>
+                <a href="<{:U('edit',array('id'=>$goods['id']))}>">【编辑】</a>
+                        <a href="javascript:;" class="tablelink click" onclick="document.getElementById('data_id').setAttribute('data-id',<{$goods['id']}>)">【删除】</a>
+            </td>
+        </tr>
+        <?php endforeach ?>
+
+        </tbody>
+
+        </table>
+
+        <!-- 分页 -->
+        <{$page}>
+
+
+        <div class="tip">
+            <div class="tiptop"><span>提示信息</span><a></a></div>
+          <div class="tipinfo">
+            <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+            <div class="tipright">
+            <p>是否确将商品放入回收站吗 ？</p>
+            <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+            </div>
+            <div class="tipbtn">
+            <input name="" id="data_id" data-id="" type="button" onclick="window.location.href='<{:U('delete')}>?id='+this.getAttribute('data-id')"  class="sure" value="确定" />&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" />
+            </div>
+        </div>
+
+
+
+<script type="text/javascript">
+    $('.imgtable tbody tr:odd').addClass('odd');
+    </script>
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+        $('.toggleShow').click(function(){
+            var id = $(this).parent().parent().attr('data-id');
+            var that = $(this);
+            $.ajax({
+                url:"<{:U('toggleGroup')}>",
+                data:{id:id},
+                success:function(data){
+                    if(data>0){
+                        //后台修改成功
+                        if(that.html()=='未开启'){
+                            that.html('抢购中').removeClass('red').addClass('blue');
+                        }else{
+                            that.html('未开启').removeClass('blue').addClass('red');
+                        }
+                    }
+                }
+            });
+        });
+        $('.toggleReal').click(function(){
+            var id = $(this).parent().parent().attr('data-id');
+            var that = $(this);
+            $.ajax({
+                url:"<{:U('toggleReal')}>",
+                data:{id:id},
+                success:function(data){
+                    if(data>0){
+                        //后台修改成功
+                        if(that.html()=='非赠品'){
+                            that.html('赠品').removeClass('red').addClass('blue');
+                        }else{
+                            that.html('非赠品').removeClass('blue').addClass('red');
+                        }
+                    }
+                }
+            });
+        });
+
+        function moreSearch(obj){
+            if($(obj).attr('data-togg')==0){
+                $('#moreSearch').slideDown(200);
+                $(obj).attr('data-togg',1);
+            }else{
+                $('#moreSearch').slideUp(200);
+                $(obj).attr('data-togg',0);
+            }
+        }
+    </script>
+</body>
+
+</html>

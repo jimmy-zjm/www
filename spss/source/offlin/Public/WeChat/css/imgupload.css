@@ -1,0 +1,115 @@
+/*  */
+.z_photo
+{
+    clear: both;
+    overflow: auto;
+
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: auto;
+    margin: 10px auto;
+    padding: 5px;
+
+    border: 1px solid #eee;
+}
+.z_photo .z_addImg
+{
+    float: left;
+margin-top:20px;
+    width: 50%;
+}
+.z_photo img
+{
+    display: block;
+
+    width: 176px;
+    height: 176px;
+    margin: .1rem auto;
+}
+.z_photo .z_file
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 176px;
+    height: 176px;
+    margin: 10px auto;
+
+    background: url(../img/photo.png) center center no-repeat;
+    background-size: 100% 100%;
+}
+.z_photo .z_file input#file
+{
+    display: block;
+
+    width: auto;
+    width: 176px;
+    height: 176px;
+
+    vertical-align: middle;
+
+    opacity: 0;
+    border: 0;
+}
+.z_mask
+{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, .5);
+}
+.z_mask .z_alert
+{
+    font-size: 24px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 300px;
+    height: 200px;
+
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    text-align: center;
+
+    border-radius: 5px;
+    background: #fff;
+}
+.z_mask p:nth-child(1)
+{
+    line-height: 75px;
+}
+.z_mask p:nth-child(2) span
+{
+    line-height: 50px;
+
+    display: inline-block;
+    float: left;
+
+    width: 50%;
+    height: 50px;
+
+    border-top: 1px solid #ddd;
+}
+.z_mask .z_cancel
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+
+    border-right: 1px solid #ddd;
+    border-bottom-left-radius: 5px;
+    background-color: #30abe3;
+}
+.z_mask .z_sure
+{
+    border-bottom-right-radius: 5px;
+    background-color: #ff4040;
+}

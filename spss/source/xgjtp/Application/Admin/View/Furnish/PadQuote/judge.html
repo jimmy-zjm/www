@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<!--省市县县三级联动-->
+<link href="__PUBLIC__/Admin/css/city.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Admin/js/city.min.js"></script>
+<!--省市县县三级联动end-->
+</head>
+<style>
+	.forminfo li>label{
+		width:100px;
+	}
+</style>
+<script>
+    $(function(){ //调用插件
+        $.fn.citySelect();
+    });
+</script>
+<script>
+eval(function(p,a,c,k,e,d){
+
+    e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};
+
+    if(!''.replace(/^/,String)){
+
+        while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('!4(a){a.n.P=4(b){4 c(b){6 c,d=a(b),e="Y",f=a("m",d);d.o(4(){a(5).Z(e),f.F(!0,!0).10()}),c=4(){d.Q(e),f.F(!0,!0).U()},a("T").o(4(d){a(d.S).R(b+" *")||c()})}6 d,e={C:["#V","#W","#X"],D:["请选择省份","请选择城市","请选择地区"],y:"i",K:\'11[O^="L"]\',A:!0},f=a.w(e,b),g=f.C,h=f.D,i=f.y,j=f.K,k=g.z;I(a.n.8=4(b){6 c={G:!1,7:0},d=a.w(c,b),e=a(5),f=a("m 3",e),g=(a("m 3:N",e),a("m 3:M(0)",e)),k=a(i,e),l=a(j,e);9 d.G?f.E():g.E(),k.q(h[d.7]),l.r(h[d.7]),5},a.n.t=4(b){6 c,d={p:"0"},e=a.w(d,b),f=a(5),g=a("m",f),h=18.1a[e.p],i="";I("1b"==19 h)9!1;J(c=0;c<h.z;c++)i+=\'<3><a 16="13:14(0)" s="\'+h[c]+\'">\'+h[c]+"</a></3>";g.12(i),i=""},a.n.H=4(){6 b,c,d;a("3",g[0]),a("3",g[1]),a("3",g[2]),a("3",g[0]).u("o",4(){b=a("3",g[0]).v(5)-1;6 c=a("a",5).x("s"),d=a(i,g[0]),e=a(j,g[0]);9 d.q(c),e.r(c),a(g[1]).8({7:1}),a(g[1]).t({p:"B"+b}),a(g[2]).8({7:2}),b}),a("3",g[1]).u("o",4(){c=a("3",g[1]).v(5)-1;6 d=a("a",5).x("s"),e=a(i,g[1]),f=a(j,g[1]);9 e.q(d),f.r(d),a(g[2]).8({7:2}),a(g[2]).t({p:"B"+b+"17"+c}),c}),a("3",g[2]).u("o",4(){d=a("3",g[2]).v(5);6 b=a("a",5).x("s"),c=a(i,g[2]),e=a(j,g[2]);9 c.q(b),e.r(b),d})},f.A)J(d=0;k>d;d++)a(g[d]).8({7:d}),c(g[d]);a(g[0]).t({p:"0"}),a.n.H()}}(15);',62,74,'|||li|function|this|var|thisindex|removelist|return|||||||||||||ul|fn|click|theindex|text|val|alt|appendlist|live|index|extend|attr|czemt|length|intva|0_|setId|stval|remove|stop|removeAll|liClick|if|for|inpvt|cho|gt|first|name|citySelect|removeClass|is|target|body|slideUp|Province|City|Area|active|toggleClass|slideToggle|input|append|javascript|void|jQuery|href|_|dsy|typeof|Items|undefined'.split('|'),0,{}))
+</script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true,
+          items : ['baidumap'],
+
+      }); 
+      
+      prettyPrint();
+  });
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+    $(".select2").uedSelect({
+        width : 167
+    });
+    $(".select3").uedSelect({
+        width : 100
+    });
+
+});
+</script>
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="">首页</a></li>
+    <li><a href="">健康舒适家居</a></li>
+    <li><a href="<{:U('index')}>">报价清单</a></li>
+    <li><a href="<{:U('rule',array('id'=>$id,'quote_id'=>$quote_id,'level'=>$level,'sort'=>$sort))}>">编辑清单</a></li>
+    <li><a href="">设置南北</a></li>
+    </ul>
+    </div>
+
+    <div class="formbody">
+    	<ul class="forminfo">
+    		<li>
+    			<label>选择南北</label>
+    			<label><input type="radio" id='nan' value='' name='judge' checked/>南</label>
+    			<label><input type="radio" id='bei' value='' name='judge'/>北</label>
+    		</li>
+    		<li>
+    			<label>选择城市</label>
+	            <div id="content-wrap" style="float:left;">
+	                <div id="content-left" class="demo">
+	                    <div class="infolist">            
+	                        <div class="liststyle">
+	                            <span id="Province">                    
+	                                <i id="city11">请选择省份</i>
+	                                <ul><li><a href="javascript:void(0)" alt="请选择省份">请选择省份</a></li>
+	                                </ul>
+	                                <input id='c1' type="hidden" name="cho_Province" value="请选择省份">
+	                            </span>
+	                            <span id="City">
+	                                <i id="city22">请选择城市</i>
+	                                <ul><li><a href="javascript:void(0)" alt="请选择城市">请选择城市</a>
+	                                    </li>
+	                                </ul>
+	                                <input id='c2' type="hidden" name="cho_City" value="请选择城市">
+	                            </span>
+								<span style="border:0px;cursor:default;"><a href="javascript:;" onclick="add()">添加</a></span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+    		</li>
+    		<li id='judge'>
+    			<label>南方</label>
+    			<label style="width:300px;margin-botton:2px;">
+    				<div>
+    				<?php foreach ($nan as $key => $value){ ?>
+    					<span id='judge1<{$value.id}>' style="height:25px;">省份：<{$value.prov}>; 城市：<{$value.city}><a style="margin-left:30px;" href="javascript:;" onclick="del(<{$value.id}>,1)">删除</a></span>
+    				<?php } ?>
+    				</div>
+    			</label>
+    			<label>北方</label>
+    			<label style="width:300px;margin-botton:2px;">
+    				<div>
+    					<?php foreach ($bei as $key => $value){ ?>
+	    					<span id='judge2<{$value.id}>' style="height:25px;">省份：<{$value.prov}>; 城市：<{$value.city}><a style="margin-left:30px;" href="javascript:;" onclick="del(<{$value.id}>,2)">删除</a></span>
+	    				<?php } ?>
+    				</div>
+    			</label>
+    		</li>
+    		
+    	</ul>
+    </div>
+
+<script>
+	function add(){
+        var prov = $('#c1').val();
+		var city = $('#c2').val();
+		var nan  = document.getElementById('nan').checked;
+		var bei  = document.getElementById('bei').checked;
+		if (prov=='请选择省份' || city=='请选择城市' ) {
+			return false;
+		}else{
+			if (nan==true) var judge = '1';
+			else if (bei==true) var judge = '2';
+			else var judge = '0';
+			$.get('<{:U("addJudge")}>',{'prov':prov,'city':city,'judge':judge},function(data){
+				if (data=='error') alert('该城市已分配!');
+				else $('#judge').html(data);
+			})
+		}
+	}
+	function del(i,d){
+		if(confirm('确定要删除吗？')){
+		    $.get('<{:U("delJudge")}>',{'id':i},function(data){
+		    	if (data=='1') $('#judge'+d+i).css('display','none');
+				else alert('删除失败');
+			})
+		}else{
+		    return false;
+		}
+	}
+</script>
+</body>
+</html>

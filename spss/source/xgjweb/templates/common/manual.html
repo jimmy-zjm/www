@@ -1,0 +1,85 @@
+<!--弹出产品说明书-->
+<div id="clickAddId">   
+	<div class="service_download-clickAddId-center-bk"> 
+        <div class="service_download-clickAddId-center">
+            <div class="service_download-clickAddId-center-title">
+                <div class="service_download-clickAddId-center-title-left">
+                    <span>
+                        请选择您要下载的产品说明书
+                    </span>
+                </div>
+                
+                <div class="service_download-clickAddId-center-title-right" id="clickAddOutId01">
+                    <a href="javascript:;">
+                        <img src="images/cha03.png"/>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service_download-clickAddId-center-file">
+            	<div class="clear34"></div>
+                
+                <div class="service_download-clickAddId-center-file-left">
+                    
+                    <select name='text' id='text' onchange="return a()">
+                        <option>请选择系统</option>
+                        {:foreach $furGood as $k=>$v:}
+                        <option id="{:$v['cat_id']:}"  value="{:$v['cat_id']:}" >{:$v['cat_name']:}</option>
+                        {:/foreach:}
+                    </select>
+                    
+                </div>
+                
+                <div class="service_download-clickAddId-center-file-right" id='manual'>
+                    <select>
+                        <option>请选择产品</option>
+                    </select> 
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear36"></div>
+            
+            <div class="service_download-clickAddId-center-out" id="clickAddOutId02">
+                <a id='down' href="javascript:;">
+                    确定下载
+                </a>
+            </div>
+            
+            <div class="clear2"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$("#clickAddId").css('height',$(document).height());
+
+jQuery(function(){
+		$("#clickAddInId").click(function(){
+			$("#clickAddId").fadeIn();
+		});
+
+		$("#clickAddOutId01").click(function(){
+			$("#clickAddId").fadeOut();
+		});
+		
+		$("#clickAddOutId02").click(function(){
+			$("#clickAddId").fadeOut();
+		});
+		
+	});
+</script>
+<!--弹出产品说明书end -->
+<script>
+    function a(){
+        id=$("#text").val();
+        $('#manual').load("index.php?getManualInfo&id="+id);
+    }
+</script>
+<script>
+    function b(){
+        name=$("#manual1").val();
+        $('#down').attr('href',"index.php?downManual&file_name="+name);;
+    }
+</script>

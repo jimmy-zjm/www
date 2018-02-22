@@ -1,0 +1,117 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>权限管理</header>
+	<section class="container">
+		<form id='form1'>
+		<?php foreach ($data as $k => $v): ?>
+			<?php if ($k != 0): ?>
+			<ul class="set-list">
+				<p class="sys-title"><{$data[0][$k-1]['name']}><input onclick='checkAll(this,"<{$k}>")' type="checkbox"></p>
+				<?php foreach ($v as $k1 => $v1): ?>
+					<li class="sys-item"><{$v1.name}><input pid="<{$v1.pid}>" type="checkbox" name='permission[]' <?= in_array($v1['id'], $permission)?'checked':''; ?> value="<{$v1.id}>"></li>
+				<?php endforeach ?>
+			</ul>
+			<?php endif ?>
+		<?php endforeach ?>
+		<input type="hidden" name="id" value="<{$_GET.id}>">
+		<input type="button" class="my-btm-btn but1" value="保存">
+		</form>
+	<!-- 销售权限 -->
+		<!-- <ul class="set-list">
+			<p class="sys-title">销售权限<input type="checkbox"></p>
+			<li class="sys-item">报价<input type="checkbox"></li>
+			<li class="sys-item">保存报价记录<input type="checkbox"></li>
+			<li class="sys-item">查看客户资料<input type="checkbox"></li>
+			<li class="sys-item">删除报价记录<input type="checkbox"></li>
+			<li class="sys-item">编辑客户备注<input type="checkbox"></li>
+			<li class="sys-item">提交订单<input type="checkbox"></li>
+			<li class="sys-item">查看清单<input type="checkbox"></li>
+			<li class="sys-item">导出清单<input type="checkbox"></li>
+			<li class="sys-item">发送邮件（清单）<input type="checkbox"></li>
+			<li class="sys-item">查看施工订单<input type="checkbox"></li>
+			<li class="sys-item">查看设计图纸<input type="checkbox"></li>
+			<li class="sys-item">查看施工日志<input type="checkbox"></li>
+			<li class="sys-item">查看验收反馈<input type="checkbox"></li>
+		</ul> -->
+
+
+	<!-- 设计权限 -->
+
+		<!-- <ul class="set-list">
+			<p class="sys-title">设计权限<input type="checkbox"></p>
+			<li class="sys-item">查看清单<input type="checkbox"></li>
+			<li class="sys-item">修改清单<input type="checkbox"></li>
+			<li class="sys-item">查看房屋面积<input type="checkbox"></li>
+			<li class="sys-item">查看设计图纸<input type="checkbox"></li>
+			<li class="sys-item">修改设计图纸<input type="checkbox"></li>
+			<li class="sys-item">上传设计图纸<input type="checkbox"></li>
+			<li class="sys-item">删除设计图纸<input type="checkbox"></li>
+			<li class="sys-item">查看施工日志<input type="checkbox"></li>
+			<li class="sys-item">查看验收反馈<input type="checkbox"></li>
+			<li class="sys-item">查看施工订单<input type="checkbox"></li>
+			
+		</ul> -->
+
+
+	<!-- 施工权限 -->
+
+      <!-- <ul class="set-list">
+			<p class="sys-title">施工权限<input type="checkbox"></p>
+			<li class="sys-item">查看清单<input type="checkbox"></li>
+			<li class="sys-item">查看房屋面积<input type="checkbox"></li>
+			<li class="sys-item">查看设计图纸<input type="checkbox"></li>
+			<li class="sys-item">查看施工日志<input type="checkbox"></li>
+			<li class="sys-item">修改施工日志<input type="checkbox"></li>
+			<li class="sys-item">上传施工日志<input type="checkbox"></li>
+			<li class="sys-item">删除设计图纸<input type="checkbox"></li>
+			<li class="sys-item">查看验收反馈<input type="checkbox"></li>
+			<li class="sys-item">查看施工订单<input type="checkbox"></li>
+			<li class="sys-item">上传验收反馈<input type="checkbox"></li>
+			<li class="sys-item">修改验收反馈<input type="checkbox"></li>
+			<li class="sys-item">删除验收反馈<input type="checkbox"></li>
+			<li class="sys-item">查看验收反馈<input type="checkbox"></li>
+		</ul> -->
+
+		<!-- 售后权限 -->
+
+      <!-- <ul class="set-list">
+			<p class="sys-title">售后权限<input type="checkbox"></p>
+			<li class="sys-item">查看售后订单<input type="checkbox"></li>
+			<li class="sys-item">售后登记<input type="checkbox"></li>
+			<li class="sys-item">分配人员<input type="checkbox"></li>
+			<li class="sys-item">填写施工反馈<input type="checkbox"></li>
+			<li class="sys-item">填写备注信息<input type="checkbox"></li>
+			<li class="sys-item">上传图片<input type="checkbox"></li>
+			<li class="sys-item">删除设计图纸<input type="checkbox"></li>
+			<li class="sys-item">查看验收反馈<input type="checkbox"></li>
+			
+		</ul> -->
+
+	</section>
+
+	<script type="text/javascript">
+		function checkAll(t,k){
+			var input = $('input');
+			for (var i = 0; i < input.length; i++) {
+				if ($(input[i]).attr('pid')==k) {
+					input[i].checked = $(t).is(':checked');
+				}
+			}
+		}
+
+		$('.but1').click(function(){
+			var data = $('#form1').serializeArray();
+			$.get("<{:U('doPermission')}>",data,function(re){
+				if (re==1) {
+					alert('添加成功！');
+					location.href="<{:U('employeeManage')}>";
+				}else{
+					alert(re);
+				}
+			})
+		})
+	</script>
+
+</body>
+</html>

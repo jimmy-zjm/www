@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品-列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+
+
+<script language="javascript">
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+	    <ul class="placeul">
+		    <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+		    <li><a >健康舒适家居</a></li>
+		    <li><a href="<{:U('index')}>">产品材料</a></li>
+	    </ul>
+    </div>
+
+    <div class="rightinfo">
+        <form action="">
+        <ul class="seachform1" style="width:100%">
+
+            <li><label>商品名称</label><input name="goods_name" type="text" value="<?php echo I('get.goods_name') ?>" class="scinput1"></li>
+            <li><label>商品编码</label><input name="goods_sn" type="text" value="<?php echo I('get.goods_sn') ?>" class="scinput1"></li>
+            <li><label>上架时间</label>
+            <input name="starttime" id='starttime' type="text" placeholder="请输入开始日期" class="laydate-icon" value="<?php echo I('get.starttime') ?>" class="scinput1" style="height:33px;">
+            </li>
+            <li><label>下架时间</label>
+            <input name="endtime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" type="text" placeholder="请输入结束日期" class="laydate-icon" value="<?php echo I('get.endtime') ?>" class="scinput1" style="height:33px;">
+            </li>
+            
+            <li class=""><label>&nbsp;</label><input type="submit" name="send" class="scbtn" value="查询">   <input name="" type="button" class="scbtn1" onclick="moreSearch(this);" data-togg="0" value="更多条件">   </li>
+        </ul>
+        <div class="formbody moreSearch" id="moreSearch" style="margin-top:10px;display:none;clear:both;padding:0">
+            <div id="usual1" class="usual">
+                <ul class="seachform1">
+                    <li style='display: none'><label>是否上架</label>
+                        <div class="vocation">
+                            <select class="select3" name="is_putaway">
+                                <option value='0'>全部</option>
+                                <option value="1" <?php echo $_GET['is_putaway']==1?'selected':'' ?> >已上架</option>
+                                <option value="2" <?php echo $_GET['is_putaway']==2?'selected':'' ?> >未上架</option>
+                            </select>
+                        </div>
+                    </li>
+
+                    <li><label>主辅材</label>
+                         <div class="vocation">
+                            <select class="select3" name="goods_lv">
+                                <option value='0'>全部</option>
+                                <option value="1" <?php echo $_GET['goods_lv']==1?'selected':'' ?> >主材</option>
+                                <option value="2" <?php echo $_GET['goods_lv']==2?'selected':'' ?> >辅材</option>
+                                <option value="3" <?php echo $_GET['goods_lv']==3?'selected':'' ?> >安装费</option>
+                                <option value="4" <?php echo $_GET['goods_lv']==4?'selected':'' ?> >耗材</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>品牌</label>
+                        <div class="vocation">
+                            <select class="select3" name="b_id">
+                            <option value="0">全部</option>
+                            <?php foreach ($brand_list as $brand): ?>
+                            <option value="<{$brand.brand_id}>" <?php echo $_GET['b_id']==$brand["brand_id"]?'selected':'' ?> > <{$brand.name}></option>
+                            <?php endforeach ?>
+                            </select>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        </form>
+    
+
+        <div class="tools">
+            <ul class="toolbar" style="width:100%;">
+            <li class=""><a href="<{:U('add')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</a></li>
+            <!-- 更新数据 开始 -->
+            <li class="" style="float:right;" id='aaa'><span><a href="JavaScript:;" onclick="updata()"><img src="__PUBLIC__/Admin/images/t01.png" /></span>一键更新产品材料</a></li>
+            <!-- 更新数据 结束 -->
+
+            <!-- <li class="" style="float:right;" ><a href="<{:U('shopPriceA')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>安装费</a></li> -->
+            <!-- <li class="" style="float:right;" ><a href="<{:U('updata_sn')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>更换产品识别码</a></li> -->
+            <!-- <li class="" style="float:right;" ><a href="<{:U('ceshi')}>"><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>测试</a></li> -->
+            </ul>
+
+        </div>
+        <script>
+            function updata(){
+                if(confirm('您确定要更新吗？更新时间约3分钟左右')){
+                    alert('更新时间较长，请耐心等待！更新完毕之前请勿乱点，谢谢~');
+                    $('#aaa').html('&nbsp&nbsp&nbsp更新中...请稍后...');
+                    $.get("<{:U('updata')}>?",function(data){
+                        if (data=='ok') {
+                            alert('更新完毕！');
+                            window.location.href=window.location.href;
+                        }
+                    })
+                }else{
+                    return false;
+                }
+            }
+        </script>
+        <table class="imgtable">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>商品图片</th>
+            <th>商品编码</th>
+	    	<th>助记码</th>
+            <th>商品名称</th>
+            <th>主辅材</th>
+            <th>规格型号</th>
+            <th>品牌</th>
+            <th>单位</th>
+            <th>商品价格(元)</th>
+            <th style='display: none'>商品状态</th>
+            <th>点击次数</th>
+            <th>库存</th>
+            <th>上架时间</th>
+	    	<th>下架时间</th>
+            <th>发布时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php foreach ($goods_list as $goods): ?>
+        <tr data-id="<{$goods['goods_id']}>">
+            <td><?php echo (max(1,intval($_GET['p']))-1)*C('GOODS_PAGE_SIZE') + ++$i ?></td>
+            <td class="imgtdd"><img width="54px" src="<{$goods.goods_img}>" /></td>
+            <td><{$goods.goods_sn}></td>
+            <td><{$goods.goods_mnemonic}></td>
+            <td><a href="<{:U('edit',array('id'=>$goods['goods_id']))}>"><{$goods.goods_name}></a></td>
+            <td>
+            	<?php if($goods['goods_lv']==1):?>
+                <span >主材</span>
+                <?php else: ?>
+                <span >辅材</span>
+                <?php endif ?>
+            </td>
+            <td><{$goods.goods_model}></td>
+            <td><{$goods.brand_name}></td>
+            <td><{$goods.goods_unit}></td>
+            <td>现价<{$goods.shop_price}>
+                <p>原价<del><{$goods.market_price}></del></p>
+                <?php if($goods['goods_lv']!=1){ ?>
+                    <p>结算价<{$goods.shop_price_a}></p>
+                <?php } ?>
+            </td>
+            <td style='display: none'>
+                <?php if($goods['is_putaway']==1):?>
+                <span class=" blue">出售中</span>
+                <?php else: ?>
+                <span class=" blue">已下架</span>
+                <?php endif ?>
+            </td>
+            <td><{$goods.click_count}></td>
+            <td><{$goods.stock}></td>
+            <td><{$goods.starttime}></td>
+            <td><{$goods.endtime}></td>
+            <td><{$goods.add_time}></td>
+            <td>
+                <a href="<{:U('edit',array('id'=>$goods['goods_id']))}>">【编辑】</a>
+                <a href="javascript:;" class="tablelink click" onclick="document.getElementById('data_id').setAttribute('data-id',<{$goods['goods_id']}>)">【删除】</a>
+            </td>
+        </tr>
+        <?php endforeach ?>
+
+        </tbody>
+
+        </table>
+
+        <!-- 分页 -->
+        <{$page}>
+
+
+        <div class="tip">
+            <div class="tiptop"><span>提示信息</span><a></a></div>
+          <div class="tipinfo">
+            <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+            <div class="tipright">
+            <p>是否确将商品放入回收站吗 ？</p>
+            <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+            </div>
+            <div class="tipbtn">
+            <input name="" id="data_id" data-id="" type="button" onclick="window.location.href='<{:U('delete')}>?id='+this.getAttribute('data-id')"  class="sure" value="确定" />&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" />
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+    	$('.imgtable tbody tr:odd').addClass('odd');
+    </script>
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+
+        function moreSearch(obj){
+            if($(obj).attr('data-togg')==0){
+                $('#moreSearch').slideDown(200);
+                $(obj).attr('data-togg',1);
+            }else{
+                $('#moreSearch').slideUp(200);
+                $(obj).attr('data-togg',0);
+            }
+        }
+    </script>
+    <script type="text/javascript">
+
+
+/*日期时间框插件***********************************/
+        !function(){
+          laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+        }();
+        var start = {
+            elem: '#starttime',
+            format: 'YYYY-MM-DD hh:mm:ss',
+            //min: laydate.now(), //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: true,
+            istoday: true,
+            // choose: function(datas){
+            //      end.min = datas; //开始日选好后，重置结束日的最小日期
+            //      end.start = datas //将结束日的初始值设定为开始日
+            // }
+        };
+        laydate(start);
+        //laydate(end);
+        /*日期时间框插件***********************************/
+</script>
+</body>
+
+</html>

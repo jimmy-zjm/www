@@ -1,0 +1,57 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/index.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>
+					员工列表  
+	</header>
+	<section  class="container">
+		<form  action="" >			
+				<div class="search-strip col-md-7 col-md-fr">
+					<input type="text" id="search" name="search" placeholder="员工姓名/公司名称/手机号"value="<{$Think.get.search}>">
+					<button onclick="ajax_get_table(1)">搜索</button><!-- <input type="submit"  onclick="ajax_get_table('search-form2',1)" value="搜索"> -->
+				</div>
+		</form>
+		<div class="clearfix"></div>
+		<?php foreach ($list as $k => $v): ?>
+			<div>				
+				<p class="p-item">公司名称<span class="fr"><{$v.company}></span></p>
+				<p class="p-item">联系人<span class="fr"><{$v.real_name}></span></p>
+				<!-- <p class="p-item">省份<span class="fr"> <{$v.province}></span></p>
+				<p class="p-item">城市<span class="fr"> <{$v.city}></span></p> -->
+				<p class="p-item">联系电话<span class="fr"><{$v.tel}></span></p>
+				<p class="p-item">添加时间<span class="fr"><{$v.add_time|date="Y-m-d H:i:s",###}></span></p>
+				<p class="p-item  gsgl-btmbtn">
+
+					<if condition="$v.is_open eq 2">
+						<a href="javascript:;" onclick="shuangji(<{$v.id}>)" id="staff_operation_button<{$v.id}>">启用</a>
+						<elseif condition="$v.is_open eq 1"/>
+						<a href="javascript:;" onclick="shuangji(<{$v.id}>)" id="staff_operation_button<{$v.id}>">停用</a>
+					</if>
+					<a class="gsgl-btmbtn-look" href="<{:U('staffInfo',['id'=>$v['id']])}>">查看</a>
+				</p>
+			</div>
+		<?php endforeach ?>
+		<div class='pagebox'><{$page['page']}></div>
+	</section>
+	
+	<script type="text/javascript">
+		
+
+		function shuangji(id){
+         var shuangjiBtn=$('#staff_operation_button'+id);
+			var but = shuangjiBtn.text();
+			$.get('__APP__/Staff/userOpen',{'font':but,'id':id},function(data){
+				
+				if (data==1) {
+					if(but=='启用'){
+						shuangjiBtn.attr("style","");
+
+						shuangjiBtn.text("停用");
+					}else{
+						shuangjiBtn.css({"background-image":"linear-gradient(-180deg, #ff1c7f 0%, #eb267c 100%)","color":"#fff"});
+						shuangjiBtn.text("启用");
+					}
+				}
+			})
+		}
+	</script>

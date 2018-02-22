@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('.editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+</script>
+</head>
+<body>
+
+        <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="">首页</a></li>
+        <li><a >健康舒适家居</a></li>
+        <li><a href="<{:U('index')}>">报价清单</a></li>
+        <li><a href="">添加清单</a></li>
+        </ul>
+        </div>
+        <!-- 选项卡 -->
+        <div class="itab">
+            <ul>
+                <li><a href="javascript:;" onclick="tab(1)" id='t1' class="selected">通用信息</a></li>
+                <li><a href="javascript:;" onclick="tab(2)" id='t2'>系统相册</a></li>
+                <!-- <li><a href="javascript:;" onclick="tab(3)" id='t3'>概述</a></li>
+                <li><a href="javascript:;" onclick="tab(4)" id='t4'>原理</a></li>
+                <li><a href="javascript:;" onclick="tab(5)" id='t5'>产品优势</a></li>
+                <li><a href="javascript:;" onclick="tab(6)" id='t6'>参数</a></li>
+                <li><a href="javascript:;" onclick="tab(7)" id='t7'>施工标准</a></li>
+                <li><a href="javascript:;" onclick="tab(8)" id='t8'>售后</a></li> -->
+
+                <li><a href="javascript:;" onclick="tab(3)" id='t3'>困惑与需求</a></li>
+                <li><a href="javascript:;" onclick="tab(4)" id='t4'>产品与品牌</a></li>
+            </ul>
+        </div>
+        <div class="formbody">
+        <form action="<{:U('add_save')}>" method="post" enctype="multipart/form-data">
+        <ul class="forminfo">
+            <div id='tab1'>
+                <li><label>名称</label><input name="quote_name" type="text" class="dfinput" value="" required='required'/><i>标题不能超过30个字符</i></li>
+                <li><label>别名</label><input name="alias" type="text" class="dfinput" value=''required='required'/><i>例如：C100</i></li>
+                <li><label>分类</label>
+                    <select name='cat_id' style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('../images/inputbg.gif') repeat-x scroll 0 0;">
+                        <?php foreach($cate as $v){ ?>
+                        <option value="<?=$v['cat_id'] ?>" ><?=$v['cat_name'] ?></option>
+                        <?php } ?>
+                    </select>
+                </li>
+                <li><label>打折比例</label><input name="sale" type="text" class="sinput" value='' required='required'/>%<i>例如：30%</i></li><li>
+                <li><label>优惠券可用金额比例</label><input name="coupon" type="text" class="sinput" value='' required='required'/>%<i>例如：30%</i></li>
+                <li><label>积分金额比例</label><input name="gift" type="text" class="sinput" value='' equired='required'/>%<i>例如：30%</i></li>
+                <li><label>每平米价格</label><input name="unitprice" type="text" class="sinput" value='' required='required'/>元<i></i></li>
+                <li><label>第二次支付比例</label><input name="ecprice" type="text" class="sinput" value='' required='required'/>%<i>第一次为500元，第三次为100%-第二次比例-500</i></li>
+                <li ><label>是否上架</label><cite><input name="is_putaway" type="radio" value="1" checked/>是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_putaway" type="radio" value="0" />否</cite></li>
+                <li style='display:none'>
+                    <label>上下架时间</label>
+                    <input name="starttime" id="start_time" placeholder="请输入开始日期" class="laydate-icon" style="height:33px;" value="">
+
+                    <input name="endtime" id="end_time" placeholder="请输入结束日期" class="laydate-icon" style="height:33px;" value="" >
+                </li>
+                <li><label>系统图片</label><input name="img" type="file" /><i></i></li>
+                <li><label>视频1</label><input name="video_img" type="file" /><i></i></li>
+                <li><label>视频2</label><input name="video" type="file" /><i></i></li>
+                <li><label>系统描述</label>
+                    <textarea class="editor_id" name="text" style="width:850px;height:400px;"></textarea>
+                </li>
+                <li><label>产品手册</label><input name="manual" type="file" /><i></i></li>
+            </div>
+
+            <div id='tab2' style="display:none;">
+                <li><label>系统相册</label>
+                    <input name="images[]"  multiple="true" type="file"  accept=".png,.jpeg,.jpg,.gif"/><i></i>
+                </li>
+                <li>
+                    <label>产品功能图添加</label>
+                    <input name="product_img"  type="file"  accept=".png,.jpeg,.jpg,.gif"/>
+                    <i></i> 
+                </li>
+            </div>
+            <!-- <div id='tab3' style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="summary" style="width:850px;height:400px;"></textarea>
+                </li>
+            </div>
+            <div id='tab4' style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="principle" style="width:850px;height:400px;"></textarea>
+                </li>
+				<li>
+                    <label>原理视频图片</label>
+                    <input name="principle_video_img" type="file" />
+                    <i></i></li>
+                <li>
+                    <label>原理视频</label>
+                    <input name="principle_video" type="file"/>
+                    <i></i></li>
+            </div>
+            <div id='tab5' style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="advantage" style="width:850px;height:400px;"></textarea>
+                </li>
+            </div>
+            <div id='tab6' style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="parameter" style="width:850px;height:400px;"></textarea>
+                </li>
+            </div>
+            <div id="tab7" style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="standard" style="width:850px;height:400px;"></textarea>
+                </li>
+            </div>
+            <div id="tab8" style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="customer" style="width:850px;height:400px;"></textarea>
+                </li>
+            </div> -->
+
+            <div id="tab3" style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="puzzled" style="width:850px;height:400px;"><{$quote.puzzled}></textarea>
+                </li>
+            </div>
+            <div id="tab4" style="display:none;">
+                <li class="forminfo">
+                    <textarea class="editor_id" name="product" style="width:850px;height:400px;"><{$quote.product}></textarea>
+                </li>
+            </div>
+
+            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+        </ul>
+        </form>
+        </div>
+
+<script>
+    function tab(o){
+        for (var i = 1; i < 5; i++) {
+            $('#tab'+i).css('display','none');
+            document.getElementById('t'+i).className = '';
+        };
+        $('#tab'+o).css('display','block');
+        document.getElementById('t'+o).className = 'selected';
+    }
+</script>
+
+<script type="text/javascript">
+    /*日期时间框插件***********************************/
+    !function(){
+      laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+    var start = {
+        elem: '#start_time',
+        format: 'YYYY/MM/DD hh:mm:ss',
+        min: laydate.now(), //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: true,
+        istoday: false,
+        choose: function(datas){
+             end.min = datas; //开始日选好后，重置结束日的最小日期
+             end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+    var end = {
+        elem: '#end_time',
+        format: 'YYYY/MM/DD hh:mm:ss',
+        min: laydate.now(),
+        max: '2099-06-16 23:59:59',
+        istime: true,
+        istoday: false,
+        choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+    laydate(start);
+    laydate(end);
+    /*日期时间框插件***********************************/
+</script>
+</body>
+</html>
+

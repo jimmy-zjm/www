@@ -1,0 +1,176 @@
+{:include file="pad/head.html":}
+<div class="index-bk">
+	<img src="images/1213.jpg"/>
+</div>
+
+<div class="index-titile">
+	<span>
+    	选择所需报价系统
+    </span>
+</div>
+
+<!-- <div class="index-center">	
+	<div class="index-center-list">
+    	{:foreach $quoteCat as $k=>$v:}
+        {:if $v.cat_id|in_array:$system:}
+        <a href="pad.php?details&catId={:$v['cat_id']:}">
+        	<div class="index-center-list-demo">
+
+            	<div class="index-center-list-demo-img">
+                	<img src="images/1214.jpg"/>
+                </div>
+                
+                <div class="index-center-list-demo-a">
+                    {:$v['cat_name']:}
+    			</div>
+            </div>
+        </a>
+        {:else:}
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                <img src="images/1215.jpg"/>
+            </div>
+            
+            <div class="index-center-list-demo-a">
+                {:$v['cat_name']:}
+            </div>
+        </div>
+        {:/if:}
+        {:/foreach:}
+        
+        <div class="clear"></div>
+    </div>
+</div> -->
+
+<div class="index-center">	
+	<div class="index-center-list">
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+				{:if $quoteCat.0.cat_id|in_array:$system:}
+                <!-- <a href="pad.php?details&catId={:$quoteCat[0]['cat_id']:}"> -->
+                    <img src="images/xt1.png"/ c_id="{:$quoteCat[0]['cat_id']:}" onclick='imageBorder(this)'>
+                <!-- </a> -->
+				{:else:}
+					<img src="images/xth1.png"/>
+				{:/if:}
+            </div>
+        </div>
+        
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                {:if $quoteCat.1.cat_id|in_array:$system:}
+                <!-- <a href="pad.php?details&catId={:$quoteCat[1]['cat_id']:}"> -->
+                    <img src="images/xt2.png"/ c_id="{:$quoteCat[1]['cat_id']:}" onclick='imageBorder(this)'>
+                <!-- </a> -->
+				{:else:}
+					<img src="images/xth2.png"/>
+				{:/if:}
+            </div>
+        </div>
+        
+        <!-- <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                {:if $quoteCat.2.cat_id|in_array:$system:}
+                <a href="pad.php?details&catId={:$quoteCat[2]['cat_id']:}">
+                    <img src="images/xt3.png"/>
+                </a>
+				{:else:}
+					<img src="images/xth3.png"/>
+				{:/if:}
+            </div>
+        </div> -->
+        
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                {:if $quoteCat.3.cat_id|in_array:$system:}
+                <!-- <a href="pad.php?details&catId={:$quoteCat[3]['cat_id']:}"> -->
+                    <img src="images/xt3.png"/ c_id="{:$quoteCat[3]['cat_id']:}" onclick='imageBorder(this)'>
+                <!-- </a> -->
+				{:else:}
+					<img src="images/xth3.png"/>
+				{:/if:}
+            </div>
+        </div>
+        
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                {:if $quoteCat.4.cat_id|in_array:$system:}
+                <!-- <a href="pad.php?details&catId={:$quoteCat[4]['cat_id']:}"> -->
+                    <img src="images/xt5.png"/ c_id="{:$quoteCat[4]['cat_id']:}" onclick='imageBorder(this)'>
+                <!-- </a> -->
+				{:else:}
+					<img src="images/xth5.png"/>
+				{:/if:}
+            </div>
+        </div>
+        
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                {:if $quoteCat.5.cat_id|in_array:$system:}
+                <!-- <a href="pad.php?details&catId={:$quoteCat[5]['cat_id']:}"> -->
+                    <img src="images/xt6.png"/ c_id="{:$quoteCat[5]['cat_id']:}" onclick='imageBorder(this)'>
+                <!-- </a> -->
+				{:else:}
+					<img src="images/xth6.png"/>
+				{:/if:}
+            </div>
+        </div>
+        
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                {:if $quoteCat.6.cat_id|in_array:$system:}
+                <!-- <a href="pad.php?details&catId={:$quoteCat[6]['cat_id']:}"> -->
+                    <img src="images/xt7.png"/ c_id="{:$quoteCat[6]['cat_id']:}" onclick='imageBorder(this)'>
+                <!-- </a> -->
+				{:else:}
+					<img src="images/xth7.png"/>
+				{:/if:}
+            </div>
+        </div>
+        
+        <div class="index-center-list-demo">
+            <div class="index-center-list-demo-img">
+                {:if $quoteCat.7.cat_id|in_array:$system:}
+                <!-- <a href="pad.php?details&catId={:$quoteCat[7]['cat_id']:}"> -->
+                    <img src="images/xt8.png"/ c_id="{:$quoteCat[7]['cat_id']:}" onclick='imageBorder(this)'>
+                <!-- </a> -->
+				{:else:}
+					<img src="images/xth8.png"/>
+				{:/if:}
+            </div>
+        </div>       
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear2"></div>
+
+<div class="index-titile">
+    <button onclick='but()' style="width:200px;height:40px;border-radius: 2px;border:none;background:darkblue;color: #fff;font-size: 14px">提交</button>
+</div>
+
+
+{:include file="pad/flooter.html":}
+
+<script type="text/javascript">
+function imageBorder(t){
+    var border = t.style.border;
+    if (border=='') t.style.border = '3px solid darkblue';
+    else t.style.border = '';
+}
+function but(){
+    var img  = document.getElementsByTagName('img');
+    var c_id = '';
+    for (var i = 0; i < img.length; i++) {
+        if (img[i].style.border != '') {
+            if (c_id=='') var c_id = img[i].getAttribute('c_id');
+            else          var c_id = c_id + ',' + img[i].getAttribute('c_id');
+        }
+    }
+    if (c_id != '') location.href = "pad.php?details&catId="+c_id;
+}
+</script>
+</body>
+</html>
+

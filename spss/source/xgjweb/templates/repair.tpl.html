@@ -1,0 +1,455 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/servicestyle.css" >
+
+
+
+<script src="js/jquery-ui.js" type="text/javascript"></script><!-- 通用jquery-ui -->
+<link rel="stylesheet"  type="text/css"  href="css/jquery-ui.css" ><!-- 通用Jquery -->
+
+
+<script src="js/laydate.js" type="text/javascript"></script><!-- 日历 -->
+
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+    {:include file="category/category.tpl.html":}
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<!-- 中间楼层 -->
+<div class="service-center">
+	<div class="clear2"></div>
+    
+    <div class="service-center-bk">
+        {:include file="common/service.html":}
+        
+        <div class="service-center-right">
+        	<form action="" id="modAddress" method="post" accept-charset="utf-8">
+                <div class="service_saveProblem-center">
+                    <div class="clear27"></div>
+                    
+                    <div class="service_saveProblem-center-title">
+                        <span>
+                            在线报修
+                        </span>
+                    </div>
+                    
+                    <div class="clear12"></div>
+                    
+                    <div class="service_saveProblem-center-zxbx">
+                        <span class="span01">
+                            1.提交申请
+                        </span>
+                        
+                        <span class="span02">
+                            >
+                        </span>
+                        
+                        <span class="span01">
+                            2.确认、派单
+                        </span>
+                        
+                        <span class="span02">
+                            >
+                        </span>
+                        
+                        <span class="span01">
+                            3.上门服务
+                        </span>
+                        
+                        <span class="span02">
+                            >
+                        </span>
+                        
+                        <span class="span01">
+                            4.服务完成
+                        </span>
+                        
+                        <span class="span02">
+                            >
+                        </span>
+                        
+                        <span class="span01">
+                            5.服务评价
+                        </span>                    
+                    </div>
+                    
+                    <div class="clear32"></div>
+                    
+                    <div class="service_saveProblem-center-title">
+                        <span>
+                            产品信息
+                        </span>
+                    </div>
+                    
+                    <div class="service_saveProblem-center-table">
+                    	<div class="clear33"></div>
+                        
+                        <!--产品选择-->
+                        <div class="service_saveProblem-center-table-demo">
+                            <div class="service_saveProblem-center-table-demo-01">
+                                *
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-02">
+                                产品选择
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-03">
+                            	<div class="clear34"></div>
+                                
+                                {:foreach $quoteInfo as $k=>$v:}
+                                <div class="service_saveProblem-center-table-demo-03-01">
+                                    <div class="service_saveProblem-center-table-demo-03-01-01">
+                                        <input id="{:$v['order_id']:}{:$k:}" quote="{:$v['quote_id']:}" order="{:$v['order_id']:}" onclick="a({:$v.order_id:}{:$k:})" type="checkbox" name='quote_id[]' value="{:$v['order_id']:}-{:$v['quote_id']:}" />
+                                    </div>
+                                    
+                                    <div class="service_saveProblem-center-table-demo-03-01-02" title="{:$v['alias']:}{:$v['quote_name']:}">
+                                        {:$v['alias']:}{:$v['quote_name']:}
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                                {:/foreach:}
+                                
+                            </div>
+                            <input type="hidden" id="hidden" value=''>
+                            <div class="clear"></div>
+                        </div>
+                        <!--产品选择end-->
+                        
+                        <div class="clear"></div>
+                        
+                        <!--服务类型-->
+                        <div class="service_saveProblem-center-table-demo">
+                            <div class="service_saveProblem-center-table-demo-01">
+                                *
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-02">
+                                服务类型
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-04">
+                            	<div class="clear34"></div>
+                                
+                                <div class="service_saveProblem-center-table-demo-04-01">
+                                    <div class="service_saveProblem-center-table-demo-04-01-01">
+                                        <input type="checkbox" name='type[]' value="维修" />
+                                    </div>
+                                    
+                                    <div class="service_saveProblem-center-table-demo-04-01-02" title="维修">
+                                        维修
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="service_saveProblem-center-table-demo-04-01">
+                                    <div class="service_saveProblem-center-table-demo-04-01-01">
+                                        <input type="checkbox" name='type[]' value="保养"  />
+                                    </div>
+                                    
+                                    <div class="service_saveProblem-center-table-demo-04-01-02" title="保养">
+                                        保养
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="service_saveProblem-center-table-demo-04-01">
+                                    <div class="service_saveProblem-center-table-demo-04-01-01">
+                                        <input type="checkbox" name='type[]' value="耗材"  />
+                                    </div>
+                                    
+                                    <div class="service_saveProblem-center-table-demo-04-01-02" title="耗材">
+                                        耗材
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                </div>                                
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <!--服务类型end-->
+                        
+                        <div class="clear15"></div>
+                        
+                        <!--预约时间-->
+                        <div class="service_saveProblem-center-table-demo">
+                            <div class="service_saveProblem-center-table-demo-01">
+                                *
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-02">
+                                预约时间
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-05">
+                                <div class="service_saveProblem-center-table-demo-05-01">
+                                    日期
+                                </div>
+                                
+                                <div class="service_saveProblem-center-table-demo-05-02">
+                                    <input class="laydate-icon" id="demo" name='time' value="2016-05-16"> 
+                                </div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <!--预约时间end-->
+                        
+                        <div class="clear36"></div>
+                        
+                        <!--备注说明-->
+                        <div class="service_saveProblem-center-table-demo">
+                            <div class="service_saveProblem-center-table-demo-01">
+                                *
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-02">
+                                备注说明
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-06">
+                                <div class="service_saveProblem-center-table-demo-06-01">
+                                    <textarea name="note" wrap="physical" onKeyDown="checkMaxInput(this.form)" onKeyUp="checkMaxInput(this.form)"></textarea>
+                                </div>
+                                
+                                <div class="service_saveProblem-center-table-demo-06-02">
+                                   <input readonly type="text" name="remLen" maxlength=3 value="0"><span>/150</span>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <!--备注说明-->
+                        
+                        <div class="clear"></div>
+                    </div>                    
+                    
+                    <div class="clear33"></div>
+                    
+                    <div class="service_saveProblem-center-title">
+                        <span>
+                            联系信息
+                        </span>
+                    </div>
+                    
+                    <div class="service_saveProblem-center-table">
+                    	<div class="clear32"></div>
+                        
+                        <!--联系人姓名-->
+                        <div class="service_saveProblem-center-table-demo">
+                            <div class="service_saveProblem-center-table-demo-01">
+                                *
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-02">
+                                联系人姓名
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-07">
+                            	<input type="text" id='name' name='name'/>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <!--联系人姓名end-->
+                        
+                        <div class="clear32"></div>
+                        
+                        <!--联系人手机-->
+                        <div class="service_saveProblem-center-table-demo">
+                            <div class="service_saveProblem-center-table-demo-01">
+                                *
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-02">
+                                联系人手机
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-07">
+                            	<input type="text" id='phone' name='phone'/>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <!--联系人手机end-->
+                        
+                        <div class="clear32"></div>
+                        
+                        <!--详细地址-->
+                        <div class="service_saveProblem-center-table-demo">
+                            <div class="service_saveProblem-center-table-demo-01">
+                                *
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-02">
+                                详细地址
+                            </div>
+                            
+                            <div class="service_saveProblem-center-table-demo-08">
+                                <div class="service_saveProblem-center-table-demo-08-02">
+                                	<input type="text" id='addr' name='address' readonly />
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <!--详细地址end-->
+                        
+                        <div class="clear12"></div>
+                        
+                        <!--提交-->
+                        <div class="service_saveProblem-center-table-button">
+                            <input id="btn_saveAddress" name="button" type="button" value="提交" />
+                        </div>
+                        <!--提交-->
+                        
+                        <div class="clear33"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+{:include file="footer.tpl.html":}
+
+
+
+
+
+<script>
+$( "#tabs01" ).tabs();
+</script>
+
+
+
+<!--弹出产品说明书-->
+{:include file="common/manual.html":}
+<!--弹出产品说明书end-->
+
+
+<!--日历-->
+<script type="text/javascript">
+!function(){
+	laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+	laydate({elem: '#demo'});//绑定元素
+}();
+
+//日期范围限制
+var start = {
+    elem: '#start',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+
+var end = {
+    elem: '#end',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(),
+    max: '2099-06-16',
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+        start.max = datas; //结束日选好后，充值开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
+
+</script>
+<!--日历end-->
+
+
+<!--文本框控制字数-->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+maxLen = 150; // max number of characters allowed
+
+function checkMaxInput(form) {
+if (form.note.value.length > maxLen) // if too long.... trim it!
+form.note.value = form.note.value.substring(0, maxLen);
+// otherwise, update 'characters left' counter
+else form.remLen.value =form.note.value.length;
+}
+//  End -->
+</script>
+<!--文本框控制字数end-->
+
+<script>
+    function a(o){
+        var id = document.getElementById(o);
+        var input = document.getElementsByTagName('input');
+        //console.log(input.length)
+        if ($('#hidden').val() != id.getAttribute("order")) {
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].type=='checkbox') {
+                    input[i].checked = false;
+                }
+            }
+            id.checked = true;
+            $('#hidden').val(id.getAttribute("order"))
+            $.get("index.php?addressInfo",{"order_id":id.getAttribute("order")},function(data){
+                $("#name").val(data.a_name);
+                $("#phone").val(data.a_mobile_phone);
+                $("#addr").val(data.province+data.city+data.district+data.address);
+                //console.log(data.province);
+            },'json')
+        }
+    }
+</script>
+<script>
+    /*点击保存地址,执行保存 */
+        $('#btn_saveAddress').click(function(){
+            var fromData = $('#modAddress').serialize();
+            //alert(fromData.phone);
+            $.post('index.php?saveProblem',fromData,function(data){
+                if(data==1){//保存成功
+                    alert('提交成功');
+                }else if(data==-1){
+                    alert('提交失败');
+                }else if(data==2){
+                    alert('手机号码不能为空');
+                }else if(data==3){
+                    alert('手机号码格式不正确');
+                }else if(data==4){
+                    alert('请登录后再提交问题');
+                }
+            });
+        });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Admin/js/jquery.js"></script>
+</head>
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+		    <ul class="placeul">
+			    <li><a href="<{:U('Admin/Index/Index/index')}>">首页</a></li>
+			    <li><a >健康舒适家居</a></li>
+			    <li><a href="<{:U('index')}>">系统分类列表</a></li>
+			    <li><a href="<{:U('edit',array('cat_id'=>$cat['cat_id']))}>">编辑系统分类</a></li>
+		    </ul>
+	 </div>
+	    
+	    <div class="formbody">
+	    <form action="<{:U('update')}>" method="post" enctype="multipart/form-data">
+	    <ul class="forminfo">
+	    <li><label>系统分类名称</label><input name="cat_name" type="text" class="dfinput" value="<{$cat['cat_name']}>" required='required'/><i>系统分类名称不能超过30个字符</i></li>
+   	    <li><label>排序</label><input name="sort_order" type="text" class="sinput" value="<{$cat['sort_order']}>"/><i></i></li>
+   	    <li><label>是否显示</label><cite><input name="is_show"  type="radio"  value='1' <?php echo $cat['is_show']==1?"checked":""?> />显示&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio"   value='0' <?php echo $cat['is_show']=='0'?"checked":""?> />不显示</cite></li>
+   	    <li><label>封面图片</label><input type="file" name="image" style="position:relative;top:7px;" /></li>
+   	    <li style="position:absolute;top:50px;left:700px;border:3px solid #ED5B13;box-shadow:2px 8px 15px #E5865A;border-radius:4px;padding:3px;"><img width="250px" height="300px" src="<{$cat['image']}>" alt="" /></li>
+   	    <li><label>简单描述</label><textarea name="desc" class="textinput" id="" cols="20" rows="5" style="width:328px;height:70px;"><{$cat['desc']}></textarea><i>简单描述不能超过255个字符</i></li>
+	    <li><label>&nbsp;</label><input type="hidden" name='cat_id' value="<{$cat['cat_id']}>"/><input name="" type="submit" class="btn" value="确认保存"/></li>
+	    </ul>
+	    </form>
+	    </div>
+
+</body>
+</html>
+

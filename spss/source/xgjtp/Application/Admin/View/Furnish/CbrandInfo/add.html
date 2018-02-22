@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>合作品牌-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+
+</script>
+</head>
+
+<body>
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+	        <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	        <li><a >健康舒适家居</a></li>
+	        <li><a href="<{:U('index')}>">品牌应用</a></li>
+	        <li><a href="<{:U('add')}>">添加</a></li>
+        </ul>
+    </div>
+
+    <form action="<{:U('insert')}>" method="post" enctype="multipart/form-data">
+        <div class="formbody">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <li><label>分类<b>*</b></label>
+                <select name="class_id" class="dfinput"  id='text' onchange="return a()">
+                    <option value="1"  >健康舒适家居</option>
+                    <option value="2"  >欧洲团代购</option>
+                </select>
+                <i></i></li>
+                <!-- 品牌所属顶级分类 -->
+                <li id='info'><label>合作品牌<b>*</b></label>
+                <select name="b_id" id="" class="dfinput">
+                    <option value="">请选择..</option>
+                    <?php foreach ($brand_list as $key => $v): ?>
+                    <option value="<{$v.brand_id}>"><{$v.name}></option>
+                    <?php endforeach ?>
+                </select>
+                <i></i></li>
+                <!-- 合作品牌logo -->
+                <li><label>图片</label><input type="file" name="image" id="" /></li>
+                
+                <!-- 合作品牌简述 -->
+                <li><label>内容</label><textarea id="editor_id" name="content" cols="" rows="" class="textinput"></textarea></li>
+
+                <!-- 添加按钮 -->
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加"/></li>
+            </ul>
+        </div>
+    </form>
+<script>
+    function a(){
+        id=$("#text").val();
+        if(!id) return;
+        $.ajax({
+            url:"<{:U('Admin/Furnish/CbrandInfo/ajaxCbrand')}>",
+            data:{id:id},
+            success:function(data){
+                if(data){
+                    $('#info').html(data);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

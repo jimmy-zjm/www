@@ -1,0 +1,1216 @@
+<link rel="stylesheet"  type="text/css"  href="css/paymentstyle.css" ><!-- 支付结算页面调用CSS -->
+{:include file="header.tpl.html":}
+<!--省市县县三级联动-->
+<link href="css/city.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.mini.js"></script>
+<script type="text/javascript" src="js/city.min02.js"></script>
+<script type="text/javascript" src="js/twocity.js"></script>
+<!--省市县县三级联动end-->
+<!-- head头部end -->
+<style>
+    .payment-details-receiver-center a.hide,.yListr ul li span.hide{display:none;}
+    .payment-details-receiver-center a.show,.yListr ul li span.show{display:inline-block;}
+</style>
+<div class="clear"></div>
+
+<!--导航-->
+
+{:include file="common/daohang.html":}
+<!--主导航end-->
+    
+{:include file="category/category.tpl.html":}
+
+<!--导航end-->
+
+<div class="clear"></div>
+
+<!--中间-->
+<div class="payment-center">
+	<div class="clear15"></div>
+    
+    <div class="payment-details">
+        <div class="payment-details-receiver">
+            <div class="payment-details-receiver-title">
+                <div class="payment-details-receiver-title-left">
+                    收货人信息
+                </div>
+
+                <div class="payment-details-receiver-title-right" id="clickAddInId">
+                    <a href="javascript:;">
+                        新增收货人信息
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+
+            <div class="payment-details-receiver-center">
+                <div class="yListr">
+                    <ul id="addrList">
+                        {:if empty($addr):}
+                        <li style="font-size:14px">
+                            你还没有地址,点击
+                            
+                            <a href="javascript:;" style="color:red;text-decoration: underline;font-weight:bold;float:none;margin:0 auto;font-size:14px;" id="clickAddInId_clone">
+                            	添加
+                            </a>
+                            
+                            地址
+                        </li>
+                        {:else:}
+                        数据加载中...
+                        {:/if:}
+                        <!-- 这里的内容在js模板里面,在下面 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="clear12"></div>      
+
+        <div class="payment-details-method">
+            <div class="payment-details-method-title">
+                支付方式
+            </div>
+            
+            <div class="clear12"></div>
+
+            <div class="payment-details-method-center">
+                <div class="yListr">
+                    <ul>
+                        <li>
+
+                            <em class="yListrclickem">
+                            <input type='hidden' value='2'/>
+                                <span>
+                                    银联网银支付
+                                </span>
+                                <i>
+                                </i>
+                            </em>
+                            <em >
+                            <input type='hidden' value='3'/>
+                                <span>
+                                    银联快捷支付
+                                </span>
+
+                                <i>
+                                </i>
+                            </em> 
+
+                            <em >
+                            <input type='hidden' value='1'/>
+                                <span>
+                                    支付宝
+                                </span>
+                                <i>
+                                </i>
+                            </em>
+
+                        </li>
+                    </ul>
+            	</div>
+            </div>
+        </div>
+        
+        <div class="clear12"></div>
+
+        <div class="payment-details-list">
+            <div class="payment-details-list-title">
+                <div class="payment-details-list-title-left">
+                    送货清单
+                </div>
+
+                <div class="payment-details-list-title-right">
+                    <a href="cart.php?cartList#tabs-1">
+                        返回购物车页面修改信息
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            {:foreach $cart_list as $cart:}
+            <div class="payment-details-list-center">
+                <div class="payment-details-list-center-01">
+					<a href="price.php?cid={:$cart.cat_id:}" target="_blank">
+                        <img src="{:$cart.image:}"/>
+                    </a>
+                </div>
+
+                <div class="payment-details-list-center-02">
+                	<a href="price.php?cid={:$cart.cat_id:}" target="_blank">
+                        {:$cart.shop_name:}
+                    </a>
+                </div>
+
+                <div class="payment-details-list-center-03">
+                    ￥{:(($cart.price-$cart.cost)*0.9+$cart.cost)|ceil:}
+                </div>
+
+                <div class="payment-details-list-center-04">
+                    x1
+                </div>
+
+                <div class="payment-details-list-center-05">
+                     商家：上品上生自营
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            {:/foreach:}
+            {:if !empty($zp_list):}
+            <div class="payment-details-list-title">
+                <div class="payment-details-list-title-left">
+                    赠品清单
+                </div>
+
+                <div class="payment-details-list-title-right">
+                    <a href="cart.php?cartList#tabs-1">
+                        返回购物车页面修改信息
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            {:foreach $zp_list as $cart:}
+            <div class="payment-details-list-center">
+                <div class="payment-details-list-center-01">
+                    <a href="goods.php?id={:$cart.goods_id:}" target="_blank">
+                        <img src="{:$cart.image:}"/>
+                    </a>
+                </div>
+
+                <div class="payment-details-list-center-02">
+                     <a href="goods.php?id={:$cart.goods_id:}" target="_blank">
+                        {:$cart.goods_title:}
+                    </a>
+                </div>
+
+                <div class="payment-details-list-center-03">
+                    ￥{:$cart.total_price|ceil:}
+                </div>
+
+                <div class="payment-details-list-center-04">
+                    x{:$cart.goods_num:}
+                </div>
+
+                <div class="payment-details-list-center-05">
+                     商家：上品上生
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            {:/foreach:}
+            {:/if:}
+        </div>
+
+        <div class="payment-details-invoice">
+            <div class="payment-details-invoice-title">
+                发票信息
+            </div>
+
+            <div class="payment-details-invoice-center">
+                <div class="payment-details-invoice-center-01">
+                    不开发票
+                </div>
+
+                <div class="payment-details-invoice-center-02">
+                   
+                </div>
+
+                <div class="payment-details-invoice-center-03" id="collect-link">
+                    <a href="javascript:;">
+                        修改
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="clear2"></div>
+
+        
+
+        <div class="payment-details-buy">
+            <div class="payment-details-buy-list">
+                <div class="payment-details-buy-list-demo">
+                    <div class="payment-details-buy-list-demo-left">
+                        收&nbsp;货&nbsp;人：
+                    </div>
+
+                    <div class="payment-details-buy-list-demo-right">
+                        <!-- 杨雨欣 -->
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="payment-details-buy-list-demo">
+                    <div class="payment-details-buy-list-demo-left">
+                        寄送地点：
+                    </div>
+
+                    <div class="payment-details-buy-list-demo-right">
+                        
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="payment-details-buy-list-demo">
+                    <div class="payment-details-buy-list-demo-left">
+                        商品件数：
+                    </div>
+
+                    <div class="payment-details-buy-list-demo-right">
+                        1件
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="payment-details-buy-list-demo">
+                    <div class="payment-details-buy-list-demo-left">
+                        商品运费：
+                    </div>
+
+                    <div class="payment-details-buy-list-demo-right">
+                        免运费
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="payment-details-buy-list-demo">
+                    <div class="payment-details-buy-list-demo-left">
+                        说&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;明：
+                    </div>
+
+                    <div class="payment-details-buy-list-demo-right">
+                        <p style="color: green">1.本次支付预付费用为500元，由平台暂收后将安排专业工作人员免费上门测量、深化设计。</p>
+                        <p style="color: green">2.用户支付尾款时，预付费用将返还。</p>
+                        <p style="color: green">3.用户如需全额支付款项，提交订单后至个人中心进行全额支付</p>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="payment-details-buy-list-demo">
+                    <div class="payment-details-buy-list-demo-left">
+                        订单总价：
+                    </div>
+
+                    <div class="payment-details-buy-list-demo-right">
+                        ￥<span id="zprice">{:$total_price:}</span>元
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="payment-details-buy-list-demo2">
+                    <div class="payment-details-buy-list-demo2-01">
+                        应付总价：
+                    </div>
+        
+                    <div class="payment-details-buy-list-demo2-02">
+                        ￥500.00元
+                    </div>
+                    {:if !empty($coupon) && $coupon gt 0:}
+                    <div class="payment-details-buy-list-demo2-04">
+                        <a href="javascript:;" id="coupon">使用优惠券</a>
+                    </div>
+                    {:/if:}
+                    <div class="clear"></div>
+                </div>
+
+                <div class="payment-details-buy-list-demo2-03">
+                    <a href="javascript:;" id="submitOrder">
+                        提交订单
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear2"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<!--中间end-->
+
+<input type="hidden" id="couponPrice" value="">
+
+<div class="clear2"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 底部列表end -->
+
+
+<div class="clear"></div>
+
+<!--弹出预售框-->
+<div class="collect-tip" id="collect-tip" style="display: none;">
+    <div class="collect-tip-bk" id="collect-tip-payment-bk">
+        <div class="collect-tip-titile">
+            我的健康舒适家
+        </div>
+
+
+        <div class="collect-tip-payment-input01">
+            <div class="collect-tip-payment-input01-left">
+                发票抬头
+            </div>
+
+            <div class="collect-tip-payment-input01-right">
+                <input type="text" id="fruit_name"  value="填写发票抬头如个人、公司名称"  onFocus="if (value =='填写发票抬头如个人、公司名称'){value =''}" onBlur="if (value ==''){value='填写发票抬头如个人、公司名称'}"/>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="collect-tip-payment-input02">
+            <div class="collect-tip-payment-input02-left">
+                发票操作
+            </div>
+
+            <div class="collect-tip-payment-input02-right">
+                <input name="Fruit" type="radio" value="1" />开具发票
+                <input name="Fruit" type="radio" value="0" />不开具发票
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="clear"></div>
+
+        <div class="collect-tip-new-bk">
+            <div class="collect-tip-new-left">
+                <a class="a-know1" id="a-know1"  href="javascript:void(0);">
+                    确定保存
+                </a>
+            </div>
+
+            <div class="collect-tip-new-right">
+                <a class="a-know1" id="a-know" href="javascript:void(0);">
+                    取消返回
+                </a>
+            </div>
+        </div>
+
+
+        <div class="clear2"></div>
+    </div>
+</div>
+
+<!--弹出预售框end-->
+<!--新增收货地址-->
+<form action="" id="addAddress">
+<div id="clickAddId">
+    <div id="clickAddId-conter">
+        <div class="clickAddId-conter-title">
+            <div class="clickAddId-conter-title-span">
+                新增收货人信息
+            </div>
+
+            <div class="clickAddId-conter-title-out" id="clickAddOutId">
+                <a href="javascript:;">
+                    <img title="删除" src="images/close.png"/>
+                </a>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="clickAddId-conter-table">
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	<span>*</span>收货人：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_name" />
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none">
+            	收货人不能为空
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	<span>*</span>手机号码：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_mobile_phone" />
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none">
+            	手机号码不能为空
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	固定电话：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_phone" />
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	固定电话填写错误
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	电子邮箱：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_email" />
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	电子邮箱填写错误
+            </div>
+
+            <div class="clickAddId-conter-table-demo02">
+                <div class="clickAddId-conter-table-demo02-left">
+                	<span>*</span>所在地域：
+                </div>
+                <div class="clickAddId-conter-table-demo02-right">
+                	<div id="content-wrap">     
+                        <div id="content-left" class="demo">
+                            <form action="" name="form02">
+                                <div class="infolist">            
+                                    <div class="liststyle">
+                                        <span id="Province02">                    
+                                            <i>
+                                                请选择省份
+                                            </i>
+                                            
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)" alt="请选择省份">
+                                                        请选择省份
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <input type="hidden" name="cho_Province" value="请选择省份">
+                                        </span>
+                                        
+                                        <span id="City02">
+                                            <i>
+                                                请选择城市
+                                            </i>
+                                            
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)" alt="请选择城市">
+                                                        请选择城市
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <input type="hidden" name="cho_City" value="请选择城市">
+                                        </span>
+                                        
+                                        <span id="Area02">
+                                            <i>
+                                                请选择地区
+                                            </i>
+                                            
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)" alt="请选择地区">
+                                                        请选择地区
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <input type="hidden" name="cho_Area" value="请选择地区">
+                                        </span>
+                                    </div>
+                                </div>
+                            </form> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	请选择所在区域
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	<span>*</span>详细地址：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_addr" />
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	详细地址不能为空
+            </div>
+
+            <div class="clear2"></div>
+
+            <div class="clickAddId-conter-table-button" id="btn_addAddress">
+            	<input type="button" value="添加"/>
+            </div>
+
+            <div class="clear2"></div>
+        </div>
+    </div>
+</div>
+</form>
+<!--新增收货地址end-->
+
+<!--修改收货地址-->
+<form id="modAddress" action="">
+<div id="clickModId">
+    <div id="clickAddId-conter">
+        <div class="clickAddId-conter-title">
+            <div class="clickAddId-conter-title-span">
+                修改收货人信息
+            </div>
+
+            <div class="clickAddId-conter-title-out" id="clickModOutId">
+                <a href="javascript:;">
+                    <img title="删除" src="images/close.png"/>
+                </a>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="clickAddId-conter-table">
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	<span>*</span>收货人：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_name" value="收货人" onFocus="if (value =='收货人'){value =''}" onBlur="if (value ==''){value='收货人'}"/>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none">
+            	收货人不能为空
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	<span>*</span>手机号码：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_mobile_phone" value="手机号码" onFocus="if (value =='手机号码'){value =''}" onBlur="if (value ==''){value='手机号码'}"/><!--value里面的值为数据库原先存储的值-->
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	手机号码不能为空
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	固定电话：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_phone" value="固定电话" onFocus="if (value =='固定电话'){value =''}" onBlur="if (value ==''){value='固定电话'}"/><!--value里面的值为数据库原先存储的值-->
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	固定电话填写错误
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	电子邮箱：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_email" value="电子邮箱" onFocus="if (value =='电子邮箱'){value =''}" onBlur="if (value ==''){value='电子邮箱'}"/><!--value里面的值为数据库原先存储的值-->
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	电子邮箱填写错误
+            </div>
+
+            <div class="clickAddId-conter-table-demo02">
+                <div class="clickAddId-conter-table-demo02-left">
+                	<span>*</span>所在地域：
+                </div>
+
+                <div class="clickAddId-conter-table-demo02-right">
+                	<div id="content-wrap">     
+                        <div id="content-left" class="demo">
+                            <form action="" name="form1">
+                                <div class="infolist">            
+                                    <div class="liststyle">
+                                        <span id="Province">                    
+                                            <i id='ipro'>
+                                                请选择省份
+                                            </i>
+                                            
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)" alt="请选择省份">
+                                                        请选择省份
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <input id='pro' type="hidden" name="cho_Province" value="请选择省份">
+                                        </span>
+                                        
+                                        <span id="City">
+                                            <i id='icit'>
+                                                请选择城市
+                                            </i>
+                                            
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)" alt="请选择城市">
+                                                        请选择城市
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <input id='cit' type="hidden" name="cho_City" value="请选择城市">
+                                        </span>
+                                        
+                                        <span id="Area">
+                                            <i id='iare'>
+                                                请选择地区
+                                            </i>
+                                            
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)" alt="请选择地区">
+                                                        请选择地区
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <input id='are' type="hidden" name="cho_Area" value="请选择地区">
+                                        </span>
+                                    </div>
+                                </div>
+                            </form> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	请选择所在区域
+            </div>
+
+            <div class="clickAddId-conter-table-demo">
+                <div class="clickAddId-conter-table-demo-left">
+                	<span>*</span>详细地址：
+                </div>
+
+                <div class="clickAddId-conter-table-demo-right">
+                	<input type="text" name="a_addr" value="详细地址" onFocus="if (value =='详细地址'){value =''}" onBlur="if (value ==''){value='详细地址'}"/><!--value里面的值为数据库原先存储的值-->
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="clickAddId-conter-table-none"><!--如果用户没有填写或者是填写错误，放出此DIV-->
+            	详细地址不能为空
+            </div>
+
+            <div class="clear2"></div>
+
+            <div class="clickAddId-conter-table-button" id="btn_saveAddress">
+                <input type="hidden" name="a_id" value=""/>
+            	<input type="button" value="保存"/>
+            </div>
+
+            <div class="clear2"></div>
+        </div>
+    </div>
+</div>
+</form>
+<!--修改收货地址end-->
+
+<!--新增收货地址-->
+<script type="text/javascript">
+$("#clickAddId").css('height',$(document).height());
+
+jQuery(function(){
+		$("#clickAddInId").click(function(){
+			$("#clickAddId").fadeIn();
+		});
+
+		$("#clickAddOutId").click(function(){
+			$("#clickAddId").fadeOut();
+		});
+
+	});
+</script>
+<!--新增收货地址end-->
+
+
+<!--修改收货地址-->
+<script type="text/javascript">
+$("#clickModId").css('height',$(document).height());
+
+jQuery(function(){
+		$(".modAddr").live('click',function(){
+			$("#clickModId").fadeIn();
+		});
+
+		$("#clickModOutId").live('click',function(){
+			$("#clickModId").fadeOut();
+		});
+	});
+</script>
+<!--修改收货地址end-->
+
+
+<!--颜色选择-->
+<script type="text/javascript">
+            $(function() {
+                $(".yListr ul li em").live('click',function() {
+                    $(this).addClass("yListrclickem").siblings().removeClass("yListrclickem");
+                    if ($(".yListrclickem input").val()==1) {
+                        $("#pay_method").val(1);
+                    }else if($(".yListrclickem input").val()==2){
+                        $("#pay_method").val(2);
+                        //alert($("#pay_method").val());
+                    }else if($(".yListrclickem input").val()==3){
+                        $("#pay_method").val(3);
+                        //alert($("#pay_method").val());
+                    }
+                })
+            })
+</script>
+<!--颜色选择end-->
+
+<!--弹出预售-->
+<SCRIPT>
+          function showDistributionTip() {
+              $("#distribution-tip").fadeIn();
+              setTimeout(function () {
+                  $("#distribution-tip").fadeOut();
+              }, 4000)
+          }
+          $(function(){
+              //contact float
+              $("#contFloat").click(function(event){
+                  event.preventDefault();
+                  $("#contFloat-detail").show();
+              })
+              $("#contFloat-detail-close").click(function(){
+                  $("#contFloat-detail").hide();
+              })
+              $("#collect-link").on("click", function () {
+                  $("#collect-tip").show();
+              })
+              $("#a-know").on("click", function () {
+                  $("#collect-tip").hide();
+              })
+              $("#appdown-close").on("click", function () {
+                  $("#apptip").hide();
+              })
+              $("#fromesb-close").on("click", function () {
+                  $("#fromesb-wechat").hide();
+              })
+          })
+</SCRIPT>
+<!--弹出预售end-->
+
+
+
+
+<!-- /*************grass*****************/ -->
+<form action="furnishorder.php?process" method="post" id="theForm">
+    <input type="hidden" name="addr_id" id="addr_id" value="" />
+    <input type="hidden" name="dikou" id="h" value="0">
+    <input type='hidden' name='total_price' value="{:$total_price:}"/>
+    <input type='hidden' name='house_id' value="{:$house_id:}"/>
+    <input type="hidden" name="pay_method" id="pay_method" value="2" />
+    <input type="hidden" name="is_receipt" id="is_receipt" value="0" />
+    <input type="hidden" name="receipt_name" id="receipt_name" value="" />
+</form>
+<script src="js/laytpl.js"></script>
+
+<!-- 其他地址的模板 -->
+<script type="text/html" id="tpl_addr2">
+    {{# for(var i = 0, len = d.length; i < len; i++){ }}
+    <li data-id="{{d[i].a_id}}">
+        <em>
+			<div class="yListr-span-03" title=" {{d[i].a_pro}}{{d[i].a_city}}{{d[i].a_area}}{{d[i].a_addr}}">
+                {{d[i].a_pro}}
+                {{d[i].a_city}}
+                {{d[i].a_area}}
+                {{d[i].a_addr}}
+            </div>
+			
+            <span>
+                {{d[i].a_name}}
+            </span>
+			
+			<span class="yListr-span-01">
+                {{d[i].a_mobile_phone}}
+			</span>
+	
+			<span class="yListr-span-02 hide">
+			<!--默认第一个出现此span，进行判断，下面循环的则不出现，只在第一个出现 -->
+				默认地址
+			</span>
+	
+			<a href="javascript:;" class="delAddr">
+				删除
+			</a>
+	
+			<a href="javascript:;" class="modAddr">
+				修改
+			</a>
+			<a href="javascript:;" class="setDefaultAddr show"><!--进行判断，第二个循环地址则出现此span -->
+				设置为默认地址
+			</a>
+			
+            <i>
+            </i>
+        </em>
+    </li>
+    {{# } }}
+</script>
+
+<!-- 默认地址的模板 -->
+<script type="text/html" id="tpl_addr1">
+    {{# for(var i = 0, len = d.length; i < len; i++){ }}
+    <li data-id="{{d[i].a_id}}">
+        <em class="yListrclickem">
+			<div class="yListr-span-03" title=" {{d[i].a_pro}}{{d[i].a_city}}{{d[i].a_area}}{{d[i].a_addr}}">
+                {{d[i].a_pro}}
+                {{d[i].a_city}}
+                {{d[i].a_area}}
+                {{d[i].a_addr}}
+            </div>
+			
+            <span>
+                {{d[i].a_name}}
+            </span>
+			
+			<span class="yListr-span-01">
+					{{d[i].a_mobile_phone}}
+			</span>
+	
+			<span class="yListr-span-02 show">
+			<!--默认第一个出现此span，进行判断，下面循环的则不出现，只在第一个出现 -->
+				默认地址
+			</span>
+	
+			<a href="javascript:;" class="delAddr">
+				删除
+			</a>
+	
+			<a href="javascript:;" class="modAddr">
+				修改
+			</a>
+			<a href="javascript:;" class="setDefaultAddr hide"><!--进行判断，第二个循环地址则出现此span -->
+				设置为默认地址
+			</a>
+		
+            <i>
+            </i>
+        </em>
+    </li>
+    {{# } }}
+</script>
+<script>
+    (function(window){
+        /*渲染地址信息*/
+        $.ajax({
+            url:'ajax.php?addrList',
+            async:false,
+            dataType:'json',
+            success:function(d){
+                //alert(d.data);
+                //console.log(d);
+                if(d.code>0){
+                    var render1 = laytpl($('#tpl_addr1').html()).render(d.data.addr1);//同步渲染：
+                    var render2 = laytpl($('#tpl_addr2').html()).render(d.data.addr2);//同步渲染：
+                    $('#addrList').html(render1+render2);
+                }
+            }
+        });
+
+        /*设置默认地址*/
+        $('.setDefaultAddr').live('click',function(){
+            var id = $(this).parent().parent().attr('data-id');
+            that = $(this);
+            $.ajax({
+                url:"ajax.php?setDefaultAddr",
+                data:{id:id},
+                success:function(data){
+                    if(data>0){
+                        $('.yListr-span-02').hide();
+                        that.siblings('.yListr-span-02').show();
+                        $('.setDefaultAddr').show();
+                        that.hide();
+                    }
+                }
+            });
+        });
+
+        /*删除地址*/
+        $('.delAddr').live('click',function(){
+            if(!confirm('是否确定真的删除?')) return;
+            var id = $(this).parent().parent().data('id');
+            that = $(this);
+            $.ajax({
+                url:"ajax.php?delAddr",
+                data:{id:id},
+                dataType:'json',
+                success:function(d){
+                    if(d.code>0){
+                        that.parent().remove();
+                    }else{
+                        alert(d.message);
+                    }
+                }
+            });
+        });
+
+        /*选择地址*/
+        $('#addrList li em').live('click',function(){
+            var id = $(this).parent().attr('data-id');
+            //alert(id);
+            $(this).addClass('yListrclickem').parent().siblings('li').find('em').removeClass('yListrclickem');
+            $('.payment-details-buy-list-demo-right').eq(0).html($(this).find('span').eq(0).html());
+            $('.payment-details-buy-list-demo-right').eq(1).html($(this).find('span').eq(1).html());
+            $('#addr_id').val(id);
+        });
+
+        /*点击保存发票信息*/
+        $('#a-know1').click(function(){
+            var fruit_name = $('#fruit_name').val();
+            //清空默认值
+            if(fruit_name == '填写发票抬头如个人、公司名称'){
+                fruit_name = '';
+            }
+
+            if(fruit_name == '' && $('#is_receipt').val()==1){
+                alert('请填写发票抬头');
+                return;
+            }
+            //点击开发票 , 才记录发票抬头
+            if($('#is_receipt').val()==1){
+                $('#receipt_name').val(fruit_name);
+                $('.payment-details-invoice-center-01').html('开发票');
+                $('.payment-details-invoice-center-02').html('<span>发票抬头:</span><span>'+fruit_name+'</span>');
+            }else{
+                $('#receipt_name').val('');
+                $('.payment-details-invoice-center-01').html('不开发票');
+                $('.payment-details-invoice-center-02').html('');
+            }
+            //隐藏发票框
+            $('#a-know').click();
+        });
+        $('input[name=Fruit]').click(function(){
+            $('#is_receipt').val(this.value);
+        });
+
+        /*自动点击一下默认地址*/
+        $('.yListrclickem').first().click();
+
+        /*点击提交订单*/
+        $('#submitOrder').click(function(){
+             if($('#addr_id').val()==''){
+                 alert('你还没有选择地址');
+                 return;
+            }
+            $('#theForm').submit();
+        });
+
+        /*点击新增收货人信息, 展示添加地址的页面*/
+        $('#clickAddInId,.modAddr').click(function(){
+            $('#addAddress input[name=a_id]').val('');
+            $('#addAddress input[name=a_name]').val('');
+            $('#addAddress input[name=a_mobile_phone]').val('');
+            $('#addAddress input[name=a_phone]').val('');
+            $('#addAddress input[name=a_email]').val('');
+            $('#addAddress input[name=a_addr]').val('');
+        });
+
+        /*点击添加地址,执行ajax添加地址*/
+        $('#btn_addAddress').click(function(){
+            var fromData = $('#addAddress').serialize();
+            $.post('ajax.php?addAddress',fromData,function(d){
+                if(d.code>0){//添加成功
+                    $('#clickAddOutId').click();
+                    var render1 = laytpl($('#tpl_addr1').html()).render(d.data.addr1);//同步渲染：
+                    var render2 = laytpl($('#tpl_addr2').html()).render(d.data.addr2);//同步渲染：
+                    $('#addrList').html(render1+render2);
+                }else{
+                    alert(d.message);
+                }
+
+            },'json');
+        });
+
+        /*点击修改地址, 展示修改地址的页面*/
+        $('.modAddr').live('click',function(){
+            var id = $(this).parent().parent().data('id');
+            console.log(id);
+            $.get('ajax.php?getAddr',{id:id},function(d){
+                if(d.code>0){
+                    //回填以前的数据
+                    $('#modAddress input[name=a_id]').val(d.data.a_id);
+                    $('#modAddress input[name=a_name]').val(d.data.a_name);
+                    $('#modAddress input[name=a_mobile_phone]').val(d.data.a_mobile_phone);
+                    $('#modAddress input[name=a_phone]').val(d.data.a_phone);
+                    $('#modAddress input[name=a_email]').val(d.data.a_email);
+                    $('#modAddress input[name=a_addr]').val(d.data.a_addr);
+                    $('#modAddress input[name=cho_Province]').val(d.data.a_pro);
+                    $('#modAddress input[name=cho_City]').val(d.data.a_city);
+                    $('#modAddress input[name=cho_Area]').val(d.data.a_area);
+                    $('#pro').val(d.data.a_pro);
+                    $('#ipro').html(d.data.a_pro);
+                    $('#cit').val(d.data.a_city);
+                    $('#icit').html(d.data.a_city);
+                    $('#are').val(d.data.a_area);
+                    $('#iare').html(d.data.a_area);
+                }else{
+                    alert(d.message);
+                }
+            },'json');
+        });
+
+        /*点击保存地址,执行保存 */
+        $('#btn_saveAddress').click(function(){
+            var fromData = $('#modAddress').serialize();
+            $.post('ajax.php?saveAddress',fromData,function(d){
+                if(d.code>0){//保存成功
+                    $('#clickModOutId').click();
+                    var render1 = laytpl($('#tpl_addr1').html()).render(d.data.addr1);//同步渲染：
+                    var render2 = laytpl($('#tpl_addr2').html()).render(d.data.addr2);//同步渲染：
+                    $('#addrList').html(render1+render2);
+                }else{
+                    alert(d.message);
+                }
+
+            },'json');
+        });
+
+        /*点击添加地址, 展示添加地址的页面*/
+        $('#clickAddInId_clone').click(function(){
+            $('#clickAddInId').click();
+        });
+
+        function addAddress(d){
+            html = '<li data-id="'+d.a_id+'"><em class=""><span>'+d.a_name+'</span><span>'+d.a_pro+'&nbsp;'+d.a_city+'&nbsp;'+d.a_area+'&nbsp;'+d.a_addr+'&nbsp;'+'</span><i></i></em><span class="yListr-span-01">'+d.a_mobile_phone+'</span><a href="javascript:;" class="delAddr">删除</a><a href="#">修改</a><a href="javascript:;" class="setDefaultAddr show">设置为默认地址</a></li>';
+            $('#addrList').append(html);
+        }
+
+
+    })(window);
+
+    /*************grass*****************/
+</script>
+
+<script>
+    $('#coupon').click(function(){
+        var z = $('#zprice').html(); //订单总价
+        var d = (z*0.1).toFixed(0); //最大抵扣金额
+        var x = $('#coupon').text();
+        
+        if ($('#h').val()==0) {
+            $.get('furnishorder.php?coupon',function(data){
+                c = data; //用户优惠券金额
+                if (parseFloat(c)<=parseFloat(d)) {
+                    $('#zprice').html(z-c);
+                    $('#couponPrice').val(c);
+                }else{
+                    $('#zprice').html(z-d);
+                    $('#couponPrice').val(d);
+                }
+                $('#h').val('1');
+                $('#coupon').text('取消使用');
+            })
+        }else{
+            $('#zprice').html(parseFloat(z)+parseFloat($('#couponPrice').val()));
+            $('#h').val('0');
+            $('#coupon').text('使用优惠券');
+        }
+    }); 
+</script>
+
+</body>
+</html>

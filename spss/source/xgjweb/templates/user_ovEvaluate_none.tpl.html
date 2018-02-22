@@ -1,0 +1,184 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+
+
+
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="userevaluate-title">  
+        	<span>
+            	评价晒单
+            </span>  	
+        </div>
+    
+    	<div class="clear12"></div>
+    
+        <!--评价晒单-->
+        <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+            <div class="userevaluate-center">
+                <div id="tabs">
+                    <ul>
+                      <li>
+                          <a href="javascript:;" id='ta3' onclick="page(3,1)" class="evaluatefcous evaluateon">全部评价</a>
+                            
+                            <a href="javascript:;" class="tabs-a">{:$countNone+$countBlock:}</a><!--有状态的时候，显示数字-->
+                        </li>
+
+                    	<li>
+                        	<a href="javascript:;" id='ta1' onclick="page(1,1)" class="evaluatefcous">待评价</a>
+                            
+                            <a href="javascript:;" class="tabs-a">{:$countNone:}</a><!--有状态的时候，显示数字-->
+                        </li>
+                        
+                    	<li>
+                        	<a href="javascript:;" id='ta2' onclick="page(2,1)" class="evaluatefcous">已评价</a>
+                            
+                            <a href="javascript:;" class="tabs-a">{:$countBlock:}</a><!--有状态的时候，显示数字-->
+                        </li>
+                    </ul>
+                    
+                    <div class="clear27"></div>
+                    
+                    <div id="tabs-1">                    	
+                    	<div class="userevaluate-center-titile">
+                        	<div class="userevaluate-center-titile-img">
+                            	商品图片
+                            </div>
+                            
+                            <div class="userevaluate-center-titile-name">
+                            	商品名称
+                            </div>
+                            
+                            <div class="userevaluate-center-titile-time">
+                            	购买时间
+                            </div>
+                            
+                            <div class="userevaluate-center-titile-operation">
+                            	评价状态
+                            </div>
+                        </div>  
+                      
+                      
+                      	<!--《健康舒适家》 -->
+                        <div id='in'>
+                        {:if !empty($list.none):}
+                        {:foreach from=$list.none key=k item=v:}
+                        {:if $k < $displayNum:}
+                    	<div class="userevaluate-center-list">
+                        	<div class="clear"></div>
+                            
+                        	<div class="userevaluate-center-list-img">
+                            	<a href="javascript:;">
+                                	<img src="{:$v.goods_image|getimages:}" />
+                                </a>
+                            </div>
+                            
+                            <div class="userevaluate-center-list-name">                            	
+                                <a href="javascript:;">
+                                	{:$v.goods_title:}
+                                </a> 
+                            </div>
+                            
+                            <div class="userevaluate-center-list-time">
+                            	 {:$v.pay_time:}
+                            </div>
+                            
+                            <div class="userevaluate-center-list-operation">
+                                {:if $v.status eq '0':}<a href="user.php?ovEvaluate&id={:$v.id:}">点击评价</a>
+                                {:else:}<a href="user.php?doOvEvaluate&id={:$v.id:}">查看评价</a>   
+                                {:/if:}     
+                            </div>
+                            
+                            <div class="clear"></div> 
+                            
+                            <div class="userevaluate-center-list-write">
+                                <div class="clear"></div> 
+                                
+                                
+                            </div>  
+                            
+                            <div class="clear"></div>                        
+                        </div>
+                        {:/if:}
+                        {:/foreach:}
+                        
+                        <div class="clear"></div>
+                        <!--分页开始-->
+                        <div class="page">
+                          {:if $pcount gt 0:}
+                          <a href="javascript:;">首页</a>
+                          <a href="javascript:;">[上一页]</a>
+                          <span class="laypage_curr">1</span>
+                          {:/if:}
+                          {:if $pcount gt 1:}
+                          <a href="javascript:;" onclick="page(1,2)">2</a>
+                          {:/if:}
+                          {:if $pcount gt 2:}
+                          <a href="javascript:;" onclick="page(1,3)">3</a>
+                          {:/if:}
+                          {:if $pcount gt 3:}
+                          <a href="javascript:;" onclick="page(1,4)">4</a>
+                          {:/if:}
+                          {:if $pcount gt 4:}
+                          <a href="javascript:;" onclick="page(1,5)">5</a>
+                          {:/if:}
+                          {:if $pcount gt 1:}
+                            <a href="javascript:;" onclick="page(1,2)">[下一页]</a>
+                            <a href="javascript:;" onclick="page(1,{:$pcount:})">[尾页]</a>
+                          {:else:}
+                            <a href="javascript:;">[下一页]</a>
+                            <a href="javascript:;">[尾页]</a>
+                          {:/if:}
+                          
+                         
+                        </div>
+                        <!--分页结束-->       
+                    
+                        <div class="clear27"></div>  
+                        {:/if:} 
+                        </div>
+                        <div class="clear27"></div>
+                    </div>
+
+                </div>
+            </div>        
+        </div>
+        <!--评价晒单end-->
+    
+    </div>
+    
+      
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+
+{:include file='footer.tpl.html':}
+
+<!--jquery-ui调用-->
+<!--jquery-ui调用end-->
+
+<!--新增收货地址-->
+
+
+
+<!--新增收货地址end-->
+<script>
+  function page(tab,p){
+    for (var i = 1; i < 4; i++) {
+      document.getElementById('ta'+i).className = 'evaluatefcous';
+    };
+    document.getElementById('ta'+tab).className = 'evaluatefcous evaluateon';
+    $.get("user.php?supermarketOrderEvaluateAlready",{'page':p,'num':{:$displayNum:},'tab':tab},function(data){
+      $('#in').html(data);
+    })
+  }
+</script>

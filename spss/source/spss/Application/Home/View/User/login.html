@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/public.css"/>
+		<link rel="stylesheet" href="__PUBLIC__/css/zhuce.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/login.css" />
+		<div class="zhuce">
+			<div class="zhuce-con">
+				<div class="zhuce-con-left"></div>
+				<form action="<{:U('Base/doLogin')}>" method="post" id='theFrom'>
+				<div class="zhuce-con-right">
+					<li class="right-tit">用户登录</li>
+					<li class="right-pub"><span></span><input type="text" id='tel' name='tel' onkeyup='checkmobilephones()' onchange='checkmobilephone()' placeholder="请输入手机号"><div id='telError'></div></li>
+					<li class="right-pass right-pub"><span></span><input type="password" name='pass' id='pass'  onkeyup='checkpasswords()' onchange='checkpassword()' placeholder="请输入密码"><div id='passError'></div></li>
+					<li class="right-xieyi">
+						<input type="checkbox" name='auto' value='1'/>
+						<span>自动登录</span>
+						<span class="kongde"></span>
+						<a href="<{:U('register')}>" class="kuaisuzhuce">快速注册</a>
+						<a href="<{:U('changePass')}>" class="wangjipass">忘记密码</a>
+					</li>
+					<li class="wancheng">
+						<input type="button" onclick='buttons()' id='button' value="登录">
+					</li>
+				</div>
+				</form>
+			</div>
+		</div>
+		<!-- 回车提交表单开始 -->
+		<script type="text/javascript">
+		// function keydown(e) {
+		// 	var currKey=0,e=e||event; 
+		// 	     currKey=e.keyCode||e.which||e.charCode;//支持IE、FF 
+		// 	if (currKey == 13) {
+		// 		document.getElementById("button").click(); 
+		// 	}
+		// } 
+		// document.onkeydown = keydown;
+		</script>
+		<!-- 回车提交表单结束 -->
+		<script>
+			function checkmobilephones(){
+				tel = $("#tel").val();
+				if (tel.length==11) checkmobilephone();
+				else result1=false;
+			}
+
+		    function checkmobilephone(){
+		        var re=/^[1][34578][0-9]{9}$/;
+		        var tel = $("#tel").val();
+		        var reg=new RegExp(re);
+		        if(reg.test(tel)){
+		             //判断手机号码是否注册过
+		            $.post("<{:U('checkRegister')}>",{'tel':tel},function(data){
+		                if(data==1){
+		                    $("#telError").text("");
+		                    result1=true;
+		                }else{    
+		                    $("#telError").text("您还未注册过");
+		                    result1=false;
+		                }
+		            })
+		        }else if(tel==""){
+		            $("#telError").text("请输入您的手机号码");
+		            result1=false;
+		        }else{
+		            $("#telError").text("请输入正确的手机号码");
+		            result1=false;
+		        }
+		    }
+
+		    function checkpasswords(){
+		    	pass = $("#pass").val();
+		    	if (pass.length>5 && pass.length<16) checkpassword();
+				else result2=false;
+		    }
+
+		    function checkpassword(){
+		        var re=/^\w{6,15}$/;
+		        var pass = $("#pass").val();
+		        var reg=new RegExp(re);
+		        if(reg.test(pass)){
+		            $("#passError").text("");
+		            result2=true;
+		        }else if(pass==""){ 
+		            $("#passError").text("请输入您的密码！");
+		            result2=false;
+		        }else{
+		            $("#passError").text("请正确填写您的密码！");
+		            result2=false;
+		        }
+		    }
+
+		    function buttons(){
+		    	checkmobilephone();
+		    	checkpassword();
+				if (result1 == true && result2 == true) {
+					$("#theFrom").submit();
+				}
+			}
+
+			function keydown(e) {
+				event=e||window.event;
+				var currKey=event.keyCode||event.which||event.charCode;//支持IE、FF 
+				if (currKey == 13) {
+					buttons();
+				}
+			} 
+			document.onkeydown = keydown;
+
+			if ($("#tel").val() != '') 	checkmobilephone();
+		</script>
+
+	</body>
+</html>

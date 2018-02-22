@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >服务商管理</a></li>
+	    <li><a href="finance.php?tab=2">退换货管理</a></li>
+	    <li>{:$title:}</li>
+	    </ul>
+	    </div>
+	    <form action='' method='post'>
+	    <div class="rightinfo">
+	    <div class="formbody">
+		    <ul class="forminfo">
+		    <li><label>{:$title:}</label>订单号<i style="line-height: 34px;"></i>{:$refund_list[0]['refund_code']:}</li>
+		    </ul>
+	    </div>
+	    
+	    <table class="imgtable" >
+		
+		    <thead>
+		    <tr>
+		    <th>辅材图</th>
+		    <th>名称</th>
+		    <th>型号</th>
+		    <th>品牌</th>
+		    <th>单价</th>
+		    <th>单位</th>
+		    <th>标准量</th>
+		    </tr>
+		    </thead>
+		    
+		    <tbody>
+		    {:foreach $refund_list as $v:}
+		     <tr>
+		    <td><img src='../pictures/goods/upload/thumb/s_{:$v.list.goods_img:}'/></td>
+		    <td>{:$v.list.goods_name:}</td>
+		    <td>{:$v.list.goods_model:}</td>
+		    <td>{:$v.list.goods_brand:}</td>
+		    <td>{:$v.list.shop_price:}元</td>
+		    <td>{:$v.list.goods_unit:}</td>
+		    <td>{:$v.num:}</td>
+		    </tr>
+		    {:/foreach:}
+		    
+			</tbody>
+		    
+		 </table>
+		 <span style="font-size:18px">总价:{:$refund_list[0]['refund_price']:}元</span>
+		</div>
+		<div class="formbody">
+		    <ul class="forminfo" style="padding-left: 30%; padding-top: 50px;">
+			    	<li><label>申请说明：</label>
+					</li>
+					<li><label>&nbsp;&nbsp;&nbsp;&nbsp;</label><span style="font-size:18px">{:$refund_list[0]['refund_msg']:}</span></li>
+					{:if $refund_status eq 2:}
+					
+					{:else:}
+					<li style="padding-left: 230px;">
+						<input type='button' class="sure"   value='通过并提交OMS' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href='?back&review=2&refund_id={:$refund_id:}'><input type='button' class="sure"   value='退回' /></a>
+					</li>
+					{:/if:}
+		    </ul>
+	    </div>
+	    </form>
+		<!-- <div class="rightinfo">
+	    <div class="formbody">
+		    <ul class="forminfo">
+		    <li><label>总价:</label><i style="line-height: 34px;"></i>{:$refund_list[0]['refund_price']:}元</li>
+		    <li><label>申请说明:</label><i style="line-height: 34px;"></i></li>
+		    <li><label>&nbsp;&nbsp;&nbsp;&nbsp;</label>{:$refund_list[0]['refund_msg']:}<i style="line-height: 34px;"></i></li>
+		    </ul>
+	    </div>-->
+		</div>
+</body>
+</html>
+

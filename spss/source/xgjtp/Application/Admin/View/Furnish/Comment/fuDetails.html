@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品-添加</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+
+
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/Admin/css/fuEvaluation.css" ><!-- 个人中心页面调用CSS -->
+
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.1.7.2.min.js"></script>
+<!-- banner轮播图片 -->
+<script src="__PUBLIC__/Admin/js/min/modernizr-custom-v2.7.1.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Admin/js/min/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<link href="__PUBLIC__/Admin/css/flickerplate.css"  type="text/css" rel="stylesheet">
+<script src="__PUBLIC__/Admin/js/min/flickerplate.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+
+        $('.flicker-example').flicker();
+    });
+</script>
+<style>
+span{
+    display:inline-block;
+}
+.flicker-example{
+    width:480px;
+    height:280px;
+    margin:0 auto;}
+
+.flickerplate .dot-navigation .dot.active{
+    background-color:#d7d7d7;}
+
+.flickerplate .dot-navigation .dot{
+    background-color:#999999;}
+</style>
+<!-- banner轮播图片end -->
+<script language="javascript">
+
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="">首页</a></li>
+            <li><a href="">健康舒适家居</a></li>
+            <li><a href="">用户评论列表</a></li>
+            <li><a href="">查看详情</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo" style="float:left;margin-left:50px;">
+        <div class="user-center">  
+            <div class="user-fuEvaluation">
+                <div class="user-fuEvaluation-form">
+                    <div class="clear27"></div>
+                    
+                    <div class="user-fuEvaluation-form-title">
+                        <span class="span01">
+                            <{$list.user_name}>
+                        </span>
+                        
+                        <span class="span02">
+
+                            于 <?php echo date("Y-m-d H:i:s",$list['add_time']) ?> 对
+                        </span>
+                        
+                        <span class="span01">
+                            <{$list.quote_name}>
+                        </span>
+                        
+                        <span class="span02">
+                            发表了评论
+                        </span>
+                    </div>
+                    
+                    <div class="clear36"></div>
+                    
+                    
+                    <!-- 此处评论状态为后台显示功能，在前台的页面屏蔽 -->
+                    <div class="user-fuEvaluation-form-comment_state">
+                        <div class="user-fuEvaluation-form-comment_state-span01">
+                            评论状态：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-comment_state-span02" id='display1'>
+                            <?= $list['display']=='1'?'评论可见':'评论隐藏' ?>
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-comment_state-a">
+                            <a href="javascript:;" onclick="display(<{$list.comment_id}>)" id='display2'>
+                                <?= $list['display']=='1'?'评论隐藏':'评论可见' ?>
+                            </a>
+                        </div>
+                        <input type="hidden" id='dis' value='<{$list.display}>'/>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="clear36"></div>
+                    
+                    <div class="user-fuEvaluation-form-info">
+                        <div class="user-fuEvaluation-form-info-span">
+                            基本信息：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-info-list">
+                            <div class="user-fuEvaluation-form-info-list-demo">
+                                <span class="span01">
+                                    施工房型：
+                                </span>
+                                
+                                <span class="span02">
+                                    <?php 
+                                        if($house['house_type'] == 1) echo '公寓';
+                                        else if($house['house_type'] == 2) echo '叠加';
+                                        else if($house['house_type'] == 3) echo '联排';
+                                        else if($house['house_type'] == 4) echo '独栋';
+                                    ?>
+                                </span>
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-info-list-demo">
+                                <span class="span01">
+                                    房屋总面积：
+                                </span>
+                                
+                                <span class="span02">
+                                    <{$house.total_area}> 平米
+                                </span>
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-info-list-demo">
+                                <span class="span01">
+                                    房屋所在地：
+                                </span>
+                                
+                                <span class="span02">
+                                    <{$house.province}> <{$house.house}> <{$house.district}> <{$house.address}>
+                                </span>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear36"></div>
+                    
+                    <div class="user-fuEvaluation-form-star">
+                        <div class="user-fuEvaluation-form-star-total">
+                            <div class="user-fuEvaluation-form-star-total-span">
+                                综合得星：
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-star-total-score">
+                                
+                                <?php for ($i=0; $i < $list['star'] ; $i++) { ?>
+                                <div class="user-fuEvaluation-form-star-total-score-img"><!--有几个星就循环几个demo-->
+                                    <img src="__PUBLIC__/Admin/images/xing02.png"/>
+                                </div>
+                                <?php } ?>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        
+                        <div class="clear27"></div>
+                        
+                        <div class="user-fuEvaluation-form-star-list">
+                            <div class="user-fuEvaluation-form-star-list-demo">
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    商品满意程度：
+                                </div>
+                                
+                                <div class="user-fuEvaluation-form-star-list-demo-score">
+
+                                    <?php for ($i=0; $i < $list['goods'] ; $i++) { ?>
+                                    <div class="user-fuEvaluation-form-star-total-score-img"><!--有几个星就循环几个demo-->
+                                        <img src="__PUBLIC__/Admin/images/xing02.png"/>
+                                    </div>
+                                    <?php } ?>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-star-list-demo">
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    经销商服务：
+                                </div>
+                                
+                                <div class="user-fuEvaluation-form-star-list-demo-score">
+                                    <?php for ($i=0; $i < $list['distributor'] ; $i++) { ?>
+                                    <div class="user-fuEvaluation-form-star-total-score-img"><!--有几个星就循环几个demo-->
+                                        <img src="__PUBLIC__/Admin/images/xing02.png"/>
+                                    </div>
+                                    <?php } ?>
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-star-list-demo">
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    施工人员服务：
+                                </div>
+                                
+                                <div class="user-fuEvaluation-form-star-list-demo-score">
+                                    <?php for ($i=0; $i < $list['personnel'] ; $i++) { ?>
+                                    <div class="user-fuEvaluation-form-star-total-score-img"><!--有几个星就循环几个demo-->
+                                        <img src="__PUBLIC__/Admin/images/xing02.png"/>
+                                    </div>
+                                    <?php } ?>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-star-list-demo">
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    施工满意程度：
+                                </div>
+                                
+                                <div class="user-fuEvaluation-form-star-list-demo-score">
+                                    <?php for ($i=0; $i < $list['construction'] ; $i++) { ?>
+                                    <div class="user-fuEvaluation-form-star-total-score-img"><!--有几个星就循环几个demo-->
+                                        <img src="__PUBLIC__/Admin/images/xing02.png"/>
+                                    </div>
+                                    <?php } ?>
+                                   
+                                    <div class="clear"></div>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-star-list-demo">
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    是否按时完工：
+                                </div>
+                                
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    <?= $list['is_time']==1?'是':'否'; ?>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="user-fuEvaluation-form-star-list-demo">
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    工地现场是否整洁：
+                                </div>
+                                
+                                <div class="user-fuEvaluation-form-star-list-demo-span">
+                                    <?= $list['is_clean']==1?'是':'否'; ?>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="clear27"></div>
+                    
+                    <div class="user-fuEvaluation-form-evaluate">
+                        <div class="user-fuEvaluation-form-evaluate-span">
+                            综合评价：
+                        </div>
+                        
+                        <div class="user-fuEvaluation-form-evaluate-info">
+                            <{$list.content}>
+                        </div>
+                    </div>
+                    
+                    <div class="clear2"></div>
+                    
+                    <?php if(!empty($list['images'])) {?>
+                    <div class="user-fuEvaluation-form-picture">
+
+                        <div class="user-fuEvaluation-form-picture-span">
+                            图片展示：
+                        </div>
+                        
+                        <!-- banner轮播图片 -->
+                        
+                        <div class="flicker-example" data-block-text="false">    
+                            <ul>
+                                <?php foreach ($img as $k=>$v){ ?>
+                                <li data-background="__PUBLIC__/Uploads/<{$v}>">
+                                    <!-- <a href="javascript:;" > -->
+                                </li>  
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        
+                        <!-- banner轮播图片end -->
+                    </div>
+                    <?php } ?>
+                    
+                    <div class="clear3"></div>            
+                </div>
+            </div>
+              
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear2"></div>
+    </div>
+
+<script>
+    function display(id){
+        var d = $('#dis').val();
+        $.get('<{:U("fuDisplay")}>',{'display':d,'id':id},function(data){
+            if (data=='1') {
+                if (d=='0') {
+                    $('#dis').val('1');
+                    $('#display1').html('评论可见');
+                    $('#display2').html('评论隐藏');
+                }else{
+                    $('#dis').val('0');
+                    $('#display1').html('评论隐藏');
+                    $('#display2').html('评论可见');
+                }
+            }
+        })
+    }
+</script>
+
+</body>
+
+</html>

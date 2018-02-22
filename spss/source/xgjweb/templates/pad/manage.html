@@ -1,0 +1,238 @@
+{:include file="pad/head.html":}
+<div class="manage-titile">
+	<span>
+    	客户管理
+    </span>
+</div>
+
+<div class="clear27"></div>
+
+<form>
+<div class="manage-form">
+	<div class="manage-form-span">
+    	客户名称
+    </div>
+    
+    <div class="manage-form-input01">
+    	<input type="text" name='name' id='name' value="{:$name:}">
+    </div>
+    
+    <div class="manage-form-span">
+    	联系方式
+    </div>
+    
+    <div class="manage-form-input01">
+    	<input type="text" name='tel' id='tel' value="{:$tel:}">
+    </div>
+    
+    <div class="manage-form-input02">
+    	<input type="button"  id='sub' value="搜索">
+    </div>
+    
+    <div class="manage-form-input02">
+    	<input type="reset" value="清空">
+    </div>
+</div>
+</form>
+
+<div class="clear2"></div>
+
+<div class="manage-center">	
+	<div class="manage-center-list">
+    	<div class="manage-center-list-title">            
+            <div class="manage-center-list-title-name">
+            	客户名称                                  
+            </div>
+            
+            <div class="manage-center-list-title-tel">
+            	联系方式                                                                  
+            </div>
+            
+            <div class="manage-center-list-title-address">
+            	所在地址                                                                   
+            </div>
+            
+            <div class="manage-center-list-title-time">
+            	创建时间                                                                 
+            </div>
+            
+            <div class="manage-center-list-title-operation">
+            	操作
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+                
+        <div class="clear"></div>  
+        
+         <!--用户评论-->
+        <div class="manage-center-list-demo" id="comment_content">
+            加载中...
+            <!-- 这里的评论内容在模板里面 -->
+        </div>
+        <!--用户评论end-->
+        <div id="page"></div>       
+    </div>
+    
+    
+</div>
+
+<div class="clear"></div>
+ 
+<!-- 列表  -->
+<script type="text/html" id="comment_tpl">
+<% if(list.length>0){ %>
+    <% for(var i=0;i < list.length;i++){ %>
+    <div class="manage-center-list-demo">            
+        <div class="manage-center-list-demo-name">
+            <%=list[i].name%>
+        </div>
+        
+        <div class="manage-center-list-demo-tel">
+            <%=list[i].tel%>                                                                                    
+        </div>
+        
+        <div class="manage-center-list-demo-address">
+            <%=list[i].proviace%><%=list[i].city%><%=list[i].district%> <%=list[i].address%>                                                                    
+        </div>
+        
+        <div class="manage-center-list-demo-time">
+            <%=list[i].time%>                                                                
+        </div>
+		
+		<div class="manage-center-list-demo-operation-bk">
+			<div class="manage-center-list-demo-operation">
+				<a href="pad.php?check&c_id=<%=list[i].id%>">
+					查看
+				</a>
+			</div>
+			
+			 <div class="manage-center-list-demo-bz">
+				<a href="javascript:;" onclick="check(<%=list[i].id%>)">
+					备注
+				</a>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+        
+        <div class="clear"></div>
+    </div>
+
+<div class="clear"></div>
+<% } %>
+<% }else{%>
+    <!--列表没有的话-->
+    <div class="manage-center-list-demo">              
+        <span>暂无列表</span>
+    </div>
+    <!--列表没有的话-->
+<% } %>
+</script>
+<!-- 列表模板 -->
+
+<!--弹出产品说明书-->
+<div id="CkId">   
+</div>
+
+{:include file="pad/flooter.html":}
+
+<script src="js/template-native.js"></script>
+<script src="js/laypage.js"></script>
+<script type="text/javascript">
+    $(function() {  
+        $("#sub").click(function() {  
+            name=$('#name').val(),
+            tel=$('#tel').val(),
+            window.location.href="pad.php?manage&tel="+tel+"&name="+name;
+        });  
+    }); 
+</script>
+<script>
+/*
+    获取列表
+     */
+    
+    $.ajax({
+        url:"pad.php?managePage",
+        data:{
+            name:$('#name').val(),
+            tel:$('#tel').val(),
+        },
+        dataType:"json",
+        success:function(d){
+           //console.log(d);
+            if(d){
+                $('#comment_total').html('（'+d.total+'）');
+                var tpl = template('comment_tpl',d );
+                $('#comment_content').html(tpl);
+                laypage({
+                    cont: 'page', //容器。值支持id名、原生dom对象，jquery对象,
+                    pages: d.total_page, //总页数
+                    jump:function(obj,first){
+                        if(!first){
+                            managePage(obj.curr);
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+    function managePage(p){
+        $.ajax({
+            url:"pad.php?managePage",
+            data:{
+                name:$('#name').val(),
+                tel:$('#tel').val(),
+                p:p,
+            },
+            dataType:"json",
+            success:function(d){
+                //console.log(d);
+                if(d){
+                    var tpl = template('comment_tpl',d);
+                    $('#comment_content').html(tpl);
+                }
+            }
+        });
+    };
+
+    function check(id){
+		$("#CkId").css('height',$(document).height());
+        $("#CkId").fadeIn();
+        $("#CkId").load('pad.php?checkinfo&id='+id);
+    };
+
+    function clo(){
+        $("#CkId").fadeOut();
+    };
+
+    function sub(){
+        var url = "pad.php?addRemark";  
+        var c_id=$("#c_id").val();
+        var content=$("#content").val();
+        $.ajax({  
+        type: "post",  
+        url: url,  
+        data: {
+            c_id:c_id,
+            content:content,
+        },  
+            success: function(msg){  
+                if(msg == 1){
+                    alert('保存成功');
+                    $("#CkId").fadeIn();
+                    $("#CkId").load('pad.php?checkinfo&id='+c_id);
+                }else if(msg == 2){
+                    alert('保存失败');
+                }
+                //console.log(msg); 
+            }  
+        });  
+    };  
+
+</script>
+</body>
+</html>
+

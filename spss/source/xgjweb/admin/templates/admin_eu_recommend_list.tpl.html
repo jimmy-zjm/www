@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- 添加推荐 -->
+<script>
+function add_list(goods_id){ 
+	$.get('?recommend_list_add&goods_id='+goods_id,function(data){
+		//alert(data);
+		$('#recommend_list_tab').append(data);
+		//加入后刷新
+		//location.reload(true);
+	});
+}
+function remove_list(recommend_id){
+	if(confirm('您确定要删除吗？')){
+		$.get('?recommend_list_del&recommend_id='+recommend_id,function(data){
+			data=data.replace(/(^\s*)|(\s*$)/g, "");//截掉空字符串
+			if(data=='success'){
+				$('#recommend_list_tr_'+recommend_id).remove();
+			}
+		});
+	}else{
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+	 <div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >欧洲团代购</a></li>
+	    <li><a href="eu_recommend.php">商品推荐列表</a></li>
+	    </ul>
+	    </div>
+	    <div class="rightinfo">
+	     <!-- <ul class="prosearch">
+			<li><label>查询：</label><a><input type='text' name='keyword' class="scinput" value=''/></a>
+			<a><input type='button' onclick='search()' class="sure" value='搜索' /></a></li>
+		</ul>  -->
+	    <div class="list-div" style="width:1100px;border:1px solid grey;height:220px;overflow-y:scroll;margin-right:50px">
+			<div align='center'><h3>商品列表</h3></div>
+			<table class="imgtable" cellpadding="3" cellspacing="3">
+			<tr style="table-layout:fixed ">
+				<th width='50px'>编号</th> <th>名称</th> <th>货号</th> <th>操作</th>
+			</tr>
+			{:foreach $eu_goods as $v:}
+				<tr>
+					<td>{:$v.goods_id:}</td>
+					<td>{:$v.goods_name:}</td>
+					<td>{:$v.goods_sn:}</td>
+					<td><input type='button' value='加入推荐' onclick='add_list({:$v.goods_id:})'></td>
+				</tr>
+			{:/foreach:}
+			</table>
+		</div>
+		<div style="height:20px;"></div>
+		
+			<div class="list-div" style="width:1100px;border:1px solid grey;height:410px;overflow-y:scroll;">
+			    <div align='center'><h3>商品推荐列表</h3></div>
+			    <table class="imgtable" id='recommend_list_tab'>
+			    <thead>
+			    <tr>
+			    <th width="60px;">编号</th>
+			    <th>名称</th>
+			    <th>货号</th>
+			    <th>价格</th>
+			    <th width="60px;">上架</th>
+			    <th width="60px;">抢购</th>
+			    <th width="160px;">开始时间</th>
+			    <th width="160px;">结束时间</th>
+			    <th width="100px;">操作</th>
+			    </tr>
+			    </thead>
+			    
+			    <tbody>
+			    {:foreach $eu_recommend_list as $v:}
+			    <tr id='recommend_list_tr_{:$v.recommend_id:}'>
+			    <td>{:$v.recommend_id:}</td>
+			    <td>{:$v.goods_name:}</td>
+			    <td>{:$v.goods_sn:}</td>
+			    <td>{:$v.shop_price:}元</td>
+			    <td>{:if $v.is_putaway eq 0:}否{:else if $v.is_putaway eq 1:} 是{:/if:}</td>
+			    <td>{:if $v.is_panic_buy eq 0:}否{:else if $v.is_panic_buy eq 1:} 是{:/if:}</td>
+			    <td>{:if !empty($v.promote_start_date):}{:'Y-m-d H:i:s'|date:$v.promote_start_date:}{:else:}{:/if:}</td>
+			    <td>{:if !empty($v.promote_end_date):}{:'Y-m-d H:i:s'|date:$v.promote_end_date:}{:else:}{:/if:}</td>
+			    <td><input type='button' value='移除' onclick='remove_list({:$v.recommend_id:})'></td>
+			    </tr>
+			    {:/foreach:}
+			    </tbody>
+			    </table>
+			</div>	
+	    </div>
+
+</body>
+</html>
+
+	
+    
+

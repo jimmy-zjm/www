@@ -1,0 +1,62 @@
+<include file="Public/header" />
+
+<link rel="stylesheet" href="__PUBLIC__/css/swiper.min.css">
+<!-- <link rel="stylesheet" href="__PUBLIC__/css/index.css" /> -->
+<link rel="stylesheet" href="__PUBLIC__/css/home.css"/>
+		<div class="content" style="margin-bottom:0;padding-bottom:20px;">
+			<div class="content1">
+				<div class="swiper-container">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide"><a href="<{:U('info',array('cid'=>5))}>"><img src="__PUBLIC__/img/home/banner1.png" alt="" /></a></div>
+			            <div class="swiper-slide"><a href="<{:U('info',array('cid'=>15))}>"><img src="__PUBLIC__/img/home/banner2.png" alt="" /></a></div>
+			            <div class="swiper-slide"><a href="<{:U('info',array('cid'=>19))}>"><img src="__PUBLIC__/img/home/banner3.png" alt="" /></a></div>
+			            <div class="swiper-slide"><a href="<{:U('info',array('cid'=>23))}>"><img src="__PUBLIC__/img/home/banner4.png" alt="" /></a></div>
+
+			            <div class="swiper-slide"><a href="<{:U('info',array('cid'=>31))}>"><img src="__PUBLIC__/img/home/banner5.png" alt="" /></a></div>
+			            <div class="swiper-slide"><a href="<{:U('info',array('cid'=>32))}>"><img src="__PUBLIC__/img/home/banner6.png" alt="" /></a></div>
+			            <div class="swiper-slide"><a href="<{:U('info',array('cid'=>36))}>"><img src="__PUBLIC__/img/home/banner7.png" alt="" /></a></div>
+			        </div>
+			        <!-- Add Pagination -->
+			        <div class="swiper-pagination"></div>
+			    </div>
+			</div>
+			<div class="content2">
+				<a href="<{:U('info',array('cid'=>5))}>"><img src="__PUBLIC__/img/home/home-img1.png" alt="" /></a>
+			</div>
+			<div class="content2">
+				<a href="<{:U('info',array('cid'=>15))}>"><img src="__PUBLIC__/img/home/home-img2.png" alt="" /></a>
+			</div>
+			<div class="content2">
+				<a href="<{:U('info',array('cid'=>19))}>"><img src="__PUBLIC__/img/home/home-img3.png" alt="" /></a>
+			</div>
+			<div class="content2">
+				<a href="<{:U('info',array('cid'=>23))}>"><img src="__PUBLIC__/img/home/home-img4.png" alt="" /></a>
+			</div>
+			<div class="content2">
+				<a href="<{:U('info',array('cid'=>31))}>"><img src="__PUBLIC__/img/home/home-img5.png" alt="" /></a>
+			</div>
+			<div class="content2">
+				<a href="<{:U('info',array('cid'=>32))}>"><img src="__PUBLIC__/img/home/home-img6.png" alt="" /></a>
+			</div>
+			<div class="content2">
+				<a href="<{:U('info',array('cid'=>36))}>"><img src="__PUBLIC__/img/home/home-img7.png" alt="" /></a>
+			</div>
+		</div>
+
+<script src="__PUBLIC__/js/swiper.min.js"></script>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        loop:true,
+        autoplayDisableOnInteraction: false
+    });
+</script>
+
+<include file="Public/floor" />

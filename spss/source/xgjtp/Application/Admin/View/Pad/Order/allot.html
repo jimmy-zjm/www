@@ -1,0 +1,38 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/assign.css">
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<div class="assign-title my-page-title">
+	<a style='font-size: 20px;color: orange;' href="<{:U('info',['id'=>$oid])}>">返回订单详情</a>
+</div>
+<div class="assign-content">
+	<h1><{$title}></h1>
+	<p class="content-title">选择相关人员</p>
+	<?php if (empty($data)){?>	
+	<p class="content-title">暂无可选人员</p>
+	<?php }else{?>
+	<form action="<{:U('doAssigns')}>"   method="post" id='formid'>
+		<div class="assign-list">
+			<?php foreach ($data as $v){?>
+				<label>
+					<div>姓名：<span><{$v['real_name']}></span> <span><{$v['tel']}></span> <input type="radio" name="person" value="<{$v['id']}>">
+					</div>
+				</label>
+			<?php }?>
+			<input type="hidden" name="rid" value="<{$rid}>">
+			<input type="hidden" name="sid" value="<{$sid}>">
+			<input type="hidden" name="oid" value="<{$oid}>">
+		</div>
+		<input id="assign-sureBtn" type="button" value="确定"></form>
+	</div>
+<?php }?>
+<script type="text/javascript">
+ $(function(){
+     $("#assign-sureBtn").click(function(){
+        var val=$('input:radio[name="person"]:checked').val();
+        if(val==null){
+            alert("请选中一个施工人员!");
+        }else{
+        	$("#formid").submit();
+        }
+     });
+ });
+</script>

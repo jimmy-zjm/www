@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+
+</head>
+
+
+<body>
+
+    <div class="place">
+    <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="">首页</a></li>
+        <li><a href="">售后管理</a></li>
+        <li><a href="">机电保养</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo">
+
+        <ul class="seachform1" style="width:100%">
+
+            <li><label>系统名称</label><input id="name" type="text" value="<?php echo I('get.name') ?>" class="scinput1"></li>
+           
+            <li><label>是否上架</label>
+                <select class="scinput1" id="is_use">
+                    <option value=''>全部</option>
+                    <option value="1" <?php echo $_GET['is_use']==1?'selected':'' ?> >已上架</option>
+                    <option value="2" <?php echo $_GET['is_use']==2?'selected':'' ?> >未上架</option>
+                </select>
+            </li>
+
+            
+            <li class=""><label>&nbsp;</label><input type="button" onclick='but()' name="send" class="scbtn" value="查询"></li>
+        </ul>
+
+        <div class="tools">
+            <ul class="toolbar">
+            <a href="<{:U('add')}>"><li><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</li></a>
+            </ul>
+        </div>
+        
+        <table class="imgtable">
+        
+        <thead>
+        <tr>
+        <th width="60px;" height='50px'>编号</th>
+        <th>图片</th>
+        <th>系统</th>
+        <th>保养内容</th>
+        <th>详细介绍</th>
+        <th>是否上下架</th>
+        <th>保养周期</th>
+        <th>单次保养费用</th>
+        <th >操作</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <?php foreach($data as $k=>$v){ ?>
+        <tr style='border-bottom:solid 1px #d7a372;'>
+            <td><{$k+1}></td>
+            <td><img width='50px' src="__PUBLIC__/Uploads/<{$v.u_img}>"></td>
+            <td><{$v.name}></td>
+            <td><{$v.content}></td>
+            <td><?= html_entity_decode($v['details'],ENT_QUOTES,'UTF-8'); ?></td>
+            <td style='width:80px;'><a href="javascript:;" onclick='use(<{$v.id}>,this)'><?= $v['is_use']==1?'<font color="blue">上架</font>':'<font color="red">下架</font>' ?></a></td>
+            <td style='width:80px;'><{$v.period}></td>
+            <td style='width:100px;'><{$v.price}></td>
+            <td style='width:80px;'>
+                <a href="<{:U('edit',array('id'=>$v['id']))}>" class="tablelink">修改</a>
+            </td>
+        </tr>
+        <?php } ?>
+        </tbody>
+        </table>      
+        <{$page}>   
+    </div>
+
+<script type="text/javascript">
+function use(id,t){
+    $.get('<{:U("delete")}>',{'id':id},function(data){
+        if (data==1) $(t).html('<font color="blue">上架</font>');
+        else if (data==2) $(t).html('<font color="red">下架</font>');
+    })
+}
+function but(){
+    var name   = $('#name').val();
+    var is_use = $('#is_use').val();
+    where = '';
+    if (name)   where += "/name/"+name;
+    if (is_use) where += "/is_use/"+is_use;
+    window.location.href="__APP__/Admin/AfterSale/Upkeep/index"+where;
+}
+</script>
+</body>
+
+</html>

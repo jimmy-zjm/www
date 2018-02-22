@@ -1,0 +1,167 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+<div style="height:50px"></div>
+
+<div class="user-center">
+    <include file="User:left" />
+
+    <div class="user-right">
+        <div class="useraddresscenter-title">
+            <div class="useraddresscenter-title-left"> 
+                <span>
+                    收货地址
+                </span>
+            </div>
+            
+            
+            <div class="useraddresscenter-title-right"> 
+                <a href="<{:U('User/addAddress')}>"> 
+                    新增收货地址 
+                </a> 
+            </div>
+            
+            
+            <div class="clear"></div>
+        </div>
+            
+        <div class="clear12"></div>
+        
+        <div id="" class="useraddresscenter-table">
+            <div class="clear3"></div>
+            
+            <form action="user.php?doAddrInfoAdd" method="post">
+                <div class="useraddresscenter-table-demo">
+                    <div class="useraddresscenter-table-demo-left">
+                        收&nbsp;货&nbsp;&nbsp;人：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" value=""  name="receivingName" id="UserNameTextId"/>
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        手　　机：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" value=""  name="mobile" id="mobileTextId" onblur="aaa()"/>
+                        <span id='tel_tishi'></span>
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        固定电话：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" value="" name="phone" id="phoneTextId" />
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        电子邮箱：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right">
+                        <input type="text" value=""  name="email" id="emailTextId" />
+                    </div>
+                    
+                    <div class="clear1"></div>
+                    <div class="useraddresscenter-table-demo-left">
+                        所在地区：
+                    </div>
+                    <div class="useraddresscenter-table-demo-right03">
+                        <span class="ssx-span">
+                                <select required class='prov' name="province" onchange='area("city",this.value)'>
+                                <option value="" >-请选择-</option>
+                                    <?php foreach ($area as $key => $v): ?>
+                                        <option value="<{$v.id}>"><{$v.name}></option>
+                                    <?php endforeach ?>
+                                </select>　省
+                                                
+                                <select required class='city' name="city" onchange='area("district",this.value)'>
+                                    <option value="">-请选择-</option>
+                                </select>　市
+                                               
+                                <select required class='district' name="district" >
+                                    <option value="">-请选择-</option>
+                                </select>　县/区
+                          </span>
+                    </div>  
+                    <div class="clear1"></div>
+                    
+                    <div class="useraddresscenter-table-demo-left">
+                        地　　址：
+                    </div>
+                    
+                    <div class="useraddresscenter-table-demo-right02">
+                        <input type="text" value="" name="addr" id="addrTextId" />
+                    </div>
+                    
+                    <div class="clear2"></div>
+                    
+                    <div class="useraddresscenter-table-demo-sub">
+                        <input type="button" id="button" value="添加" onclick="buttons()"/>
+                    </div>
+                    
+                    <div class="clear3"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </form>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+<!-- 省市县三级联动 -->
+<script type="text/javascript"> 
+    function area(o,v,c,d){
+        $.getJSON("<{:U('area')}>",{'v':v},function(data){
+            if (o=='city') {
+                $('.district').html('');
+                $('.district').append('<option value="">-请选择-</option>');
+            }
+            $('.'+o).html('');
+            $('.'+o).append('<option value="">-请选择-</option>');
+            for (var i = 0; i < data.length; i++) {
+                $('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+            }
+        })
+    }
+</script>
+
+
+
+<script>
+function aaa(){
+    var myreg = /^1[34578]\d{9}$/; 
+    if(!myreg.test($("#mobileTextId").val())){ 
+        alert('请输入有效的手机号码！'); 
+        return false; 
+    } 
+}
+function buttons(){
+    var a = $("#UserNameTextId").val();
+    var b = $("#mobileTextId").val();
+    var d = $("#addrTextId").val();
+    var e = $("#pro").val();
+    var f = $("#cit").val();
+    var g = $("#are").val();
+    if (a=='' || b=='' || d=='' || e=='请选择省份' || f=='请选择城市' || g=='请选择地区') {
+        alert('请填写完整再提交！'); 
+        return false; 
+    }else{
+        aaa()
+        document.getElementById('button').type = 'submit';
+    }
+}
+</script>

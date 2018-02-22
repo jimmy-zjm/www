@@ -1,0 +1,393 @@
+/* 样式参考联想移动官网 http://m.lenovo.com.cn/ */
+@charset "utf-8";
+/* CSS Document */
+/*公用部分*/
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, img, dl, dt, dd, table, th, td, blockquote, fieldset, div, strong, label, em, a, span, input{margin:0;padding:0; font-family:'PingFangSC-Regular';}
+
+/*在移动端给overflow:hidden 最好给 overflow-x：hidden;同时给到元素 height:100%;*/
+/*-webkit-overflow-scrolling:touch;解决在苹果机测试时上下滑动页面不卡顿*/
+html,body {height:100%;overflow-x:hidden; -webkit-overflow-scrolling:touch;}
+html{-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:320px;}
+ul li{list-style: none;}
+/*-webkit-tap-highlight-color:transparent;真机点击去除黑色背景*/
+a{text-decoration: none;color: #434343;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+em,i{font-style: normal;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+input,textarea{outline: none;}
+.fl { float:left; } /* 左浮动，与右浮动 */
+.fr { float:right; }
+.clearfix:after{display: block;clear: both;height: 0;visibility: hidden;font-size: 0;line-height: 0;content: "";}
+.clearfix{zoom:1;}
+/*文本超出一行显示省略号*/
+.ell{overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:nowrap;}
+.ell2{overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:pre-wrap;}
+/*盒图宽高=content+border  布局时明明一排的几个div的宽度和为总宽度却出现混乱，给每个div一个 box-sizing属性，属性值为：border-box；*/
+.border-box{box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
+
+
+
+
+
+
+body{
+	font-family:PingFangSC-Regular;
+}
+
+/*头部 */
+header{
+	position:fixed;
+	z-index:999;
+	background-image:linear-gradient(-180deg, #111e94 0%, #061178 100%);
+	width:100%;
+	height:0.88rem;
+	line-height:0.88rem;
+	color:#fff;
+	font-size:0.4rem;
+	text-align:center;
+	a{
+    position:absolute;
+    left:0;
+    width:0.88rem;
+    height:0.88rem;
+    text-align:center;
+    line-height:0.88rem;
+    background: url(../img/backbtn.png) center center no-repeat;
+    background-size:30% 50%;
+  }
+
+}
+
+/* 主体 */
+section{
+	/* max-width:20.48rem; */
+	margin:0 auto;
+	padding:0.88rem 0.3rem;
+}
+
+
+
+
+@activeColor:#ff1c7f;
+.redbg{
+	background-image:linear-gradient(-180deg, @activeColor 0%, #eb267c 100%);
+}
+.redfont{
+	color:@activeColor !important;
+}
+/*底部*/
+footer{
+	position:fixed;
+	z-index:999;
+	bottom:0;
+	background:#fff;
+	width:100%;
+	height:0.88rem;
+	border-top:0.02rem solid #efefef;
+	li{
+		float:left;
+		width:20%;
+	}
+	a{
+		display:block;
+		width:1rem;
+		font-size:0.18rem;
+		margin:0 auto;
+		padding-top:0.56rem;
+		text-align:center;
+	}
+	.bg(@url){
+		background: url(@url) center 0.06rem no-repeat;
+		background-size:40% auto;
+	}
+	.active{
+		a{
+			.redfont;
+		}
+		.f-btn01{
+			.bg("../img/my_active.png");
+		}
+		.f-btn02{
+			.bg("../img/sys_active.png");
+		}
+		.f-btn03{
+			.bg("../img/order_active.png");
+		}
+    .f-btn04{
+      .bg("../img/aftersale_active.png");
+    }
+		.f-btn05{
+			.bg("../img/set_active.png");
+		}
+	}
+	
+	.f-btn01{
+		.bg("../img/my.png");
+	}
+	.f-btn02{
+		.bg("../img/sys.png");
+	}
+	.f-btn03{
+		.bg("../img/order.png");
+	}
+	.f-btn04{	
+		.bg("../img/aftersale.png");
+	}
+  .f-btn05{ 
+    .bg("../img/set.png");
+  }
+
+
+}
+.my-btm-btn{
+	display:block;
+  float:none !important;
+  width:100%;
+  height:0.9rem;
+  margin:0.8rem auto 1.2rem auto;
+  font-size:0.36rem;
+  text-align:center;
+  line-height:0.9rem;
+  border-radius:0.9rem;
+  color:#fff;
+  border:none 0;
+  background-image:linear-gradient(-180deg, #ff1c7f 0%, #eb267c 100%);
+}
+/* 搜索条样式 */
+.search-strip{
+  margin:0.4rem 0 0.4rem 0;
+  height:0.6rem;
+  input,button{
+    vertical-align:top;
+    box-sizing:border-box;
+    height:0.6rem;
+    border:1px solid #061178;
+    float:left;
+    font-size:0.32rem;
+  }
+  button{
+    width:1.32rem;
+    height:0.6rem;
+    background:#061178;
+    color:#fff;
+  }
+  input{
+    width:e("calc(100% - 1.32rem)");
+  }
+}
+@redcolor:#ff0080;
+.newaddbtn-box{
+  overflow:hidden;
+  margin:0.4rem 0;
+  a{
+    display:block;
+    height:0.9rem;
+    border-radius:0.9rem;
+    line-height:0.9rem;
+    box-sizing:border-box;
+    width:40%;
+    font-size:0.36rem;
+    text-align:center;  
+  }
+  .newadd-submit{
+    color:#fff;
+
+    background-image:linear-gradient(-180deg, #ff1c7f 0%, #eb267c 100%);
+  }
+  .newadd-cancel{
+    color: @redcolor;
+    border:0.02rem solid  @redcolor;
+  }
+}
+
+/* 栅格系统 */
+.container {
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+.col-xs-1 {
+  width: 8.3333333333333333%;
+}
+.col-xs-2 {
+  width: 16.666666666666667%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-4 {
+  width: 33.333333333333333%;
+}
+.col-xs-5 {
+  width: 41.666666666666667%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-7 {
+  width: 58.333333333333333%;
+}
+.col-xs-8 {
+  width: 66.666666666666667%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-10 {
+  width: 83.333333333333333%;
+}
+.col-xs-11 {
+  width: 91.666666666666667%;
+}
+.col-xs-12 {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.3333333333333333%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666667%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.333333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.666666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333333%;
+  }
+  .col-sm-8 {
+    width: 66.666666666666667%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.333333333333333%;
+  }
+  .col-sm-11 {
+    width: 91.666666666666667%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }      
+}
+@media (min-width: 992px) {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+  .col-md-1 {
+    width: 8.3333333333333333%;
+  }
+  .col-md-2 {
+    width: 16.666666666666667%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.333333333333333%;
+  }
+  .col-md-5 {
+    width: 41.666666666666667%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-7 {
+    width: 58.333333333333333%;
+  }
+  .col-md-8 {
+    width: 66.666666666666667%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-10 {
+    width: 83.333333333333333%;
+  }
+  .col-md-11 {
+    width: 91.666666666666667%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-ml{
+     margin-left:1rem;
+  }
+  .col-md-fr{
+    float:right;
+  }
+  .my-btm-btn{
+    width:50%;
+    margin:2rem auto 1.2rem auto;
+
+  }     
+}
+@media (min-width: 1200px) {
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.3333333333333333%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666667%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.333333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.666666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333333%;
+  }
+  .col-lg-8 {
+    width: 66.666666666666667%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.333333333333333%;
+  }
+  .col-lg-11 {
+    width: 91.666666666666667%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }           
+}

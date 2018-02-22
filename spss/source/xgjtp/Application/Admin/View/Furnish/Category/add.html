@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Admin/js/jquery.js"></script>
+</head>
+<body>
+
+	<div class="place">
+	    <span>位置：</span>
+		    <ul class="placeul">
+			    <li><a href="<{:U('Admin/Index/Index/index')}>">首页</a></li>
+			    <li><a >健康舒适家居</a></li>
+			    <li><a href="<{:U('index')}>">系统分类列表</a></li>
+			    <li><a href="<{:U('add')}>">添加系统分类</a></li>
+		    </ul>
+	 </div>
+	    
+	    <div class="formbody">
+	    <form action="<{:U('insert')}>" method="post" enctype="multipart/form-data">
+	    <ul class="forminfo">
+	    <li><label>系统分类名称</label><input name="cat_name" type="text" class="dfinput" value=''required='required'/><i>系统分类名称不能超过30个字符</i></li>
+   	    <li><label>排序</label><input name="sort_order" type="text" class="sinput" value='50'/><i></i></li>
+   	    <li><label>是否显示</label><cite><input name="is_show" type="radio"  value='1' checked />显示&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio"  value='2'/>不显示</cite></li>
+        <li><label>封面图片</label><input type="file" name="image" style="position:relative;top:7px;" /></li>
+   	    <li><label>简单描述</label><textarea name="desc" class="textinput" id="" cols="20" rows="5" style="width:328px;height:70px;"></textarea><i>简单描述不能超过255个字符</i></li>
+	    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/></li>
+	    </ul>
+	    </form>
+	    </div>
+
+</body>
+</html>
+

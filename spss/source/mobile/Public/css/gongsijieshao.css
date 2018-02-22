@@ -1,0 +1,23 @@
+.content {
+	background-color: #fff;
+}
+.jianjie-1{
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+.jianjie-2{
+	width: 92%;
+	height: auto;
+	margin: 0 auto;
+	line-height: 42px;
+	text-indent: 36px;
+	font-size: 14px;
+	color: #333;
+	background-color: #fff;
+	word-break: break-all;
+	word-wrap:break-word;
+}

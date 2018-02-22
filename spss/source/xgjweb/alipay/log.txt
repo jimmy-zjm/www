@@ -1,0 +1,736 @@
+集成时请注意：
+本文件log.txt请不要删除。
+该文本用于写日志函数。
+执行日期：20160328154034
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004810207815136&buyer_email=121616591@qq.com&gmt_create=2016-03-28 15:40:22&notify_type=trade_status_sync&quantity=1&out_trade_no=90&seller_id=2088121869660227&notify_time=2016-03-28 15:40:35&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 15:40:35&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=cf4359a5109e9026491b75bd3b0ec99m92&use_coupon=N&sign_type=MD5&sign=96dff6bb683e58547f0b36e6711b7c06
+执行日期：20160328154034
+异步消息xc:
+执行日期：20160328154046
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymh0j5L1oR85fyBffOnjKV4GEpcVcXO1JRKz98bJwx2F%2FY3&notify_time=2016-03-28 15:40:44&notify_type=trade_status_sync&out_trade_no=90&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004810207815136&trade_status=TRADE_SUCCESS&sign=fbe53d784d369040caf44dbe2ee1e0dd&sign_type=MD5
+执行日期：20160328154046
+同步消息xc:
+执行日期：20160328154839
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymh0j5L1oR85fyBffOnjKV4GEpcVcXO1JRKz98bJwx2F%2FY3&notify_time=2016-03-28 15:40:44&notify_type=trade_status_sync&out_trade_no=90&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004810207815136&trade_status=TRADE_SUCCESS&sign=fbe53d784d369040caf44dbe2ee1e0dd&sign_type=MD5
+执行日期：20160328154840
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymh0j5L1oR85fyBffOnjKV4GEpcVcXO1JRKz98bJwx2F%2FY3&notify_time=2016-03-28 15:40:44&notify_type=trade_status_sync&out_trade_no=90&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004810207815136&trade_status=TRADE_SUCCESS&sign=fbe53d784d369040caf44dbe2ee1e0dd&sign_type=MD5
+执行日期：20160328162513
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150292163383&buyer_email=15938605039&gmt_create=2016-03-28 14:58:44&notify_type=trade_status_sync&quantity=1&out_trade_no=12&seller_id=2088121869660227&notify_time=2016-03-28 16:25:14&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 15:01:20&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=98e8321354ec7970774c8578973a89ah5q&use_coupon=N&sign_type=MD5&sign=ed8701b814b8aebbd5d265accee64120
+执行日期：20160328162513
+异步消息xc:
+执行日期：20160328163500
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymgjXBG96Y5dKQfrwd6ky981P41xqRwCWxd9m%2B6ldZr6ttb&notify_time=2016-03-28 15:01:27&notify_type=trade_status_sync&out_trade_no=12&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004150292163383&trade_status=TRADE_SUCCESS&sign=1344bf586d356bb2db3c8ba1bad9adbb&sign_type=MD5
+执行日期：20160328163507
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymgjXBG96Y5dKQfrwd6ky981P41xqRwCWxd9m%2B6ldZr6ttb&notify_time=2016-03-28 15:01:27&notify_type=trade_status_sync&out_trade_no=12&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004150292163383&trade_status=TRADE_SUCCESS&sign=1344bf586d356bb2db3c8ba1bad9adbb&sign_type=MD5
+执行日期：20160328164111
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150292241969&buyer_email=15938605039&gmt_create=2016-03-28 16:40:48&notify_type=trade_status_sync&quantity=1&out_trade_no=14&seller_id=2088121869660227&notify_time=2016-03-28 16:41:13&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 16:41:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=647c65af0967ee7f6b3bba0734795c4h5q&use_coupon=N&sign_type=MD5&sign=731181e16ff964031005ec9415cc3eb1
+执行日期：20160328164111
+异步消息xc:
+执行日期：20160328164123
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymh1sSo1KFhseC%2BAb0q0rN6bDPBIue73YIK5xbfZFlwmRzi&notify_time=2016-03-28 16:41:20&notify_type=trade_status_sync&out_trade_no=14&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004150292241969&trade_status=TRADE_SUCCESS&sign=2f25fc4e1089b679a05cbaa037f29298&sign_type=MD5
+执行日期：20160328164123
+同步消息xc:
+执行日期：20160328164503
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150292241969&buyer_email=15938605039&gmt_create=2016-03-28 16:40:48&notify_type=trade_status_sync&quantity=1&out_trade_no=14&seller_id=2088121869660227&notify_time=2016-03-28 16:45:04&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 16:41:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=647c65af0967ee7f6b3bba0734795c4h5q&use_coupon=N&sign_type=MD5&sign=4f60d62bb8ec4315e6e6fbc704927947
+执行日期：20160328164503
+异步消息xc:
+执行日期：20160328165510
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150292241969&buyer_email=15938605039&gmt_create=2016-03-28 16:40:48&notify_type=trade_status_sync&quantity=1&out_trade_no=14&seller_id=2088121869660227&notify_time=2016-03-28 16:55:11&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 16:41:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=647c65af0967ee7f6b3bba0734795c4h5q&use_coupon=N&sign_type=MD5&sign=062be3ead4b318f5553e1ef7e5be1e47
+执行日期：20160328165637
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150293258038&buyer_email=15938605039&gmt_create=2016-03-28 16:56:17&notify_type=trade_status_sync&quantity=1&out_trade_no=15&seller_id=2088121869660227&notify_time=2016-03-28 16:56:38&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 16:56:38&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=ac2e917208f16a3f6f44f958d224b8ah5q&use_coupon=N&sign_type=MD5&sign=0b820beb0866838414b56da837588c4f
+执行日期：20160328165649
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymh14Lk6%2Fz0LX4Gbu8EmsJmPO11FzMgz8lpUJ9lZm00P6Sg&notify_time=2016-03-28 16:56:47&notify_type=trade_status_sync&out_trade_no=15&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004150293258038&trade_status=TRADE_SUCCESS&sign=9044bb01a465859b8f3f6ad07c41a767&sign_type=MD5
+执行日期：20160328170024
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150293258038&buyer_email=15938605039&gmt_create=2016-03-28 16:56:17&notify_type=trade_status_sync&quantity=1&out_trade_no=15&seller_id=2088121869660227&notify_time=2016-03-28 17:00:25&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 16:56:38&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=ac2e917208f16a3f6f44f958d224b8ah5q&use_coupon=N&sign_type=MD5&sign=58161e5539c61d051ee386b77035cfb2
+执行日期：20160328170637
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150292241969&buyer_email=15938605039&gmt_create=2016-03-28 16:40:48&notify_type=trade_status_sync&quantity=1&out_trade_no=14&seller_id=2088121869660227&notify_time=2016-03-28 17:06:38&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 16:41:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=647c65af0967ee7f6b3bba0734795c4h5q&use_coupon=N&sign_type=MD5&sign=f6431c796be04979550b839e72a1b613
+执行日期：20160328170812
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150293388430&buyer_email=15938605039&gmt_create=2016-03-28 17:07:34&notify_type=trade_status_sync&quantity=1&out_trade_no=16&seller_id=2088121869660227&notify_time=2016-03-28 17:08:13&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 17:08:13&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=dec9227cc2b83215b49976f5807410dh5q&use_coupon=N&sign_type=MD5&sign=62453795cf7937214b89e9057ca9fd9d
+执行日期：20160328170824
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHymh1B7mbIJeEq6ZXvvrcpto9jvbg79ry3AQWlgHTPcQ2luT&notify_time=2016-03-28 17:08:22&notify_type=trade_status_sync&out_trade_no=16&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016032821001004150293388430&trade_status=TRADE_SUCCESS&sign=8954e033ab8ce55954c4cc82eceb9308&sign_type=MD5
+执行日期：20160328171024
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150293258038&buyer_email=15938605039&gmt_create=2016-03-28 16:56:17&notify_type=trade_status_sync&quantity=1&out_trade_no=15&seller_id=2088121869660227&notify_time=2016-03-28 17:10:26&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 16:56:38&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=ac2e917208f16a3f6f44f958d224b8ah5q&use_coupon=N&sign_type=MD5&sign=72b9dea0106c935c20c2c91b800e784b
+执行日期：20160328182519
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016032821001004150292163383&buyer_email=15938605039&gmt_create=2016-03-28 14:58:44&notify_type=trade_status_sync&quantity=1&out_trade_no=12&seller_id=2088121869660227&notify_time=2016-03-28 18:25:20&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-28 15:01:20&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=98e8321354ec7970774c8578973a89ah5q&use_coupon=N&sign_type=MD5&sign=40766b7de3c7ea0229560b9d3fa01705
+执行日期：20160330145049
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016033021001004150299780693&buyer_email=15938605039&gmt_create=2016-03-30 14:50:13&notify_type=trade_status_sync&quantity=1&out_trade_no=17&seller_id=2088121869660227&notify_time=2016-03-30 14:50:50&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-30 14:50:50&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=9a64327d7dfe1253e62e79b29a653a5h5q&use_coupon=N&sign_type=MD5&sign=57ae5ae837660023c0ee596cdbe0e4ae
+执行日期：20160330145102
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytEIBh1s3IPDmuR%2Bqatm%2F2frk%2BNl41zSFQYNIKNy5aeDv%2BC&notify_time=2016-03-30 14:51:00&notify_type=trade_status_sync&out_trade_no=17&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016033021001004150299780693&trade_status=TRADE_SUCCESS&sign=e4b1fe4036dfecb312aa41a6b0f3b587&sign_type=MD5
+执行日期：20160330165554
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016033021001004150299455516&buyer_email=15938605039&gmt_create=2016-03-30 16:55:36&notify_type=trade_status_sync&quantity=1&out_trade_no=1&seller_id=2088121869660227&notify_time=2016-03-30 16:55:56&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-30 16:55:55&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=5dee2d71ab8db2c606dc97ffcf5b330h5q&use_coupon=N&sign_type=MD5&sign=f79f06cce5ab92eb97c9d9e8b3003655
+执行日期：20160330165554
+TRADE_SUCCESS系统错误
+执行日期：20160330165605
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytEKE%2FYn4YayjxNnBMdTzN7ZDvEfgV0y46k5KQaVzMcBP7d&notify_time=2016-03-30 16:56:02&notify_type=trade_status_sync&out_trade_no=1&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016033021001004150299455516&trade_status=TRADE_SUCCESS&sign=9e9492407d64d0b6d72a2bd97e7fbde3&sign_type=MD5
+执行日期：20160330180651
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016033021001004150299945986&buyer_email=15938605039&gmt_create=2016-03-30 18:06:10&notify_type=trade_status_sync&quantity=1&out_trade_no=3&seller_id=2088121869660227&notify_time=2016-03-30 18:06:53&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-03-30 18:06:52&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=2a62d62cb60973bd2c2cf853ce68647h5q&use_coupon=N&sign_type=MD5&sign=7d99b9c1c5da12aa2a854c13856aba78
+执行日期：20160330180702
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFOUYDb2b7vRvEgGmKbJo5grV8Y4QR%2BSex%2BIRf0M%2F%2Fpdjc&notify_time=2016-03-30 18:07:00&notify_type=trade_status_sync&out_trade_no=3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004150299945986&trade_status=TRADE_SUCCESS&sign=e1116cccd46a26c86d78c843e9f08b98&sign_type=MD5
+执行日期：20160330184023
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFOUYDb2b7vRvEgGmKbJo5grV8Y4QR%2BSex%2BIRf0M%2F%2Fpdjc&notify_time=2016-03-30 18:07:00&notify_type=trade_status_sync&out_trade_no=3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004150299945986&trade_status=TRADE_SUCCESS&sign=e1116cccd46a26c86d78c843e9f08b98&sign_type=MD5
+执行日期：20160330190619
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016033021001004150208912700&buyer_email=15938605039&gmt_create=2016-03-30 19:06:02&notify_type=trade_status_sync&quantity=1&out_trade_no=2&seller_id=2088121869660227&notify_time=2016-03-30 19:06:20&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-03-30 19:06:20&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=087bc26764e17eb280b98a1a7a0d443h5q&use_coupon=N&sign_type=MD5&sign=07766b2824da8ae6a23cf38eb270e3d3
+执行日期：20160330190631
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPtktWfqjUc7RkCHa%2B2RsQe02ZrUgok1%2Fq9YvaGkmex0F&notify_time=2016-03-30 19:06:29&notify_type=trade_status_sync&out_trade_no=2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004150208912700&trade_status=TRADE_SUCCESS&sign=54d0fdab1c3e479abeede5033416d74f&sign_type=MD5
+执行日期：20160330190952
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPtktWfqjUc7RkCHa%2B2RsQe02ZrUgok1%2Fq9YvaGkmex0F&notify_time=2016-03-30 19:06:29&notify_type=trade_status_sync&out_trade_no=2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004150208912700&trade_status=TRADE_SUCCESS&sign=54d0fdab1c3e479abeede5033416d74f&sign_type=MD5
+执行日期：20160330192936
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016033021001004810217081385&buyer_email=121616591@qq.com&gmt_create=2016-03-30 19:29:18&notify_type=trade_status_sync&quantity=1&out_trade_no=92&seller_id=2088121869660227&notify_time=2016-03-30 19:29:37&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-03-30 19:29:37&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088002310660811&notify_id=6240cd8dce6ddb4b5c86955014f8dd8m92&use_coupon=N&sign_type=MD5&sign=b3a8ca05c21f142e653be103d89f580f
+执行日期：20160330192948
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPIpw9TAVg5%2BbrghsfBtOZGXMPwoE6amsYPWoTDMhV0Cb&notify_time=2016-03-30 19:29:46&notify_type=trade_status_sync&out_trade_no=92&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004810217081385&trade_status=TRADE_SUCCESS&sign=ed43477c47579b4c4b1fc92f6559d8c1&sign_type=MD5
+执行日期：20160330193000
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPIpw9TAVg5%2BbrghsfBtOZGXMPwoE6amsYPWoTDMhV0Cb&notify_time=2016-03-30 19:29:46&notify_type=trade_status_sync&out_trade_no=92&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004810217081385&trade_status=TRADE_SUCCESS&sign=ed43477c47579b4c4b1fc92f6559d8c1&sign_type=MD5
+执行日期：20160330193000
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPIpw9TAVg5%2BbrghsfBtOZGXMPwoE6amsYPWoTDMhV0Cb&notify_time=2016-03-30 19:29:46&notify_type=trade_status_sync&out_trade_no=92&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004810217081385&trade_status=TRADE_SUCCESS&sign=ed43477c47579b4c4b1fc92f6559d8c1&sign_type=MD5
+执行日期：20160330193001
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPIpw9TAVg5%2BbrghsfBtOZGXMPwoE6amsYPWoTDMhV0Cb&notify_time=2016-03-30 19:29:46&notify_type=trade_status_sync&out_trade_no=92&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004810217081385&trade_status=TRADE_SUCCESS&sign=ed43477c47579b4c4b1fc92f6559d8c1&sign_type=MD5
+执行日期：20160330193001
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPIpw9TAVg5%2BbrghsfBtOZGXMPwoE6amsYPWoTDMhV0Cb&notify_time=2016-03-30 19:29:46&notify_type=trade_status_sync&out_trade_no=92&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004810217081385&trade_status=TRADE_SUCCESS&sign=ed43477c47579b4c4b1fc92f6559d8c1&sign_type=MD5
+执行日期：20160330193001
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPIpw9TAVg5%2BbrghsfBtOZGXMPwoE6amsYPWoTDMhV0Cb&notify_time=2016-03-30 19:29:46&notify_type=trade_status_sync&out_trade_no=92&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004810217081385&trade_status=TRADE_SUCCESS&sign=ed43477c47579b4c4b1fc92f6559d8c1&sign_type=MD5
+执行日期：20160330193001
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFPIpw9TAVg5%2BbrghsfBtOZGXMPwoE6amsYPWoTDMhV0Cb&notify_time=2016-03-30 19:29:46&notify_type=trade_status_sync&out_trade_no=92&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004810217081385&trade_status=TRADE_SUCCESS&sign=ed43477c47579b4c4b1fc92f6559d8c1&sign_type=MD5
+执行日期：20160330193713
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016033021001004150208131470&buyer_email=15938605039&gmt_create=2016-03-30 19:36:45&notify_type=trade_status_sync&quantity=1&out_trade_no=4&seller_id=2088121869660227&notify_time=2016-03-30 19:37:14&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-03-30 19:37:14&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=12da06ccbd66f81759b87fdf3a4181dh5q&use_coupon=N&sign_type=MD5&sign=b14727a3488ff7f103dd09f3faed94b3
+执行日期：20160330194810
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016033021001004150205416920&buyer_email=15938605039&gmt_create=2016-03-30 19:47:52&notify_type=trade_status_sync&quantity=1&out_trade_no=5&seller_id=2088121869660227&notify_time=2016-03-30 19:48:12&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-03-30 19:48:12&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=7496641f52bdca9cc4f5899164349abh5q&use_coupon=N&sign_type=MD5&sign=5e4235a1623b89978b531ce5898c15df
+执行日期：20160330194821
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHytFM0rbS8KTIDCHnAyYkdkv%2Fd%2BPl87IaD05dM9Ly%2BOpcudR&notify_time=2016-03-30 19:48:19&notify_type=trade_status_sync&out_trade_no=5&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016033021001004150205416920&trade_status=TRADE_SUCCESS&sign=46700ce949d8f409be726e8d48fd2e4f&sign_type=MD5
+执行日期：20160331161911
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=7&payment_type=1&subject=上品上生订单支付&trade_no=2016033121001004150207488641&buyer_email=15938605039&gmt_create=2016-03-31 16:18:40&notify_type=trade_status_sync&quantity=1&out_trade_no=6&seller_id=2088121869660227&notify_time=2016-03-31 16:19:12&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-03-31 16:19:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=35002b7076377da25f790270eb4fd4ch5q&use_coupon=N&sign_type=MD5&sign=e24213c8b9f217c8c2bb69f20025ed94
+执行日期：20160331161922
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=7&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyw5EPJ%2BVhxaCoXYx6eGsL2MGAZPHp6JCGivxOMrYKzpx2Fh&notify_time=2016-03-31 16:19:20&notify_type=trade_status_sync&out_trade_no=6&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016033121001004150207488641&trade_status=TRADE_SUCCESS&sign=acf8888a2cd23696c0229afc5d520f6e&sign_type=MD5
+执行日期：20160401101451
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040121001004810224721287&buyer_email=121616591@qq.com&gmt_create=2016-04-01 10:14:47&notify_type=trade_status_sync&quantity=1&out_trade_no=93&seller_id=2088121869660227&notify_time=2016-04-01 10:14:53&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-01 10:14:52&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=ba5b7ec2a7d9df6ae7b3712648db248m92&use_coupon=N&sign_type=MD5&sign=52c183746325a5a1fb3a05a136f0a4db
+执行日期：20160401101504
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyw%2FyzNnjhkUpDM1AOYRZV2dOta9EUuVySToHAGl7E0jbSTM&notify_time=2016-04-01 10:15:02&notify_type=trade_status_sync&out_trade_no=93&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040121001004810224721287&trade_status=TRADE_SUCCESS&sign=33f2ce0c59d5aa05e206a29cddaed6cc&sign_type=MD5
+执行日期：20160401111025
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040121001004810217187896&buyer_email=121616591@qq.com&gmt_create=2016-04-01 11:10:22&notify_type=trade_status_sync&quantity=1&out_trade_no=94&seller_id=2088121869660227&notify_time=2016-04-01 11:10:26&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-01 11:10:26&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=6ba66120857a94d731d72c952c87c03m92&use_coupon=N&sign_type=MD5&sign=839b6620be64130710fdeeb2a0cd76c6
+执行日期：20160401111036
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHywwmou5OU8Em5YbHNO7uMH%2F9vxln%2FSOxYz5lCBNM7Jf%2F5k4&notify_time=2016-04-01 11:10:34&notify_type=trade_status_sync&out_trade_no=94&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040121001004810217187896&trade_status=TRADE_SUCCESS&sign=e89bee736f1a0026fa731ebdaabc0ffd&sign_type=MD5
+执行日期：20160405143716
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150221421767&buyer_email=15938605039&gmt_create=2016-04-05 14:36:53&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051435427275&seller_id=2088121869660227&notify_time=2016-04-05 14:37:17&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 14:37:17&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=f7b4af0ef0a55cba258bd78484842adh5q&use_coupon=N&sign_type=MD5&sign=81206074ce3887f74c56c39c2aacd130
+执行日期：20160405143716
+TRADE_SUCCESS订单不存在
+执行日期：20160405143729
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAu5TGhXAKPTCRW2LB4yQdvNbEha1u5YjHIyfxzoOzSuEH9&notify_time=2016-04-05 14:37:27&notify_type=trade_status_sync&out_trade_no=201604051435427275&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004150221421767&trade_status=TRADE_SUCCESS&sign=3fd184262ba3e39f31acaa5a211ee544&sign_type=MD5
+执行日期：20160405143729
+支付失败:订单不存在
+执行日期：20160405144207
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004810238386480&buyer_email=121616591@qq.com&gmt_create=2016-04-05 14:42:04&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051441280476&seller_id=2088121869660227&notify_time=2016-04-05 14:42:09&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 14:42:08&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=81c1e3cc203f768f2bbd3039add56d4m92&use_coupon=N&sign_type=MD5&sign=91424266a0f5b0b0bf16a1ce6b0d2ab0
+执行日期：20160405144207
+TRADE_SUCCESS订单不存在
+执行日期：20160405144223
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAu5TbfTftCzIBtHA2n6uK1Sy3Z5zQtjxMW12u1EBbyvBDj&notify_time=2016-04-05 14:42:20&notify_type=trade_status_sync&out_trade_no=201604051441280476&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004810238386480&trade_status=TRADE_SUCCESS&sign=51bfb12219d8717f538a7038fc8d9b94&sign_type=MD5
+执行日期：20160405144223
+支付失败:订单不存在
+执行日期：20160405144811
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004810237949739&buyer_email=121616591@qq.com&gmt_create=2016-04-05 14:48:05&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051447590214&seller_id=2088121869660227&notify_time=2016-04-05 14:48:12&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 14:48:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=7584b36dc750bbb0fbbba38c34071f3m92&use_coupon=N&sign_type=MD5&sign=f15f040a4747bee3075857ce817f274f
+执行日期：20160405144822
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAu5TpQW3WTMK%2BGLIuV%2FxLA%2BGtUNq84WYTVAkxUGIzdioVd&notify_time=2016-04-05 14:48:20&notify_type=trade_status_sync&out_trade_no=201604051447590214&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004810237949739&trade_status=TRADE_SUCCESS&sign=ad5f2a55efbba60d37fba6a854d37e5d&sign_type=MD5
+执行日期：20160405150633
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004810238386898&buyer_email=121616591@qq.com&gmt_create=2016-04-05 15:06:28&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051506240196&seller_id=2088121869660227&notify_time=2016-04-05 15:06:35&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 15:06:34&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=9089e3c832fe710203af947edb05bc0m92&use_coupon=N&sign_type=MD5&sign=22ab5cbc730cf3368b3a0ec4ea9d71cf
+执行日期：20160405150645
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyApp%2FvBSHDBRqGU%2B5Y58i%2FX%2Fxv%2Bj7vV9vBF6L3TeOru1NUk&notify_time=2016-04-05 15:06:43&notify_type=trade_status_sync&out_trade_no=201604051506240196&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004810238386898&trade_status=TRADE_SUCCESS&sign=d4847c626c1fa34e55b59ee4c965da51&sign_type=MD5
+执行日期：20160405150802
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004810237879379&buyer_email=121616591@qq.com&gmt_create=2016-04-05 15:07:59&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051507536792&seller_id=2088121869660227&notify_time=2016-04-05 15:08:03&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 15:08:03&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=1aff60e83ca407ab1eebaa4c15bb9c0m92&use_coupon=N&sign_type=MD5&sign=7f1d5df60230a7441dfac94f0b2c1b9a
+执行日期：20160405150812
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyApp%2FvIpC75H44IXTc3iVdb45QKiGoUgmu6%2Fk3Qrna5AUod&notify_time=2016-04-05 15:08:10&notify_type=trade_status_sync&out_trade_no=201604051507536792&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004810237879379&trade_status=TRADE_SUCCESS&sign=65ee79b5aa1cf00083b87c8b51fdc49b&sign_type=MD5
+执行日期：20160405151301
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004810237879464&buyer_email=121616591@qq.com&gmt_create=2016-04-05 15:12:58&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051512527983&seller_id=2088121869660227&notify_time=2016-04-05 15:13:02&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 15:13:02&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=4e2356ddfff623c33953105565dc664m92&use_coupon=N&sign_type=MD5&sign=9a9d1d79e8461c868cb2d161418585a0
+执行日期：20160405151314
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyApp%2FiO%2FD9uOcy4pPXSjfw7KDTdpALJDz4VlSqp2sB8l3XQ&notify_time=2016-04-05 15:13:12&notify_type=trade_status_sync&out_trade_no=201604051512527983&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004810237879464&trade_status=TRADE_SUCCESS&sign=5698a1d0b92343eb94c48ccda87489e5&sign_type=MD5
+执行日期：20160405151938
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150220720905&buyer_email=15938605039&gmt_create=2016-04-05 15:19:19&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051518565549&seller_id=2088121869660227&notify_time=2016-04-05 15:19:39&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 15:19:39&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=83437a9a7a42451b4a3c93df21e0b39h5q&use_coupon=N&sign_type=MD5&sign=7ef78c3d00dd4101b1a1be987b8947e7
+执行日期：20160405151951
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyApp%2FwnFf9H0VpaGEKNbwsxircSKbkguHfZfvA3UluA%2FOAN&notify_time=2016-04-05 15:19:49&notify_type=trade_status_sync&out_trade_no=201604051518565549&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004150220720905&trade_status=TRADE_SUCCESS&sign=6fcfc51634684a96e04a58c91b4580ad&sign_type=MD5
+执行日期：20160405151951
+支付失败:第一笔已支付,无需再次支付
+执行日期：20160405155953
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219621437&buyer_email=15938605039&gmt_create=2016-04-05 15:58:52&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051558295184&seller_id=2088121869660227&notify_time=2016-04-05 15:59:54&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 15:59:54&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=603dcd1f1982cbc4f67e1c27c378ac3h5q&use_coupon=N&sign_type=MD5&sign=dac7d984fdf36283769d81527d3b2beb
+执行日期：20160405160005
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAppC1iWfQjWIkdu06VAQk4905DiYyEdx7a32v00hpuTgnj&notify_time=2016-04-05 16:00:03&notify_type=trade_status_sync&out_trade_no=201604051558295184&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004150219621437&trade_status=TRADE_SUCCESS&sign=234a33adbdafc4ba15ca3b1f8720f3f5&sign_type=MD5
+执行日期：20160405164811
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219265631&buyer_email=15938605039&gmt_create=2016-04-05 16:47:54&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051647375747&seller_id=2088121869660227&notify_time=2016-04-05 16:48:12&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 16:48:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=3d3ceb16ba13edafc75741c24bab8f9h5q&use_coupon=N&sign_type=MD5&sign=14b24d2cc10c108770ee19c2ffac68d9
+执行日期：20160405164823
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyApoXguO5yOzJ40aVoj2uDW40hgO79b3Tl%2BX2lWnCwXYc1p&notify_time=2016-04-05 16:48:21&notify_type=trade_status_sync&out_trade_no=201604051647375747&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004150219265631&trade_status=TRADE_SUCCESS&sign=b641db24fe3921b19f8217d0b6d2efe4&sign_type=MD5
+执行日期：20160405171342
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219355940&buyer_email=15938605039&gmt_create=2016-04-05 17:13:24&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051647375747f3&seller_id=2088121869660227&notify_time=2016-04-05 17:13:43&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 17:13:43&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=52b47f5eef45be23e309b0c04386681h5q&use_coupon=N&sign_type=MD5&sign=32b7cebc1dbbafd8513752882e4749f7
+执行日期：20160405171342
+TRADE_SUCCESS订单不存在
+执行日期：20160405171355
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyApoPhb7vezFCmsmVeL%2BlKcLl1pClu5zzzHR5ynoKa7Lpk4&notify_time=2016-04-05 17:13:52&notify_type=trade_status_sync&out_trade_no=201604051647375747f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219355940&trade_status=TRADE_SUCCESS&sign=0150cae8c417fe92b78158055ca9b337&sign_type=MD5
+执行日期：20160405171355
+支付失败:订单不存在
+执行日期：20160405173024
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150220802130&buyer_email=15938605039&gmt_create=2016-04-05 17:30:11&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051518565549f3&seller_id=2088121869660227&notify_time=2016-04-05 17:30:25&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 17:30:25&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=a631835b064abfb26f3e083d41c7378h5q&use_coupon=N&sign_type=MD5&sign=5ae0fb901d1df3643fb136c500605fef
+执行日期：20160405173024
+TRADE_SUCCESS订单不存在
+执行日期：20160405174128
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219109960&buyer_email=15938605039&gmt_create=2016-04-05 17:41:16&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051558295184f3&seller_id=2088121869660227&notify_time=2016-04-05 17:41:30&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 17:41:29&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=802ca29bc1f05f8a83e96f6cb4aa577h5q&use_coupon=N&sign_type=MD5&sign=f60bed943aa02a55abfe1176922f0f62
+执行日期：20160405174141
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAprkbsZ2ALuZ3pt7ku%2B708m2o2wlmQSHni8mwEsdh7sZat&notify_time=2016-04-05 17:41:39&notify_type=trade_status_sync&out_trade_no=201604051558295184f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219109960&trade_status=TRADE_SUCCESS&sign=bf58fd46130f8e1a2211cacb7a4566ac&sign_type=MD5
+执行日期：20160405174503
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219109960&buyer_email=15938605039&gmt_create=2016-04-05 17:41:16&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051558295184f3&seller_id=2088121869660227&notify_time=2016-04-05 17:45:04&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 17:41:29&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=802ca29bc1f05f8a83e96f6cb4aa577h5q&use_coupon=N&sign_type=MD5&sign=cf46d2b4b1602451a4065bfdf8ee041f
+执行日期：20160405174528
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAprkbsZ2ALuZ3pt7ku%2B708m2o2wlmQSHni8mwEsdh7sZat&notify_time=2016-04-05 17:41:39&notify_type=trade_status_sync&out_trade_no=201604051558295184f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219109960&trade_status=TRADE_SUCCESS&sign=bf58fd46130f8e1a2211cacb7a4566ac&sign_type=MD5
+执行日期：20160405175419
+responseTxt=false
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAprkbsZ2ALuZ3pt7ku%2B708m2o2wlmQSHni8mwEsdh7sZat&notify_time=2016-04-05 17:41:39&notify_type=trade_status_sync&out_trade_no=201604051558295184f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219109960&trade_status=TRADE_SUCCESS&sign=bf58fd46130f8e1a2211cacb7a4566ac&sign_type=MD5
+执行日期：20160405175547
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219109960&buyer_email=15938605039&gmt_create=2016-04-05 17:41:16&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051558295184f3&seller_id=2088121869660227&notify_time=2016-04-05 17:55:48&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 17:41:29&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=802ca29bc1f05f8a83e96f6cb4aa577h5q&use_coupon=N&sign_type=MD5&sign=2183a6c42049c249afb0e9d966900c79
+执行日期：20160405175630
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150220802673&buyer_email=15938605039&gmt_create=2016-04-05 17:56:13&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051755567614f2&seller_id=2088121869660227&notify_time=2016-04-05 17:56:31&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 17:56:31&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=de379c2dc9986fac183e656862ac4e5h5q&use_coupon=N&sign_type=MD5&sign=302c4faf4b789fb28325f60c6f472415
+执行日期：20160405175630
+TRADE_SUCCESS订单不存在
+执行日期：20160405175640
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAoPUKipWr5tIjOTwCSgsh3L%2BEUcw4kPVGj2LXWZ%2BNvaqBj&notify_time=2016-04-05 17:56:38&notify_type=trade_status_sync&out_trade_no=201604051755567614f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040521001004150220802673&trade_status=TRADE_SUCCESS&sign=3b5fd0c4e1e375423effbadcb3c7b1af&sign_type=MD5
+执行日期：20160405175640
+支付失败:订单不存在
+执行日期：20160405180154
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219110445&buyer_email=15938605039&gmt_create=2016-04-05 18:01:42&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051755567614f3&seller_id=2088121869660227&notify_time=2016-04-05 18:01:56&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:01:55&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=10f5cbce485c553263754a4ec4b9e4eh5q&use_coupon=N&sign_type=MD5&sign=7e9b86913449182df412322542a2d19c
+执行日期：20160405180207
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAoPUbu0mUfxh0QCBAX2KtwwelII3I1FGIJPSdPMNuw5olY&notify_time=2016-04-05 18:02:05&notify_type=trade_status_sync&out_trade_no=201604051755567614f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219110445&trade_status=TRADE_SUCCESS&sign=6af80ebcbf4da10dbb0727b05dd84e86&sign_type=MD5
+执行日期：20160405180532
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219110445&buyer_email=15938605039&gmt_create=2016-04-05 18:01:42&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051755567614f3&seller_id=2088121869660227&notify_time=2016-04-05 18:05:33&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:01:55&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=10f5cbce485c553263754a4ec4b9e4eh5q&use_coupon=N&sign_type=MD5&sign=9029cae22f3baf5f87510b9ab15eca04
+执行日期：20160405180545
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955501&buyer_email=15938605039&gmt_create=2016-04-05 18:05:30&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051804247035f3&seller_id=2088121869660227&notify_time=2016-04-05 18:05:46&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:05:46&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=67d4db638e20b8f6636d9edf1d28a4eh5q&use_coupon=N&sign_type=MD5&sign=200616386fa402a5d5f3ffe0e922617d
+执行日期：20160405180555
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAoPUSC3Dx41ziUluqGfX2wFx5sqhkAB%2Fb29XVy%2FiouxpiF&notify_time=2016-04-05 18:05:53&notify_type=trade_status_sync&out_trade_no=201604051804247035f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219955501&trade_status=TRADE_SUCCESS&sign=d505de54f194471b56e2eacdb0dea5c2&sign_type=MD5
+执行日期：20160405180612
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219109960&buyer_email=15938605039&gmt_create=2016-04-05 17:41:16&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051558295184f3&seller_id=2088121869660227&notify_time=2016-04-05 18:06:13&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 17:41:29&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=802ca29bc1f05f8a83e96f6cb4aa577h5q&use_coupon=N&sign_type=MD5&sign=1ebb4a200cca85c221246b7139ecfa61
+执行日期：20160405180917
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955574&buyer_email=15938605039&gmt_create=2016-04-05 18:08:55&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051808016555f3&seller_id=2088121869660227&notify_time=2016-04-05 18:09:18&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:09:18&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=b0e4cbabce059fe28e7f772aa7c2955h5q&use_coupon=N&sign_type=MD5&sign=4119db2304608843f9673363477bed51
+执行日期：20160405180928
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAoPUr6%2BeJwV5BoRyLw7JR7bXGkQtt8%2BK%2B5nlodLdRu%2FcCc&notify_time=2016-04-05 18:09:26&notify_type=trade_status_sync&out_trade_no=201604051808016555f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219955574&trade_status=TRADE_SUCCESS&sign=ee626ce5b246ed734a96d85e90bd4a0a&sign_type=MD5
+执行日期：20160405180937
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955501&buyer_email=15938605039&gmt_create=2016-04-05 18:05:30&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051804247035f3&seller_id=2088121869660227&notify_time=2016-04-05 18:09:38&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:05:46&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=67d4db638e20b8f6636d9edf1d28a4eh5q&use_coupon=N&sign_type=MD5&sign=fee0daaa0669158231178b590bd0b2c4
+执行日期：20160405181347
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955574&buyer_email=15938605039&gmt_create=2016-04-05 18:08:55&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051808016555f3&seller_id=2088121869660227&notify_time=2016-04-05 18:13:48&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:09:18&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=b0e4cbabce059fe28e7f772aa7c2955h5q&use_coupon=N&sign_type=MD5&sign=83f5270c8d434ea78cf8adf4eacb7406
+执行日期：20160405181520
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219110445&buyer_email=15938605039&gmt_create=2016-04-05 18:01:42&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051755567614f3&seller_id=2088121869660227&notify_time=2016-04-05 18:15:22&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:01:55&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=10f5cbce485c553263754a4ec4b9e4eh5q&use_coupon=N&sign_type=MD5&sign=165aece197ad6f82918f2287944dba66
+执行日期：20160405181859
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955501&buyer_email=15938605039&gmt_create=2016-04-05 18:05:30&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051804247035f3&seller_id=2088121869660227&notify_time=2016-04-05 18:19:01&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:05:46&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=67d4db638e20b8f6636d9edf1d28a4eh5q&use_coupon=N&sign_type=MD5&sign=d2e964e0b1a9bb2422bccd3768cfa3f3
+执行日期：20160405181932
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955776&buyer_email=15938605039&gmt_create=2016-04-05 18:18:22&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051818073833f2&seller_id=2088121869660227&notify_time=2016-04-05 18:19:33&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-05 18:19:33&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=d261514c15842e0dde6ca2676b8ff38h5q&use_coupon=N&sign_type=MD5&sign=e2b60a1c0206eba3cdb49dcb1c0de701
+执行日期：20160405182100
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955831&buyer_email=15938605039&gmt_create=2016-04-05 18:20:43&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051818073833f3&seller_id=2088121869660227&notify_time=2016-04-05 18:21:01&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:21:01&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=822e7fc1b6cb36059a0824051fd832bh5q&use_coupon=N&sign_type=MD5&sign=85efd045495f6ea96e9190a0fa38e66e
+执行日期：20160405182112
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAoPPr64BRPjipSC1IBsp2EvghKm3gaCDcp49o6geyay67M&notify_time=2016-04-05 18:21:10&notify_type=trade_status_sync&out_trade_no=201604051818073833f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219955831&trade_status=TRADE_SUCCESS&sign=b18b7c331491de6c007b62b9b1dfa7f1&sign_type=MD5
+执行日期：20160405182112
+支付失败:订单不存在
+执行日期：20160405182319
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219955574&buyer_email=15938605039&gmt_create=2016-04-05 18:08:55&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051808016555f3&seller_id=2088121869660227&notify_time=2016-04-05 18:23:20&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:09:18&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=b0e4cbabce059fe28e7f772aa7c2955h5q&use_coupon=N&sign_type=MD5&sign=bb069ffca254379c0f9732c2d7cbeec6
+执行日期：20160405182542
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219110445&buyer_email=15938605039&gmt_create=2016-04-05 18:01:42&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051755567614f3&seller_id=2088121869660227&notify_time=2016-04-05 18:25:43&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:01:55&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=10f5cbce485c553263754a4ec4b9e4eh5q&use_coupon=N&sign_type=MD5&sign=1fbfd300990b32308e6c02b99480b95f
+执行日期：20160405182542
+TRADE_SUCCESS订单不存在
+执行日期：20160405184505
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219480165&buyer_email=15938605039&gmt_create=2016-04-05 18:44:33&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051843498355f3&seller_id=2088121869660227&notify_time=2016-04-05 18:45:06&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 18:45:06&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=9c277f5a228c331d55ef41214a93657h5q&use_coupon=N&sign_type=MD5&sign=6b2ae5cda0c3b142c66f898ebaa6cba2
+执行日期：20160405184518
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyAoPha5treTV3DnZnClUjsoHDt3LyWhh6Ijy74t1C8X8eRP&notify_time=2016-04-05 18:45:16&notify_type=trade_status_sync&out_trade_no=201604051843498355f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040521001004150219480165&trade_status=TRADE_SUCCESS&sign=738614ba4385318fb18b51cef4d2108b&sign_type=MD5
+执行日期：20160405184518
+支付失败:订单不存在
+执行日期：20160405190619
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016040521001004150219109960&buyer_email=15938605039&gmt_create=2016-04-05 17:41:16&notify_type=trade_status_sync&quantity=1&out_trade_no=201604051558295184f3&seller_id=2088121869660227&notify_time=2016-04-05 19:06:20&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-05 17:41:29&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088802386083150&notify_id=802ca29bc1f05f8a83e96f6cb4aa577h5q&use_coupon=N&sign_type=MD5&sign=a1b0c3bf64269cf9471fb78304b087f3
+执行日期：20160405190619
+TRADE_SUCCESS订单不2存在
+执行日期：20160406202821
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040621001004810248512807&buyer_email=121616591@qq.com&gmt_create=2016-04-06 20:28:18&notify_type=trade_status_sync&quantity=1&out_trade_no=201604062027275375&seller_id=2088121869660227&notify_time=2016-04-06 20:28:23&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-06 20:28:22&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=ec4170fbde5f8f1e0c0c735d7bdc6b3m92&use_coupon=N&sign_type=MD5&sign=1de718c698388351cf04869599ebb3ad
+执行日期：20160406202832
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InUHyGZG%2BsHsWA%2BQ%2FD5NXJiDoZdmQyIvjaE3vdFloVHZNvSUDGA&notify_time=2016-04-06 20:28:30&notify_type=trade_status_sync&out_trade_no=201604062027275375&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040621001004810248512807&trade_status=TRADE_SUCCESS&sign=62e0d8c8b3b6283f2ccd9c02879b0c8e&sign_type=MD5
+执行日期：20160407152952
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040721001004740221721114&buyer_email=326131795@qq.com&gmt_create=2016-04-07 15:29:00&notify_type=trade_status_sync&quantity=1&out_trade_no=201604071526357987&seller_id=2088121869660227&notify_time=2016-04-07 15:29:55&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-07 15:29:55&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088702906824745&notify_id=3a806da27662b4dd5e1910e4275e969lpm&use_coupon=N&sign_type=MD5&sign=8a8a91abfd0b0b115507c7495da82124
+执行日期：20160407153002
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=326131795@qq.com&buyer_id=2088702906824745&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpgDQtrgx0Rf3%2BGO9xYIVJ84p%2B5DWtr53kl%2BkZ%2Fvye1lJ5q&notify_time=2016-04-07 15:30:02&notify_type=trade_status_sync&out_trade_no=201604071526357987&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040721001004740221721114&trade_status=TRADE_SUCCESS&sign=ed48c76a8d4c9d24889c046db369becb&sign_type=MD5
+执行日期：20160407171343
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040721001004140239267223&buyer_email=13621606723&gmt_create=2016-04-07 17:13:36&notify_type=trade_status_sync&quantity=1&out_trade_no=201604071712387306&seller_id=2088121869660227&notify_time=2016-04-07 17:13:46&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-07 17:13:46&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088702588076146&notify_id=4647bb6d8086436bb4861c9013653bfh2y&use_coupon=N&sign_type=MD5&sign=6e10531124bfa337fdd9f29f88225ebe
+执行日期：20160407171356
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13621606723&buyer_id=2088702588076146&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpjQwNOiCpkf8mAxFlRDCz0RS1ilEnkn%2FiPgZgDOuyznOaZ&notify_time=2016-04-07 17:13:56&notify_type=trade_status_sync&out_trade_no=201604071712387306&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040721001004140239267223&trade_status=TRADE_SUCCESS&sign=a122f70da9b898fcf884757bfb7cbe77&sign_type=MD5
+执行日期：20160407172637
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040721001004140232981104&buyer_email=13621606723&gmt_create=2016-04-07 17:26:31&notify_type=trade_status_sync&quantity=1&out_trade_no=201604071725346994&seller_id=2088121869660227&notify_time=2016-04-07 17:26:41&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-07 17:26:40&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088702588076146&notify_id=438cd7f6a0b77346fac50ca6645c2e3h2y&use_coupon=N&sign_type=MD5&sign=449923b321ffff650b2c698777c8aa38
+执行日期：20160407172647
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13621606723&buyer_id=2088702588076146&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpjQp9x4trBAvZfMLzDvil6YzaxXfyOHJfzYLtsDmARCm9u&notify_time=2016-04-07 17:26:47&notify_type=trade_status_sync&out_trade_no=201604071725346994&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040721001004140232981104&trade_status=TRADE_SUCCESS&sign=18a6a6f66add82206eb6fe77ad0ba0e9&sign_type=MD5
+执行日期：20160407180108
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040721001004140232927055&buyer_email=13621606723&gmt_create=2016-04-07 18:00:20&notify_type=trade_status_sync&quantity=1&out_trade_no=201604071758328886&seller_id=2088121869660227&notify_time=2016-04-07 18:01:11&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-07 18:01:10&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088702588076146&notify_id=c06c6d438a783ffd052330b62f974d0h2y&use_coupon=N&sign_type=MD5&sign=fb448faada5b90ca9a4829ddc71083b5
+执行日期：20160407180120
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13621606723&buyer_id=2088702588076146&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpjQO%2BXbzrsnLs51SOgwQm2P0zkKjKgojzj8o5YK6QAbRiM&notify_time=2016-04-07 18:01:20&notify_type=trade_status_sync&out_trade_no=201604071758328886&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040721001004140232927055&trade_status=TRADE_SUCCESS&sign=60899bab4627c68daf0d5bdcd9b6f945&sign_type=MD5
+执行日期：20160407180428
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040721001004140239512209&buyer_email=13621606723&gmt_create=2016-04-07 18:04:05&notify_type=trade_status_sync&quantity=1&out_trade_no=201604071803437967&seller_id=2088121869660227&notify_time=2016-04-07 18:04:31&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-07 18:04:31&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088702588076146&notify_id=656a87ae7614554222902dfb6ffd24bh2y&use_coupon=N&sign_type=MD5&sign=a6a8fd6f837292a7903b55cd1adaf853
+执行日期：20160407180437
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13621606723&buyer_id=2088702588076146&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpjQOmvn2ebdHyBlFzHs9wolgb1XNF5ee%2BpVmABd7tuT2Cy&notify_time=2016-04-07 18:04:37&notify_type=trade_status_sync&out_trade_no=201604071803437967&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040721001004140239512209&trade_status=TRADE_SUCCESS&sign=cfdf358cfbc5a4a0c243d9dfb235b98c&sign_type=MD5
+执行日期：20160407180837
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040721001004140232805915&buyer_email=13621606723&gmt_create=2016-04-07 18:08:30&notify_type=trade_status_sync&quantity=1&out_trade_no=201604071808183172&seller_id=2088121869660227&notify_time=2016-04-07 18:08:40&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.02&gmt_payment=2016-04-07 18:08:40&seller_email=caiwu@365xgj.com&price=0.02&buyer_id=2088702588076146&notify_id=a5463d7a61a2b82b03f08e918e695bdh2y&use_coupon=N&sign_type=MD5&sign=ce55da85b251b719fe85fcdf900aac13
+执行日期：20160407180850
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13621606723&buyer_id=2088702588076146&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpjQOoTu9aS9A7Pp2LCdqiCd7Pue800XiVzySGk%2FVKAgB5k&notify_time=2016-04-07 18:08:49&notify_type=trade_status_sync&out_trade_no=201604071808183172&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040721001004140232805915&trade_status=TRADE_SUCCESS&sign=f9d5e804fdd66dc26572f803595f4835&sign_type=MD5
+执行日期：20160407180850
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13621606723&buyer_id=2088702588076146&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpjQOoTu9aS9A7Pp2LCdqiCd7Pue800XiVzySGk%2FVKAgB5k&notify_time=2016-04-07 18:08:49&notify_type=trade_status_sync&out_trade_no=201604071808183172&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040721001004140232805915&trade_status=TRADE_SUCCESS&sign=f9d5e804fdd66dc26572f803595f4835&sign_type=MD5
+执行日期：20160407180850
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13621606723&buyer_id=2088702588076146&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTpjQOoTu9aS9A7Pp2LCdqiCd7Pue800XiVzySGk%2FVKAgB5k&notify_time=2016-04-07 18:08:49&notify_type=trade_status_sync&out_trade_no=201604071808183172&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.02&trade_no=2016040721001004140232805915&trade_status=TRADE_SUCCESS&sign=f9d5e804fdd66dc26572f803595f4835&sign_type=MD5
+执行日期：20160408171210
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016040821001004810255447865&buyer_email=121616591@qq.com&gmt_create=2016-04-08 17:12:04&notify_type=trade_status_sync&quantity=1&out_trade_no=201604081711290565&seller_id=2088121869660227&notify_time=2016-04-08 17:12:13&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-08 17:12:12&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002310660811&notify_id=a6eb819f6fdd86669730918dfba7eaem92&use_coupon=N&sign_type=MD5&sign=a794a2927999eb68d893f1b60b5549f2
+执行日期：20160408171223
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=121616591@qq.com&buyer_id=2088002310660811&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTs4zm4x%2B7AWxRmUQYRW43sx4DrSH4BjgzzAJ22nSF6z6Wl8&notify_time=2016-04-08 17:12:22&notify_type=trade_status_sync&out_trade_no=201604081711290565&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040821001004810255447865&trade_status=TRADE_SUCCESS&sign=91c25c4e20aa41f248198d765e5be9b0&sign_type=MD5
+执行日期：20160408200008
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016040821001004150240535822&buyer_email=15938605039&gmt_create=2016-04-08 19:59:13&notify_type=trade_status_sync&quantity=1&out_trade_no=201604081958033145f2&seller_id=2088121869660227&notify_time=2016-04-08 20:00:11&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-08 20:00:11&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=bc4c4615a5231f4c5ca1fd3215e79f3h5q&use_coupon=N&sign_type=MD5&sign=0449f17cc1414a0c48904697484c9e37
+执行日期：20160408200019
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTs5ygjDft00%2FkMKpWVzn3auuxRN8jwAMKvVJYO9UKH1hoKC&notify_time=2016-04-08 20:00:19&notify_type=trade_status_sync&out_trade_no=201604081958033145f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016040821001004150240535822&trade_status=TRADE_SUCCESS&sign=e217d9567ac3a320f1ed6eabdddf19c8&sign_type=MD5
+执行日期：20160412144326
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=7&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004730248280421&buyer_email=15000439529&gmt_create=2016-04-12 14:43:07&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121322559862f7&seller_id=2088121869660227&notify_time=2016-04-12 14:43:29&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 14:43:29&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=42beb06d91487781a33b03040afe982lmu&use_coupon=N&sign_type=MD5&sign=b9aee99bcd813f2029c496f221529238
+执行日期：20160412144326
+TRADE_SUCCESS系统错误
+执行日期：20160412144338
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=7&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST68sDYkPEWPXqX5K%2FdBILmQFn%2BbdPiLcXhtD44agA%2F4KHAi&notify_time=2016-04-12 14:43:38&notify_type=trade_status_sync&out_trade_no=201604121322559862f7&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004730248280421&trade_status=TRADE_SUCCESS&sign=0c9e43ab34064271f860fcf6f62914b1&sign_type=MD5
+执行日期：20160412144338
+支付失败:系统错误
+执行日期：20160412145818
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004730247702568&buyer_email=15000439529&gmt_create=2016-04-12 14:57:59&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121457419109f2&seller_id=2088121869660227&notify_time=2016-04-12 14:58:21&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 14:58:20&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=1e64a5abd13dfc5a05871feb6b97d9clmu&use_coupon=N&sign_type=MD5&sign=4360efbef221ad9087c13e20166e549a
+执行日期：20160412145829
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST68t5ltbr45ngaoWfrx%2F07uoksHfBCK%2Fjz6iPdTlr7Resso&notify_time=2016-04-12 14:58:29&notify_type=trade_status_sync&out_trade_no=201604121457419109f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004730247702568&trade_status=TRADE_SUCCESS&sign=254495608b684bc5821cc93c55eb04cb&sign_type=MD5
+执行日期：20160412150737
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004730247702832&buyer_email=15000439529&gmt_create=2016-04-12 15:07:23&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121505030162f2&seller_id=2088121869660227&notify_time=2016-04-12 15:07:40&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 15:07:40&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=6a9f1e4b13948f58ae9847e26382f77lmu&use_coupon=N&sign_type=MD5&sign=a4ea9a5cd6e4604905fcc0bf3ce885aa
+执行日期：20160412150748
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST68t5IXUXWpmOQFwm%2FFdT0XH60YCJEbzYhySuvzKkgofKP3&notify_time=2016-04-12 15:07:48&notify_type=trade_status_sync&out_trade_no=201604121505030162f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004730247702832&trade_status=TRADE_SUCCESS&sign=2bb8bfae62a6cacb2322e029d9a4d3bd&sign_type=MD5
+执行日期：20160412150807
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST68t5IXUXWpmOQFwm%2FFdT0XH60YCJEbzYhySuvzKkgofKP3&notify_time=2016-04-12 15:07:48&notify_type=trade_status_sync&out_trade_no=201604121505030162f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004730247702832&trade_status=TRADE_SUCCESS&sign=2bb8bfae62a6cacb2322e029d9a4d3bd&sign_type=MD5
+执行日期：20160412153350
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004930211993464&buyer_email=haolisu@163.com&gmt_create=2016-04-12 15:33:49&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121505030162f3&seller_id=2088121869660227&notify_time=2016-04-12 15:33:53&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 15:33:53&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=47b00a9b8f658b24be0c8814344ef27n6e&use_coupon=N&sign_type=MD5&sign=48ff98b2766e27b25ac21ee3cb977087
+执行日期：20160412153400
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST68tcopaKqnzXW%2F8daNy1zqswZO1BEt%2BUxw2%2BA4EZ657Ca4&notify_time=2016-04-12 15:34:00&notify_type=trade_status_sync&out_trade_no=201604121505030162f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004930211993464&trade_status=TRADE_SUCCESS&sign=3b1f75966c5bdcbc0bcb2b3ec06d0c2d&sign_type=MD5
+执行日期：20160412160031
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004730248347383&buyer_email=15000439529&gmt_create=2016-04-12 16:00:20&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121555448019f2&seller_id=2088121869660227&notify_time=2016-04-12 16:00:34&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 16:00:34&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=5c6dc0fe4a315516a21640d6194c2f5lmu&use_coupon=N&sign_type=MD5&sign=f357211c481176f4683cfef748866ef5
+执行日期：20160412160042
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST68ux4t9EyPUCdGKO7RpiQ4K6G79qCuWU4P1pMfeiP44Yg1&notify_time=2016-04-12 16:00:41&notify_type=trade_status_sync&out_trade_no=201604121555448019f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004730248347383&trade_status=TRADE_SUCCESS&sign=fafdde1c93fea0806dffdeb82a4ebfb1&sign_type=MD5
+执行日期：20160412160934
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004730248564848&buyer_email=15000439529&gmt_create=2016-04-12 16:09:11&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121608196992f2&seller_id=2088121869660227&notify_time=2016-04-12 16:09:37&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 16:09:37&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=7a13c478839cb342a037379bee78546lmu&use_coupon=N&sign_type=MD5&sign=2986597fce9923a7f608902b2dca282c
+执行日期：20160412161749
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=5&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004730255930140&buyer_email=15000439529&gmt_create=2016-04-12 16:17:23&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121615422159f5&seller_id=2088121869660227&notify_time=2016-04-12 16:17:52&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 16:17:52&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=6db59bbc73caec67a821db90a8ab0eelmu&use_coupon=N&sign_type=MD5&sign=c03f3fa13b9543aae1dfeafe2ca6e12c
+执行日期：20160412161749
+TRADE_SUCCESS系统错误
+执行日期：20160412161800
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=5&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST68uhymI7UpEkH7elDY3PvTXcoZFH5JTW78YFqlI70Xfris&notify_time=2016-04-12 16:17:59&notify_type=trade_status_sync&out_trade_no=201604121615422159f5&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004730255930140&trade_status=TRADE_SUCCESS&sign=aa60cb64fd3a1343bb71f71541118444&sign_type=MD5
+执行日期：20160412161800
+支付失败:系统错误
+执行日期：20160412165553
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=6&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004730253741834&buyer_email=15000439529&gmt_create=2016-04-12 16:55:32&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121608196992f6&seller_id=2088121869660227&notify_time=2016-04-12 16:55:56&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 16:55:55&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=1aa168c85a171ff9417db45b64d455flmu&use_coupon=N&sign_type=MD5&sign=4e0691bc83ecdbc80a229eeafe2466db
+执行日期：20160412165553
+TRADE_SUCCESS系统错误
+执行日期：20160412165606
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=6&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69i1ETgkcRmyMxzwQGgJbks3wBLBb4raFREEj3Qktt7zPh&notify_time=2016-04-12 16:56:05&notify_type=trade_status_sync&out_trade_no=201604121608196992f6&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004730253741834&trade_status=TRADE_SUCCESS&sign=cfe742474ab0848e32845ba502b59474&sign_type=MD5
+执行日期：20160412165606
+支付失败:系统错误
+执行日期：20160412171458
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004150280735157&buyer_email=15938605039&gmt_create=2016-04-12 17:14:36&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121705235086f2&seller_id=2088121869660227&notify_time=2016-04-12 17:15:01&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 17:15:01&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=c8ce80f624c3aa4be4a782166817f1ch5q&use_coupon=N&sign_type=MD5&sign=3b09651b87ee8e416d803ff7d9bc9a4b
+执行日期：20160412171510
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69iP%2F5n6UMYyG97bSZ8Z742%2F8WCsBvdx7ts1uQeEGjA%2BJ7&notify_time=2016-04-12 17:15:10&notify_type=trade_status_sync&out_trade_no=201604121705235086f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004150280735157&trade_status=TRADE_SUCCESS&sign=f76785d99bf9cd70c4580b6863ebf6a3&sign_type=MD5
+执行日期：20160412171614
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004150279084825&buyer_email=15938605039&gmt_create=2016-04-12 17:15:53&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121705235086f3&seller_id=2088121869660227&notify_time=2016-04-12 17:16:17&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 17:16:16&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=07f1a5d25bed2646d4f1223e4b89cb0h5q&use_coupon=N&sign_type=MD5&sign=310c38bf0c4625c1ab38f6a1402db211
+执行日期：20160412171625
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69iP%2FwHS0QPzmdQj1CywAyYkGTrJrYGJCFlZyltYUmKuFl&notify_time=2016-04-12 17:16:25&notify_type=trade_status_sync&out_trade_no=201604121705235086f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004150279084825&trade_status=TRADE_SUCCESS&sign=55ef33233aaedd51f2732632a902135c&sign_type=MD5
+执行日期：20160412171720
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=4&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004150280651329&buyer_email=15938605039&gmt_create=2016-04-12 17:17:08&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121705235086f4&seller_id=2088121869660227&notify_time=2016-04-12 17:17:23&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 17:17:23&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=cac2013a5c32ddcd6e153ecec2b11b2h5q&use_coupon=N&sign_type=MD5&sign=1876f343db29bf6b7db6093b84a006f9
+执行日期：20160412171720
+TRADE_SUCCESS系统错误
+执行日期：20160412171733
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=4&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69iPzN%2BItV0whV8Bc2MjPT8stIMlfBde421jLWJPOMyJ0k&notify_time=2016-04-12 17:17:33&notify_type=trade_status_sync&out_trade_no=201604121705235086f4&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004150280651329&trade_status=TRADE_SUCCESS&sign=774c49d22bc48ef3911d5bffb2f3f098&sign_type=MD5
+执行日期：20160412171733
+支付失败:系统错误
+执行日期：20160412173315
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=7&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004150271813307&buyer_email=15938605039&gmt_create=2016-04-12 17:33:13&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121731384464f7&seller_id=2088121869660227&notify_time=2016-04-12 17:33:18&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 17:33:18&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=f75bae9e3d4c1012c80728a1a80ef9ch5q&use_coupon=N&sign_type=MD5&sign=7b00b7af514c05a6a74f91009b1f0fb0
+执行日期：20160412173315
+TRADE_SUCCESS系统错误
+执行日期：20160412173330
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=7&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69ibXybqP1G6keClRD5Mf3udeKF5Z3FRgTinw8oxMXuzXt&notify_time=2016-04-12 17:33:30&notify_type=trade_status_sync&out_trade_no=201604121731384464f7&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004150271813307&trade_status=TRADE_SUCCESS&sign=5a88608d9b4d8e7d845d05311e6713b9&sign_type=MD5
+执行日期：20160412173330
+支付失败:系统错误
+执行日期：20160412174602
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004930218036945&buyer_email=haolisu@163.com&gmt_create=2016-04-12 17:46:02&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121608196992f3&seller_id=2088121869660227&notify_time=2016-04-12 17:46:05&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 17:46:05&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=9ae4654244d019ea4d4eba7fb281b39n6e&use_coupon=N&sign_type=MD5&sign=c4f4e8dda9d4525b6e489564b8b34c74
+执行日期：20160412174614
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69jj18nFtpa%2Bn1ga9vxuTWbvqprXUEDRUHl56Yqn70ZtxH&notify_time=2016-04-12 17:46:14&notify_type=trade_status_sync&out_trade_no=201604121608196992f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004930218036945&trade_status=TRADE_SUCCESS&sign=1379918d1d6d725feba99ecafe3566c3&sign_type=MD5
+执行日期：20160412175216
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=4&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004930218855089&buyer_email=haolisu@163.com&gmt_create=2016-04-12 17:52:16&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121608196992f4&seller_id=2088121869660227&notify_time=2016-04-12 17:52:19&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 17:52:19&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=cad8e80364f432ecc08a4c798652fa9n6e&use_coupon=N&sign_type=MD5&sign=d00e8a3c74c47a38ef3ffda395cbc4a1
+执行日期：20160412175216
+TRADE_SUCCESS系统错误
+执行日期：20160412175227
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=4&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69jjkgoou6I3kVCNUNIblIT1CCVkr8ap15GCSYrABgyyp8&notify_time=2016-04-12 17:52:26&notify_type=trade_status_sync&out_trade_no=201604121608196992f4&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004930218855089&trade_status=TRADE_SUCCESS&sign=083f68e965c215673fe88904e10546e8&sign_type=MD5
+执行日期：20160412175227
+支付失败:系统错误
+执行日期：20160412180853
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=7&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004150272293868&buyer_email=15938605039&gmt_create=2016-04-12 18:08:40&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121807589909f7&seller_id=2088121869660227&notify_time=2016-04-12 18:08:56&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 18:08:56&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=ab778c0b208978c9bd63317d254ad95h5q&use_coupon=N&sign_type=MD5&sign=52888ca118e7b89eef192e55de267d81
+执行日期：20160412180906
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=7&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69jzGTbwzWZcmHN9RVZFc0P%2BS093ddi8MbBbfA6XKSr9Mf&notify_time=2016-04-12 18:09:06&notify_type=trade_status_sync&out_trade_no=201604121807589909f7&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004150272293868&trade_status=TRADE_SUCCESS&sign=34c7630992915c91fdaf792776d142a8&sign_type=MD5
+执行日期：20160412181330
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004150271762078&buyer_email=15938605039&gmt_create=2016-04-12 18:13:27&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121813163097f2&seller_id=2088121869660227&notify_time=2016-04-12 18:13:33&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 18:13:32&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=0dcf3bebe5f72db3dd714102063777eh5q&use_coupon=N&sign_type=MD5&sign=e21bad5a7025f09b8031b02837e80970
+执行日期：20160412181340
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69jKf1L5B2ogFpvLbudRKxN%2FrOA4cfJAoS%2BnQ%2BDLWCDZu5&notify_time=2016-04-12 18:13:39&notify_type=trade_status_sync&out_trade_no=201604121813163097f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004150271762078&trade_status=TRADE_SUCCESS&sign=6dd1807e6b4848a0f949b41e04826c9e&sign_type=MD5
+执行日期：20160412181441
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=6&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004150271677059&buyer_email=15938605039&gmt_create=2016-04-12 18:14:37&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121813163097f6&seller_id=2088121869660227&notify_time=2016-04-12 18:14:44&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 18:14:43&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=e4565395080c9a07bfb603aa07a0c86h5q&use_coupon=N&sign_type=MD5&sign=a65e687f68eb54c059789c4824c6e8e8
+执行日期：20160412181451
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=6&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69jKf9onNctdEtLbIrHBylf0q2yxJ0mQL7ZRohw8Y6qA4p&notify_time=2016-04-12 18:14:51&notify_type=trade_status_sync&out_trade_no=201604121813163097f6&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004150271677059&trade_status=TRADE_SUCCESS&sign=c32a7f31302d33d19854cdb6c0fefbc8&sign_type=MD5
+执行日期：20160412182806
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004930218856074&buyer_email=haolisu@163.com&gmt_create=2016-04-12 18:28:07&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121827421498f2&seller_id=2088121869660227&notify_time=2016-04-12 18:28:10&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 18:28:09&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=11c8987dfd677c0fd6cc8dcaaee76e2n6e&use_coupon=N&sign_type=MD5&sign=afb34877231e1bf53333043a51338a8b
+执行日期：20160412182818
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69jK%2B%2BLciuEEq1nYwx8yHAZcIrmXkOi6J9YTWIq1XkdE%2B8&notify_time=2016-04-12 18:28:18&notify_type=trade_status_sync&out_trade_no=201604121827421498f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004930218856074&trade_status=TRADE_SUCCESS&sign=7c7444a4e3be95bd07006f745c6b9288&sign_type=MD5
+执行日期：20160412185359
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004930220270816&buyer_email=haolisu@163.com&gmt_create=2016-04-12 18:54:00&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121827421498f3&seller_id=2088121869660227&notify_time=2016-04-12 18:54:02&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 18:54:02&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=977810ec8e67e55111c60b0438c5e20n6e&use_coupon=N&sign_type=MD5&sign=1f293301e1a3a1c5af2939c99b609e21
+执行日期：20160412185412
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69gjcywg9OwWPESj305%2BLOrcJehUD4YI9S6kP5i%2BwyISn6&notify_time=2016-04-12 18:54:12&notify_type=trade_status_sync&out_trade_no=201604121827421498f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004930220270816&trade_status=TRADE_SUCCESS&sign=d53111f113e5df190770494477afda43&sign_type=MD5
+执行日期：20160412190128
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=4&payment_type=1&subject=上品上生订单支付&trade_no=2016041221001004930222785391&buyer_email=haolisu@163.com&gmt_create=2016-04-12 19:01:28&notify_type=trade_status_sync&quantity=1&out_trade_no=201604121827421498f4&seller_id=2088121869660227&notify_time=2016-04-12 19:01:31&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-12 19:01:31&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=d7224f760b077f58eb8dc50760d99b5n6e&use_coupon=N&sign_type=MD5&sign=ea2a19a6191745e73c8641683d45e3cd
+执行日期：20160412190138
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=4&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST69gjvxE3DbT%2FZEXM3rAXny%2Fy1VNAdlKfLz8r4Vg83LCXZC&notify_time=2016-04-12 19:01:38&notify_type=trade_status_sync&out_trade_no=201604121827421498f4&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041221001004930222785391&trade_status=TRADE_SUCCESS&sign=d1e200f9f07546f61356f05d08bf3409&sign_type=MD5
+执行日期：20160413170938
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016041321001004730256454606&buyer_email=15000439529&gmt_create=2016-04-13 17:09:28&notify_type=trade_status_sync&quantity=1&out_trade_no=201604131708122444&seller_id=2088121869660227&notify_time=2016-04-13 17:09:41&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=1.00&gmt_payment=2016-04-13 17:09:41&seller_email=caiwu@365xgj.com&price=1.00&buyer_id=2088012936447734&notify_id=e14b1fa93649f243182f40cd3f3736blmu&use_coupon=N&sign_type=MD5&sign=cc414160dfb779f174e2bc829b4744e3
+执行日期：20160413170949
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST%2FXqxLJWjERmjNchvrEtRQ73gSCcGAJw4RfUA7JLUlbQ8Jj&notify_time=2016-04-13 17:09:48&notify_type=trade_status_sync&out_trade_no=201604131708122444&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=1.00&trade_no=2016041321001004730256454606&trade_status=TRADE_SUCCESS&sign=67095be104eaef8c24ce023525a26463&sign_type=MD5
+执行日期：20160413171422
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016041321001004730255083587&buyer_email=15000439529&gmt_create=2016-04-13 17:14:15&notify_type=trade_status_sync&quantity=1&out_trade_no=201604131713590155&seller_id=2088121869660227&notify_time=2016-04-13 17:14:25&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-13 17:14:24&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=de87410b23bac7e5c57ac0be91338b1lmu&use_coupon=N&sign_type=MD5&sign=87b514bc6deb159567e5b21c2af3b6cc
+执行日期：20160413171434
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST%2FXqx8XcFKFka9hssLVGiJV%2FGAighPjqb5tHRH3XNL6IWCa&notify_time=2016-04-13 17:14:34&notify_type=trade_status_sync&out_trade_no=201604131713590155&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041321001004730255083587&trade_status=TRADE_SUCCESS&sign=165de7bfdc27073eb99a92edc509e160&sign_type=MD5
+执行日期：20160413171617
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016041321001004730256454716&buyer_email=15000439529&gmt_create=2016-04-13 17:16:11&notify_type=trade_status_sync&quantity=1&out_trade_no=201604131715591672&seller_id=2088121869660227&notify_time=2016-04-13 17:16:20&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-13 17:16:20&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=82a69942ca709e8b30398eda9470962lmu&use_coupon=N&sign_type=MD5&sign=31f96d65ae6d2c878ff342fbf776bbfe
+执行日期：20160413171628
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST%2FXqx4rV0NpYHET2JO0%2BRJQYRj0RBBHhaBQugDZ0oLqhCUX&notify_time=2016-04-13 17:16:28&notify_type=trade_status_sync&out_trade_no=201604131715591672&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041321001004730256454716&trade_status=TRADE_SUCCESS&sign=983a8f80d10e41775944e81be12bd505&sign_type=MD5
+执行日期：20160414093159
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041421001004930218240517&buyer_email=haolisu@163.com&gmt_create=2016-04-14 09:31:59&notify_type=trade_status_sync&quantity=1&out_trade_no=201604140931310997f2&seller_id=2088121869660227&notify_time=2016-04-14 09:32:02&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-14 09:32:02&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=01c4e0d430eac9f212f47306c246bcen6e&use_coupon=N&sign_type=MD5&sign=64f44fbfc77b0fca2879eb8da927abfc
+执行日期：20160414093210
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXST%2FdltKIG0mtekZkBVF%2F5W75R%2BY2irnJZdGao7S%2BM8LXbRzP&notify_time=2016-04-14 09:32:10&notify_type=trade_status_sync&out_trade_no=201604140931310997f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041421001004930218240517&trade_status=TRADE_SUCCESS&sign=c09d32326e46790dde8f3518050c08b2&sign_type=MD5
+执行日期：20160414182232
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041421001004930227425898&buyer_email=haolisu@163.com&gmt_create=2016-04-14 18:22:32&notify_type=trade_status_sync&quantity=1&out_trade_no=201604141822111503f2&seller_id=2088121869660227&notify_time=2016-04-14 18:22:35&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-14 18:22:35&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=37dc1fe7a869fd7cc00e002ce65b9fcn6e&use_coupon=N&sign_type=MD5&sign=0cb050e3b4e0945d102e6c0782caf8a1
+执行日期：20160414182243
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyBKD2gnKbDnacOFthqY2fLH0sNweGIjFwx71o4TiL%2BPO6S&notify_time=2016-04-14 18:22:43&notify_type=trade_status_sync&out_trade_no=201604141822111503f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041421001004930227425898&trade_status=TRADE_SUCCESS&sign=99c547c78b8d5788fc19d35d3a43b0d6&sign_type=MD5
+执行日期：20160414183158
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016041421001004930218895915&buyer_email=haolisu@163.com&gmt_create=2016-04-14 18:31:58&notify_type=trade_status_sync&quantity=1&out_trade_no=201604141822111503f3&seller_id=2088121869660227&notify_time=2016-04-14 18:32:01&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-14 18:32:00&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=686656d7cd09d1bc88148867a015d85n6e&use_coupon=N&sign_type=MD5&sign=7d5dacdad3274800d2b3b55fee513e0c
+执行日期：20160414183211
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyBKDfgvYXEpWizn5UeeWxc%2BvnSkcpPxs0Mxl2DxX8H3k%2B3&notify_time=2016-04-14 18:32:10&notify_type=trade_status_sync&out_trade_no=201604141822111503f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041421001004930218895915&trade_status=TRADE_SUCCESS&sign=8b16a4d7b2e26037acccb30260124162&sign_type=MD5
+执行日期：20160414200107
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041421001004930227325555&buyer_email=haolisu@163.com&gmt_create=2016-04-14 20:01:07&notify_type=trade_status_sync&quantity=1&out_trade_no=201604142000342776f2&seller_id=2088121869660227&notify_time=2016-04-14 20:01:10&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-14 20:01:10&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=d32a11dcae33bec7679b303d3d9ad52n6e&use_coupon=N&sign_type=MD5&sign=45dc633a7c4d0e3cdaee8f4d610e8157
+执行日期：20160414200121
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyAZNXaDT00TALjKz7mPNQTKeWdo%2BUnr9WlPlptQ7uqgtOQ&notify_time=2016-04-14 20:01:20&notify_type=trade_status_sync&out_trade_no=201604142000342776f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041421001004930227325555&trade_status=TRADE_SUCCESS&sign=2dd2b0b3f1c5eb5ca50ab640a5023495&sign_type=MD5
+执行日期：20160414200933
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041421001004930218495843&buyer_email=haolisu@163.com&gmt_create=2016-04-14 20:09:33&notify_type=trade_status_sync&quantity=1&out_trade_no=201604142009201915f2&seller_id=2088121869660227&notify_time=2016-04-14 20:09:36&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-14 20:09:36&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=1535d18331367f528b168ac9af2e57an6e&use_coupon=N&sign_type=MD5&sign=73ac889c514063819c356501177846a5
+执行日期：20160414200943
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyAZNBCaUedHl6sksRbGLDbUU5HSJGhPmQKcQ8C7a6aRIeq&notify_time=2016-04-14 20:09:43&notify_type=trade_status_sync&out_trade_no=201604142009201915f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041421001004930218495843&trade_status=TRADE_SUCCESS&sign=71241f6846b8907d7f67680d7a3f8642&sign_type=MD5
+执行日期：20160414201857
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016041421001004930218898441&buyer_email=haolisu@163.com&gmt_create=2016-04-14 20:18:57&notify_type=trade_status_sync&quantity=1&out_trade_no=201604142009201915f3&seller_id=2088121869660227&notify_time=2016-04-14 20:19:00&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-14 20:18:59&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=3b25c211e41e9a2386eb55ce49f8647n6e&use_coupon=N&sign_type=MD5&sign=7274626c2ca260efca85e8712be35703
+执行日期：20160414201908
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyAZ95wrbjpVwywjwXahMIfWY8136sYeOB6tyVZyVMjypRD&notify_time=2016-04-14 20:19:08&notify_type=trade_status_sync&out_trade_no=201604142009201915f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041421001004930218898441&trade_status=TRADE_SUCCESS&sign=45784790743bc0d3ae4c9a34ad92600f&sign_type=MD5
+执行日期：20160414202404
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=4&payment_type=1&subject=上品上生订单支付&trade_no=2016041421001004930227258291&buyer_email=haolisu@163.com&gmt_create=2016-04-14 20:24:04&notify_type=trade_status_sync&quantity=1&out_trade_no=201604142009201915f4&seller_id=2088121869660227&notify_time=2016-04-14 20:24:07&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-14 20:24:07&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=d6909920fb4c111af0a6a0d3d5fd9f6n6e&use_coupon=N&sign_type=MD5&sign=6cb83f90614164be1beb54d13e15e5ee
+执行日期：20160414202416
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=4&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyAZ9vWhti4Su2Tjmg45IfLwATWM2KFliczNckMcvJIZaho&notify_time=2016-04-14 20:24:16&notify_type=trade_status_sync&out_trade_no=201604142009201915f4&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041421001004930227258291&trade_status=TRADE_SUCCESS&sign=8d22253e7699736a5153b0fa96d7c637&sign_type=MD5
+执行日期：20160415000848
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041521001004530287143093&buyer_email=jeff_yang2015@163.com&gmt_create=2016-04-15 00:08:42&notify_type=trade_status_sync&quantity=1&out_trade_no=201604150007220377f2&seller_id=2088121869660227&notify_time=2016-04-15 00:08:51&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-15 00:08:51&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088202337050536&notify_id=6fba947f81e24fed63a445f86b7e9bak3a&use_coupon=N&sign_type=MD5&sign=0f501c7983f3757e8683e6016cb77ce4
+执行日期：20160415000901
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=jeff_yang2015@163.com&buyer_id=2088202337050536&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyGrWNfRSkprkNpIQjVSU9ScR30cBbax1nPKZX3OgyM1O35&notify_time=2016-04-15 00:09:01&notify_type=trade_status_sync&out_trade_no=201604150007220377f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041521001004530287143093&trade_status=TRADE_SUCCESS&sign=922a6bd4fc506ea511d613501489bb22&sign_type=MD5
+执行日期：20160415084045
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041521001004880225603618&buyer_email=cat9937@citiz.net&gmt_create=2016-04-15 08:40:22&notify_type=trade_status_sync&quantity=1&out_trade_no=201604150838442312f2&seller_id=2088121869660227&notify_time=2016-04-15 08:40:48&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-15 08:40:47&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002143244884&notify_id=0e4decf272a6d901faad32bfa386407msi&use_coupon=N&sign_type=MD5&sign=016f962abba2171a872d17b215f00f42
+执行日期：20160415084055
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=cat9937@citiz.net&buyer_id=2088002143244884&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyLzDx1hLBnkLiJitZFUSXn3Pp595HPPRcVzGN6Lksprbwm&notify_time=2016-04-15 08:40:55&notify_type=trade_status_sync&out_trade_no=201604150838442312f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041521001004880225603618&trade_status=TRADE_SUCCESS&sign=26b0ca6acc77b6b2a9991f3d12afe46d&sign_type=MD5
+执行日期：20160415090448
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016041521001004930227098319&buyer_email=haolisu@163.com&gmt_create=2016-04-15 09:04:45&notify_type=trade_status_sync&quantity=1&out_trade_no=201604150903580547f2&seller_id=2088121869660227&notify_time=2016-04-15 09:04:51&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-15 09:04:50&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=c85400e873276a06dbcb36e9bfb77cdn6e&use_coupon=N&sign_type=MD5&sign=9eb1bfea5ea74402064f4aaf50f62c69
+执行日期：20160415090459
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyLzkrnMDl7%2B6M0ACR85q7%2BH5WbZCXY8%2FvcB0GL8vOUr7Im&notify_time=2016-04-15 09:04:58&notify_type=trade_status_sync&out_trade_no=201604150903580547f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041521001004930227098319&trade_status=TRADE_SUCCESS&sign=7001892f7d6008905dc9178021b99e85&sign_type=MD5
+执行日期：20160415090937
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016041521001004930227436683&buyer_email=haolisu@163.com&gmt_create=2016-04-15 09:09:37&notify_type=trade_status_sync&quantity=1&out_trade_no=201604150903580547f3&seller_id=2088121869660227&notify_time=2016-04-15 09:09:40&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-15 09:09:40&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=3ded1cb29fb2b32fa0d17b07dcf9c3dn6e&use_coupon=N&sign_type=MD5&sign=1dc371d5ca180cd991b76a8a4d62faa7
+执行日期：20160415090950
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyLzk2tBDa5tUpMGAA2VMGzyyQgPg95kPIj8pvhjdfCZpwX&notify_time=2016-04-15 09:09:49&notify_type=trade_status_sync&out_trade_no=201604150903580547f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041521001004930227436683&trade_status=TRADE_SUCCESS&sign=97ef5407e7a1a961cba885e930cbd4b2&sign_type=MD5
+执行日期：20160415091108
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=4&payment_type=1&subject=上品上生订单支付&trade_no=2016041521001004930227398065&buyer_email=haolisu@163.com&gmt_create=2016-04-15 09:11:05&notify_type=trade_status_sync&quantity=1&out_trade_no=201604150903580547f4&seller_id=2088121869660227&notify_time=2016-04-15 09:11:11&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-15 09:11:10&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=5aa3b25cd8c1c2a15cc3844319ad890n6e&use_coupon=N&sign_type=MD5&sign=7f5cdb84dfd93073034bfcf6dafc0aef
+执行日期：20160415091120
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=4&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSTyLzk4Ps0AdM2635cUQWBxvYTE1ZioOt1h5s79ebwctcAQB&notify_time=2016-04-15 09:11:19&notify_type=trade_status_sync&out_trade_no=201604150903580547f4&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016041521001004930227398065&trade_status=TRADE_SUCCESS&sign=0e7a18d9eb4d69723f2104804f179db1&sign_type=MD5
+执行日期：20160426190215
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016042621001004220290097327&buyer_email=mengxiaowei@shanghaifr.net&gmt_create=2016-04-26 19:01:19&notify_type=trade_status_sync&quantity=1&out_trade_no=201604261859536634f2&seller_id=2088121869660227&notify_time=2016-04-26 19:02:18&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-04-26 19:02:18&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088502232755221&notify_id=5e48d5552f0ed76967cca5bf349f5f1hp6&use_coupon=N&sign_type=MD5&sign=d2032c4ddec4a7b947b5cb9561098bd5
+执行日期：20160426190228
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=mengxiaowei@shanghaifr.net&buyer_id=2088502232755221&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXSH5xSYFhGZuV0JKc%2F5RnW4cTluWQ74q6zVv7x0LIolOiJxWF&notify_time=2016-04-26 19:02:27&notify_type=trade_status_sync&out_trade_no=201604261859536634f2&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016042621001004220290097327&trade_status=TRADE_SUCCESS&sign=ee954c50b30f6dd9b35ab12d71a5c44d&sign_type=MD5
+执行日期：20160505133213
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016050521001004150232857043&buyer_email=15938605039&gmt_create=2016-05-05 13:31:29&notify_type=trade_status_sync&quantity=1&out_trade_no=201605051126459466f3&seller_id=2088121869660227&notify_time=2016-05-05 13:32:16&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-05-05 13:32:16&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=2e30d631fc23e2e13322310ffbb9dafh5q&use_coupon=N&sign_type=MD5&sign=d0efe5e77958f102a1c7545b2a9573b3
+执行日期：20160505133224
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXS9r4Psnee%2FebaPx1%2Bi4OW%2BpwsX7bws8iT2O3Fj%2BZpp6PhV1z&notify_time=2016-05-05 13:32:23&notify_type=trade_status_sync&out_trade_no=201605051126459466f3&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016050521001004150232857043&trade_status=TRADE_SUCCESS&sign=c5bbe0618b647a4182376c30731930a8&sign_type=MD5
+执行日期：20160509141645
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=1&payment_type=1&subject=上品上生订单支付&trade_no=2016050921001004150253336084&buyer_email=15938605039&gmt_create=2016-05-09 14:16:25&notify_type=trade_status_sync&quantity=1&out_trade_no=20160509141428090701&seller_id=2088121869660227&notify_time=2016-05-09 14:16:48&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-05-09 14:16:48&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088802386083150&notify_id=682c5f38aad45ac9487278fb4151c7eh5q&use_coupon=N&sign_type=MD5&sign=fca25625bb286c7737f2bfafdfd13493
+执行日期：20160509141657
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15938605039&buyer_id=2088802386083150&exterface=create_direct_pay_by_user&extra_common_param=1&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXS9kBuklcJGT%2BQwHaJnYMIcF2EloEtfpcvH%2FryMOaYuXwW6K7&notify_time=2016-05-09 14:16:57&notify_type=trade_status_sync&out_trade_no=20160509141428090701&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016050921001004150253336084&trade_status=TRADE_SUCCESS&sign=5b911eb970af958a7aab69fe968740bf&sign_type=MD5
+执行日期：20160603090550
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=7&payment_type=1&subject=上品上生订单支付&trade_no=2016060321001004880218780301&buyer_email=13548666365&gmt_create=2016-06-03 09:05:38&notify_type=trade_status_sync&quantity=1&out_trade_no=20160602162704075507&seller_id=2088121869660227&notify_time=2016-06-03 09:05:53&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-03 09:05:53&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088702203619888&notify_id=dc9c70bec5fe393eaac34ab227f0857msi&use_coupon=N&sign_type=MD5&sign=fe90c81dd20107a3e987feaf44d142b0
+执行日期：20160603090602
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13548666365&buyer_id=2088702203619888&exterface=create_direct_pay_by_user&extra_common_param=7&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTUykikiW%2FPhhEKlxVKrGAo%2Ftd0j2YZ5eSMntr7ZBSQNHXzrs&notify_time=2016-06-03 09:06:00&notify_type=trade_status_sync&out_trade_no=20160602162704075507&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060321001004880218780301&trade_status=TRADE_SUCCESS&sign=9e80bee74298e45f48fc8a5969a0c7e1&sign_type=MD5
+执行日期：20160603134630
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016060321001004220267282136&buyer_email=mengxiaowei@shanghaifr.net&gmt_create=2016-06-03 13:46:15&notify_type=trade_status_sync&quantity=1&out_trade_no=20160603134526029802&seller_id=2088121869660227&notify_time=2016-06-03 13:46:33&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-03 13:46:33&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088502232755221&notify_id=7940c29ba3dbecbd4ce07342a1de261hp6&use_coupon=N&sign_type=MD5&sign=b3ae529b6070d31b94f6e3d86ce2c945
+执行日期：20160603134641
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=mengxiaowei@shanghaifr.net&buyer_id=2088502232755221&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTUymX6KtAvVfdnK%2BbdVZd1sehxGFKnJjDRAqNR8kMoiY5BR4&notify_time=2016-06-03 13:46:40&notify_type=trade_status_sync&out_trade_no=20160603134526029802&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060321001004220267282136&trade_status=TRADE_SUCCESS&sign=382927854bda6a50f15a18287305d4a7&sign_type=MD5
+执行日期：20160603144759
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016060321001004220291427428&buyer_email=mengxiaowei@shanghaifr.net&gmt_create=2016-06-03 14:47:56&notify_type=trade_status_sync&quantity=1&out_trade_no=20160603144524464802&seller_id=2088121869660227&notify_time=2016-06-03 14:48:02&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-03 14:48:02&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088502232755221&notify_id=c29b444c6053084bd560f7e8a93e8a9hp6&use_coupon=N&sign_type=MD5&sign=1f5e57da2ff72f37ba611135a352c8ef
+执行日期：20160603144810
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=mengxiaowei@shanghaifr.net&buyer_id=2088502232755221&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTUymW139yRkssnG0411Zf0cvCf3uSLTkDBfsASbv4RQdgsth&notify_time=2016-06-03 14:48:09&notify_type=trade_status_sync&out_trade_no=20160603144524464802&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060321001004220291427428&trade_status=TRADE_SUCCESS&sign=95b369965115ee101195c3d651e6c3b1&sign_type=MD5
+执行日期：20160603151839
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016060321001004220291428085&buyer_email=mengxiaowei@shanghaifr.net&gmt_create=2016-06-03 15:18:36&notify_type=trade_status_sync&quantity=1&out_trade_no=20160603144524464803&seller_id=2088121869660227&notify_time=2016-06-03 15:18:42&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-03 15:18:42&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088502232755221&notify_id=fa42871cab0918fa3ccfbbb540bc7b3hp6&use_coupon=N&sign_type=MD5&sign=7ab6a3d87988c5220b2513cdeb9e876d
+执行日期：20160603151850
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=mengxiaowei@shanghaifr.net&buyer_id=2088502232755221&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTUymVbDZwR0GcB1pFn3%2Fx0A%2B5VbpLjoVe8aATjL49DOhDUwj&notify_time=2016-06-03 15:18:50&notify_type=trade_status_sync&out_trade_no=20160603144524464803&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060321001004220291428085&trade_status=TRADE_SUCCESS&sign=9c0da7d7e1f02c2187da60615c6d76b2&sign_type=MD5
+执行日期：20160603162650
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016060321001004530216043897&buyer_email=jeff_yang2015@163.com&gmt_create=2016-06-03 16:26:38&notify_type=trade_status_sync&quantity=1&out_trade_no=20160603162356343802&seller_id=2088121869660227&notify_time=2016-06-03 16:26:53&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-03 16:26:53&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088202337050536&notify_id=18edbae743f74dc09784194d17f4cd5k3a&use_coupon=N&sign_type=MD5&sign=c2d1af59e362035c1b57d0ed32084eb4
+执行日期：20160603162704
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=jeff_yang2015@163.com&buyer_id=2088202337050536&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTUyhEYh5gLX788Hu7VJ1ChtKyKKBxmcQKJYxKghGmzd944UM&notify_time=2016-06-03 16:27:00&notify_type=trade_status_sync&out_trade_no=20160603162356343802&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060321001004530216043897&trade_status=TRADE_SUCCESS&sign=a94ddd5376335f8df339eb16348e3ab0&sign_type=MD5
+执行日期：20160603163210
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=4&payment_type=1&subject=上品上生订单支付&trade_no=2016060321001004460287396925&buyer_email=13735215403&gmt_create=2016-06-03 16:32:06&notify_type=trade_status_sync&quantity=1&out_trade_no=20160603144524464804&seller_id=2088121869660227&notify_time=2016-06-03 16:32:13&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-03 16:32:13&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088502092327460&notify_id=7b02dfbd145cc78e2ab8d7ee03c9d08jju&use_coupon=N&sign_type=MD5&sign=92e11bcca2be000a7311f37be63e7b54
+执行日期：20160603163221
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13735215403&buyer_id=2088502092327460&exterface=create_direct_pay_by_user&extra_common_param=4&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTUyhEYuXy0mI3Y5zKrwkgSIzYKW%2BabCH7aWyCX4d6F5hOHHH&notify_time=2016-06-03 16:32:21&notify_type=trade_status_sync&out_trade_no=20160603144524464804&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060321001004460287396925&trade_status=TRADE_SUCCESS&sign=af44130443369141711ff8cf600ae2be&sign_type=MD5
+执行日期：20160604100808
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016060421001004930218187504&buyer_email=haolisu@163.com&gmt_create=2016-06-04 10:08:05&notify_type=trade_status_sync&quantity=1&out_trade_no=20160604100733275202&seller_id=2088121869660227&notify_time=2016-06-04 10:08:11&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-04 10:08:11&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=db14ca8b95fa69ead9b8dc4c1d3d367n6e&use_coupon=N&sign_type=MD5&sign=a3752f553a949515826d7ec748ab8ee5
+执行日期：20160604100819
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTIRCkvBgxLYJ0VsgAe8Va%2F7ENpk4%2B1F2WOpZgItjbNkygwYz&notify_time=2016-06-04 10:08:19&notify_type=trade_status_sync&out_trade_no=20160604100733275202&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060421001004930218187504&trade_status=TRADE_SUCCESS&sign=64dc27d66ab8788fb189caed2513cc82&sign_type=MD5
+执行日期：20160604103916
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=3&payment_type=1&subject=上品上生订单支付&trade_no=2016060421001004930238256232&buyer_email=haolisu@163.com&gmt_create=2016-06-04 10:39:10&notify_type=trade_status_sync&quantity=1&out_trade_no=20160604100733275203&seller_id=2088121869660227&notify_time=2016-06-04 10:39:19&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-04 10:39:19&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=3d525f85e38703befd717a750568292n6e&use_coupon=N&sign_type=MD5&sign=0af4ae5caa91df5e8fbd96b24311f50a
+执行日期：20160604103930
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=3&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTIRCk7Ym4pu2d0TSduKINSTs2qk6ovgVv2ILMZvaCKo%2BFdZd&notify_time=2016-06-04 10:39:29&notify_type=trade_status_sync&out_trade_no=20160604100733275203&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060421001004930238256232&trade_status=TRADE_SUCCESS&sign=a3d536a73c4c0d291d6ccbe609955a7c&sign_type=MD5
+执行日期：20160604112047
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=4&payment_type=1&subject=上品上生订单支付&trade_no=2016060421001004930239114836&buyer_email=haolisu@163.com&gmt_create=2016-06-04 11:20:44&notify_type=trade_status_sync&quantity=1&out_trade_no=20160604100733275204&seller_id=2088121869660227&notify_time=2016-06-04 11:20:50&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-04 11:20:50&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002510223933&notify_id=23fd3c45e3fabbb7d1f7aa13ec3e8e9n6e&use_coupon=N&sign_type=MD5&sign=23a1cba279e41824a293d52e595d93e9
+执行日期：20160604112101
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=haolisu@163.com&buyer_id=2088002510223933&exterface=create_direct_pay_by_user&extra_common_param=4&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTIRD0jHe3jLtmu%2Bv4cMRfYtPTH%2FJ4CYmVnGZ9OybHMbn6SGs&notify_time=2016-06-04 11:21:01&notify_type=trade_status_sync&out_trade_no=20160604100733275204&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060421001004930239114836&trade_status=TRADE_SUCCESS&sign=8beeb81718678e677a27c560309215b1&sign_type=MD5
+执行日期：20160604112247
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=7&payment_type=1&subject=上品上生订单支付&trade_no=2016060421001004460204537666&buyer_email=13735215403&gmt_create=2016-06-04 11:22:35&notify_type=trade_status_sync&quantity=1&out_trade_no=20160604103125412807&seller_id=2088121869660227&notify_time=2016-06-04 11:22:50&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-04 11:22:49&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088502092327460&notify_id=7fbb7883c390e1e069581d3a529d7b8jju&use_coupon=N&sign_type=MD5&sign=593a48849ff3344073dd43b3132e8fda
+执行日期：20160604112259
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13735215403&buyer_id=2088502092327460&exterface=create_direct_pay_by_user&extra_common_param=7&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTIRD0jAVfNyXpjIrkjXiFSkkBwBaZGYw4cu5%2FKQJ1yGyjFv1&notify_time=2016-06-04 11:22:58&notify_type=trade_status_sync&out_trade_no=20160604103125412807&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060421001004460204537666&trade_status=TRADE_SUCCESS&sign=df93a438599dae8c7872031a3589c697&sign_type=MD5
+执行日期：20160604132853
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016060421001004460204132366&buyer_email=13735215403&gmt_create=2016-06-04 13:28:50&notify_type=trade_status_sync&quantity=1&out_trade_no=20160604132824455102&seller_id=2088121869660227&notify_time=2016-06-04 13:28:56&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-04 13:28:56&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088502092327460&notify_id=6232b5738dd093a97ec9b065f5fca68jju&use_coupon=N&sign_type=MD5&sign=fdbb9f6931eafaec6a50391f53a3037b
+执行日期：20160604132905
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=13735215403&buyer_id=2088502092327460&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTIRD2kjDnk3u4jJG8STK6Bn1NqeuId7NhEl%2FyosDsVRYy3cU&notify_time=2016-06-04 13:29:04&notify_type=trade_status_sync&out_trade_no=20160604132824455102&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016060421001004460204132366&trade_status=TRADE_SUCCESS&sign=ee3dcdba250fab9f62498bc09fb4d2a8&sign_type=MD5
+执行日期：20160614215245
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016061421001004340299676601&buyer_email=xbh999@qq.com&gmt_create=2016-06-14 21:52:41&notify_type=trade_status_sync&quantity=1&out_trade_no=20160614215224000502&seller_id=2088121869660227&notify_time=2016-06-14 21:52:46&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-14 21:52:46&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002828116343&notify_id=f0239e059179560b55733aad30f0834imi&use_coupon=N&sign_type=MD5&sign=388c480d7544756e8db4c7e355c7afc6
+执行日期：20160614215256
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=xbh999@qq.com&buyer_id=2088002828116343&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTI0t4xF6RDQzP2IBm6Cqig3Z8ZgqVE57gBCw%2FBnmqQ8kv8TX&notify_time=2016-06-14 21:52:54&notify_type=trade_status_sync&out_trade_no=20160614215224000502&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016061421001004340299676601&trade_status=TRADE_SUCCESS&sign=c8b774e58f8dba3de54ee8297e1c249a&sign_type=MD5
+执行日期：20160621093702
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016062121001004730255581173&buyer_email=15000439529&gmt_create=2016-06-21 09:36:34&notify_type=trade_status_sync&quantity=1&out_trade_no=20160621093518751702&seller_id=2088121869660227&notify_time=2016-06-21 09:37:03&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-21 09:37:03&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088012936447734&notify_id=5dc1fa45b7f668005e0080d007b9911lmu&use_coupon=N&sign_type=MD5&sign=ef4cf7a29a3eb98b284002de14392d7b
+执行日期：20160621093712
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=15000439529&buyer_id=2088012936447734&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXT8wwo0VyTYYiNW9K%2BlfeyQzqQYhLUdBwIxsGkk5gyKoDLA6u&notify_time=2016-06-21 09:37:11&notify_type=trade_status_sync&out_trade_no=20160621093518751702&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016062121001004730255581173&trade_status=TRADE_SUCCESS&sign=8c51058be6afdfdda2dd19d3a82b5e0a&sign_type=MD5
+执行日期：20160626222656
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016062621001004340266579547&buyer_email=xbh999@qq.com&gmt_create=2016-06-26 22:26:53&notify_type=trade_status_sync&quantity=1&out_trade_no=20160626222635834402&seller_id=2088121869660227&notify_time=2016-06-26 22:26:57&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=0.01&gmt_payment=2016-06-26 22:26:57&seller_email=caiwu@365xgj.com&price=0.01&buyer_id=2088002828116343&notify_id=91879461a3b2d2778221762ab60f281imi&use_coupon=N&sign_type=MD5&sign=8f18406ecdb28a8e58f0294d2cf6473d
+执行日期：20160626222708
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=xbh999@qq.com&buyer_id=2088002828116343&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXT8FSmFqR2kW5b4OWRRKqYGhoSi8ttYO8764QQ6md6ydFYur%2F&notify_time=2016-06-26 22:27:05&notify_type=trade_status_sync&out_trade_no=20160626222635834402&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=0.01&trade_no=2016062621001004340266579547&trade_status=TRADE_SUCCESS&sign=31b3e3f5e79103df4d977f0d23871efb&sign_type=MD5
+执行日期：20160704185209
+responseTxt=true
+ notify_url_log:isSign=true,discount=0.00&extra_common_param=2&payment_type=1&subject=上品上生订单支付&trade_no=2016070421001004060235251777&buyer_email=pukailiang@sohu.com&gmt_create=2016-07-04 18:51:57&notify_type=trade_status_sync&quantity=1&out_trade_no=20160704184751016502&seller_id=2088121869660227&notify_time=2016-07-04 18:52:11&body=订单描述&trade_status=TRADE_SUCCESS&is_total_fee_adjust=N&total_fee=500.00&gmt_payment=2016-07-04 18:52:11&seller_email=caiwu@365xgj.com&price=500.00&buyer_id=2088002423830068&notify_id=a5c70f10b434884cc319c5bfe8c9681ggq&use_coupon=N&sign_type=MD5&sign=e1ceffde3a070f4f3354ae57c52e2d87
+执行日期：20160704185209
+TRADE_SUCCESS系统错误
+执行日期：20160704185220
+responseTxt=true
+ return_url_log:isSign=true,body=订单描述&buyer_email=pukailiang@sohu.com&buyer_id=2088002423830068&exterface=create_direct_pay_by_user&extra_common_param=2&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3InXTowQ8kzsbiwuSEH8cS6Oik1VGYZBig1nn%2BrvxW3YKrNVmKCR&notify_time=2016-07-04 18:52:19&notify_type=trade_status_sync&out_trade_no=20160704184751016502&payment_type=1&seller_email=caiwu@365xgj.com&seller_id=2088121869660227&subject=上品上生订单支付&total_fee=500.00&trade_no=2016070421001004060235251777&trade_status=TRADE_SUCCESS&sign=a8cc4e1afb684a059ff1994c7a1d88c0&sign_type=MD5
+执行日期：20160704185220
+支付失败:系统错误

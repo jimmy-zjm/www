@@ -1,0 +1,191 @@
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/imgupload.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/swiper-3.4.2.min.css">
+
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>订单详情</header>
+	<section class="container">
+		<div class="workorder-list">
+			<!--  -->
+			<p class="sys-item">
+				<span class="item-name">订单编号</span>
+				<span class="ell"><{$data.sale_sn}></span>
+			</p>
+			<?php if (!empty($info['real_name'])): ?>
+				<p class="sys-item">
+					<span class="item-name">施工人员</span>
+					<span class="ell"><{$info['real_name']}>&nbsp;&nbsp;&nbsp;<{$info['tel']}></span>
+				</p>
+			<?php endif ?>
+			<p class="sys-item">
+				<span class="item-name">客户信息</span>
+				<span class="ell"><{$data.c_name}>&nbsp;&nbsp;&nbsp;<{$data.tel}></span>
+			</p>
+			<p class="sys-item sys-auto">
+				<span class="item-name">房屋地址</span>
+				<span class="cline"><{$data['province']}><{$data['city']}><{$data['district']}><{$data['address']}></span>
+			</p>
+			<div class="sys-item sys-auto">
+				<span class="item-name">选购系统</span>
+				<?php foreach ($quoteinfo as $v): ?>
+					<p class="ell redfont"><{$v['name']}></p>
+				<?php endforeach ?>
+			</div>
+			<!--  -->
+		</div>
+		<div class="aftersale-queDes">
+			<p class="last-row">问题描述</p>
+			<div class="queDes-box"><{$data.content}></div>
+			<p class="sys-item">图片描述</p>
+			<div class="imgDes-box">
+				<div class="imgDes-list">
+					<?php if (!empty($images[0])): ?>
+						<?php foreach ($images as $v): ?>
+							<img class="img-canclick" src="__PUBLIC__/Uploads/<{$v}>" alt="">
+						<?php endforeach ?>
+					<?php endif ?>
+				</div>
+			</div>
+		</div>
+
+		<div class="aftersale-feedback">
+			<p class="sys-item">预约日期
+				<span class="fr"><?=date('Y-m-d',$data['yy_time'])?></span>
+			</p>
+			<?php if (!empty($permission) && $data['uid'] == 0): ?>
+				<p class="last-row redbtn-box clearfix">
+					人员分配<a href="<{:U('assigns',array('id'=>$data['id']))}>">分配</a>
+				</p>
+			<?php endif ?>
+
+			<?php if ($data['uid'] > 0): ?>
+				<form id='form1' action="<{:U('getsub')}>" method="post" enctype="multipart/form-data" >
+					<p class="sys-item">上门日期
+						<input class="info-input fr" id="birthday" type="text" name="go_time" placeholder="请选择日期" value="<?=empty($data['go_time'])?'':date('Y-m-d',$data['go_time'])?>">
+					</p>
+					<p class="last-row">施工反馈
+						<span class="wordnum-tishi fr" id="tishi01" ></span>
+					</p>
+					<textarea id="neirong01" name="feedback" onkeyup="statWordNum('neirong01','tishi01',140)"><?=$data['feedback']?></textarea>
+					<p class="last-row">备注信息 
+						<span class="wordnum-tishi fr" id="tishi02"></span>
+					</p>
+					<textarea id="neirong02" name='message' onkeyup="statWordNum('neirong02','tishi02',140)"><?=$data['message']?></textarea>
+					<p class="sys-item">上传照片</p>
+					<div class="z_photo">
+						<div class="z_file">
+							<input type="file" name="file[]" id="file" value="" accept="image/*;capture=camera" multiple onchange="imgChange('z_photo','z_file');" />
+							
+						</div>
+						<?php if(!empty($files[0]) ){?>
+						<?php foreach ($files as $v): ?>
+							<div class="z_addImg col-xs-6 col-md-4 col-md-3">
+								<img src="__PUBLIC__/Uploads/<{$v}>" alt="">
+							</div>
+						<?php endforeach ?>
+						<?php } ?>
+					</div>
+					<input type='hidden' name='id' value="<{$data.id}>"/>
+					<?php if ($data['status']!=3): ?>
+						<input type="submit"  name="" class="my-btm-btn" value='提交'>
+					<?php endif ?>
+				</form>
+			<?php endif ?>
+		</div>
+
+	</section>
+
+	<!-- look img mask -->
+	<div class="lookimg-mask">
+		<span id="mask-close-btn"></span>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+			<?php if (!empty($images[0])): ?>
+						<?php foreach ($images as $v): ?>
+				<div class="swiper-slide">
+					<div class="swiper-zoom-container">
+						<img  src="__PUBLIC__/Uploads/<{$v}>">
+					</div>
+				</div>
+				<?php endforeach ?>
+					<?php endif ?>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-white"></div>
+			<!-- Add Navigation -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+
+	<!--遮罩层-->
+	<div class="z_mask">
+
+		<div class="z_alert">
+			<p>将删除已选的所有图片？<br>你需要重新选择！</p>
+			<p>
+				<span class="z_cancel">取消</span>
+				<span class="z_sure">确定</span>
+			</p>
+		</div>
+	</div>
+
+
+
+
+
+	<script src="__PUBLIC__/Dealer/js/imgupload.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Dealer/js/datePicker.js"></script>
+	<script type="text/javascript" src='__PUBLIC__/Dealer/js/swiper-3.4.2.jquery.min.js'></script>
+	<script type="text/javascript">
+
+       	var imgDesbox=$(".imgDes-box");
+		var len=imgDesbox.find("img").length;
+		imgDesbox.find(".imgDes-list").width(2.4+(len-1)*2.6+"rem").show();
+
+		var swiper = new Swiper('.swiper-container', {
+			loop:true,
+			zoom: true,
+			observer: true,
+			observeParents: true,
+			pagination: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev'
+		});
+
+		$("#mask-close-btn").click(function(){
+			$(".lookimg-mask").hide();
+		});
+		$(".img-canclick").click(function(){
+			$(".lookimg-mask").show();
+			var index=$(".img-canclick").index(this);
+			swiper.slideTo(index+1, 0, false);
+		});
+	</script>
+	<script type="text/javascript" >
+		$("#birthday").focus(function(){
+			document.activeElement.blur();
+		});
+		var today=getToday();
+		function getToday(){
+			var d=new Date();
+			return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+		}
+		var calendar = new datePicker();
+		calendar.init({
+			'trigger': '#birthday', /*按钮选择器，用于触发弹出插件*/
+			'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+			'minDate':today,/*最小日期*/
+			'maxDate':"2100-1-1",/*最大日期*/
+			'onSubmit':function(){/*确认时触发事件*/
+				var theSelectData=calendar.value;
+			},
+			'onClose':function(){/*取消时触发事件*/
+			}
+		});
+	</script>
+	
+	
+	

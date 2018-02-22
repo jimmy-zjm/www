@@ -1,0 +1,95 @@
+<!--include "./tpl/head.tpl"-->
+<link rel="stylesheet" type="text/css" href="css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>公司详情</header>
+	<section class="container">
+		<div class="companyinfo-box">
+			<p class="sys-item">公司名称
+				<span class="fr">上海上品上生网络科技公司</span>
+			</p>
+			<p class="sys-item">所在地区
+				<span class="fr">上海上海市</span>
+			</p>
+			<p class="sys-item sys-auto">
+				<span class="item-name">公司地址</span>
+				<span class="cline">上海市闵行区浦江镇联航路1188号8号楼3层H座</span>
+			</p>
+			<div class="sys-item sys-auto">
+				公司LOGO
+				<img src="">
+			</div>
+			<p class="sys-item">部门分配
+				<span class="fr">设计部门</span>
+			</p>
+			<p class="redbtn-box clearfix">
+				<a href="javascript:;" class="newdep-btn">新增部门</a>
+			</p>
+
+			<p class="sys-item">角色设定
+				<span class="fr">设计人员</span>
+			</p>
+			<p class="redbtn-box clearfix">
+				<a href="javascript:;" class="newrole-btn">新增角色</a>
+			</p>
+			<p class="redbtn-box clearfix topline">
+				<a href="" class="bgred">确认提交</a>
+				<a href="">取消</a>
+			</p>
+		</div>
+
+
+	</section>
+	<div class="mask-comp">
+		<div class="mask-newbox mask-depbox">
+			<p class="sys-title">新增部门</p>
+			<div class="mask-comp-inputbox">
+				<input  type="text" name="" placeholder="请输入部门名称">
+				<a href="">添加</a>
+			</div>
+			<div class="newaddbtn-box">
+				<a href="" class="fl newadd-submit">保存</a>
+				<a href="" class="fr newadd-cancel">取消</a>
+			</div>
+
+		</div>
+		<div class="mask-newbox mask-rolebox">
+			<p class="sys-title">新增角色</p>
+			<div class="mask-comp-inputbox">
+				<input  type="text" name="" placeholder="请输入角色名称">
+				<a href="">添加</a>
+			</div>
+			<div class="newaddbtn-box">
+				<a href="" class="fl newadd-submit">保存</a>
+				<a href="" class="fr newadd-cancel">取消</a>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var $mask=$(".mask-comp");
+		var $maskbox=$(".mask-newbox");
+		var $maskrole=$(".mask-rolebox");
+		var $maskdep=$(".mask-depbox");
+
+
+		$(".newdep-btn").click(function(){
+			$mask.show(0,function(){
+				$maskdep.slideDown('fast');
+			});
+		});
+		$(".newrole-btn").click(function(){
+			$mask.show(0,function(){
+				$maskrole.slideDown('fast');
+			});
+		});
+		
+		$(".newadd-cancel").click(function(){
+			$maskbox.hide();
+			$mask.hide();	
+		})
+	</script>
+
+</body>
+</html>

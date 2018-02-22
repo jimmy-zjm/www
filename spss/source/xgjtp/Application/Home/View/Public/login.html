@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/regsiter.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/style.css"/>
+
+<title>用户登录</title>
+</head>
+
+<body>
+
+<!--header 头-->
+
+<div class="head">
+    <div class="logo"><a href="index.php"><img src="__PUBLIC__/Home/images/denglv_logo.png" /></a> </div>
+    <div class="msg">一家致力于提高家庭生活品质的网站</div>
+</div>
+<!--header 尾--> 
+
+<!--content 头-->
+
+<!--陈华改的代码-->
+<div class="content_head jk">
+        <div class="zhanshi jk_1">
+            <img src="__PUBLIC__/Home/images/denglv_zs.jpg" />
+        </div>
+        
+        <div class="regsiter_r">
+            <div class="regsiter-title">
+                <span class="regsiter-title-01 span01">
+                    暖扬扬会员
+                </span>
+                
+                <span class="regsiter-title-02">
+                    <a href="user.php?register">
+                        立即注册
+                    </a>
+                </span>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="regsiter-table">
+                <form action="<{:U('dologin')}>" method="post">
+                    <div id="tabs-yes">     
+                        <div class="clear"></div>
+                          
+                        <div class="tabs-yes-demo01">
+                            <input type="text" name="userName" x-webkit-speech="" x-webkit-grammar="builtin:translate"  value="请输入手机号码" onFocus="if(value =='请输入手机号码'){value =''}" onBlur="if (value ==''){value='请输入手机号码'}else{checkmobilephone(this)}"/>
+                        </div>
+                        
+                        <div class="tabs-yes-demo02">
+                            <span id="span_mobile_phone"></span>
+                        </div>
+                        
+                        <div class="tabs-yes-demo01">
+                            <span id="password_text01" onclick="this.style.display='none';document.getElementById('password01').style.display='block';document.getElementById('password01').focus().select();" >请输入密码</span>
+        
+                            <input name="passWord" id="password01" x-webkit-speech="" x-webkit-grammar="builtin:translate" type="password" style="display:none;" onblur="if(this.value==''){document.getElementById('password_text01').style.display='block';this.style.display='none'}else{checkpassword(this)};"/>
+                        </div>
+                        
+                        <div class="tabs-yes-demo02">
+                            <span id="span_passWord" ></span>
+                        </div>
+                        
+                        <div class="clear"></div>                       
+                        
+                        
+                        <div class="tabs-yes-demo06">
+                            <div class="tabs-yes-demo06-left">
+                                <input  class="nin" type="checkbox" name="auto_login">
+                            </div>
+                            
+                            <div class="tabs-yes-demo06-right">
+                                <span>
+                                    自动登录
+                                </span>
+                                
+                                <a href="user.php?findpassword">
+                                    忘记密码
+                                </a>
+                            </div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <div class="tabs-yes-demo02">
+                            <span id="checked01"></span>
+                        </div>
+                        <div class="clear"></div>
+                        
+                        <div class="tabs-yes-demo05">
+                            <input class="" type="submit" value="登录"/>
+                        </div>
+                        
+                        <div class="clear29"></div>
+                    </div>
+                </form>
+                  
+                <div class="clear15"></div>
+                
+            </div>
+        
+        </div>
+    </div>
+<!--陈华改的代码end-->
+<!--content 尾-->   
+
+<!--foot 头-->
+<div style='display: none;'class="foot_qj">
+    <div class="footer">
+        <ul>
+            <li class="kai_t"><a href="">购物指南</li>
+            <li><a href="">购物流程</a></li>
+            <li><a href="">会员介绍</a></li>
+            <li><a href="">常见问题</a></li>
+            <li><a href="">联系客服</a></li>
+        </ul>
+    </div>
+    <div class="footer">
+        <ul>
+            <li class="kai_t"><a href="">配送方式</a></li>
+            <li><a href="">国内配送</a></li>
+            <li><a href="">海外配送</a></li>
+            <li><a href="">标准配送</a></li>
+        </ul>
+    </div>
+    <div class="footer">
+        <ul>
+            <li class="kai_t"><a href="">支付方式</a></li>
+            <li><a href="">在线支付</a></li>
+            <li><a href="">分期付款</a></li>
+            <li><a href="">邮局汇款</a></li>
+            <li><a href="">公司转账</a></li>
+        </ul>
+    </div>
+    <div class="footer">
+        <ul>
+            <li class="kai_t"><a href="">售后服务</a></li>
+            <li><a href="">售后政策</a></li>
+            <li><a href="">退款说明</a></li>
+            <li><a href="">返修/退换货</a></li>
+            <li><a href="">取消订单</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--foot  尾-->
+
+</body>
+</html>

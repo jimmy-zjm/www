@@ -1,0 +1,869 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>健康舒适家居房屋信息录入</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet"  type="text/css"  href="css/style.css" /><!-- 通用CSS -->
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<link rel="stylesheet" type="text/css" href="js/themes/default/easyui.css" />
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<link rel="stylesheet"  type="text/css"  href="css/homestyle.css" /><!-- 第二版home页面CSS -->
+<script type="text/javascript" src="js/zhiding.js"></script><!--导航置顶-->
+<script type="text/javascript">
+//Provinces/Citys/Town
+;jQuery(function(){
+	$("#citys").combobox();
+	$("#town").combobox();
+	var provinces="";
+	var citys="";
+	var town="";	
+	$("#provinces").combobox({
+		onSelect:function(record){
+			//console.log(record);      //记住这才是真正的js调试器，其他都是扯淡
+			province=record.text;
+			$("#citys").combobox({
+				valueField : 'text',
+				textField : 'text',
+				mode : 'remote',
+				url:"index.php?aid="+record.value,
+				//data:[{"text":"Eric","value":23}],        //直接赋数据是data,其他如果是连接则是url	
+				onSelect:function(record){
+					//alert("ss");
+					citys=record.text;
+					$("#town").combobox({
+						valueField : 'text',
+						textField : 'text',
+						mode : 'remote',
+						url:"index.php?aid="+record.value,
+						onSelect:function(record){
+							town=record.text;
+						}
+					});
+				}	
+			});			
+		}
+	});
+	//这个是总的提交
+	$("#userInfoSubmit").click(function(){
+		alert("提交成功");
+	
+	});
+});	
+</script>
+
+<script type="text/javascript">
+//插入节点
+;jQuery(function(){
+	//卧室
+	$("#bedRoom").combobox({
+		onSelect:function(record){
+			//alert(record.text);
+			//console.log(record);
+			$("#bedRoomList").children().remove();
+			$("#bedRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>主卧：</span><span><input type='text' value=''  style='width:100px;'/></span></li>");
+			for(var i=1;i<record.value;i++)
+			{
+				$("#bedRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>次卧：</span><span><input type='text' value='10'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//客厅
+	$("#livingRoom").combobox({
+		onSelect:function(record){
+			$("#livingRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+
+
+			{
+				$("#livingRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>客厅：</span><span><input type='text' value=''  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//厨房
+	$("#kitchRoom").combobox({
+		onSelect:function(record){
+			$("#kitchRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#kitchRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>厨房：</span><span><input type='text' value='10'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//浴室
+	$("#washRoom").combobox({
+		onSelect:function(record){
+			$("#washRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#washRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>浴室：</span><span><input type='text' value='8'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//阳台
+	$("#galleryRoom").combobox({
+		onSelect:function(record){
+			$("#galleryRoomList").children().remove();
+			for(var i=0;i<record.value;i++)
+			{
+				$("#galleryRoomList").append("<li style='width:100px; height:60px; float:left; margin-right:10px;'><span style='width:100px; height:30px; line-height:30px; text-align:center; display:block;'>阳台：</span><span><input type='text' value='6'  style='width:100px;'/></span></li>");
+			}	
+		}
+	});
+	//大约计算各厅室
+	$("#totalHouseSize").blur(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#washRoomList input").size());
+		//alert($("#kitchRoomList input").size());
+		//alert($("#livingRoomList input").size());
+		//alert($("#galleryRoomList input").size());
+		var al=$("#bedRoomList input").size()*10+$("#kitchRoomList input").size()*10+$("#washRoomList input").size()*8+$("#galleryRoomList input").size()*6-10;
+		//alert($(this).val());
+		//alert(al);
+		var lef=$(this).val()-al;		
+		if(parseInt((lef/5)*2)>0){$("#bedRoomList input").eq(0).val(parseInt((lef/5)*2));}
+		else{$("#bedRoomList input").eq(0).val(0);}				
+		var k=((lef/5)*3)/($("#bedRoomList input").size());
+		//$("#bedRoomList input").eq(0).val((lef/5)*2);
+		//alert(k);
+		if(k>0){$("#livingRoomList input").val(parseInt(k));}
+		else{$("#livingRoomList input").val(0);}
+			
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);
+		var id='{:$quote_id:}';
+		
+		$.ajax({
+			type:"post",
+			
+			//alert(name);
+			//alert("furnish.php?cate_id={:$cate_id:}&name={:$quote.cat_name:}");
+			url:"furnish.php?cate_id={:$cate_id:}",
+				//	alert("furnish.php?cate_id={:$cate_id:}&name="+name);
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				BedRoom:strBedRoomValue,
+				id:id,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val(),
+				Room:$('#bedRoom').combobox('getValue'),
+				Living:$('#livingRoom').combobox('getValue'),
+				Wash:$('#washRoom').combobox('getValue'),
+				Gallery:$('#galleryRoom').combobox('getValue'),
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});	
+	});
+	$("#sub").click(function(){
+		//alert($("#bedRoomList input").size());
+		//alert($("#bedRoomList input").eq(4).val());
+		//第一组：卧室值
+		var strBedRoomValue="";
+		strBedRoomValue=$("#bedRoomList input").eq(0).val();
+		
+		if($("#bedRoomList input").eq(1).val()!=undefined){
+			strBedRoomValue=strBedRoomValue+","+$("#bedRoomList input").eq(1).val();
+		}
+		
+		for(var i=2;i<$("#bedRoomList input").size();i++)
+		{
+			strBedRoomValue=strBedRoomValue+"."+$("#bedRoomList input").eq(i).val();
+		}
+		//alert(strBedRoomValue);
+		//alert($("#livingRoomList input").size());
+		var strLivingRoomValue="";
+		strLivingRoomValue=$("#livingRoomList input").eq(0).val();		
+		for(var i=1;i<$("#livingRoomList input").size();i++)
+		{
+			strLivingRoomValue=strLivingRoomValue+","+$("#livingRoomList input").eq(i).val();
+		}
+		//alert(strLivingRoomValue);
+		//alert($("#kitchRoomList input").size());
+		var strKitchRoomValue="";
+		strKitchRoomValue=$("#kitchRoomList input").eq(0).val();		
+		for(var i=1;i<$("#kitchRoomList input").size();i++)
+		{
+			strKitchRoomValue=strKitchRoomValue+","+$("#kitchRoomList input").eq(i).val();
+		}
+		//alert(strKitchRoomValue);
+		var strWashRoomValue="";
+		strWashRoomValue=$("#washRoomList input").eq(0).val();		
+		for(var i=1;i<$("#washRoomList input").size();i++)
+		{
+			strWashRoomValue=strWashRoomValue+","+$("#washRoomList input").eq(i).val();
+		}
+		//alert(strWashRoomValue);	
+		var strGalleryRoomValue="";
+		strGalleryRoomValue=$("#galleryRoomList input").eq(0).val();		
+		for(var i=1;i<$("#galleryRoomList input").size();i++)
+		{
+			strGalleryRoomValue=strGalleryRoomValue+","+$("#galleryRoomList input").eq(i).val();
+		}
+		//alert(strGalleryRoomValue);
+		var id='{:$quote_id:}';
+		$.ajax({
+			type:"post",
+			url:"furnish.php?cate_id={:$cate_id:}",
+			data:{
+				HouseArea:$("#totalHouseSize").val(),
+				id:id,
+				BedRoom:strBedRoomValue,
+				LivingRoom:strLivingRoomValue,
+				KitchRoom:strKitchRoomValue,
+				WashRoom:strWashRoomValue,
+				GalleryRoom:strGalleryRoomValue,
+				HouseType:$("input[name=house_type]:checked").val(),
+				Room:$('#bedRoom').combobox('getValue'),
+				Living:$('#livingRoom').combobox('getValue'),
+				Wash:$('#washRoom').combobox('getValue'),
+				Gallery:$('#galleryRoom').combobox('getValue'),
+			},
+			success:function(txt,status,XHR){
+				$("#rollBack").html(txt);
+			}
+		});
+	});
+});
+</script>
+
+</head>
+<body style="background:#ecf0f5;">
+<!-- top顶部 -->
+<div class="index-top-bk">
+    <div class="index-top">        
+        <div class="index-top-02">
+        	<img src="images/61.png" alt=""/>
+        </div>
+        
+        <div class="index-top-03">
+        	<input type="text" id="cityChoice" value="上海"  onFocus="if (value =='上海'){value =''}" onBlur="if (value ==''){value='上海'}">
+        </div>
+        
+        <div class="index-top-09">
+        	热线：4008001027
+        </div>
+        
+        <div class="index-top-08">
+            <a href="#">
+            	我的关注
+            </a>
+        </div>
+        
+        <div class="index-top-07">
+            <a href="#">
+            	我的订单
+            </a>
+        </div>
+        
+        <div class="index-top-06"><!--未登陆状态下，显示此DIV隐藏欢迎DIV-->
+            <a href="#">
+            	注册
+            </a>
+        </div>
+        
+        <div class="index-top-05"><!--未登陆状态下，显示此DIV隐藏欢迎DIV-->
+            <a href="#">
+            	登陆
+            </a>
+        </div>
+        
+        <div class="index-top-11"><!--登陆状态下，显示此DIV隐藏登陆DIV-->
+        	幻想之城
+        </div>
+                
+        <div class="index-top-12"><!--登陆状态下，显示此DIV隐藏登陆DIV-->
+        	欢迎：
+        </div>
+        
+        <div class="index-top-10">
+            <a href="#">
+            	关于我们
+            </a>
+        </div>    
+        
+        <div class="clear"></div>    
+    </div>
+</div>
+<!-- top顶部end -->
+
+<div class="clear"></div>
+
+<!-- head头部 -->
+<div class="index-head">
+	<div class="index-head-bk">
+    	<div class="index-head-01">
+        	<div class="index-head-01-logo">
+            	<img src="images/logo.png"/>
+            </div>
+            
+            <div class="index-head-01-sousuo">
+            	<div class="index-head-01-sousuo-01">
+                	<input type="text" value="海外淘"  onFocus="if (value =='海外淘'){value =''}" onBlur="if (value ==''){value='海外淘'}"/>
+                </div>
+                
+                <div class="index-head-01-sousuo-02">
+                	<input type="button"  value=""/>
+                </div>
+            </div>
+            
+            <div class="index-head-01-diqiu">
+            	<a href="#">
+                    <img src="images/diqiu.png"/>
+                    全国服务展示中心
+                </a>
+            </div>
+            
+            <div class="index-head-01-ewm">
+            	<img src="images/erweima.png"/>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+	<div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-left">
+                <div id="mynavspan">
+                	健康家&nbsp;&nbsp;舒适家&nbsp;&nbsp;幸福家
+                </div>
+                
+                <div id="mynavimg">
+                	<img src="images/logo2.png"/>
+                </div>
+            </div>
+            
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="#">
+                        首页
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        机电攻略
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        分期介绍
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="#">
+                        全国体验中心
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="index-navigation-right">
+                <div class="index-navigation-right-01">
+                    <div class="index-navigation-right-01-img">
+                        <img src="images/gouwuche.png"/>
+                    </div>
+                    
+                    <div class="index-navigation-right-01-span">
+                        3
+                    </div>
+                </div>
+            
+                <div class="index-navigation-right-02">
+                    <a href="#">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+	</div>
+</div>
+<!--导航end-->
+
+<div class="clear2"></div>
+
+<!--中间-->
+<div class="homewrite-conter">
+	<div class="homewrite-conter-bk">
+        
+        
+        <div class="clear3"></div>
+    <form action="" method="post">
+        <div class="homewrite-conter-know-list">
+            <div class="homewrite-conter-know-list-01">
+                <div class="homewrite-conter-know-list-01-left">
+                    房屋昵称：
+                </div>
+                
+                <div class="homewrite-conter-know-list-01-center">
+                    <input id="create-name-02" name="house_name" type="text" value="" />
+                </div>
+                
+                <div class="homewrite-conter-know-list-01-right">
+                	 注：【为你的房屋起昵称】
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="homewrite-conter-know-list-02">
+                <div class="homewrite-conter-know-list-02-left">
+                    房屋住址：
+                </div>
+                
+                <div class="homewrite-conter-know-list-02-right">
+                    <!--<select id="provinces" name='Provinces'style="width:200px; height:40px;">
+                        <option selected="selected" value="">--请选择--</option>
+                        {:foreach from=$data->p item=item:}
+                        <option value="{:$item.1:}">{:$item.0:}</option>
+                        {:/foreach:}	
+                    </select> --><!--以上这段注释，在PHP运行的时候取消掉，把下面的id="provinces"给删了即可-->
+                    
+                    <select id="provinces" name='provinces'style="width:180px; height:40px;">
+					 <option selected="selected" value="">--请选择--</option>
+				     {:foreach from=$place_data->p item=item:}
+					 <option value="{:$item.1:}">{:$item.0:}</option>
+				     {:/foreach:}                    
+                    </select>
+                    
+                    <span class="homewrite-conter-know-list-02-right-span">省</span>
+                    
+                    <select id="citys" name="citys" style="width:180px; height:40px;">
+                        <option selected="selected" value="">--请选择--</option>
+                    </select> 
+                    
+                    <span class="homewrite-conter-know-list-02-right-span">市</span>
+                    
+                    <select id="town" name="town" style="width:180px; height:40px;">
+                        <option selected="selected" value="">--请选择--</option>
+                    </select> 
+                    
+                    <span class="homewrite-conter-know-list-02-right-span">区/县</span>
+                    
+                    <input type="text" name="address" style="width:180px; height:38px;line-height:40px; border:1px solid #95B8E7;border-radius:5px;padding-left:10px;padding-right:10px;" />
+					
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="homewrite-conter-know-list-03">
+                <div class="homewrite-conter-know-list-03-left">
+                    房屋类型：
+                </div>
+                
+                <div class="homewrite-conter-know-list-03-right">
+                    <input type="radio" name="house_type" id="" value="1" style="width:40px;" checked="checked"/>
+                    
+                    <span>公寓</span>
+                    
+                    <input type="radio" name="house_type" id="" value="1" style="width:40px;" checked="checked"/>
+                    
+                    <span>叠加</span>
+                    
+                    <input type="radio" name="house_type" id="" value="2" style="width:40px;" checked="checked"/>
+                    
+                    <span>联排</span>
+                    
+                    <input type="radio" name="house_type" id="" value="3" style="width:40px;" checked="checked"/>
+                    
+                    <span>独栋</span>
+                </div>
+                
+                <div class="clear"></div>        	
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="homewrite-conter-know-list-04">
+                <div class="homewrite-conter-know-list-04-left">
+                    房屋户型：
+                </div>
+                
+                <div class="homewrite-conter-know-list-04-right">
+                    <select name="bedRoom" id="bedRoom"  style="width:120px; height:40px;">
+                        <option value="">--请选择--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    
+                    <span class="homewrite-conter-know-list-04-right-span">室</span>
+                    
+                    <select name="livingRoom" id="livingRoom"  style="width:120px; height:40px;">
+                        <option value="">--请选择--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    
+                    <span class="homewrite-conter-know-list-04-right-span">厅</span>
+                    
+                    <select name="kitchRoom" id="kitchRoom"  style="width:120px; height:40px;">
+                        <option value="">--请选择--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    
+                    <span class="homewrite-conter-know-list-04-right-span">厨</span>
+                    
+                    <select name="washRoom" id="washRoom" style="width:120px; height:40px;">
+                        <option value="">--请选择--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option> 
+                    </select>
+                    
+                    <span class="homewrite-conter-know-list-04-right-span">卫</span>
+                    
+                    <select name="galleryRoom" id="galleryRoom" style="width:120px; height:40px;">
+                        <option value="">--请选择--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    
+                    <span class="homewrite-conter-know-list-04-right-span">阳台</span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+            <div class="homewrite-conter-know-list-05">
+                <div class="homewrite-conter-know-list-05-left">
+                    房屋面积：
+                </div>
+                
+                <div class="homewrite-conter-know-list-05-right">
+                    <input id="create-name-02" name="total_area" type="text" value="0"  onFocus="if (value =='0'){value =''}" onBlur="if (value ==''){value='0'}"/>
+                    
+                    <span class="homewrite-conter-know-list-05-right-01">平方㎡</span>
+                    
+                    <span class="homewrite-conter-know-list-05-right-02">（请填使用面积）</span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear3"></div>
+            
+           
+            
+            <div class="clear3"></div>
+            
+            <div class="homewrite-conter-know-list-08">
+                <input type="submit" value="保存房屋信息"/>
+            </div>
+            
+        </div>	
+       </form>
+        <div class="clear2"></div>
+    </div>
+</div>
+<!--中间end-->
+
+<div class="clear2"></div>
+
+<!-- 底部广告 -->
+<div class="bottom" >
+	<img src="images/213.jpg"/>
+</div>
+<!-- 底部广告end -->
+
+<!-- 底部列表 -->
+<div class="foot">
+    <div class="foot-list">
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                购物指南
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    购物流程
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    会员介绍
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    常见问题
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    联系客服
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+			<div class="foot-list-gw-title">
+                配送方式
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    国内配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    海外配送
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    标准配送
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+            	支付方式
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	在线支付
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	分期付款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	邮局汇款
+                </a>
+            </div>
+            
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                	公司转账
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-gw">
+            <div class="foot-list-gw-title">
+                售后服务
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    售后政策
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    退款说明
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                  	返修/退换货
+                </a>
+            </div>
+        
+            <div class="foot-list-gw-conner">
+                <a href="#">
+                    取消订单
+                </a>
+            </div>
+        </div>
+    
+        <div class="foot-list-right">
+            暖扬扬线下服务区
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部列表end -->
+
+<div class="clear"></div>
+
+<!-- 根部链接 -->
+<div class="root">
+    <div class="root-center">
+        <div class="root-list">
+            <a href="#">
+              	关于我们
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	联系我们
+            </a>
+        </div>
+        
+        <div class="root-list">
+            <a href="#">
+              	人才招聘
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	招商加盟
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	商务合作
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	友情链接
+            </a>
+        </div>
+
+        <div class="root-list">
+            <a href="#">
+              	各类证件
+            </a>
+        </div>
+      
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear27"></div>
+    
+    <div class="root-bei">
+    	备案号：沪ICP备16002183
+    </div>
+    
+    <div class="clear3"></div>
+    
+    <div class="clear3"></div>
+</div>
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>
+
+
+
+
+

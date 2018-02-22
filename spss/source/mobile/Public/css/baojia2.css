@@ -1,0 +1,53 @@
+
+.content{
+	width: 100%;
+	height: auto;
+}
+.baojia-con1{
+	width: 100%;
+	height: 30px;
+	margin-top: 99px;
+	position: relative;
+}
+.baojia-con1-1{
+	display: block;
+	float: left;
+	width: 20%;
+	height: 100%;
+	font-size:30px ;
+	color: #333;
+	text-align:right;
+}
+.baojia-con1-2{
+	display: block;
+	float: left;
+	width: 66%;
+	height: auto;
+	margin-left: 12%;
+	font-size: 26px;
+	color: #666;
+}
+.baojia-con2{
+	margin-top: 50px;
+}
+.baojia-jiage{
+	color: #da001d;
+	font-size: 30px;
+}
+.baojia-tip{
+	font-size: 24px;
+	color: #666;
+	width: 92%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.baojia-img{
+	width: 92%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 88px;
+}
+.baojia-img2{
+	margin-top: 49px;
+}

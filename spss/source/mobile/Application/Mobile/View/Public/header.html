@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi"/>
+
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/css/publick.css" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div class="head">
+			<?php if (empty($home)): ?>
+				<a class="head-1 head-son" href="javascript:history.go(-1);">
+					<img class="chuizhicenter" src="__PUBLIC__/img/back.png" alt="" />
+				</a>
+			<?php else: ?>
+				<a class="head-1 head-son"></a>
+			<?php endif ?>
+			<?php if (!empty($header)): ?>
+				<a class="head-2 head-son" href="javascript:;">
+					<{$header}>
+				</a>
+			<?php else: ?>
+				<a class="head-2 head-son" href="<{:U('Index/index')}>">
+					<!-- <img class="chuizhicenter" src="__PUBLIC__/img/logo.png" alt="" /> -->
+					上品上生
+				</a>
+			<?php endif ?>
+			<a class="head-3 head-son" href="<{:U('Order/index')}>">
+				<img class="chuizhicenter" src="__PUBLIC__/img/people-s.png" alt="" />
+			</a>
+		</div>

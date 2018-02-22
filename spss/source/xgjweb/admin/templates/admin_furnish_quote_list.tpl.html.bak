@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){	
+	//顶部导航切换
+	$(".nav li a").click(function(){
+		$(".nav li a.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})	
+})	
+</script>
+<script type="text/javascript">
+$(function(){	
+	//导航切换
+	$(".menuson .header").click(function(){
+		var $parent = $(this).parent();
+		$(".menuson>li.active").not($parent).removeClass("active open").find('.sub-menus').hide();
+		
+		$parent.addClass("active");
+		if(!!$(this).next('.sub-menus').size()){
+			if($parent.hasClass("open")){
+				$parent.removeClass("open").find('.sub-menus').hide();
+			}else{
+				$parent.addClass("open").find('.sub-menus').show();	
+			}
+			
+			
+		}
+	});
+	
+	// 三级菜单点击
+	$('.sub-menus li').click(function(e) {
+        $(".sub-menus li.active").removeClass("active")
+		$(this).addClass("active");
+    });
+	
+	/* $('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('.menuson').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('.menuson').slideUp();
+		}else{
+			$(this).next('.menuson').slideDown();
+		}
+	}); */
+})	
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+<body style="background:url(images/topbg.gif) repeat-x; height:80%">
+<div style="width:100%;height:88px; ">
+{:include file='admin_top.tpl.html':}
+</div>
+
+<div style="width:1900px;">
+	<div style="width:187px; float:left; background-color:#fff3e1;border-right:1px solid #ebb683;">
+	{:include file='admin_left.tpl.html':}
+	</div>
+	<div style="width:1712px;float:left;background-color:#FFFFFF;">
+	 <div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="index.php">首页</a></li>
+	    <li><a >健康舒适家居</a></li>
+	    <li><a href="quote.php">报价清单</a></li>
+	    </ul>
+	    </div>
+	    <div class="rightinfo">
+	    
+	    <div class="tools">
+	    	<ul class="toolbar">
+	        <li class="click"><a href="?add"><span><img src="images/t01.png" /></span>添加</a></li>
+	        </ul>
+	    </div>
+	    
+	    <table class="imgtable">
+	    
+	    <thead>
+	    <tr>
+	    <th width="60px;" height='50px'>编号</th>
+	    <th>名称</th>
+	    <th width="400px;">类型</th>
+	    <th width="150px;">操作</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    {:foreach $quote_list as $item:}
+	    <tr>
+	    <td>{:$item.quote_id:}</td>
+	    <td><a href="?edit&quote_id={:$item.quote_id:}">{:$item.quote_name:}</a></td>
+	    <td>
+			<a href='?level=1&quote_id={:$item.quote_id:}'>经济型</a> &nbsp; &nbsp;
+			<a href='?level=2&quote_id={:$item.quote_id:}'>舒适型</a> &nbsp; &nbsp;
+			<a href='?level=3&quote_id={:$item.quote_id:}'>豪华型</a>
+		</td> 
+	    <td><a href='?edit&quote_id={:$item.quote_id:}'>修改</a>
+	    	|
+	    	<a href='?del&quote_id={:$item.quote_id:}' onclick="return confirm('您确定要删除吗？')">删除</a>
+	    </td>
+	    </tr>
+	    {:/foreach:}
+	    </tbody>
+	    </table>
+	     	<div class="page">
+				{:$page:}
+			</div>
+	    </div>
+	</div>
+	
+	<div style="clear:both;"></div>
+</div>
+
+
+
+</body>
+</html>
+
+	
+    
+

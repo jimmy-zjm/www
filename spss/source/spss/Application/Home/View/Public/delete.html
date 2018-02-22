@@ -1,0 +1,61 @@
+<!--删除弹出-->
+<div id="tanchu_Id" class="tanchu" style="display: none">   
+    <div class="tanchu_delete-center-bk"> 
+        <div class="tanchu_delete-center">
+            <div class="tanchu_delete-center-title">                
+                <div class="tanchu_delete-center-title-span">
+                	删除收货地址
+                </div>
+                
+                <div class="tanchu_delete-center-title-cha" id="tanchu_Out_Id" onclick="delete01()">
+                	<img src="__PUBLIC__/img/cha01.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear1"></div>
+            
+            <div class="tanchu_delete-center-span">
+            	确认要删除该收货地址吗？
+            </div>
+            
+            <div class="clear1"></div>
+            <div class="tanchu_delete-center-a">
+            	<div class="tanchu_delete-center-a-determine">
+                    <input type="hidden" name="del_id" id="del_id" value=''>
+                	<a href="javascript:;" onclick="success()">
+                    	确定
+                    </a>
+                </div>
+                
+                <div class="tanchu_delete-center-a-close">
+                	<a href="javascript:;" onclick="delete01()">
+                    	关闭
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear1"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function tanchu01(id,k){
+    if(id!=''){
+        $('#del_id').val(id);
+        $("#tanchu_Id").fadeIn();
+    }
+}
+
+function delete01(){
+	$("#tanchu_Id").fadeOut();
+
+}
+</script>
+<!--删除弹出end-->

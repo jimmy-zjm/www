@@ -1,0 +1,59 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+<style>
+	.horderlist{
+		width:978px;border:1px solid #dcdcdc;
+		height:auto;
+		min-height:600px;
+		padding:10px 0;
+	}
+	.horderlist ul{
+		width:978px;
+		height:40px;
+		border-bottom:1px solid #dcdcdc;
+	}
+	.horderlist ul li{
+		height:40px;
+		line-height:40px;
+		float:left;
+		width:auto;
+		padding:0 20px;
+		font-size:14px;
+		color:#333;
+	}
+	.horderlist ul:hover{
+	
+		background-color:#f2f2f2 ;
+	}
+</style>
+<div class="user-center">
+<include file="User:left" />
+    <div class="user-right">
+    	<div class="user_homeorder-title">
+        	<li>
+            	健康舒适家订单
+            </li>
+        </div>
+		<div class="clear2"></div>
+		<div class="horderlist ">
+		<foreach name="data" item="val">
+			<a href="__APP__/User/homeOrderShow/id/<{$val.order_id}>.html">
+				<ul >
+					<li>订单编号:</li>
+					<li><{$val.order_code}></li>
+					<li>金额:</li>
+					<li>￥<{$val.goods_amount}></li>
+					<li>支付状态:</li>
+					<li style="width:70px;"><if condition="$val.pay_status eq 0">未支付<elseif condition="$val.pay_status eq 1 or $val.pay_status eq 4"/>已支付<elseif condition="$val.pay_status eq 2"/>第一笔支付<elseif condition="$val.pay_status eq 3"/>第二笔支付</if></li>
+					<li>下单日期:</li>
+					<li><{$val.add_order_time|date="Y-m-d H:i:s",###}></li>
+				</ul>
+			</a>
+			</foreach>
+		<div class="clear"></div>
+		<{$page}>
+		<div class="clear"></div>
+		</div>
+		<div class="clear3"></div>
+	</div>
+</div>
+        

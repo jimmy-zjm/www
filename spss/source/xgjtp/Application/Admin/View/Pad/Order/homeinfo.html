@@ -1,0 +1,57 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/look.css">
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<style type="text/css">
+	li{
+		list-style: none;
+	}
+	.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	zoom: 1;
+}
+</style>
+<div class="look-title my-page-title">
+	<a style='font-size: 20px;color: orange;' href="<{:U('info',['id'=>$oid])}>">返回订单详情</a>
+</div>
+
+<div class="look-content">
+	<h1><{$title}></h1>
+	<div class="upload-new">
+		<?php if(empty($data)){?>
+		<p class="content-title">您还未上传任何图片！<a class="uploadBtn" href="<{:U('infoupload',['oid'=>$oid,'types'=>$types])}>">+</a></p>
+		<?php }else{?>
+		<p class="content-title">最新上传：<span><{$data[0]['add_time']}></span> <a class="uploadBtn" href="<{:U('infoupload',['oid'=>$oid,'types'=>$types])}>">+</a></p>
+		<ul class="new-imgbox clearfix">
+			<li>
+				<img src="<{$data[0]['img']}>" alt="<{$data[0]['content']}>">
+				<p class="btmfnBtn"><a class="right-line" href="<{:U('editdraw',['id'=>$data[0]['id'],'tab'=>1])}>">修改</a><a  href="<{:U('deldraw',['id'=>$data[0]['id'],'tab'=>1])}>" onclick="return confirm('确定要删除吗？')">删除</a></p>
+			</li>
+			<?php if(!empty($data[1])){?>
+			<li><img src="__PUBLIC__/Uploads/<{$data[1]['img']}>" alt="<{$data[1]['content']}>">
+			<p class="btmfnBtn"><a class="right-line" href="<{:U('editdraw',['id'=>$data[1]['id'],'tab'=>1])}>">修改</a><a  href="<{:U('deldraw',['id'=>$data[1]['id'],'tab'=>1])}>" onclick="return confirm('确定要删除吗？')">删除</a></p>
+			</li>
+			<?php }?>
+		</ul>
+	</div>
+	<div class="upload-history">
+		<p class="content-title">上传记录</p>
+			<ul class=" imgbox-list clearfix">
+				<?php foreach($data as $v){?>
+				<li>
+				    <div>
+					<img src="<{$v['img']}>" alt="<{$v['content']}>">
+					<p class="btmfnBtn"><a class="right-line" href="<{:U('editdraw',['id'=>$v['id'],'tab'=>1])}>">修改</a><a  href="<{:U('deldraw',['id'=>$v['id'],'tab'=>1])}>" onclick="return confirm('确定要删除吗？')">删除</a></p>
+					</div>
+					<p class="upload-date"><{$v['title']}></p>
+					<p class="upload-date"><{$v['add_time']}></p>
+				</li>
+				<?php }?>
+			</ul>
+	</div>
+	<?php }?>
+</div>
+<script type="text/javascript" src='__PUBLIC__/Admin/js/imgboxlist.js'></script>

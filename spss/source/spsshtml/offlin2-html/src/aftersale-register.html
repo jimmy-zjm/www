@@ -1,0 +1,103 @@
+<!--include "./tpl/head.tpl"-->
+
+<link rel="stylesheet" type="text/css" href="css/quotedprice.css">
+
+</head>
+<body>
+	<header>售后登记信息</header>
+	<section class="container aftersale-feedback">
+		
+		<p class="sys-item">
+			<span class="item-name">用户姓名</span>
+			<input class="info-input" type="text" name="" placeholder="姓名">
+		</p>
+		<p class="sys-item">
+			<span class="item-name">联系电话</span>
+			<input class="info-input" type="text" name="" placeholder="号码">
+		</p>
+		<p class="sys-item">
+			<span class="item-name item-name-l">经销商公司名称</span>
+			<input class="info-input info-input-s" type="text" name="" placeholder="请输入关键词">
+		</p>
+		<p class="sys-item">
+			<span class="item-name">房屋地址</span>
+			<select class="address">
+				<option>省</option>
+				<option>省</option>
+				<option>省</option>
+				<option>省</option>
+				<option>省</option>
+				<option>省</option>
+				<option>省</option>
+				<option>省</option>
+			</select>
+			<select class="address">
+				<option>市</option>
+				<option>市</option>
+				<option>市</option>
+				<option>市</option>
+				<option>市</option>
+				<option>市</option>
+
+			</select>
+			<select class="address">
+				<option>区</option>
+				<option>区</option>
+				<option>区</option>
+				<option>区</option>
+				<option>区</option>
+				<option>区</option>
+
+			</select>
+		</p>
+		<p class="sys-item">
+			<span class="item-name"></span>
+			<input class="info-input" type="text" name="" placeholder="请输入详细地址">
+		</p>
+
+		
+		<p class="sys-item">
+			<span class="item-name">产品名称</span>
+			<input class="info-input" type="text" name="" placeholder="请输入名称">
+		</p>
+		<p class="sys-item">
+			<span class="item-name">产品型号</span>
+			<input class="info-input" type="text" name="" placeholder="请输入型号">
+		</p>
+		<p class="sys-item">
+			<span class="item-name item-name-l">产品序列号</span>
+			<input class="info-input info-input-s" type="text" name="" placeholder="请输入序列号">
+		</p>
+		<p class="sys-item">
+			<span class="item-name">购买时间</span>
+			<input class="info-input" id="birthday" type="text" name="" placeholder="请选择">
+		</p>
+		<p class="sys-item">
+			<span class="item-name">业务类型</span>
+			<select class="line">
+				<option>请选择</option>
+			</select>
+		</p>
+		<p class="sys-item redbtn-box clearfix">
+			<a href="">添加</a>
+		</p>
+		<p class="sys-item">问题描述
+			<span class="wordnum-tishi fr" id="tishi02"></span>
+		</p>
+		<textarea id="neirong02"  onkeyup="statWordNum('neirong02','tishi02',140)"></textarea>
+		<p class="last-row redbtn-box clearfix">
+			<a href="" class="bgred">确认提交</a>
+			<a href="">取消</a>
+		</p>
+
+
+
+	</section>
+
+	<!--include "./tpl/foot.tpl"-->
+
+	<script src="js/imgupload.js"></script>
+	<script type="text/javascript" src="js/datePicker.js"></script>
+	<script type="text/javascript" src="js/dataSelect.js"></script>
+</body>
+</html>

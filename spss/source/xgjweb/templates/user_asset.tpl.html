@@ -1,0 +1,151 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+
+    <div class="user-right" style="display:none;">
+        <div class="useraddresscenter-right">  
+          余额
+        </div>
+      
+		<div class="clear12"></div>
+        
+  		<div id="fuent">
+        
+             <div class="yu_e">
+                 <div class="yu_e_01">
+                    <h3>可用余额：<span>0</span></h3>
+                    <a href="">充值</a>
+                 
+                 </div>
+             </div>
+             
+             <div class="shi_cenre">
+                 <div class="shi_cenre_01">
+                    <ul>
+                    	<li>时间</li>
+                        <li>存入金额</li>
+                        <li>使用金额</li>
+                        <li>备注</li>
+                    </ul>
+                 </div>
+                 
+                 {:foreach from=$moneyList key=num item=v:}
+                 <div class="shi_cenre_02">
+                 	 <ul>
+                    	<li>
+                           {:$v.time:}
+                        </li>
+                        <li>￥{:$v.addmoney:}元</li>
+                        <li>￥{:$v.reducemoney:}</li>
+                        <li>{:$v.remark:}</li>
+                    </ul>
+                </div>
+                {:/foreach:}
+                 
+             </div>
+		</div>
+        
+        <div class='page'>
+            {:$page:}
+        </div>
+
+<!-- user右边end，引用头部时倒入这个div -->
+</div>
+
+	<div class="user-right">
+    	<div class="user_asset-title">         
+            <span>
+            	余额 
+            </span> 	
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="user_asset-center">
+        	<div class="user_asset-center-top">
+            	<div class="user_asset-center-top-left">
+                	<span class="span01">
+                    	可用余额：
+                    </span>
+                    
+                    <span class="span02">
+                    	￥0.00
+                    </span>
+                </div>
+                
+                <!-- <div class="user_asset-center-top-right">
+                	<a href="javascript:;">
+                    	充值
+                    </a>
+                </div> -->
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear27"></div>
+            
+            <div class="user_asset-center-list">
+            	<div class="user_asset-center-list-title">
+                	<div class="user_asset-center-list-title-01">
+                    	时间
+                    </div>
+                    
+                    <div class="user_asset-center-list-title-02">
+                    	存入金额
+                    </div>
+                    
+                    <div class="user_asset-center-list-title-03">
+                    	使用金额
+                    </div>
+                    
+                    <div class="user_asset-center-list-title-04">
+                    	备注
+                    </div>
+                </div>
+                
+                {:foreach from=$moneyList key=num item=v:}
+                <div class="user_asset-center-list-demo">
+                	<div class="user_asset-center-list-demo-01">
+                    	{:$v.time:}
+                    </div>
+                    
+                    <div class="user_asset-center-list-demo-02">
+                    	￥{:$v.addmoney:}元
+                    </div>
+                    
+                    <div class="user_asset-center-list-demo-03">
+                    	￥{:$v.reducemoney:}
+                    </div>
+                    
+                    <div class="user_asset-center-list-demo-04" title="{:$v.remark:}">
+                    	{:$v.remark:}
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                {:/foreach:}
+				
+                <div class="clear27"></div>
+                
+                <div class='page'>
+                	{:$page:}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+
+{:include file='footer.tpl.html':}
+

@@ -1,0 +1,179 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>公司详情</header>
+	<section class="container">
+		<form action="<{:U('doAddCompanyDetail')}>" method='post' enctype="multipart/form-data" id='form1'>
+			<?php foreach ($data as $k => $v): ?>
+				<div class="companyinfo-box">
+					<p class="sys-item">公司名称
+						<span class="fr"><{$v.name}></span>
+					</p>
+					<p class="sys-item">所在地区
+						<span class="fr"><{$v.prov}> <{$v.city}></span>
+					</p>
+					<p class="sys-item sys-auto">
+						<span class="item-name">公司地址</span>
+						<span class="cline"><{$v.city}> <{$v.district}> <{$v.address}></span>
+					</p>
+					<div class="sys-item sys-auto">
+						公司LOGO
+						<div class="logo-box">
+						<input type="file" id="filelogo" title="点击选择logo上传!"  name="logo" value=''>
+						<?php if (!empty($v['logo'])): ?>
+							<img src="__PUBLIC__/Uploads/<{$v['logo']}>">
+							<?php else: ?><img src="__PUBLIC__/Dealer/img/photo.png">
+														
+						<?php endif ?>
+						</div>
+					</div>
+					<div id='save1'>
+						<p class="sys-item">部门分配
+							<span class="fr"></span>
+						</p>
+						<?php foreach ($section as $k => $v): ?>
+							<p class="sys-item">
+								<span class="fr"><{$v.name}></span>
+							</p>
+						<?php endforeach ?>
+					</div>
+					
+					<p class="redbtn-box clearfix">
+						<a href="javascript:;" class="newdep-btn">新增部门</a>
+					</p>
+
+					<div id='save2'>
+						<p class="sys-item">角色设定
+							<span class="fr"></span>
+						</p>
+						<?php foreach ($role as $k => $v): ?>
+							<p class="sys-item">
+								<span class="fr"><{$v.name}></span>
+							</p>
+						<?php endforeach ?>
+					</div>
+					<p class="redbtn-box clearfix">
+						<a href="javascript:;" class="newrole-btn">新增角色</a>
+					</p>
+					<p class="redbtn-box clearfix topline">
+						<a href="javascript:;" class="bgred">确认提交</a>
+						<a href="">取消</a>
+					</p>
+				</div>
+			<?php endforeach ?>
+			<input type="hidden" name="id" value='<{$_GET.id}>'>
+			<input type="hidden" name="section" id='addData1' value=''>
+			<input type="hidden" name="role" id='addData2' value=''>
+		</form>
+	</section>
+	<div class="mask-comp">
+		<div class="mask-newbox mask-depbox">
+			<p class="sys-title">新增部门</p>
+			<div class="mask-comp-inputbox">
+				<input id='input1' type="text" value="" placeholder="请输入部门名称">
+				<a href="javascript:;" onclick='add(1)'>添加</a>
+			</div>
+			<div class="sys-auto add1"></div>
+			<div class="newaddbtn-box">
+				<a href="javascript:;" class="fl newadd-submit" onclick='save(1)'>保存</a>
+				<a href="javascript:;" class="fr newadd-cancel">取消</a>
+			</div>
+
+		</div>
+		<div class="mask-newbox mask-rolebox">
+			<p class="sys-title">新增角色</p>
+			<div class="mask-comp-inputbox">
+				<input id='input2' type="text" value="" placeholder="请输入角色名称">
+				<a href="javascript:;" onclick='add(2)'>添加</a>
+			</div>
+			<div class="sys-auto add2"></div>
+			<div class="newaddbtn-box">
+				<a href="javascript:;" class="fl newadd-submit" onclick='save(2)'>保存</a>
+				<a href="javascript:;" class="fr newadd-cancel">取消</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var $mask=$(".mask-comp");
+		var $maskbox=$(".mask-newbox");
+		var $maskrole=$(".mask-rolebox");
+		var $maskdep=$(".mask-depbox");
+		var $filelogo=$("#filelogo");
+		var $logoshow=$filelogo.next("img");
+
+        $filelogo.change(function(){
+        	 var fileList = this.files;
+        	 var imgUrl=window.URL.createObjectURL(fileList[0]);
+             $logoshow.attr("src",imgUrl);
+        })
+
+
+
+		$(".newdep-btn").click(function(){
+			$mask.show(0,function(){
+				$maskdep.slideDown('fast');
+			});
+		});
+		$(".newrole-btn").click(function(){
+			$mask.show(0,function(){
+				$maskrole.slideDown('fast');
+			});
+		});
+		
+		$(".newadd-cancel").click(function(){
+			$('.add1').html('');
+			$('.add2').html('');
+			$maskbox.hide();
+			$mask.hide();	
+		})
+
+		function add(o){
+			var val = $('#input'+o).val();
+			if (val == '') return;
+
+			var str1 = $('#addData'+o).val();
+
+			var data = $('.add'+o+' p');
+			var str2 = '';
+			for (var i = 0; i < data.length; i++) {
+				var str2 = str2+'|'+$(data[i]).html();
+			}
+
+			var data = $('#save'+o+' p');
+			var str3 = '';
+			for (var i = 0; i < data.length; i++) {
+				var str3 = str3+'|'+$(data[i]).children().html();
+			}
+
+			if(str1.indexOf(val)!=-1 || str2.indexOf(val)!=-1 || str3.indexOf(val)!=-1){ 
+				alert('此部门已有');
+			 	return;
+			}
+
+
+			$('.add'+o).append('<p class="sys-item">'+val+'</p>');
+			$('#input'+o).val("");
+		}
+
+		function save(o){
+			var data = $('.add'+o+' p');
+			var val = '';
+			for (var i = 0; i < data.length; i++) {
+				var val = val+'|'+$(data[i]).html();
+				$('#save'+o).append('<p class="sys-item"><span class="fr">'+$(data[i]).html()+'</span></p>');
+			}
+			if (val != '') $('#addData'+o).val(val);
+			$('.add'+o).html('');
+			$maskbox.hide();
+			$mask.hide();	
+		}
+
+		$('.bgred').click(function(){
+			$('#form1').submit();
+		});
+
+	</script>
+
+</body>
+</html>

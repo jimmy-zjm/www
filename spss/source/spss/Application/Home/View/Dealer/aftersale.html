@@ -1,0 +1,490 @@
+<include file="header" />
+<script src="__PUBLIC__/js/laydate/laydate.js" type="text/javascript"></script><!-- 日历 -->
+<div class="clear30"></div>
+
+<!--中间-->
+<div class="dealer-center">
+	<div class="container dealer_aftersale-center">
+    	<div class="row dealer_aftersale-center-tabs01">
+        	<div class="dealer_aftersale-center-tabs01-title">
+                    <div class="dealer_aftersale-center-tabs01-title-span">
+                        保养订单
+                    </div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_aftersale-center-tabs01-list">
+            	<div class="dealer_aftersale-center-tabs01-list-title colpadding5">
+                	<div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-title-order">
+                    	订单号
+                    </div>
+                    
+                    <div class="col-sm-1 col-md-1 dealer_aftersale-center-tabs01-list-title-contacts">
+                    	联系人
+                    </div>
+                    
+                    <div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-title-phone">
+                    	电话
+                    </div>
+                    
+                    <div class="col-sm-2 col-md-2 ealer_aftersale-center-tabs01-list-title-address">
+                    	地址
+                    </div>
+                    
+                    <div class="col-sm-1 col-md-1 dealer_aftersale-center-tabs01-list-title-order">
+                    	名称
+                    </div>
+
+                    <div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-title-time">
+                    	时间
+                    </div>
+
+                    <div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-title-order" >
+                        操作
+                    </div>
+                    
+                    
+            	</div>
+                
+                <div class="clear"></div>
+                <div id='uPageDiv'>
+                <?php foreach ($list as $v){?>
+                <div class=" dealer_aftersale-center-tabs01-list-demo colpadding5">
+                	<div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-demo-order">
+                    	<{$v.sn}>
+                    </div>
+                    
+                    <div class="col-sm-1 col-md-1 dealer_aftersale-center-tabs01-list-demo-contacts">
+                    	<{$v.shr_name}>
+                    </div>
+                    
+                    <div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-demo-phone">
+                    	<{$v.shr_phone}>
+                    </div>
+                    
+                    <div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-demo-address">
+                    	<{$v.shr_pro}>&nbsp;<{$v.shr_city}>&nbsp;<{$v.shr_area}>&nbsp;<{$v.shr_addr}>
+                    </div>
+                    
+                    <div class="col-sm-1 col-md-1 dealer_aftersale-center-tabs01-list-demo-order">
+                    	<{$v.goods_title}>
+                    </div>
+                    
+                    <div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-demo-time" >
+                    	<{$v.pay_time}>
+                    </div>
+
+                    <div class="col-sm-2 col-md-2 dealer_aftersale-center-tabs01-list-demo-order">
+                        <span class='del03<{$v.id}>'>
+                            <?php if  ($v['num'] < $v['goods_num']) {?>
+                            <a href="javascript:;" onclick="upkeep(<{$v.id}>,<{$v.gid}>)">添加记录</a> 
+                            <?php }else{?>
+                            添加记录
+                            <?php }?>
+                        </span>
+                        / <a href="<{:U('aftersaleInfo',array('class'=>9,'id'=>$v['gid']))}>">查看</a>
+                    </div>
+                    
+                    
+            	</div>
+                
+               
+                <?php }?> 
+                </div>
+                <div class="clear32"></div>
+                
+                <div class="clear32"></div>
+            </div>
+        </div>
+        <div class='uPage'><{$page}></div>  
+        <div class="clear27"></div>
+        
+        <div class="dealer_aftersale-center-tabs02">
+        	<div class="dealer_aftersale-center-tabs02-title">
+                <div class="dealer_aftersale-center-tabs02-title-span">
+                    维修工单
+                </div>                    
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="dealer_aftersale-center-tabs02-list">
+            	<div class="dealer_aftersale-center-tabs02-list-title">
+                	<div class="dealer_aftersale-center-tabs02-list-title-order" style='width:115px;'>
+                    	订单号
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-title-contacts" style='width:80px;'>
+                    	联系人
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-title-phone" style='width:120px;'>
+                    	电话
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-title-address" style='width:160px;'>
+                    	地址
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-title-with_single" style='width:130px;'>
+                    	维修系统
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-title-substance">
+                    	维修状态
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-title-progress" style='width:130px;'>
+                    	维修内容
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-title-time" style='width:90px;text-align: left'>
+                    	时间
+                    </div>
+                    <div class="dealer_aftersale-center-tabs02-list-title-time">
+                        操作
+                    </div>
+                    <div class="clear"></div>
+            	</div>
+                
+                <div class="clear"></div>
+
+                <div id='mPageDiv'>
+                <?php foreach ($mList as $v){?>
+                <div class="dealer_aftersale-center-tabs02-list-demo">
+                	<div class="dealer_aftersale-center-tabs02-list-demo-order">
+                    	<{$v.order_code}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-demo-contacts">
+                    	<{$v.name}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-demo-phone" style='width:100px;'>
+                    	<{$v.phone}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-demo-address" style='width:160px;'>
+                    	<{$v.province}><{$v.city}><{$v.district}><{$v.address}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-demo-with_single" style='width:140px;'>
+                    	<{$v.quote_name}>
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-demo-substance del02<{$v.id}>">
+                    	<?php if ($v['state'] == 0){?>
+                        等待解决
+                        <?php }else if ($v['state'] == 1){?>
+                        已解决
+                        <?php }?> 
+                    </div>
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-demo-progress">
+                        <input type="hidden" id="lookData" value='<{$v.note}>'>
+                    	<a href="javascript:;" onclick="look(this)">查看</a>
+                    </div>                    
+                    
+                    <div class="dealer_aftersale-center-tabs02-list-demo-time" style='width:140px;'>
+                    	<?=date("Y-m-d ",$v['time'])?>
+                    </div>
+                    <div class="dealer_aftersale-center-tabs02-list-demo-time">
+                        <span class='del01<{$v.id}>'>
+                            <?php if ($v['state'] == 0){?>
+                            <a href="javascript:;" onclick="maintain(<{$v.order_id}>,<{$v.id}>)">添加记录</a>
+                            <?php }else if ($v['state'] == 1){?>
+                            添加记录
+                            <?php }?> 
+                        </span>
+                         / <a href="<{:U('aftersaleInfo',array('class'=>10,'id'=>$v['id']))}>">查看</a>
+                    </div>
+                    <div class="clear"></div>
+            	</div>
+                
+                <div class="clear"></div>
+                <?php }?>                 
+                </div>
+                <div class="clear32"></div>
+                
+                <div class="clear32"></div>
+                <div class="mPage"><{$mPage}></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!--中间end-->
+
+<div class="clear34"></div>
+<div class="clear34"></div>
+
+
+<div id="tanchu_Id02" class="tanchu">   
+    <div class="tanchu_build-center-bk"> 
+        <div class="tanchu_build-center">
+            <div class="tanchu_build-center-title">                
+                <div class="tanchu_build-center-title-span">
+                    <span class='tihuan'></span>记录
+                </div>
+                
+                <div class="tanchu_build-center-title-cha" id="tanchu_Out_Id" onclick="delete02()">
+                    <img src="__PUBLIC__/img/cha01.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="tanchu_build-center-list">
+                <form id='form01' method="post">
+                    <div class="tanchu_build-center-list-demo01">
+                        <div class="tanchu_build-center-list-demo01-left">
+                            开始时间：
+                        </div>
+                        
+                        <div class="tanchu_build-center-list-demo01-right">                           
+                            <input class="laydate-icon" id="start_time" name='start_time'> 
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div class="tanchu_build-center-list-demo01">
+                        <div class="tanchu_build-center-list-demo01-left">
+                            结束时间：
+                        </div>
+                        
+                        <div class="tanchu_build-center-list-demo01-right">
+                            <input class="laydate-icon" id="end_time" name='end_time'> 
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+
+                    <div class="tanchu_build-center-list-demo01" id='look'>
+                        <div class="tanchu_build-center-list-demo01-left">
+                            <span class='tihuan'></span>内容：
+                        </div>
+                        
+                        <div class="tanchu_build-center-list-demo01-right" style="width:375px;height:100px;margin-bottom:20px;">
+                            <textarea id='content' name='content' style="width:375px;height:100px;border:0px;"></textarea>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                    
+                    <div class="tanchu_build-center-list-demo01">
+                        <div class="tanchu_build-center-list-demo01-left">
+                            <span class='tihuan'></span>人：
+                        </div>
+                        
+                        <div class="tanchu_build-center-list-demo01-right">
+                            <input type="text" name="task_name" id="task_name" value="">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="tanchu_build-center-list-demo01" id='is_ok'>
+                        <div class="tanchu_build-center-list-demo01-left">
+                            是否维修完毕：
+                        </div>
+                        
+                        <div class="tanchu_build-center-list-demo04-right">
+                            <select name="is_ok">
+                                <option value="1">是</option>
+                                <option value="2">否</option>
+                            </select>   
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="tanchu_build-center-list-demo01">
+                        <div class="tanchu_build-center-list-demo01-left">
+                            备注：
+                        </div>
+                        
+                        <div class="tanchu_build-center-list-demo01-right">
+                            <input type="text" name="remark" id="remark" value="">
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="tanchu_build-center-list-demo03" style="margin-top:20px;">
+                        <input type="hidden" id='o_id' name="o_id" value=''>
+                        <input type="hidden" id='p_id' name="p_id" value=''>
+                        <input type="hidden" id='class_id' name="class" value=''>
+                        <input type="button" onclick='but()' value="提交" />
+                    </div>                
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<div id="tanchu_Id03" class="tanchu">   
+    <div class="tanchu_build-center-bk"> 
+        <div class="tanchu_build-center" style="height: 450px;">
+            <div class="tanchu_build-center-title">                
+                <div class="tanchu_build-center-title-span">
+                    维修内容
+                </div>
+                
+                <div class="tanchu_build-center-title-cha" id="tanchu_Out_Id" onclick="delete03()">
+                    <img src="__PUBLIC__/img/cha01.png"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="tanchu_build-center-list">
+                <div class="tanchu_build-center-list-demo01" id='look'>
+                    <div class="tanchu_build-center-list-demo01-left">
+                        维修内容：
+                    </div>
+                    
+                    <div class="tanchu_build-center-list-demo01-right" style="width:375px;height:200px;margin-bottom:20px;">
+                        <textarea id='note' style="width:375px;height:200px;border:0px;" readonly></textarea>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="tanchu_build-center-list-demo03" style="margin-top:20px;">
+                    <input type="button" onclick='delete03()' value="关闭" style='background-color:#666;border-radius: 3px'/>
+                </div>  
+            </div>            
+        </div>
+    </div>
+</div>
+
+<!--日历-->
+<script type="text/javascript">
+/*日期时间框插件***********************************/
+!function(){
+  laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+}();
+var start = {
+    elem: '#start_time',
+    format: 'YYYY-MM-DD hh:mm:ss',
+    // min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16 23:59:59', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+var end = {
+    elem: '#end_time',
+    format: 'YYYY-MM-DD hh:mm:ss',
+    // min: laydate.now(),
+    max: '2099-06-16 23:59:59',
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+        start.max = datas; //结束日选好后，重置开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
+/*日期时间框插件***********************************/
+</script>
+<!--日历end-->
+<script>
+$(".tanchu").css('height',$(document).height());
+
+function upkeep(id,pid){
+    $('#o_id').val(id);
+    $('#p_id').val(id);
+    $('#class_id').val(9);
+    $("#is_ok").css('display','none'); 
+    $('.tihuan').html('保养');
+    
+    $("#tanchu_Id02").fadeIn(); 
+}
+
+function maintain(oid,pid){
+    $('#o_id').val(oid);
+    $('#p_id').val(pid);
+    $('#class_id').val(10);
+    $("#is_ok").css('display','block');
+    $('.tihuan').html('维修');
+    $("#tanchu_Id02").fadeIn(); 
+}
+
+function delete02(){
+    $('#o_id').val('');
+    $('#class_id').val('');
+    $('#p_id').val('');
+    $("#tanchu_Id02").fadeOut();
+}
+
+function but(){
+    var data = $('#form01').serializeArray();
+    var c    = $('#class_id').val();
+    if (c != '') {
+        $.post('<{:U("aftersaleAjax")}>',data,function(re){
+            if (re==1) {
+                var i = $('#p_id').val();
+                if (c == 9) {
+                    $('.del03'+i).html('添加记录');
+                }else if(c == 10){
+                    $('.del01'+i).html('添加记录');
+                    $('.del02'+i).html('已解决');
+                }
+                alert('添加成功');
+            }else{
+                alert(re);
+            }
+            delete02();
+        })
+    }
+}
+
+function look(t){
+    var data = $(t).prev().val();
+    $('#note').text(data);
+    $("#tanchu_Id03").fadeIn();
+}
+
+function delete03(){
+    $('#note').text('');
+    $("#tanchu_Id03").fadeOut();
+}
+
+$('.uPage .page a').click(function(){
+    var p = $(this).attr('data-page');
+    $.getJSON('<{:U("aftersaleAjaxPage")}>',{'p':p,'t':1},function(re){
+        $('#uPageDiv').html(re.data);
+        $('.uPage').html(re.page);
+    })
+})
+
+$('.mPage .page a').click(function(){
+    var p = $(this).attr('data-page');
+    $.getJSON('<{:U("aftersaleAjaxPage")}>',{'p':p,'t':2},function(re){
+        $('#mPageDiv').html(re.data);
+        $('.mPage').html(re.page);
+    })
+})
+</script>
+
+<include file="footer" />
+</body>
+</html>

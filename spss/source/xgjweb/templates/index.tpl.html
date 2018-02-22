@@ -1,0 +1,592 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/indexstyle.css" >
+
+<link href="./css/fenxiang.css"  type="text/css" rel="stylesheet"><!--分享-->
+
+<!--图片抖动-->
+<script type="text/javascript" src="js/jump.js"></script>
+<script type="text/javascript">
+$(function(){
+	 $(".img_box img").each(function(k,img){
+		new JumpObj(img,3);
+		//第一个参数代表元素对象
+		//第二个参数代表抖动幅度
+	});
+});
+</script>
+<!--图片抖动end-->
+
+<style>
+
+.box ul{
+	display:block;}
+
+</style>
+
+<script src="js/jquery-getui.js" type="text/javascript"></script><!--新图片轮播JS-->
+
+<!-- head头部end -->
+<div class="clear"></div>
+
+<!-- banner轮播图片+导航菜单 -->
+<div class="index-box">
+	{:include file="common/daohang.html":}
+    <!--主导航end-->
+    
+	<!-- 导航菜单 -->
+    {:include file="category/category.tpl.html":}
+	<!-- 导航菜单end -->
+    
+    <div class="clear36"></div>
+
+	<!-- banner轮播图片 -->
+    <div id="container">
+        <div class="slider">
+            <ul class="slider-content">
+            	{:foreach $brandImg as $k=>$v:}
+                <li class="slider-item" > 
+                    <a name="slider_{:$v.id:}" class="a-img-bg" href="{:$v.url:}" style="background-image: url({:$v.image:});">
+                    </a>                
+                </li>
+                {:/foreach:}          
+            </ul>
+            
+            <ol class="slider-indicator">
+            	{:foreach $brandImg as $k=>$v:}
+                <li></li>
+                {:/foreach:}
+            </ol>
+            
+        	<a class="slider-left-control" href="javascript:void(0)"><i></i></a>
+            <a class="slider-right-control" href="javascript:void(0)"><i></i></a>
+        </div>
+    </div>
+    <!-- banner轮播图片end -->
+</div>
+<!-- banner轮播图片+导航菜单end -->
+
+<div class="clear27"></div>
+
+<!-- 中间楼层 -->
+<div class="index-center">
+	<!--1楼-->
+	<div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+    	<div class="index-center-video">
+        	<div class="index-center-video-title">
+            	<img src="images/1029.png"/>
+            </div>
+            
+            <div class="index-center-video-list">
+                {:foreach $pos as $k=>$v:}
+            	<div class="index-center-video-list-demo img_box">
+                	<div class="index-center-video-list-demo-name">
+                    	<a href="index.php?video={:$v.id:}" name="pos_{:$v.id:}">
+                        	{:$v.name:}
+                        </a>
+                    </div>
+                    
+                    <div class="index-center-video-list-demo-img">
+                    	<a href="javascript:;" onclick="tanchu({:$k:},{:$v.id:})" name="pos_{:$v.id:}">
+                        	<img src="{:$v.image|getImages:}"/>
+                        </a>
+                    </div>
+                    
+                    <div class="index-center-video-list-demo-more">
+                    	<div class="index-center-video-list-demo-more-arrow">
+                        </div>
+                        
+                        <div class="index-center-video-list-demo-more-a">
+                        	<a href="index.php?video={:$v.id:}">
+                            	进入更多
+                            </a>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="index-center-video-list-clear">
+                </div>
+                {:/foreach:}
+                
+                <div class="clear"></div>
+            </div>
+            
+        </div>
+    </div>
+    <!--1楼end-->
+    
+    <div class="clear3"></div>
+    
+    <!--2楼-->
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="2">
+    	<div class="index-center-home">
+        	<div class="index-center-home-title">
+            	<div class="index-center-home-title-01">
+                	<img src="images/975.jpg"/>
+                </div>
+                
+                <div class="index-center-home-title-02">
+                	健康舒适家居
+                </div>
+                
+                <div class="index-center-home-title-01">
+                	<img src="images/975.jpg"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="index-center-home-tabs">
+                <div>
+                    <ul class="ui-tabs-nav"> 
+                    {:foreach $furGood as $k=>$v:}                   
+                        <li style="margin-right:56px;">
+                            <a name="furGood_{:$k:}" href="javascript:;" {:if $k eq 0:}class="colors2"{:else:}class="colors"{:/if:} id="tabs{:$k:}" onclick="tabs('tabs','tabs-',{:$k:},'lengths')">
+                                {:$v['cat_name']:}
+                            </a>
+                        </li>
+                    {:/foreach:}
+                    </ul>
+                    
+                    <div class="clear2"></div>
+                    
+                    {:foreach $furGood as $key=>$val:}
+                    <div id="tabs-{:$key:}" class="lengths" {:if $key neq 0:}style="display:none;"{:/if:}>
+                        <div class="index-center-home-tabs-list">
+                            <div class="index-center-home-tabs-list-bk">
+                                {:foreach $val['list'] as $k=>$v:}
+                                <div class="index-center-home-tabs-list-demo">
+                                    <div class="index-center-home-tabs-list-demo-img img_box">
+                                        <a href="price.php?cid={:$v['quote_id']:}" name="furGood_{:$v['quote_id']:}">
+                                            <img src="{:$v['img']:}"/>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="index-center-home-tabs-list-demo-a">
+                                    	<a href="price.php?cid={:$v['quote_id']:}" name="furGood_{:$v['quote_id']:}">
+                                            {:$v['quote_name']:}
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="clear"></div>                                    
+                                    
+                                </div>
+                                {:/foreach:}
+                                
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {:/foreach:}
+                </div>
+            </div>
+
+            <div class="clear3"></div>
+        </div>
+    </div>
+    <!--2楼end-->
+    
+    <div class="clear"></div>
+    
+    <!--3楼-->
+	<!-- 
+    <div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="3">
+    	<div class="index-center-eugroup">
+        	<div class="index-center-eugroup-title">
+            	<div class="index-center-eugroup-title-01">
+                	<img src="images/975.jpg"/>
+                </div>
+                
+                <div class="index-center-eugroup-title-02">
+                	欧洲建材代购
+                </div>
+                
+                <div class="index-center-eugroup-title-01">
+                	<img src="images/975.jpg"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="index-center-eugroup-tabs">
+                <div id="tabs02">
+                    <ul class="ui-tabs-nav">
+                    {:foreach $euGood as $k=>$v:}                    
+                        <li>
+                            <a name="euGood_{:$k:}" href="javascript:;" {:if $k eq 0:}class="colors2"{:else:}class="colors"{:/if:} id="tabss{:$k:}" onclick="tabs('tabss','tabss-',{:$k:},'lengthss')">
+                                {:$v['name']:}
+                            </a>
+                        </li>
+                    {:/foreach:}   
+                    </ul>
+                    
+                    <div class="clear2"></div>
+
+                    {:foreach $euGood as $key=>$val:}
+                    <div id="tabss-{:$key:}" class="lengthss" {:if $key neq 0:}style="display:none;"{:/if:}>
+                        <div class="index-center-eugroup-list" >
+                            <div class="index-center-eugroup-list-bk">
+                            {:if !empty($val['goods']):}
+                                {:foreach $val['goods'] as $k=>$v:}
+                                <div class="index-center-eugroup-list-demo">
+                                    <div class="index-center-eugroup-list-demo-img img_box">
+                                        <a href="goods.php?id={:$v['id']:}" target="_blank" name="euGood_{:$v['id']:}">
+                                            <img src="{:$v['face_image']:}"/>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                    
+                                    <div class="index-center-eugroup-list-demo-name">
+                                        <a href="goods.php?id={:$v['id']:}" target="_blank" name="euGood_{:$v['id']:}">
+                                            {:$v['goods_title']:} 
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="clear"></div>                                    
+                                    
+                                    <div class="index-center-eugroup-list-demo-icon">
+                                        <div class="index-center-eugroup-list-demo-icon-01" class-id="2" data-id="{:$v['id']:}">
+                                            <a href="javascript:;">
+                                                <img src="images/23.png"/>
+                                            </a>
+                                        </div>
+                                        
+                                        <div id="bdshare" class="index-center-eugroup-list-demo-icon-03 bdshare_t bds_tools_32 get-codes-bdshare" data="{'url':http://www.myspss.com/goods.php?id=18}">
+                                            <span class="bds_more"></span>
+                                        </div>
+                                        
+                                        <div class="index-center-eugroup-list-demo-buy-right">
+                                            <a href="goods.php?id={:$v['id']:}" target="_blank" name="euGood_{:$v['id']:}">
+                                                马上抢
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                                         
+                                </div>
+                                {:/foreach:}
+                            {:/if:}    
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {:/foreach:}
+                    
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--3楼end-->
+    
+    <!--4楼-->
+     <!--<div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="4">
+    	<div class="index-center-eugroup">
+        	<div class="index-center-eugroup-title">
+            	<div class="index-center-eugroup-title-01">
+                	<img src="images/975.jpg"/>
+                </div>
+                
+                <div class="index-center-eugroup-title-02">
+                	海外超市
+                </div>
+                
+                <div class="index-center-eugroup-title-01">
+                	<img src="images/975.jpg"/>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="index-center-eugroup-tabs">
+                <div id="tabs02">
+                    <ul class="ui-tabs-nav">
+                    {:foreach $foodGood as $k=>$v:}                    
+                        <li>
+                            <a name="foodGood_{:$k:}" href="javascript:;" {:if $k eq 0:}class="colors2"{:else:}class="colors"{:/if:} id="tabsss{:$k:}" onclick="tabs('tabsss','tabsss-',{:$k:},'lengthsss')">
+                                {:$v['name']:}
+                            </a>
+                        </li>
+                    {:/foreach:}   
+                    </ul>
+                    
+                    <div class="clear2"></div>
+
+                    {:foreach $foodGood as $key=>$val:}
+                    <div id="tabsss-{:$key:}" class="lengthsss" {:if $key neq 0:}style="display:none;"{:/if:}>
+                        <div class="index-center-eugroup-list" >
+                            <div class="index-center-eugroup-list-bk">
+                            {:if !empty($val['goods']):}
+                                {:foreach $val['goods'] as $k=>$v:}
+                                <div class="index-center-eugroup-list-demo">
+                                    <div class="index-center-eugroup-list-demo-img img_box">
+                                        <a href="baby.php?detail&id={:$v['id']:}" target="_blank" name="foodGood_{:$v['id']:}">
+                                            <img src="{:$v['face_image']|getimages:}"/>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                    
+                                    <div class="index-center-eugroup-list-demo-name">
+                                        <a href="baby.php?detail&id={:$v['id']:}" target="_blank" name="foodGood_{:$v['id']:}">
+                                            {:$v['goods_title']:} 
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                    
+                                    <div class="index-center-eugroup-list-demo-icon">
+                                        <div class="index-center-eugroup-list-demo-icon-01" class-id="3" data-id="{:$v['id']:}">
+                                            <a href="javascript:;">
+                                                <img src="images/23.png"/>
+                                            </a>
+                                        </div>
+                                        
+                                        <div id="bdshare" class="index-center-eugroup-list-demo-icon-03 bdshare_t bds_tools_32 get-codes-bdshare" data="{'url':http://www.myspss.com/baby.php?detail&id=18}">
+                                            <span class="bds_more"></span>
+                                        </div>
+                                        
+                                        <div class="index-center-eugroup-list-demo-buy-right">
+                                            <a href="baby.php?detail&id={:$v['id']:}" target="_blank" name="foodGood_{:$v['id']:}">
+                                                马上抢
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="clear"></div>
+                                                         
+                                </div>
+                                {:/foreach:}
+                            {:/if:}    
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {:/foreach:}
+                    
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!--4楼end-->
+    
+    <div class="clear27"></div>
+</div>
+<!-- 中间楼层end -->
+
+
+
+<!--右侧浮动导航end-->
+
+
+
+<!-- 楼层定位 -->
+<div class="rf_menu" id="skipfloor" style="display: none;">
+    <div class="leftmenu">    
+        <ul class="navigation">
+        	<li>
+            	<a data-slide="1" onClick="gotofloor(this);" href="javascript:void(0);">1F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="2" onClick="gotofloor(this);" href="javascript:void(0);">2F</a>
+        	</li>
+            
+            <li>
+            	<a data-slide="3" onClick="gotofloor(this);" href="javascript:void(0);">3F</a>
+        	</li>
+        </ul>    
+        
+    	<div class="downbo" onClick="gotop();" href="javascript:void(0);">
+        	TOP
+        </div>
+    	<!-- js效果写的时候收起为downbo2展开是downbo -->
+    </div>
+</div>
+
+
+
+
+<script>
+    function tabs(t,o,k,c){
+        for (var i = 0; i < $('.'+c).length; i++) {
+            $('#'+o+i).css('display','none')
+            var div = document.getElementById(t+i); 
+            div.className = 'colors1'
+        };
+        var div = document.getElementById(t+k); 
+        $('#'+o+k).css('display','block') 
+        div.className = 'colors2'
+       
+    }
+</script>
+
+
+<script>
+	jQuery(document).ready(function($) {
+try{
+	var f1 = $('.jumbotron[data-slide="1"]').offset().top;
+	var fs = $('.navigation').children().size();
+	var fss = new Array();
+	for (i = 0; i < fs; i++) {
+		j = i + 1;
+		fss[i] = $('.jumbotron[data-slide="' + j + '"]').offset().top;
+	}
+
+
+
+	$(window).scroll(function(){
+		var currentTOP = $(window).scrollTop();
+		if(currentTOP>f1-30){
+			$("#skipfloor").show();
+		}else{
+			$("#skipfloor").hide();
+		}
+		if (currentTOP <= f1) {
+			$('.navigation a').removeClass('sel');
+			$('.navigation a[data-slide="1"]').addClass('sel');
+			return;
+		}else{
+			changefl(getFloor(currentTOP));
+		}
+	});
+
+
+	function getFloor(fh){
+		if(fs==0||fh<=f1){
+			return 1;
+		}
+		if(fh>=fss[fs-1]){
+			return fs;
+		}
+		for (k=0; k<fs;k++) {
+			if(fh>fss[k]&&fh<fss[k+1]){
+				return k+1;
+			}
+		}
+	}
+
+	function changefl(fno){
+		$('.navigation a').removeClass('sel');
+		$('.navigation a[data-slide="'+fno+'"]').addClass('sel');
+	}
+
+}catch(e){
+	console.log(e);
+}
+});
+
+function gotop() {
+	$('body,html').animate({
+		scrollTop : 0
+	}, 800);
+}
+function gotofloor(thiz) {
+	$("a[class='sel']").attr('class', '');
+	$(thiz).attr("class", "sel");
+	dataslide = $(thiz).attr('data-slide');
+	var pos = $('.jumbotron[data-slide="' + dataslide + '"]').offset().top;// 获取该点到头部的距离
+	$("html,body").animate({
+		scrollTop : pos
+	}, 800);
+}
+	</script>
+
+<!-- 楼层定位end -->
+
+<style>
+#abc{
+	width:100%;
+	position:fixed;
+	top:0px;
+	z-index:999;
+	background:url(./images/touming02.png);
+	}
+</style>
+<!--弹出视频-->
+<div id="abc">
+    {:foreach $video as $k=>$v:}
+    <div id="clickAdd_video02_Id{:$k:}" class="clickAdd_video02_Id" style="display:none;">   
+    	<div class="clickAdd_video-center-bk"> 
+            <div class="clickAdd_video-center">
+            	<div class="clickAdd_video-center-title">
+                	<div class="clickAdd_video-center-title-cha" id="video_AddOut02Id{:$k:}" onclick="close1({:$k:})">
+                        <a href="javascript:;">
+                            X
+                        </a>
+                    </div>
+                </div>
+                <div class="clickAdd_video-center-video" >
+                	<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="680" height="380" poster="{:$v['0']['image']|getimages:}" data-setup="">
+                        <source class='video' src="{:$v['0']['video']|getimages:}" type='video/mp4' />
+                        <source class='video' src="{:$v['0']['video']|getimages:}" type='video/webm' />
+                        <source class='video' src="{:$v['0']['video']|getimages:}" type='video/ogg' />
+                        <source class='video' src="{:$v['0']['video']|getimages:}" type='video/avi' />
+                        <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                        <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+                    </video>
+                </div>
+                
+                <div class="clickAdd_video-center-name" id='title'>
+                	{:$v['0']['title']:}
+                </div>
+            </div>
+        </div>
+    </div>
+    {:/foreach:}
+</div>
+
+
+
+<script>
+    function tanchu(k,id){
+        $.get('index.php?video_row',{'num':+k,'id':+id},function(data){
+            $("#abc").html(data);
+        })
+       
+        $("#abc").css('height',$(document).height());
+    }
+    
+    function close1(k){
+        $("#clickAdd_video02_Id"+k).fadeOut();
+        $("#abc").css('height',0);
+        $("#clickAdd_video02_Id"+k).html('');
+    }
+</script>
+<!--弹出视频end-->
+
+
+<!--分享-->
+<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!--分享end-->
+
+
+<!--关注-->
+<script src="js/concern.js"></script>
+<!--关注end-->
+
+<!--视频播放器-->
+<link href="css/video-js.css" rel="stylesheet" type="text/css">
+<script src="js/video.js" type="text/javascript"></script>
+<script>
+	videojs.options.flash.swf = "swf/video-js.swf";
+</script>
+<!--视频播放器-->
+
+
+
+{:include file="footer.tpl.html":}
+</body>
+</html>

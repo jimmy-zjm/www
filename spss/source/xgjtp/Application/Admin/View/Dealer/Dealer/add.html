@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加经销商</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+
+
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true,
+          items : ['baidumap'],
+      });
+      prettyPrint();
+  });
+
+</script>
+
+
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    	<li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+		    <li><a >健康舒适家居</a></li>
+	    	<li><a href="<{:U('index')}>">服务商列表</a></li>
+	    	<li><a href="<{:U('add')}>">添加服务商</a></li>
+	    </ul>
+	    </div>
+	    <div class="formbody">
+    	<div id="usual1" class="usual">
+	    <!-- 选项卡 -->
+	    <div class="itab">
+	        <ul>
+	        <li><a href="#tab1" class="selected">通用信息</a></li>
+	        <li><a href="#tab2">账号信息</a></li>
+	        <li><a href="#tab3">展厅地图</a></li>
+	        <li><a href="#tab4">展厅展示图</a></li>
+	        </ul>
+	    </div>
+	    <form action="<{:U('insert')}>" method="post" name='form1'enctype="multipart/form-data">
+		    <div id="tab1" class="tabson">
+			    <ul class="forminfo">
+				    <li><label>服务商公司名称</label><input name="d_company" type="text" class="dfinput" value=""/><i>服务商公司名称不能超过30个字符</i></li>
+				    <li><label>区域</label>
+			    	<select name="d_district"  style="width:345px; height:32px; line-height:32px; border-top:solid 1px #e7d5ba; border-left:solid 1px #e7d5ba; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('__PUBLIC__/Admin/images/inputbg.gif'); repeat-x scroll 0 0;">
+						<option value="华中地区">华中地区</option>
+						<option value="华东地区">华东地区</option>
+						<option value="西南/西北地区">西南/西北地区</option>
+						<option value="华北/东北地区">华北/东北地区</option>
+						<option value="华南地区">华南地区</option>
+					</select>
+			    	</li>
+			    	<li><label>主要服务省市县</label>
+						<div  class="pcd" >
+                                <select required class='prov' name="province" onchange='area("city",this.value)'>
+									<option value="" ><if condition=" !empty($dealer['d_province']) "><{$dealer['d_province']}><else/>-请选择-</if></option>
+									<?php foreach ($area as $key => $v): ?>
+										<option value="<{$v.id}>"><{$v.name}></option>
+									<?php endforeach ?>
+								</select>
+								<lable>　省　</lable>
+								<select required class='city' name="city" onchange='area("district",this.value)'>
+										<option value=""><if condition=" !empty($dealer['d_city']) "><{$dealer['d_city']}><else/>-请选择-</if></option>
+								</select>
+								<lable>　市　</lable>
+								<select required class='district' name="district" >
+										<option value=""><if condition=" !empty($dealer['d_area']) "><{$dealer['d_area']}><else/>-请选择-</if></option>
+								</select>
+								<lable>　区　</lable>
+                               
+                           </div>
+					 </li>
+					 <li><label>周边服务省市县</label>
+                        <div  class="pcd" style="float:left">     
+                                  <select  class='prov' id="province1" name="province1" onchange='area("city1",this.value)'>
+									<option value="" >-请选择-</option>
+									<?php foreach ($area as $key => $v): ?>
+										<option value="<{$v.id}>"><{$v.name}></option>
+									<?php endforeach ?>
+								</select>
+								<lable>　省　</lable>
+								<select  class='city1'  id='city1' name="city1" onchange='area("district1",this.value)'>
+										<option value="">-请选择-</option>
+								</select>
+								<lable>　市　</lable>
+								<select  class='district1'   id='district1' name="district1">
+										<option value="">-请选择-</option>
+								</select>
+								<lable>　区　</lable>
+                                   
+                        </div>
+                        <div style="height:36px;line-height:36px;"><a href="javascript:;" onclick="serviceCity()">[添加]</a></div>
+                    </li>
+                    <li id='serviceCity'></li>
+				    <li><label>级别</label>
+			    	<select name="d_rank"  style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('__PUBLIC__/Admin/images/inputbg.gif'); repeat-x scroll 0 0;">
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+						<option value="D">D</option>
+						<option value="E">E</option>
+						<option value="F">F</option>
+					</select>
+			    	</li>
+			    	<li><label>状态</label>
+			    	<select name="d_runstatus"  style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0) url('__PUBLIC__/Admin/images/inputbg.gif'); repeat-x scroll 0 0;">
+						<option value="1">正常</option>
+						<option value="0">不正常</option>
+					</select>
+			    	</li>
+				    <li><label>负责人</label><input name="d_legalperson" type="text" class="dfinput" value=""/><i>公司法人</i></li>
+				    <li><label>电话</label><input name="d_legalperson_phone" type="text" class="dfinput" value=""/><i>法人电话</i></li>
+				    <li><label>公司简介</label><textarea name="d_company_desc" cols="" rows="" class="taretextinput"></textarea><i></i></li>
+				    <li><label>办公地点</label><input name="d_rel_address" type="text" class="dfinput" value=""/><i></i></li>
+				    <li><label>送货地点</label><input name="d_pickup_address" type="text" class="dfinput" value=""/><i></i></li>
+				    <li><label>展厅地点</label><input name="d_hall_address" type="text" class="dfinput" value=""/><i></i></li>
+			    </ul>
+		    </div>
+		    <div id="tab2" class="tabson">
+			    <ul class="forminfo">
+				    <li><label>账号</label><input name="d_name" type="text" class="dfinput" value=""/><i></i></li>
+				    <li><label>密码</label><input name="d_pwd" type="text" class="dfinput" value=""/><i></i></li>
+				    <li><label>邮箱</label><input name="d_email" type="text" class="dfinput" value=""/><i></i></li>
+				    <li><label>联系人</label><input name="d_linkman" type="text" class="dfinput" value=""/><i>服务商联系人</i></li>
+				    <li><label>联系电话</label><input name="d_link_phone" type="text" class="dfinput" value=""/><i>服务商联系人电话</i></li>
+			    </ul>
+		    </div>
+		    <div id="tab3" class="tabson">
+		    	<textarea id="editor_id" name="d_map" style="width:850px;height:400px;"></textarea>
+		    </div>
+		    <div id="tab4" class="tabson">
+		    	<ul class="forminfo">
+		    		<ul class="forminfo goods-image">
+			    		<li><label>展示店面图</label><input name="d_store_figure" type="file" /><i></i></li>
+   		            	<li><a href="javascript:;" onclick="addImage(this)">[+]</a>展厅展示图 <input type="file" accept="image/*" multiple name="img_url[]" class="fdinput" id="" /></li>
+		            </ul>
+		    	</ul>
+		    </div>
+		    <div style="margin:0 auto;width:320px">
+		    	<input type="hidden" id='cityService' name="d_service_city_all" value=''>
+	            <input name="" type="submit" class="btn" value="确认保存"/>
+	            <input name="" type="reset" class="btn" value="重置"/>
+        	</div>		    
+	    </form>
+	    </div>
+	</div>
+<script type="text/javascript">
+
+        //点击[+]号 添加多个下拉框
+        function addSpec(obj){
+            //在当前的li后面克隆一个li,并把加号修改为减号
+            var removeSpec = '<li>'+$(obj).parent().parent().clone().html().replace('addSpec(this)">[+]','removeSpec(this)">[-]')+'</li>';
+            $(obj).parent().parent().after(removeSpec);
+        }
+
+        //点击[-]号 删除下拉框
+        function removeSpec(obj){
+            //删除当前的tr
+            $(obj).parent().parent().remove();
+        }
+
+
+        //添加一个图片上传按钮
+        function addImage(obj){
+            var image = '<li>'+$(obj).parent().clone(true).html().replace('addImage(this)">[+]','removeImage(this)">[-]')+'</li>';
+            $(obj).parent().after(image);
+        }
+
+        //删除一个图片上传按钮
+        function removeImage(obj){
+            $(obj).parent().remove();
+        }
+
+        //tab切换
+        $("#usual1 ul").idTabs();
+
+        //表格隔行变色
+        $('.tablelist tbody tr:odd').addClass('odd');
+</script>
+<!--选择城市-->
+
+<script>
+	function area(o,v){
+			$.getJSON("<{:U('area')}>",{'v':v},function(data){
+				if (o=='city') {
+					$('.district').html('');
+					$('.district').append('<option value="">-请选择-</option>');
+				}else if(o=='city1'){
+					$('.district1').html('');
+					$('.district1').append('<option value="">-请选择-</option>');
+				}
+				$('.'+o).html('');
+				$('.'+o).append('<option value="">-请选择-</option>');
+				for (var i = 0; i < data.length; i++) {
+					$('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+				}
+			})
+	}
+
+ </script>
+<!--选择城市end-->
+<script>
+	function serviceCity(){
+		var p = $('#province1').val();
+		var c = $('#city1').val();
+		var d = $('#district1').val();
+
+		if (p != '' && c != '' && d !='') {
+			var pcd = p+'-'+c+'-'+d;
+			$.get('<{:U("serviceCity")}>',{'pcd':pcd},function(re){
+				var city = $('#cityService').val();
+				if (city != '') {
+					if(city.indexOf(re)!=-1) return;
+					$('#cityService').val(city+'|'+re)
+				}else $('#cityService').val(re)
+				$('#serviceCity').append('<div style="margin-left:86px;">'+re+'&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" onclick="serviceCityDel(\''+re+'\',this)">删除</a></div>');
+			})
+
+		}
+    }
+
+    function serviceCityDel(val,t){
+    	var city = $('#cityService').val();
+    	var city = city.replace('|'+val,"");
+    	var city = city.replace(val,"");
+    	if (city.substr(0, 1)=='|') city=city.substr(1);
+    	$('#cityService').val(city)
+    	$(t).parent().html('');
+    }
+     // function aaaa(){
+     //    var province = document.getElementById('province1').value;
+     //    var city = document.getElementById('city1').value;
+     //    var area = document.getElementById('district1').value;
+     //    var bbb = document.getElementById('bbb');
+     //    var service_city_all = document.getElementById('service_city_all');
+     //    var service_city = document.getElementById('service_city');
+     //    if (province == '') {
+     //        alert('请选择省份');
+     //    }else if (city == '') {
+     //        alert('请选择城市');
+     //    }else if (area == '') {
+     //        alert('请选择地区');
+     //    }else{
+     //        $.get("<{:U('add_city')}>?province="+province+"&city="+city+"&area="+area,function(data){
+     //            // console.log(data);
+     //            bbb.innerHTML=data;
+     //        })
+     //    }
+     // }
+ </script>
+</body>
+</html>
+

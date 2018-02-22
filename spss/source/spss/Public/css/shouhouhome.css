@@ -1,0 +1,60 @@
+.con-top{
+	width: 100%;
+	height:400px;
+}
+.con-top img{
+	width: 100%;
+	height:400px;
+	display:block;
+}
+.con-bottom{
+	width: 1200px;
+	height: 500px;
+	margin:0 auto;
+}
+.cus-index-con{
+	height:auto;
+	width:100%;
+	min-width:1200px;
+}
+.con-bottom ul{
+	width: 100%;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.con-bottom ul li{
+	width: 29%;
+	height: 400px;
+	float: left;
+}
+.con-bottom ul li:nth-child(2),.con-bottom ul li:nth-child(3){
+	margin-left: 6%;
+}
+.con-bottom ul li>p{
+	width: 75%;
+	height:30px;
+	margin: 0 auto;
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+	color: #333;
+}
+.con-bottom ul li>p:first-child{
+	width: 80%;
+	height:300px;
+	margin: 0 auto;
+}
+.con-bottom ul li a{
+	display:block;
+	height:300px;
+}
+.con-bottom ul li:nth-child(1) a:nth-child(1) {
+	background: url(../img/shhome-img1.png) no-repeat  center;
+}
+.con-bottom ul li:nth-child(2) a:nth-child(1){
+	background: url(../img/shhome-img2.png) no-repeat center ;
+}
+.con-bottom ul li:nth-child(3) a:nth-child(1){
+	background: url(../img/shhome-img3.png) no-repeat center ;
+}

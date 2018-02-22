@@ -1,0 +1,129 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/payfailsstyle.css" ><!-- 支付成功页面paysuccess调用CSS -->
+<!-- head头部end -->
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+        <div class="index-navigation-bk" id="mynavbk">
+            <div class="index-navigation" >
+                <div class="index-navigation-center">
+                    <div class="index-navigation-a">
+                        <a href="index.php?aboutus">
+                            关于我们
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?qualitylife">
+                            品质生活
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?homeindex">
+                            健康舒适家居
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?service">
+                            机电售后服务
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?share">
+                            资源分享
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?pay">
+                            支付方式
+                        </a>
+                    </div>
+
+                    <div class="index-navigation-a">
+                        <a href="index.php?knowledge">
+                            百科知识
+                        </a>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<!--导航end-->
+
+<div class="clear"></div>
+
+<!--中间-->
+<div class="payfails-center">    
+    <div class="payfails-center-left">
+        <div class="payfails-center-left-img">
+            <img src="images/866.png"/>
+        </div>
+    </div>
+    
+    <div class="payfails-center-right">
+        <div class="payfails-center-right-title">
+            抱歉，您支付未成功，请再试一次！
+        </div>
+        
+        
+        
+        <div class="payfails-center-right-a">
+            <img src="images/865.png"/>
+            
+            <img src="images/865.png"/>
+            
+            <a href="user.php?center">
+                返回会员中心
+            </a>
+        </div>
+    </div>
+</div>
+<!--中间end-->
+
+
+<div class="clear2"></div>
+
+<!-- 底部列表 -->
+
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+
+<div class="clear"></div>
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+
+
+</body>
+</html>

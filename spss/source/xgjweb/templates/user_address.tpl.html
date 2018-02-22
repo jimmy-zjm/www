@@ -1,0 +1,166 @@
+{:include file="header.tpl.html":}
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+
+<link rel="stylesheet"  type="text/css"  href="css/Personal Center.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+{:include file='user_left.tpl.html':}
+
+	<!-- user右边，引用头部时倒入这个div -->
+    <div class="user-right">
+        <div class="useraddresscenter-title">
+            <div class="useraddresscenter-title-left"> 
+            	<span>
+               		收货地址
+                </span>
+            </div>
+            
+            {:if $addrCount le 20:}
+            <div class="useraddresscenter-title-right"> 
+                <a href="user.php?addrInfoAddShow"> 
+                	新增收货地址 
+                </a> 
+            </div>
+            {:/if:} 
+            
+            <div class="clear"></div>
+        </div>
+            
+        <div class="clear12"></div>
+        
+        
+<!--        {:if !empty($addrInfoList):}
+        {:foreach from=$addrInfoList key=num item=addrInfo:}
+        <div id="fuent"> 
+            <div class="shou_huo">
+             收 货 人 &nbsp;：
+            <span>
+            {:$addrInfo.a_name:}
+            </span> 
+            </div>
+            <div class="shou_huo">所在地区：<span>{:$addrInfo.a_addr:}</span></div>
+            <div class="shou_huo">地 &nbsp; &nbsp; &nbsp;  址：<span>{:$addrInfo.a_addr:}</span></div>
+            <div class="shou_huo">手 &nbsp; &nbsp; &nbsp;  机：<span>{:$addrInfo.a_mobile_phone:}</span></div>
+            <div class="shou_huo">固定电话：<span>{:$addrInfo.a_phone:} </span></div>
+            <div class="shou_huo">电子邮箱：<span>{:$addrInfo.a_email:}</span></div>
+            <div class="shou_bianji"><a href="user.php?addrDefaultSet&addrId={:$addrInfo.a_id:}">设为默认地址</a> <a href="user.php?addrInfoEditShow&addrId={:$addrInfo.a_id:}">编辑</a></div>
+        </div>
+        {:/foreach:}
+        {:/if:}
+		-->
+        
+        <div id="" class="useraddresscenter-list">
+        	<div class="clear27"></div>
+            
+        	{:if !empty($addrInfoList):}
+        	{:foreach from=$addrInfoList key=num item=addrInfo:}
+        	<div class="useraddresscenter-list-demo">
+            	<div class="useraddresscenter-list-demo-left">
+                	收&nbsp;货&nbsp;&nbsp;人：
+                </div>
+                
+                <div class="useraddresscenter-list-demo-right">
+                	{:$addrInfo.a_name:}
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="useraddresscenter-list-demo-left">
+                	所在地区：
+                </div>
+                
+                <div class="useraddresscenter-list-demo-right" title="{:$addrInfo.a_addr:}">
+                	{:$addrInfo.a_pro:}-{:$addrInfo.a_city:}-{:$addrInfo.a_area:}
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="useraddresscenter-list-demo-left">
+                	地 &nbsp; &nbsp; &nbsp;  址：
+                </div>
+                
+                <div class="useraddresscenter-list-demo-right" title="{:$addrInfo.a_addr:}">
+                	{:$addrInfo.a_addr:}
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="useraddresscenter-list-demo-left">
+                	手 &nbsp; &nbsp; &nbsp;  机：
+                </div>
+                
+                <div class="useraddresscenter-list-demo-right">
+                	{:$addrInfo.a_mobile_phone:}
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="useraddresscenter-list-demo-left">
+                	固定电话：
+                </div>
+                
+                <div class="useraddresscenter-list-demo-right">
+                	{:$addrInfo.a_phone:}
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="useraddresscenter-list-demo-left">
+                	电子邮箱：
+                </div>
+                
+                <div class="useraddresscenter-list-demo-right">
+                	{:$addrInfo.a_email:}
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="useraddresscenter-list-demo-bianji">
+                    {:if $addrInfo.default eq 1:}
+                    <a href="javascript:;">默认地址</a>
+                    {:else:}
+                    <a href="user.php?addrDefaultSet&addrId={:$addrInfo.a_id:}">
+                    	设为默认地址
+                    </a> 
+                    {:/if:}
+                    <a href="user.php?addrInfoEditShow&addrId={:$addrInfo.a_id:}">
+                    	编辑
+                    </a>
+
+                    <a href="user.php?addrInfoDel&addrId={:$addrInfo.a_id:}">
+                        移除
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            {:/foreach:}
+       		{:/if:}
+            
+            <div class="clear"></div>
+            
+            <div class="useraddress-zhu">
+                <span class="span01">
+                	注：
+                </span>
+                
+                <span class="span02">
+                	您已创建{:$addrCount:}个收货地址，最多可创建20个  
+                </span>
+
+            	
+            </div>
+        </div>
+    </div>
+
+	<div class="clear"></div>
+</div>
+
+<div class="clear2"></div>
+{:include file='footer.tpl.html':} 

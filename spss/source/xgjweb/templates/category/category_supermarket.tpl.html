@@ -1,0 +1,55 @@
+	<div class="box-wk">
+        <div class="box">
+            <div class="box-title">
+				商品分类
+            </div>
+            
+        
+            <ul class="box-ul">
+                <div class="clear15"></div>
+                
+                {:foreach $cate_list as $k=>$v:}
+                <li>
+                    <div class="box-dh">
+                        <a href="javascript:;">
+                            {:$v['name']:}
+                        </a> 
+                    </div>
+                    
+                    <ul class="box-list-ul">
+                        <div class="box-bk02" >
+                            <div class="box-bk-demo04" style="width:960px;float:none;">
+                            	{:foreach $v['list'] as $val:}
+                                <div class="box-01" style="float:left;width:180px;">
+                                    <div class="box-02">
+                                    	<!-- <a href="eugroup.php?list&id={:$v['id']:}" >{:$v['name']:}</a> -->
+										<a href="baby.php?list&id={:$val['pid']:},{:$val['id']:}" class="box-03-a" name="baby_list_{:$val['pid']:},{:$val['id']:}">
+                                        	{:$val['name']:}
+                                        </a>
+                                    </div>
+                                </div>
+                                {:/foreach:}    
+                                
+                                
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                {:/foreach:}
+            </ul>
+        </div>
+    </div>
+    
+<style>
+.box ul{
+	height:420px;}
+	
+.box ul li ul{
+	height:420px;}
+	
+.box-title{
+	color:#383838;}
+</style>
+
+
+

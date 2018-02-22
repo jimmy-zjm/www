@@ -1,0 +1,209 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/jobstyle.css" ><!-- 人才招聘页面job页面调用CSS--> 
+<!-- head头部end -->
+
+{:include file="category/category.tpl.html":}
+
+<div class="clear"></div>
+
+<!--导航-->
+<div class="index-navigation" id="mynav">
+    <div class="index-navigation-bk" id="mynavbk">
+        <div class="index-navigation" >
+            <div class="index-navigation-center">
+                <div class="index-navigation-a">
+                    <a href="index.php?aboutus">
+                        关于我们
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?qualitylife">
+                        品质生活          
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?homeindex">
+                        健康舒适家居           
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?service">
+                        机电售后服务            
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?share">
+                        资源分享            
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?pay">
+                        支付方式                        
+                    </a>
+                </div>
+                
+                <div class="index-navigation-a">
+                    <a href="index.php?knowledge">
+                        百科知识                  
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!--导航end-->
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 中间楼层 -->
+<div class="JobInfo-conter">
+	<div class="advertisement">
+    	<img src="images/868.png"/>
+    </div>
+    
+    <div class="clear2"></div>
+    <div class="clear27"></div>
+    
+	<div class="JobInfo-conter-left">
+    	<div class="clear27"></div>
+        
+        <div class="JobInfo-conter-left-table">
+        	<div class="JobInfo-conter-left-table-01">
+            	<div class="JobInfo-conter-left-table-01-left">
+                	<span>
+                   		岗位名称：
+                    </span>
+                </div>
+                
+                <div class="JobInfo-conter-left-table-01-right">
+                	<span>
+                    	{:if !empty($data.0.name):}{:$data.0.name:}{:/if:}
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="JobInfo-conter-left-table-01">
+            	<div class="JobInfo-conter-left-table-01-left">
+                	<span>
+                   		工作地点：
+                    </span>
+                </div>
+                
+                <div class="JobInfo-conter-left-table-01-right">
+                	<span>
+                    	{:if !empty($data.0.address):}{:$data.0.address:}{:/if:}
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="JobInfo-conter-left-table-01">
+            	<div class="JobInfo-conter-left-table-01-left">
+                	<span>
+                   		职位概要：
+                    </span>
+                </div>
+                
+                <div class="JobInfo-conter-left-table-01-right">
+                	<span>
+                        {:if !empty($data.0.outline):}{:$data.0.outline:}{:/if:}
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="JobInfo-conter-left-table-01">
+            	<div class="JobInfo-conter-left-table-01-left">
+                	<span>
+                   		任职资格：
+                    </span>
+                </div>
+                
+                <div class="JobInfo-conter-left-table-01-right">
+                	<span>
+                    	{:if !empty($data.0.qualifications):}{:$data.0.qualifications:}{:/if:}
+                    </span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="JobInfo-conter-left-table-02">
+            	<a href="mailto:qiaofu@qiaofu365.com"><!--此处把qiaofu@qiaofu365.com这个邮箱，换成人事邮箱即可-->
+                	发送简历
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="JobInfo-conter-right">
+    	<div class="JobInfo-conter-right-img">
+        	<img src="images/869.jpg"/>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+<!-- 中间楼层end -->
+
+<div class="clear3"></div>
+<div class="clear3"></div>
+<div class="clear3"></div>
+
+<!-- 底部列表 -->
+{:include file="footer.tpl.html":}
+<!-- 根部链接end -->
+
+<div class="clear"></div>
+
+
+
+
+<!--选择城市-->
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'cityChoice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        },
+       
+    });
+
+    cityPicker.init();
+</script>
+<!--选择城市end-->
+
+</body>
+</html>

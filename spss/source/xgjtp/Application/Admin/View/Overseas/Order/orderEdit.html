@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+
+<!--省市县县三级联动-->
+<link href="__PUBLIC__/Admin/css/city.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/city.min.js"></script>
+<!--省市县县三级联动end-->
+<script>
+    $(function(){ //调用插件
+        $.fn.citySelect();
+    });
+</script>
+<script>
+eval(function(p,a,c,k,e,d){
+    e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};
+    if(!''.replace(/^/,String)){
+        while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('!4(a){a.n.P=4(b){4 c(b){6 c,d=a(b),e="Y",f=a("m",d);d.o(4(){a(5).Z(e),f.F(!0,!0).10()}),c=4(){d.Q(e),f.F(!0,!0).U()},a("T").o(4(d){a(d.S).R(b+" *")||c()})}6 d,e={C:["#V","#W","#X"],D:["<{$data.shr_pro}>","<{$data.shr_city}>","<{$data.shr_area}>"],y:"i",K:\'11[O^="L"]\',A:!0},f=a.w(e,b),g=f.C,h=f.D,i=f.y,j=f.K,k=g.z;I(a.n.8=4(b){6 c={G:!1,7:0},d=a.w(c,b),e=a(5),f=a("m 3",e),g=(a("m 3:N",e),a("m 3:M(0)",e)),k=a(i,e),l=a(j,e);9 d.G?f.E():g.E(),k.q(h[d.7]),l.r(h[d.7]),5},a.n.t=4(b){6 c,d={p:"0"},e=a.w(d,b),f=a(5),g=a("m",f),h=18.1a[e.p],i="";I("1b"==19 h)9!1;J(c=0;c<h.z;c++)i+=\'<3><a 16="13:14(0)" s="\'+h[c]+\'">\'+h[c]+"</a></3>";g.12(i),i=""},a.n.H=4(){6 b,c,d;a("3",g[0]),a("3",g[1]),a("3",g[2]),a("3",g[0]).u("o",4(){b=a("3",g[0]).v(5)-1;6 c=a("a",5).x("s"),d=a(i,g[0]),e=a(j,g[0]);9 d.q(c),e.r(c),a(g[1]).8({7:1}),a(g[1]).t({p:"B"+b}),a(g[2]).8({7:2}),b}),a("3",g[1]).u("o",4(){c=a("3",g[1]).v(5)-1;6 d=a("a",5).x("s"),e=a(i,g[1]),f=a(j,g[1]);9 e.q(d),f.r(d),a(g[2]).8({7:2}),a(g[2]).t({p:"B"+b+"17"+c}),c}),a("3",g[2]).u("o",4(){d=a("3",g[2]).v(5);6 b=a("a",5).x("s"),c=a(i,g[2]),e=a(j,g[2]);9 c.q(b),e.r(b),d})},f.A)J(d=0;k>d;d++)a(g[d]).8({7:d}),c(g[d]);a(g[0]).t({p:"0"}),a.n.H()}}(15);',62,74,'|||li|function|this|var|thisindex|removelist|return|||||||||||||ul|fn|click|theindex|text|val|alt|appendlist|live|index|extend|attr|czemt|length|intva|0_|setId|stval|remove|stop|removeAll|liClick|if|for|inpvt|cho|gt|first|name|citySelect|removeClass|is|target|body|slideUp|Province|City|Area|active|toggleClass|slideToggle|input|append|javascript|void|jQuery|href|_|dsy|typeof|Items|undefined'.split('|'),0,{}))
+</script>
+<title>订单详情</title>
+<style>
+	.content{
+		padding-bottom:20px;
+	}
+	.content div{
+		height:30px;
+	}
+	h2{
+		font-size:18px;font-weight:bold;
+		height:40px;
+		line-height:40px;
+	}
+	textarea,input{
+		border:1px solid #f0dcbe;
+	}
+	input{ width:170px; height:25px;line-height:25px}
+</style>
+</head>
+
+<body>
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">欧洲建材</a></li>
+    <li><a href="">订单修改</a></li>
+    </ul>
+    </div>
+	<div class="formbody">
+		<form action="<{:U('doOrderEdit')}>" method="post">
+		<input type="hidden" name='orderId' value="<{$orderId}>"/>
+		<div class="content">
+			收货人：<input type=text name='shr_name' value="<{$data.shr_name}>"/>
+		</div>
+		<div class="content">
+			手　机：<input type=text name='shr_phone' value="<{$data.shr_phone}>"/>
+		</div>
+		<div class="content">
+			<div  class="content_span">收货地址：</div>
+
+			<div class="homelist2-conter-offer-info-region-form">
+				<div id="content-wrap">
+	                <div id="content-left" class="demo">
+	                    <div class="infolist">            
+	                        <div class="liststyle">
+	                            <span id="Province">                    
+	                                <i id="city11">请选择省份</i>
+	                                <ul><li><a href="javascript:void(0)" alt="请选择省份">请选择省份</a></li>
+	                                </ul>
+	                                <input id='city111' type="hidden" name="cho_Province" value="请选择省份">
+	                            </span>
+	                            <span id="City">
+	                                <i id="city22">请选择城市</i>
+	                                <ul><li><a href="javascript:void(0)" alt="请选择城市">请选择城市</a>
+	                                    </li>
+	                                </ul>
+	                                <input id='city222' type="hidden" name="cho_City" value="请选择城市">
+	                            </span>
+	                            <span id="Area">
+	                                <i id='city33'>请选择地区</i>
+	                                <ul><li><a href="javascript:void(0)" alt="请选择地区">请选择地区</a>
+	                                    </li>
+	                                </ul>
+	                                <input id='city333' type="hidden" name="cho_Area" value="请选择地区">
+	                            </span>
+	                            <span class="Address">
+	                            	<input type=text name='shr_addr' value="<{$data.shr_addr}>"/> 
+	                            </span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+        	</div>
+
+        	<div class="clear" style="height:0px;"></div>
+		</div>
+		<div class="content">
+		   订单总额：¥<{$data.total_price}>　　 使用优惠券：¥-<{$coupon}>　　使用积分：¥-<{$integral}>.00
+		</div>
+		<div class="content">
+		   应付金额：¥<{$data.deal_price}>　　 调整后金额：<input type=text name='deal_price'  value="<{$data.deal_price}>"/>
+		</div>
+		<div class="content">
+		   <h2>添加备注</h2>
+		   <textarea  rows="10" cols="100" name='remark'><{$data.remark}></textarea>
+		</div>
+		<div class="content">
+		   <h2>修改日志</h2>  
+				<?php foreach ($journal as $k => $v): ?>
+					<div style="color:#999"><{$v.name}>对订单进行修改操作　　　　<?= date('Y-m-d H:i:s',$v['time'])?></div>
+					<div><{$v.text}></div>
+				<?php endforeach ?>
+		</div>
+		<input type="submit" value="保存" class="btn" name=""><input type="reset" value="重置" class="btn" name="">
+		</form>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.content_span{
+	float:left;
+}
+.homelist2-conter-offer-info-region-form{
+	float: left;
+	width: 800px;
+}
+
+.homelist2-conter-offer-info-region-form .infolist{
+	min-height:28px;}
+	
+.ssx-span{
+	border:none !important;
+	font-size:16px;
+	color:#414146;}
+	
+.homelist2-conter-offer-info-region-form .infolist .liststyle span{
+	height:28px;
+	line-height:28px;
+	font-size:16px;
+	border:1px solid #d9d9d9;
+	border-radius:5px;}
+	
+.homelist2-conter-offer-info-region-form .infolist .liststyle span i{
+	height:28px;
+	line-height:28px;}
+	
+.homelist2-conter-offer-info-region-form .infolist .liststyle span i{
+	font-size:14px;}
+	
+.homelist2-conter-offer-info-region-form.infolist .liststyle span ul{
+	top:30px;}
+	
+
+	
+.Address{
+	width:375px;
+	height:40px
+	line-height:40px;}
+	
+.Address input{
+	border:none;
+	background:none;
+	width:320px;
+	height:28px;
+	line-height:28px;
+	margin-left:7px;
+	font-size:16px;
+	color:#414146;}
+</style>
+</body>
+</html>

@@ -1,0 +1,253 @@
+{:include file="pad/head.html":}
+<div class="staffInfo-titile">
+	<span>
+    	员工管理
+    </span>
+</div>
+
+<div class="clear27"></div>
+<form action="pad.php?updateUser" method="post">
+    <input type="hidden" name='id' value="{:$smarty.get.id:}">
+    <div class="staffInfo-info">
+    	<div class="staffInfo-info-demo01">
+            <span>
+                真实姓名
+            </span>
+            
+            <input type="text" name='real_name' value="{:$data.user.real_name:}"/>
+        </div>
+        
+        <div class="staffInfo-info-demo01">
+            <span>
+                联系方式
+            </span>
+            
+            <input type="text" name='tel' value="{:$data.user.tel:}"/>
+        </div>
+        
+        <div class="staffInfo-info-demo02">
+            <span class="span01">
+                生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日
+            </span>
+            
+            <select name='birthday1' id='n' onchange='days()'>
+                {:for $i='1950';$i<$smarty.now|date_format:"%Y";$i++:}
+                <option {:if !empty($data.user.birthday1) && $i eq $data.user.birthday1:}selected="selected"{:/if:}>{:$i:}</option>
+                {:/for:}
+            </select>
+            
+            <span class="span02">
+                年
+            </span>
+             
+            <select name='birthday2' onchange='days()' id='y'>
+                {:for $i='1';$i<='12';$i++:}
+                <option {:if !empty($data.user.birthday2) && $i eq $data.user.birthday2:}selected="selected"{:/if:}>{:$i:}</option>
+                {:/for:}
+            </select>
+
+            
+            
+            <span class="span02">
+                月
+            </span>
+            
+            <select name='birthday3' id='r'>
+                {:for $i='1';$i<='31';$i++:}
+                <option {:if !empty($data.user.birthday3) && $i eq $data.user.birthday3:}selected="selected"{:/if:}>{:$i:}</option>
+                {:/for:}
+            </select>
+            
+            <span class="span02">
+                日
+            </span>
+        </div>
+        
+        <div class="staffInfo-info-demo03">
+        	<span class="span01">
+                性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别
+            </span>
+            
+            <span class="span02">
+            	男
+            </span>
+            
+            <input name='sex' type="radio" {:if $data.user.sex eq '1':}checked{:/if:} value='1'/>
+            
+            <span class="span02">
+            	女
+            </span>
+            
+            <input name='sex' type="radio" {:if $data.user.sex eq '0':}checked{:/if:} value='0'/>
+
+            <span class="span02">
+                保密
+            </span>
+            
+            <input name='sex' type="radio" {:if $data.user.sex eq '2':}checked{:/if:} value='2'/>
+        </div>
+        
+        <div class="staffInfo-info-demo04">
+        	<span>
+                职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位
+            </span>
+            
+            <select name='position'>
+                <option>请选择</option>
+                <option {:if !empty($data.user.position) && $data.user.position eq '1':}selected="selected"{:/if:} value='1'>店经理</option>
+                <option {:if !empty($data.user.position) && $data.user.position eq '2':}selected="selected"{:/if:} value='2'>接待</option>
+                <option {:if !empty($data.user.position) && $data.user.position eq '3':}selected="selected"{:/if:} value='3'>业务员</option>
+                <option {:if !empty($data.user.position) && $data.user.position eq '4':}selected="selected"{:/if:} value='4'>产品经理</option>
+                <option {:if !empty($data.user.position) && $data.user.position eq '5':}selected="selected"{:/if:} value='5'>设计师</option>
+                <option {:if !empty($data.user.position) && $data.user.position eq '6':}selected="selected"{:/if:} value='6'>项目管理</option>
+                <option {:if !empty($data.user.position) && $data.user.position eq '7':}selected="selected"{:/if:} value='7'>售后人员</option>
+            </select>
+        </div>
+        
+        <div class="clear"></div> 
+        
+        <div class="staffInfo-info-demo05">
+        	<div class="staffInfo-info-demo05-input">
+            	<input type="submit" value="确认修改并保存"/>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</form>
+<div class="clear2"></div>
+
+<div class="staffInfo-titile">
+	<span>
+    	客户信息
+    </span>
+</div>
+
+<div class="clear27"></div>
+
+<div class="staffInfo-center">	
+	<div class="staffInfo-center-list">
+    	<div class="staffInfo-center-list-title">            
+            <div class="staffInfo-center-list-title-name">
+            	客户名称
+            </div>
+            
+            <div class="staffInfo-center-list-title-tel">
+            	联系方式
+            </div>
+            
+            <div class="staffInfo-center-list-title-address">
+            	所在地址
+            </div>
+            
+            <div class="staffInfo-center-list-title-time">
+            	创建时间
+            </div>
+            
+            <div class="staffInfo-center-list-title-operation">
+            	操作
+            </div>
+            
+            <div class="clear"></div>
+        </div>        
+       {:if !empty($data.customer):}
+       {:foreach $data.customer as $k=>$v:}
+        <div class="staffInfo-center-list-demo">            
+            <div class="staffInfo-center-list-demo-name">
+            	{:$v.name:}
+            </div>
+            
+            <div class="staffInfo-center-list-demo-tel">
+            	{:$v.tel:}
+            </div>
+            
+            <div class="staffInfo-center-list-demo-address">
+                {:$v.province:} {:$v.city:} {:$v.district:} {:$v.address:}
+            </div>
+            
+            <div class="staffInfo-center-list-demo-time">
+            	{:$v.time|date_format:'%Y-%m-%d %H:%M:%S':}
+            </div>
+            
+            <div class="staffInfo-center-list-demo-operation">
+                <div class="staffInfo-center-list-demo-operation-ck">
+                    <a href="pad.php?check&c_id={:$v.id:}">
+                        查看
+                    </a>
+                </div>
+    
+                <div class="staffInfo-center-list-demo-operation-bz">
+                    <a href="javascript:;" onclick="check({:$v.id:})">
+                        备注
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div> 
+        {:/foreach:}
+        {:/if:}
+
+        <div id="page"></div>           
+    </div>   
+</div>
+
+<div class="clear"></div>
+   
+{:include file="pad/flooter.html":}
+<div id="CkId">   
+</div>
+
+<script>
+    function days(){
+        var y = $('#y').val();
+        var n = $('#n').val();
+        $.get('pad.php?calDays',{'y':y,'n':n},function(data){
+            $("#r").html('');
+            for (var i = 1; i <= data; i++) {
+                $("#r").append("<option>"+i+"</option>");
+            };
+        });
+    }
+</script>
+<script>
+    function check(id){
+		$("#CkId").css('height',$(document).height());
+        $("#CkId").fadeIn();
+        $("#CkId").load('pad.php?staffinfos&id='+id);
+    };
+    function clo(){
+        $("#CkId").fadeOut();
+    };
+
+    function sub(){
+        var url = "pad.php?addRemark";  
+        var c_id=$("#c_id").val();
+        var content=$("#content").val();
+        $.ajax({  
+        type: "post",  
+        url: url,  
+        data: {
+            c_id:c_id,
+            content:content,
+        },  
+            success: function(msg){  
+                if(msg == 1){
+                    alert('保存成功');
+                    $("#CkId").fadeIn();
+                    $("#CkId").load('pad.php?checkinfo&id='+c_id);
+                }else if(msg == 2){
+                    alert('保存失败');
+                }
+                // console.log(msg); 
+            }  
+        });  
+    };  
+</script>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>修改文章</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#content', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+
+</script>
+</head>
+<body>
+
+		<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+	    <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+	    <li><a >文章管理</a></li>
+	    <li><a href="<{:U('index')}>">文章列表</a></li>
+	    <li><a href="<{:U('edit',array('article_id'=>$article['article_id']))}>">修改文章</a></li>
+	    </ul>
+	    </div>
+	    
+	    <div class="formbody">
+	    <form action="<{:U('update',array('article_id'=>$article['article_id']))}>" method="post" enctype="multipart/form-data">
+	    <ul class="forminfo">
+	    <li><label>标题</label><input name="title" type="text" class="dfinput" value='<{$article.title}>'required='required'/><i>标题不能超过30个字符</i></li>
+	    <li><label>文章分类</label>
+	    	<select name='parent_id'style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba; background: rgba(0, 0, 0, 0)  repeat-x scroll 0 0;">
+	    	    <{$option}>
+	    	</select>
+	    </li>
+	    <li><label>文章图片</label><input name="image" type="file" class="dfinput" /><i>
+
+	    <?php if($show==1){?>
+	    <a href="<{:U('show_image',array('article_id'=>$article['article_id']))}>" target="_blank">[查看图片]</a>&nbsp;|&nbsp;<a href="<{:U('del_image',array('article_id'=>$article['article_id']))}>">[删除图片]</a>
+	    <?php }?>
+	    </i></li>
+        <li><label>排序</label>
+            <input type="text" name="order" class="dfinput" style="width:100px;" value="<{$article.order}>"/>
+        </li>
+	    <li><label>内容</label><textarea name="content" id='content'style="width:1000px; height:520px" class="textinput" ><{$article.content}></textarea></li>
+	    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认编辑"/></li>
+	    </ul>
+	    </form>
+	    </div>
+
+</body>
+</html>
+

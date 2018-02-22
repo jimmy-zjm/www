@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<META HTTP-EQUIV="luxiaoqing" CONTENT="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<link rel="stylesheet" type="text/css" href="./css/regsiter.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script src="js/jquery-1.11.3.js" type="text/javascript"></script><!-- 通用Jquery -->
+<title>经销商登陆页</title>
+</head>
+
+<body>
+
+<div class="user_login-top">
+    <div class="user_login-top-bk">
+        <div class="user_login-top-logo">
+            <a href="/">
+                <img src="./images/logo6.png" />
+            </a>
+        </div>
+        
+        <div class="user_login-top-span">
+            <span>
+                致力于提高中国家庭生活品质
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="user_login-center">
+	<div class="clear30"></div>
+    
+	<div class="user_login-center-bk">
+        <div class="user_login-center-left">
+            <img src="./images/972.jpg" />
+        </div>
+        
+        <div class="user_login-center-right">
+        	<div class="user_login-center-right-top">
+            	<div class="user_login-center-right-top-span">
+                	安装服务商登录中心
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <form name='login' id='login' action='dealer.php?login' method='post'>
+                <div class="user_login-center-right-demo01">
+                    <div class="user_login-center-right-demo01-img">
+                        <img src="./images/970.png" />
+                    </div>
+                    
+                    <div class="user_login-center-right-demo01-input">
+                        <input id="username" name="username" type="text" x-webkit-speech="" x-webkit-grammar="builtin:translate"  value="用户名" onFocus="if(value =='用户名'){value =''}" onBlur="if (value ==''){value='用户名';checkmobilephone(this)}else{checkmobilephone(this)}"/>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user_login-center-right-demo02">
+                    <span id="span_mobile_phone"></span>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user_login-center-right-demo01">
+                    <div class="user_login-center-right-demo01-img">
+                        <img src="./images/971.png" />
+                    </div>
+                    
+                    <div class="user_login-center-right-demo01-input">
+                        <span id="password_text01" onclick="this.style.display='none';document.getElementById('pwd').style.display='block';document.getElementById('pwd').focus().select();" >请输入密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    
+                    	<input id="pwd" name="pwd" type="password" x-webkit-speech="" x-webkit-grammar="builtin:translate" style="display:none;" onblur="if(this.value==''){document.getElementById('password_text01').style.display='block';this.style.display='none';checkpassword(this)}else{checkpassword(this)};"/>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user_login-center-right-demo02">
+                    <span id="span_passWord" ></span>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <div class="user_login-center-right-bottom">
+                	<div class="user_login-center-right-bottom-01">
+                    	<input  class="nin" type="checkbox" name="auto_login">
+                    </div>
+                    
+                    <div class="user_login-center-right-bottom-02">
+                    	自动登录
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear27"></div>
+                
+                <div class="user_login-center-right-submit">
+                	<input name='login' type="submit" value="登录" />
+                </div>
+                
+                <div class="clear36"></div>
+            </form>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div class="clear2"></div>
+</div>
+
+<div class="clear"></div>
+
+</body>
+</html>

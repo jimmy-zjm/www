@@ -1,0 +1,152 @@
+.head{
+	width: 100%;
+	height:90px ;
+	box-shadow: 2px 2px 2px #eeeeee;
+}
+.head-son{
+	display: block;
+	float: left;
+}
+.head-1{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.head-2{
+	width: 78%;
+	height: 88px;
+	position: relative;
+}
+.head-3{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.content{
+	width: 100%;
+	height: auto;
+	background: #f7f7f7;
+	padding-bottom: 30px;
+}
+.content1{
+	margin-top: 11px;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+}
+/*轮播*/
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+/*结束*/
+.content2{
+	margin-top: 20px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+.content2 img{
+	margin: 0 auto;
+}
+
+/*foot*/
+.foot{
+	width: 100%;
+	height: auto;
+}
+.foot1{
+	width: 92%;
+	height: 90px;
+	border-bottom: 1px solid #edecea;
+	margin: 0 auto;
+	background: #fff;
+	z-index: 100;
+}
+.foot-left{
+	font-size: 30px;
+	color: #333;
+	display: block;
+	float: left;
+	width: 30%;
+	height: 90px;
+	line-height: 90px;
+}
+.foot-right{
+	float: right;
+	width: 2%;
+	height: 90px;
+}
+.foot-right>img{
+	margin-top: 42px;
+}
+.foot4{
+	width: 92%;
+	height: 143px;
+	margin: 0 auto;
+}
+.foot4>p{
+	font-size: 30px;
+	color: #999;
+}
+.foot4-1{
+	margin-top: 30px;
+}
+.foot-son{
+	width: 100%;
+	height: auto;
+	display: none;
+}
+.foot-son-1{
+	display: block;
+	width: 92%;
+	height: 65px;
+	line-height: 65px;
+	font-size: 26px;
+	color: #666;
+	margin: 0 auto;
+	background: #f7f7f7;
+}
+.helpcenter,.erweima{
+	animation: showxiala65 1s;
+}
+.guanyuwomen{
+	animation: showxiala195 1s;
+}
+@keyframes showxiala65{
+	from{height: 0px;opacity: 0;}
+	to{height: 65px;opacity: 1;}
+}
+@keyframes showxiala195{
+	from{height: 0px;opacity: 0;}
+	to{height: 195px;opacity: 1;}
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    opacity: 0.5;
+}
+.swiper-pagination-bullet-active{
+	background: #9ba0a5;
+}
+

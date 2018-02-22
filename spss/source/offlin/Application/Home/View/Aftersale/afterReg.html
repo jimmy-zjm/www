@@ -1,0 +1,239 @@
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Dealer/css/quotedprice.css">
+
+</head>
+<body>
+	<header>售后登记信息</header>
+	<form id='form1' action="<{:U('doAfterReg')}>" method="post" enctype="multipart/form-data">
+		<section class="container aftersale-feedback">
+			
+			<p class="sys-item">
+				<span class="item-name">用户姓名</span>
+				<input class="info-input bitian" type="text" name="c_name" id='c_name' placeholder="姓名">
+			</p>
+			<p class="sys-item">
+				<span class="item-name">联系电话</span>
+				<input class="info-input bitian" type="text" name="tel" id='tel' placeholder="号码">
+			</p>
+			<div class="sys-item relative">
+				<span class="item-name item-name-l">经销商公司名称</span>
+				<input class="info-input info-input-s bitian" type="text" name="dealer_company" placeholder="请输入关键词"  id="inputString" />
+
+				<ul  class="suggestionList" id="autoSuggestionsList"> </ul>
+			</div>
+			
+			<div class="sys-item">
+				<span class="item-name">房屋地址</span>
+				<div class="address-box" id="content-wrap1"> 
+					
+					
+					<select required class='prov address bitian' id='proa' name="province" onchange='areasa("citya",this.value)'>
+						<option value="" >-请选择-</option>
+						<?php foreach ($area as $key => $v): ?>
+							<option value="<{$v.id}>"><{$v.name}></option>
+						<?php endforeach ?>
+					</select>　
+
+					
+					<select  class='citya address bitian'  id='cita' name="city" onchange='areasa("districta",this.value)'>
+						<option value="">-请选择-</option>
+					</select>　
+
+					
+					　
+					<select  class='districta address bitian' id='disa' name="district" >
+						<option value="">-请选择-</option>
+					</select>　
+				</div>
+				
+			</div>
+			
+			<p class="sys-item">
+				<span class="item-name"></span>
+				<input class="info-input bitian" type="text" id='address' name="address" placeholder="请输入详细地址">
+			</p>
+
+			<div  id='list'>
+				
+			</div>
+
+
+			<p class="sys-item redbtn-box clearfix">
+				<a href="javascript:;" onclick='add()'>添加</a>	
+			</p>
+			<p class="sys-item buydate-box">
+				<span class="item-name">预约时间</span>
+				<input class="info-input buydate" id='yy_time'  type="text" name="yy_time" placeholder="请选择">
+			</p>
+			<p class="sys-item">问题描述
+				<span class="wordnum-tishi fr" id="tishi02"></span>
+			</p>
+			<textarea id="neirong02" class='bitian' name='content' id='content' onkeyup="statWordNum('neirong02','tishi02',140)"></textarea>
+			<p class="last-row redbtn-box clearfix">
+				<input type='reset'  value='取消'/>
+				<input type='button' id='btn' value='确认提交'/>
+			</p>
+
+		</section>
+	</form>
+
+	<script src="__PUBLIC__/Dealer/js/imgupload.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Dealer/js/datePicker.js"></script>
+
+	<!-- 省市县三级联动 -->
+	<script type="text/javascript"> 
+//公司地址
+function areasa(o,v,c,d){
+	$.getJSON("<{:U('area')}>",{'v':v},function(data){
+		if (o=='citya') {
+			$('.districta').html('');
+			$('.districta').append('<option value="">-请选择-</option>');
+		}
+		$('.'+o).html('');
+		$('.'+o).append('<option value="">-请选择-</option>');
+		for (var i = 0; i < data.length; i++) {
+			$('.'+o).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+		}
+	})
+}
+
+/**/
+$(".aftersale-feedback").on("focus",".buydate",function(){
+	document.activeElement.blur();
+});
+
+
+var today=getToday();
+function getToday(){
+	var d=new Date();
+	return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+}
+dateselInit("yy_time",today,"2100-1-1");
+function dateselInit(id,min,max){
+	var minDate=min||'1900-1-1';
+	var maxDate=max||today;
+
+	var calendar = new datePicker();
+	calendar.init({
+		'trigger':"#"+id, /*按钮选择器，用于触发弹出插件*/
+		'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+		'minDate':minDate,/*最小日期*/
+		'maxDate':maxDate,/*最大日期*/
+		'onSubmit':function(){/*确认时触发事件*/
+			var theSelectData=calendar.value;
+		},
+		'onClose':function(){/*取消时触发事件*/
+		}
+	});
+}
+
+$('#btn').click(function(){
+	var a = $('.bitian');
+	for (var i = 0; i < a.length; i++) {
+		if ($(a[i]).val()=='') {
+			alert('请填写完整再提交');return;
+		}
+	}
+	$('#form1').submit();
+})
+
+
+var productCanDelete=false;
+add();
+function add(){
+	var id="time"+getId();
+	var html='<div class="afterReg-product-box"><p class="sys-item">';
+	html+='<span class="item-name">产品名称</span>';
+	html+='<input class="info-input" type="text" name="name[]" placeholder="请输入名称">';
+	html+='</p>';
+	html+='<p class="sys-item">';
+	html+='<span class="item-name">产品型号</span>';
+	html+='<input class="info-input" type="text" name="model[]" placeholder="请输入型号">';
+	html+='</p>';
+	html+='<p class="sys-item">';
+	html+='<span class="item-name item-name-l">产品序列号</span>';
+	html+='<input class="info-input info-input-s" type="text" name="serial[]" placeholder="请输入序列号">';
+	html+='</p>';
+	html+='<p class="sys-item buydate-box">';
+	html+='<span class="item-name">购买时间</span>';
+	html+='<input class="info-input buydate" id='+id+'  type="text" name="buy_time[]" placeholder="请选择">';
+	html+='</p>';
+	html+='<p class="sys-item">';
+	html+='<span class="item-name">业务类型</span>';
+	html+='<select class="linesel" name=types[]">';
+	html+='<option value="保养">保养</option>';
+	html+='<option value="维修">维修</option>';
+	html+='</select>';
+	html+='</p>';
+	if(productCanDelete){
+		html+='<p class="sys-item redbtn-box clearfix"><a href="javascript:;" onclick="deleteproduct(this)">删除</a>	</p></div>';
+	}else{
+		html+='</div>';
+	}
+	productCanDelete=true;
+	$('#list').append(html);
+	dateselInit(id);
+	
+}
+
+
+
+function deleteproduct(_this){
+	$(_this).parents(".afterReg-product-box").remove();
+}
+function getId(){
+	var chars='0123456789abcdefghijklmnopqrstuvwxyz'.split('');
+	var uuid=[];
+	for(var i=0;i<32;i++)
+	{
+		uuid[i]=chars[0|Math.random()*chars.length];
+	}
+	return uuid.join('');
+}  
+
+</script>
+<script type="text/javascript">
+	$('#inputString').focus(function(){
+		chakan();
+	})
+
+	// function lookups(inputString) {
+	// 	if(inputString.length == 0) {
+	// 		// Hide the suggestion box.
+	// 		$('#autoSuggestionsList').hide();
+	// 	} else {
+	// 		chakan(inputString);
+	// 		// $.post("<{:U('rpc')}>", {queryString: ""+inputString+""}, function(data){
+	// 		// 	if (data) {
+	// 		// 		$('#autoSuggestionsList').show();
+	// 		// 		$('#autoSuggestionsList').html(data);
+	// 		// 	}
+	// 		// });
+	// 	}
+	// }
+
+	function chakan(){
+		var val = $('#inputString').val();
+		var re=/[\u4e00-\u9fa5]+/g;
+		var reg=new RegExp(re);
+		if(reg.test(val)){  
+		    $.post("<{:U('rpc')}>", {queryString: ""+val+""}, function(data){
+				if (data) {
+					$('#autoSuggestionsList').show();
+					$('#autoSuggestionsList').html(data);
+				}
+			});
+		}
+		time = setTimeout(chakan,800);
+	}
+
+	$('#inputString').blur(function(){
+		clearTimeout(time);
+		setTimeout("$('#autoSuggestionsList').hide();", 200);
+	})
+
+	function fill(thisValue) {
+		clearTimeout(time);
+		$('#inputString').val(thisValue);
+	}
+</script> 

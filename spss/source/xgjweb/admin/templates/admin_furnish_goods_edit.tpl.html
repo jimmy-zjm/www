@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>暖扬扬管理页面</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="js/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/common.js"></script>
+<script src="js/laydate.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="index.php">首页</a></li>
+    <li><a >健康舒适家居</a></li>
+    <li><a href="furnish.php">产品材料</a></li>
+    <li><a href="furnish.php?edit&goods_id={:$goods.goods_id:}">修改产品材料</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    <form action="furnish.php?edit_save&goods_id={:$goods.goods_id:}" method="post" enctype="multipart/form-data">
+    <ul class="forminfo">
+    <li><label>名称</label><input name="goods_name" type="text" class="dfinput" value='{:if !empty($goods.goods_name):}{:$goods.goods_name:}{:else:}{:/if:}'/><i>标题不能超过30个字符</i></li>
+    <li style="display:none"><label>关键字</label><input name="keywords" type="text" class="dfinput" value='{:if !empty($goods.keywords):}{:$goods.keywords:}{:else:}{:/if:}'/><i>多个关键字用'|'隔开</i></li>
+    <li><label>编码</label><input name="goods_sn" type="text" class="dfinput" value='{:if !empty($goods.goods_sn):}{:$goods.goods_sn:}{:else:}{:/if:}'/><i></i></li>
+    <li><label>助记码</label><input name="goods_mnemonic" type="text" class="dfinput" value='{:if !empty($goods.goods_mnemonic):}{:$goods.goods_mnemonic:}{:else:}{:/if:}'/><i></i></li>    
+    <li><label>规格型号</label><input name="goods_model" type="text" class="dfinput" value='{:if !empty($goods.goods_model):}{:$goods.goods_model:}{:else:}{:/if:}'required='required'/><i></i></li>
+    <li><label>价格</label><input name="shop_price" type="number" class="dfinput" value='{:if !empty($goods.shop_price):}{:$goods.shop_price:}{:else:}{:/if:}'/><i></i></li>
+    <li style="display:none"><label>数量</label><input name="goods_number" type="number" class="dfinput" value='{:if !empty($goods.goods_number):}{:$goods.goods_number:}{:else:}{:/if:}'/><i></i></li>
+    <li><label>单位</label><input name="goods_unit" type="text" class="dfinput" value='{:if !empty($goods.goods_unit):}{:$goods.goods_unit:}{:else:}{:/if:}'required='required'/><i></i></li>
+    <li><label>图片</label>
+    <input type='hidden' name='oldimg'value='{:if !empty($goods.goods_img):}{:$goods.goods_img:}{:else:}{:/if:}'/>
+    <input name="goods_img[]" type="file" multiple='multiple'/><i></i></li>
+    <li style='display:none'><label>是否上架</label><cite><input name="is_putaway" type="radio" value="1" {:if $goods.is_putaway eq 1:}checked="checked"{:else:}{:/if:} />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_putaway" type="radio" value="0" {:if $goods.is_putaway eq 0:}checked="checked"{:else:}{:/if:}/>否</cite></li>
+    <li><label>上架时间</label><input class="inline laydate-icon" id="start" value="{:'Y-m-d H:i:s'|date:$goods.starttime:}"name='starttime'style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/></li>
+	<li><label>下架时间</label><input class="inline laydate-icon" id="end" value="{:'Y-m-d H:i:s'|date:$goods.endtime:}" name='endtime'style="width:345px; height:32px; line-height:32px; border-top:solid 1px #c3ab7d; border-left:solid 1px #c3ab7d; border-right:solid 1px #e7d5ba; border-bottom:solid 1px #e7d5ba;"/></li>
+    <li style="display:none"><label>描述</label><textarea name="goods_desc" id='furnish_eidt1'cols="" rows="" class="textinput" >{:if !empty($goods.goods_desc):}{:$goods.goods_desc:}{:else:}{:/if:}</textarea></li>
+    <li style="display:none"><label>规格</label><textarea name="specification" id='furnish_eidt2'cols="" rows="" class="textinput" >{:if !empty($goods.specification):}{:$goods.specification:}{:else:}{:/if:}</textarea></li>
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/></li>
+    </ul>
+    </form>
+    </div>
+
+<script type="text/javascript">
+    UE.getEditor('furnish_eidt1');
+
+    UE.getEditor('furnish_eidt2');
+   
+    !function(){
+		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#demo'});//绑定元素
+	}();
+
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD hh:mm:ss',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '2099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+
+	var end = {
+	    elem: '#end',
+	    format: 'YYYY-MM-DD hh:mm:ss',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	laydate(start);
+	laydate(end);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,468 @@
+@CHARSET "UTF-8";
+.self-advertisement{
+	width:1100px;
+	margin:0 auto;}
+	
+.self-advertisement img{
+	width:100%;}
+
+/*服务介绍*/
+.self-conter{
+	width:1300px;
+	margin:0 auto;}
+
+.self-conter-advert01{
+	width:1100px;
+	height:465px;
+	background:url(../images/914.png);
+	margin:0 auto;}
+	
+.self-conter-advert01-left{
+	float:left;
+	width:630px;
+	height:375px;
+	margin-top:60px;}
+
+	
+.self-conter-advert01-left-title{
+	width:630px;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+	font-size:28px;
+	color:#3e3e3e;}
+	
+.self-conter-advert01-left-detailed{
+	width:490px;
+	height:275px;
+	line-height:35px;
+	margin-left:70px;
+	overflow:hidden;
+	color:#403e3e;
+	font-size:14px;}
+	
+.self-conter-advert01-left-a{
+	width:280px;
+	height:50px;
+	line-height:50px;
+	background:#f9886e;
+	text-align:center;
+	margin-left:300px;
+	color:#fff;
+	font-size:20px;}
+
+.self-conter-advert01-left-a a{
+	color:#fff;
+	font-size:20px;}
+
+.self-conter-advert01-right{
+	float:left;
+	width:360px;
+	height:376px;
+	margin-top:89px;}
+
+.self-conter-advert01-right img{
+	width:360px;
+	height:376px;}
+
+/*服务介绍end*/
+
+
+
+/*问题提交*/
+.self-conter-form{
+	width:1100px;
+	margin:0 auto;
+	background:#fff;}
+	
+.self-conter-form-bk{
+	width:950px;
+	margin:0 auto;}
+	
+.self-conter-form-title{
+	width:950px;
+	height:80px;
+	line-height:80px;
+	border-bottom:1px solid #bebebe;
+	font-size:24px;
+	color:#414146;}
+	
+.self-conter-form-table-demo01{
+	width:950px;
+	height:60px;
+	margin:0 auto;}
+	
+.self-conter-form-table-demo01-left{
+	width:130px;
+	height:40px;
+	line-height:40px;
+	font-size:18px;
+	color:#414146;
+	float:left;}
+	
+.self-conter-form-table-demo01-right{
+	float:left;
+	width:220px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #757474;
+	text-align:center;
+	font-size:16px;
+	color:#414146;}
+	
+.self-conter-form-table-demo01-right input{
+	border:none;
+	background:none;
+	width:200px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+	color:#414146;}
+	
+.self-conter-form-table-demo02{
+	width:950px;
+	height:60px;
+	margin:0 auto;}
+	
+.self-conter-form-table-demo02-left{
+	width:130px;
+	height:40px;
+	line-height:40px;
+	font-size:18px;
+	color:#414146;
+	float:left;}
+	
+.self-conter-form-table-demo02-right{
+	float:left;
+	width:760px;
+	height:40px;
+	text-align:center;}
+	
+.self-conter-form-table-demo02-right-select{
+	float:left;
+	width:100px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #757474;}
+	
+.self-conter-form-table-demo02-right-select select{
+	width:100px;
+	height:40px;
+	line-height:40px;}
+	
+.self-conter-form-table-demo02-right-span{
+	float:left;
+	width:55px;
+	height:40px;
+	line-height:40px;
+	text-align:center;}
+	
+.self-conter-form-table-demo02-right-input{
+	float:left;
+	width:280px;
+	height:40px;
+	line-height:40px;
+	background:#fff;
+	text-align:center;
+	border:1px solid #757474;}
+	
+.self-conter-form-table-demo02-right-input input{
+	width:260px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	border:none;
+	background:none;
+	font-size:16px;
+	color:#414146;}
+	
+.self-conter-form-table-demo03{
+	width:950px;
+	height:60px;
+	margin:0 auto;}
+	
+.self-conter-form-table-demo03-left{
+	width:130px;
+	height:40px;
+	line-height:40px;
+	font-size:18px;
+	color:#414146;
+	float:left;}
+	
+.self-conter-form-table-demo03-right{
+	float:left;
+	width:750px;
+	height:175px;
+	border:1px solid #757474;
+	font-size:16px;
+	color:#414146;
+	margin-top:10px;}
+	
+.self-conter-form-table-demo03-right textarea{
+	border:none;
+	background:none;
+	width:750px;
+	height:175px;
+	font-size:16px;
+	color:#414146;}
+	
+.self-conter-form-table-demo04{
+	float:right;
+	width:165px;
+	height:50px;
+	line-height:50px;
+	background:#fd5a35;
+	border:1px solid #fd5a35;
+	font-size:24px;
+	color:#fff;
+	text-align:center;
+	margin-right:69px;}
+	
+.self-conter-form-table-demo04 input{
+	width:165px;
+	height:50px;
+	line-height:50px;
+	background:none;
+	border:none;
+	font-size:24px;
+	color:#fff;
+	text-align:center;}
+
+/*问题提交end*/
+
+
+
+/*配件*/
+.self-conter-parts{
+	width:1300px;
+	margin:0 auto;}
+	
+.self-conter-parts-title{
+	width:1100px;
+	height:100px;
+	line-height:100px;
+	margin:0 auto;
+	background:#fff;}
+	
+.self-conter-parts-title-left{
+	float:left;
+	width:450px;
+	height:100px;
+	line-height:100px;
+	overflow:hidden;
+	font-size:24px;
+	color:#403e3e;}
+	
+.self-conter-parts-title-left span{
+	margin-left:75px;
+	font-size:24px;
+	color:#403e3e;}
+	
+.self-conter-parts-title-right{
+	float:right;
+	width:650px;
+	height:100px;
+	overflow:hidden;}
+	
+.self-conter-parts-title-right-01{
+	float:right;}
+	
+.self-conter-parts-title-right-01-demo{
+	float:left;
+	margin-left:25px;
+	margin-right:25px;}
+	
+.self-conter-parts-title-right-01-demo a{
+	font-size:20px;
+	color:#403e3e;}
+	
+.self-conter-parts-title-right-02{
+	float:right;}
+	
+.self-conter-parts-title-right-02 img{
+	width:8px;
+	height:100px;
+	margin-left:35px;
+	margin-right:15px;}
+	
+.self-conter-parts-title-right-02 a{
+	float:right;
+	font-size:18px;
+	color:#403e3e;
+	margin-right:5px;}
+	
+.self-conter-parts-list {
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.self-conter-parts-list-bk {
+	width: 1134px;
+	overflow: hidden;
+	margin-left: 15px;
+}
+
+.self-conter-parts-list-demo {
+	width: 342px;
+	height: 520px;
+	float: left;
+	margin-left: 36px;
+	margin-bottom: 40px;
+}
+
+.self-conter-parts-list-demo-img {
+	width: 342px;
+	height: 460px;
+	position: relative;
+}
+
+.self-conter-parts-list-demo-img a {
+	display: block;
+}
+
+.self-conter-parts-list-demo-img img {
+	width: 342px;
+	height: 460px;
+}
+
+.self-conter-parts-list-demo-bk {
+	width: 290px;
+	height: 114px;
+	background: url(../images/688.png);
+	position: relative;
+	top: -54px;
+	left: 30px;
+}
+
+.self-conter-parts-list-demo:hover .self-conter-parts-list-demo-bk {
+	background: url(../images/918.png);
+}
+
+.self-conter-parts-list-demo-cener {
+	width: 290px;
+	height: 114px;
+	background: #fff;
+	position: relative;
+	bottom: 180px;
+	left: 20px;
+}
+
+.self-conter-parts-list-demo-cener-title {
+	width: 250px;
+	height: 50px;
+	line-height:50px;
+	margin-left: 20px;
+	font-size: 16px;
+	color: #403e3e;
+	overflow: hidden;
+}
+
+.self-conter-parts-list-demo-cener-title a {
+	font-size: 20px;
+	color: #403e3e;
+}
+
+.self-conter-parts-list-demo-cener-price {
+	width: 200px;
+	height: 25px;
+	margin-top: 2px;
+	margin-left: 20px;
+	font-size: 18px;
+	color: #4ac4db;
+	overflow: hidden;
+}
+
+.self-conter-parts-list-demo-cener-evaluation {
+	width: 200px;
+	height: 20px;
+	margin-left: 20px;
+	font-size: 16px;
+	color: #403e3e;
+	margin-top: 2px;
+}
+
+.self-conter-parts-list-demo-cener-evaluation span {
+	color: #f96f59;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.self-conter-parts-list-demo-cener-icon {
+	width: 200px;
+	height: 33px;
+	margin-left: 20px;
+	margin-top: 4px;
+}
+
+.self-conter-parts-list-demo-cener-icon-01 {
+	float: left;
+	width: 34px;
+	height: 33px;
+	margin-right: 10px;
+}
+
+.self-conter-parts-list-demo-cener-icon-01 img {
+	width: 34px;
+	height: 33px;
+}
+
+.self-conter-parts-list-demo-cener-icon-02 {
+	float: left;
+	width: 34px;
+	height: 33px;
+	margin-right: 10px;
+}
+
+.self-conter-parts-list-demo-cener-icon-02 img {
+	width: 34px;
+	height: 33px;
+}
+
+.self-conter-parts-list-demo-cener-icon-03 {
+	float: left;
+	width: 34px;
+	height: 33px;
+}
+
+.self-conter-parts-list-demo-cener-icon-03 img {
+	width: 34px;
+	height: 33px;
+}
+
+.self-conter-parts-list-demo-price{
+	width:342px;
+	height:40px;
+	line-height:40px;
+	position:relative;
+	top:-688px;
+	text-align:right;
+	overflow:hidden;}
+	
+.self-conter-parts-list-demo-price span{
+	background:#000;
+	color:#fff;
+	font-size:16px;
+	padding:10px;}
+/*配件end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

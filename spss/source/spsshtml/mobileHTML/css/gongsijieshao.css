@@ -1,0 +1,51 @@
+.head{
+	width: 100%;
+	height:90px ;
+	box-shadow: 2px 2px 2px #eeeeee;
+}
+.head-son{
+	display: block;
+	float: left;
+}
+.head-1{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.head-2{
+	width: 78%;
+	height: 88px;
+	position: relative;
+	font-size: 35px;
+	color: #333;
+	text-align: center;
+	line-height: 88px;
+}
+.head-3{
+	width: 11%;
+	height: 88px;
+	position: relative;
+}
+.content{
+	width: 100%;
+	height: auto;
+	margin-bottom: 70px;
+}
+.jianjie-1{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+.jianjie-2{
+	width: 92%;
+	height: auto;
+	margin: 0 auto;
+	line-height: 42px;
+	text-indent: 1em;
+	font-size: 24px;
+	color: #333;
+	word-break: break-all;
+	word-wrap:break-word;
+}

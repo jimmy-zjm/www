@@ -1,0 +1,47 @@
+.con-top{
+	width: 100%;
+	height:400px;
+	background: url(../img/shhome-banner.png) no-repeat;
+	background-size: 100% 100%;
+}
+.con-bottom{
+	width: 100%;
+	height: 500px;
+}
+.con-bottom ul{
+	width: 82%;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 50px;
+	/*border: 1px solid red;*/
+}
+.con-bottom ul li{
+	width: 33%;
+	height: 400px;
+	float: left;
+}
+.con-bottom ul li:nth-child(2),.con-bottom ul li:nth-child(3){
+	margin-left: 6%;
+}
+.con-bottom ul li>p{
+	width: 80%;
+	height:30px;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	color: #000;
+}
+.con-bottom ul li>p:first-child{
+	width: 100%;
+	height:300px;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.con-bottom ul li>p:first-child img{
+	margin: 0 auto;
+}
+.con-bottom>a{
+	display: block;
+}
+

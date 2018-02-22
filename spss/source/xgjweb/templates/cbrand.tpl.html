@@ -1,0 +1,155 @@
+{:include file="header.tpl.html":}
+<link rel="stylesheet"  type="text/css"  href="css/cbrandstyle.css" ><!-- 合作品牌页面cbrand页面调用CSS -->
+
+<!--商品图片缩略图切换+放大镜-->
+<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="js/base_cbrand.js"></script>
+<!--商品图片缩略图切换+放大镜end-->
+
+
+<!--导航-->
+{:include file='common/daohang.html':}
+<!--导航end-->
+
+{:include file="category/category.tpl.html":}
+<div class="cbrand">
+	<!--品牌历史-->
+	<div class="cbrandTitle">
+		<div class="cbrandTitle_left"><h1>品牌历史</h1><span>BRAND HISTORY</span></div>
+		<div class="cbrandTitle_right"></div>
+        
+        <div class="clear"></div>
+	</div>
+    
+    <div class="clear"></div>
+	
+	<div class="brandHisCont">
+		<div class="brandHisCont_left">
+			<!--放大镜-->
+            <div id="preview" class="spec-preview"> 
+                <span class="jqzoom">
+                    <img jqimg="{:$cbrandImage[0]['url']:}" src="{:$cbrandImage[0]['url']:}" />
+                </span>
+            </div>
+            <!--放大镜end-->
+            
+            <!--缩略图-->
+            <div class="spec-scroll">
+                <a class="prev"></a> 
+                
+                <a class="next"></a>
+            
+                <div class="items">
+                    <ul>
+                    	{:foreach $cbrandImage as $k=>$v:}
+                        <li>
+                        	<img alt="" bimg="{:$v['url']:}" src="{:$v['url']:}" onmousemove="preview(this);">
+                        </li> 
+                        {:/foreach:}
+                    </ul>
+                </div>
+            </div>
+            <!--缩略图end-->
+            
+            <div class="clear"></div>
+		</div>
+        
+		<div class="brandHisCont_right">
+			<div class="brandHisCont_right_top">
+			      {:$cbrandInfo['sketch']|htmlspecialchars_decode:}
+
+			</div>
+			
+			<div  class="brandHisCont_right_bot">
+				<span class="span01">
+                	进入官网:
+                </span>
+                
+                <span class="span02">
+                	{:$cbrandInfo['url']:}
+                </span>
+			</div>
+			
+		</div>
+	</div>
+	<!--品牌历史end-->
+    
+    <div class="clear"></div>
+
+	<!--产品列表-->
+	<div class="cbrandTitle">
+		<div class="cbrandTitle_left"><h1>产品列表</h1><span>PRODUCT LIST</span></div>
+		<div class="cbrandTitle_right"></div>
+	</div>
+	<div class="clear"></div>
+	<div class="cbrandProduct">
+		<ul>
+			{:foreach $cbrandInfo['product'] as $k=>$v:}
+			<li>{:$v:}</li>
+			{:/foreach:}
+		</ul>
+	</div>
+	<!--产品列表end-->
+	<div class="clear"></div>
+	<!--产品应用-->
+	<div class="cbrandTitle">
+		<div class="cbrandTitle_left" style="width:190px"><h1>产品应用</h1><span>PRODUCT APPLICATION</span></div>
+		<div class="cbrandTitle_right" style="width:870px" ></div>
+	</div>
+	<div class="clear"></div>
+	<div id='content'>
+	{:foreach $list as $k=>$v:}
+	<div class="cbrandProApp" id='content'>
+		<div class="cbrandProApp_left"><img src="{:$v['image']:}" width='360' height='240'></div>
+		<div class="cbrandProApp_right">     
+			{:$v['content']|htmlspecialchars_decode:}
+		</div> 
+	</div>
+	{:/foreach:}
+	<div class="clear"></div>
+	<div class='page'>
+		{:if $pcount gt 0:}
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},1)">首页</a>
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},1)">[上一页]</a>
+		<span class="laypage_curr">{:$p:}</span>
+		{:/if:}
+		{:if $pcount gt 1:}
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},{:$p+1:})">{:$p+1:}</a>
+		{:/if:}
+		{:if $pcount gt 2:}
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},{:$p+2:})">{:$p+2:}</a>
+		{:/if:}
+		{:if $pcount gt 3:}
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},{:$p+3:})">{:$p+3:}</a>
+		{:/if:}
+		{:if $pcount gt 4:}
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},{:$p+4:})">{:$p+4:}</a>
+		{:/if:}
+		{:if $pcount gt 0:}
+		{:if $p lt $pcount:}
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},{:$p+1:})">[下一页]</a>
+		{:else:}
+		<a href="javascript:;">[下一页]</a>
+		{:/if:}
+		<a href="javascript:;" onclick="page({:$cbrandInfo['brand_id']:},{:$pcount:})">[尾页]</a>
+		{:/if:}
+	</div>
+	<div class="clear2"></div>
+	<!--产品应用end-->
+	</div>
+</div>
+
+<div class="clear"></div>
+{:include file="footer.tpl.html":}
+
+<script>
+  function page(id,p){
+    $.get("index.php?ajaxCbrand&page="+p+"&id="+id,function(data){
+        //alert(data);
+      $('#content').html(data);
+    })
+  }
+</script>
+
+</body>
+</html>

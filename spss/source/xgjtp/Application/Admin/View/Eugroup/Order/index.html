@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单-列表</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+<script language="javascript">
+$(function(){
+    //导航切换
+    $(".imglist li").click(function(){
+        $(".imglist li.selected").removeClass("selected")
+        $(this).addClass("selected");
+    })
+    $(".select3").uedSelect({
+        width : 152
+    });
+})
+</script>
+<style type="text/css">
+.seachform1 li{
+margin-bottom: 10px; 
+  }  
+</style>
+</head>
+<body class="sarchbody">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">欧洲团代购</a></li>
+            <li><a href="#">订单列表</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo">
+        <form action="<{:U('export_order')}>" method='post' id="search-form2">
+            <ul class="seachform1" style="width:100%">
+                <li><label>关键字</label><input style="width: 200px;" name="keyword" type="text" value="" placeholder='商品名称、商品编号' class="scinput1"></li>
+                <li><label>订单号</label><input name="sn" type="text" value="" class="scinput1"></li>
+                <li><label>快递单号</label><input name="express_sn" type="text" value="" class="scinput1"></li>
+                <li><label>收货人</label><input name="shr_name" type="text" value="" class="scinput1"></li>
+                <li><label>下单人</label><input name="userName" type="text" value="" class="scinput1"></li>
+                <li><label>会员手机号</label><input name="phone" type="text" value="" class="scinput1"></li>
+                <li>
+                    <label>下单日期</label>
+                    <input name="starttime" id="start_time" placeholder="请输入开始日期" class="laydate-icon" style="height:33px;" >
+                    <input name="endtime" id="end_time" placeholder="请输入结束日期" class="laydate-icon" style="height:33px;"  >
+                </li>
+                <li><label>订单状态</label>
+                    <div class="vocation" id='asd'>
+                        <select class="select3" name="order_status">
+                        <option value="" >请选择</option>
+                        <option value="5">已完成</option>
+                        <option value="6">已取消</option>
+                        <option value="7">已删除</option>
+                        <option value="0">待付款</option>
+                        <option value="cf">拆分订单</option>
+                        <option value="1">待发货</option>
+                        <option value="2">待收货</option>
+                        <option value="4">待评论</option>
+                        </select>
+                    </div>
+                </li>
+                <li class=""><label>&nbsp;</label><input type="button" name="send" onclick="ajax_get_table('search-form2',1)" class="scbtn" value="查询">  
+                <input type="submit" class="scbtn1" value="导出"></li>
+            </ul>
+        </form>
+        <div id="ajax_return"> </div>
+    </div>
+<script>
+    $(document).ready(function(){
+        // ajax 加载商品列表
+        ajax_get_table('search-form2',1);
+
+    });
+
+
+    // ajax 抓取页面 form 为表单id  page 为当前第几页
+    function ajax_get_table(form,page){
+        cur_page = page; //当前页面 保存为全局变量
+            $.ajax({
+                type : "POST",
+                url:"<{:U('ajaxIndex')}>"+'?p='+page,//+tab,
+                data : $('#'+form).serialize(),// 你的formid
+                success: function(data){
+                    $("#ajax_return").html('');
+                    $("#ajax_return").append(data);
+                }
+            });
+        }  
+
+    function daochu(form){
+        var goods_title=$("input[name='goods_title']").val();
+        var goods_sn=$("input[name='goods_sn']").val();
+        var identifier=$("input[name='identifier']").val();
+        var starttime=$("input[name='starttime']").val();
+        var endtime=$("input[name='endtime']").val();
+        var cate_id=$('#selt option:selected').val();
+        window.location.href="<{:U('ajaxIndex')}>"+'?goods_title='+goods_title+'&goods_sn='+goods_sn+'&identifier='+identifier+'&starttime='+starttime+'&endtime='+endtime+'&cate_id='+cate_id+'&tab=daochu'; 
+    //     window.location.href="index.php/Admin/Overseas/Sell/ajaxIndex"; 
+    }      
+</script> 
+   
+    <script>
+        /*日期时间框插件***********************************/
+        !function(){
+          laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+        }();
+        var start = {
+            elem: '#start_time',
+            format: 'YYYY/MM/DD hh:mm:ss',
+            min: '2000-00-00 00:00:00', //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                 end.min = datas; //开始日选好后，重置结束日的最小日期
+                 end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+        var end = {
+            elem: '#end_time',
+            format: 'YYYY/MM/DD hh:mm:ss',
+            min: '2000-00-00 00:00:00',
+            max: '2099-06-16 23:59:59',
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+        laydate(start);
+        laydate(end);
+        /*日期时间框插件***********************************/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/user.css" ><!-- 个人中心页面调用CSS -->
+
+<div class="user-center">
+    <include file="User:left" />
+
+    <script type="text/javascript">
+        function aaa(){
+          var pwd=document.getElementById("newPassWordName").value;
+          var rpwd=document.getElementById("rPassWordName").value;
+          if(rpwd!==pwd){
+                alert("确认密码不正确");
+              $('#tijiao').attr('disabled',true);
+          }
+        }
+    </script>
+
+    <div class="user-right">
+        <div class="user_PassWordModify-title">         
+            <span>
+                修改密码 
+            </span>     
+        </div>
+        
+        <div class="clear27"></div>
+        
+        <div class="user_PassWordModify-center">
+            <div class="clear36"></div>
+            
+            <form action="<{:U('doChangePsd')}>" method="post" id="f1">
+                <div class="user_PassWordModify-center-demo">
+                    <div class="user_PassWordModify-center-demo-span">
+                        原始密码：
+                    </div>
+                    
+                    <div class="user_PassWordModify-center-demo-input">
+                        <input type="password" id='oldPassWordName' name="oldPassWordName" value="" onblur="o()"/>
+                    </div>
+                    <span style="color:red;" id='o'></span>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear32"></div>
+                
+                <div class="user_PassWordModify-center-demo">
+                    <div class="user_PassWordModify-center-demo-span">
+                        新&nbsp;密&nbsp;码&nbsp;：
+                    </div>
+                    
+                    <div class="user_PassWordModify-center-demo-input">
+                        <input type="password"  name="newPassWordName"  id="newPassWordName" value=""  onblur="n()" />
+                    </div>
+                    <span style="color:red;" id='n'></span>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear32"></div>
+                
+                <div class="user_PassWordModify-center-demo">
+                    <div class="user_PassWordModify-center-demo-span">
+                        确认密码：
+                    </div>
+                    
+                    <div class="user_PassWordModify-center-demo-input">
+                        <input type="password" value="" id="rPassWordName" name="rPassWordName" onblur="r()" />
+                    </div>
+                    <span style="color:red;" id='r'></span>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="clear27"></div>
+                
+                <div class="user_PassWordModify-center-submit">
+                    <input type="button" id="tijiao" onclick="t()" value="保存"  />
+                </div>
+                
+                <div class="clear12"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<div class="clear27"></div>
+
+
+
+<script>
+    function o(){
+        var re=/^\w{6,15}$/;
+        var oldpass = $("#oldPassWordName").val();
+        var reg=new RegExp(re);
+        if(reg.test(oldpass)){
+            $("#o").html("");
+            old=true;
+        }else if(oldpass==""){ 
+            $("#o").html("请输入原始密码");
+        }else{
+            $("#o").html("请正确填写您的原始密码");
+        }
+    }
+
+    function n(){
+        var re=/^\w{6,15}$/;
+        var pass = $("#newPassWordName").val();
+        var reg=new RegExp(re);
+        if(reg.test(pass)){
+            $("#n").html("");
+            news=true;
+        }else if(pass==""){ 
+            $("#n").html("请输入新密码");
+        }else{
+            $("#n").html("请正确填写您的密码");
+        }
+    }
+
+    function r(){
+        var pass = $("#newPassWordName").val();
+        var repass = $("#rPassWordName").val();
+        if (repass=='') {
+            $("#r").html("请输入确认密码");
+        }else if (pass != repass) {
+            $("#r").html("2次密码不一致");
+        }else{
+            $("#r").html("");
+            renews=true;
+        }
+    }
+    function t(){
+        o()
+        n()
+        r()
+        if (old==true && news==true && renews==true) {
+            document.getElementById('tijiao').type='submit';
+        }else{
+            document.getElementById('tijiao').type='button';
+        }
+    }
+</script>

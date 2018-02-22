@@ -1,0 +1,493 @@
+{:include file='user_header.tpl.html':}
+{:include file='user_left.tpl.html':}
+<!-- user右边，引用头部时倒入这个div -->
+<div class="user-right">
+	<!-- info个人信息 -->
+	<div class="user-info">
+		<div class="user-info-left">
+			<a href="">
+				<img src="pictures/face/upload/{:$userFace:}" />
+			</a>
+		</div>
+
+		<div class="user-info-right">
+			<div class="user-info-right-name">
+				{:$userName:}
+			</div>
+
+			<div class="user-info-right-grade">
+				银牌会员
+			</div>
+
+			<div class="user-info-right-safety"><!-- 账户安全，先默认显示低级状态，导入PHP代码时，把隐藏属性放开即可 -->
+				<div class="user-info-right-safety-01">
+					账户安全：
+				</div>
+
+				<div class="user-info-right-safety-02">
+					<!-- 低级显示的边框 --><div class="user-info-right-safety-02-01">
+				</div>
+
+					<!-- 中级显示的边框 --><!--  <div class="user-info-right-safety-02-02">
+            </div>-->
+
+					<!-- 高级显示的边框 --><!-- <div class="user-info-right-safety-02-03">
+            </div> -->
+				</div>
+
+
+				<div class="user-info-right-safety-03">
+					<!-- 低级显示的内容 --><div class="user-info-right-safety-03-01">
+					低
+				</div>
+
+					<!-- 中级显示的内容 --><!-- <div class="user-info-right-safety-03-02">
+              中
+            </div>-->
+
+					<!-- 高级显示的内容 --><!-- <div class="user-info-right-safety-03-03">
+              高
+            </div>-->
+				</div>
+
+				<div class="user-info-right-safety-04">
+					提升
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!-- info个人信息end -->
+
+	<div class="clear"></div>
+
+	<!-- money余额和提货状态 -->
+	<div class="user-money">
+		<div class="user-money-left">
+			<div class="user-money-left-balance">
+				余额：{:$userMoney:}
+			</div>
+
+			<div class="user-money-left-bean">
+				暖豆：{:$userPayPoints:}
+			</div>
+
+			<div class="user-money-left-coupons">
+				优惠券：{:$userCoupon:}
+			</div>
+		</div>
+
+		<div class="user-money-right">
+
+			<a href="#">
+				<div class="user-money-right-payment">
+					<div class="user-money-right-payment-img">
+						<img src="images/129.png"/>
+					</div>
+
+					<div class="user-money-right-payment-span">
+            <span class="user-money-right-payment-span-01">
+              待付款
+            </span>
+
+            <span class="user-money-right-payment-span-02">
+              {:$notPay:}
+            </span>
+					</div>
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="user-money-right-receipt">
+					<div class="user-money-right-receipt-img">
+						<img src="images/130.png"/>
+					</div>
+
+					<div class="user-money-right-receipt-span">
+            <span class="user-money-right-receipt-span-01">
+              待收货
+            </span>
+
+            <span class="user-money-right-receipt-span-02">
+              {:$wait:}
+            </span>
+					</div>
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="user-money-right-since">
+					<div class="user-money-right-since-img">
+						<img src="images/131.png"/>
+					</div>
+
+					<div class="user-money-right-since-span">
+            <span class="user-money-right-since-span-01">
+              待自提
+            </span>
+
+            <span class="user-money-right-since-span-02">
+              {:$selfTake:}
+            </span>
+					</div>
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="user-money-right-evaluation">
+					<div class="user-money-right-evaluation-img">
+						<img src="images/132.png"/>
+					</div>
+
+					<div class="user-money-right-evaluation-span">
+            <span class="user-money-right-evaluation-span-01">
+              待评价
+            </span>
+
+            <span class="user-money-right-evaluation-span-02">
+              {:$assess:}
+            </span>
+					</div>
+				</div>
+			</a>
+
+
+			<div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	<!-- money余额和提货状态end -->
+
+	<div class="clear"></div>
+
+	<!-- order我的订单 -->
+	<div class="user-order">
+		<div class="user-order-title">
+			<div class="user-order-title-01">
+				我的订单
+			</div>
+
+			<div class="user-order-title-02">
+				<a href="user.php?order">
+					查看全部订单
+				</a>
+			</div>
+
+			<div class="clear"></div>
+
+		</div>
+
+		<div class="user-order-center">
+			<!-- 没有订单状态 -->
+			{:if empty($orderInfo):}
+			<div class="user-order-center-no">
+				<div class="user-order-center-no-01">
+					<img src="images/133.png"/>
+				</div>
+
+				<div class="user-order-center-no-02">
+					<a href="#">
+						您买的东西太少了，这里都空空的，快去挑选合适的商品吧！
+					</a>
+				</div>
+			</div>
+			<!-- 没有订单状态end -->
+
+
+			{:else:}
+			<!-- 有订单状态 -->
+			<div class="user-order-center-yes">
+				{:foreach from=$orderInfo key=num item=v:}
+				<table width='880px' >
+					<tr >
+						<td width='20%'><img src="{:$v.goods_img:}" width="50" height="50"/></td>
+						<td width='20%'>{:$v.add_time|date_format:'%Y-%m-%d %H:%M:%S':}</td>
+						<td width='15%'>{:$v.consignee:}</td>
+						<td width='15%'>￥{:$v.goods_amount*$v.goods_number:}元</td>
+						<td>
+							<!--订单状态	0未确认,1确认,2已取消,3无效,4退货-->
+							{:if $v.order_status eq 0:}
+							未确认&nbsp|&nbsp
+							{:elseif $v.order_status eq 1:}
+							确认&nbsp;|&nbsp;
+							{:elseif $v.order_status eq 2:}
+							已取消&nbsp;|&nbsp;
+							{:elseif $v.order_status eq 3:}
+							无效&nbsp;|&nbsp;
+							{:elseif $v.order_status eq 4:}
+							退货&nbsp;|&nbsp;
+							{:/if:}
+
+							<!--商品配送情况	0未发货,1已发货,2已收货,3退货-->
+							{:if $v.shipping_status eq 0:}
+							未发货&nbsp;|&nbsp;
+							{:elseif $v.shipping_status eq 1:}
+							已发货&nbsp;|&nbsp;
+							{:elseif $v.shipping_status eq 2:}
+							已收货&nbsp;|&nbsp;
+							{:elseif $v.shipping_status eq 3:}
+							退货&nbsp;|&nbsp;
+							{:/if:}
+
+							<!--支付状态	0未付款;1付款中;2已付款-->
+							{:if $v.pay_status eq 0:}
+							未付款
+							{:elseif $v.pay_status eq 1:}
+							付款中
+							{:elseif $v.pay_status eq 2:}
+							已付款
+							{:/if:}
+						</td>
+					</tr>
+					<tr>
+						<td align="right" nowrap="true" colspan="9"><?=$tpl['pbr']?></td>
+					</tr>
+				</table>
+				{:/foreach:}
+			</div>
+			<!-- 有订单状态end -->
+
+			{:/if:}
+		</div>
+	</div>
+
+	<!-- order我的订单end -->
+
+
+	<div class="clear"></div>
+
+
+	<!-- 施工进度 -->
+	<div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+		<div class="userfloor-content-demo-menu">
+			<img src="images/87.jpg"/>
+			<div class="userfloor-content-demo-menu-titile">
+
+
+				<div class="userfloor-content-demo-menu-titile-span">
+					施工进度
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="userfloor-content-demo-menu-navigation">
+				<div class="userfloor-content-demo-menu-navigation-01">
+					相关列别:
+				</div>
+
+				<div class="userfloor-content-demo-menu-navigation-02">
+					<a href="#">新风除霾</a>
+					<a href="#">加湿</a>
+					<a href="#">采暖</a>
+				</div>
+
+				<div class="userfloor-content-demo-menu-navigation-03">
+					<div class="userfloor-content-demo-menu-navigation-03-img">
+						<img src="images/73.png"/>
+					</div>
+
+					<div class="userfloor-content-demo-menu-navigation-03-a">
+						<a href="#">
+							更多
+						</a>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+		</div>
+
+
+		<div class="clear"></div>
+
+		<div class="userfloor-detailed">
+			<div class="userfloor-detailed-left">
+				<div class="userfloor-detailed-left-01">
+	          <span>
+	            舒适设计
+	          </span>
+				</div>
+
+				<div class="userfloor-detailed-left-02">
+					系统集成化设计  国际化理念
+				</div>
+
+				<div class="userfloor-detailed-left-03">
+					<div class="userfloor-detailed-left-03-a">
+						<a href="#">
+							了解更多
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="userfloor-detailed-right">
+				<img src="images/134.jpg"/>
+			</div>
+		</div>
+	</div>
+	<!-- 施工进度end -->
+
+	<div class="clear"></div>
+
+
+	<!-- 质量审核 -->
+	<div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+		<div class="userfloor-content-demo-menu">
+			<img src="images/87.jpg"/>
+			<div class="userfloor-content-demo-menu-titile">
+
+
+				<div class="userfloor-content-demo-menu-titile-span">
+					质量审核
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="userfloor-content-demo-menu-navigation">
+
+
+				<div class="userfloor-content-demo-menu-navigation-02">
+					<a href="#">工程前</a>
+					<a href="#">施工中</a>
+					<a href="#">施工完成</a>
+					<a href="#">产品功能验收</a>
+				</div>
+
+				<div class="userfloor-content-demo-menu-navigation-03">
+					<div class="userfloor-content-demo-menu-navigation-03-img">
+						<img src="images/73.png"/>
+					</div>
+
+					<div class="userfloor-content-demo-menu-navigation-03-a">
+						<a href="#">
+							更多
+						</a>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+		</div>
+
+
+		<div class="clear"></div>
+
+		<div class="userfloor-detailed">
+			<div class="userfloor-detailed-left">
+				<div class="userfloor-detailed-left-01">
+	          <span>
+	            工程前
+	          </span>
+				</div>
+
+				<div class="userfloor-detailed-left-02">
+					材料明细，  安装位置核对
+				</div>
+
+				<div class="userfloor-detailed-left-03">
+					<div class="userfloor-detailed-left-03-a">
+						<input id="file" name="file" type="file" value="" />
+						<span>上传验收单</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="userfloor-detailed-right">
+				<img src="images/135.jpg"/>
+			</div>
+		</div>
+	</div>
+	<!-- 质量审核end -->
+
+	<div class="clear"></div>
+
+
+	<!-- 售后服务 -->
+	<div  class="jumbotron" id="c7aab55e-d011-4039-b0d2-3ccc67e30e86" data-slide="1">
+		<div class="userfloor-content-demo-menu">
+			<img src="images/87.jpg"/>
+			<div class="userfloor-content-demo-menu-titile">
+
+
+				<div class="userfloor-content-demo-menu-titile-span">
+					售后服务
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="userfloor-content-demo-menu-navigation">
+				<div class="userfloor-content-demo-menu-navigation-01">
+					相关列别:
+				</div>
+
+				<div class="userfloor-content-demo-menu-navigation-02">
+					<a href="#">新风除霾</a>
+					<a href="#">加湿</a>
+					<a href="#">采暖</a>
+				</div>
+
+				<div class="userfloor-content-demo-menu-navigation-03">
+					<div class="userfloor-content-demo-menu-navigation-03-img">
+						<img src="images/73.png"/>
+					</div>
+
+					<div class="userfloor-content-demo-menu-navigation-03-a">
+						<a href="#">
+							更多
+						</a>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+		</div>
+
+
+		<div class="clear"></div>
+
+		<div class="userfloor-detailed">
+			<div class="userfloor-detailed-left">
+				<div class="userfloor-detailed-left-01">
+	          <span>
+	            终身服务
+	          </span>
+				</div>
+
+				<div class="userfloor-detailed-left-02">
+					设备使用寿命期内  提供上门维修服务
+				</div>
+
+				<div class="userfloor-detailed-left-03">
+					<div class="userfloor-detailed-left-03-a">
+						<a href="#">
+							了解更多
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="userfloor-detailed-right">
+				<img src="images/136.jpg"/>
+			</div>
+		</div>
+	</div>
+	<!-- 售后服务end -->
+
+
+</div>
+<!-- user右边end，引用头部时倒入这个div -->
+{:include file='user_footer.tpl.html':}

@@ -1,0 +1,182 @@
+
+.baby-top {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #f3f3f3;
+    font-size: 13px;
+}
+
+.baby-top-bk {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.baby-top-01 {
+    float: left;
+    color: #3e3e3e;
+}
+
+.baby-top-01 a {
+    color: #3e3e3e;
+}
+
+.baby-top-02 {
+    float: right;
+    color: #4ac4db;
+    margin-right: 10px;
+}
+
+.baby-top-03 {
+    float: right;
+    color: #3e3e3e;
+    margin-left: 20px;
+}
+
+.baby-top-03 a {
+    color: #3e3e3e;
+}
+
+.baby-top-04 {
+    float: right;
+    color: #3e3e3e;
+    margin-left: 10px;
+}
+
+.baby-top-04 a {
+    color: #3e3e3e;
+}
+
+.baby-top-05 {
+    float: right;
+    color: #3e3e3e;
+    margin-left: 25px;
+}
+
+.baby-top-05 a {
+    color: #3e3e3e;
+}
+
+.baby-top-06 {
+    float: right;
+    color: #3e3e3e;
+    margin-left: 25px;
+}
+
+.baby-top-06 a {
+    color: #3e3e3e;
+}
+
+.baby-top-07 {
+    float: right;
+    color: #3e3e3e;
+}
+
+.baby-top-07 a {
+    color: #3e3e3e;
+}
+
+.baby-top-08 {
+    float: left;
+    color: #3e3e3e;
+    margin-left:20px;
+}
+
+.baby-top-08 a {
+    color: #3e3e3e;
+}
+
+.baby-top-09 {
+    float: left;
+    color: #3e3e3e;
+    margin-left:20px;
+}
+
+.baby-top-09 a {
+    color: #3e3e3e;
+}
+
+.baby-top-10 {
+    float: left;
+    color: #ff0000;
+    margin-left:20px;
+}
+
+.baby-top-10 a {
+    color: #ff0000;
+}
+
+.baby-top-11 {
+    float: left;
+    color: #3e3e3e;
+    margin-left:20px;
+}
+
+.baby-top-11 a {
+    color: #3e3e3e;
+}
+
+.baby-head {
+    width: 100%;
+    height: 122px;
+    background: #fff;
+}
+
+.baby-head-bk {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.baby-head-left {
+    float: left;
+    width: 240px;
+    height: 122px;
+}
+
+.baby-head-left img {
+    width: 240px;
+    height: 122px;
+}
+
+.baby-head-right {
+    float: left;
+    margin-top: 45px;
+    margin-left: 240px;
+}
+
+.baby-head-right-01 {
+    float: left;
+    border: 1px solid #989898;
+    border-right: none;
+    background: #fff;
+    color: #bcbcbc;
+    font-size: 16px;
+    width: 410px;
+    height: 39px;
+    line-height: 39px;
+}
+
+.baby-head-right-01 input {
+    border: none;
+    margin-left: 20px;
+    width: 380px;
+    height: 38px;
+    line-height: 38px;
+    color: #bcbcbc;
+}
+
+.baby-head-right-02 {
+    float: left;
+    background: #989898;
+    border: 1px solid #989898;
+    border-left: none;
+    width: 70px;
+    height: 39px;
+}
+
+.baby-head-right-02 input {
+    width: 70px;
+    height: 39px;
+    background: url(../images/ss.png);
+    border: none;
+}

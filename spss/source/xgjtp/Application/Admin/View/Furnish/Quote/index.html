@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+
+</head>
+
+
+<body>
+
+    <div class="place">
+    <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="">首页</a></li>
+        <li><a href="">健康舒适家居</a></li>
+        <li><a href="">报价清单</a></li>
+        </ul>
+    </div>
+
+    <div class="rightinfo">
+        
+        <div class="tools">
+            <ul class="toolbar">
+            <a href="<{:U('add')}>"><li><span><img src="__PUBLIC__/Admin/images/t01.png" /></span>添加</li></a>
+            </ul>
+        </div>
+        
+        <table class="imgtable">
+        
+        <thead>
+        <tr>
+        <th width="60px;" height='50px'>编号</th>
+        <th>名称</th>
+        <th>系统图片</th>
+        <th>视频图片</th>
+        <th>视频</th>
+        <!-- <th>面积</th>
+        <th>房型</th> -->
+        <th>优惠券可用金额</th>
+        <th>赠品金额</th>
+        <!-- <th>每平米价格</th> -->
+        <!-- <th>分类</th> -->
+        <!-- <th>类型</th> -->
+        <!-- <th>排序</th> -->
+        <th >是否上架</th>
+        <th style='display:none'>上架时间</th>
+        <th style='display:none'>下架时间</th>
+        <th >操作</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <?php foreach($quote_list as $v){ ?>
+        <tr data-id="<{$v.quote_id}>">
+        <td><?=$v['quote_id'] ?> </td>
+        <td><a href="<{:U('edit',array('quote_id'=>$v['quote_id'],'cat_id'=>$v['cat_id']))}>"><?=$v['quote_name'] ?></a></td>
+        <td><img style="max-width:54px;max-height:52px;" src="__PUBLIC__/Uploads/<?=$v['img'] ?>" /></td>
+        <td><img style="max-width:54px;max-height:52px;" src="__PUBLIC__/Uploads/<?=$v['video_img'] ?>" /></td>
+        <td><?= !empty($v['video'])?'有':'无'; ?></td>
+        <!-- <td><?=$v['house_area'] ?>(㎡)</td>
+        <td><?=$v['house_type'] ?></td> -->
+        <td><?=$v['coupon'] ?>%</td>
+        <td><?=$v['gift'] ?>%</td>
+        <!-- <td><?=$v['unitprice'] ?>元</td> -->
+        <!-- <td><?=$v['cat_id'] ?></td> --> <!-- |shift_furnish_cat_name -->
+        <!-- <td> -->
+            <!-- <a href="<{:U('quote_list?level=1&quote_id='.$v['quote_id'])}>">上品</a> &nbsp; &nbsp; -->
+            <!-- <a href="<{:U('quote_list?level=2&quote_id='.$v['quote_id'])}>">上生</a> -->
+        <!-- </td>  -->
+        <td ><?= $v['is_putaway']==0?'否':'是' ?></td>
+        <td style='display:none'><?= date("Y-m-d H:i:s",$v['starttime']) ?></td>
+        <td style='display:none'><?= date("Y-m-d H:i:s",$v['endtime']) ?></td>
+        <td>
+            <!-- <a href="http://127.0.0.1/xgj/source/xgjweb/price.php?prices=prices&cid=<?=$v['quote_id'] ?>" class="tablelink">下载</a>
+            |
+            <a href="http://192.168.11.52/xgj/source/xgjweb/price.php?prices=prices&cid=<?=$v['quote_id'] ?>" class="tablelink">下载1</a>
+            | -->
+            <a href="<{:U('quote_list?level=1&quote_id='.$v['quote_id'])}>" class="tablelink">编辑材料</a>
+            |
+            <a href="<{:U('fenlei',array('quote_id'=>$v['quote_id']))}>" class="tablelink">材料分类</a>
+            |
+            <a href="<{:U('edit',array('quote_id'=>$v['quote_id'],'cat_id'=>$v['cat_id']))}>" class="tablelink">修改</a>
+            |
+            <a href="javascript:;" class="tablelink click" onclick="document.getElementById('data_id').setAttribute('data-id',<{$v.quote_id}>)"> 删除 </a>
+        </td>
+        </tr>
+        <?php } ?>
+        </tbody>
+        </table>         
+    </div>
+
+    <{$page}>
+    
+    <div class="tip">
+        <div class="tiptop"><span>提示信息</span><a></a></div>
+        <div class="tipinfo">
+        <span><img src="__PUBLIC__/Admin/images/i04.png" /></span>
+        <div class="tipright">
+        <p>是否确认真的删除吗 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        <div class="tipbtn">
+        <input name="" id="data_id" data-id="" type="button" onclick="window.location.href='<{:U('delete')}>?id='+this.getAttribute('data-id')"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+
+</body>
+
+</html>

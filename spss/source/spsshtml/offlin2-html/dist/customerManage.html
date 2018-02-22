@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/m-common.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/m-common.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<header><a href="javascript:history.back();"></a>客户管理</header>
+	<section  class="container">
+		<div class="search-strip col-md-5 col-md-fr">
+			<input type="text" name="" placeholder="客户名称/联系方式">
+			<button>搜索</button>
+		</div>
+		<div class="clearfix"></div>
+		<div>
+			<p class="p-item">客户名称<span class="fr">上品上生</span></p>
+			<p class="p-item">联系方式<span class="fr">15514515063</span></p>
+			
+			<p class="p-item">所在住址<span class="fr">上海市-浦东新区-张江镇</span></p>
+			<p class="p-item">创建时间<span class="fr">2016.02.06   15：11：11</span></p>
+			<p class="p-item  gsgl-btmbtn">
+				<a href="javascript:;" class="toMark">备注</a>
+				<a class="gsgl-btmbtn-look" href="companylook.html">查看</a>
+			</p>
+		</div>
+		<div>
+			<p class="p-item">客户名称<span class="fr">上品上生</span></p>
+			<p class="p-item">联系方式<span class="fr">15514515063</span></p>
+			
+			<p class="p-item">所在住址<span class="fr">上海市-浦东新区-张江镇</span></p>
+			<p class="p-item">创建时间<span class="fr">2016.02.06   15：11：11</span></p>
+			<p class="p-item  gsgl-btmbtn">
+				<a href="javascript:;" class="toMark">备注</a>
+				<a class="gsgl-btmbtn-look" href="companylook.html">查看</a>
+				<a class="gsgl-btmbtn-look toMail" >邮件</a>
+			</p>
+		</div>
+	</section>
+
+	<div class="mask-remarks">
+		<div class="container">
+			<p class="p-item">查看备注<span class="closemask-btn"></span></p>
+			<textarea></textarea>
+			<div class="newaddbtn-box">
+				<a href="" class="fl newadd-submit">提交</a>
+				<a href="" class="fr newadd-cancel">取消</a>
+			</div>
+			<p class="p-item">修改日志</p>
+			
+			<ul class="remarks-log">
+				<li>
+					<p>XXX跟新了备注 <span>2017-04-25</span></p>
+					1231231231312312313
+				</li>
+			</ul>
+			
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+
+
+		$(".toMark").click(function(){
+			$(".mask-remarks").show("fadeIn('slow')");
+		});
+		$(".closemask-btn").click(function(){
+			$(".mask-remarks").hide("fadeOut('slow')");
+		});
+		
+		
+
+
+	</script>
+</body>
+</html>

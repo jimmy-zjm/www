@@ -1,0 +1,44 @@
+﻿<script>
+//预购
+	function yugou(pre_id,price,id){
+		//alert('aa');
+		//var url="?r=quote/go_pre_order/cat_id/"+cat_id+"/goods_id/"+id+"/house_name/"+house_name+"/province/"+province+"/city/"+city+"/town/"+town+"/addr/"+addr+"/house_type/"+house_type+"/area/"+area+"/num_ws/"+num_ws+"/num_kt/"+num_kt+"/num_cf/"+num_cf+"/num_wsj/"+num_wsj+"/num_yt/"+num_yt+"/area_zw/"+area_zw+"/area_cw_arr/"+area_cw_arr+"/area_kt/"+area_kt+"/area_cf/"+area_cf+"/area_wsj/"+area_wsj+"/area_yt/"+area_yt;
+		
+		url="?pre_order&pre_id="+pre_id+"&price="+price+"&id="+id;
+		//alert(url);
+		 		//document.write(url);
+		$("#div_view_pre_order").load(url);
+		//alert($("#div_view_pre_order").load(url));
+		}
+</script>
+
+{:foreach $price as $k=>$v:}
+<div style=" float:left;">
+		<img  src="images/20151209/305.jpg" alt="" />
+</div>
+<div style="width:300px; height:560px; float:right; left:890px; top:0px;"> 
+	<p style="width:300px; height:150px; line-height:150px; text-align:center; font-size:24px;">
+						{:if $cat eq 2:}
+								{:if $k eq 0 && $v neq 0:}
+                                经济型
+                                {:elseif $k eq 1:}
+                                舒适型
+                                {:elseif $k eq 2:}
+                                豪华型
+								{:/if:}
+						{:/if:}
+</p>
+	<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">￥{:$v:}</p>
+	<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">
+		破茧预售&nbsp;超值起约&nbsp;低价来袭
+	</p>
+	<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:24px;">
+		 <button style="width:100px; height:30px; line-height:24px;" onclick='yugou({:$k:},{:$v:},{:$id:})'>预购</button> 
+		<!--  <a href='?pre_order&pre_id={:$k:}&price={:$v:}&name={:$name:}'>预购</a>  -->
+	</p>
+	<p style="width:300px; height:50px; line-height:50px; text-align:center; font-size:20px;">可用券：$2000</p>
+</div>
+<div class="filling" style="height:20px;">
+</div>
+<div style="clear: both;"></div>
+{:/foreach:}

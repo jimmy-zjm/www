@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>合作品牌-编辑</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+<script src="__PUBLIC__/Plugin/laydate/laydate.js"></script>
+<script src="__PUBLIC__/Plugin/jquery/jquery.colorpicker.js"></script>
+
+<script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__ROOT__/editor/lang/zh_CN.js"></script>
+  <script charset="utf-8" src="__ROOT__/editor/plugins/code/prettify.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+      editor = K.create('#editor_id', {
+          cssPath : '__ROOT__/editor/plugins/code/prettify.css',
+          uploadJson : "__ROOT__/editor/php/upload_json.php",
+          // uploadJson : "__ROOT__/editor/php/upload_json.php?ymd=<?php /*echo $ymd.'&filename='.$filename*/ ?>",
+          fileManagerJson : '__ROOT__/editor/php/file_manager_json.php',
+          allowFileManager : true
+      });
+      prettyPrint();
+  });
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+    $(".select2").uedSelect({
+        width : 167
+    });
+    $(".select3").uedSelect({
+        width : 100
+    });
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <!-- 当前位置 -->
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+          <li><a href="<{:U('Admin/Index/Index/main')}>">首页</a></li>
+          <li><a >健康舒适家居</a></li>
+          <li><a href="<{:U('index')}>">合作品牌</a></li>
+          <li><a href="<{:U('edit',array('id'=>$brand['brand_id']))}>">编辑</a></li>
+        </ul>   
+    </div>
+    <div class="formbody">
+    <div id="usual1" class="usual">
+
+    <!-- 选项卡 -->
+    <div class="itab">
+        <ul>
+        <li><a href="#tab1" class="selected">通用信息</a></li>
+        <li><a href="#tab2">合作品牌相册</a></li>
+        </ul>
+    </div><div></div>
+    <form action="<{:U('update')}>" method="post" enctype="multipart/form-data">
+        <!-- 选项卡一 -->
+        <div id="tab1" class="tabson">
+            <ul class="forminfo">
+                <!-- 合作品牌名称 -->
+                <li><label>合作品牌名称</label><input name="name" type="text" value="<{$brand.name}>" class="dfinput" />
+                <input type="hidden" name="brand_id" value="<{$brand.brand_id}>" />
+                <i></i></li>
+
+                <!-- 分类名称 -->
+                <li>
+                    <label>分类名称</label>
+                    <div class="vocation">
+                        <select class="select1" name="class_id">
+                            <option value="">请选择...</option>
+                            <option value="1" <?php echo $brand["class_id"]==1 ?'selected':'' ?>>健康舒适家居</option>
+                            <option value="2" <?php echo $brand["class_id"]==2 ?'selected':'' ?>>欧洲团代购</option>
+                        </select>
+                    </div>
+                </li>
+
+                 <!-- 合作品牌产品 -->
+                <li><label>合作品牌产品</label><input name="product" type="text" value="<{$brand.product}>" class="dfinput" />
+                <i>多个产品以'|'分割开，例'电动气动中央吸尘|电动气动中央吸口|气动中央吸尘'</i></li>
+
+                <!-- 合作品牌url -->
+                <li><label>合作品牌url</label><input name="url" type="text" value="<{$brand.url}>" class="dfinput" /><i></i></li>
+
+                <!-- 合作品牌logo -->
+                <li><label>合作品牌logo</label><input type="file" name="logo" id="" />
+                    <input type="hidden" name="old_logo" value="<{$brand.logo}>" id="" />
+                </li>
+
+                <!-- 是否显示 -->
+                <li><label>是否显示</label><cite><input name="is_show" type="radio" value="1" <?php echo $brand['is_show']==1?'checked':'' ?>/>是&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio" value="0" <?php echo $brand['is_show']==0?'checked':'' ?> />否</cite></li>
+
+                <!-- 合作品牌简述 -->
+                <li><label>合作品牌简述</label><textarea id="editor_id" name="sketch" cols="20" rows="5" style="width:60%;height:350px;"  ><{$brand.sketch}></textarea></li>
+
+                <!-- 合作品牌排序 -->
+                <li><label>合作品牌排序</label><input name="order" type="text" value="<{$brand.order}>" class="dfinput" /><i>标题不能超过20个字符</i></li>
+
+            </ul>
+        </div>
+
+        <!-- 品牌相册-->
+        <div id="tab2" class="tabson">
+            <ul class="forminfo goods-image">
+                <li><a href="javascript:;" onclick="addImage(this)">[+]</a>上传图片 <input type="file" accept="image/*" multiple name="img_url[]" class="fdinput" id="" /></li>
+            </ul>
+            <ul class="imglist">
+                <?php foreach ($image_list as $image): ?>
+                <li data-id="<{$image.id}>">
+                    <span style="height:164px;opacity:<?php echo $image['is_show']==1?'1':'0.3' ?>"><img width="168" height="170" src="<{$image.url}>"></span>
+                    <p>
+                        <a href="javascript:;" onclick="toggleImage(this)">
+                            <?php echo $image['is_show']==1?'隐藏':'显示' ?>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="javascript:;" onclick="deleteImage(this)">删除</a>
+                    </p>
+                </li>
+                <?php endforeach ?>
+
+            </ul>
+        </div>
+        <div style="margin:0 auto;width:320px">
+            <input type="hidden" name="p" value="<{$p}>" />
+            <input name="" type="submit" class="btn" value="编辑"/>
+            <input name="" type="reset" class="btn" value="重置"/>
+        </div>
+    </form>
+    </div>
+    </div>
+    
+    <script type="text/javascript">
+        
+        //点击[+]号 添加多个下拉框
+        function addSpec(obj){
+            //在当前的li后面克隆一个li,并把加号修改为减号
+            var removeSpec = '<li>'+$(obj).parent().parent().clone().html().replace('addSpec(this)">[+]','removeSpec(this)">[-]')+'</li>';
+            $(obj).parent().parent().after(removeSpec);
+        }
+
+        //点击[-]号 删除下拉框
+        function removeSpec(obj){
+            //删除当前的tr
+            $(obj).parent().parent().remove();
+        }
+
+
+        //添加一个图片上传按钮
+        function addImage(obj){
+            var image = '<li>'+$(obj).parent().clone(true).html().replace('addImage(this)">[+]','removeImage(this)">[-]')+'</li>';
+            $(obj).parent().after(image);
+        }
+
+        //删除一个图片上传按钮
+        function removeImage(obj){
+            $(obj).parent().remove();
+        }
+
+        
+        //切换图片的显示和隐藏
+        function toggleImage(obj){
+            var id = $(obj).parent().parent().attr('data-id');
+            var that = $(obj);
+            if(!id) return;
+            $.ajax({
+                url:"<{:U('Admin/Furnish/Cbrand/toggleImage')}>",
+                data:{id:id},
+                success:function(data){
+                    if(data>0){
+                        //切换成功,修改文字
+                        if($.trim(that.html()) == '隐藏'){
+                            that.html('显示');
+                            that.parent().prev().css('opacity','0.3');
+                        }else{
+                            that.parent().prev().css('opacity','1');
+                            that.html('隐藏');
+                        }
+                    }
+                }
+            });
+        }
+
+        //删除图片ajax
+        function deleteImage(obj){
+            if(confirm('您确定要删除吗？')){
+                var id = $(obj).parent().parent().attr('data-id');
+                var that = $(obj);
+                if(!id) return;
+                $.ajax({
+                    url:"<{:U('Admin/Furnish/Cbrand/deleteImage')}>",
+                    data:{id:id},
+                    success:function(data){
+                        if(data>0){
+                            //删除成功, 删除dom
+                            that.parent().parent().remove();
+                        }
+                    }
+                });
+            }else{
+                return false;
+            }
+        }
+
+        //tab切换
+        $("#usual1 ul").idTabs();
+
+        //表格隔行变色
+        $('.tablelist tbody tr:odd').addClass('odd');
+
+    </script>
+</body>
+</html>
+
+
+

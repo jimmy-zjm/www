@@ -1,0 +1,89 @@
+
+<link rel="stylesheet"  type="text/css"  href="__PUBLIC__/css/developer.css" >
+
+
+
+<div style="height:100px"></div>
+
+<!-- 中间内容 -->
+<div class="developer-conter"> 	
+	<div class="developer-conter-title"> 
+    	<img src="__PUBLIC__/img/1032.png"/>
+    </div>
+    
+    <div class="clear3"></div>
+	
+	<div class="developer-conter-tabs">
+        <div>
+            <ul class="tabstitle">
+				<foreach  name="data" item="item"  key='key' >
+             
+				<li>
+                    <span onclick="tabs(<{$key}>,'length')" id="tab-<{$key}>"style="<if condition='$key eq 0'>color:#1c94c4</if>">
+                        <{$item.cat_name}>
+                    </span>
+                </li>
+				</foreach>
+            </ul>
+            
+            <div class="clear2"></div>
+            <div class="clear2"></div>
+			<foreach  name="data" item="item"  key='key' >
+            <div id="tabs-<{$key}>" class="length" style="<if condition='$key neq 0'>display:none</if>" >
+				<foreach  name="item.list" item="it"  key='k' >
+				
+				<if condition="$k%2 neq 0">
+            	<div class="developer-conter-tabs-demo">
+                	<div class="developer-conter-tabs-demo-img">
+                    	<img src="<{$it.image|getimage}>"/>
+                    </div>
+                    
+                    <div class="developer-conter-tabs-demo-word">
+                    	<div class="developer-conter-tabs-demo-word-bk">
+                            <{$it.content}>
+                        </div>
+                        
+                        <div class="clear3"></div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+                <else />
+                
+                <div class="developer-conter-tabs-demo">
+                	<div class="developer-conter-tabs-demo-word">
+                    	<div class="developer-conter-tabs-demo-word-bk">
+                            <{$it.content}>
+                        </div>
+                        
+                        <div class="clear3"></div>
+                    </div>
+                	
+                	<div class="developer-conter-tabs-demo-img">
+                    	<img src="<{$it.image|getimage}>"/>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+				</if>
+				</foreach>
+              
+                <div class="clear3"></div>       
+                <div class="clear3"></div>
+            </div>  
+			</foreach>
+        </div>
+	</div>
+</div>
+<!-- 中间内容end -->
+<script>
+    function tabs(k,c){
+        for (var i = 0; i < $('.'+c).length; i++) {
+            $('#tabs-'+i).css('display','none');
+            $('#tab-'+i).css('color','#333');
+        };
+        $('#tabs-'+k).css('display','block') ;
+        $('#tab-'+k).css('color','#1c94c4');
+       
+	    }
+</script>

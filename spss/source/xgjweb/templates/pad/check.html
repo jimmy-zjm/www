@@ -1,0 +1,303 @@
+{:include file="pad/head.html":}
+
+<div class="check-titile">
+	<span>
+    	客户管理
+    </span>
+</div>
+
+<div class="clear27"></div>
+
+<div class="check-info">
+	<div class="check-info-left">
+        <span>
+            {:$addr.name:}             
+        </span>
+        
+        <span>
+            {:$addr.tel:} 
+        </span>
+        
+        <span>
+            {:$addr.province:}{:$addr.city:} {:$addr.district:} {:$addr.address:}  
+        </span>
+    </div>
+    
+    <div id='mail' class="check-info-right">
+        <div class="check-info-right-span">
+            收件人邮箱：
+        </div>
+        
+        <div class="check-info-right-input">
+        	<input id='mailval' type="email" name='email' value=''>                
+        </div>
+        
+        <div class="check-info-right-a">
+        	<a href="javascript:;" onclick="gotoMail()">发送</a>
+        </div>
+    </div>
+</div>
+
+<div class="clear2"></div>
+
+<div class="check-center">	
+	<div class="check-center-list">
+    	<div class="check-center-list-title">            
+            <div class="check-center-list-title-name" id="check-center-list-title-name">
+            	意向产品                                  
+            </div>
+            
+            <div class="check-center-list-title-price">
+            	主材费用                                                         
+            </div>
+            
+            <div class="check-center-list-title-price">
+            	辅材及施工费用                                                                 
+            </div>
+            
+            <div class="check-center-list-title-time">
+            	报价日期                                                                   
+            </div>
+            
+            <div class="check-center-list-title-remarks" style="width: 12%">
+            	清单
+            </div>
+            
+            <div class="check-center-list-title-operation" id="check-center-list-title-operation">
+            	操作
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+		{:foreach $data['list'] as $key=>$v:} 
+        <div class="check-center-list-demo">            
+            <div class="check-center-list-demo-name" id="check-center-list-demo-name">
+            	{:$v['name']:}                       
+            </div>
+            
+            <div class="check-center-list-demo-price">
+            	  <span style="color:red">
+                  	￥{:$v['zprice']:}
+                  </span>                                                 
+            </div>
+            
+            <div class="check-center-list-demo-price">
+            	  <span style="color:red">
+                  	￥{:$v['price']-$v['zprice']:}
+                  </span>                                                 
+            </div>
+            
+            <div class="check-center-list-demo-time">
+            	{:$v['time']:}                                                                 
+            </div>
+            
+            <div class="check-center-list-demo-remarks" style="width: 50px;">
+            	<a href="pad.php?offer&checkId={:$v['id']:}">
+                	查看
+                </a>                                                                 
+            </div>
+
+            
+            
+            <div class="check-center-list-demo-operation" id="check-center-list-demo-operation">
+                <div class="check-center-list-demo-operation-delete" >
+                    <!-- <a href="pad.php?order&checkId={:$v['id']:}"> -->
+                    {:if $v['tijiao'] eq 0:}
+                    <a href="javascript:;" onclick="tijiao({:$v['id']:},this)">提交</a>
+                    {:else:}
+                    <a>已提交</a>
+                    {:/if:}
+                    <!-- </a>-->
+                </div>
+            	<div class="check-center-list-demo-operation-export" >
+                	<a href="pad.php?gotos&name={:$addr.name:}&tel={:$addr.tel:}&quote_id={:$v['quote_id']:}&cqid={:$v['id']:}">
+                    	导出
+                    </a>
+                </div>
+                
+                <div class="check-center-list-demo-operation-mail"  >
+                	<a href="javascript:;" onclick="mail({:$v['quote_id']:},{:$v['id']:})">
+                    	邮件
+                    </a>
+                </div>
+
+                <div class="check-center-list-demo-operation-delete"  >
+                    <a href="pad.php?del&id={:$v['id']:}" onclick="return confirm('您确定要删除吗？')">
+                        删除
+                    </a>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+        {:/foreach:} 
+        
+        <div class="clear2"></div>
+
+        <div id="page"></div>           
+    </div>
+    
+    <input type="hidden" id='id' value=''>
+    <input type="hidden" id='cqid' value=''>
+    <input type="hidden" id='mod' value=''>
+</div>
+
+<div class="clear"></div>
+   
+{:include file="pad/flooter.html":}
+
+<script src="js/template-native.js"></script>
+<script src="js/laypage.js"></script>
+
+<script>
+// 分页
+laypage({
+    cont: 'page', // 分页容器
+    pages: "{:$data.total_page:}",     // 总页数
+    skip: false, //是否开启跳页
+    curr: function(){
+        var page = "{:$data.p:}"; // 当前页(后台获取到的)
+        return page ? page : 1; // 返回当前页码值
+    }(),
+    jump: function(e, first){ //触发分页后的回调(单击页码后)
+        if(!first){ //一定要加此判断，否则初始时会无限刷新
+            var urls = "pad.php?check&c_id={:$c_id:}&p=pageval";
+            var nowpage = e.curr;  // (被单击的页码)
+            urls = urls.replace('pageval',nowpage); // 替换链接样式和页码
+            window.location.href = urls;
+        }
+    }
+ });
+</script>
+ 
+
+
+<!--弹出产品说明书-->
+<div id="CkId">   
+</div>
+
+<script type="text/javascript">
+function tijiao(id,t){
+    $.get('pad.php?order',{'checkId':id},function(re){
+        if (re == 1) {
+            $(t).parent().html('<a>已提交</a>');
+            alert('提交成功！');
+        }else{
+            alert(re);
+        }
+    })
+}
+</script>
+
+<script type="text/javascript">
+    $("#CkId").css('height',$(document).height());
+    function check(id){
+        $("#CkId").fadeIn();
+        $("#CkId").load('pad.php?checkinfo&id='+id);
+    };
+
+    function clo(){
+        $("#CkId").fadeOut();
+    };
+    function sub(){
+        var url = "pad.php?addRemark";  
+        var c_id=$("#c_id").val();
+        var content=$("#content").val();
+        $.ajax({  
+        type: "post",  
+        url: url,  
+        data: {
+            c_id:c_id,
+            content:content,
+        },  
+            success: function(msg){  
+                if(msg == 1){
+                    alert('保存成功');
+                    $("#CkId").fadeIn();
+                    $("#CkId").load('pad.php?checkinfo&id='+c_id);
+                }else if(msg == 2){
+                    alert('保存失败');
+                }
+                //console.log(msg); 
+            }  
+        });  
+    }; 
+</script>
+<script>
+    function mail(id,cqid){
+        $('#id').val(id);
+        $('#cqid').val(cqid);
+        $('#mail').toggle();
+    }
+    function gotoMail(){
+        var id = $('#id').val();
+        var cqid = $('#cqid').val();
+        var mail = $('#mailval').val();
+        var name='{:$addr.name:}';
+        var tel='{:$addr.tel:}';
+        $.get('pad.php?email',{'mail':mail,'customerQuoteId':cqid,'quote_id':id,'name':name,'tel':tel},function(data){
+            alert(data);
+        })
+    }
+</script>
+<!--弹出产品说明书end -->
+
+<!--判断是PC端还是移动端登录-->
+<script>
+function browserRedirect() {
+var sUserAgent = navigator.userAgent.toLowerCase();
+var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+var bIsAndroid = sUserAgent.match(/android/i) == "android";
+var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+	/*document.writeln("phone");*/
+	/*$(".check-center-list-title-operation").css("display", "none");
+	$(".check-center-list-title-name").css("width", "31%");
+	
+	$(".check-center-list-demo-operation").css("display", "none");
+	$(".check-center-list-demo-name").css("width", "29%");*/
+	
+	$(".check-center-list-demo-operation-export").css("display", "none");
+	$(".check-center-list-demo-operation-mail").css("display", "none");
+	$(".check-center-list-demo-operation-delete").css("margin-right", "2%");
+
+    $(".check-center-list-demo-operation").css("width", "14%");
+} else {
+	/*document.writeln("pc");	*/
+	/*$(".check-center-list-title-operation").css("display", "none");
+	$(".check-center-list-title-name").css("width", "31%");
+	
+	$(".check-center-list-demo-operation").css("display", "none");
+	$(".check-center-list-demo-name").css("width", "29%");*/
+	
+
+
+
+	$(".check-center-list-title-name").css("width", "12%");
+	$(".check-center-list-title-operation").css("width", "19%");
+	$(".check-center-list-demo-name").css("width", "10%");
+	$(".check-center-list-demo-operation").css("width", "20%");
+	$(".check-center-list-demo-operation-export").css("width", "20%");
+	$(".check-center-list-demo-operation-mail").css("width", "20%");
+	$(".check-center-list-demo-operation-delete").css("width", "20%");
+	
+	
+	
+}
+}
+browserRedirect();
+</script>
+<!--判断是PC端还是移动端登录end-->
+</body>
+</html>
+
